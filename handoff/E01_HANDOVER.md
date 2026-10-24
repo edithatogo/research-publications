@@ -4,6 +4,37 @@
 This handover reuses accepted receipts. It does not mark E01 complete or establish
 new native state, operational adoption, production cutover or authority to send.
 
+## PubMed/DoRA continuation — 24 October 2026
+
+The [retrieval qualification continuation](../docs/DORA_RETRIEVAL_EFFICIENCY.md#qualification-continuation--24-october-2026)
+supersedes any implication below that Crossref is the sole remaining selected
+outcome. Fresh complete PAC clientdata and independent Flow API readback match
+accepted PubMed57/DoRA110, original connections/Started/daily schedules/concurrency1.
+Accepted guide20/catalogue21/Loop82 documentation is reused unchanged. The current
+DoRA graph has10second delay and the provider-failure latch; historical2second
+artifacts remain superseded. No native mutation or collection invocation occurred.
+
+Next affected natural runs are25October01:30Brisbane and04:30Brisbane respectively;
+neither had occurred at readback. Their runtime, actual savings and DoRA latch
+failure-path acceptance remain pending. Existing accepted raw/replay/restart
+receipts remain usable where their graph/inputs are unchanged. Do not launch a
+duplicate or full-generation verification run.
+
+Sitemap qualification did not pass: the second full page/all709selected tokens and
+one40,847-byte record remain identical, with no observed changed-record transition
+or established site-specific freshness bound. Three serial provider requests used
+4,494,698decoded bytes; observed retrieval savings are zero. Tokens remain opaque.
+The local selector now requires an explicit response-age bound and rejects stale,
+future and unbounded cache entries; no native reference reuse or consumer migration
+is claimed. Keep the supported full-fetch/10second/commit-last fallback. The709
+record spacing floor is118.17minutes, before other work. Evidence and the next
+natural-run checklist are in primary
+`private/ops/2026-10-24-pubmed-dora-completion/`.
+
+This selected continuation owns PubMed/DoRA only. Preserve the retained Crossref
+run, recovery material and active three-hour monitor exactly. Other lanes retain
+the shared model/report, grants, native documentation objects and CURRENT_STATE.
+
 ## Accepted capabilities
 
 Fresh native setup inventory and the reduced-run delivery approach are in

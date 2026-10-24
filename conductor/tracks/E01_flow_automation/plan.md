@@ -16,6 +16,15 @@
   See [retrieval evidence and remaining work](../../../docs/DORA_RETRIEVAL_EFFICIENCY.md).
 - [ ] Qualify sitemap version-change/freshness semantics and migrate verified raw
   reference reuse with consumers before any native unchanged-record skipping.
+  24October continuation: full native clientdata/reference/settings readback exact;
+  next affected schedules25October01:30/04:30Brisbane have not occurred. Fresh
+  sitemap and one detail response are unchanged; no changed-record transition or
+  site-specific indexing-lag bound is established. Native skipping remains
+  unqualified/disabled. Local selector now fails closed for stale, future or
+  unbounded response observations. Seven focused tests pass. Keep the existing
+  complete-fetch fallback and118.17minute spacing floor; see the qualification
+  continuation in the linked retrieval document and primary private receipts
+  `2026-10-24-pubmed-dora-completion/`. No native update or collection invocation.
 - [ ] Profile DoRA detail retrieval and coordinated OpenCitations pointer-manifest
   migration before further changes. Do not alter other owners or enable incomplete
   inputs. Existing Crossref terminal/deployment/continuation gates still apply.
