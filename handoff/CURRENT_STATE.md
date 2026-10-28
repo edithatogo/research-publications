@@ -106,3 +106,9 @@ offline NIH RePORTER publication-reference consumer. One public documentation
 example query returned HTTP200; no repository identities were submitted. It
 qualifies only the observed response shape, not complete capture or native links.
 No sibling may edit these files; existing NIH jobs and journals are unchanged.
+
+All three sole lane writers have now verified clean fast-forwards to30bd1e9f.
+The old divergent development bases are closed. Parent NIH candidate source
+passes12 focused tests; source authority, complete real capture and native
+acceptance remain separate. Source package0.4.0-roadmap.15 at a34dc758 passed
+fresh extraction/full harness (SHA2563723105bd765ef13cf2dd6944a98f408e5c45f70ee4b10de763ef6a3ab9c6329).
