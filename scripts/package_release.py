@@ -28,7 +28,7 @@ VERSION_RE = re.compile(
     r"(?:-(?P<prerelease>[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?"
     r"(?:\+(?P<build>[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?$"
 )
-EXCLUDED_PREFIXES = ("private/", "downloads/canonical_live_artifacts/")
+EXCLUDED_PREFIXES = ("private/", ".private/", ".flowagent/", "downloads/canonical_live_artifacts/")
 # Native Power Platform recovery/deployment files are not source archives.
 # In particular, PBIX/PBIT can contain cached records, credentials and model
 # state even when checked into an otherwise source-only repository.
@@ -167,6 +167,11 @@ def source_paths(root: Path = ROOT) -> list[Path]:
         resolved = path.resolve()
         if not resolved.is_relative_to(base):
             raise RuntimeError(f"source path escapes repository root: {name}")
+        resolved_name = resolved.relative_to(base).as_posix().casefold()
+        if (resolved_name.startswith(EXCLUDED_PREFIXES)
+                or resolved.name.casefold().startswith(".env")
+                or resolved.name.casefold().endswith((".env", *EXCLUDED_SUFFIXES))):
+            raise RuntimeError(f"source path resolves to excluded private/runtime material: {name}")
         if path.is_file():
             paths.append(path)
     return sorted(paths, key=lambda path: path.relative_to(root).as_posix())

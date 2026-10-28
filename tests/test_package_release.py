@@ -70,6 +70,7 @@ class PackageReleaseTests(unittest.TestCase):
             root = Path(temporary)
             names = ["README.md", ".env", ".env.production", "config/local.env",
                      "private/fixture.json", "Private/fixture.json",
+                     ".private/binding.json", ".flowagent/backup.json",
                      "DOWNLOADS/canonical_live_artifacts/report.json"]
             for name in names:
                 path = root / name
@@ -309,6 +310,17 @@ class PackageReleaseTests(unittest.TestCase):
             root = Path(temporary)
             with patch("scripts.package_release.run", return_value="folder\\..\\outside"):
                 with self.assertRaisesRegex(RuntimeError, "not portable"):
+                    source_paths(root)
+
+    def test_source_allowlist_rejects_internal_alias_to_private_material(self):
+        for destination in ("private/binding.json", ".private/binding.json", ".flowagent/backup.json", ".env", "snapshot.pbix"):
+            with self.subTest(destination=destination), tempfile.TemporaryDirectory() as temporary:
+                root = Path(temporary)
+                target = root / destination
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_text("fictional private fixture", encoding="utf-8")
+                (root / "public-config.json").symlink_to(target)
+                with patch("scripts.package_release.run", return_value="public-config.json"), self.assertRaisesRegex(RuntimeError, "excluded private/runtime"):
                     source_paths(root)
 
     def test_source_paths_reject_windows_invalid_and_colliding_names(self):
