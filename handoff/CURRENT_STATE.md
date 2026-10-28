@@ -7,18 +7,20 @@ dependencies, runtime promotion and authentication coordination. The entire
 unfinished roadmap is selected for guarded DEV/no-send work; cancelled
 Windows/Desktop routes remain excluded. Blocked work does not count complete.
 
-Verified main: `329a6679dce6a9fa5be759f82be8a322d55773d8` (PR67).
-PR and exact main quality `40758441439` and security `40758441410` passed.
-Verified-main harness: 1,826 Python tests, 19 capability skips,
-58 Node tests and 446 project checks. PR57–PR67 are merged.
+Verified main: `0bdb35c3b874f295521f657372151d99bc67df8c` (PR68).
+PR and exact main quality `40765581408` and security `40765581502` passed.
+Verified-main harness: 1,951 Python tests, 19 capability skips,
+58 Node tests and 446 project checks. PR57–PR68 are merged.
 Clean source package `0.4.0-roadmap.13` at `e98c6a0b` passed fresh extraction
-and full harness. No source or package result implies native acceptance.
+and full harness. The next package 0.4.0-roadmap.14 at d82e058b also passed
+fresh extraction/full harness (SHA256 1687a67f5396e5db6ee47ff1b675031f8d0723447f69f90d35ccefb2b627fe9d).
+No source or package result implies native acceptance.
 
 | Current owner / actual managed checkout | Exclusive source assignment | Native scope / next handoff |
 |---|---|---|
-| Acquisition `01a1831e-449a-7693-af1a-08bb23391c76`; `/Users/doughnut/.codex/worktrees/fa70/chhhs-research-publications` | Five provider foundation modules (capture receipt, retry classifier, ClinicalTrials, Crossref, DataCite), five focused tests and closure leaf. ARC source/export through 36e66cbf is locally merged with 35 focused tests. | None. Injected fictional read transports only; zero retries by default, strict retained bytes/pagination and create-only failure evidence. No live acquisition, resume or native operation. |
-| Relationships `01a1831e-cc0d-7340-a1da-95c81b8e93fa`; `/Users/doughnut/.codex/worktrees/c4c7/chhhs-research-publications` | Relationship packet through f6a05a5f (28 tests) and award alias/Crossref packet through da27d986 (27) are locally merged. Read-only government workbook family assessment is next. | None. No native calls or environment mutation. Lane-local incomplete openpyxl installation is distinct from the parent environment, where locked openpyxl 3.1.5 / et_xmlfile 2.0.0 pass a fictional workbook roundtrip on Python 3.15.1. |
-| Admission `01a1831e-cc6d-7371-9d57-021a339b708a`; `/Users/doughnut/.codex/worktrees/ef45/chhhs-research-publications` | Admission packet through 688bbdf0 is locally merged with 35 focused admission/preflight tests. Read-only assessment of the complete protected writer source boundary is next. | None. Parent retains tracked-flow/shared-contract ownership. No edits, generated payload, apply or activation during assessment. |
+| Acquisition `01a1831e-449a-7693-af1a-08bb23391c76`; `/Users/doughnut/.codex/worktrees/fa70/chhhs-research-publications` | Provider foundation through f6b83d5f is reviewed and locally merged with 39 focused tests. Current assignment is read-only ROR/ARDC and relationship-consumer dependency discovery, with a bounded proposed packet handoff. | None. Injected fictional read transports only; zero retries by default, strict retained bytes/pagination and create-only failure evidence. No live acquisition, resume or native operation. |
+| Relationships `01a1831e-cc0d-7340-a1da-95c81b8e93fa`; `/Users/doughnut/.codex/worktrees/c4c7/chhhs-research-publications` | Government workbook crosswalk helper, paired test and closure leaf, from reviewed/local-merged da27d986. Through650d72c2 locally merged after parent review with23 focused tests. Current assignment is read-only model/report/reader dependency assessment. | None. New private lane-local candidate environment may install the existing source-ingestion hash lock on Python 3.15.1 and prove fictional workbook read/write. Preserve incomplete old lane environment and all original/native runtimes; no version promotion, provider call or real recapture. |
+| Admission `01a1831e-cc6d-7371-9d57-021a339b708a`; `/Users/doughnut/.codex/worktrees/ef45/chhhs-research-publications` | Writer-feed producer/protocol simulator through173f650d locally merged with28 focused tests. Current assignment is read-only current collector-artifact adapter assessment. Admission/preflight retain35 focused tests. | None. Complete immutable candidate feed and conditional/journal source contract only. Missing exact native capability profiles remain blockers. Parent retains existing preflight/contract/package/template wiring; no publishing, apply, activation or shared-file edits. |
 
 PR67 integrated registry metadata through `65eb642a` (43 focused tests),
 manual acquisition through `0d09312f` (49), and ARC source/model/reader through
@@ -27,7 +29,10 @@ the integrator explicitly assigned the next packets from the same frozen,
 reviewed and locally tested `e98c6a0b`. All three owners fast-forwarded their
 clean existing branches before writing. This development-base exception was
 not represented as verified main; main integration remains serial and CI-gated.
-Initial delivery branches were created from verified main as required. The relationship
+Initial delivery branches were created from verified main as required. Next
+disjoint source packets may continue from each lane’s reviewed/local-merged
+terminal dependency (36e66cbf, 688bbdf0, da27d986) while PR68 checks finish;
+no old commits are amended and main integration remains separately CI-gated. The relationship
 owner may continue the disjoint alias/Crossref packet from its clean f6a05a5f
 dependency after parent review/local merge, pending the combined hosted milestone.
 The acquisition owner also continues its disjoint provider foundation from clean
@@ -38,7 +43,10 @@ and Git history; this next packet excludes government/workbook and protocol/PDF 
 Next integration milestone: reviewed relationship (28), ARC source/export (35),
 admission/preflight (35) and award-crosswalk (27) focused suites pass. Combined
 Python 3.15.1 harness passes **1,951 tests, 19 capability skips, 58 Node tests and
-446 project checks**. Hosted PR/main checks remain next; source success grants no
+446 project checks**. PR68 at d82e058b is merged and exact main checks passed. Provider foundation (39), workbook crosswalks (23), and writer feed/protocol
+simulation (28) are now locally merged after exact clean preflights. Combined
+Python3.15.1 harness: **2,041 tests,19 capability skips,58 Node tests,446 checks**.
+Next hosted milestone is PR69; source/packaging is separate from native acceptance. Source success grants no
 native admission or writer readiness. Original full status remains byte-identical
 using the same all-untracked-files inventory command.
 
@@ -67,3 +75,13 @@ resend, activation or production promotion is authorised by that review.
 [Preserved dated handoffs through PR65](archive/CURRENT_STATE_through_PR65_20261029.md)
 retain earlier assignments and scoped evidence. They do not override this current
 checkpoint or authorize another writer.
+
+## Common-base correction before the next implementation round
+
+A read-only lane recommendation proposed an already-merged sibling crosswalk
+because its older checkout lacked that packet. No duplicate code was written.
+The reviewed-base exception above ends now: after PR69 passes exact main gates,
+each sole lane writer must fast-forward its clean branch to the same verified
+main before any new implementation. Read-only bounded recommendations may finish
+using current main and parent records. This prevents another stale source gap
+from becoming duplicate work. Original native owners remain unchanged.

@@ -8,7 +8,7 @@ priority/deferral paragraphs. Three isolated lanes deliver scoped packets to one
 integrator. Blocked requirements remain open. T16/T17 are cancelled and excluded,
 despite their historical conditional labels below. Accepted receipts are reused.
 
-Canonical source milestones PR57–PR67 are merged. PR67 and its exact main
+Canonical source milestones PR57–PR68 are merged. PR68 and its exact main
 quality/security checks passed. These do not close native/operational track exits.
 Current evidence and residual requirements are consolidated in the
 [publication cycle](../docs/PUBLICATION_CYCLE_CLOSURE_20261029.md),
@@ -17,12 +17,12 @@ Current evidence and residual requirements are consolidated in the
 [relationship compatibility](../docs/G06_RELATIONSHIP_GUARDS_20261029.md),
 [classification closure](../docs/G07_CLASSIFICATION_SOURCE_20261029.md), and
 [E04/T18 reader handoff](../docs/E04_T18_SOURCE_PACKET_20261029.md).
-S02 clean-source extraction passes at `e98c6a0b` with NativeAcceptance=false;
+S02 clean-source extraction passes at `d82e058b` with NativeAcceptance=false;
 E10 shared-host promotion, current native recovery/rendering and the post-1November
 natural monthly observation remain open. No accepted historical route is reopened
 merely to reproduce unchanged evidence.
 
-Latest combined source checkpoint: 1,826 Python tests/19 capability skips,
+Latest verified combined source checkpoint: 1,951 Python tests/19 capability skips,
 58 Node tests and 446 project checks. Acquisition builders, registry metadata
 proposals and ARC model/reader closure are merged. The three current packets
 cover admission proposals, ARC source/export closure and relationship evidence.
@@ -40,8 +40,9 @@ The next reviewed local integration adds [source relationships](../docs/SOURCE_R
 [publication admission proposals](../docs/PUBLICATION_ADMISSION_WRITER_SOURCE_20261029.md)
 and [award crosswalks](../docs/PUBLICATION_AWARD_CROSSWALK_SOURCE_20261029.md).
 Combined harness: 1,951 Python tests, 19 capability skips, 58 Node tests and
-446 project checks; hosted verification remains pending. Provider foundation
-implementation and bounded writer/workbook assessments continue in the existing
+446 project checks; PR68 and exact main hosted checks passed. Provider foundation
+through f6b83d5f is subsequently locally merged with39 focused tests. Its next
+combined/hosted milestone and bounded writer/workbook work continue in the existing
 three lanes. No native, schedule or delivery acceptance follows from these packets.
 
 ## Reconciled later requirements — 29 October 2026
@@ -106,3 +107,13 @@ Execution order and boundaries: [detailed handoff](PUBLICATION_STABILISATION.md)
 - [~] [E07_publication_platform_acceptance: Publication platform hardening and live evidence](tracks/E07_publication_platform_acceptance/plan.md) — local acceptance contract added; tenant readback and end-to-end replay remain gated
 
 - [~] [E10_python315_migration: Python3.15 migration and qualification](tracks/E10_python315_migration/index.md) — PR9/main implementation accepted; safe attached-helper handover and final full-scope audit pending. Existing unfinished E01 goal preserved; no separate E10 goal armed.
+
+## Next coherent integration packet
+
+Provider foundation (39 focused tests), historical workbook crosswalks (23),
+and bounded writer feed/protocol simulation (28) are locally merged. Combined
+Python3.15.1 harness passes2,041 tests with19 capability skips,58 Node tests and
+446 checks. PR69 hosted gates remain next. The protocol simulator emits no
+deployable WDL; native writer/journal/immutable-read qualifications remain open.
+All lanes will converge to the same verified main before the next implementation
+round; current read-only recommendations must account for sibling work on main.
