@@ -56,6 +56,15 @@ The failed operation, readback, original payload and screenshots remain private;
 
 ### Current continuation
 
+After its current identity/export source packet reaches a clean terminal commit,
+publications chat `01a1831e-449a-7693-af1a-08bb23391c76` owns bounded read-only
+qualification of the exact retained publication writer and business-digest flow
+notification settings, plus the same account's weekly failure-digest preference
+only through an already qualified supported read route. Use retained exact IDs
+and workload pins; no broad flow inventory, invocation, setting change, explicit
+auth renewal or credential transfer. The original grants worker/auth journal is
+excluded. Parent retains authentication coordination and any later mutation scope.
+
 Fourth combined local milestone:1,306 Python tests with25 capability skips,25
 offline Node guards,446 project checks and remaining harness checks pass. Native
 acceptance is not inferred. The two macOS SIGBUS events (packager and native
