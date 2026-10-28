@@ -1,29 +1,32 @@
-# Open Access Mandate Compliance & Clinical Trial Linkage Specification
+# Open Access evidence and clinical trial linkage specification
 
-## 1. Open Access Policy Framework (NHMRC / MRFF)
+## Current source correction — 29 October 2026
 
-Under the NHMRC Open Access Policy, peer-reviewed publications arising from NHMRC-supported research must be made immediately open access with a Creative Commons Attribution (CC BY) license.
+An explicit provider category describes an access route; it is not a policy
+compliance decision. The local classifier returns the existing category vocabulary
+only for exact known labels, keeps contradictory inputs unknown, and emits
+`Unknown` for new `OAComplianceNHMRC` values. A licence string or general open flag
+does not establish Gold, Hybrid or Green. Existing recorded category/compliance
+values and human notes are preserved; no native records or measure names are
+rewritten. Historical auto-generated values require provenance review before use
+as compliance evidence, not automatic replacement.
 
-### Open Access Categories
-| Category | Definition | Compliance State |
-| :--- | :--- | :--- |
-| **Gold** | Published immediately open in open access journal (DOAJ indexed) | **Fully Compliant** |
-| **Hybrid** | Published open access in subscription journal with APC paid | **Fully Compliant** |
-| **Green** | Author Accepted Manuscript (AAM) archived in repository | **Fully Compliant** |
-| **Bronze** | Free to view on publisher site, but without formal CC license | **Conditionally Compliant** |
-| **Closed** | Behind subscription paywall, no repository version | **Non-Compliant** |
+The current [NHMRC and MRFF Open Science Policy](https://www.nhmrc.gov.au/about-us/resources/nhmrc-and-mrff-open-science-policy)
+distinguishes access timing, publication version and licence requirements. A
+selected assessment additionally needs applicable funding/policy scope and dated
+source evidence. This source function does not collect or adjudicate those facts.
+Archived category-to-compliance tables are historical and superseded for execution.
 
-### DAX Compliance Measures
-```dax
-Open Access Publications = 
-CALCULATE(
-    [Publications],
-    Publication[OACategory] IN {"Gold", "Hybrid", "Green"}
-)
+The public function signature, tuple shape, field names and category values are
+unchanged. `batch_enrich_sources.py` still exports the same columns. New records
+keep compliance unknown; existing populated records retain their exact values.
+There is no native migration or alteration of existing `[Open Access Rate]` or
+T18 assessed-status/coverage measures. No report should label an OA-category ratio
+as policy compliance without a separately qualified assessment contract.
 
-% Open Access Compliant = 
-DIVIDE([Open Access Publications], [Publications], 0)
-```
+Validation: regression tests first reproduced unsupported positive/negative
+compliance, licence-derived routes and overwritten recorded values. Focused
+classification/enrichment and dependent batch tests verify the correction.
 
 ---
 

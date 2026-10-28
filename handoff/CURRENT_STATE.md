@@ -56,6 +56,14 @@ The failed operation, readback, original payload and screenshots remain private;
 
 ### Current continuation
 
+Parent owns the bounded legacy E03 source correction in
+`scripts/open_access_trials.py`, `tests/test_open_access_trials.py` and
+`docs/OPEN_ACCESS_TRIALS_SPEC.md`: prevent category/license hints from asserting
+policy compliance or invented OA route; preserve existing recorded values and
+schema/identifiers. No native row/model migration or trial-route change is in
+this packet. Other lanes retain their assignments.
+
+
 Fifth combined milestone passes:1,414 Python tests with25 capability skips,
 25 offline Node guards,446 project checks and all remaining harness gates.
 Current exact assignments: publications owns document-library source preservation;
