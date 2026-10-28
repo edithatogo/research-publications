@@ -43,6 +43,21 @@ outcome evidence; natural monthly export/observer after **1 November2026,12:05
 Brisbane**. No duplicate monitor, early poll, resend, new schedule or production
 promotion. Source work and technical tests do not prove these exits.
 
+## Publication DOI packet under serial integration
+
+Publication lane terminal commit `a83194df` is reviewed and integrated locally.
+The two offline adapters preserve exact producer bytes, legacy DOI normalization,
+source envelope and existing connection aliases/modes. Newly managed field
+collisions are refused. Focused evidence covers 25 stdlib cases (the unchanged
+22-case packet plus three review-fix methods); native acceptance is false.
+The parent also added a harness guard against silently undiscovered standalone
+test functions, with five focused harness tests passing.
+
+This packet receives its own coherent PR/main CI checkpoint. The clean publication
+lane may then fast-forward to that verified main for the next assigned packet;
+other active lanes finish their existing assignments without checkout changes.
+No new writer may modify their worktrees or native scopes.
+
 ## Next bounded source assignments
 
 All three lane writers confirmed clean fast-forwards to verified PR63 main above.
