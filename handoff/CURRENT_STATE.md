@@ -1,5 +1,35 @@
 # Current integration checkpoint — 29 October 2026
 
+## PR71 gate and workspace change — 29 October 2026
+
+PR71 head is `cbd791ce55f58bac7f7fe5b76a0800f11e593d41`. Hosted source validation
+and security passed; the locked-dependency job in quality run `40788773758`
+is queued for a runner. Do not waive that gate or call PR71 merged. Corrected
+source package `0.4.0-roadmap.16.2` at this head passed fresh extraction/full
+harness with NativeAcceptance=false; archive SHA256 is
+`d9c6ee134f5f22f29b0b55327bbe040a05164c09c39ee4be8059e9c0e2fa3359`.
+It is retained at `/Volumes/PortableSSD/rims-orchestration-temp/consumer-package-cbd791ce-20261029/release/`.
+The earlier .16 test-path failure and .16.1 internal-temp ENOSPC failure remain
+preserved. The successful run used only its own PortableSSD temporary directory.
+
+Changed ownership evidence: after ef45's clean terminal handoff/preflight,
+that path disappeared from disk and Git's worktree inventory. Its app attachment
+listed active but exposed no archived snapshot; the chat subsequently became
+app-archived. This integrator did not remove/move the checkout or revive the
+archived chat. All source remains in PR71. Retention of its ignored .venv/private
+artifacts is unverified; never describe them as recovered. Other terminal delivery
+worktrees are also absent; original operational/runtime checkouts remain.
+
+Necessary replacement admission chat `01a184ec-294d-7451-ba5e-c1781d3aa3d8`
+is attached to new managed `/Users/doughnut/.codex/worktrees/8cd6/chhhs-research-publications`
+at verified `7c202562` (initially detached). Its readiness turn currently reports
+an app approval wait; branch/runtime readiness is not yet established. Leave
+approval with the human. The same three-file completed-simulation parity source
+assignment is reserved to this successor; no implementation release until exact
+PR71 main gates and its actual isolated readiness. No old environment, native
+object, auth or journal ownership transfers. Do not duplicate the new chat or
+restore ef45 by assumption. This supersedes older active-ef45 assignments below.
+
 ## Connected consumer milestone — 29 October 2026
 
 Admission owner returned clean terminal `13da4635a3d1d9d5375cdf3d294f40cc32b6ab35`,
