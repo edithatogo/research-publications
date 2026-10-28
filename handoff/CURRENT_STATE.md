@@ -39,7 +39,11 @@ Conductor validation, plus read-only tooling preflight. The local interpreter
 actually reports Python3.15.1 and uses the existing hash-locked dev dependencies
 in a fresh lane-local .venv. No old environment/private receipt was copied.
 Missing ignored private directory was created for existing CLI test fixtures;
-no source test failure was hidden. Final combined/hosted results remain pending.
+no source test failure was hidden. Final combined checkpoint `7cf7da6e` passed
+2,115 Python tests with 19 capability skips, 25 Node guard tests, 446 project
+checks and every remaining harness gate. Range secret scan passed. PR70 is open;
+hosted quality/security and subsequent exact-main gates remain pending. These
+results qualify source only, with all native dependencies unchanged.
 
 The restored old rims-reconcile checkout is clean detached `b634ab52` with no
 ignored artifacts. App archival refused removal because it is the task's primary
