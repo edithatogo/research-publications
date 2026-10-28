@@ -102,6 +102,33 @@ def _definition(site_url, list_id):
         for char in '0123456789abcdef':
             expr = f"replace({expr},'{char}','')"
         return f"equals({expr},'')"
+    def only_chars(expr, alphabet):
+        for char in alphabet:
+            expr = f"replace({expr},'{char}','')"
+        return f"equals({expr},'')"
+    def exact_text(expr, literal):
+        # replace is case-sensitive; startsWith alone is not. Length also
+        # rejects empty or repeated literals without normalizing any input.
+        return f"and(equals(length({expr}),{len(literal)}),equals(replace({expr},'{literal}',''),''))"
+    def positive_decimal(expr):
+        # Lexical ASCII checks only: no int/float coercion or overflow boundary.
+        return (f"and(greater(length({expr}),0),"
+                f"{only_chars(expr, '0123456789')},"
+                f"{only_chars(f'first({expr})', '123456789')})")
+    canonical = record+"?['canonical_key']"
+    colon_parts = f"split({canonical},':')"
+    prefix, suffix_key = f"first({colon_parts})", f"last({colon_parts})"
+    pub = (f"and(equals(length({colon_parts}),2),{exact_text(prefix, 'PUB')},"
+           f"greater(length({suffix_key}),0),{hex_only(suffix_key)})")
+    pmid = (f"and(equals(length({colon_parts}),2),{exact_text(prefix, 'PMID')},"
+            f"{positive_decimal(suffix_key)})")
+    slash_parts = f"split({canonical},'/')"
+    dora_prefix = 'DORA:https://dora.health.qld.gov.au/qldresearchjspui/handle'
+    dora = (f"and(equals(length({slash_parts}),7),"
+            f"{exact_text(f"join(take({slash_parts},5),'/')", dora_prefix)},"
+            f"{positive_decimal(f'last(take({slash_parts},6))')},"
+            f"{positive_decimal(f'last({slash_parts})')})")
+    canonical_reference = f"or({pub},{pmid},{dora})"
     checks = ["equals(triggerBody()?['NoSendOnly'],true)","equals(body('Parse_envelope')?['qualification_only'],true)",
               "equals(length(body('Parse_envelope')?['key']),68)",
               "startsWith(body('Parse_envelope')?['key'],'e09:')",
@@ -113,9 +140,7 @@ def _definition(site_url, list_id):
               f"equals({record}?['thread_id'],body('Parse_envelope')?['logical_id'])",
               f"equals({record}?['revision'],body('Parse_envelope')?['storage_revision'])",
               f"equals({record}?['canonical_key'],{ri}?['canonical_key'])",
-              f"startsWith({record}?['canonical_key'],'PUB:')",
-              f"greater(length({record}?['canonical_key']),4)",
-              hex_only(f"substring({record}?['canonical_key'],4)"),
+              canonical_reference,
               f"equals({record}?['publication_key'],{ri}?['publication_key'])",
               f"equals({ri}?['review_status'],if(equals({ri}?['tier'],'confirmed'),'Included','Needs Review'))",
               f"equals({receipt}?['intended_outcome'],'no_send')",f"equals({receipt}?['post_reference'],null)",
