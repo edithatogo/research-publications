@@ -40,7 +40,7 @@ jobs:
         run: .venv-ci/bin/python -m unittest discover -s tests -v
 
       - name: Offline qualified CLI guards
-        run: node --test tests/test_m365_qualified.mjs tests/test_m365_workload_lock.mjs tests/test_sharepoint_change_log_read.mjs
+        run: node --test tests/test_m365_qualified.mjs tests/test_m365_workload_lock.mjs tests/test_sharepoint_change_log_read.mjs tests/test_grants_monitor_compatibility.mjs
 
       - name: Check offline comparator CLI portability without site packages
         run: .venv-ci/bin/python -S scripts/check_reconciliation_portability.py --smoke-only
