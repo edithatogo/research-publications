@@ -7,10 +7,10 @@ dependencies, runtime promotion and authentication coordination. The entire
 unfinished roadmap is selected for guarded DEV/no-send work; cancelled
 Windows/Desktop routes remain excluded. Blocked work does not count complete.
 
-Verified main: `0bdb35c3b874f295521f657372151d99bc67df8c` (PR68).
-PR and exact main quality `40765581408` and security `40765581502` passed.
-Verified-main harness: 1,951 Python tests, 19 capability skips,
-58 Node tests and 446 project checks. PR57–PR68 are merged.
+Verified main: `30bd1e9fd9559ac277089ffeef91ec41d9095134` (PR69).
+PR and exact main quality `40767034102` and security `40767034100` passed.
+Verified-main harness: 2,041 Python tests, 19 capability skips,
+58 Node tests and 446 project checks. PR57–PR69 are merged.
 Clean source package `0.4.0-roadmap.13` at `e98c6a0b` passed fresh extraction
 and full harness. The next package 0.4.0-roadmap.14 at d82e058b also passed
 fresh extraction/full harness (SHA256 1687a67f5396e5db6ee47ff1b675031f8d0723447f69f90d35ccefb2b627fe9d).
@@ -18,9 +18,9 @@ No source or package result implies native acceptance.
 
 | Current owner / actual managed checkout | Exclusive source assignment | Native scope / next handoff |
 |---|---|---|
-| Acquisition `01a1831e-449a-7693-af1a-08bb23391c76`; `/Users/doughnut/.codex/worktrees/fa70/chhhs-research-publications` | Provider foundation through f6b83d5f is reviewed and locally merged with 39 focused tests. Current assignment is read-only ROR/ARDC and relationship-consumer dependency discovery, with a bounded proposed packet handoff. | None. Injected fictional read transports only; zero retries by default, strict retained bytes/pagination and create-only failure evidence. No live acquisition, resume or native operation. |
-| Relationships `01a1831e-cc0d-7340-a1da-95c81b8e93fa`; `/Users/doughnut/.codex/worktrees/c4c7/chhhs-research-publications` | Government workbook crosswalk helper, paired test and closure leaf, from reviewed/local-merged da27d986. Through650d72c2 locally merged after parent review with23 focused tests. Current assignment is read-only model/report/reader dependency assessment. | None. New private lane-local candidate environment may install the existing source-ingestion hash lock on Python 3.15.1 and prove fictional workbook read/write. Preserve incomplete old lane environment and all original/native runtimes; no version promotion, provider call or real recapture. |
-| Admission `01a1831e-cc6d-7371-9d57-021a339b708a`; `/Users/doughnut/.codex/worktrees/ef45/chhhs-research-publications` | Writer-feed producer/protocol simulator through173f650d locally merged with28 focused tests. Current assignment is read-only current collector-artifact adapter assessment. Admission/preflight retain35 focused tests. | None. Complete immutable candidate feed and conditional/journal source contract only. Missing exact native capability profiles remain blockers. Parent retains existing preflight/contract/package/template wiring; no publishing, apply, activation or shared-file edits. |
+| Acquisition `01a1831e-449a-7693-af1a-08bb23391c76`; `/Users/doughnut/.codex/worktrees/fa70/chhhs-research-publications` | Provider foundation through f6b83d5f is reviewed and locally merged with 39 focused tests. Next: prepare_datacite_output_relationships.py, paired test and closure leaf; reusable Dataset/Software candidate consumer only. | None. Injected fictional read transports only; zero retries by default, strict retained bytes/pagination and create-only failure evidence. No live acquisition, resume or native operation. |
+| Relationships `01a1831e-cc0d-7340-a1da-95c81b8e93fa`; `/Users/doughnut/.codex/worktrees/c4c7/chhhs-research-publications` | Government workbook crosswalk helper, paired test and closure leaf, from reviewed/local-merged da27d986. Through650d72c2 locally merged after parent review with23 focused tests. Next: source relationship model/report preparers, two M templates, paired tests and closure leaf; supplied preimages/candidate preparation only. | None. New private lane-local candidate environment may install the existing source-ingestion hash lock on Python 3.15.1 and prove fictional workbook read/write. Preserve incomplete old lane environment and all original/native runtimes; no version promotion, provider call or real recapture. |
+| Admission `01a1831e-cc6d-7371-9d57-021a339b708a`; `/Users/doughnut/.codex/worktrees/ef45/chhhs-research-publications` | Writer-feed producer/protocol simulator through173f650d locally merged with28 focused tests. Next: collector-admission input adapter, paired test/leaf and explicitly assigned admission helper/tests for additive literal DoRA URL identity profile. Admission/preflight retain35 focused tests. | None. Complete immutable candidate feed and conditional/journal source contract only. Missing exact native capability profiles remain blockers. Parent retains existing preflight/contract/package/template wiring; no publishing, apply, activation or shared-file edits. |
 
 PR67 integrated registry metadata through `65eb642a` (43 focused tests),
 manual acquisition through `0d09312f` (49), and ARC source/model/reader through
@@ -46,7 +46,7 @@ Python 3.15.1 harness passes **1,951 tests, 19 capability skips, 58 Node tests a
 446 project checks**. PR68 at d82e058b is merged and exact main checks passed. Provider foundation (39), workbook crosswalks (23), and writer feed/protocol
 simulation (28) are now locally merged after exact clean preflights. Combined
 Python3.15.1 harness: **2,041 tests,19 capability skips,58 Node tests,446 checks**.
-Next hosted milestone is PR69; source/packaging is separate from native acceptance. Source success grants no
+PR69 and exact main checks passed. Source/packaging is separate from native acceptance. Source success grants no
 native admission or writer readiness. Original full status remains byte-identical
 using the same all-untracked-files inventory command.
 
@@ -85,3 +85,17 @@ each sole lane writer must fast-forward its clean branch to the same verified
 main before any new implementation. Read-only bounded recommendations may finish
 using current main and parent records. This prevents another stale source gap
 from becoming duplicate work. Original native owners remain unchanged.
+
+## Next source assignments from verified common main
+
+All three owners must first fast-forward clean checkouts to verified PR69
+`30bd1e9fd9559ac277089ffeef91ec41d9095134`. Acquisition owns a three-file DataCite
+output consumer. Relationships owns the seven-file model/report/M preparation
+packet. Admission owns the new collector adapter/test/leaf and, by explicit
+integrator transfer, prepare_publication_admission_packet.py plus its paired
+tests for an additive literal URL identity profile. Existing short identities
+remain unchanged; no conversion/rekeying of retained URL identities is allowed.
+The parent retains other shared contracts, preflight, feed/writer and native
+wiring. Native scope is empty for all three. Terminal scoped commits, focused
+behavior tests, preservation/migration evidence and concrete native dependencies
+are required before the next serial integration.
