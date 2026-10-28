@@ -21,10 +21,12 @@ selected tests use tracked/synthetic inputs. Hosted CI exposed six retained
 pytest-function modules absent from unittest coverage; their53 cases now run
 under stdlib discovery with site packages disabled. Exact preflights are clean.
 
-PR57–PR62 are merged with verified main quality/security gates. This checkpoint's
-source packet requires its own PR/main CI receipt; do not infer that from earlier
-runs. Next: finish its clean extraction and serial PR integration, verify main CI,
-then each sole lane writer fast-forwards its clean branch to that same main.
+PR57–PR63 are merged. PR63 main is `632224327b00b1f8794a32c93c346a31a1d1bb15`;
+quality run `40743457855` and security run `40743457779` passed. Corrected source
+package `0.4.0-roadmap.10` at `75ff865d` passed fresh extraction and harness;
+archive SHA256 `a199717c8c91b1aec27abbe4e4f1e1d405fd9b43990becd9e234d42da4f091d5`.
+NativeAcceptance remains false. Each sole lane writer fast-forwards its clean
+branch to that verified main before accepting another implementation assignment.
 Ordinary hooks stay enabled; no reset/clean or competing checkout writes.
 
 Local main now tracks canonical origin/main. Its old unrelated history remains
@@ -40,6 +42,38 @@ consumer/actor/access/persistence qualification; E10 helper-host handover; real
 outcome evidence; natural monthly export/observer after **1 November2026,12:05
 Brisbane**. No duplicate monitor, early poll, resend, new schedule or production
 promotion. Source work and technical tests do not prove these exits.
+
+## Publication DOI packet under serial integration
+
+Publication lane terminal commit `a83194df` is reviewed and integrated locally.
+The two offline adapters preserve exact producer bytes, legacy DOI normalization,
+source envelope and existing connection aliases/modes. Newly managed field
+collisions are refused. Focused evidence covers 25 stdlib cases (the unchanged
+22-case packet plus three review-fix methods); native acceptance is false.
+The parent also added a harness guard against silently undiscovered standalone
+test functions, with five focused harness tests passing.
+
+This packet receives its own coherent PR/main CI checkpoint. The clean publication
+lane may then fast-forward to that verified main for the next assigned packet;
+other active lanes finish their existing assignments without checkout changes.
+No new writer may modify their worktrees or native scopes.
+
+## Next bounded source assignments
+
+All three lane writers confirmed clean fast-forwards to verified PR63 main above.
+All new source work starts from that common commit. Existing native owners,
+authentication, original checkout and journals are unchanged. The same three
+managed delivery checkouts are reused; only their assigned files may change.
+
+| Chat | Exclusive source scope | Native scope / acceptance / next handoff |
+|---|---|---|
+| Publications `01a1831e-449a-7693-af1a-08bb23391c76` | `prepare_raw_publication_doi_inputs.py`, `oa_pubmed_retained.py`, paired tests and provider closure leaf | None. Exact retained normalization/provenance, replay and failure preservation; stdlib tests; disposition nine provider-family paths. |
+| Preservation `01a1831e-cc0d-7340-a1da-95c81b8e93fa` | Seven helpers and seven paired tests in frozen `retained_legacy_preservation_packet`, preservation closure leaf | None. Complete inventory/version/attachment diagnostics and candidate-only planning; no restore/write payload. Focused tests and exact source handoff. |
+| Contracts `01a1831e-cc6d-7371-9d57-021a339b708a` | `verify_publication_protected_fields.py`, `verify_publication_replay.py`, `prepare_publication_operator_flow.py`, paired tests and native-contract disposition leaf | None. Complete preservation/replay and supplied-definition diagnostics; no activation authority. Disposition forty-path family with exact remaining dependencies. |
+
+Parent alone owns shared handoffs, tracks, interfaces, dependencies, runtime and
+serial integration. New packets require exact preflight, review and affected
+checks; completed PR63 checks are reused until a changed input requires a rerun.
 
 ## Preserved orchestration history
 

@@ -6,12 +6,30 @@ private-file bundling. Commands use the active Python interpreter from any cwd.
 from __future__ import annotations
 
 import argparse
+import ast
 import json
 from pathlib import Path
 import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent.parent
+
+
+def check_unittest_layout(test_root):
+    """Reject standalone test functions ignored by the configured unittest runner.
+
+    This static guard catches the retained pytest-function regression; it does
+    not replace test execution or certify coverage of every behavior.
+    """
+    missed = []
+    for path in sorted(test_root.glob('test_*.py')):
+        tree = ast.parse(path.read_text(encoding='utf-8'), filename=str(path))
+        for node in tree.body:
+            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name.startswith('test_'):
+                missed.append(f'{path.name}:{node.lineno}:{node.name}')
+    if missed:
+        raise ValueError('Standalone tests are not discovered by unittest; use TestCase methods: '
+                         + ', '.join(missed))
 
 
 def public_file(root, relative):
@@ -39,6 +57,7 @@ def load_config(root=ROOT):
                 raise ValueError(f'Test pattern has no matches: {pattern}')
         for relative in config['baseline'] + task['context']:
             public_file(root, relative)
+    check_unittest_layout(root / 'tests')
     return config
 
 
@@ -86,7 +105,7 @@ def main(argv=None):
             print('\nCurrent checkpoint:\n' + public_file(ROOT, 'handoff/CURRENT_STATE.md').read_text())
             return 0
         return run_checks(commands(config, args.task))
-    except (ValueError, KeyError, OSError) as exc:
+    except (ValueError, KeyError, OSError, SyntaxError) as exc:
         print(f'FAIL: {exc}', file=sys.stderr)
         return 1
 
