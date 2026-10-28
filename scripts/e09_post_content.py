@@ -7,8 +7,8 @@ is deliberately narrow:
 * content is composed only from fields the committed selection module produced
   (`scripts/e09_first_discovery.py`) plus the documented registry ``Title``
   field (`docs/SHAREPOINT_LIST_REGISTRY.md`); every other input field fails
-  closed, so clinical, personal or sensitive data cannot enter the post
-  structurally — the Research channel rule, not prose;
+  closed. This prevents extra-field copying; sensitive text inside an allowed
+  title still requires source qualification;
 * excluded (``rejected`` tier) candidates never receive post content;
 * thread identity reuses ``scripts.e09_feed_contracts.stable_thread_id``
   (``thread:{registry SourceKey}``) — no new key family and no recomputation;
@@ -23,9 +23,11 @@ is deliberately narrow:
 from __future__ import annotations
 
 import html
+import re
 from typing import Any
 
-from scripts.e09_feed_contracts import _required_text, stable_thread_id
+from scripts.e09_feed_contracts import _required_text, stable_thread_id, _full_iso_date, publication_source_key
+from scripts.e09_first_discovery import _canonical_key, STATUS_TIERS
 
 TIER_WORDING = {
     "confirmed": "A CHHHS research publication",
@@ -53,18 +55,24 @@ def _no_send_record(record: Any) -> dict[str, Any]:
         raise ValueError(f"post record is missing selection fields: {sorted(missing)}")
     if record["tier"] == "rejected":
         raise ValueError("excluded (rejected) records never open threads or receive post content")
-    if record["tier"] not in TIER_WORDING:
+    if not isinstance(record["tier"], str) or record["tier"] not in TIER_WORDING:
         raise ValueError(f"tier {record['tier']!r} has no approved wording")
+    if not isinstance(record['review_status'], str) or STATUS_TIERS.get(record['review_status']) != record['tier']:
+        raise ValueError('Review status and tier disagree')
+    _canonical_key(record['canonical_key'])
+    _full_iso_date(record['discovered_on'], 'discovered_on')
     suggested_trigger = record["suggested_trigger"]
-    if suggested_trigger not in {"first_discovery", "catch_up"}:
+    if not isinstance(suggested_trigger, str) or suggested_trigger not in {"first_discovery", "catch_up"}:
         raise ValueError("suggested_trigger must be 'first_discovery' or 'catch_up' from the selection module")
     title = record.get("Title")
     title = _required_text(title, "Title") if title is not None else None
     publication_month = record.get("PublicationMonth")
     if publication_month is not None:
         publication_month = _required_text(publication_month, "PublicationMonth")
+        if not re.fullmatch(r'[0-9]{4}-(?:0[1-9]|1[0-2])', publication_month):
+            raise ValueError('PublicationMonth must be a qualified YYYY-MM value')
     return {
-        "publication_key": _required_text(record["publication_key"], "publication_key"),
+        "publication_key": publication_source_key(record["publication_key"]),
         "canonical_key": _required_text(record["canonical_key"], "canonical_key"),
         "tier": record["tier"],
         "review_status": _required_text(record["review_status"], "review_status"),
