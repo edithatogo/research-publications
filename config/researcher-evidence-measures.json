@@ -1,0 +1,58 @@
+{
+  "table": "ResearcherPublicationMentions",
+  "displayFolder": "Author-label evidence",
+  "hiddenAggregateKeys": [
+    "CanonicalKey",
+    "NameGroupKey"
+  ],
+  "measures": [
+    {
+      "name": "Author-label mentions",
+      "expression": "COUNTROWS('ResearcherPublicationMentions') + 0",
+      "description": "Retained author-label occurrence rows in the current mention-table filter context. Not resolved people, staff or unique publications. MentionKey uniqueness is a separate ingestion invariant.",
+      "formatString": "#,##0"
+    },
+    {
+      "name": "Author-label groups",
+      "expression": "DISTINCTCOUNTNOBLANK('ResearcherPublicationMentions'[NameGroupKey]) + 0",
+      "description": "Distinct nonblank case-preserving author-label group keys in the current mention-table filter context. Labels are not resolved identities; groups are not additive across overlapping selections.",
+      "formatString": "#,##0"
+    },
+    {
+      "name": "Retained publications with author-label evidence",
+      "expression": "DISTINCTCOUNTNOBLANK('ResearcherPublicationMentions'[CanonicalKey]) + 0",
+      "description": "Distinct nonblank retained publication keys in the current mention-table filter context. Includes keys absent from the current canonical table; use the canonical-match and key-gap measures to reconcile coverage.",
+      "formatString": "#,##0"
+    },
+    {
+      "name": "First-listed publications by author label",
+      "expression": "CALCULATE(DISTINCTCOUNTNOBLANK('ResearcherPublicationMentions'[CanonicalKey]), KEEPFILTERS('ResearcherPublicationMentions'[IsFirstListed] = TRUE())) + 0",
+      "description": "Distinct publication keys whose retained author label is first-listed, intersecting existing mention-table filters. Author ordering is source evidence, not leadership, affiliation or identity confirmation.",
+      "formatString": "#,##0"
+    },
+    {
+      "name": "Last-listed publications by author label",
+      "expression": "CALCULATE(DISTINCTCOUNTNOBLANK('ResearcherPublicationMentions'[CanonicalKey]), KEEPFILTERS('ResearcherPublicationMentions'[IsLastListed] = TRUE())) + 0",
+      "description": "Distinct publication keys whose retained author label is last-listed, intersecting existing mention-table filters. Single-author works may be both first and last; these counts must not be added together.",
+      "formatString": "#,##0"
+    },
+    {
+      "name": "Canonical publications with author-label evidence",
+      "expression": "COUNTROWS(INTERSECT(FILTER(VALUES('Publication'[CanonicalKey]), NOT ISBLANK('Publication'[CanonicalKey])), FILTER(VALUES('ResearcherPublicationMentions'[CanonicalKey]), NOT ISBLANK('ResearcherPublicationMentions'[CanonicalKey])))) + 0",
+      "description": "Distinct current canonical keys also present in the selected retained author-label evidence. Honors filters on both tables without adding a relationship. This is publication evidence, not person identity.",
+      "formatString": "#,##0"
+    },
+    {
+      "name": "Canonical publications without retained author labels",
+      "expression": "COUNTROWS(EXCEPT(FILTER(VALUES('Publication'[CanonicalKey]), NOT ISBLANK('Publication'[CanonicalKey])), SELECTCOLUMNS(ALL('ResearcherPublicationMentions'), \"Key\", 'ResearcherPublicationMentions'[CanonicalKey]))) + 0",
+      "description": "Current canonical keys with no retained author-label evidence. Honors canonical filters; ignores ordinary mention-table slicers to measure complete-table coverage. Row security still applies. Does not mean no authors.",
+      "formatString": "#,##0"
+    },
+    {
+      "name": "Retained author-label works outside canonical key domain",
+      "expression": "COUNTROWS(EXCEPT(FILTER(VALUES('ResearcherPublicationMentions'[CanonicalKey]), NOT ISBLANK('ResearcherPublicationMentions'[CanonicalKey])), SELECTCOLUMNS(ALL('Publication'), \"Key\", 'Publication'[CanonicalKey]))) + 0",
+      "description": "Selected retained publication keys absent from the full canonical key domain. Ignores ordinary canonical filters to avoid false orphan counts for out-of-period works. Row security still applies; no records are removed.",
+      "formatString": "#,##0"
+    }
+  ]
+}

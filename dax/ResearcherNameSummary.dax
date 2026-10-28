@@ -1,0 +1,17 @@
+// Case-preserving code keys avoid merging exact labels in case-insensitive storage.
+VAR Groups = SUMMARIZE(ResearcherPublicationMentions, ResearcherPublicationMentions[NameGroupKey])
+RETURN GENERATE(Groups,
+    VAR GroupKey = ResearcherPublicationMentions[NameGroupKey]
+    VAR Mentions = FILTER(ResearcherPublicationMentions, ResearcherPublicationMentions[NameGroupKey]=GroupKey)
+    VAR LabelCode = MID(GroupKey,7,LEN(GroupKey))
+    VAR Label = CONCATENATEX(GENERATESERIES(1,PATHLENGTH(LabelCode)),UNICHAR(PATHITEM(LabelCode,[Value],INTEGER)),"",[Value],ASC)
+    RETURN ROW(
+        "NameLabel", Label,
+        "PublicationCount", COUNTROWS(SUMMARIZE(Mentions,ResearcherPublicationMentions[CanonicalKey])),
+        "MentionCount", COUNTROWS(Mentions),
+        "FirstListedCount", COALESCE(COUNTROWS(SUMMARIZE(FILTER(Mentions,ResearcherPublicationMentions[IsFirstListed]),ResearcherPublicationMentions[CanonicalKey])),0),
+        "LastListedCount", COALESCE(COUNTROWS(SUMMARIZE(FILTER(Mentions,ResearcherPublicationMentions[IsLastListed]),ResearcherPublicationMentions[CanonicalKey])),0),
+        "SourceSets", CONCATENATEX(SUMMARIZE(Mentions,ResearcherPublicationMentions[SourceSet]),ResearcherPublicationMentions[SourceSet]," | ",ResearcherPublicationMentions[SourceSet],ASC),
+        "IdentityStatus", "Unresolved"
+    )
+)

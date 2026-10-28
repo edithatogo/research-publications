@@ -1,0 +1,51 @@
+// Calculated table over loaded Publication only. No M/provider evaluation.
+VAR Publications = SELECTCOLUMNS(
+    Publication,
+    "CanonicalKey", Publication[CanonicalKey], "Title", Publication[Title],
+    "SourceSet", Publication[SourceSet], "PublicationYear", Publication[PublicationYear],
+    "PublicationMonth", Publication[PublicationMonth], "PublicationDatePrecision", Publication[PublicationDatePrecision],
+    "CHHHSAffiliatedAuthors", Publication[CHHHSAffiliatedAuthors],
+    "AttributionStatus", Publication[AttributionStatus], "AttributionEvidence", Publication[AttributionEvidence],
+    "PubMedURL", Publication[PubMedURL], "DORAURL", Publication[DORAURL],
+    "SourceAuthorList", Publication[Authors]
+)
+VAR Expanded = GENERATE(Publications,
+    VAR AuthorList = COALESCE([SourceAuthorList], "")
+    VAR Starts = SELECTCOLUMNS(
+        FILTER(GENERATESERIES(1, LEN(AuthorList)+1), [Value]=1 || MID(" " & AuthorList, [Value], 1)=";"),
+        "StartIndex", [Value]
+    )
+    RETURN GENERATE(Starts,
+        VAR StartAt = [StartIndex]
+        VAR EndAt = FIND(";", AuthorList & ";", StartAt, LEN(AuthorList)+1)
+        VAR RawLabel = MID(AuthorList, StartAt, EndAt-StartAt)
+        // Python str.strip whitespace set; do not collapse internal spaces.
+        VAR Nonwhite = FILTER(GENERATESERIES(1, LEN(RawLabel)),
+            NOT(UNICODE(MID(RawLabel, [Value], 1)) IN
+                {9,10,11,12,13,28,29,30,31,32,133,160,5760,8192,8193,8194,8195,8196,8197,8198,8199,8200,8201,8202,8232,8233,8239,8287,12288}))
+        VAR FirstChar = MINX(Nonwhite, [Value])
+        VAR LastChar = MAXX(Nonwhite, [Value])
+        VAR Label = IF(ISBLANK(FirstChar), "", MID(RawLabel, FirstChar, LastChar-FirstChar+1))
+        VAR Position = COUNTROWS(FILTER(Starts, [StartIndex]<=StartAt))
+        VAR LabelCode = CONCATENATEX(GENERATESERIES(1,LEN(Label)), FORMAT(UNICODE(MID(Label,[Value],1)),"0","en-US"),"|",[Value],ASC)
+        VAR RawCode = CONCATENATEX(GENERATESERIES(1,LEN(RawLabel)), FORMAT(UNICODE(MID(RawLabel,[Value],1)),"0","en-US"),"|",[Value],ASC)
+        RETURN ROW(
+            "MentionKey", "MENTION:" & FORMAT(LEN([CanonicalKey]),"0","en-US") & ":" & [CanonicalKey] & ":" & FORMAT(Position,"0","en-US"),
+            "NameGroupKey", "LABEL:" & LabelCode,
+            "NameLabel", Label, "RawAuthorLabel", RawLabel, "RawAuthorLabelCode", RawCode,
+            "AuthorOrder", Position, "IsFirstListed", Position=1,
+            "IsLastListed", EndAt=LEN(AuthorList)+1 && Position>1,
+            "IdentityStatus", "Unresolved"
+        )
+    )
+)
+RETURN SELECTCOLUMNS(FILTER(Expanded, [NameLabel]<>""),
+    "MentionKey",[MentionKey], "NameGroupKey",[NameGroupKey], "NameLabel",[NameLabel],
+    "RawAuthorLabel",[RawAuthorLabel], "RawAuthorLabelCode",[RawAuthorLabelCode],
+    "AuthorOrder",[AuthorOrder], "IsFirstListed",[IsFirstListed], "IsLastListed",[IsLastListed],
+    "CanonicalKey",[CanonicalKey], "Title",[Title], "SourceSet",[SourceSet],
+    "PublicationYear",[PublicationYear], "PublicationMonth",[PublicationMonth],
+    "PublicationDatePrecision",[PublicationDatePrecision], "CHHHSAffiliatedAuthors",[CHHHSAffiliatedAuthors],
+    "AttributionStatus",[AttributionStatus], "AttributionEvidence",[AttributionEvidence],
+    "PubMedURL",[PubMedURL], "DORAURL",[DORAURL], "IdentityStatus",[IdentityStatus]
+)
