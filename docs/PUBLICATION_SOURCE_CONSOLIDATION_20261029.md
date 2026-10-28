@@ -1,5 +1,8 @@
 # Publication validation consolidation — 29 October 2026
 
+This records the first packet. The [policy and cycle continuation](PUBLICATION_CYCLE_CLOSURE_20261029.md)
+supersedes its open metadata-builder dependency and adds a scoped DoRA cycle.
+
 This is a source-only delivery packet for the existing roadmap. It preserves the
 accepted historical full-generation closeout in [whole-system closeout](WHOLE_SYSTEM_CLOSEOUT.md).
 Current acquisition, typed admission, native runtime and scheduled acceptance
