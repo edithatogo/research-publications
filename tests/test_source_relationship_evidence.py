@@ -200,3 +200,43 @@ class BoundGenerationTests(unittest.TestCase):
   rows=pubmed_projection([rec],[{'PMID':'13','CanonicalKey':'pub:13'}])
   self.assertTrue(all(not r['CandidateEligible'] and r['RawSHA256']=='' and r['StructuredMetadataSHA256']==rec['metadata_sha256'] for r in rows))
   self.assertEqual(rec,before)
+
+class ReviewCorrectionTests(unittest.TestCase):
+ def test_study_result_pmids_are_ascii_positive_text_and_missing_or_background_excluded(self):
+  for value in ('０１３','١٣','0','01',' 13','13 ',13,True,False,0,[],{}):
+   study={'protocolSection':{'identificationModule':{'nctId':'NCT00000001'},'referencesModule':{'references':[{'pmid':value,'type':'RESULT'}]}}}
+   with self.subTest(value=value),self.assertRaises(ValueError):
+    study_references([{'record':study,'raw':json.dumps(study).encode(),'observed_utc':None}],[])
+  refs=[{'type':'RESULT'},{'pmid':None,'type':'DERIVED'},{'pmid':'','type':'RESULT'},
+        {'pmid':{'not':'a PMID'},'type':'BACKGROUND'},{'pmid':'13','type':'RESULT'}]
+  study={'protocolSection':{'identificationModule':{'nctId':'NCT00000001'},'referencesModule':{'references':refs}}}
+  result=study_references([{'record':study,'raw':json.dumps(study).encode(),'observed_utc':None}],[{'PMID':'13','CanonicalKey':'pub:13'}])
+  self.assertEqual(len(result),1);self.assertEqual(result[0]['PublicationPMID'],'13')
+
+ def test_repeated_and_multiple_pubmed_accessions_retain_each_occurrence_path(self):
+  db=node('DataBank',[node('DataBankName','ClinicalTrials.gov'),node('AccessionNumberList',[
+   node('AccessionNumber','NCT00000001'),node('AccessionNumber','NCT00000001'),node('AccessionNumber','NCT00000002')])])
+  rec=pm_record([],dbs=[db]);saved=copy.deepcopy(rec)
+  rows=pubmed_projection([rec],[{'PMID':'13','CanonicalKey':'pub:13'}])
+  refs={r['ToKey']:r for r in rows if r['RelationshipKind']=='publication_study_reference'}
+  base='/MedlineCitation/Article/DataBankList/DataBank/0/AccessionNumberList/AccessionNumber/'
+  self.assertEqual(set(refs),{'clinicaltrials.gov:NCT00000001','clinicaltrials.gov:NCT00000002'})
+  self.assertEqual(refs['clinicaltrials.gov:NCT00000001']['SourcePaths'],[base+'0',base+'1'])
+  self.assertEqual(refs['clinicaltrials.gov:NCT00000002']['SourcePaths'],[base+'2'])
+  self.assertEqual(rec,saved)
+
+ def test_unmarked_pubmed_retraction_is_unknown_and_eligibility_never_admission(self):
+  for types in (None,[],[node('PublicationType','Journal Article')]):
+   rec=pm_record([])
+   if types is not None:rec['metadata'][0]['Value'][1]['Value'].append(node('PublicationTypeList',types))
+   rec['metadata_sha256']=fingerprint(rec['metadata'])
+   rows=pubmed_projection([rec],[{'PMID':'13','CanonicalKey':'pub:13'}])
+   with self.subTest(types=types):
+    self.assertTrue(all(r['SourceRetracted'] is None for r in rows))
+    self.assertTrue(all(r['CandidateEligible'] and not r['CanonicalAdmission'] and not r['MutationAuthorized'] and not r['IdentityQualified'] for r in rows))
+
+ def test_padded_raw_doi_rejected_without_silent_identity_normalization(self):
+  for value in (' https://doi.org/10.1234/test','https://doi.org/10.1234/test ','\t10.1234/test'):
+   e=packet();work=json.loads(base64.b64decode(e['raw_response_base64']));work['doi']=value;raw=json.dumps(work).encode()
+   e.update(raw_response_base64=base64.b64encode(raw).decode(),raw_response_sha256=hashlib.sha256(raw).hexdigest())
+   with self.subTest(value=value),self.assertRaises(ValueError):project([e],PUB)

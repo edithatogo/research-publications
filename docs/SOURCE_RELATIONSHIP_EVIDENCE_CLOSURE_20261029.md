@@ -135,3 +135,32 @@ actors are not inferred from local assertions. Dataset/software, NIH RePORTER
 and cross-source award aliases remain separate source packets. This closure
 creates no live graph, institutional funding measure, workforce denominator or
 verified outcome.
+
+## Review corrections: exact identifiers, occurrences and unknown state
+
+ClinicalTrials.gov RESULT/DERIVED reference PMIDs now require ASCII positive
+text (`[1-9][0-9]*`). Unicode digits, zero/leading-zero values, padding, booleans,
+numbers and other nontext values fail validation explicitly. Absent/null/empty
+reference IDs and BACKGROUND citations retain their documented exclusion; a
+malformed background identifier is not promoted into an output link.
+
+Each PubMed accession path now includes
+`DataBank/<index>/AccessionNumberList/AccessionNumber/<index>`. Repeated identical
+accessions retain distinct occurrence paths on one assertion; multiple IDs retain
+their own indexed paths. Raw source work DOI values must be exact unpadded text
+before DOI URL/case normalization; padding is rejected rather than silently
+matched to the requested identity.
+
+PubMed `SourceRetracted` is true only for the explicit Retracted Publication
+marker, otherwise null. Absent, empty or unrelated PublicationTypeList values
+cannot establish a negative retraction finding. This module has no separate
+qualified PubMed negative-status input and therefore emits no false negative
+assertion. `CandidateEligible` merely reports that the source was not explicitly
+marked retracted in this supplied evidence; an unknown status may retain this
+diagnostic flag while canonical admission, identity qualification and mutation
+authority all remain false. Native consumers must not interpret it as admission.
+
+Four new stdlib regression methods first reproduced the review findings, then
+passed after correction. The complete focused file now passes 28 methods on
+Python 3.15.1 with `-S`, retaining all previous 24 methods and no skips. No shared
+files, native objects, source captures, provider calls or environments changed.

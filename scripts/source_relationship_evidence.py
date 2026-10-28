@@ -147,6 +147,7 @@ def _project(envelopes,publications):
             raise ValueError('Raw funder label must be text')
         if 'is_retracted' in w and type(w['is_retracted']) is not bool:raise ValueError('Explicit boolean source retraction marker required')
         if not provider_id(w.get('id'),'W') or e['work_id']!=w['id']:raise ValueError('Work identity mismatch')
+        _text(w.get('doi'))
         if normalise_doi(e['requested_doi'])!=normalise_doi(w.get('doi')) or not normalise_doi(w.get('doi')):raise ValueError('DOI identity mismatch')
         if w['id'] in seen_work:raise ValueError('Duplicate retained work')
         seen_work.add(w['id']);parsed.append((e,w))
@@ -210,8 +211,12 @@ def _study_references(studies,publications):
         raw=item['raw'];h=hashlib.sha256(raw).hexdigest()
         if item.get('raw_response_sha256')!=h or fingerprint(strict_json_loads(raw))!=fingerprint(s):raise ValueError('Study capture/content mismatch')
         for ref_index,ref in enumerate(s['protocolSection'].get('referencesModule',{}).get('references',[])):
-            pmid=ref.get('pmid') or '';kind=ref.get('type')
-            if kind not in {'RESULT','DERIVED'} or not pmid.isdecimal():continue
+            kind=ref.get('type')
+            if kind not in {'RESULT','DERIVED'}:continue
+            pmid=ref.get('pmid')
+            if pmid is None or (isinstance(pmid,str) and pmid==''):continue
+            if not isinstance(pmid,str) or not re.fullmatch('[1-9][0-9]*',pmid):
+                raise ValueError('RESULT/DERIVED reference requires ASCII positive PMID text')
             ks=sorted(index[pmid]);source='clinicaltrials.gov:'+nct
             out.append(dict(EvidenceKey='|'.join([source,'publication_study_reference','pmid:'+pmid,source]),RelationshipKind='publication_study_reference',SourceWorkID=source,PublicationDOI='',PublicationPMID=pmid,ReferenceType=kind,FromKey='pmid:'+pmid,ToKey=source,FromLabel='',ToLabel=nct,ORCID='',ORCIDStatus='Absent',ROR='',IdentityStatus='Source-supported',SourceURL='https://clinicaltrials.gov/study/'+nct,ObservedUTC=item['observed_utc'],RawSHA256=h,SourceVersion=h,CanonicalKey=ks[0] if len(ks)==1 else '',CanonicalMatchCount=len(ks),ReviewState='Not reviewed',AuthenticationState='Not authenticated',SourcePaths=['/protocolSection/referencesModule/references/'+str(ref_index)]))
     dedup={}
@@ -291,7 +296,8 @@ def _pubmed_projection(records,publications):
             schemes={'clinicaltrials.gov':('clinicaltrials.gov',r'NCT[0-9]{8}'),'anzctr':('anzctr',r'ACTRN[0-9]{14}'),'isrctn':('isrctn',r'ISRCTN[0-9]{8}')}
             if name not in schemes:continue
             scheme,pattern=schemes[name]
-            for n in children(child(db,'AccessionNumberList'),'AccessionNumber'):
+            for accession_index,n in enumerate(children(child(db,'AccessionNumberList'),'AccessionNumber')):
+                source_path='/MedlineCitation/Article/DataBankList/DataBank/'+str(db_index)+'/AccessionNumberList/AccessionNumber/'+str(accession_index)
                 value=text(n)
                 if re.fullmatch(pattern,value):add('publication_study_reference','pmid:'+pmid,scheme+':'+value,tl=value,ref='PubMed DataBankList')
     return sorted(result.values(),key=lambda r:r['EvidenceKey'])
@@ -378,6 +384,6 @@ def pubmed_projection(records,publications,*,generation):
             if isinstance(types['Value'],list) and any(n['Name']=='PublicationType' and n['Value']=='Retracted Publication' for n in types['Value']):
                 retracted.add('pubmed:'+record['pmid'])
     for row in result:
-        marked=row['SourceWorkID'] in retracted
-        row.update(EvidenceState='source_marked_retracted' if marked else 'source_assertion',CandidateEligible=not marked,SourceRetracted=marked)
+        marked=True if row['SourceWorkID'] in retracted else None
+        row.update(EvidenceState='source_marked_retracted' if marked is True else 'source_assertion',CandidateEligible=marked is not True,SourceRetracted=marked)
     return _finish(result,generation)
