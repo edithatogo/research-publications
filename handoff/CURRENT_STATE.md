@@ -16,9 +16,9 @@ and full harness. No source or package result implies native acceptance.
 
 | Current owner / actual managed checkout | Exclusive source assignment | Native scope / next handoff |
 |---|---|---|
-| Acquisition `01a1831e-449a-7693-af1a-08bb23391c76`; `/Users/doughnut/.codex/worktrees/fa70/chhhs-research-publications` | ARC collection, QGIP candidate export, ARC award export and committed-source reader; four paired tests and ARC source/export closure leaf. | None. Stopped/manual proposals, complete raw retention, exact twelve-text-field export and offline consumer checks. No provider call, reference-mode conversion, weekly helper or native retry. |
+| Acquisition `01a1831e-449a-7693-af1a-08bb23391c76`; `/Users/doughnut/.codex/worktrees/fa70/chhhs-research-publications` | Five provider foundation modules (capture receipt, retry classifier, ClinicalTrials, Crossref, DataCite), five focused tests and closure leaf. ARC source/export through 36e66cbf is locally merged with 35 focused tests. | None. Injected fictional read transports only; zero retries by default, strict retained bytes/pagination and create-only failure evidence. No live acquisition, resume or native operation. |
 | Relationships `01a1831e-cc0d-7340-a1da-95c81b8e93fa`; `/Users/doughnut/.codex/worktrees/c4c7/chhhs-research-publications` | Award identifier aliases and Crossref crosswalk helpers, paired tests and crosswalk closure leaf. Source relationship packet through f6a05a5f is locally merged after review and 28 focused tests. | None. Independently pinned authority, complete retained inputs, candidate-only assertions and ambiguity preservation; no identity/funding inference, live store or report/model mutation. |
-| Admission `01a1831e-cc6d-7371-9d57-021a339b708a`; `/Users/doughnut/.codex/worktrees/ef45/chhhs-research-publications` | Offline publication admission packet, narrowed activation preflight, paired tests and admission/writer closure leaf. | None. Complete bound inventories and protected observation-only proposals; expose pilot writer gaps. No flow payload, apply, activation or tracked flow changes. |
+| Admission `01a1831e-cc6d-7371-9d57-021a339b708a`; `/Users/doughnut/.codex/worktrees/ef45/chhhs-research-publications` | Admission packet through 688bbdf0 is locally merged with 35 focused admission/preflight tests. Read-only assessment of the complete protected writer source boundary is next. | None. Parent retains tracked-flow/shared-contract ownership. No edits, generated payload, apply or activation during assessment. |
 
 PR67 integrated registry metadata through `65eb642a` (43 focused tests),
 manual acquisition through `0d09312f` (49), and ARC source/model/reader through
@@ -30,6 +30,8 @@ not represented as verified main; main integration remains serial and CI-gated.
 Initial delivery branches were created from verified main as required. The relationship
 owner may continue the disjoint alias/Crossref packet from its clean f6a05a5f
 dependency after parent review/local merge, pending the combined hosted milestone.
+The acquisition owner also continues its disjoint provider foundation from clean
+36e66cbf after parent review/local merge, without moving or amending prior commits.
 Its completed source relationship assignment remains recorded in the closure leaf
 and Git history; this next packet excludes government/workbook and protocol/PDF families.
 
