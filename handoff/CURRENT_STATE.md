@@ -56,6 +56,38 @@ The failed operation, readback, original payload and screenshots remain private;
 
 ### Current continuation
 
+Fifth packet is being assembled: publication identity diagnostics and lossless
+multiline exports (`f8401e46`), E09 preview/builder (`76fc710b`) and additive
+reference compatibility (`10354634`), plus bounded reader textbox clearance
+(`3a179510`). Reviewed exact preflights show no dirty overlaps or staged deletions.
+Source evidence does not establish current native adoption.
+
+Publication lane now owns the six retained document-library scripts/tests and
+leaf handoff; E09 lane owns advisory-consumer refinement and direct tests/leaf
+handoff. Neither owns shared contracts, dependencies, native objects or auth.
+Dashboard continues funding/relationship/freshness reader-only preparation.
+
+The publication notification read was held before any request: existing shared
+Toolkit renewal owner remains active, and the general read binding does not admit
+the installed flow-get resource. The retained narrower writer binding does not
+cover the business digest. No pin was broadened or alternate client used. Saved
+Stopped/subscribed snapshots are historical; current per-flow failure alerts and
+account weekly failure-digest suppression remain unresolved prerequisites.
+
+PR60 merged at `fc5ea5ac2e3b506e5192e9f92d5f98e54a586af8`; main quality
+40730761222 and security40730761008 pass. Private clean extraction at `f80e8139`
+passed the full harness with NativeAcceptance=false. Preserve those checks for
+unchanged parts; the fifth combined milestone will verify the new packet.
+
+The missing E09/T18/monthly and archived E08 requirement records are reconciled
+in the existing Conductor register with source hashes. Historical scoped
+acceptance is retained, private identifiers omitted, and unfinished broader
+requirements stay open. Missing historical leaf documents remain named original
+references, not substitute evidence. All T18 slices are now in scope, while
+outcome measures still require real authorised identities/periods/denominators.
+
+### Earlier continuation assignments (preserved history)
+
 E09 bounded interface extension is assigned exclusively to the grants/E09 lane
 `01a1831e-cc6d-7371-9d57-021a339b708a`: `e09_first_discovery.py`, native-input
 adapter, corresponding no-send-builder guard and exact dependent tests/docs.

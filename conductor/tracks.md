@@ -8,7 +8,7 @@ priority/deferral paragraphs. Three isolated lanes deliver scoped packets to one
 integrator. Blocked requirements remain open. T16/T17 are cancelled and excluded,
 despite their historical conditional labels below. Accepted receipts are reused.
 
-Canonical source milestones PR57, PR58 and PR59 are merged with main quality and
+Canonical source milestones PR57, PR58, PR59 and PR60 are merged with main quality and
 security checks passing. These do not close native/operational track exits.
 Current evidence and residual requirements are consolidated in the
 [publication cycle](../docs/PUBLICATION_CYCLE_CLOSURE_20261029.md),
@@ -17,10 +17,23 @@ Current evidence and residual requirements are consolidated in the
 [relationship compatibility](../docs/G06_RELATIONSHIP_GUARDS_20261029.md),
 [classification closure](../docs/G07_CLASSIFICATION_SOURCE_20261029.md), and
 [E04/T18 reader handoff](../docs/E04_T18_SOURCE_PACKET_20261029.md).
-S02 clean-source extraction passes at56ac7d92 with NativeAcceptance=false;
+S02 clean-source extraction passes at `f80e8139` with NativeAcceptance=false;
 E10 shared-host promotion, current native recovery/rendering and the post-1November
 natural monthly observation remain open. No accepted historical route is reopened
 merely to reproduce unchanged evidence.
+
+## Reconciled later requirements — 29 October 2026
+
+- [~] [E09 collaborative research feed](tracks/collaborative_research_feed_20261022/plan.md) — owner-only/no-send technical receipts retained; broader actor, curation, persistence, solution and adoption dependencies remain explicit.
+- [~] [T18 outcomes and reader journeys](tracks/chhhs_outcomes_powerbi_20261021/plan.md) — all three existing slices are in scope; evidence-dependent outcomes stay unavailable. The retained reader ID is currently unresolved; E04 import compatibility also blocks native promotion.
+- [ ] [Monthly export and independent observer](tracks/publication_monthly_monitoring_20261024/plan.md) — combined natural readback only after 1 November 2026, 12:05 Brisbane.
+- [~] [E08 retained operational follow-ups](archive/E08_operational_followups/plan.md) — archived administration is preserved; F03/F04 remain unaccepted and F05/F06 conditional. Reuse accepted ROR and NHMRC/MRFF archive receipts.
+
+[Source-record provenance](../audit/roadmap-record-provenance-20261029.json) binds
+this bounded import. Missing historical leaf references remain explicit original
+references, not invented files or refreshed proof. Dated deferrals and no-contact
+instructions in the retained history are superseded by current user scope and
+orchestrator assignments; operational/send authority is not expanded.
 
 ## Publication stabilisation before grants implementation
 
@@ -41,8 +54,8 @@ Execution order and boundaries: [detailed handoff](PUBLICATION_STABILISATION.md)
 - [~] [T11_sources_and_reconciliation: Repair and prove PubMed plus DORA ingestion](tracks/T11_sources_and_reconciliation/plan.md) — current-user native list/model/flow readback is evidenced; retained-history, refresh, recurrence, delivery and production acceptance remain open (2026-09-22 audit).
 - [~] [T14_complete_exports_monthly: Export every citation and stage the monthly workflow](tracks/T14_complete_exports_monthly/plan.md) — implementation exists; native/operational acceptance remains open (2026-09-20 audit).
 - [~] [T15_web_acceptance_release: Verify the live web implementation and hand over](tracks/T15_web_acceptance_release/plan.md) — implementation exists; native/operational acceptance remains open (2026-09-20 audit).
-- [ ] [T16_utm_windows_fallback: Finish the existing UTM Windows VM only if needed](tracks/T16_utm_windows_fallback/plan.md) — gated (conditional fallback)
-- [ ] [T17_desktop_fallback_acceptance: Author and save a native PBIX in the Windows VM](tracks/T17_desktop_fallback_acceptance/plan.md) — gated (conditional fallback)
+- Cancelled: [T16 Windows fallback](tracks/T16_utm_windows_fallback/plan.md) — retained history; excluded from delivery.
+- Cancelled: [T17 Desktop fallback](tracks/T17_desktop_fallback_acceptance/plan.md) — retained history; excluded from delivery.
 
 ## Historical local implementation
 - [x] [T01 legacy audit](tracks/T01_legacy_audit/plan.md)
