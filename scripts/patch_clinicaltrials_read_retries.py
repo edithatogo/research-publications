@@ -12,6 +12,7 @@ import argparse
 import copy
 import hashlib
 import json
+import math
 import re
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -45,11 +46,19 @@ def strict_json(raw):
     def finite(_value):
         raise ValueError("Nonfinite saved JSON evidence")
 
+    def finite_float(value):
+        number = float(value)
+        if not math.isfinite(number):
+            raise ValueError("Overflowed saved JSON number")
+        return number
+
     if isinstance(raw, bytes):
         raw = raw.decode("utf-8")
     if not isinstance(raw, str):
         raise ValueError("Saved UTF8 JSON text/bytes required")  # noqa: TRY004 - retained validation ValueError contract
-    return json.loads(raw, object_pairs_hook=unique, parse_constant=finite)
+    return json.loads(
+        raw, object_pairs_hook=unique, parse_constant=finite, parse_float=finite_float
+    )
 
 
 def _expression(value, expected, path):
@@ -183,9 +192,14 @@ def main():
             PATHS[0 if name == "discovery" else 1] for name in args.action
         ),
     )
+    serialized = (
+        json.dumps(
+            {"candidate": candidate, "receipt": receipt}, indent=2, allow_nan=False
+        )
+        + "\n"
+    )
     with args.output.open("x") as stream:
-        json.dump({"candidate": candidate, "receipt": receipt}, stream, indent=2)
-        stream.write("\n")
+        stream.write(serialized)
     print(json.dumps(receipt))
 
 

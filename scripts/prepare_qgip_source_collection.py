@@ -269,6 +269,7 @@ def build(site: str, archive_parent: str, reference: dict) -> dict:
         ("Total", "integer", -1),
         ("Records", "array", []),
         ("FirstRecords", "array", []),
+        ("PageFailed", "boolean", False),
     ]:
         key = "Initialize_" + name
         a[key] = {
@@ -454,10 +455,21 @@ def build(site: str, archive_parent: str, reference: dict) -> dict:
         "runAfter": {"Set_records": ["Succeeded"]},
         "inputs": {"name": "Offset", "value": 100},
     }
+    pages["Latch_http_failure"] = {
+        "type": "SetVariable",
+        "runAfter": {"HTTP_Page": ["Failed", "TimedOut", "Skipped"]},
+        "inputs": {"name": "PageFailed", "value": True},
+    }
+    pages["Latch_page_failure"] = {
+        "type": "SetVariable",
+        "runAfter": {"Increment_offset": ["Failed", "TimedOut", "Skipped"]},
+        "inputs": {"name": "PageFailed", "value": True},
+    }
+    loop["Guard_page_entry"] = gate("not(variables('PageFailed'))", previous)
     loop["Pages"] = {
         "type": "Until",
-        "runAfter": {previous: ["Succeeded"]},
-        "expression": "@greaterOrEquals(variables('Offset'),variables('Total'))",
+        "runAfter": {"Guard_page_entry": ["Succeeded"]},
+        "expression": "@or(variables('PageFailed'),greaterOrEquals(variables('Offset'),variables('Total')))",
         "limit": {"count": 10, "timeout": "PT10M"},
         "actions": pages,
     }
@@ -478,7 +490,7 @@ def build(site: str, archive_parent: str, reference: dict) -> dict:
         },
     }
     loop["Guard_complete_keys"] = gate(
-        "and(equals(length(variables('Records')),variables('Total')),equals(length(union(body('Service_keys'),body('Service_keys'))),variables('Total')),empty(body('Invalid_keys')))",
+        "and(not(variables('PageFailed')),equals(length(variables('Records')),variables('Total')),equals(length(union(body('Service_keys'),body('Service_keys'))),variables('Total')),empty(body('Invalid_keys')))",
         "Invalid_keys",
     )
     loop["Compare_complete_reads"] = {
@@ -513,7 +525,7 @@ def build(site: str, archive_parent: str, reference: dict) -> dict:
         previous = capture(a, name + "_after", action, queries, previous)
     # Preserve full bodies regardless; accept only stable source identity/schema.
     a["Guard_stable_metadata"] = gate(
-        "and(equals(body('HTTP_Schema_before')?['result']?['fields'],body('HTTP_Schema_after')?['result']?['fields']),equals(body('HTTP_Resource_before')?['result']?['id'],body('HTTP_Resource_after')?['result']?['id']),equals(body('HTTP_Resource_before')?['result']?['package_id'],body('HTTP_Resource_after')?['result']?['package_id']),equals(body('HTTP_Resource_before')?['result']?['last_modified'],body('HTTP_Resource_after')?['result']?['last_modified']),equals(body('HTTP_Resource_before')?['result']?['hash'],body('HTTP_Resource_after')?['result']?['hash']),equals(body('HTTP_Package_before')?['result']?['id'],body('HTTP_Package_after')?['result']?['id']),equals(body('HTTP_Package_before')?['result']?['license_id'],body('HTTP_Package_after')?['result']?['license_id']),equals(body('HTTP_Package_before')?['result']?['resources'],body('HTTP_Package_after')?['result']?['resources']),equals(body('HTTP_Index_before')?['result']?['records'],body('HTTP_Index_after')?['result']?['records']),equals(length(variables('Files')),add(8,mul(2,max(1,div(add(variables('Total'),99),100))))))",
+        "and(not(variables('PageFailed')),equals(body('HTTP_Schema_before')?['result']?['fields'],body('HTTP_Schema_after')?['result']?['fields']),equals(body('HTTP_Resource_before')?['result']?['id'],body('HTTP_Resource_after')?['result']?['id']),equals(body('HTTP_Resource_before')?['result']?['package_id'],body('HTTP_Resource_after')?['result']?['package_id']),equals(body('HTTP_Resource_before')?['result']?['last_modified'],body('HTTP_Resource_after')?['result']?['last_modified']),equals(body('HTTP_Resource_before')?['result']?['hash'],body('HTTP_Resource_after')?['result']?['hash']),equals(body('HTTP_Package_before')?['result']?['id'],body('HTTP_Package_after')?['result']?['id']),equals(body('HTTP_Package_before')?['result']?['license_id'],body('HTTP_Package_after')?['result']?['license_id']),equals(body('HTTP_Package_before')?['result']?['resources'],body('HTTP_Package_after')?['result']?['resources']),equals(body('HTTP_Index_before')?['result']?['records'],body('HTTP_Index_after')?['result']?['records']),equals(length(variables('Files')),add(8,mul(2,max(1,div(add(variables('Total'),99),100))))))",
         previous,
     )
     a["Manifest"] = compose(
@@ -597,7 +609,12 @@ def build(site: str, archive_parent: str, reference: dict) -> dict:
 
 
 def main():
-    from scripts.patch_clinicaltrials_read_retries import strict_json
+    try:
+        from scripts.patch_clinicaltrials_read_retries import strict_json
+    except ModuleNotFoundError as error:
+        if error.name != "scripts":
+            raise
+        from patch_clinicaltrials_read_retries import strict_json
 
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--site", required=True)
@@ -611,8 +628,9 @@ def main():
     candidate = build(
         args.site, args.archive_parent, strict_json(args.reference.read_bytes())
     )
+    serialized = json.dumps(candidate, indent=2, allow_nan=False)
     with args.output.open("x") as stream:
-        json.dump(candidate, stream, indent=2)
+        stream.write(serialized)
     print(
         "Prepared Stopped/manual-only QGIP raw collector; native qualification and deployment remain required"
     )

@@ -7,6 +7,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from scripts.patch_clinicaltrials_read_retries import (
     PATHS,
@@ -17,6 +18,43 @@ from scripts.patch_clinicaltrials_read_retries import (
 
 
 class ClinicalTrialsRetryPatchTests(unittest.TestCase):
+    def test_overflow_parser_and_candidate_serialization_refuse_partial_output(self):
+        from scripts import patch_clinicaltrials_read_retries as module
+
+        for raw in (b'{"value":1e999}', b'{"value":-1e999}'):
+            with self.subTest(raw=raw), self.assertRaises(ValueError):
+                module.strict_json(raw)
+        self.assertEqual(module.strict_json(b'{"value":1.25}')["value"], 1.25)
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            source = folder / "source.json"
+            source.write_text(json.dumps(self.fixture()))
+            before = source.read_bytes()
+            out = folder / "bad.json"
+            args = [
+                "patch_clinicaltrials_read_retries",
+                "--source",
+                str(source),
+                "--expected-definition-sha256",
+                definition_sha256(self.fixture()["properties"]["definition"]),
+                "--action",
+                "detail",
+                "--output",
+                str(out),
+            ]
+            for bad in ({"nonfinite": float("-inf")}, {"unsupported": object()}):
+                with (
+                    self.subTest(kind=list(bad)),
+                    patch("sys.argv", args),
+                    patch.object(
+                        module, "prepare", return_value=(bad, {"status": "fictional"})
+                    ),
+                    self.assertRaises((TypeError, ValueError)),
+                ):
+                    module.main()
+                self.assertFalse(out.exists())
+                self.assertEqual(source.read_bytes(), before)
+
     def test_cli_rejects_duplicate_or_nonfinite_saved_definition(self):
         with tempfile.TemporaryDirectory() as directory:
             folder = Path(directory)

@@ -44,6 +44,16 @@ identity/schema checks and a last manifest write after every saved file has a
 base64 readback comparison. Original HTTP wire bytes and native cryptographic
 hashing are explicitly not claimed by that serialization path.
 
+The final correction adds a persistent `PageFailed` latch to the proposed QGIP
+page loop. Failed/timed-out/skipped HTTP actions and a failed or skipped dependent
+tail latch the generation. The Until condition exits on the latch as well as
+normal offset completion. A separate entry guard blocks a subsequent pass when
+latched, and neither per-pass reset clears it. Complete-key and commit guards
+also reject the latch. This removes the proposed same-offset/filename loop
+re-entry after HTTP, raw storage or guard failure; it is not a mutation retry or
+cross-run resume. The successful two-read route remains unchanged apart from
+these false-latch checks. Actual native Until behavior still requires qualification.
+
 PubMed retains both search responses and complete XML before checking exact batch
 PMID equality, before/after search identity and complete fetched identity coverage.
 The original XML is saved before the temporary DOCTYPE adjustment used for XPath.
@@ -124,13 +134,20 @@ behavior. A dictionary, a hash or the presence of a Scope is not that proof.
 
 Saved QGIP reference JSON, retry CLI definition JSON and PubMed observer preimage
 JSON now share a strict parser local to this packet. Duplicate keys at any level
-and NaN/Infinity values are refused before preparation. They are not silently
+and NaN/Infinity values, including overflowed numbers such as `1e999`, are refused
+before preparation. They are not silently
 collapsed into an apparently matching current preimage. Valid JSON and existing
 create-only output behavior remain unchanged; no new parser dependency is added.
+Both CLIs fully serialize their candidate output with `allow_nan=False` before
+opening the exclusive destination. Unsupported or nonfinite proposal values
+therefore fail before creating a partial output. This does not promise immunity
+to later filesystem write failures. QGIP's strict-parser import preserves its
+package and direct-script fallback; an absolute-path `-S` invocation from outside
+the repository with `PYTHONPATH` absent is covered by a local smoke test.
 
 ## Verification and native remainder
 
-Actual repo-local Python3.15.1. The review follow-up passes **45 focused stdlib
+Actual repo-local Python3.15.1. The `36fdeabf` review follow-up passed **45 focused stdlib
 tests**:9 QGIP,14 PubMed,11 DoRA and11 ClinicalTrials retry tests. The original
 37-test baseline remains in its original logs. Current cases include changed
 input/definition/observer hashes, strict URI/body selection, action/field collisions,
@@ -140,13 +157,18 @@ CLI create-only/failure preservation, strict saved JSON, preserved record guards
 variable collisions and failure-route structure. A small local runAfter model
 checks Failed/TimedOut branch selection, failure-evidence ordering and skipped
 success paths; it does not execute WDL, storage or a native observer.
+The final correction passes **four selected changed test methods**, covering
+numeric overflow, pre-open serialization failure, the direct `-S` CLI route and
+the QGIP failure latch/routing structure. The prior45-test results are retained
+without rerunning those suites.
 Ruff check/format and leaf link/diff checks
 pass for the owned packet. No broad unchanged harness is rerun.
 
 Ignored `private/ops/acquisition-builders/` retains original eight-file hashes,
 baseline/failing/final focused logs and source disposition receipts. The follow-up
-uses `review-*-final.log` and its separate receipt, preserving earlier evidence. All eight
-original files remain byte-identical to the recorded authoring-checkout versions.
+uses `review-*-final.log` and its separate receipt, preserving earlier evidence.
+Final-correction evidence uses `final-correction-final.log` and its own receipt.
+All eight original files remain byte-identical to the recorded authoring-checkout versions.
 Neither its active services nor its journals/environment are touched.
 
 Native acceptance remains false/unproved: actual existing flow identity and

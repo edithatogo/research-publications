@@ -2,16 +2,188 @@
 
 import copy
 import json
+import os
 import subprocess
 import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from scripts.prepare_qgip_source_collection import build
 
 
 class QGIPCollectorTests(unittest.TestCase):
+    def test_cli_overflow_and_candidate_serialization_fail_before_output_creation(self):
+        from scripts import prepare_qgip_source_collection as module
+
+        root = Path(__file__).resolve().parents[1]
+        scratch = root / "private/ops"
+        scratch.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=scratch) as directory:
+            folder = Path(directory)
+            reference = folder / "reference.json"
+            out = folder / "bad.json"
+            args = [
+                "prepare_qgip_source_collection",
+                "--site",
+                "https://example.sharepoint.com/sites/dev",
+                "--archive-parent",
+                "/Documents/archive",
+                "--reference",
+                str(reference),
+                "--output",
+                str(out),
+            ]
+            valid = json.dumps(self.ref).encode()
+            for number in (b"1e999", b"-1e999"):
+                raw = valid[:-1] + b',"expansion":' + number + b"}"
+                reference.write_bytes(raw)
+                with (
+                    self.subTest(number=number),
+                    patch("sys.argv", args),
+                    self.assertRaises(ValueError),
+                ):
+                    module.main()
+                self.assertFalse(out.exists())
+                self.assertEqual(reference.read_bytes(), raw)
+            reference.write_bytes(valid)
+            for bad in ({"nonfinite": float("inf")}, {"unsupported": object()}):
+                with (
+                    self.subTest(kind=list(bad)),
+                    patch("sys.argv", args),
+                    patch.object(module, "build", return_value=bad),
+                    self.assertRaises((TypeError, ValueError)),
+                ):
+                    module.main()
+                self.assertFalse(out.exists())
+                self.assertEqual(reference.read_bytes(), valid)
+
+    def test_absolute_direct_cli_without_site_or_pythonpath_from_outside_repo(self):
+        root = Path(__file__).resolve().parents[1]
+        scratch = root / "private/ops"
+        scratch.mkdir(parents=True, exist_ok=True)
+        with (
+            tempfile.TemporaryDirectory(dir=scratch) as directory,
+            tempfile.TemporaryDirectory() as outside,
+        ):
+            folder = Path(directory)
+            reference = folder / "reference.json"
+            reference.write_text(json.dumps(self.ref))
+            out = folder / "candidate.json"
+            env = dict(os.environ)
+            env.pop("PYTHONPATH", None)
+            command = [
+                sys.executable,
+                "-S",
+                str(root / "scripts/prepare_qgip_source_collection.py"),
+                "--site",
+                "https://example.sharepoint.com/sites/dev",
+                "--archive-parent",
+                "/Documents/archive",
+                "--reference",
+                str(reference),
+                "--output",
+                str(out),
+            ]
+            result = subprocess.run(
+                command,
+                cwd=outside,
+                env=env,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertEqual(
+                json.loads(out.read_text())["properties"]["state"], "Stopped"
+            )
+
+    def test_page_failure_latch_stops_same_offset_reentry_and_completion(self):
+        a = self.actions
+        loop = a["Two_complete_reads"]["actions"]
+        page = loop["Pages"]["actions"]
+
+        def trace(initial):
+            states = dict(initial)
+            while True:
+                pending = {}
+                for name, node in page.items():
+                    after = node.get("runAfter", {})
+                    if name not in states and after and all(k in states for k in after):
+                        pending[name] = (
+                            "Succeeded"
+                            if all(states[k] in allowed for k, allowed in after.items())
+                            else "Skipped"
+                        )
+                if not pending:
+                    return states
+                states.update(pending)
+
+        for failed, status in [
+            ("HTTP_Page", "Failed"),
+            ("HTTP_Page", "TimedOut"),
+            ("Raw_Page", "Failed"),
+            ("Save_Page", "Failed"),
+            ("Read_Page", "TimedOut"),
+            ("Verify_Page", "Failed"),
+            ("Record_Page", "Failed"),
+            ("Guard_Page", "Failed"),
+            ("Guard_page_coverage", "Failed"),
+        ]:
+            initial = {"HTTP_Page": "Succeeded", failed: status}
+            if failed == "HTTP_Page":
+                initial["Guard_Page"] = (
+                    "Failed"  # failed status cannot pass the existing HTTP200 guard
+                )
+            with self.subTest(failed=failed, status=status):
+                states = trace(initial)
+                self.assertEqual(states["Increment_offset"], "Skipped")
+                self.assertEqual(states["Latch_page_failure"], "Succeeded")
+                self.assertEqual(
+                    page["Latch_page_failure"]["inputs"],
+                    {"name": "PageFailed", "value": True},
+                )
+        success = trace({"HTTP_Page": "Succeeded"})
+        self.assertEqual(success["Increment_offset"], "Succeeded")
+        self.assertEqual(success["Latch_page_failure"], "Skipped")
+        self.assertEqual(
+            loop["Pages"]["expression"],
+            "@or(variables('PageFailed'),greaterOrEquals(variables('Offset'),variables('Total')))",
+        )
+        self.assertIn(
+            "not(variables('PageFailed'))", loop["Guard_page_entry"]["inputs"]
+        )
+        self.assertEqual(loop["Pages"]["runAfter"], {"Guard_page_entry": ["Succeeded"]})
+        self.assertIn(
+            "not(variables('PageFailed'))", loop["Guard_complete_keys"]["inputs"]
+        )
+        self.assertIn(
+            "not(variables('PageFailed'))", a["Guard_stable_metadata"]["inputs"]
+        )
+        self.assertEqual(
+            a["Initialize_PageFailed"]["inputs"]["variables"],
+            [{"name": "PageFailed", "type": "boolean", "value": False}],
+        )
+
+        def latch_values(value):
+            if isinstance(value, dict):
+                if (
+                    value.get("type") == "SetVariable"
+                    and value.get("inputs", {}).get("name") == "PageFailed"
+                ):
+                    yield value["inputs"]["value"]
+                for child in value.values():
+                    yield from latch_values(child)
+            elif isinstance(value, list):
+                for child in value:
+                    yield from latch_values(child)
+
+        self.assertEqual(list(latch_values(loop)), [True, True])
+        for node in page.values():
+            if node.get("type") == "OpenApiConnection":
+                self.assertEqual(node["inputs"]["retryPolicy"], {"type": "none"})
+
     def test_cli_rejects_duplicate_or_nonfinite_saved_reference(self):
         root = Path(__file__).resolve().parents[1]
         scratch = root / "private/ops"
