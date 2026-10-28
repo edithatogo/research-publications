@@ -389,3 +389,75 @@ preserved as `terminal-checkpoint-before-cli315.json`. The one-part frozen theme
 proposal, all 74 untouched-part checks and exact inverse were rechecked afterward.
 Fresh target identity, definitions, bindings, remote writer and in-flight state
 remain outstanding; the proposal has not become a current native preimage.
+
+### Same-client SDK recovery and current read results
+
+The parent identified the installed `account show` implementation as
+`Profile(cli_ctx=get_default_cli()).get_subscription()`. Its local profile check
+passed without token acquisition. This lane then used the same installed Azure
+CLI 2.90.0 SDK under actual Python 3.15.1, bypassing only the full command registry:
+`Profile.get_subscription()` and `Profile.get_raw_token(resource=...)`, the API
+used by the installed token command. Existing client-owned profile/cache and
+normal persistence were retained. Account, tenant, Azure CLI client, exact Fabric/
+Power BI audience and expiry checks passed in memory before their requests.
+Tokens were neither printed nor saved. No new client, resource pin, login,
+explicit renewal or shared-host invocation was introduced.
+
+The later parent-owned core-CLI qualification also reports success after isolating
+optional-extension loading through supported process-local CLI configuration.
+Its receipt is parent
+`private/ops/2026-10-29-integration/azure-cli315-core-qualification.json`. That
+additional local result does not replace or repeat this lane's successful SDK
+native reads. The initial command timeout remains preserved, with extension
+loading now a parent-owned changed hypothesis rather than an authentication claim.
+
+Current receipts under this delivery worktree's ignored
+`private/ops/e04-t18-read-verification-20261029/`:
+
+- `live-read2-sdk/e04-item.json`: exact assigned E04 Report item HTTP 200.
+- `live-read4-sdk-e04-model/model-item.json`: exact common model item HTTP 200.
+  `e04-binding.json` confirms the report still binds to that expected model.
+- `live-read4-sdk-e04-model/e04-definition.json` and `model-definition.json`:
+  complete 75-part PBIR and 61-part TMDL captures. Both read-only getDefinition
+  operations returned 202, reached Succeeded on the first retained poll, and their
+  result GETs returned 200. No submission was repeated.
+- `e04-frozen-path-payload-diff.json` and `model-frozen-path-payload-diff.json` in
+  that same batch: zero added, removed or changed payload paths relative to the
+  respective complete 28 October baselines.
+- `model-datasources.json` and `datasource-binding-comparison.json`: all four
+  data-source identities and complete returned fields match the retained accepted
+  binding capture exactly by identity; response ordering is not treated as drift.
+- `model-latest-refresh.json`: bounded latest history entry is Completed. No new
+  refresh was submitted. Both owned definition reads are terminal. Parent assigned
+  sole read scope and no matching local mutation helper was observed. This does
+  not prove a remote editor lease or absence of all future operations; immediate
+  ownership/operation and full drift checks remain required before a write.
+
+The separate T18 reader remains unresolved at its exact assigned ID. Its retained
+Fabric workspace-item route returned 404 EntityNotFound, saved at
+`live-read2-sdk/t18-item.json`. The already-retained successful personal-report
+route was then checked for the same ID under an explicit changed routing
+hypothesis; it also returned 404, saved at
+`live-read3-sdk-personal/t18-binding.json`. Account/client/resource checks passed
+for both resources. No other report was searched for or substituted; no deletion,
+permission cause or current T18 binding/definition is inferred. Its preserved
+259-part capture remains historical evidence only. Other assigned targets were
+read independently rather than inheriting that target's result.
+
+The current E04 theme-name mismatch is unchanged. The one-field candidate was
+regenerated from this new current definition, with all 74 unrelated parts exact
+and an inverse restoring the whole definition. Current source/model maps again
+resolve all 95 E04 visual field occurrences; the historical T18 map's 416 such
+occurrences also resolve against the now-current model, without establishing a
+current T18 reader. Files:
+`live-read4-sdk-e04-model/current-comparison/theme-identity-only-proposal.json`,
+`theme-identity-only-candidate.json` and `theme-identity-only-inverse-part.json`
+in that same comparison directory. The first is the concrete review packet with
+current baseline/candidate/part hashes, exact JSON delta, inverse and acceptance.
+All model/report mutation, processing, rebind, schedule and send counts remain zero.
+
+The terminal checkpoint now records
+`TERMINAL_CURRENT_E04_MODEL_READS_ACCEPTED_T18_EXACT_TARGET_UNRESOLVED`, preserving
+both earlier failures. Next: parent reviews this current report-only proposal and,
+if selected, assigns the exact E04 write/inverse scope. Do not execute the proposal
+or replace the unresolved T18 target under this read assignment.
