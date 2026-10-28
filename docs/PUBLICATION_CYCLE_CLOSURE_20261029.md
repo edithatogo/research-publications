@@ -1,5 +1,9 @@
 # Publication policy and cycle closure — 29 October 2026
 
+The [PubMed offline continuation](PUBMED_OFFLINE_TYPED_CANDIDATE_20261029.md)
+subsequently closes complete offline reconstruction/comparison. Native admission
+and notification prerequisites below remain separate.
+
 This source-only continuation follows the [first consolidation packet](PUBLICATION_SOURCE_CONSOLIDATION_20261029.md),
 based on `32c204de1b7ee017e8baa9e9716688c6433a63f6` in the same app-managed
 `fa70/chhhs-research-publications` worktree and `codex/rims-publications-roadmap`

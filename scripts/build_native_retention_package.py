@@ -11,7 +11,10 @@ import re
 import zipfile
 from pathlib import Path
 
-from build_source_extraction import ROOT, SOURCES
+if __package__:
+    from .build_source_extraction import ROOT, SOURCES
+else:
+    from build_source_extraction import ROOT, SOURCES
 
 
 def after(name):

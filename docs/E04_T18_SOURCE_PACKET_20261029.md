@@ -274,3 +274,318 @@ the common model or the other report.
 Second-packet verification: repo-local Python 3.15.1; 36 focused tests pass across
 12 new test modules. Initial packet tests were reused without rerunning the
 unchanged batch. No dependency installation/build or native/auth operation occurred.
+
+## Read-only assignment checkpoint — 29 October 2026
+
+After source integration the parent assigned this lane exclusive read verification
+of the exact E04 report/common model and the separate T18 reader from the private
+manifests above. No native mutation or authentication renewal was assigned.
+
+### Actual route boundary
+
+The owned retained Fabric candidate runs actual Python 3.15.1 and contains
+`azure.identity`, but not `azure.cli`. Its qualified `AzureCliCredential` provider
+delegates to the installed Azure CLI. Inspection of the actual launcher shows it
+selects Python 3.14; the independent Fabric CLI interpreter reports 3.12.13 and
+its retained compatibility record excludes Python 3.15. The original repo-local
+3.15.1 environment also has no Azure CLI package. No environment or launcher was
+changed and no dependency build was attempted here; the parent owns that work.
+
+An owned exact-E04-item read gate used the retained 3.15.1 Azure credential SDK
+and refused the unsupported credential subprocess before execution. Receipt:
+`private/ops/e04-t18-read-verification-20261029/exact-read-route-gate.json` in this
+delivery worktree. Actual result: `BLOCKED_LOCAL_CREDENTIAL_RUNTIME_GATE`, zero
+credential subprocesses, zero native requests, no login/renewal and no attached
+old Fabric host invocation. It does not establish an expired session, tenant
+denial or unavailable target permission. Fresh account/tenant identity, definitions,
+bindings and remote writer/in-flight state remain unverified. No matching local
+report/model mutation helper was observed; that alone cannot certify remote state.
+
+The inspected retained Node adapter at original
+`private/ops/2026-10-28-e04-completion-01/powerbi-read.mjs` invokes `az rest`; it
+does not provide an independent qualified Node credential route. No additional
+client or resource pins were introduced. Parent acknowledged this route boundary
+and retained ownership of new Azure CLI runtime qualification.
+
+### Useful frozen reconciliation completed
+
+New evidence is confined to this delivery worktree's ignored
+`private/ops/e04-t18-read-verification-20261029/`. Originals and authentication
+stores remain untouched. `frozen-summary.json`, `e04-frozen-consumer-map.json` and
+`t18-frozen-consumer-map.json` compare complete frozen report parts to the retained
+61-part/53-table model. The E04 capture contains six pages, 62 visuals and 95 direct
+Column/Measure reference occurrences in visual JSON. The T18 capture contains
+16 pages, 230 visuals and 416 such occurrences. All these references resolve to
+the frozen model, including resolved local query aliases. Counts exclude other
+reference kinds and page/report-level filter traversal; they are not a substitute
+for the broader retained native binding audits, semantic execution or security
+qualification. No new data query, current definition read or refresh occurred.
+
+### Concrete report-only proposal: one theme identity field
+
+The frozen six-page E04 baseline references one registered custom-theme resource
+whose internal `name` differs from its registration. Its exact resource path,
+full baseline/candidate/part SHA256 values and old/new strings are retained in
+`theme-identity-only-proposal.json`. The prepared full 75-part candidate is
+`theme-identity-only-candidate.json`; the exact original part is
+`theme-identity-only-inverse-part.json` in the same ignored directory.
+
+The proposed JSON delta is solely that resource's `/name` value. All 74 unrelated
+parts are byte-exact. Theme colours, fonts and styles are semantically exact;
+model binding, page/visual IDs, filters, order and landing are byte-exact. Applying
+the inverse part in memory restores the complete original definition exactly.
+The frozen input was rechecked after preparation. Native submissions: zero.
+
+This deliberately does not invoke the older theme helper's projection-label
+normalization. The frozen report retains 69 missing projection-label diagnostics;
+they and remote-schema warnings remain separate. A one-field repair does not
+establish whole-report CLI portability or fix unrelated validation findings.
+
+Before any effect: parent qualifies the retained same-client Python 3.15.1 read
+route, assigns the exact report mutation scope, verifies current identity and
+operation ownership, captures a fresh complete preimage and rechecks this specific
+mismatch. Rebase the proposal if any byte drifts; never submit the frozen body
+over intervening edits. Required transport/schema validation must be explicit.
+The common model and separate T18 report are outside this proposed write scope.
+
+Acceptance for a later assigned effect: saved complete definition shows only the
+intended resource delta (or specifically evidenced service normalization); resource
+registration and internal name agree; unrelated parts, binding, theme properties
+and page/visual/filter/landing behavior survive; actual overview/profile/source/
+monthly rendering is checked. Qualify the bounded inverse against the candidate
+hash and read back the restored full baseline. No model save, processing, refresh,
+other-report rebind or promotion is part of this proposal.
+
+Terminal checkpoint:
+`private/ops/e04-t18-read-verification-20261029/terminal-checkpoint.json`.
+Next operation remains the fresh exact-target read batch once the parent-owned
+runtime route qualifies. Existing source tests/checks are reused; this continuation
+adds frozen analytical receipts and a proposal, not a native acceptance claim.
+
+### Parent-owned CLI candidate follow-up
+
+The parent subsequently installed a separate candidate at
+`/Users/doughnut/.codex/worktrees/rims-reconcile/chhhs-research-publications/private/ops/2026-10-29-integration/azure-cli315`.
+This lane verified its explicit interpreter reports Python 3.15.1 and
+`bin/python -m azure.cli version` reports Azure CLI/core 2.90.0. The installed
+system launchers and shared Fabric host were not invoked or changed. The earlier
+3.14 credential-runtime refusal above is retained history, not the final barrier.
+
+The bounded next command, that same candidate's
+`bin/python -m azure.cli account show --output json`, timed out after 40 seconds
+with `subprocess.TimeoutExpired`. It had not returned selected-account metadata;
+the batch stopped before identity comparison, token acquisition or any Fabric/
+Power BI request. No retry, login, explicit renewal or consent was submitted.
+This is a local selected-account read timeout, not an expired-session or permission
+finding. The parent owns candidate/runtime diagnosis and qualification; this lane
+did not install or change it.
+
+Exact receipt:
+`private/ops/e04-t18-read-verification-20261029/live-read1/account-show-timeout.json`
+in this delivery worktree. The attempted read script and guarded operation scope
+are retained beside it; no credential is stored. The terminal checkpoint now
+records `TERMINAL_LOCAL_SELECTED_ACCOUNT_TIMEOUT`, with the earlier checkpoint
+preserved as `terminal-checkpoint-before-cli315.json`. The one-part frozen theme
+proposal, all 74 untouched-part checks and exact inverse were rechecked afterward.
+Fresh target identity, definitions, bindings, remote writer and in-flight state
+remain outstanding; the proposal has not become a current native preimage.
+
+### Same-client SDK recovery and current read results
+
+The parent identified the installed `account show` implementation as
+`Profile(cli_ctx=get_default_cli()).get_subscription()`. Its local profile check
+passed without token acquisition. This lane then used the same installed Azure
+CLI 2.90.0 SDK under actual Python 3.15.1, bypassing only the full command registry:
+`Profile.get_subscription()` and `Profile.get_raw_token(resource=...)`, the API
+used by the installed token command. Existing client-owned profile/cache and
+normal persistence were retained. Account, tenant, Azure CLI client, exact Fabric/
+Power BI audience and expiry checks passed in memory before their requests.
+Tokens were neither printed nor saved. No new client, resource pin, login,
+explicit renewal or shared-host invocation was introduced.
+
+The later parent-owned core-CLI qualification also reports success after isolating
+optional-extension loading through supported process-local CLI configuration.
+Its receipt is parent
+`private/ops/2026-10-29-integration/azure-cli315-core-qualification.json`. That
+additional local result does not replace or repeat this lane's successful SDK
+native reads. The initial command timeout remains preserved, with extension
+loading now a parent-owned changed hypothesis rather than an authentication claim.
+
+Current receipts under this delivery worktree's ignored
+`private/ops/e04-t18-read-verification-20261029/`:
+
+- `live-read2-sdk/e04-item.json`: exact assigned E04 Report item HTTP 200.
+- `live-read4-sdk-e04-model/model-item.json`: exact common model item HTTP 200.
+  `e04-binding.json` confirms the report still binds to that expected model.
+- `live-read4-sdk-e04-model/e04-definition.json` and `model-definition.json`:
+  complete 75-part PBIR and 61-part TMDL captures. Both read-only getDefinition
+  operations returned 202, reached Succeeded on the first retained poll, and their
+  result GETs returned 200. No submission was repeated.
+- `e04-frozen-path-payload-diff.json` and `model-frozen-path-payload-diff.json` in
+  that same batch: zero added, removed or changed payload paths relative to the
+  respective complete 28 October baselines.
+- `model-datasources.json` and `datasource-binding-comparison.json`: all four
+  data-source identities and complete returned fields match the retained accepted
+  binding capture exactly by identity; response ordering is not treated as drift.
+- `model-latest-refresh.json`: bounded latest history entry is Completed. No new
+  refresh was submitted. Both owned definition reads are terminal. Parent assigned
+  sole read scope and no matching local mutation helper was observed. This does
+  not prove a remote editor lease or absence of all future operations; immediate
+  ownership/operation and full drift checks remain required before a write.
+
+The separate T18 reader remains unresolved at its exact assigned ID. Its retained
+Fabric workspace-item route returned 404 EntityNotFound, saved at
+`live-read2-sdk/t18-item.json`. The already-retained successful personal-report
+route was then checked for the same ID under an explicit changed routing
+hypothesis; it also returned 404, saved at
+`live-read3-sdk-personal/t18-binding.json`. Account/client/resource checks passed
+for both resources. No other report was searched for or substituted; no deletion,
+permission cause or current T18 binding/definition is inferred. Its preserved
+259-part capture remains historical evidence only. Other assigned targets were
+read independently rather than inheriting that target's result.
+
+The current E04 theme-name mismatch is unchanged. The one-field candidate was
+regenerated from this new current definition, with all 74 unrelated parts exact
+and an inverse restoring the whole definition. Current source/model maps again
+resolve all 95 E04 visual field occurrences; the historical T18 map's 416 such
+occurrences also resolve against the now-current model, without establishing a
+current T18 reader. Files:
+`live-read4-sdk-e04-model/current-comparison/theme-identity-only-proposal.json`,
+`theme-identity-only-candidate.json` and `theme-identity-only-inverse-part.json`
+in that same comparison directory. The first is the concrete review packet with
+current baseline/candidate/part hashes, exact JSON delta, inverse and acceptance.
+All model/report mutation, processing, rebind, schedule and send counts remain zero.
+
+The terminal checkpoint now records
+`TERMINAL_CURRENT_E04_MODEL_READS_ACCEPTED_T18_EXACT_TARGET_UNRESOLVED`, preserving
+both earlier failures. Next: parent reviews this current report-only proposal and,
+if selected, assigns the exact E04 write/inverse scope. Do not execute the proposal
+or replace the unresolved T18 target under this read assignment.
+
+### Assigned theme write: required validation stopped the save
+
+The parent subsequently assigned this lane sole guarded DEV write scope for only
+the current E04 registered theme resource's internal `/name`, with fresh drift
+check, full saved-definition/binding readback, actual rendering, bounded inverse
+and separately intentional final reapplication. All other report fields, the
+common model and T18 remained excluded. The current parent ownership record was
+read before proceeding; no competing assigned writer was introduced.
+
+The installed `powerbi-report-author` is 0.5.0. The complete current native
+baseline and one-field candidate were reconstructed with its supported `unpack`
+operation into new ignored directories. Baseline unpack was independently checked
+against every native part byte; candidate path set and exactly one changed part
+were preserved. Full `validate` ran on both with remote schema checks enabled.
+No schema bypass, format-version downgrade or artifact pruning was used.
+
+| Validation | Errors | Warnings | Exact disposition |
+| --- | ---: | ---: | --- |
+| Current native baseline | 70 | 12 | One `PBIR_THEME_FILE_NAME_MISMATCH` plus 69 `PBIR_PROJECTION_MISSING_NATIVE_QUERY_REF` errors. |
+| Assigned one-field candidate | 69 | 12 | The theme mismatch is removed; all 69 existing missing-projection-label errors remain. |
+
+Both retain ten `PBIR_TEXTBOX_HEIGHT_BELOW_FLOOR` warnings and two
+`PBIR_SCHEMA_UNREACHABLE` warnings. The 69 missing `nativeQueryRef` labels span
+44 visual files. Diagnostic inspection confirms all are exact direct Column/
+Measure bindings, but repairing those visual properties is outside this assigned
+one-field delta. No additional report change was made to obtain a green result.
+
+The [Power BI report CLI skill](/Users/doughnut/.agents/skills/powerbi-report-cli/SKILL.md),
+management mode's modern-PBIR preflight, requires: "fix every error before packing."
+Its authoring validation procedure also blocks preview on errors. The parent's
+assignment explicitly required stopping when existing validation findings block
+the supported save. Therefore no pack, updateDefinition, inverse, reapplication,
+preview or screenshot operation was submitted. Native report state is preserved;
+rendered acceptance and native inverse remain incomplete rather than assumed.
+
+Exact private evidence in this delivery worktree:
+`private/ops/e04-theme-write-scope-20261029/` contains
+`baseline-validation.json`, `candidate-validation.json`, their command receipts,
+the exact unpacked baseline/candidate, `projection-label-diagnostics.json` and
+`write-preflight.json`. The terminal write disposition is
+`BLOCKED_REQUIRED_FULL_REPORT_VALIDATION`, with zero save/pack/preview attempts.
+Existing current E04/model native read receipts remain accepted at their read
+scope; no new refresh, model effect, authentication renewal or other-object write
+occurred. Next dependency is parent reconciliation of the 44-file label repair
+scope and the retained schema warnings before reconsidering the guarded save.
+
+### Expanded metadata-only candidate — prepared, not submitted
+
+The parent then assigned local preparation of the smallest validation repair:
+only the theme resource internal `/name` and the 69 missing direct-field
+`nativeQueryRef` labels. No expanded save authority was assigned. The existing
+`prepare_dashboard_reader_increment.prepare`/`projection_labels` guards ran with
+`reader_controls=False`; every affected queryRef equals its explicit entity and
+property, and every Column/Measure property exists in the complete current model
+capture. No aggregate, alias-based inference or model change was admitted.
+
+Machine verification identifies exactly 70 JSON-property changes in 45 parts:
+69 labels in 44 visual files plus one theme name. All 30 other parts remain
+byte-exact. Restoring those label fields and the theme name makes each parsed
+document equal its baseline; restoring the 45 retained inverse parts restores
+every original byte. Report/model binding, IDs, values, titles, filters, layout,
+order and controls remain unchanged. Three adversarial in-memory cases reject an
+extra visual-identity change, a missing model contract and an aggregate projection.
+
+Required full CLI validation now reports `succeededWithWarnings`: **zero errors,
+12 warnings**. The 12 warnings are exactly unchanged from the native baseline.
+This is successful CLI structural validation, not complete remote-schema or
+rendered acceptance. No schema version was changed and `--no-schema` was not used.
+
+| Page/visual | Current height | Font/padding | Validator minimum / disposition |
+| --- | ---: | --- | --- |
+| Overview caption | 40px | 22pt, 8+8px | 51px; inherited clipping/scrollbar risk |
+| Overview heading | 48px | 36pt, 8+8px | 73px; inherited clipping/scrollbar risk |
+| Monthly caption | 40px | 22pt, 8+8px | 51px; inherited clipping/scrollbar risk |
+| Monthly footer | 32px | 22pt, 8+8px | 51px; inherited clipping/scrollbar risk |
+| Monthly heading | 48px | 36pt, 8+8px | 73px; inherited clipping/scrollbar risk |
+| Sources caption | 40px | 22pt, 8+8px | 51px; inherited clipping/scrollbar risk |
+| Sources heading | 48px | 36pt, 8+8px | 73px; inherited clipping/scrollbar risk |
+| Profile caption | 40px | 22pt, 8+8px | 51px; inherited clipping/scrollbar risk |
+| Profile footer | 40px | 22pt, 8+8px | 51px; inherited clipping/scrollbar risk |
+| Profile heading | 48px | 36pt, 8+8px | 73px; inherited clipping/scrollbar risk |
+| Report schema | — | `report/3.4.0/schema.json` | Fetch unavailable; exact-version JSON-Schema coverage skipped |
+| Visual-container schema | — | `visualContainer/2.14.0/schema.json` | Fetch unavailable; exact-version JSON-Schema coverage skipped |
+
+The ten geometry warnings require actual reader inspection; no height, padding
+or typography was changed within this metadata-only preparation. The two schema
+URLs are the existing `developer.microsoft.com/json-schemas/fabric/item/report/definition/`
+references. They remain explicit coverage gaps, not silently downgraded schemas.
+
+After the expanded candidate's zero-error result, the supported deterministic
+CLI pack produced all 75 paths/payloads exactly. Prepared body SHA256:
+`69e5956ac2ab9ad817503b47d20c39faff332d717db978d091688fa03ae6828e`.
+Inverse-parts SHA256:
+`867664a3d8957e4c4fc03bfb63757384edebce749b6492b8c6a82a61f3e6e89f`.
+These identify local artifacts, not permission to submit them over later drift.
+
+One extra serialization diagnostic was inadvertently run against the original
+baseline after its validation had failed. That breached the required prepack
+gate; it is retained as `rejected-baseline-pack-diagnostic.json` with an explicit
+rejection receipt and is excluded from all submission/recovery artifacts. No
+service call occurred. The authoritative inverse uses the original retained
+parts, not that rejected diagnostic. Exact native rollback restores the original
+70-error CLI baseline; do not present it as a new green authoring candidate.
+
+The review packet is this delivery worktree's ignored
+`private/ops/e04-theme-write-scope-20261029/expanded/`:
+`semantic-delta.json`, `inverse-parts.json`, `update-body.json`,
+`final-candidate-manifest.json`, `independent-verification.json`,
+`warnings-classified.json`, `validation.json` and
+`save-inverse-render-plan.json`. The initial helper manifest records the
+projection-label stage before the separate theme-name change; the final manifest
+and independent verification describe the complete reviewed candidate.
+
+The plan requires parent final expanded scope and explicit warning/preview
+disposition; a fresh same-client identity, complete preimage, binding, operation
+and drift check; an exclusive one-attempt corrected save; complete saved-part/
+binding readback and actual all-six-page rendering; a separately journalled
+inverse from the verified owned candidate checkpoint and exact original readback;
+then a fresh guarded corrected reapplication only if inverse succeeds. Preserve
+uncertain handles and reconcile effects rather than resend. Use the existing
+internal-browser route for actual saved-report rendering; do not start an external
+browser or authentication renewal as a preview side effect. Common model, T18,
+data/refresh, sharing, schedules and sends remain excluded.
+
+No native save, inverse, reapplication or rendering operation occurred in this
+prepare-only continuation. The candidate is ready for parent review with the
+schema and rendering caveats above; it is not whole-report acceptance.

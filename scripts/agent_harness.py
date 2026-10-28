@@ -48,7 +48,11 @@ def commands(config, task):
                 [sys.executable, 'scripts/validate_project.py'],
                 [sys.executable, 'scripts/webfirst_contracts.py', 'validate'],
                 [sys.executable, 'scripts/validate_conductor.py'],
-                [sys.executable, 'scripts/powerplatform_tooling.py', 'check']]
+                [sys.executable, 'scripts/powerplatform_tooling.py', 'check'],
+                ['node', '--test', 'tests/test_m365_qualified.mjs',
+                 'tests/test_m365_workload_lock.mjs',
+                 'tests/test_sharepoint_change_log_read.mjs',
+                 'tests/test_grants_monitor_compatibility.mjs']]
     return [[sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', pattern, '-v']
             for pattern in config['tasks'][task]['test_patterns']]
 

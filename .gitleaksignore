@@ -5,3 +5,5 @@ b075f4f2ac233e686c631c0f31e488b78aa4bfe0:conductor/tracks/G04_grants_ingestion/r
 e48e54bd73f97c7145436e24bba034ade55a3a7c:examples/webfirst-synthetic-export/manifest.json:generic-api-key:9
 # Synthetic test fixture expected-key SHA256 checksum; data_kind is synthetic.
 e48e54bd73f97c7145436e24bba034ade55a3a7c:tests/fixtures/webfirst-export-synthetic.json:generic-api-key:10
+# Reviewed documentation prose: source-key followed by duplicate/orphan and typed relationship rules; no credential.
+3406d840a6fb97ad555ab6bcc42f9b5dd4710907:docs/G06_RELATIONSHIP_GUARDS_20261029.md:generic-api-key:12

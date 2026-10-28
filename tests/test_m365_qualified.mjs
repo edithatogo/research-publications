@@ -11,6 +11,11 @@ const url='https://example.sharepoint.com/sites/offline/_api/web';
 function fixture(){
   fs.mkdirSync(base,{recursive:true});
   const root=fs.mkdtempSync(path.join(base,'qualified-offline-'));
+  // A disposable Git fixture keeps the real private-path guard testable from
+  // source archives, which intentionally contain no repository history.
+  const init=spawnSync('git',['init','--quiet',root],{encoding:'utf8'});
+  assert.equal(init.status,0,init.stderr);
+  fs.writeFileSync(path.join(root,'.gitignore'),'*\n');
   const sdk=path.join(root,'fake-sdk');fs.mkdirSync(path.join(sdk,'dist'),{recursive:true});
   const pin={sdkRoot:sdk,sdkVersion:'synthetic-1',connectionName:'offline',appId:'11111111-1111-4111-8111-111111111111',tenantId:'22222222-2222-4222-8222-222222222222',username:'operator@example.invalid',objectId:'offline-user',resources:['https://example.sharepoint.com'],readUrlPrefixes:[url]};
   const binding=path.join(root,'binding.json');
@@ -53,7 +58,7 @@ log({step:'complete'});
 `);
   const log=path.join(root,'events.jsonl');
   function run(mode,args=[],fault=''){
-    const r=spawnSync(process.execPath,[path.resolve('scripts/m365-qualified.mjs'),mode,binding,...args],{encoding:'utf8',timeout:5000,env:{...process.env,FAKE_BINDING:binding,FAKE_LOG:log,FAKE_CASE:fault}});
+    const r=spawnSync(process.execPath,[path.resolve('scripts/m365-qualified.mjs'),mode,binding,...args],{cwd:root,encoding:'utf8',timeout:5000,env:{...process.env,FAKE_BINDING:binding,FAKE_LOG:log,FAKE_CASE:fault}});
     assert.equal(r.error,undefined);return r;
   }
   return {root,pin,binding,sdk,log,run,args:()=>['request','--url',url,'--method','get','--filePath',path.join(root,'response.json'),'--output','json'],events:()=>fs.existsSync(log)?fs.readFileSync(log,'utf8').trim().split('\n').filter(Boolean).map(JSON.parse):[],close:()=>fs.rmSync(root,{recursive:true,force:true})};
@@ -120,7 +125,7 @@ test('an existing shared workload owner blocks SDK restore until release',async(
   const f=fixture();const lock=path.join(f.root,'.m365-qualified.lock');fs.mkdirSync(lock);fs.writeFileSync(path.join(lock,'owner.json'),'synthetic-existing-owner');
   let child;
   try{
-    child=spawn(process.execPath,[path.resolve('scripts/m365-qualified.mjs'),'read',f.binding,...f.args()],{stdio:'ignore',env:{...process.env,FAKE_BINDING:f.binding,FAKE_LOG:f.log}});
+    child=spawn(process.execPath,[path.resolve('scripts/m365-qualified.mjs'),'read',f.binding,...f.args()],{cwd:f.root,stdio:'ignore',env:{...process.env,FAKE_BINDING:f.binding,FAKE_LOG:f.log}});
     const done=new Promise((resolve,reject)=>{child.once('exit',resolve);child.once('error',reject);});
     await new Promise(resolve=>setTimeout(resolve,100));assert.equal(fs.readFileSync(path.join(lock,'owner.json'),'utf8'),'synthetic-existing-owner');assert.deepEqual(f.events(),[]);
     fs.rmSync(lock,{recursive:true});assert.equal(await done,0);assert.ok(f.events().some(e=>e.step==='restore'));
@@ -138,4 +143,8 @@ test('change-log mode keeps its fixed read-only POST dependency closed',()=>{
   assert.equal(f.events().find(e=>e.step==='transport').method,'POST');
   assert.equal(JSON.parse(fs.readFileSync(path.join(directory,'complete.json'))).nativeMutations,0);
  }finally{f.close();}
+});
+
+test('a binding outside the disposable ignore policy fails before SDK restore',()=>{
+  const f=fixture();try{fs.writeFileSync(path.join(f.root,'.gitignore'),'');const r=f.run('read',f.args());assert.notEqual(r.status,0);assert.deepEqual(f.events(),[]);}finally{f.close();}
 });
