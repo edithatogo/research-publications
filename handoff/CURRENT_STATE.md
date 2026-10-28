@@ -35,6 +35,23 @@ Internal disk exhaustion was observed during startup; avoid large allocations
 and use owned temporary outputs on PortableSSD without moving active environments.
 Earlier assignments below are history, including the superseded local-only hold.
 
+### Current continuation
+
+PR57 merged at `75376d0f9224aa22c7a955d9c27bf2a1f425250c`; main quality
+40718887255 and security 40718887527 pass. The repaired canary qualified an
+actual Python3.15.2 candidate on Ubuntu24.04; it did not promote runtimes or locks.
+The active lane baseline remains verified3.15.1 pending complete qualification
+and safe environment handover. Combined source extraction at `edfe2eee` passed
+the full harness, with NativeAcceptance=false.
+
+Dashboard second packet `bcc2ce15` is integrated locally. Its next assignment is
+read-only current definition/binding reconciliation for the exact E04 report,
+separate T18 reader and common model using retained private target manifests.
+No writes/refresh/auth renewal are assigned. The funding-calendar-only isolated
+model is unsuitable for publication changes; report-only repair needs a concrete
+fresh preimage and inverse before any write assignment. Publications and grants
+continue their second source packets; no competing native targets are assigned.
+
 ### First integration milestone
 
 PR57 consolidates initial publications (`32c204de`), grants (`bb464cf8`) and
