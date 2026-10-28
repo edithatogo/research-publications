@@ -43,6 +43,29 @@ outcome evidence; natural monthly export/observer after **1 November2026,12:05
 Brisbane**. No duplicate monitor, early poll, resend, new schedule or production
 promotion. Source work and technical tests do not prove these exits.
 
+## Verified PR64 and current delivery progression
+
+PR64 merged at `546926c0ab3186527a3d4c9d738d55712ff7ae68`; main quality
+`40747963519` and security `40747963618` passed. Its combined harness passed
+1,579 Python tests with 19 capability skips, 58 Node tests and 446 project checks.
+The publication owner must fast-forward its clean branch to that exact main
+before its next source assignment: QGIP, PubMed and DoRA collector builders and
+the bounded read-retry helper, their eight source/test paths and one leaf.
+No shared provider constants, schemas, authentication or native objects are assigned.
+
+Contract packet `8d368c34` (35 focused stdlib tests) is reviewed and integrated
+locally for the next coherent PR. That lane's next operation is read-only assessment
+of the nine bootstrap/helper paths, excluding capture/native adapters and generated
+mutation scripts. The legacy-preservation lane retains its existing fourteen-path
+assignment and checkout; no active writer is rebased or fast-forwarded by another.
+
+A single app follow-up, `rims-november-natural-run-acceptance-review`, is scheduled
+for 1 November 2026 at 12:10 Brisbane to inspect the existing monthly export and
+independent observer evidence. It has one occurrence only and creates no recurring
+monitor or native schedule. It prohibits manual execution, resend, activation,
+authentication interference and inferred acceptance from elapsed time. The natural
+run remains unverified until its actual results are inspected after the deadline.
+
 ## Publication DOI packet under serial integration
 
 Publication lane terminal commit `a83194df` is reviewed and integrated locally.

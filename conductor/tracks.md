@@ -8,7 +8,7 @@ priority/deferral paragraphs. Three isolated lanes deliver scoped packets to one
 integrator. Blocked requirements remain open. T16/T17 are cancelled and excluded,
 despite their historical conditional labels below. Accepted receipts are reused.
 
-Canonical source milestones PR57–PR63 are merged with main quality and
+Canonical source milestones PR57–PR64 are merged with main quality and
 security checks passing. These do not close native/operational track exits.
 Current evidence and residual requirements are consolidated in the
 [publication cycle](../docs/PUBLICATION_CYCLE_CLOSURE_20261029.md),
@@ -24,7 +24,7 @@ merely to reproduce unchanged evidence.
 
 Latest integrated source checkpoint: library adapters with33 offline transport
 cases; all24 bounded grants preparation paths; outcome evidence/revision projection
-with18 fictional cases. Combined harness:1,552 Python tests/19 capability skips,
+with18 fictional cases. PR64 combined harness:1,579 Python tests/19 capability skips,
 58 Node tests and446 project checks. [Current remaining dependencies](../docs/CURRENT_MISSING_OUTCOMES.md)
 separate source closure from native adoption. All three lanes confirmed clean fast-forwards to verified main `63222432` before
 the next bounded source assignments in CURRENT_STATE.

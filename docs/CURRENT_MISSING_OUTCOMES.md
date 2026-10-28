@@ -5,7 +5,7 @@
 This table supersedes older pending/priority statements below. The entire
 unfinished roadmap is selected; accepted historical tests are reused. Current
 source/native ownership is in [CURRENT_STATE](../handoff/CURRENT_STATE.md).
-PR57–PR63 are merged and main quality/security checks pass. The next bounded
+PR57–PR64 are merged and main quality/security checks pass. The next bounded
 source assignments are recorded in the handoff; local success is not native acceptance.
 
 | Requirement family | Delivered or retained evidence | Concrete remaining dependency / next exit |
@@ -21,7 +21,7 @@ source assignments are recorded in the handoff; local success is not native acce
 | T18 reader and outcomes | Existing metric contracts, catalogue and scoped historical native receipts retained; all three slices restored to roadmap. Pure outcome intake/revision/projection passes18 fictional tests; this creates no store and supplies no real impact data. | Retained reader ID returns404 and is absent from bounded assigned inventories; current link/identity needed. Native light/dark,1366×768,keyboard/detail and five-observation performance/recovery exits remain open. Project/award/role and outcome records need authorised identities, periods, currency, denominators, comparators and follow-up; absent evidence stays unavailable. |
 | Forecast | Coverage/baseline/rolling-origin contracts and source evaluation retained. | Qualified complete coverage and sufficient origins determine evaluation. Baseline winner or suppression is valid; no persistent model service, weights or external upload is implied. |
 | S02/E10 | Private clean extraction at75ff865d passed full harness; Python3.15.1 selected. Linux3.15.2 canary passed without promotion. | Shared helper-host handover only at verified terminal boundary; Mac/native dependency qualification and two retained SIGBUS observations remain relevant. Native restore/release acceptance is distinct; no public release created. |
-| E08/monthly | Accepted ROR and four NHMRC/MRFF natural-generation archive receipts retained. | Remaining due source histories and selected operating windows need actual occurrence/output evidence. Monthly export and independent observer combined review only after1November2026 12:05Brisbane; no manual substitute or new recurring job. |
+| E08/monthly | Accepted ROR and four NHMRC/MRFF natural-generation archive receipts retained. | Remaining due source histories and selected operating windows need actual occurrence/output evidence. Monthly export and independent observer combined review only after1November2026 12:05Brisbane; no manual substitute or new recurring job. A single read-only app follow-up is scheduled for 12:10 Brisbane. |
 
 Archived E02/E03/E05/E06 requirements retain their accepted local scopes:
 clinical attribution/taxonomy still needs source-qualified author-role and
