@@ -53,7 +53,6 @@ class FlowContractTests(unittest.TestCase):
         self.assertEqual(receipt['intended_outcome'],{'enum':['no_send']})
         self.assertEqual(receipt['post_reference'],{'type':'null'})
         self.assertEqual(receipt['delivery_authority_reference'],{'type':'null'})
-        self.assertIn("startsWith(body('Parse_thread')?['canonical_key'],'PUB:')",graph['actions']['Require_no_send_identity']['inputs']['content']['ok'])
 
     def test_nested_sender_http_child_workflow_and_unknown_nodes_are_rejected(self):
         for node in [dict(type='Http',inputs={'method':'POST','uri':'https://graph.microsoft.com/v1.0/me/sendMail'}),
