@@ -8,7 +8,7 @@ priority/deferral paragraphs. Three isolated lanes deliver scoped packets to one
 integrator. Blocked requirements remain open. T16/T17 are cancelled and excluded,
 despite their historical conditional labels below. Accepted receipts are reused.
 
-Canonical source milestones PR57–PR65 are merged with main quality and
+Canonical source milestones PR57–PR66 are merged with main quality and
 security checks passing. These do not close native/operational track exits.
 Current evidence and residual requirements are consolidated in the
 [publication cycle](../docs/PUBLICATION_CYCLE_CLOSURE_20261029.md),
@@ -17,14 +17,14 @@ Current evidence and residual requirements are consolidated in the
 [relationship compatibility](../docs/G06_RELATIONSHIP_GUARDS_20261029.md),
 [classification closure](../docs/G07_CLASSIFICATION_SOURCE_20261029.md), and
 [E04/T18 reader handoff](../docs/E04_T18_SOURCE_PACKET_20261029.md).
-S02 clean-source extraction passes at `1c9ce69f` with NativeAcceptance=false;
+S02 clean-source extraction passes at `6c62888d` with NativeAcceptance=false;
 E10 shared-host promotion, current native recovery/rendering and the post-1November
 natural monthly observation remain open. No accepted historical route is reopened
 merely to reproduce unchanged evidence.
 
 Latest integrated source checkpoint: library adapters with33 offline transport
 cases; all24 bounded grants preparation paths; outcome evidence/revision projection
-with18 fictional cases. PR65 combined harness:1,614 Python tests/19 capability skips,
+with18 fictional cases. PR66 combined harness:1,705 Python tests/19 capability skips,
 58 Node tests and446 project checks. [Current remaining dependencies](../docs/CURRENT_MISSING_OUTCOMES.md)
 separate source closure from native adoption. All three lanes confirmed clean fast-forwards to verified main `63222432` before
 the next bounded source assignments in CURRENT_STATE.

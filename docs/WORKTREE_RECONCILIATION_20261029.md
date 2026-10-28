@@ -57,6 +57,28 @@ original checkout. No tooling reference was copied, relocated or promoted.
 Archive presence does not close its requirements. Original status is still
 byte-identical to the frozen entry inventory. Earlier inventories remain intact.
 
+## Source accounting after PR66
+
+The private v5 disposition is pinned to verified main `396c2d58`. Of the same
+2,386 original paths, 435 have exact canonical bytes, 171 have reviewed integrated
+amendments, 151 have reviewed scoped dependencies or retained canonical contracts,
+127 are retained private evidence, 55 are retained original archives and 11 are
+local tooling references. The remaining 1,436 still require source disposition;
+they are not 1,436 unimplemented requirements. Earlier snapshots remain intact.
+
+PR64–PR66 closed the bounded DOI-input, protected-field/replay and legacy
+preservation source packets. The latter now carries exact target binding through
+its connected receipt pipeline; its 91 tests do not authorize restoration or
+removal. Acquisition builders, registry metadata and ARC source-reader closure
+are the current independent packets. Actual requirement exits and native/data
+blockers remain in [CURRENT_MISSING_OUTCOMES](CURRENT_MISSING_OUTCOMES.md).
+
+Original full Git status still matches the frozen entry bytes. Local `main` and
+`origin/main` now both follow `396c2d58`; the original native/runtime checkout and
+its unrelated history remain preserved. Private source package
+`0.4.0-roadmap.12` at `6c62888d` passed fresh extraction and its full harness.
+No native acceptance, public release or wider sharing follows from packaging.
+
 ## Verified Git state at entry
 
 The canonical source base is `origin/main` at `76d42f84` (PR55). The existing
