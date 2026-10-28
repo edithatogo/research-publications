@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 """E09 Phase 4 advisory suggestions — local bounded consumer (no AI route).
 
 Local preparation for the later evidence-linked advisory extraction: this
@@ -77,6 +78,8 @@ def validate_advisory_suggestion(record: Any) -> dict[str, Any]:
     """Validate one advisory output against the bounded local schema."""
     if not isinstance(record, dict):
         raise ValueError("advisory suggestion must be an object")
+    if any(not isinstance(key, str) for key in record):
+        raise ValueError("advisory suggestion field names must be text")
     unknown = set(record) - ADVISORY_FIELDS
     if unknown:
         raise ValueError(f"advisory suggestion has fields outside the bounded schema: {sorted(unknown)}")
@@ -125,6 +128,8 @@ def record_advisory_failure(record: Any) -> dict[str, Any]:
     """Validate one explicit fallback record for a failed or unqualified advisory attempt."""
     if not isinstance(record, dict):
         raise ValueError("advisory failure must be an object")
+    if any(not isinstance(key, str) for key in record):
+        raise ValueError("advisory failure field names must be text")
     unknown = set(record) - FAILURE_FIELDS
     if unknown:
         raise ValueError(f"advisory failure has fields outside the bounded schema: {sorted(unknown)}")
@@ -194,11 +199,22 @@ def consume_advisory_output(
       false and requires a downstream curator decision, so manual operation
       is retained in every path;
     * ``{"outcome": "fallback_manual", ...}`` with a validated failure record
-      otherwise (malformed payload, or revision mismatch).
+      otherwise (malformed payload, or revision/request identity mismatch).
+
+    Invalid caller identities, revisions or fallback dates raise ValueError before
+    consuming output. Supplied failures are also bound to the current request;
+    null outage revisions remain unknown. Invalid supplier text is not copied
+    into generated fallback diagnostics.
     """
     identity_seed = {
         "publication_key": publication_source_key(publication_key, "publication_key"),
     }
+    # Caller controls must be valid even when the supplied result is an outage
+    # or success; they are not facts inferred from supplier/model output.
+    advisory_id = _required_identifier(advisory_id, "advisory_id")
+    _full_iso_date(failure_on, "failure_on")
+    expected_prompt_revision = _positive_int(expected_prompt_revision, "expected_prompt_revision")
+    expected_source_revision = _positive_int(expected_source_revision, "expected_source_revision")
 
     def failure(reason: str, detail: str, prompt_revision: int | None,
                 source_revision: int | None) -> dict[str, Any]:
@@ -218,7 +234,21 @@ def consume_advisory_output(
 
     if not isinstance(payload, dict) or payload.get("failure_reason") is not None:
         if isinstance(payload, dict) and payload.get("failure_reason") is not None:
-            return {"outcome": "fallback_manual", "record": record_advisory_failure(payload)}
+            try:
+                parsed_failure = record_advisory_failure(payload)
+            except ValueError:
+                return {"outcome": "fallback_manual", "record": failure(
+                    "invalid_output", "Invalid supplied failure record; manual operation retained",
+                    expected_prompt_revision, expected_source_revision)}
+            if (parsed_failure["publication_key"] != identity_seed["publication_key"]
+                    or parsed_failure["advisory_id"] != advisory_id
+                    or any(parsed_failure[field] is not None and parsed_failure[field] != expected
+                           for field, expected in (("prompt_revision", expected_prompt_revision),
+                                                   ("source_revision", expected_source_revision)))):
+                return {"outcome": "fallback_manual", "record": failure(
+                    "stale_advisory", "Supplied failure identity/revision differs from current request",
+                    expected_prompt_revision, expected_source_revision)}
+            return {"outcome": "fallback_manual", "record": parsed_failure}
         return {
             "outcome": "fallback_manual",
             "record": failure(
@@ -230,12 +260,12 @@ def consume_advisory_output(
 
     try:
         parsed = validate_advisory_suggestion(payload)
-    except ValueError as error:
+    except ValueError:
         return {
             "outcome": "fallback_manual",
             "record": failure(
                 "invalid_output",
-                f"advisory payload failed the bounded schema: {error}",
+                "Advisory payload failed the bounded schema; manual operation retained",
                 _safe_revision(payload.get("prompt_revision")),
                 _safe_revision(payload.get("source_revision")),
             ),
@@ -259,12 +289,13 @@ def consume_advisory_output(
                 parsed["prompt_revision"], parsed["source_revision"],
             ),
         }
-    if parsed["publication_key"] != identity_seed["publication_key"]:
+    if (parsed["publication_key"] != identity_seed["publication_key"]
+            or parsed["advisory_id"] != advisory_id):
         return {
             "outcome": "fallback_manual",
             "record": failure(
                 "stale_advisory",
-                "advisory payload names a different publication than the target candidate",
+                "advisory payload names a different publication or advisory request",
                 parsed["prompt_revision"], parsed["source_revision"],
             ),
         }
