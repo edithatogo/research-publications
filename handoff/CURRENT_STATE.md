@@ -1,3 +1,49 @@
+# Current integration checkpoint — 29 October 2026
+
+Sole orchestrator/integrator: `01a182f2-fd8e-7953-9bd2-f9b8002664a6` in
+`/Users/doughnut/.codex/worktrees/rims-reconcile/chhhs-research-publications`,
+branch `codex/rims-worktree-reconciliation`. Owns main/shared contracts, dependency
+and runtime promotion, authentication coordination and shared records. The entire
+unfinished roadmap remains selected for guarded DEV/no-send development;
+cancelled Windows/Desktop routes stay excluded. No blocked item counts complete.
+
+| Delivery owner | Actual managed checkout | Terminal packet |
+|---|---|---|
+| Publications `01a1831e-449a-7693-af1a-08bb23391c76` | `/Users/doughnut/.codex/worktrees/fa70/chhhs-research-publications` | `2d7a0e62`: metadata appliers with injected qualified sessions; direct native CLI disabled |
+| Grants `01a1831e-cc6d-7371-9d57-021a339b708a` | `/Users/doughnut/.codex/worktrees/ef45/chhhs-research-publications` | `f1a95df1`: all24 assigned executable source paths completed;42 native/private dependency paths retained |
+| Outcomes `01a1831e-cc0d-7340-a1da-95c81b8e93fa` | `/Users/doughnut/.codex/worktrees/c4c7/chhhs-research-publications` | `36d4dccf`: pure outcome evidence/revision/projection; no native store or real outcome claimed |
+
+All three packets are reviewed and integrated in this checkout. The seventh
+combined harness passes **1,502 Python tests,22 capability skips,58 offline Node
+tests (33 through unittest and25 direct),446 project checks**, plus the remaining
+harness gates. Three obsolete private-fixture skips were removed only where the
+selected tests use tracked/synthetic inputs. Exact preflights are clean.
+
+PR57–PR62 are merged with verified main quality/security gates. This checkpoint's
+source packet requires its own PR/main CI receipt; do not infer that from earlier
+runs. Next: finish its clean extraction and serial PR integration, verify main CI,
+then each sole lane writer fast-forwards its clean branch to that same main.
+Ordinary hooks stay enabled; no reset/clean or competing checkout writes.
+
+Local main now tracks canonical origin/main. Its old unrelated history remains
+unchanged as local `codex/retained-main-20261029` at `92c1d0e0`. Original authoring
+status remains byte-identical to entry; live jobs, bindings, renewal and journals
+stay there until their exact terminal handover. New work uses verified origin/main.
+
+[Actual remaining requirements and dependencies](../docs/CURRENT_MISSING_OUTCOMES.md)
+and [track register](../conductor/tracks.md) are authoritative over older priority
+text. Critical native exits: E04 exact-version import/recovery; missing T18 reader
+identity; current notification suppression and shared auth renewal; typed source/
+consumer/actor/access/persistence qualification; E10 helper-host handover; real
+outcome evidence; natural monthly export/observer after **1 November2026,12:05
+Brisbane**. No duplicate monitor, early poll, resend, new schedule or production
+promotion. Source work and technical tests do not prove these exits.
+
+## Preserved orchestration history
+
+The following assignments and observations retain their dated scope. They do not
+override the current checkpoint above or authorize another writer.
+
 ## Autonomous roadmap ownership — 29 October 2026
 
 The user approved the entire unfinished roadmap, including unfinished archived
