@@ -26,6 +26,22 @@ PRODUCERS = {
     },
 }
 
+SHAREPOINT_API = "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+MANIFEST_FIELDS = frozenset(
+    {
+        "raw_publication_producer_inputs",
+        "invalid_raw_publication_doi_values",
+        "related_doi_input_strategy",
+        "raw_publication_input_preimage_sha256",
+    }
+)
+SNAPSHOT_FIELDS = frozenset(
+    {
+        "raw_publication_producer_inputs",
+        "invalid_raw_publication_doi_values",
+    }
+)
+
 
 def _text(value):
     return (
@@ -189,7 +205,7 @@ def with_raw_producer_dois(
         or source not in ("crossref", "datacite")
         or any(
             k in a["Manifest"]["inputs"]
-            for k in ("recovery", "extension", "raw_publication_producer_inputs")
+            for k in {"recovery", "extension"} | MANIFEST_FIELDS
         )
         or not isinstance(producers, (tuple, list))
         or not producers
@@ -221,6 +237,37 @@ def with_raw_producer_dois(
         or not isinstance(getter["inputs"].get("parameters"), dict)
     ):
         raise ValueError("Existing publication-source preimage required")  # noqa: TRY004 - stable frozen-evidence ValueError contract
+    host = getter["inputs"].get("host")
+    if not isinstance(host, dict):
+        raise ValueError("Existing SharePoint host binding required")  # noqa: TRY004 - stable frozen-evidence ValueError contract
+    alias_keys = set(host).intersection({"connectionName", "connectionReferenceName"})
+    if len(alias_keys) != 1:
+        raise ValueError("Exactly one existing SharePoint connection alias required")
+    alias_key = next(iter(alias_keys))
+    alias = host[alias_key]
+    refs = p.get("connectionReferences")
+    reference = (
+        refs.get(alias) if isinstance(refs, dict) and isinstance(alias, str) else None
+    )
+    if (
+        getter.get("type") != "OpenApiConnection"
+        or set(host) != {"apiId", "operationId", alias_key}
+        or host.get("apiId") != SHAREPOINT_API
+        or host.get("operationId") != "GetItems"
+        or not _text(alias)
+        or not isinstance(reference, dict)
+        or reference.get("id") != SHAREPOINT_API
+        or reference.get("source") not in ("Embedded", "Invoker")
+        or not _text(reference.get("connectionName"))
+        or (
+            "connectionReferenceLogicalName" in reference
+            and not _text(reference["connectionReferenceLogicalName"])
+        )
+        or not _text(getter["inputs"]["parameters"].get("table"))
+    ):
+        raise ValueError(
+            "Exact existing GetItems alias/reference/source binding required"
+        )
     site = getter["inputs"]["parameters"].get("dataset")
     if not isinstance(site, str):
         raise ValueError("Exact existing SharePoint site text required")  # noqa: TRY004 - stable frozen-evidence ValueError contract
@@ -270,22 +317,23 @@ def with_raw_producer_dois(
         raise ValueError(
             "Raw input action already present; reconcile rather than replay transformation"
         )
-    if "Doi_source_snapshot" in a and (
-        not isinstance(a["Doi_source_snapshot"].get("inputs"), dict)
-        or "raw_publication_producer_inputs" in a["Doi_source_snapshot"]["inputs"]
-    ):
-        raise ValueError("Existing DOI snapshot preimage drift")
+    if "Doi_source_snapshot" in a:
+        snapshot = a["Doi_source_snapshot"]
+        if (
+            not isinstance(snapshot, dict)
+            or not isinstance(snapshot.get("inputs"), dict)
+            or SNAPSHOT_FIELDS.intersection(snapshot["inputs"])
+        ):
+            raise ValueError("Existing DOI snapshot preimage drift")
 
     def sp(op, params, after):
+        selected_host = copy.deepcopy(host)
+        selected_host["operationId"] = op
         return {
             "type": "OpenApiConnection",
             "runAfter": after,
             "inputs": {
-                "host": {
-                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
-                    "connectionName": "shared_sharepointonline",
-                    "operationId": op,
-                },
+                "host": selected_host,
                 "parameters": {"dataset": site, **params},
                 "retryPolicy": {"type": "none"},
             },

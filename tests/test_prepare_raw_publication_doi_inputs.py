@@ -58,15 +58,30 @@ class RawPublicationInputTests(unittest.TestCase):
         return {
             "properties": {
                 "state": "Stopped",
+                "connectionReferences": {
+                    "shared_sharepointonline": {
+                        "source": "Embedded",
+                        "id": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+                        "connectionName": "existing-connection",
+                        "connectionReferenceLogicalName": "existing-reference",
+                    }
+                },
                 "definition": {
                     "actions": {
                         "Manifest": {"inputs": {"source": source}},
                         "Get_publication_dois": {
+                            "type": "OpenApiConnection",
                             "inputs": {
+                                "host": {
+                                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+                                    "connectionName": "shared_sharepointonline",
+                                    "operationId": "GetItems",
+                                },
                                 "parameters": {
-                                    "dataset": "https://example.sharepoint.com/sites/dev"
-                                }
-                            }
+                                    "dataset": "https://example.sharepoint.com/sites/dev",
+                                    "table": "00000000-0000-4000-8000-000000000003",
+                                },
+                            },
                         },
                         key: {
                             "type": "Compose",
@@ -78,6 +93,117 @@ class RawPublicationInputTests(unittest.TestCase):
                 },
             }
         }
+
+    def test_missing_or_mismatched_existing_sharepoint_binding_is_refused(self):
+        def mutate(document, case):
+            p = document["properties"]
+            g = p["definition"]["actions"]["Get_publication_dois"]
+            ref = p["connectionReferences"]["shared_sharepointonline"]
+            if case == "references":
+                p.pop("connectionReferences")
+            elif case == "alias":
+                g["inputs"]["host"]["connectionName"] = "not-bound"
+            elif case == "missing-alias":
+                g["inputs"]["host"].pop("connectionName")
+            elif case == "two-aliases":
+                g["inputs"]["host"]["connectionReferenceName"] = (
+                    "shared_sharepointonline"
+                )
+            elif case == "action-type":
+                g["type"] = "Http"
+            elif case == "operation":
+                g["inputs"]["host"]["operationId"] = "CreateItem"
+            elif case == "api":
+                g["inputs"]["host"]["apiId"] = (
+                    "/providers/Microsoft.PowerApps/apis/shared_other"
+                )
+            elif case == "reference-api":
+                ref["id"] = "/providers/Microsoft.PowerApps/apis/shared_other"
+            elif case == "reference-mode":
+                ref["source"] = "Unknown"
+            elif case == "reference-connection":
+                ref.pop("connectionName")
+            elif case == "table":
+                g["inputs"]["parameters"].pop("table")
+
+        for case in (
+            "references",
+            "alias",
+            "missing-alias",
+            "two-aliases",
+            "action-type",
+            "operation",
+            "api",
+            "reference-api",
+            "reference-mode",
+            "reference-connection",
+            "table",
+        ):
+            d = self.fixture()
+            mutate(d, case)
+            before = copy.deepcopy(d)
+            with self.subTest(case=case), self.assertRaises(ValueError):
+                prepare_bound(d, "/Documents/Archive")
+            self.assertEqual(d, before)
+
+    def test_valid_alternative_alias_and_source_mode_are_preserved(self):
+        for mode in ("Embedded", "Invoker"):
+            for alias_key in ("connectionName", "connectionReferenceName"):
+                d = self.fixture()
+                p = d["properties"]
+                getter = p["definition"]["actions"]["Get_publication_dois"]
+                reference = p["connectionReferences"].pop("shared_sharepointonline")
+                reference["source"] = mode
+                p["connectionReferences"]["selected_sp"] = reference
+                getter["inputs"]["host"].pop("connectionName")
+                getter["inputs"]["host"][alias_key] = "selected_sp"
+                before = copy.deepcopy(d)
+                result = prepare_bound(d, "/Documents/Archive")
+                actions = result["properties"]["definition"]["actions"]
+                self.assertEqual(
+                    result["properties"]["connectionReferences"],
+                    before["properties"]["connectionReferences"],
+                )
+                self.assertEqual(actions["Get_publication_dois"], getter)
+                added = set(actions) - set(p["definition"]["actions"])
+                for name in added:
+                    if actions[name]["type"] == "OpenApiConnection":
+                        host = actions[name]["inputs"]["host"]
+                        expected = copy.deepcopy(getter["inputs"]["host"])
+                        expected["operationId"] = host["operationId"]
+                        self.assertEqual(host, expected)
+                        self.assertIn(
+                            host["operationId"], ("HttpRequest", "GetFileContentByPath")
+                        )
+                self.assertEqual(d, before)
+
+    def test_all_newly_managed_manifest_and_snapshot_fields_refuse_collisions(self):
+        managed = {
+            "Manifest": (
+                "raw_publication_producer_inputs",
+                "invalid_raw_publication_doi_values",
+                "related_doi_input_strategy",
+                "raw_publication_input_preimage_sha256",
+            ),
+            "Doi_source_snapshot": (
+                "raw_publication_producer_inputs",
+                "invalid_raw_publication_doi_values",
+            ),
+        }
+        for action, fields in managed.items():
+            for field in fields:
+                for existing in (None, {}, "human-owned"):
+                    d = self.fixture()
+                    d["properties"]["definition"]["actions"][action]["inputs"][
+                        field
+                    ] = existing
+                    before = copy.deepcopy(d)
+                    with (
+                        self.subTest(action=action, field=field, existing=existing),
+                        self.assertRaises(ValueError),
+                    ):
+                        prepare_bound(d, "/Documents/Archive")
+                    self.assertEqual(d, before)
 
     def test_raw_union_preserves_legacy_population_and_source_preimage(self):
         old = self.fixture()

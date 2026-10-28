@@ -53,6 +53,22 @@ the Manifest input fields and optional DOI-source snapshot input fields change.
 The original union remains nested intact. Unrelated actions, authentication
 fields, recurrence and evaluated recurrence, connection references and the rest
 of the source envelope are preserved. The retained global cleanup is excluded.
+New SharePoint reads derive their host from the existing `Get_publication_dois`
+OpenApiConnection/GetItems action. Its exact SharePoint API, table parameter and
+single `connectionName` or `connectionReferenceName` alias must resolve to the
+same API in the existing `connectionReferences` map. An explicit existing
+Embedded or Invoker source mode and connection are required; the complete map
+and source mode remain unchanged. A valid alternative alias is preserved.
+Missing, ambiguous or mismatched bindings fail closed; no alias, connection,
+credential or Embedded conversion is invented. These are local consistency
+checks, not native connection or permission qualification.
+
+All newly managed Manifest fields are reserved: producer inputs, invalid DOI
+diagnostics, input strategy and current-preimage hash. The optional DOI-source
+snapshot reserves its two newly written producer-input/invalid-DOI fields.
+Any existing value, including null or an empty object, causes refusal rather
+than replacement. Snapshot fields that this adapter does not manage remain
+untouched.
 Same-input replay yields the same proposal; applying the transform to an already
 prepared graph is refused instead of nesting or overwriting its action namespace.
 
@@ -136,11 +152,16 @@ Original bytes for all nine files remain unchanged against the frozen inventory.
 
 ## Focused verification
 
-Actual repo-local Python3.15.1. Stdlib discovery passes **14 raw DOI tests and
-8 own-identifier tests**, including local CLI create-only output and failure
-preservation. Ruff check/format and leaf link/diff checks pass. Original dependency
+Actual repo-local Python3.15.1. The `e70d696f` baseline passed stdlib discovery:
+**14 raw DOI tests and8 own-identifier tests**, including local CLI create-only
+output and failure preservation. The review follow-up passes **three selected
+changed test methods** covering missing/mismatched bindings, preserved alternative
+aliases/source modes and every newly managed field collision. Unchanged suites
+were not rerun. Ruff check/format and leaf link/diff checks pass. Original dependency
 failure and changed-behavior failing tests are retained in ignored
 `private/ops/provider-source/`, alongside original hashes and final focused logs.
+Follow-up results are in `binding-review-final.log`; the original22-test logs
+remain historical baseline evidence.
 No broad harness or accepted native capture is repeated for this packet.
 These results establish local source behavior only; native/operational acceptance
 and every source/object owner remain separate.
