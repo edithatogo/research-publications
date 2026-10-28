@@ -55,12 +55,20 @@ def patch_definition(document):
         if existing != known:
             raise ValueError('Existing ordering guard drifted')
         return result
-    if set(exact['actions']) != {'SharePoint_Update_item'}:
+    if set(exact['actions']) not in ({'SharePoint_Update_item'},
+                                     {'SharePoint_Update_item', 'SharePoint_Update_item_Preserve_ISO_Text'}):
         raise ValueError('Unexpected update graph')
     update = exact['actions']['SharePoint_Update_item']
     if update['inputs']['host'].get('operationId') != 'PatchItem' or update.get('runAfter', {}) != {}:
         raise ValueError('Unexpected update action')
-    known['actions']['Condition_Observation_Not_Older']['actions'] = {'SharePoint_Update_item': update}
+    safe_update = {'SharePoint_Update_item': copy.deepcopy(update)}
+    preserve = exact['actions'].get('SharePoint_Update_item_Preserve_ISO_Text')
+    if preserve is not None:
+        if (preserve.get('inputs', {}).get('host', {}).get('operationId') != 'HttpRequest'
+                or preserve.get('runAfter') != {'SharePoint_Update_item': ['Succeeded']}):
+            raise ValueError('Unexpected ISO-text preservation action')
+        safe_update['SharePoint_Update_item_Preserve_ISO_Text'] = copy.deepcopy(preserve)
+    known['actions']['Condition_Observation_Not_Older']['actions'] = safe_update
     exact['actions'] = {'Condition_Observation_Time_Known': known}
     return result
 
