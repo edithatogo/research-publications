@@ -11,8 +11,8 @@ handoff for this packet, under sole integrator
 The retained namespace, alias-duplicate and candidate-affiliation guards are
 migrated semantically, preserving canonical reviewed/withdrawn/source-key,
 duplicate/orphan and typed relationship identity rules. Award links require the
-existing AWARD:<funder>:<id> syntax. Source-key namespace and supplied funder
-namespace must agree. Legacy single labels and FUNDER:<namespace> compare
+existing `AWARD:<funder>:<id>` syntax. Source-key namespace and supplied funder
+namespace must agree. Legacy single labels and `FUNDER:<namespace>` compare
 case-insensitively only to detect disagreement/duplicate ambiguity; no key is
 rewritten, no funder identity is adjudicated and no source is merged.
 
