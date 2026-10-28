@@ -35,6 +35,26 @@ Internal disk exhaustion was observed during startup; avoid large allocations
 and use owned temporary outputs on PortableSSD without moving active environments.
 Earlier assignments below are history, including the superseded local-only hold.
 
+### First integration milestone
+
+PR57 consolidates initial publications (`32c204de`), grants (`bb464cf8`) and
+E04/T18 (`a764f506`) packets, plus release integrity and the retained E10 candidate
+native-read receipt. Each delivery packet passed decision-point preflight with no
+overlaps/deletions/missing files. Combined harness: 1,126 tests, 25 capability
+skips, 446 project checks and remaining gates pass. A subsequent release-alias
+hardening adds one focused passing test; hosted checks must cover final PR head.
+Fresh extraction passed the full harness for the hardened packager before the
+three source packets; the combined package requires its own final extraction.
+Original all-files Git status remains byte-identical. No native mutations occurred.
+
+The same three chats now own their next source packets: publication policy/current
+cycle closure; shared guarded CLI wrapper closure delegated to the grants lane
+(source ownership only, no authentication renewal); and later E04/T18 reader and
+parity builders. Parent retains exact native-object assignment and integration.
+The controller definition-save concurrency gap, E10 shared-host terminal handover,
+current rendered reader acceptance, evidence-dependent outcomes and natural monthly
+observation remain explicit. Source import does not close those requirements.
+
 ## Serial integration ownership — 29 October 2026
 
 - Chat: `01a182f2-fd8e-7953-9bd2-f9b8002664a6`, RIMS — Integration — Reconcile worktrees and remaining work.
