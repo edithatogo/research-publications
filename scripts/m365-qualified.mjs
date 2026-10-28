@@ -6,6 +6,7 @@ import {pathToFileURL} from 'node:url';
 import {execFileSync} from 'node:child_process';
 
 const fail = message => { throw new Error(message); };
+process.umask(0o077); // SDK response files and receipts remain owner-readable only.
 const [mode, bindingPath, ...args] = process.argv.slice(2);
 if (!['read','renew','change-log-read'].includes(mode)) fail('MODE_UNAVAILABLE_BEFORE_AUTH: this source packet implements only read, renew and change-log-read');
 if (!bindingPath) fail('Private binding required');
