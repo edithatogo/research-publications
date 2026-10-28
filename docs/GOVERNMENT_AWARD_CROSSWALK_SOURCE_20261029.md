@@ -180,3 +180,12 @@ with `-B -S` and its explicit locked-package directory, including all prior21
 methods. Unsafe declarations, out-of-range row/column coordinates and a separate
 XML component are rejected before `openpyxl.load_workbook` is called. No shared
 file, original workbook, existing environment or native object was changed.
+
+## Integration CI capability correction
+
+PR69 source-only CI intentionally has no third-party packages and initially
+failed importing openpyxl. The test module now skips only when openpyxl itself
+is absent; nested dependency failures still fail. The locked artifact job
+requires successful openpyxl import before running all23 workbook tests, so
+this is an explicit capability boundary, not omitted workbook qualification.
+The parent full environment and clean-package extraction passed all23 tests.

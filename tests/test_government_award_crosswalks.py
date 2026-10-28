@@ -5,7 +5,12 @@ import sys
 import tempfile
 import unittest
 
-import openpyxl
+try:
+    import openpyxl
+except ModuleNotFoundError as exc:
+    if exc.name != "openpyxl":
+        raise
+    raise unittest.SkipTest("openpyxl is required and tested by the locked artifact dependency job") from exc
 
 from scripts.government_award_crosswalks import project_packet as raw_project_packet,inspect_workbook
 from scripts.source_relationship_evidence import fingerprint
