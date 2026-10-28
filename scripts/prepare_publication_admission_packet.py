@@ -36,7 +36,33 @@ def identity(source,source_id):
     core.identifier(source_id,'source identity')
     if source=='PubMed' and re.fullmatch('[1-9][0-9]*',source_id):return 'pubmed:'+source_id
     if source=='DORA' and re.fullmatch('DORA:1/[1-9][0-9]*',source_id):return 'dora:'+source_id[5:]
+    if source=='DORA' and re.fullmatch(r'DORA:https://dora\.health\.qld\.gov\.au/qldresearchjspui/handle/[1-9][0-9]*/[1-9][0-9]*',source_id):return 'dora:'+source_id[5:]
     raise ValueError('Explicit configured source identity required; no CanonicalKey inference')
+
+
+def dora_representations(profile):
+    core.canonical(profile);core.complete(profile)
+    exact_keys(profile,('kind','complete','reference','bindings'),'literal DoRA representation profile')
+    if profile['kind']!='dora_literal_representation_profile_v1' or not isinstance(profile['bindings'],list) or not profile['bindings']:raise ValueError('Explicit literal representation authority required')
+    core.identifier(profile['reference'],'representation authority reference');result={};physical=set()
+    for binding in profile['bindings']:
+        exact_keys(binding,('source_id','SourceKey','own_uri','verified_https_uri'),'literal representation binding')
+        source_id=binding['source_id'];key=identity('DORA',source_id)
+        if not source_id.startswith('DORA:https://') or binding['SourceKey']!=key or binding['verified_https_uri']!=source_id[5:]:raise ValueError('Exact literal HTTPS source identity required')
+        uri=binding['verified_https_uri']
+        if binding['own_uri'] not in (uri,'http://'+uri[len('https://'):]) or source_id in result or uri in physical:raise ValueError('Ambiguous or unsupported own URI representation')
+        physical.add(uri);result[source_id]=copy.deepcopy(binding)
+    return result
+
+
+def dora_alias_guard(keys):
+    seen={}
+    for key in keys:
+        if not isinstance(key,str) or not key.startswith('dora:'):continue
+        source_id='DORA:'+key[5:];identity('DORA',source_id)
+        physical=source_id[5:] if source_id.startswith('DORA:https://') else OFFICIAL+source_id[5:]
+        if physical in seen and seen[physical]!=key:raise ValueError('Mixed short/URL DoRA aliases require explicit migration; no rekey or merge')
+        seen[physical]=key
 
 
 def generations(values,target):
@@ -83,8 +109,8 @@ def pubmed_root(raw):
     return root
 
 
-def project_part(part,raw):
-    """Only two explicit retained profiles; unknown raw content is never guessed."""
+def project_part(part,raw,*,representation_profile=None):
+    """Explicit retained profiles only; unknown raw content is never guessed."""
     if not isinstance(raw,bytes):raise ValueError('Exact artifact bytes required')
     source=part['source'];projected={}
     try:
@@ -92,18 +118,25 @@ def project_part(part,raw):
             root=pubmed_root(raw);rows=project_current_pubmed_efetch(raw)
             metadata={a.findtext('MedlineCitation/PMID'):core.decode_json(article_metadata(a)['MetadataJSON']) for a in root}
             projected={key:(row,metadata[key]) for key,row in rows.items()}
-        elif source=='DORA' and part['format']=='dora_metadata_records_v1':
+        elif source=='DORA' and part['format'] in ('dora_metadata_records_v1','dora_literal_metadata_records_v1'):
+            literal=part['format']=='dora_literal_metadata_records_v1'
+            representations=dora_representations(representation_profile) if literal else {}
             doc=core.decode_json(raw);core.complete(doc)
-            exact_keys(doc,('kind','complete','records'),'DoRA raw metadata envelope')
-            if doc['kind']!='dora_metadata_records_v1' or not isinstance(doc['records'],list) or not doc['records']:raise ValueError('Complete retained DoRA records required')
+            keys=('kind','complete','records','representation_profile_sha256') if literal else ('kind','complete','records')
+            exact_keys(doc,keys,'DoRA raw metadata envelope')
+            if doc['kind']!=part['format'] or not isinstance(doc['records'],list) or not doc['records']:raise ValueError('Complete retained DoRA records required')
+            if literal and doc['representation_profile_sha256']!=core.sha(representation_profile):raise ValueError('Raw representation profile differs from independently pinned schema')
             for entry in doc['records']:
                 exact_keys(entry,('source_id','metadata'),'DoRA raw record');key=entry['source_id'];identity(source,key)
+                if literal:
+                    if key not in representations:raise ValueError('Literal source identity lacks mapping authority')
+                elif re.fullmatch('DORA:1/[1-9][0-9]*',key) is None:raise ValueError('Legacy short profile cannot admit URL identities')
                 if key in projected or not isinstance(entry['metadata'],list):raise ValueError('Duplicate/malformed DoRA metadata')
                 for node in entry['metadata']:
                     if not isinstance(node,dict) or not isinstance(node.get('Field'),str) or node.get('Value') is not None and not isinstance(node['Value'],str):raise ValueError('Explicit DoRA field/value metadata required')
                 if any(n['Field']=='rims.source.format' and n.get('Value')=='dora_rss_v1' for n in entry['metadata']):raise ValueError('Sparse RSS requires the existing DoRA union/cycle gate; no full-metadata substitution')
                 uris={n.get('Value') for n in entry['metadata'] if n['Field']=='dc.identifier.uri'}
-                if uris!={OFFICIAL+key[5:]}:raise ValueError('DoRA own identifier conflicts with declared source ID')
+                if uris!={representations[key]['own_uri'] if literal else OFFICIAL+key[5:]}:raise ValueError('DoRA own identifier conflicts with declared source ID')
                 projected[key]=(_dora(entry['metadata']),copy.deepcopy(entry['metadata']))
         else:raise ValueError('Unsupported raw source profile; retained native capture is not imported')
     except (ET.ParseError,TypeError,KeyError,AttributeError):raise ValueError('Malformed retained source projection') from None
@@ -113,7 +146,9 @@ def project_part(part,raw):
 
 def qualify_schema(schema,s,policy,reference):
     core.complete(schema)
-    exact_keys(schema,('kind','complete','fields_sha256','policy_sha256','reference_sha256','timestamp_profile','timestamp_semantics_reference','full_title_semantics_reference','capacities'),'schema qualification')
+    keys={'kind','complete','fields_sha256','policy_sha256','reference_sha256','timestamp_profile','timestamp_semantics_reference','full_title_semantics_reference','capacities'}
+    if 'dora_representation_profile' in schema:keys.add('dora_representation_profile');dora_representations(schema['dora_representation_profile'])
+    exact_keys(schema,keys,'schema qualification')
     if schema['kind']!='publication_admission_schema_v1' or schema['fields_sha256']!=core.sha(s['fields']) or schema['policy_sha256']!=core.sha(policy) or schema['reference_sha256']!=core.sha(reference):raise ValueError('Schema/policy/reference binding mismatch')
     for name in ('timestamp_semantics_reference','full_title_semantics_reference'):core.identifier(schema[name],name)
     if schema['timestamp_profile']!='registry_processing_utc':raise ValueError('Explicit registry processing-time semantics required; source observations stay separate')
@@ -169,6 +204,8 @@ def prepare(inputs,files,*,expected_hashes,as_of):
     target=b['target'];s=core.validate_snapshot(inputs['registry'])
     report=assess(inputs['writer'],s,target,expected_writer_sha256=expected_hashes['writer'])
     gens=generations(b['generations'],target)
+    representation_profile=inputs['schema'].get('dora_representation_profile')
+    representations=dora_representations(representation_profile) if representation_profile is not None else {}
     for stamp in [s['observedAtUTC'],inputs['writer']['observed_at_utc'],inputs['writer']['run_history']['observed_at_utc']]+[g['observed_at_utc'] for g in gens.values()]:
         if core.instant(stamp,'input time')>core.instant(as_of,'evaluation time'):raise ValueError('Future input evidence')
     records=b['records']
@@ -177,6 +214,7 @@ def prepare(inputs,files,*,expected_hashes,as_of):
     for row in records:
         exact_keys(row,('source','source_id','SourceKey','CanonicalKey'),'binding row')
         key=identity(row['source'],row['source_id']);canonical=core.identifier(row['CanonicalKey'],'independent CanonicalKey')
+        if row['source']=='DORA' and row['source_id'].startswith('DORA:https://') and row['source_id'] not in representations:raise ValueError('Literal binding requires independently pinned representation authority')
         if row['SourceKey']!=key or row['source'] not in gens or key in bound or canonical.casefold() in canonical_keys:raise ValueError('Duplicate/ambiguous independent identities')
         bound[key]=row;canonical_keys.add(canonical.casefold())
     if set(gens)!={r['source'] for r in records}:raise ValueError('Every declared source requires an explicit nonempty identity inventory')
@@ -194,7 +232,7 @@ def prepare(inputs,files,*,expected_hashes,as_of):
         if source not in gens or part['generation']!=gens[source]['generation']:raise ValueError('Raw part generation differs')
         if type(part['bytes']) is not int or part['bytes']<1 or not isinstance(files[name],bytes) or len(files[name])!=part['bytes'] or core.bytes_sha(files[name])!=fingerprint(part['sha256'],'raw part'):raise ValueError('Exact raw byte proof differs')
         if not isinstance(part['source_ids'],list) or any(not isinstance(v,str) for v in part['source_ids']) or part['source_ids']!=sorted(set(part['source_ids'])):raise ValueError('Unique ordered raw source IDs required')
-        for source_id,(record,metadata) in project_part(part,files[name]).items():
+        for source_id,(record,metadata) in project_part(part,files[name],representation_profile=representation_profile).items():
             key=identity(source,source_id)
             if key in projected or key not in bound:raise ValueError('Duplicate/unbound raw identity')
             projected[key]=dict(source=source,source_id=source_id,SourceKey=key,CanonicalKey=bound[key]['CanonicalKey'],generation=part['generation'],part=name,record=record,metadata=metadata)
@@ -234,11 +272,14 @@ def prepare(inputs,files,*,expected_hashes,as_of):
         core.identifier(key,'current SourceKey')
         if key.casefold() in aliases:raise ValueError('Duplicate/ambiguous current SourceKey')
         aliases[key.casefold()]=key
-        if key.startswith('dora:') and re.fullmatch('dora:1/[1-9][0-9]*',key) is None:raise ValueError('Historical DoRA alias requires separately qualified resolution; no implicit adoption')
+        if key.startswith('dora:'):
+            source_id='DORA:'+key[5:];identity('DORA',source_id)
+            if source_id.startswith('DORA:https://') and source_id not in representations:raise ValueError('Historical DoRA alias requires separately qualified resolution; no implicit adoption')
         if key.startswith('pubmed:') and re.fullmatch('pubmed:[1-9][0-9]*',key) is None:raise ValueError('Unqualified PubMed identity')
         core.identifier(canon,'current CanonicalKey')
         if canon.casefold() in canonical_current:raise ValueError('Ambiguous current CanonicalKey')
         canonical_current[canon.casefold()]=key;current[key]=row
+    dora_alias_guard(list(bound)+list(current)+list(state['latest']))
     candidate_state=copy.deepcopy(state);proposals=[]
     for source in sorted(gens):
         g=gens[source];selected=[v for v in expected_records if v['source']==source]

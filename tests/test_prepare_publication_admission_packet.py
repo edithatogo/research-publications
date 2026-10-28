@@ -322,3 +322,56 @@ class AdmissionTests(unittest.TestCase):
         projected=admission.project_part(dict(source='PubMed',format='pubmed_efetch_xml_v1',source_ids=['1','2']),raw)
         self.assertEqual(projected['1'][0]['Title'],'Café & mixed H2O < 3');self.assertEqual(set(projected),{'1','2'});self.assertEqual(raw,saved)
         self.assertEqual(projected['1'][1],core.decode_json(article_metadata(ET.fromstring(raw)[0])['MetadataJSON']))
+
+
+def literal_dora_fixture(*,http_own_uri=False):
+    docs,files=fixture();url=admission.OFFICIAL+'1/2';source_id='DORA:'+url;key='dora:'+url;own='http://'+url[8:] if http_own_uri else url
+    profile=dict(kind='dora_literal_representation_profile_v1',complete=True,reference='fixture:independent-literal-authority',bindings=[dict(source_id=source_id,SourceKey=key,own_uri=own,verified_https_uri=url)])
+    docs['schema']['dora_representation_profile']=profile;docs['registry']['items'][1]['field_1']=key
+    binding=next(r for r in docs['bindings']['records'] if r['source']=='DORA');binding.update(source_id=source_id,SourceKey=key)
+    raw=core.decode_json(files['dora.json']);raw.update(kind='dora_literal_metadata_records_v1',representation_profile_sha256=core.sha(profile));raw['records'][0]['source_id']=source_id;raw['records'][0]['metadata'][0]['Value']=own
+    files['dora.json']=json.dumps(raw).encode();part=docs['acquisition']['parts'][1];part.update(format=raw['kind'],bytes=len(files['dora.json']),sha256=core.bytes_sha(files['dora.json']),source_ids=[source_id])
+    row=next(r for r in docs['typed']['records'] if r['source']=='DORA');row.update(source_id=source_id,SourceKey=key,metadata=copy.deepcopy(raw['records'][0]['metadata']));docs['typed']['records'].sort(key=lambda r:r['SourceKey']);docs['typed']['pages'][0]['rows']=copy.deepcopy(docs['typed']['records'])
+    return docs,files
+
+
+class LiteralDoraTests(unittest.TestCase):
+    def test_literal_url_and_explicit_http_representation_preserve_originals(self):
+        for http in (False,True):
+            docs,files=literal_dora_fixture(http_own_uri=http);before=copy.deepcopy((docs,files));p=admission.prepare(docs,files,expected_hashes=pins(docs),as_of=AS_OF);dora=next(p for p in p['proposals'] if p['source']=='DORA')
+            self.assertEqual(dora['SourceKey'],docs['registry']['items'][1]['field_1']);self.assertEqual(dora['retained_current'],docs['registry']['items'][1]);self.assertEqual(dora['source_record']['metadata'][0]['Value'],docs['schema']['dora_representation_profile']['bindings'][0]['own_uri']);self.assertEqual((docs,files),before)
+
+    def test_missing_or_unpinned_literal_authority_and_raw_profile_mismatch_fail(self):
+        for fault in ('missing','changed_pin','raw_sha','old_profile'):
+            docs,files=literal_dora_fixture(http_own_uri=True);expected=pins(docs)
+            if fault=='missing':docs['schema'].pop('dora_representation_profile')
+            elif fault=='changed_pin':docs['schema']['dora_representation_profile']['reference']='other'
+            elif fault=='raw_sha':
+                raw=json.loads(files['dora.json']);raw['representation_profile_sha256']='0'*64;files['dora.json']=json.dumps(raw).encode();docs['acquisition']['parts'][1].update(bytes=len(files['dora.json']),sha256=core.bytes_sha(files['dora.json']))
+            else:docs['acquisition']['parts'][1]['format']='dora_metadata_records_v1'
+            if fault!='changed_pin':expected=pins(docs)
+            with self.subTest(fault=fault),self.assertRaises(ValueError):admission.prepare(docs,files,expected_hashes=expected,as_of=AS_OF)
+
+    def test_representation_is_closed_to_exact_scheme_host_and_handle(self):
+        for bad in ('https://evil.invalid/1/2',admission.OFFICIAL+'1/02',admission.OFFICIAL+'1/2?x=1',admission.OFFICIAL+'1/%32','https://dora.health.qld.gov.au:443/qldresearchjspui/handle/1/2'):
+            docs,files=literal_dora_fixture();profile=docs['schema']['dora_representation_profile'];profile['bindings'][0]['own_uri']=bad
+            with self.subTest(bad=bad),self.assertRaises(ValueError):admission.dora_representations(profile)
+
+    def test_short_url_collisions_in_bindings_registry_or_history_never_rekey(self):
+        from scripts.publication_retained_cycle import retain
+        for where in ('registry','history','bindings'):
+            docs,files=literal_dora_fixture()
+            if where=='registry':docs['registry']['items'][2].update(field_1='dora:1/2',field_2='OTHER')
+            elif where=='history':docs['state']=retain(docs['state'],[('DORA:1/2',{'Title':'old'})],generation='prior',observed_at='2026-10-28T00:00:00Z',source='DORA',complete=True)
+            else:docs['bindings']['records'].append(dict(source='DORA',source_id='DORA:1/2',SourceKey='dora:1/2',CanonicalKey='OTHER'));docs['bindings']['item_count']+=1
+            original=copy.deepcopy(docs)
+            with self.subTest(where=where),self.assertRaises(ValueError):admission.prepare(docs,files,expected_hashes=pins(docs),as_of=AS_OF)
+            self.assertEqual(docs,original)
+
+    def test_existing_feed_and_protocol_accept_literal_profile_without_source_changes(self):
+        from tests.test_prepare_publication_writer_feed import make_feed
+        from tests.test_prepare_publication_guarded_writer import declarations,CLOCK
+        from scripts import prepare_publication_guarded_writer as guarded
+        docs,files=literal_dora_fixture(http_own_uri=True);_,_,_,m,parts=make_feed(docs=docs,files=files);profiles,profile_pins=declarations(m,docs['writer']);transport=guarded.MemoryTransport(docs['registry']['items'],[CLOCK]*3)
+        result=guarded.simulate(docs['writer'],m,parts,profiles,transport,expected_writer_sha256=core.sha(docs['writer']),expected_manifest_sha256=m['manifest_sha256'],profile_pins=profile_pins)
+        self.assertEqual(result['status'],'SIMULATED_COMPLETE');self.assertEqual(transport.rows[1]['field_1'],docs['registry']['items'][1]['field_1']);self.assertFalse(result['native_runtime_verified'])
