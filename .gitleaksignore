@@ -7,3 +7,5 @@ e48e54bd73f97c7145436e24bba034ade55a3a7c:examples/webfirst-synthetic-export/mani
 e48e54bd73f97c7145436e24bba034ade55a3a7c:tests/fixtures/webfirst-export-synthetic.json:generic-api-key:10
 # Reviewed documentation prose: source-key followed by duplicate/orphan and typed relationship rules; no credential.
 3406d840a6fb97ad555ab6bcc42f9b5dd4710907:docs/G06_RELATIONSHIP_GUARDS_20261029.md:generic-api-key:12
+# Reviewed documentation prose describing partial keys and empty/duplicate shapes; no credential.
+f1a95df1c69f4093df4a4a3561ac45cdacdbf78b:docs/GRANTS_EXECUTABLE_SOURCE_CLOSURE_20261029.md:generic-api-key:39
