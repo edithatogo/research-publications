@@ -8,7 +8,7 @@ priority/deferral paragraphs. Three isolated lanes deliver scoped packets to one
 integrator. Blocked requirements remain open. T16/T17 are cancelled and excluded,
 despite their historical conditional labels below. Accepted receipts are reused.
 
-Canonical source milestones PR57–PR68 are merged. PR68 and its exact main
+Canonical source milestones PR57–PR69 are merged. PR69 and its exact main
 quality/security checks passed. These do not close native/operational track exits.
 Current evidence and residual requirements are consolidated in the
 [publication cycle](../docs/PUBLICATION_CYCLE_CLOSURE_20261029.md),
@@ -22,7 +22,7 @@ E10 shared-host promotion, current native recovery/rendering and the post-1Novem
 natural monthly observation remain open. No accepted historical route is reopened
 merely to reproduce unchanged evidence.
 
-Latest verified combined source checkpoint: 1,951 Python tests/19 capability skips,
+Latest verified combined source checkpoint: 2,041 Python tests/19 capability skips,
 58 Node tests and 446 project checks. Acquisition builders, registry metadata
 proposals and ARC model/reader closure are merged. The three current packets
 cover admission proposals, ARC source/export closure and relationship evidence.
@@ -113,7 +113,7 @@ Execution order and boundaries: [detailed handoff](PUBLICATION_STABILISATION.md)
 Provider foundation (39 focused tests), historical workbook crosswalks (23),
 and bounded writer feed/protocol simulation (28) are locally merged. Combined
 Python3.15.1 harness passes2,041 tests with19 capability skips,58 Node tests and
-446 checks. PR69 hosted gates remain next. The protocol simulator emits no
+446 checks. PR69 and exact main hosted gates passed. The protocol simulator emits no
 deployable WDL; native writer/journal/immutable-read qualifications remain open.
 All lanes will converge to the same verified main before the next implementation
 round; current read-only recommendations must account for sibling work on main.
