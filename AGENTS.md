@@ -1,5 +1,9 @@
 # Agent instructions
 
+Project-owned code uses Apache-2.0; retain the complete LICENSE and NOTICE in
+source packages. Preserve upstream terms and attribution. The code licence grants
+no redistribution rights over external documents, datasets or private evidence.
+
 ## Serial integration — 29 October 2026
 
 Read the current integration assignment at the top of `handoff/CURRENT_STATE.md`

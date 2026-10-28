@@ -402,11 +402,13 @@
   },
   "validation": {
     "python": "3.15.1",
-    "unittest_total": 1008,
+    "unittest_total": 1011,
     "unittest_skips": 25,
     "unittest_failures": 0,
     "project_checks": 446,
     "conductor_errors": 0,
     "native_acceptance": false
-  }
+  },
+  "security_workflow_disposition": "restore_repo_owned_job_from_public_RIMS_history_remove_private_reusable_dependency",
+  "licence_disposition": "Apache-2.0_LICENSE_and_scoped_NOTICE_integrated"
 }

@@ -71,7 +71,7 @@ main as an acceptance claim. Historical receipts remain with their existing owne
 
 | Work | Current position | Next meaningful exit |
 |---|---|---|
-| Source consolidation | Three small source packets integrated; large original-checkout delta preserved and inventoried. This is the main repository debt. | Migrate reviewed dependency-closed packets with their tests and receipt references, starting with G07 observer/worker source, remaining publication validators and metadata comparators, then report/source-generator work. Reconcile licence/NOTICE packaging and current setup instructions within those packets. Avoid bulk-copying generated/private tooling or replacing canonical-only fixes. |
+| Source consolidation | Three small source packets integrated; large original-checkout delta preserved and inventoried. This is the main repository debt. | Migrate reviewed dependency-closed packets with their tests and receipt references, starting with G07 observer/worker source, remaining publication validators and metadata comparators, then report/source-generator work. Retain the integrated Apache-2.0 LICENSE/NOTICE in source packages and reconcile current setup instructions within those packets. Avoid bulk-copying generated/private tooling or replacing canonical-only fixes. |
 | G07 reliable operation | Main already contains PR35 original-retention and PR51 scheduled NIH chain/recovery acceptance. Later authoring evidence reports hourly local monitoring, own-notification activation and natural/expiry-recovery observations. | Integrate that later source/receipt handover. Preserve the live job and one-send journal. Real reviewed notice/changed deadline, sustained operation and retention/credential-disaster limits remain distinct; current Needs Review is not an implementation defect. Do not rerun mail or change schedules for Git reconciliation. |
 | Publication acquisition/current admission | Main contains selected saved-generation key/metadata/export/preservation closeout (PR53/55). Original-checkout records compare 1,279 retained PubMed IDs against 1,277 consumed and account for DoRA metadata. | Integrate the current validators/comparators and determine the genuinely missing current typed-admission/runtime delta from frozen receipts. Historical full-generation accounting is complete. Archived E01/T11 broader runtime/recovery scope must not be silently recommissioned. Crossref retained-operation state needs its existing terminal receipt before a new operation. |
 | E04 dashboard and forecast | Original-checkout 28 October review says P00 complete, P01–P12 whole exits open and native writer held local-only. Forecast dependency/import slice is retained here exactly. | Integrate the scoped report/metric/topic/researcher sources and coverage contracts, then finish the selected local work. Scientific baseline/rolling-origin evaluation, weights/inference and native rendered/accessibility acceptance remain separate. Preserve the writer hold. |
@@ -95,8 +95,30 @@ does not prove long-term operation or broaden notification authority.
 ## Verification of this integration
 
 Fresh worktree-local Python reports 3.15.1; dependencies use the existing exact
-hash lock. Full unittest discovery after both code repairs: 1,008 tests, 25 capability skips, no failures.
+hash lock. Full unittest discovery after both code repairs: 1,011 tests, 25 capability skips, no failures.
 Project validator: 446 checks pass. Web-first contracts pass with native acceptance
 false. These checks qualify local source integration only. Existing private
 native receipts are consumed by reference; no provider harvest, native mutation,
 mail, authentication recovery or schedule operation was submitted.
+
+
+## Hosted security dependency repaired
+
+The first PR56 quality jobs passed, but the shared security workflow failed
+before creating any jobs. Exact repository reads show this caller public and
+CareOps private. GitHub's [access table](https://docs.github.com/en/actions/reference/workflows-and-actions/reusing-workflow-configurations#access-to-reusable-workflows)
+permits a public caller to use public reusable workflows. This explains the
+configuration failure; no access or visibility setting is changed.
+
+Restore the existing RIMS-owned job from its own public source history, replacing
+its old cross-repository pin-checker dependency with a small local checker.
+Retain full-history redacted gitleaks, SHA256-verified tool downloads, exact action
+commits, strict action/container reference checks, actionlint and offline pedantic
+zizmor. Use the existing RIMS hash lock in a verified local Python3.15.1 CI
+environment. No private CareOps source, token or shared environment is copied.
+Three focused checker tests cover real immutable/local references and rejection
+of floating, malformed and tagged-container references, including nested jobs.
+
+The already selected complete Apache-2.0 LICENSE and scoped NOTICE are integrated
+from the preserved authoring checkout. The existing tracked-file source packager
+includes both without changing third-party licences or release/native claims.
