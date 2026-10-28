@@ -1,0 +1,55 @@
+{
+  "version": "T18-publications-1",
+  "scope": "Selected publications output and evidence coverage; no impact judgement",
+  "grain": "One included canonical publication per selected snapshot",
+  "date_roles": {
+    "publication": "Usable day/month precision only for month plots; year-only, uncertain or absent dates remain outside month cohorts and visible as unknown",
+    "cutoff": "CutoffExclusive is the first day after the last complete Brisbane calendar month; never provider freshness",
+    "capture": "CapturedUTC is model evaluation/processing time; never provider acquisition or publication time",
+    "observation": "Dated retained OpenAlex OA observation; not current full-text availability"
+  },
+  "provenance_fields": ["SnapshotID", "CutoffExclusive", "CapturedUTC", "MetricVersion", "ModelRevision", "ReportRevision", "SourceVersions", "InputSHA256"],
+  "views": {
+    "current": "Restated current projection; retain source batches and independent metric/model/report versions",
+    "technical_baseline": "Immutable reviewed technical capture, explicitly not issued",
+    "original-unavailable": "No issued original is evidenced; values remain blank and Availability false; do not reconstruct from current rows"
+  },
+  "metrics": {
+    "K01": {
+      "label": "Publication outputs in complete months",
+      "measure": "V01 Publications in complete months",
+      "numerator": "Distinct included canonical works with usable month in the selected complete reporting window",
+      "denominator": null,
+      "unit": "publications",
+      "aggregation": "Distinct works; facility category totals are non-additive",
+      "missingness": "Unknown-month count shown separately; do not assign artificial dates",
+      "interpretation": "Output activity; no quality or impact inference"
+    },
+    "K02": {
+      "label": "Known open-access share among assessed publications",
+      "measure": "V01 OA rate among assessed",
+      "numerator": "V01 Open publications",
+      "denominator": "V01 Assessed publications = open + closed",
+      "unit": "ratio",
+      "aggregation": "Recompute from distinct work totals; never average percentages",
+      "missingness": "Absent, undated, conflicting or unsupported OA is unknown; zero assessed denominator returns blank",
+      "interpretation": "Retained OA status evidence, not institutional coverage or accessible full text"
+    },
+    "D01": {
+      "label": "OA evidence assessment coverage",
+      "measure": "V01 OA assessment coverage",
+      "numerator": "V01 Assessed publications",
+      "denominator": "V01 Included publications",
+      "unit": "ratio",
+      "aggregation": "Recompute in the same snapshot/facility/date/source context",
+      "missingness": "Zero included denominator returns blank; unknown OA remains explicit",
+      "interpretation": "Coverage of this retained evidence field only; no workforce or whole-institution denominator"
+    }
+  },
+  "change_control": "Keep legacy count/export semantics. Introduce a new metric version/name for changed semantics; reconcile dependent plots, details and exports before deprecating the old measure. Never rewrite frozen baseline source to match current totals.",
+  "future_dependencies": {
+    "capacity": "Qualified participation/workforce grain and denominators",
+    "funding": "Accepted award/application/opportunity distinctions, effective periods and currency/share semantics",
+    "translation_and_outcomes": "Authoritative retained events/observations, comparator, observation horizon and verification; no classifications or impact judgements inferred"
+  }
+}

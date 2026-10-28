@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "status": "SOURCE_ONLY",
+  "base": "0e9b595e243315760086be301e769d6060ffce98",
+  "source_reference": "Preserved original authoring checkout; paths relative to its repository root",
+  "native_writes": 0,
+  "files": [
+    {
+      "path": "config/publication-comparison-selection.json",
+      "retained_sha256": "bbab7222e5cfed1dcb6fb1c5028d81d47396dd68bde8ca17fb2046f6db5a135e",
+      "packet_sha256": "bbab7222e5cfed1dcb6fb1c5028d81d47396dd68bde8ca17fb2046f6db5a135e",
+      "disposition": "exact"
+    },
+    {
+      "path": "config/publication-outcomes-theme.base.json",
+      "retained_sha256": "aa3f6e54c868a5bd65c8862afbeef248ae1068349e23be4a98930a37c11da27f",
+      "packet_sha256": "aa3f6e54c868a5bd65c8862afbeef248ae1068349e23be4a98930a37c11da27f",
+      "disposition": "exact"
+    },
+    {
+      "path": "config/publication-outcomes-theme.dark.json",
+      "retained_sha256": "c939fa8f370d7f3f62f19d7dd8942309c6c301acfe6ef873abd9824124485e71",
+      "packet_sha256": "c939fa8f370d7f3f62f19d7dd8942309c6c301acfe6ef873abd9824124485e71",
+      "disposition": "exact"
+    },
+    {
+      "path": "config/publication-outcomes-theme.light.json",
+      "retained_sha256": "c7f608406fd2b0a2ab0ffc381c77d3d641022150584476acdcef9dc3516922a5",
+      "packet_sha256": "c7f608406fd2b0a2ab0ffc381c77d3d641022150584476acdcef9dc3516922a5",
+      "disposition": "exact"
+    },
+    {
+      "path": "contracts/dashboard-metrics-v1.json",
+      "retained_sha256": "302b110ae0fe72f6c87708cd5937c1677e7bfc7f3acb701ad35826f92df8ffd4",
+      "packet_sha256": "302b110ae0fe72f6c87708cd5937c1677e7bfc7f3acb701ad35826f92df8ffd4",
+      "disposition": "exact"
+    },
+    {
+      "path": "contracts/publication-outcome-metrics.json",
+      "retained_sha256": "5127b564446d38f965314617acdda5b04f1113cb46773f92507c674aec530263",
+      "packet_sha256": "5127b564446d38f965314617acdda5b04f1113cb46773f92507c674aec530263",
+      "disposition": "exact"
+    },
+    {
+      "path": "scripts/dashboard_metrics.py",
+      "retained_sha256": "7413a8aaaf5d911b1b254901891b74d60bfa6389b60acca8e145838bb8523937",
+      "packet_sha256": "7da595c1066357a04260dcd155802189b24b44e0130efec2f5fbc7b8e3b05258",
+      "disposition": "reviewed_amendment"
+    },
+    {
+      "path": "scripts/dashboard_researchers.py",
+      "retained_sha256": "be87a4be04e1e005e085077a20c98dfe17b6e7d856989db0a1ef2ed48a2f6b36",
+      "packet_sha256": "be87a4be04e1e005e085077a20c98dfe17b6e7d856989db0a1ef2ed48a2f6b36",
+      "disposition": "exact"
+    },
+    {
+      "path": "scripts/dashboard_topics.py",
+      "retained_sha256": "a63df463c4c0671dda92f6881a61f02eea3ba8eaa1edf8eea0851964fc3874b8",
+      "packet_sha256": "a63df463c4c0671dda92f6881a61f02eea3ba8eaa1edf8eea0851964fc3874b8",
+      "disposition": "exact"
+    },
+    {
+      "path": "scripts/prepare_dashboard_model_metrics.py",
+      "retained_sha256": "7508300f23b6708816727dea97bbaf9971cbd9b2216dabc9d98cfc67197cdfac",
+      "packet_sha256": "7508300f23b6708816727dea97bbaf9971cbd9b2216dabc9d98cfc67197cdfac",
+      "disposition": "exact"
+    },
+    {
+      "path": "scripts/prepare_dashboard_topic_model.py",
+      "retained_sha256": "86a75814f4477e2f52837f19a4d505033be94aa4dbb8bf730f5620b30adbfafd",
+      "packet_sha256": "86a75814f4477e2f52837f19a4d505033be94aa4dbb8bf730f5620b30adbfafd",
+      "disposition": "exact"
+    },
+    {
+      "path": "scripts/prepare_publication_outcome_measures.py",
+      "retained_sha256": "64fec69809e0ab1e89562d8d2b4de1c74f2a0beaa15c7eae57f293e0fa12cd53",
+      "packet_sha256": "a11712bf7cca5cc06bba7a126769c5689f73224859c7263a32095d1a10d3c056",
+      "disposition": "reviewed_amendment"
+    },
+    {
+      "path": "scripts/prepare_publication_outcome_reader.py",
+      "retained_sha256": "58d0af4924b6745f247722463c4c940113718356ffc9ef4b5e851af62ca1294c",
+      "packet_sha256": "368aca88e9ca7b8e87a89cd3261b598b54fba314e3365d6750ea172074222a87",
+      "disposition": "reviewed_amendment"
+    },
+    {
+      "path": "scripts/prepare_publication_reporting_snapshot.py",
+      "retained_sha256": "b2893dc038805a66c9e22f68357ae1de99b123c97c328656d677afe50b6b2ec0",
+      "packet_sha256": "6149e3dc1ec25428157641336520cbd4d786d6fbde8d97d044968cea3ed51238",
+      "disposition": "reviewed_amendment"
+    },
+    {
+      "path": "tests/test_dashboard_metrics.py",
+      "retained_sha256": "bf5c7900204e6d2e400f559824061a62481aaf72307d85edc88b3832efb93226",
+      "packet_sha256": "c2a8da59862ad4f63c378355a94baf93347a2023a0183a29933e74f2cd9f238f",
+      "disposition": "reviewed_amendment"
+    },
+    {
+      "path": "tests/test_dashboard_model_candidates.py",
+      "retained_sha256": "21ca2597b390d6bf8f45e7090aac35cf97b772d4b69a3dafaf0136904b50423a",
+      "packet_sha256": "21ca2597b390d6bf8f45e7090aac35cf97b772d4b69a3dafaf0136904b50423a",
+      "disposition": "exact"
+    },
+    {
+      "path": "tests/test_dashboard_researchers.py",
+      "retained_sha256": "acbc86071fddd4b795cf6852a430ebc4306b86ec9cfdd1503250dc3f709f5871",
+      "packet_sha256": "acbc86071fddd4b795cf6852a430ebc4306b86ec9cfdd1503250dc3f709f5871",
+      "disposition": "exact"
+    },
+    {
+      "path": "tests/test_dashboard_topics.py",
+      "retained_sha256": "72e98f28dd3805a9b22f7116b89274609066d1d1b390b7ee66793561c2ae3e4d",
+      "packet_sha256": "72e98f28dd3805a9b22f7116b89274609066d1d1b390b7ee66793561c2ae3e4d",
+      "disposition": "exact"
+    },
+    {
+      "path": "tests/test_publication_outcome_measures.py",
+      "retained_sha256": "bfa29dd7c69bdba9111433c53d8b2b1c0c13e2145d540cdfeab5fe1320beef52",
+      "packet_sha256": "bfa29dd7c69bdba9111433c53d8b2b1c0c13e2145d540cdfeab5fe1320beef52",
+      "disposition": "exact"
+    },
+    {
+      "path": "tests/test_publication_outcome_reader.py",
+      "retained_sha256": "8f2d012df94b01534def4524251cfc0a1915e71d2d75bec9caa53fa298208ccf",
+      "packet_sha256": "8f2d012df94b01534def4524251cfc0a1915e71d2d75bec9caa53fa298208ccf",
+      "disposition": "exact"
+    },
+    {
+      "path": "tests/test_publication_reporting_snapshot.py",
+      "retained_sha256": "44175c30d0b325081a9f9061b8312aed6e200a7edf649549a2c6e18a21e8b182",
+      "packet_sha256": "8a2dcc22f2283116ff51e7e16ea7831569ecdee49f13db3f05056724eca50ee1",
+      "disposition": "reviewed_amendment"
+    }
+  ]
+}
