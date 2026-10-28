@@ -17,7 +17,7 @@ and full harness. No source or package result implies native acceptance.
 | Current owner / actual managed checkout | Exclusive source assignment | Native scope / next handoff |
 |---|---|---|
 | Acquisition `01a1831e-449a-7693-af1a-08bb23391c76`; `/Users/doughnut/.codex/worktrees/fa70/chhhs-research-publications` | ARC collection, QGIP candidate export, ARC award export and committed-source reader; four paired tests and ARC source/export closure leaf. | None. Stopped/manual proposals, complete raw retention, exact twelve-text-field export and offline consumer checks. No provider call, reference-mode conversion, weekly helper or native retry. |
-| Relationships `01a1831e-cc0d-7340-a1da-95c81b8e93fa`; `/Users/doughnut/.codex/worktrees/c4c7/chhhs-research-publications` | Source relationship evidence module, paired test and closure leaf. Report additional dependencies before expansion. | None. Exact source assertions, provenance and correction/withdrawal rules; no identity inference, live store or report/model mutation. |
+| Relationships `01a1831e-cc0d-7340-a1da-95c81b8e93fa`; `/Users/doughnut/.codex/worktrees/c4c7/chhhs-research-publications` | Award identifier aliases and Crossref crosswalk helpers, paired tests and crosswalk closure leaf. Source relationship packet through f6a05a5f is locally merged after review and 28 focused tests. | None. Independently pinned authority, complete retained inputs, candidate-only assertions and ambiguity preservation; no identity/funding inference, live store or report/model mutation. |
 | Admission `01a1831e-cc6d-7371-9d57-021a339b708a`; `/Users/doughnut/.codex/worktrees/ef45/chhhs-research-publications` | Offline publication admission packet, narrowed activation preflight, paired tests and admission/writer closure leaf. | None. Complete bound inventories and protected observation-only proposals; expose pilot writer gaps. No flow payload, apply, activation or tracked flow changes. |
 
 PR67 integrated registry metadata through `65eb642a` (43 focused tests),
@@ -27,7 +27,11 @@ the integrator explicitly assigned the next packets from the same frozen,
 reviewed and locally tested `e98c6a0b`. All three owners fast-forwarded their
 clean existing branches before writing. This development-base exception was
 not represented as verified main; main integration remains serial and CI-gated.
-Initial delivery branches were created from verified main as required.
+Initial delivery branches were created from verified main as required. The relationship
+owner may continue the disjoint alias/Crossref packet from its clean f6a05a5f
+dependency after parent review/local merge, pending the combined hosted milestone.
+Its completed source relationship assignment remains recorded in the closure leaf
+and Git history; this next packet excludes government/workbook and protocol/PDF families.
 
 Only a lane's sole writer fast-forwards its clean branch. Preserve active work,
 ordinary hooks and original environments; never reset/clean, steal locks or
