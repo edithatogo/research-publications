@@ -56,6 +56,17 @@ The failed operation, readback, original payload and screenshots remain private;
 
 ### Current continuation
 
+E09 bounded interface extension is assigned exclusively to the grants/E09 lane
+`01a1831e-cc6d-7371-9d57-021a339b708a`: `e09_first_discovery.py`, native-input
+adapter, corresponding no-send-builder guard and exact dependent tests/docs.
+Parent reviewed `e2b387c8`: retained spec and frozen field/input evidence support
+strict PUB/PMID/official-DoRA reference syntax, but stored mapping proof is PUB
+only. Preserve byte-identical existing PUB outputs/IDs and every temporal/alias
+hold, including83 unqualified-first-observation rows. This is additive source
+acceptance only, with no row migration, identity conversion, source/model keyset
+change, native persistence claim or flow deployment. Shared JSON schemas do not
+need widening. Parent retains review, serial integration and native ownership.
+
 After its current identity/export source packet reaches a clean terminal commit,
 publications chat `01a1831e-449a-7693-af1a-08bb23391c76` owns bounded read-only
 qualification of the exact retained publication writer and business-digest flow
