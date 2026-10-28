@@ -99,3 +99,10 @@ The parent retains other shared contracts, preflight, feed/writer and native
 wiring. Native scope is empty for all three. Terminal scoped commits, focused
 behavior tests, preservation/migration evidence and concrete native dependencies
 are required before the next serial integration.
+
+Integrator additionally owns prepare_nih_publication_relationships.py, its paired
+test and NIH_PUBLICATION_RELATIONSHIP_SOURCE_20261029.md. This is an independent
+offline NIH RePORTER publication-reference consumer. One public documentation
+example query returned HTTP200; no repository identities were submitted. It
+qualifies only the observed response shape, not complete capture or native links.
+No sibling may edit these files; existing NIH jobs and journals are unchanged.
