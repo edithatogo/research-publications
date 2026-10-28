@@ -12,7 +12,10 @@ import uuid
 import zipfile
 from pathlib import Path
 
-from build_native_retention_package import ROOT, after, compose
+if __package__:
+    from .build_native_retention_package import ROOT, after, compose
+else:
+    from build_native_retention_package import ROOT, after, compose
 
 
 def build(baseline, output, batch):
@@ -106,3 +109,239 @@ if __name__ == '__main__':
     args = parser.parse_args()
     build(args.baseline, args.output, args.batch)
     print('Prepared manual bootstrap package; native import and validation pending.')
+
+
+def reconstruct_metadata_rows(chunks, key_column):
+    """Offline chunk proof; preserves the existing native package builder above."""
+    from scripts.publication_source_metadata_contract import (
+        reconstruct_metadata_rows as reconstruct,
+    )
+
+    return reconstruct(chunks, key_column)
+
+
+def validate_retained_typed_archive(commit, receipt, source_pages_bytes, files):
+    """Recheck frozen consumed PubMed bytes without creating a native manifest.
+
+    The saved capture hash, committed batch, exact three-table contents, keysets
+    and full payload digest must agree. This is no new native acceptance.
+    """
+    import hashlib
+    from collections import defaultdict
+    from scripts.verify_retained_canary_metadata_values import _child, _text
+
+    if not all(
+        isinstance(value, dict) for value in (commit, receipt, files)
+    ) or not isinstance(source_pages_bytes, bytes):
+        raise ValueError("Structured retained archive and exact capture bytes required")
+    if (
+        commit.get("Status") != "committed"
+        or receipt.get("batch_id") != commit.get("BatchID")
+        or receipt.get("reconstruction_equal") is not True
+    ):
+        raise ValueError(
+            "Exact consumed committed batch and reconstruction proof required"
+        )
+    if hashlib.sha256(source_pages_bytes).hexdigest() != receipt.get("capture_sha256"):
+        raise ValueError("Retained source-page capture hash mismatch")
+    pages = json.loads(source_pages_bytes)
+    if (
+        pages.get("generation") != commit.get("Generation")
+        or pages.get("model_id") != commit.get("ModelID")
+        or pages.get("request_id") != commit.get("RefreshRequestID")
+    ):
+        raise ValueError("Consumed source-page generation/model/request mismatch")
+    table_rows, names = defaultdict(list), set()
+    entries = receipt.get("files")
+    if (
+        not isinstance(entries, list)
+        or not entries
+        or type(receipt.get("file_count")) is not int
+        or receipt["file_count"] != len(entries)
+    ):
+        raise ValueError("Complete retained archive inventory required")
+    for entry in entries:
+        if (
+            not isinstance(entry, dict)
+            or not isinstance(entry.get("name"), str)
+            or Path(entry["name"]).name != entry["name"]
+            or entry["name"] in names
+        ):
+            raise ValueError("Unique safe retained file names required")
+        name = entry["name"]
+        names.add(name)
+        content = files.get(name)
+        if (
+            not isinstance(content, bytes)
+            or type(entry.get("bytes")) is not int
+            or len(content) != entry["bytes"]
+            or hashlib.sha256(content).hexdigest() != entry.get("sha256")
+        ):
+            raise ValueError("Retained typed file byte proof mismatch")
+        rows = json.loads(content)
+        if (
+            not isinstance(rows, list)
+            or any(not isinstance(row, dict) for row in rows)
+            or type(entry.get("rows")) is not int
+            or len(rows) != entry["rows"]
+        ):
+            raise ValueError("Retained typed file row count mismatch")
+        table_rows[entry["table"]].extend(rows)
+    if names != set(files) or {
+        table: len(rows) for table, rows in table_rows.items()
+    } != receipt.get("totals"):
+        raise ValueError("Retained typed archive coverage mismatch")
+    fields = {
+        "PubMedPublications": ("PMID",),
+        "PubMedMetadataChunks": ("PMID", "ChunkIndex"),
+        "PubMedAuthorEvidence": ("PMID", "AuthorIndex", "AffiliationIndex"),
+    }
+    for table, keys in fields.items():
+        source = pages.get("sources", {}).get(table)
+        exported = []
+        sequence = source.get("pages") if isinstance(source, dict) else None
+        if (
+            not isinstance(sequence, list)
+            or not sequence
+            or type(source.get("page_size")) is not int
+            or source["page_size"] != 100
+        ):
+            raise ValueError("Complete retained source pages required")
+        prior = None
+        for number, page in enumerate(sequence):
+            if (
+                not isinstance(page, dict)
+                or type(page.get("page_number")) is not int
+                or page["page_number"] != number
+                or page.get("http") != 200
+            ):
+                raise ValueError("Retained source page order/HTTP mismatch")
+            if "partial" in page and page["partial"] is not False:
+                raise ValueError("Partial retained source page rejected")
+            query = page.get("query")
+            if not isinstance(query, str) or hashlib.sha256(
+                query.encode()
+            ).hexdigest() != page.get("query_sha256"):
+                raise ValueError("Retained source query hash mismatch")
+            body = page.get("body")
+            results = body.get("results") if isinstance(body, dict) else None
+            result = (
+                results[0] if isinstance(results, list) and len(results) == 1 else None
+            )
+            tables = result.get("tables") if isinstance(result, dict) else None
+            result_table = (
+                tables[0] if isinstance(tables, list) and len(tables) == 1 else None
+            )
+            if any(
+                not isinstance(node, dict)
+                or "error" in node
+                or node.get("errors")
+                or ("partial" in node and node["partial"] is not False)
+                for node in (body, result, result_table)
+            ):
+                raise ValueError("Successful retained source query envelope required")
+            rows = result_table.get("rows")
+            if (
+                not isinstance(rows, list)
+                or any(not isinstance(row, dict) for row in rows)
+                or len(rows) > 100
+                or (not rows) != (number == len(sequence) - 1)
+            ):
+                raise ValueError(
+                    "Retained source pages lack a unique terminal empty page"
+                )
+            row_keys = [tuple(row.get("[" + key + "]") for key in keys) for row in rows]
+            if any(
+                not isinstance(key[0], str)
+                or not key[0].isascii()
+                or not key[0].isdecimal()
+                or key[0].startswith("0")
+                or any(type(value) is not int or value < 0 for value in key[1:])
+                for key in row_keys
+            ):
+                raise ValueError("Retained source row key types mismatch")
+            if row_keys != sorted(set(row_keys)) or (
+                row_keys and prior is not None and row_keys[0] <= prior
+            ):
+                raise ValueError("Retained source keys duplicate or unordered")
+            if row_keys:
+                prior = row_keys[-1]
+            exported.extend(rows)
+        sorter = lambda row: tuple(row["[" + key + "]"] for key in keys)
+        if sorted(exported, key=sorter) != sorted(table_rows[table], key=sorter):
+            raise ValueError("Retained typed archive differs from exact source pages")
+    summaries = {row["[PMID]"]: row for row in table_rows["PubMedPublications"]}
+    if len(summaries) != len(table_rows["PubMedPublications"]):
+        raise ValueError("Duplicate retained typed publication identity")
+    sources = commit.get("Sources")
+    selected = (
+        [
+            item
+            for item in sources
+            if isinstance(item, dict) and item.get("Source") == "PubMed"
+        ]
+        if isinstance(sources, list)
+        else []
+    )
+    documents, payload_entries, characters = reconstruct_metadata_rows(
+        table_rows["PubMedMetadataChunks"], "PMID"
+    )
+    if (
+        len(selected) != 1
+        or set(summaries) != set(selected[0].get("ExpectedKeys", []))
+        or len(summaries) != selected[0].get("ExpectedRecords")
+        or set(documents) != set(summaries)
+    ):
+        raise ValueError("Consumed summary/full-metadata keyset mismatch")
+    payload_digest = hashlib.sha256(
+        json.dumps(payload_entries, separators=(",", ":")).encode()
+    ).hexdigest()
+    extraction = commit.get("SourceExtraction", {})
+    if payload_digest != extraction.get(
+        "MetadataPayloadSHA256"
+    ) or characters != extraction.get("MetadataPayloadCharacters"):
+        raise ValueError("Full retained metadata payload differs from committed digest")
+    author_keys = sorted(
+        (row["[PMID]"], row["[AuthorIndex]"], row["[AffiliationIndex]"])
+        for row in table_rows["PubMedAuthorEvidence"]
+    )
+    expected_counts = {
+        "MetadataChunkCount": len(table_rows["PubMedMetadataChunks"]),
+        "AuthorEvidenceRowCount": len(author_keys),
+    }
+    if any(
+        type(extraction.get(name)) is not int or extraction[name] != count
+        for name, count in expected_counts.items()
+    ):
+        raise ValueError(
+            "Committed chunk/author evidence count differs from retained rows"
+        )
+    key_digest = hashlib.sha256(
+        json.dumps(sorted(summaries), separators=(",", ":")).encode()
+    ).hexdigest()
+    author_digest = hashlib.sha256(
+        json.dumps(author_keys, separators=(",", ":")).encode()
+    ).hexdigest()
+    if (
+        extraction.get("PublicationKeySHA256") != key_digest
+        or extraction.get("MetadataKeySHA256") != key_digest
+        or extraction.get("AuthorEvidenceKeySHA256") != author_digest
+    ):
+        raise ValueError("Committed typed source/author key digest mismatch")
+    metadata = {key: json.loads(value) for key, value in documents.items()}
+    for key, tree in metadata.items():
+        if _text(_child(_child(tree, "MedlineCitation"), "PMID")) != key:
+            raise ValueError("Retained full-metadata PMID drift")
+    return {
+        "summaries": summaries,
+        "metadata": metadata,
+        "authors": table_rows["PubMedAuthorEvidence"],
+        "receipt": {
+            "status": "PASS_FROZEN_TYPED_ARCHIVE",
+            "records": len(summaries),
+            "metadata_chunks": len(table_rows["PubMedMetadataChunks"]),
+            "author_evidence_rows": len(table_rows["PubMedAuthorEvidence"]),
+            "metadata_payload_sha256": payload_digest,
+            "native_operation_submitted": False,
+        },
+    }
