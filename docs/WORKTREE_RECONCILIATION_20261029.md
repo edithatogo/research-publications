@@ -250,3 +250,9 @@ paths remain source dispositions, not a feature count. Provider foundation
 through f6b83d5f is a subsequent locally reviewed/merged packet with39 focused
 tests; its combined/hosted acceptance remains separate. Original/native ownership
 and all earlier inventory versions are preserved.
+
+The subsequent private v8 local disposition accounts for nine more retained
+provider/workbook source/test paths:435 exact,219 reviewed amendments,136 scoped
+dependencies,127 private evidence,55 archives,11 tooling,59 requirement documents
+and1,344 further-review paths. Four new feed/protocol source/test paths are new
+implementation, not original-inventory dispositions. Hosted PR69 gates remain next.

@@ -19,8 +19,8 @@ No source or package result implies native acceptance.
 | Current owner / actual managed checkout | Exclusive source assignment | Native scope / next handoff |
 |---|---|---|
 | Acquisition `01a1831e-449a-7693-af1a-08bb23391c76`; `/Users/doughnut/.codex/worktrees/fa70/chhhs-research-publications` | Provider foundation through f6b83d5f is reviewed and locally merged with 39 focused tests. Current assignment is read-only ROR/ARDC and relationship-consumer dependency discovery, with a bounded proposed packet handoff. | None. Injected fictional read transports only; zero retries by default, strict retained bytes/pagination and create-only failure evidence. No live acquisition, resume or native operation. |
-| Relationships `01a1831e-cc0d-7340-a1da-95c81b8e93fa`; `/Users/doughnut/.codex/worktrees/c4c7/chhhs-research-publications` | Government workbook crosswalk helper, paired test and closure leaf, from reviewed/local-merged da27d986. Candidate dcbd62ea has 21 focused tests; parent-requested raw-envelope and XML/coordinate corrections are in progress before integration. | None. New private lane-local candidate environment may install the existing source-ingestion hash lock on Python 3.15.1 and prove fictional workbook read/write. Preserve incomplete old lane environment and all original/native runtimes; no version promotion, provider call or real recapture. |
-| Admission `01a1831e-cc6d-7371-9d57-021a339b708a`; `/Users/doughnut/.codex/worktrees/ef45/chhhs-research-publications` | New writer-feed producer and guarded protocol simulator, paired tests and closure leaf, from reviewed/local-merged 688bbdf0. Admission/preflight retain 35 focused tests. | None. Complete immutable candidate feed and conditional/journal source contract only. Missing exact native capability profiles remain blockers. Parent retains existing preflight/contract/package/template wiring; no publishing, apply, activation or shared-file edits. |
+| Relationships `01a1831e-cc0d-7340-a1da-95c81b8e93fa`; `/Users/doughnut/.codex/worktrees/c4c7/chhhs-research-publications` | Government workbook crosswalk helper, paired test and closure leaf, from reviewed/local-merged da27d986. Through650d72c2 locally merged after parent review with23 focused tests. Current assignment is read-only model/report/reader dependency assessment. | None. New private lane-local candidate environment may install the existing source-ingestion hash lock on Python 3.15.1 and prove fictional workbook read/write. Preserve incomplete old lane environment and all original/native runtimes; no version promotion, provider call or real recapture. |
+| Admission `01a1831e-cc6d-7371-9d57-021a339b708a`; `/Users/doughnut/.codex/worktrees/ef45/chhhs-research-publications` | Writer-feed producer/protocol simulator through173f650d locally merged with28 focused tests. Current assignment is read-only current collector-artifact adapter assessment. Admission/preflight retain35 focused tests. | None. Complete immutable candidate feed and conditional/journal source contract only. Missing exact native capability profiles remain blockers. Parent retains existing preflight/contract/package/template wiring; no publishing, apply, activation or shared-file edits. |
 
 PR67 integrated registry metadata through `65eb642a` (43 focused tests),
 manual acquisition through `0d09312f` (49), and ARC source/model/reader through
@@ -43,9 +43,10 @@ and Git history; this next packet excludes government/workbook and protocol/PDF 
 Next integration milestone: reviewed relationship (28), ARC source/export (35),
 admission/preflight (35) and award-crosswalk (27) focused suites pass. Combined
 Python 3.15.1 harness passes **1,951 tests, 19 capability skips, 58 Node tests and
-446 project checks**. PR68 at d82e058b is merged and exact main checks passed. The provider foundation
-packet is locally merged after clean preflight and 39 focused tests; its combined
-local/hosted milestone remains next. Source success grants no
+446 project checks**. PR68 at d82e058b is merged and exact main checks passed. Provider foundation (39), workbook crosswalks (23), and writer feed/protocol
+simulation (28) are now locally merged after exact clean preflights. Combined
+Python3.15.1 harness: **2,041 tests,19 capability skips,58 Node tests,446 checks**.
+Next hosted milestone is PR69; source/packaging is separate from native acceptance. Source success grants no
 native admission or writer readiness. Original full status remains byte-identical
 using the same all-untracked-files inventory command.
 
@@ -74,3 +75,13 @@ resend, activation or production promotion is authorised by that review.
 [Preserved dated handoffs through PR65](archive/CURRENT_STATE_through_PR65_20261029.md)
 retain earlier assignments and scoped evidence. They do not override this current
 checkpoint or authorize another writer.
+
+## Common-base correction before the next implementation round
+
+A read-only lane recommendation proposed an already-merged sibling crosswalk
+because its older checkout lacked that packet. No duplicate code was written.
+The reviewed-base exception above ends now: after PR69 passes exact main gates,
+each sole lane writer must fast-forward its clean branch to the same verified
+main before any new implementation. Read-only bounded recommendations may finish
+using current main and parent records. This prevents another stale source gap
+from becoming duplicate work. Original native owners remain unchanged.

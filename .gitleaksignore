@@ -11,3 +11,6 @@ e48e54bd73f97c7145436e24bba034ade55a3a7c:tests/fixtures/webfirst-export-syntheti
 f1a95df1c69f4093df4a4a3561ac45cdacdbf78b:docs/GRANTS_EXECUTABLE_SOURCE_CLOSURE_20261029.md:generic-api-key:39
 # Reviewed documentation prose about complete file coverage and malformed JSON; no credential.
 a2b2c37dcb42d1ba002289f3a246074ab769c04b:docs/ARC_SOURCE_EXPORT_CLOSURE_20261029.md:generic-api-key:71
+
+# Reviewed workbook diagnostic record-key construction; no authentication credential.
+dcbd62ea58b80485f6c737270cd20bbd902fd5ff:scripts/government_award_crosswalks.py:generic-api-key:261

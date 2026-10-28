@@ -107,3 +107,13 @@ Execution order and boundaries: [detailed handoff](PUBLICATION_STABILISATION.md)
 - [~] [E07_publication_platform_acceptance: Publication platform hardening and live evidence](tracks/E07_publication_platform_acceptance/plan.md) — local acceptance contract added; tenant readback and end-to-end replay remain gated
 
 - [~] [E10_python315_migration: Python3.15 migration and qualification](tracks/E10_python315_migration/index.md) — PR9/main implementation accepted; safe attached-helper handover and final full-scope audit pending. Existing unfinished E01 goal preserved; no separate E10 goal armed.
+
+## Next coherent integration packet
+
+Provider foundation (39 focused tests), historical workbook crosswalks (23),
+and bounded writer feed/protocol simulation (28) are locally merged. Combined
+Python3.15.1 harness passes2,041 tests with19 capability skips,58 Node tests and
+446 checks. PR69 hosted gates remain next. The protocol simulator emits no
+deployable WDL; native writer/journal/immutable-read qualifications remain open.
+All lanes will converge to the same verified main before the next implementation
+round; current read-only recommendations must account for sibling work on main.
