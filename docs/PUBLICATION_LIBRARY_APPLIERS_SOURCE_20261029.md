@@ -66,11 +66,18 @@ does not independently discover or approve a generation.
 
 Both operators require exact preimages and conditional item ETags. Before an
 effect they read complete version history and retrieve/hash the pinned source
-version's bytes, then reread the selected file/item/access/history immediately
+version's bytes, then reread the selected file/item/inheritance-flag/history immediately
 before submission. Afterward they verify properties, unchanged file bytes,
-stable file/item/path, access, unrelated human fields, all prior history entries
+stable file/item/path, the unique-permissions flag, unrelated human fields, all prior history entries
 and retrieved prior-version bytes. Known response normalization does not rewrite
 the prepared plan, source evidence or historical content ETag.
+
+The source helper `sameAccess` compares only item `Id` and
+`HasUniqueRoleAssignments`. This detects an item mismatch or a changed
+unique-permissions flag. It does not compare principals, role assignments,
+sharing links or the inherited ACL; any of those can change while the flag stays
+the same. Passing this check, an offline test or an injected-transport result
+therefore does not prove permission parity or access preservation.
 
 ## Durable recovery
 
@@ -117,7 +124,11 @@ content/output-parity gap retain the prior disposition. No generator is added.
 
 Next native dependency: the parent must qualify an exact operation-specific
 session/transport and assign exclusive item scope before any native adoption.
-Then actual current preimages, saved readback, byte/version/access preservation,
-reader/rendering and unchanged replay remain separate gates. No authentication
+Native permission parity additionally requires a complete relevant baseline of
+principals, roles, sharing and inheritance, followed by the corresponding complete
+after-read and comparison through the exact qualified route. This source packet
+does not supply that ACL evidence or implementation. Actual current preimages,
+saved readback, byte/version preservation, reader/rendering and unchanged replay
+remain separate gates. No authentication
 retry, field creation, metadata write, provider call, setting, schedule or send
 is queued by this source packet.
