@@ -172,9 +172,22 @@ def _rename_directory_no_replace(source: Path, destination: Path) -> None:
     publish_path_no_replace(source, destination)
 
 
+def extraction_failure_errors(envelope: dict[str, Any]) -> list[str]:
+    """Reject declared failures without exposing private provider diagnostics."""
+    failures = []
+    if 'error' in envelope and envelope['error'] is not None:
+        failures.append('error')
+    if 'errors' in envelope and envelope['errors'] not in (None, []):
+        failures.append('errors')
+    for field in ('partial', 'truncated'):
+        if field in envelope and envelope[field] is not False:
+            failures.append(field)
+    return [f"Extraction declares failure: {', '.join(failures)}"] if failures else []
+
+
 def export_errors(envelope: dict[str, Any]) -> list[str]:
     """Check declared native expectations. This cannot establish their authenticity."""
-    errors: list[str] = []
+    errors: list[str] = extraction_failure_errors(envelope)
     if envelope.get('data_kind') not in {'synthetic', 'live_export'}:
         errors.append('data_kind must be synthetic or live_export')
     if not isinstance(envelope.get('coverage_note'), str) or not envelope['coverage_note'].strip():
@@ -248,6 +261,9 @@ def assemble_paginated_export(envelope: dict[str, Any]) -> dict[str, Any]:
     Page metadata is an assertion from the extraction route, not native proof on
     its own. A missing terminal page or a missing independent key fails closed.
     """
+    failures = extraction_failure_errors(envelope)
+    if failures:
+        raise ValueError('; '.join(failures))
     pages = envelope.get('pages')
     expected_keys = envelope.get('expected_canonical_keys')
     generation = envelope.get('generation_id')
@@ -265,6 +281,9 @@ def assemble_paginated_export(envelope: dict[str, Any]) -> dict[str, Any]:
     for index, page in enumerate(pages):
         if not isinstance(page, dict) or page.get('page_number') != index + 1 or type(page.get('page_number')) is not int:
             raise ValueError('Extraction pages must be consecutively numbered from 1')
+        failures = extraction_failure_errors(page)
+        if failures:
+            raise ValueError(f"Extraction page {index + 1}: {'; '.join(failures)}")
         if page.get('generation_id') != generation:
             raise ValueError('Extraction page belongs to a different generation')
         if type(page.get('has_more')) is not bool or page['has_more'] != (index < len(pages) - 1):
