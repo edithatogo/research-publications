@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 from collections import Counter, defaultdict
 from collections.abc import Iterable, Mapping
 from typing import Any
@@ -19,6 +20,21 @@ RELATIONSHIP_FIELDS = {
     'RelationshipKey', 'RelationshipType', 'FromKey', 'ToKey', 'AwardID',
     'EvidenceURL', 'Confidence', 'ReviewStatus',
 }
+AWARD_KEY_PATTERN = re.compile(r'^AWARD:([^:\s]+):([^\s]+)$')
+
+
+def award_key_namespace(value: str) -> str | None:
+    """Read the supplied AWARD:<funder>:<id> namespace without rewriting its key."""
+    match = AWARD_KEY_PATTERN.fullmatch(value)
+    return match.group(1).casefold() if match else None
+
+
+def funder_key_namespace(value: str) -> str | None:
+    """Compare canonical FUNDER:<namespace> and retained single-label aliases."""
+    namespace = value.removeprefix('FUNDER:')
+    if not namespace or ':' in namespace or any(c.isspace() for c in namespace):
+        return None
+    return namespace.casefold()
 
 
 def normalize_relationship(record: dict[str, Any]) -> dict[str, Any]:
@@ -66,7 +82,7 @@ def normalize_relationship(record: dict[str, Any]) -> dict[str, Any]:
     if raw_award_id and award_id != raw_award_id:
         raise ValueError('AwardID must be nonblank and unpadded')
     if relation in {'funded_by_award', 'candidate_award_match'}:
-        if not source_key.startswith('AWARD:') or not target_key.startswith('PUB:'):
+        if award_key_namespace(source_key) is None or not target_key.startswith('PUB:'):
             raise ValueError('award relationships must link an AWARD key to a PUB key')
         if not award_id:
             raise ValueError('award relationships require exact AwardID')
@@ -167,7 +183,9 @@ def validate_relationship_batch(
         if key:
             awards_by_key[key].append(row)
         if award_id and funder_key:
-            awards_by_identity[(award_id, funder_key)].append(row)
+            # Compare aliases only for ambiguity detection; never rewrite keys.
+            namespace = funder_key_namespace(funder_key) or funder_key.casefold()
+            awards_by_identity[(award_id, namespace)].append(row)
 
     affiliation_index: dict[str, list[str]] = {}
     for identity, targets in affiliation_sources.items():
@@ -224,9 +242,12 @@ def validate_relationship_batch(
             if not award_id or not funder_key:
                 failures[index].append('award_identity_incomplete')
                 continue
+            if award_key_namespace(source) != funder_key_namespace(funder_key):
+                failures[index].append('award_funder_key_namespace_mismatch')
             if row['AwardID'] != award_id:
                 failures[index].append('award_id_mismatch')
-            identity_rows = awards_by_identity[(award_id, funder_key)]
+            namespace = funder_key_namespace(funder_key) or funder_key.casefold()
+            identity_rows = awards_by_identity[(award_id, namespace)]
             if len(identity_rows) != 1:
                 failures[index].append('award_funder_identity_ambiguous')
             if target not in pub_set:
@@ -254,7 +275,7 @@ def validate_relationship_batch(
             unique_targets = set(targets)
             if target not in unique_targets:
                 failures[index].append('affiliation_target_unresolved')
-            if len(unique_targets) > 1 and row['Confidence'] == 'confirmed':
+            if len(unique_targets) > 1:
                 failures[index].append('affiliation_identity_ambiguous')
 
     accepted = [normalized[index] for index in range(len(raw_records)) if index in normalized and not failures[index]]
