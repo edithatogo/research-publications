@@ -82,6 +82,67 @@ def commit(root, *, empty=False):
 
 
 class ArcNativeConsumerTests(unittest.TestCase):
+    def test_page_membership_drift_rejects_unchanged_global_501_awards(self):
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            commit(root)
+            rows = [
+                {
+                    "id": str(i),
+                    "attributes": {"code": str(i)},
+                    "links": {"self": arc.API_BASE + "/" + str(i)},
+                }
+                for i in range(501)
+            ]
+            template = json.loads((root / "pass-1-page-1.json").read_text())
+            files = []
+            for read in (1, 2):
+                for page in (1, 2):
+                    envelope = json.loads(json.dumps(template))
+                    envelope["pass"] = read
+                    envelope["request"]["queries"]["page[number]"] = page
+                    selected = rows[:500] if page == 1 else rows[500:]
+                    envelope["response"]["body"]["data"] = selected
+                    envelope["response"]["body"]["meta"].update(
+                        {
+                            "requested-page-number": page,
+                            "actual-page-size": len(selected),
+                            "total-size": 501,
+                            "total-pages": 2,
+                        }
+                    )
+                    name = f"pass-{read}-page-{page}.json"
+                    (root / name).write_text(json.dumps(envelope))
+                    files.append(
+                        {
+                            "name": name,
+                            "verification": "exact_base64_stored_content_readback",
+                        }
+                    )
+            manifest = root / "manifest.json"
+            data = json.loads(manifest.read_text())
+            data.update(source_total=501, page_count=2, files=files)
+            manifest.write_text(json.dumps(data))
+            self.assertEqual(self.read(root)["source_total"], 501)
+            page1 = root / "pass-2-page-1.json"
+            page2 = root / "pass-2-page-2.json"
+            first = json.loads(page1.read_text())
+            second = json.loads(page2.read_text())
+            first["response"]["body"]["data"].reverse()
+            page1.write_text(json.dumps(first))
+            self.assertEqual(self.read(root)["source_total"], 501)
+            (
+                first["response"]["body"]["data"][0],
+                second["response"]["body"]["data"][0],
+            ) = (
+                second["response"]["body"]["data"][0],
+                first["response"]["body"]["data"][0],
+            )
+            page1.write_text(json.dumps(first))
+            page2.write_text(json.dumps(second))
+            with self.assertRaisesRegex(ValueError, "page.*changed"):
+                self.read(root)
+
     def test_direct_cli_is_offline_private_exclusive_and_preserves_inputs(self):
         repo = Path(__file__).resolve().parents[1]
         with (

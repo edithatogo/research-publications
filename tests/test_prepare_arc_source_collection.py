@@ -203,6 +203,7 @@ class ArcCollectorTests(unittest.TestCase):
             "https://user:password@dataportal.arc.gov.au/NCGP/API/grants",
             "https://dataportal.arc.gov.au:444/NCGP/API/grants",
             "https://dataportal.arc.gov.au/NCGP/API/grants#fragment",
+            "https://dataportal.arc.gov.au/NCGP/API/grants?page%5Bsize%5D=1",
         ):
             bad = copy.deepcopy(record)
             bad["api_url"] = url
@@ -363,7 +364,7 @@ class ArcCollectorTests(unittest.TestCase):
             "source_id": "arc-awards-api",
             "enabled": True,
             "record_kind": "awarded_grant_context",
-            "api_url": "https://dataportal.arc.gov.au/NCGP/API/grants?page%5Bsize%5D=1",
+            "api_url": "https://dataportal.arc.gov.au/NCGP/API/grants",
             "reconciliation": {"admission": "context_only"},
         }
         document = {"properties": copy.deepcopy(self.p)}

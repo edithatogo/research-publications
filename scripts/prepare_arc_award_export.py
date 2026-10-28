@@ -19,12 +19,14 @@ try:
     from scripts.prepare_arc_source_collection import build as source_build
     from scripts.prepare_arc_source_collection import compose, gate
     from scripts.prepare_qgip_candidate_export import build as candidate_build
+    from scripts.prepare_qgip_candidate_export import csv_display_projection
 except ImportError:
     from grants_arc_api import API_BASE
     from patch_clinicaltrials_read_retries import strict_json
     from prepare_arc_source_collection import build as source_build
     from prepare_arc_source_collection import compose, gate
     from prepare_qgip_candidate_export import build as candidate_build
+    from prepare_qgip_candidate_export import csv_display_projection
 
 NAME = "CHHHS RIMS | Funding | ARC award context export"
 FIELDS = [
@@ -275,10 +277,13 @@ def build(site, archive_parent, reference):
             },
         },
     }
+    comparison["Award_CSV_display"] = csv_display_projection(
+        comparison["Award_page"]["inputs"]["select"], "Award_page"
+    )
     comparison["Award_CSV"] = {
         "type": "Table",
-        "runAfter": {"Award_page": ["Succeeded"]},
-        "inputs": {"from": "@body('Award_page')", "format": "CSV"},
+        "runAfter": {"Award_CSV_display": ["Succeeded"]},
+        "inputs": {"from": "@body('Award_CSV_display')", "format": "CSV"},
     }
     previous = "Award_CSV"
     for kind, content in [

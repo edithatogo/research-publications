@@ -27,6 +27,40 @@ except ImportError:
 NAME = "CHHHS RIMS | Funding | QGIP candidate export"
 
 
+def csv_display_projection(fields, previous):
+    """CSV-only apostrophe escaping; original JSON and boolean metadata stay typed.
+
+    Escape formula sigils after trimming whitespace. Conservatively escape cells
+    containing tab/CR/LF anywhere too, including whitespace-prefixed controls.
+    """
+    projection = {}
+    for name, value in fields.items():
+        cell = "item()?['" + name + "']"
+        if isinstance(value, bool):
+            projection[name] = "@" + cell
+            continue
+        text = "string(" + cell + ")"
+        checks = ["startsWith(trim(" + text + "),'" + sigil + "')" for sigil in "=+-@"]
+        checks += [
+            "contains(" + text + ",decodeUriComponent('" + code + "'))"
+            for code in ("%09", "%0D", "%0A")
+        ]
+        projection[name] = (
+            "@if(or("
+            + ",".join(checks)
+            + "),concat(decodeUriComponent('%27'),"
+            + text
+            + "),"
+            + cell
+            + ")"
+        )
+    return {
+        "type": "Select",
+        "runAfter": {previous: ["Succeeded"]},
+        "inputs": {"from": "@body('" + previous + "')", "select": projection},
+    }
+
+
 def build(site: str, archive_parent: str, reference: dict) -> dict:
     result = source_build(site, archive_parent, reference)
     p = result["properties"]
@@ -292,10 +326,13 @@ def build(site: str, archive_parent: str, reference: dict) -> dict:
             },
         },
     }
+    a["Candidate_CSV_display"] = csv_display_projection(
+        a["Candidate_export"]["inputs"]["select"], "Candidate_export"
+    )
     a["Candidate_CSV"] = {
         "type": "Table",
-        "runAfter": {"Candidate_export": ["Succeeded"]},
-        "inputs": {"from": "@body('Candidate_export')", "format": "CSV"},
+        "runAfter": {"Candidate_CSV_display": ["Succeeded"]},
+        "inputs": {"from": "@body('Candidate_CSV_display')", "format": "CSV"},
     }
     a["Output_folder"] = compose(
         "@concat('"

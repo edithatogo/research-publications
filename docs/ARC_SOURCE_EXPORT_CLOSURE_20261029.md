@@ -76,14 +76,16 @@ Existing evidence is never overwritten.
 
 Configured catalogue binding requires a matching definition preimage, an enabled
 ARC context-only entry and the expected endpoint without credentials, port or
-fragment. It preserves the complete-source graph. The retained weekly helper
+fragment or query. Queries are refused because the collector binds the fixed
+API endpoint and its own bounded paging parameters. It preserves the
+complete-source graph. The retained weekly helper
 refuses recurrence construction in this manual-only packet. The reader can
 explicitly match a historical weekly manifest; that never proves recurrence.
 
 ## Evidence and remaining gates
 
-Explicit repo-local Python: **3.15.1**. Four focused stdlib suites pass **33 tests**
-(11 source, 6 ARC export, 6 QGIP candidate, 10 offline reader); Ruff and formatting
+Explicit repo-local Python: **3.15.1**. Four focused stdlib suites pass **35 tests**
+(11 source, 6 ARC export, 7 QGIP candidate, 11 offline reader); Ruff and formatting
 checks pass. Tests include strict direct CLI behavior, exclusive/private output,
 serialization failure before file creation, dependency closure/cycle checks,
 initialization ancestry, runAfter failure propagation, unknown-field drift,
@@ -98,3 +100,30 @@ schedules occurred. Historical native evidence is not refreshed or promoted by
 these synthetic checks. Native schema validation, deployment/readback, runtime
 failure behavior, actual exports, access and downstream model/report acceptance
 remain with their existing owners and approval gates.
+
+## Bounded parent-review correction
+
+The offline reader now compares complete row-hash maps for each page across both
+passes as well as the global award set. A 501-row/two-page synthetic fixture
+accepts within-page row reordering but refuses a cross-page row swap that keeps
+both page sizes, metadata, global IDs and global row content unchanged. This
+matches the generated collector/export page-membership contract.
+
+ARC `Award_CSV_display` and QGIP `Candidate_CSV_display` are separate Select
+actions between the original JSON projection and CSV Table action. CSV display
+cells receive a leading apostrophe when trimmed text begins with `=`, `+`, `-`
+or `@`. Cells containing tab, CR or LF anywhere are conservatively prefixed too,
+including whitespace-prefixed control cases. Ordinary and empty cells remain
+unchanged. QGIP boolean admission metadata stays boolean; absent values remain
+absent/null rather than gaining invented content. All original source files,
+JSON projections, ARC twelve-field values and JSON file bodies are unchanged by
+this CSV display step. Consumers needing source values must use the JSON/source
+artifacts; CSV deliberately carries an escaped display representation.
+
+Focused tests execute a restricted evaluator over the actual generated CSV
+expressions with malicious, whitespace-prefixed, ordinary, empty and null cells,
+and check the Select/Table/save dependencies and boolean metadata. This local
+expression oracle and static graph checks do not establish native WDL execution
+or spreadsheet-application rendering. The CSV helper lives only in this packet's
+owned candidate module; no canonical shared helper changed. Original authoring
+hashes remain unchanged, with zero provider/native/auth operations.

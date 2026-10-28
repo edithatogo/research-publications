@@ -480,6 +480,7 @@ def with_configured_catalogue(document, catalogue, *, expected_definition_sha256
         or endpoint.password
         or endpoint.port is not None
         or endpoint.fragment
+        or endpoint.query
         or a.get("Manifest", {}).get("inputs", {}).get("source_id") != "arc-awards-api"
         or any(
             k in a.get("Manifest", {}).get("inputs", {})

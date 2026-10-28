@@ -109,6 +109,7 @@ def read_commit(
         raise ValueError("Missing or unmanifested source file")
     hashes = {}
     passes = []
+    first_pages = []
     awards = []
     all_attribute_fields = set()
     for read in (1, 2):
@@ -148,6 +149,7 @@ def read_commit(
             typed = arc.parse_award_page(
                 payload, retrieved_at=manifest["committed_utc"]
             )
+            page_hashes = {}
             for source, record in zip(payload["data"], typed):
                 source_id = record["SourceID"]
                 if source_id in row_hashes:
@@ -161,6 +163,11 @@ def read_commit(
                         separators=(",", ":"),
                     ).encode()
                 ).hexdigest()
+                page_hashes[source_id] = row_hashes[source_id]
+            if read == 1:
+                first_pages.append(page_hashes)
+            elif page_hashes != first_pages[page - 1]:
+                raise ValueError("Full source award page content changed across reads")
             hashes[name] = hashlib.sha256(raw).hexdigest()
             records.extend(typed)
         if len(row_hashes) != total:
