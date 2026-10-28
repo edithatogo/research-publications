@@ -25,7 +25,9 @@ and all 91 focused stdlib tests in the integration checkout. It preserves target
 binding across the connected pipeline and never authorizes restoration. Acquisition
 `762afa50` is under review correction for preserved dependencies, strict inputs
 and failure capture; registry metadata development continues independently.
-Next: serial preflight/review, combined harness and PR/main verification.
+Combined local harness now passes 1,705 Python tests (19 capability skips),
+58 Node tests and 446 project checks. Next: PR/main verification for preservation;
+acquisition and registry packets enter separate serial review when terminal.
 Only a lane's sole writer fast-forwards its clean branch. Preserve active work,
 ordinary hooks and original environments; never reset/clean, steal locks or
 rewrite indexes/refs to bypass ownership. Local main now follows canonical
