@@ -120,10 +120,13 @@ class NihPublicationRelationshipTests(unittest.TestCase):
             )
             return original_deepcopy(inputs)
 
-        with patch(
-            "scripts.prepare_nih_publication_relationships.copy.deepcopy",
-            side_effect=mutate_before_copy,
-        ), self.assertRaisesRegex(ValueError, "Pinned input changed"):
+        with (
+            patch(
+                "scripts.prepare_nih_publication_relationships.copy.deepcopy",
+                side_effect=mutate_before_copy,
+            ),
+            self.assertRaisesRegex(ValueError, "Pinned input changed"),
+        ):
             project(*values, generation, **pins)
 
     def test_complete_candidates_preserve_values_and_zero_scope(self):
