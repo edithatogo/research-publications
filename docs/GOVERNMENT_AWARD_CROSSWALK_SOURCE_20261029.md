@@ -146,3 +146,37 @@ exact native schema, scope, preimages, permissions, typed persistence/readback
 and cardinality acceptance. G06-H03 needs authorised reviewed links, correction/
 withdrawal history and recovery without changed publication totals. No shared
 schema, dependency, runtime, Conductor record, model or report is changed.
+
+## Raw-envelope and parser-boundary review correction
+
+Raw ROR authority and both the Crossref response envelope and work object now
+pass the existing governing-envelope guard. Rehashed captures with valid-shaped
+IDs, status and independent pins cannot use partial/truncated/complete:false
+markers to produce positive candidate references. Ordinary nested source notes
+are not recursively interpreted as control evidence; unknown timestamps remain
+null. The new regressions recompute their packet hashes and authority pin where
+necessary, so rejection exercises the contradictory content rather than stale
+hashes alone.
+
+Before any ET or openpyxl parsing, archive member buffers are checked for
+DOCTYPE/ENTITY declaration tokens, including their common UTF-16/32 byte forms.
+Worksheet XML parts are then checked for Excel's physical row limit1,048,576
+and column limit16,384 (XFD), plus row/cell coordinate agreement. Invalid
+physical coordinates fail before the workbook loader; declared dimensions still
+cannot truncate selected-sheet extraction. Original byte buffers are never
+rewritten.
+
+These are narrow input guards, not general hostile-document safety. No ZIP-bomb,
+CPU/memory/recursion budget, comprehensive XML security certification, full
+OpenXML conformance check or guarantee about all library behavior is claimed.
+Large valid sparse worksheets and other parser/resource limits remain reasons
+to qualify exact retained sources separately. A declaration-like binary/text
+sequence may be refused conservatively. No formula execution, source access or
+native adoption is authorised by passing these guards.
+
+The two new regression methods first reproduced the review gaps. After correction,
+all23 focused methods pass using the qualified Python3.15.1 candidate environment
+with `-B -S` and its explicit locked-package directory, including all prior21
+methods. Unsafe declarations, out-of-range row/column coordinates and a separate
+XML component are rejected before `openpyxl.load_workbook` is called. No shared
+file, original workbook, existing environment or native object was changed.

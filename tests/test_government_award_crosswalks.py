@@ -417,3 +417,40 @@ class GovernmentCrosswalkTests(unittest.TestCase):
             code='import sys;sys.path.append('+repr(qualified_site)+');'+statement
             r=subprocess.run([sys.executable,'-B','-S','-c',code],cwd=cwd,capture_output=True,text=True)
             self.assertEqual(r.returncode,0,r.stderr)
+
+    def test_raw_governing_documents_reject_partial_markers_with_valid_packet_pins(self):
+        for location in ('authority','crossref-envelope','crossref-work'):
+            for key,value in (('partial',True),('truncated',True),('complete',False)):
+                with self.subTest(location=location,key=key),tempfile.TemporaryDirectory() as d:
+                    root=self.fixture(d);filename='authority.json' if location=='authority' else 'crossref.json'
+                    doc=json.loads((root/filename).read_bytes());target=doc['message'] if location=='crossref-work' else doc;target[key]=value
+                    self.replace(root,filename,doc)
+                    if location=='authority':
+                        binding=dict(_CONTEXT[str(root)]);binding['authority_raw_sha256']=hashlib.sha256((root/filename).read_bytes()).hexdigest();_CONTEXT[str(root)]=binding
+                    with self.assertRaises(ValueError):project_packet(root)
+        with tempfile.TemporaryDirectory() as d:
+            root=self.fixture(d);doc=json.loads((root/'crossref.json').read_bytes());doc['message']['source_notes']={'partial':True,'complete':False}
+            self.replace(root,'crossref.json',doc);m=json.loads((root/'manifest.json').read_bytes());m['crossref'][0]['observed_utc']=None;(root/'manifest.json').write_text(json.dumps(m))
+            self.assertIsNone(project_packet(root)[0]['ObservedUTC'])
+
+    def test_physical_coordinate_bounds_and_unsafe_xml_declarations_rejected_before_loading(self):
+        from io import BytesIO
+        from zipfile import ZipFile,ZIP_DEFLATED
+        from unittest.mock import patch
+        for mode in ('row','column','doctype','entity','utf16-doctype','other-xml'):
+            with self.subTest(mode=mode),tempfile.TemporaryDirectory() as d:
+                root=self.fixture(d);out=BytesIO()
+                with ZipFile(root/'historical.xlsx') as src,ZipFile(out,'w',ZIP_DEFLATED) as dst:
+                    for name in src.namelist():
+                        raw=src.read(name)
+                        if name=='xl/worksheets/sheet1.xml':
+                            if mode=='row':raw=raw.replace(b'<row r="2"',b'<row r="1048577"').replace(b'r="A2"',b'r="A1048577"').replace(b'r="B2"',b'r="B1048577"')
+                            elif mode=='column':raw=raw.replace(b'r="B2"',b'r="XFE2"')
+                            elif mode=='doctype':raw=b'<!DOCTYPE worksheet>'+raw
+                            elif mode=='entity':raw=b'<!ENTITY source "x">'+raw
+                            elif mode=='utf16-doctype':raw=('<?xml version="1.0" encoding="UTF-16"?><!DOCTYPE worksheet>'+raw.decode()).encode('utf-16')
+                        if name=='xl/styles.xml' and mode=='other-xml':raw=b'<!DOCTYPE styleSheet>'+raw
+                        dst.writestr(name,raw)
+                with patch('scripts.government_award_crosswalks.openpyxl.load_workbook') as loader:
+                    with self.assertRaises(ValueError):inspect_workbook(out.getvalue(),numeric_policy='positive_integer_decimal')
+                    loader.assert_not_called()

@@ -14,7 +14,7 @@ import xml.etree.ElementTree as ET
 from zipfile import ZipFile
 
 import openpyxl
-from openpyxl.utils import get_column_letter
+from openpyxl.utils import get_column_letter, column_index_from_string
 
 if __package__:
     from scripts.award_identifier_crosswalks import authority_contract, exact_text, governing_envelope, identifier
@@ -51,15 +51,40 @@ def exact_identifier(value, *, cell_type='s', number_format='General', numeric_p
     return None
 
 
+def _safe_xml_declarations(raw):
+    # Also catches common UTF-16/32 encodings before any XML/library parser.
+    # This is a narrow declaration check, not a general hostile-document sandbox.
+    if re.search(br'<!\s*(?:DOCTYPE|ENTITY)\b',raw.replace(b'\x00',b''),re.I):
+        raise ValueError('Unsafe XML doctype/entity declarations refused')
+
+
+def _physical_bounds(xml):
+    for row in xml.findall('s:sheetData/s:row',NS):
+        text=row.get('r','')
+        if not re.fullmatch('[1-9][0-9]*',text) or int(text)>1048576:
+            raise ValueError('Worksheet row outside Excel physical bounds')
+        for cell in row.findall('s:c',NS):
+            match=re.fullmatch(r'([A-Z]+)([1-9][0-9]*)',cell.get('r',''))
+            if (not match or int(match[2])!=int(text) or int(match[2])>1048576
+                    or len(match[1])>3 or column_index_from_string(match[1])>16384):
+                raise ValueError('Worksheet cell outside Excel physical bounds')
+
+
 def inspect_workbook(data, *, sheet='GRANTS DATA', header_row=1, id_column='APP ID', numeric_policy='reject_numeric'):
     """Inspect all physical rows independent of declared dimensions; never evaluate formulas."""
-    if not isinstance(data,bytes) or type(header_row) is not int or header_row<=0:
+    if not isinstance(data,bytes) or type(header_row) is not int or header_row<=0 or header_row>1048576:
         raise ValueError('Pinned workbook bytes and explicit header row required')
     if sheet!='GRANTS DATA' or id_column!='APP ID' or numeric_policy not in ('reject_numeric','positive_integer_decimal'):
         raise ValueError('Exact historical application extraction scope required')
     with ZipFile(BytesIO(data)) as archive:
         names=archive.namelist()
         if len(names)!=len(set(names)) or archive.testzip() is not None:raise ValueError('Workbook ZIP integrity or duplicate entry failure')
+        worksheet_parts=[]
+        for name in names:
+            raw_part=archive.read(name)
+            _safe_xml_declarations(raw_part)
+            if name.startswith('xl/worksheets/') and name.endswith('.xml'):worksheet_parts.append(raw_part)
+        for raw_part in worksheet_parts:_physical_bounds(ET.fromstring(raw_part))
         workbook=ET.fromstring(archive.read('xl/workbook.xml'))
         sheets=workbook.findall('s:sheets/s:sheet',NS)
         labels=[s.get('name') for s in sheets]
@@ -157,6 +182,7 @@ def project_packet(folder,trusted_upstream_sha256,*,expected_manifest_sha256,aut
         if 'bytes' in ref:_count(ref['bytes'],len(captured[name]))
         used.add(name);return captured[name]
     raw_authority=strict_json_loads(referenced(m.get('authority')))
+    governing_envelope(raw_authority)
     if (not isinstance(raw_authority,dict) or any(k in raw_authority for k in ('error','errors'))
             or raw_authority.get('id')!=authority['ror'] or m['authority']['sha256']!=authority['authority_raw_sha256']
             or authority['namespace']!='nhmrc'):
@@ -269,7 +295,8 @@ def project_packet(folder,trusted_upstream_sha256,*,expected_manifest_sha256,aut
         dois.add(doi);qurl=urlparse(exact_text(query.get('url')))
         from urllib.parse import unquote
         if qurl.scheme!='https' or qurl.netloc!='api.crossref.org' or qurl.query or qurl.fragment or not qurl.path.startswith('/works/') or _doi(unquote(qurl.path[7:]))!=doi:raise ValueError('Exact Crossref query URL required')
-        doc=strict_json_loads(referenced(query));work=doc.get('message',{}) if isinstance(doc,dict) else {}
+        doc=strict_json_loads(referenced(query));governing_envelope(doc)
+        work=doc.get('message',{});governing_envelope(work)
         if not isinstance(work,dict) or doc.get('status')!='ok' or any(k in part for part in (doc,work) for k in ('error','errors')) or _doi(work.get('DOI'))!=doi:raise ValueError('Unique complete Crossref publication identity required')
         funding=work.get('funder',[])
         if not isinstance(funding,list):raise ValueError('Structured funder array required')
