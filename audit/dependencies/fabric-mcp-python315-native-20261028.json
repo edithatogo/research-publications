@@ -1,0 +1,32 @@
+{
+  "scope": "E10.6 owned candidate native read; shared handover unaccepted",
+  "runtime": "3.15.1",
+  "package": "ms-fabric-mcp-server 0.8.7",
+  "tools": 58,
+  "tool_names_and_input_output_schemas_match_prior_qualification": true,
+  "credential": "Existing Azure CLI workload, selected in this owned process only",
+  "client_account_tenant_resource_pins_verified_in_process": true,
+  "native_requests": [
+    {
+      "method": "GET",
+      "target_kind": "workspace",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "target_kind": "item",
+      "status": 200
+    }
+  ],
+  "owned_host_exit": 0,
+  "shared_profile_sha256_unchanged": true,
+  "shared_hosts_restarted": 0,
+  "external_host_runtime": "3.14.6",
+  "live_shared_host_processes_observed": 35,
+  "shared_host_terminal_release_proven": false,
+  "native_mutations": 0,
+  "schedules_changed": false,
+  "credential_cache_transfer": false,
+  "limits": "Two exact metadata GETs do not prove write, refresh, query/runtime or global host activation acceptance. No shared host was replaced.",
+  "evidence_directory": "private/ops/2026-10-28-e10-native-probe/"
+}

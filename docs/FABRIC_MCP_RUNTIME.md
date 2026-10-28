@@ -1,3 +1,28 @@
+## Current native candidate qualification — 28 October 2026
+
+An owned Python3.15.1 candidate process completed exact workspace/report-item
+metadata GETs (both HTTP200) through the existing Azure CLI credential. Client,
+account, tenant and Fabric resource pins were checked in process without token
+export. All58 tool names and input/output schemas match the prior qualification.
+The process exited normally. The global profile stayed byte-identical; no shared
+host was stopped or restarted, no cache transferred and no native write occurred.
+
+This extends the24October tenant-free proof below at one exact read scope. It
+uses a process-local supported `AZURE_TOKEN_CREDENTIALS=AzureCliCredential`
+selector and zero retries; it is not permission to change other consumers' auth.
+The package and working-directory dotenv search paths contain no .env file in
+this tested configuration. Reads were guarded to the two exact URLs, one attempt
+each, with redirects disabled. No workspace listing or fallback route was needed.
+
+The live external3.14.6 launcher still has35 observed shared processes. Process
+presence is not native-job status, and sleeping state is not terminal/release
+proof. Its handover remains open. Preserve every consumer; do not infer an
+exclusive boundary from this owned probe, CPU state or chat archival.
+
+[Sanitized native audit](../audit/dependencies/fabric-mcp-python315-native-20261028.json).
+Private requests, schemas, pin checks and exact process receipts:
+`private/ops/2026-10-28-e10-native-probe/`.
+
 # Fabric MCP Python3.15 candidate and host handover
 
 This is the existing `ms-fabric-mcp-server` client, not a replacement Fabric

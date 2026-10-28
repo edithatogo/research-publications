@@ -22,10 +22,10 @@ One owner, one Conductor backlog, one canonical platform instance per tool. No m
 ## Commands
 
 ```sh
-python3 scripts/agent_harness.py context --task grants
-python3 scripts/agent_harness.py doctor
-python3 scripts/agent_harness.py check --task grants
-python3 scripts/agent_harness.py check --task all
+.venv/bin/python scripts/agent_harness.py context --task grants
+.venv/bin/python scripts/agent_harness.py doctor
+.venv/bin/python scripts/agent_harness.py check --task grants
+.venv/bin/python scripts/agent_harness.py check --task all
 ```
 
 Other context/test routes: publications, organisation, platform. The harness works from any directory, uses its running interpreter, executes fixed commands without a shell, runs all required checks despite an earlier failure, and returns nonzero if any check fails. It never deploys or marks a track complete. The doctor checks files/test selections, not licences or browser access. Paths route reading; mandatory instructions must still be read completely. The harness does not upload context or include private payloads.

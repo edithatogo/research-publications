@@ -124,6 +124,8 @@ def evaluate_run(records: Iterable[dict[str, Any]], health: Iterable[dict[str, A
     if prior_records is not None:
         prior_records = list(prior_records)
     errors = []
+    if not health:
+        errors.append("source_health_missing")
     if not records and verified_empty is not True:
         errors.append('empty_batch')
     if any(not isinstance(row, dict) for row in records):

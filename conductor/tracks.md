@@ -1,5 +1,13 @@
 # Track register
 
+## Current execution authority — 29 October 2026
+
+The approved entire-roadmap implementation and guarded isolated DEV/no-send
+scope in [CURRENT_STATE](../handoff/CURRENT_STATE.md) supersede historical
+priority/deferral paragraphs. Three isolated lanes deliver scoped packets to one
+integrator. Blocked requirements remain open. T16/T17 are cancelled and excluded,
+despite their historical conditional labels below. Accepted receipts are reused.
+
 ## Publication stabilisation before grants implementation
 
 Execution order and boundaries: [detailed handoff](PUBLICATION_STABILISATION.md). Existing T11, T14, T15, E01 and E07 own live acceptance; their execution runbooks refine the existing plans.

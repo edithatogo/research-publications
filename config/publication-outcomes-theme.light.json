@@ -1,0 +1,13 @@
+{
+  "name": "RIMSPublicationOutcomesLight3.json",
+  "foreground": "#242424",
+  "background": "#FFFFFF",
+  "backgroundLight": "#F3F2F1",
+  "foregroundLight": "#424242",
+  "tableAccent": "#005A9E",
+  "foregroundButton": "#FFFFFF",
+  "hyperlink": "#005A9E",
+  "visitedHyperlink": "#005A9E",
+  "foregroundNeutralSecondary": "#424242",
+  "foregroundNeutralTertiary": "#424242"
+}
