@@ -1,5 +1,31 @@
 # Current integration checkpoint — 29 October 2026
 
+## Delivery continuation — 29 October 2026, 09:30 Brisbane
+
+Relationship export owner returned clean terminal
+`26cfe460c2d45250b0b2fea26c67b67b305bbd87`, exactly its three assigned files.
+Integrator reviewed that bounded implementation and tests; no actionable finding.
+Exact read-only preflight against `779f6962` found both checkouts clean, no
+overlap, missing file or staged deletion. It is locally merged at `8263895a`.
+All 13 focused exporter tests pass using this checkout's actual Python3.15.1.
+The new bundle connects the frozen typed projection/model proposal to JSON/CSV,
+retaining independent pins, reversible display encoding and exclusive readback.
+It does not supply a real native producer/binding or qualify import/render/export.
+
+Admission consumer-parity owner is still active in ef45 on common verified main
+`7c202562`; its three new files are not yet committed. Preserve that writer and
+collect its terminal handoff before reviewing or merging its source. The compact
+handoff reports passing expanded preservation/context checks and documentation
+in progress; this is progress, not a terminal receipt. No new task was dispatched.
+
+Next operation: collect/review the frozen admission packet, run its exact
+preflight and integrate serially if qualified, then one coherent harness/PR and
+exact-main milestone for both connected packets and coordination changes. Do
+not restart accepted PR70 checks or create another helper wave while waiting.
+Main remains verified `7c202562`; this local merge is not hosted-main acceptance.
+Evidence is retained under this lane's ignored takeover directory. Native/auth
+owners, services, journals, gates and the November natural review are unchanged.
+
 ## Effectiveness review — 29 October 2026, 09:21 Brisbane
 
 Compared with the former review/integration bottleneck at `b634ab52`, all three
