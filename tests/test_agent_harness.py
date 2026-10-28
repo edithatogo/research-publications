@@ -5,10 +5,28 @@ import tempfile
 from types import SimpleNamespace
 import unittest
 
-from scripts.agent_harness import commands, load_config, public_file, run_checks
+from scripts.agent_harness import check_unittest_layout, commands, load_config, public_file, run_checks
 
 
 class HarnessTests(unittest.TestCase):
+    def test_standalone_cases_cannot_silently_disappear_from_discovery(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'test_retained.py').write_text(
+                'def test_replay():\n    assert False\n'
+                'async def test_preservation():\n    assert False\n')
+            with self.assertRaisesRegex(ValueError, 'test_retained.py:1:test_replay.*test_preservation'):
+                check_unittest_layout(root)
+
+    def test_case_methods_and_support_functions_remain_allowed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'test_retained.py').write_text(
+                'import unittest\ndef fixture():\n    return {}\n'
+                'class Cases(unittest.TestCase):\n'
+                '    def test_replay(self):\n        self.assertEqual(fixture(), {})\n')
+            check_unittest_layout(root)
+
     def test_failure_survives_later_success_and_all_checks_run(self):
         seen = []
         def runner(command, **kwargs):
