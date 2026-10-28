@@ -2,6 +2,37 @@
 
 ## Orchestration transfer complete — 29 October 2026
 
+### Verified PR70 and next connected assignments
+
+PR70 is merged at verified main `7c20256211e961be7b5f19ceadf08287bf309d34`.
+Exact-main quality `40786340401` and security `40786340390` passed, as did all
+three PR-head checks at `ee5c038a`. Main's source tree equals that reviewed head.
+The integrator fast-forwarded local main and its own clean branch with ordinary
+Git commands; no history, hook or index workaround was used.
+
+Next writers must themselves verify a clean fast-forward to this exact common
+main before implementation. Each owns only the three new files below, retains
+existing reusable validators, uses repo-local actual Python3.15.1 and existing
+hash locks, and returns one terminal scoped commit with focused behavior tests.
+Neither assignment has native/provider/authentication, shared-file or dependency
+scope. Existing source snapshots, human values, unknowns and independent pins
+must survive. Source success is not native acceptance.
+
+| Owner / checkout | Exclusive paths and finish line |
+|---|---|
+| Admission `01a1831e-cc6d-7371-9d57-021a339b708a`, `/Users/doughnut/.codex/worktrees/ef45/chhhs-research-publications` | `scripts/prepare_publication_consumer_parity.py`, paired test, `docs/PUBLICATION_CONSUMER_PARITY_SOURCE_20261029.md`: pinned admission/preimage/field-filter contract to expected registry and supplied model/full/monthly consumer parity; preserve human fields, history, multiplicity, date uncertainty and explicit exclusions. Reject incomplete or mismatched generations and unsupported mappings. |
+| Relationships `01a184c7-5192-71b1-b1fb-be4888a04f51`, `/Users/doughnut/.codex/worktrees/rims-relationship-replacement/chhhs-research-publications` | `scripts/prepare_source_relationship_export.py`, paired test, `docs/SOURCE_RELATIONSHIP_EXPORT_CLOSURE_20261029.md`: existing typed producer/model projection to deterministic JSON/CSV evidence exports with exact digest/key/count parity, reversible display escaping and exclusive output creation. Preserve all occurrences, revisions, ambiguity and unknowns. |
+
+The corrected DataCite packet is integrated; its b9f6 owner has no further
+implementation assignment. Do not duplicate its client creation or infer a new
+source-capture/native authority. All automations remain the existing transferred
+jobs. Native exits and the after-1-November12:05 monthly evidence gate are unchanged.
+
+Cleanup readback after the former owner's final message: rims-reconcile is now
+absent from both the filesystem and registered Git worktree inventory. The
+earlier app refusal below is retained as history; this integrator did not remove
+it or alter private app state. Original operational/runtime checkouts remain.
+
 Sole orchestrator/integrator and shared-record owner is now
 `01a184bf-c06f-7703-9e9e-b1bcdc95f3e1`, managed checkout
 `/Users/doughnut/.codex/worktrees/fb8d/chhhs-research-publications`, branch
