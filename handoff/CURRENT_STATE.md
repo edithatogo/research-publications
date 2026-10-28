@@ -20,12 +20,13 @@ No source or package result implies native acceptance.
 | Funding reader `01a1831e-cc0d-7340-a1da-95c81b8e93fa`; `/Users/doughnut/.codex/worktrees/c4c7/chhhs-research-publications` | ARC snapshot reconciler, model and report-page builders, three paired tests and closure leaf. Clean fast-forward to verified PR66 main before writing. | None. Supplied-evidence source packet; preserve raw amount/unknown semantics. Eight-page legacy reader must reject current six-page E04 target. No native replay or F01 funding inference. |
 | Registry `01a1831e-cc6d-7371-9d57-021a339b708a`; `/Users/doughnut/.codex/worktrees/ef45/chhhs-research-publications` | Pure bootstrap utilities and field-help/index/quality/view plans, their five tests and metadata closure leaf. Must clean-fast-forward to PR65 main before writing. Existing field-meanings config remains parent-owned. | None. Preserve metadata/ETags and preimage-bound plans; no capture, native adapters or generated migration shell. Exclude unqualified field creation/type changes. |
 
-Current integration: registry metadata through `65eb642a` passed 43 focused
-stdlib tests; manual acquisition through `0d09312f` passed 49. Both exact
-preflights were clean and source packets are locally merged, awaiting combined
-harness and PR/main verification. ARC `69d353b3` is under model/export and binding
-review correction. Completed lanes are assessing the next connected admission
-and ARC source/export packets read-only, without moving their terminal branches.
+Current integration: registry metadata through `65eb642a` (43 focused tests),
+manual acquisition through `0d09312f` (49), and ARC source/model/reader through
+`3f9c2571` (29) are locally merged after exact clean preflights. Combined Python
+3.15.1 harness passes 1,826 tests with 19 capability skips, 58 Node tests and
+446 project checks. Next: hosted PR/main verification. Terminal lanes assess
+admission, ARC source/export and remaining requirement coverage read-only;
+none moves its branch before the verified main handoff.
 Only a lane's sole writer fast-forwards its clean branch. Preserve active work,
 ordinary hooks and original environments; never reset/clean, steal locks or
 rewrite indexes/refs to bypass ownership. Local main now follows canonical
