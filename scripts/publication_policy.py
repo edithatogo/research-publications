@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from scripts.organisation_enrichment import _norm, load_reference
+from scripts.publication_notice_evidence import collect_notice_evidence
 
 ROOT = Path(__file__).resolve().parents[1]
 POLICY_PATH = ROOT / "config/publication-policy.json"
@@ -185,45 +186,13 @@ def validate_policy(policy):
 
 
 def notice_flags(record):
-    """Read declared notices, including PubMed XML-shaped metadata, not titles."""
-    signals = []
-    fields = {
-        "publicationnotice",
-        "publicationtypes",
-        "publicationtype",
-        "publicationtypelist",
-        "notice",
-        "reftype",
-        "@reftype",
-    }
-
-    def visit(value):
-        if isinstance(value, dict):
-            for key, child in value.items():
-                if str(key).lower() in fields:
-                    signals.append(str(child).lower())
-                visit(child)
-        elif isinstance(value, list):
-            for child in value:
-                visit(child)
-
-    visit(record)
-    metadata = record.get("MetadataJSON")
-    if isinstance(metadata, str):
-        try:
-            visit(json.loads(metadata))
-        except (ValueError, TypeError):
-            pass  # Original bytes remain retained; never guess from free text.
-    flags = []
-    if any(record.get(key) is True for key in ("Retraction", "IsRetracted")) or any(
-        "retract" in value for value in signals
-    ):
-        flags.append("retraction-notice")
-    if any(record.get(key) is True for key in ("Correction", "IsCorrected")) or any(
-        "erratum" in value or "correct" in value for value in signals
-    ):
-        flags.append("correction-notice")
-    return flags
+    """Compatibility labels from exact declared notice evidence, never prose."""
+    evidence = collect_notice_evidence(record)
+    return [
+        flag
+        for flag in ("retraction-notice", "correction-notice")
+        if flag in evidence["flags"]
+    ]
 
 
 def evaluate(source, source_id, record, *, policy=None, reference=None):
@@ -253,7 +222,16 @@ def evaluate(source, source_id, record, *, policy=None, reference=None):
         "PublicationDatePrecision"
     ) not in ("day", "month", "year"):
         flags.append("publication-date-uncertain")
-    flags.extend(notice_flags(record))
+    notice = collect_notice_evidence(
+        record, source_key=key if source == "PubMed" else None
+    )
+    flags.extend(
+        flag
+        for flag in ("retraction-notice", "correction-notice")
+        if flag in notice["flags"]
+    )
+    if notice["issues"]:
+        flags.append("notice-evidence-unverified")
     # Preserve every original field; no employment inference or author-name merge.
     return {
         "SourceKey": key,
@@ -267,6 +245,7 @@ def evaluate(source, source_id, record, *, policy=None, reference=None):
             "OrganisationReferenceVersion", ""
         ),
         "UncertaintyFlags": flags,
+        "NoticeEvidence": notice,
         "PolicyVersion": policy["version"],
         "PolicySHA256": hashlib.sha256(
             json.dumps(policy, sort_keys=True).encode()

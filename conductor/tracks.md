@@ -8,6 +8,20 @@ priority/deferral paragraphs. Three isolated lanes deliver scoped packets to one
 integrator. Blocked requirements remain open. T16/T17 are cancelled and excluded,
 despite their historical conditional labels below. Accepted receipts are reused.
 
+Canonical source milestones PR57, PR58 and PR59 are merged with main quality and
+security checks passing. These do not close native/operational track exits.
+Current evidence and residual requirements are consolidated in the
+[publication cycle](../docs/PUBLICATION_CYCLE_CLOSURE_20261029.md),
+[complete PubMed candidate](../docs/PUBMED_OFFLINE_TYPED_CANDIDATE_20261029.md),
+[grants source disposition](../docs/G08_SOURCE_RECONCILIATION_20261029.md),
+[relationship compatibility](../docs/G06_RELATIONSHIP_GUARDS_20261029.md),
+[classification closure](../docs/G07_CLASSIFICATION_SOURCE_20261029.md), and
+[E04/T18 reader handoff](../docs/E04_T18_SOURCE_PACKET_20261029.md).
+S02 clean-source extraction passes at56ac7d92 with NativeAcceptance=false;
+E10 shared-host promotion, current native recovery/rendering and the post-1November
+natural monthly observation remain open. No accepted historical route is reopened
+merely to reproduce unchanged evidence.
+
 ## Publication stabilisation before grants implementation
 
 Execution order and boundaries: [detailed handoff](PUBLICATION_STABILISATION.md). Existing T11, T14, T15, E01 and E07 own live acceptance; their execution runbooks refine the existing plans.

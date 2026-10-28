@@ -36,8 +36,10 @@ from typing import Any
 
 from scripts.e09_feed_contracts import (
     _required_identifier,
+    publication_source_key,
     validate_subscription_preference,
 )
+from scripts.e09_first_discovery import STATUS_TIERS, _canonical_key
 
 EDITION_KIND = "first_discovery_feed"
 SELECTION_FIELDS = {
@@ -88,13 +90,18 @@ def _parse_discovered(rows: Any) -> list[dict[str, Any]]:
         missing = SELECTION_FIELDS - set(row)
         if missing:
             raise ValueError(f"discovered record {index} is missing selection fields: {sorted(missing)}")
-        key = _required_identifier(row["publication_key"], f"discovered record {index} publication_key")
+        key = publication_source_key(row["publication_key"], f"discovered record {index} publication_key")
         if key in seen:
             raise ValueError(f"discovered record {index} repeats publication_key {key!r}")
         seen.add(key)
         tier = row["tier"]
-        if tier not in {"confirmed", "possible"}:
+        if not isinstance(tier, str) or tier not in {"confirmed", "possible"}:
             raise ValueError(f"discovered record {index} tier {tier!r} is not thread-eligible")
+        if not isinstance(row['review_status'], str) or STATUS_TIERS.get(row['review_status']) != tier:
+            raise ValueError('Edition review status and tier disagree')
+        _canonical_key(row['canonical_key'])
+        if not isinstance(row['suggested_trigger'], str) or row['suggested_trigger'] not in {'first_discovery', 'catch_up'}:
+            raise ValueError('Qualified selection trigger required')
         parsed.append({
             "publication_key": key,
             "discovered_on": _iso_date(row["discovered_on"], f"discovered record {index} discovered_on"),
