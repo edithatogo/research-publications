@@ -17,14 +17,15 @@ No source or package result implies native acceptance.
 | Current owner / actual managed checkout | Exclusive source assignment | Native scope / next handoff |
 |---|---|---|
 | Publications `01a1831e-449a-7693-af1a-08bb23391c76`; `/Users/doughnut/.codex/worktrees/fa70/chhhs-research-publications` | QGIP/PubMed/DoRA collector builders, bounded read-retry helper, four paired tests and acquisition closure leaf. Must clean-fast-forward to verified PR64 main before writing. | None. Pure source proposals and focused stdlib tests; no provider calls, observer fabrication, activation or native retries. |
-| Preservation `01a1831e-cc0d-7340-a1da-95c81b8e93fa`; `/Users/doughnut/.codex/worktrees/c4c7/chhhs-research-publications` | Seven legacy-preservation helpers, seven paired tests and closure leaf, from verified PR63 main. | None. Complete inventory/history diagnostics; candidate-only planning. Finish existing assignment without moving active checkout. |
+| Preservation `01a1831e-cc0d-7340-a1da-95c81b8e93fa`; `/Users/doughnut/.codex/worktrees/c4c7/chhhs-research-publications` | Seven legacy-preservation helpers and tests integrated locally at `b582ab59`; now read-only assessment of the next connected funding/outcome source gap. | None. Return exact spec/path/dependency recommendation; keep terminal checkout until verified main handoff. |
 | Registry `01a1831e-cc6d-7371-9d57-021a339b708a`; `/Users/doughnut/.codex/worktrees/ef45/chhhs-research-publications` | Pure bootstrap utilities and field-help/index/quality/view plans, their five tests and metadata closure leaf. Must clean-fast-forward to PR65 main before writing. Existing field-meanings config remains parent-owned. | None. Preserve metadata/ETags and preimage-bound plans; no capture, native adapters or generated migration shell. Exclude unqualified field creation/type changes. |
 
-Current review: legacy packet `63931b69` passed 85 focused tests but is not merged.
-Its owner is fixing same-target pagination binding, unsupported historical
-absence wording, strict JSON and single-read hash provenance. Acquisition and
-registry metadata packets continue independently; their terminal handoffs enter
-serial preflight/review and coherent PR/main verification.
+Current integration: legacy packet through `b582ab59` passed exact clean preflight
+and all 91 focused stdlib tests in the integration checkout. It preserves target
+binding across the connected pipeline and never authorizes restoration. Acquisition
+`762afa50` is under review correction for preserved dependencies, strict inputs
+and failure capture; registry metadata development continues independently.
+Next: serial preflight/review, combined harness and PR/main verification.
 Only a lane's sole writer fast-forwards its clean branch. Preserve active work,
 ordinary hooks and original environments; never reset/clean, steal locks or
 rewrite indexes/refs to bypass ownership. Local main now follows canonical
