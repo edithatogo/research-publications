@@ -43,6 +43,7 @@ def build_cases(observed_at_utc: str) -> dict:
     updated = copy.deepcopy(row)
     updated['Title'] = 'SYNTHETIC ACCEPTANCE — updated grants guard'
     updated['EvidenceHash'] = hashlib.sha256(b'SYNTHETIC ACCEPTANCE grants guard v2').hexdigest()
+    updated['RetrievedUTC'] = (observed + timedelta(seconds=1)).isoformat()
     add('changed_source_update', updated, prior=True, result='Succeeded', writes=1)
     collision = copy.deepcopy(updated)
     collision['RoundID'] = 'round-b'
@@ -70,6 +71,7 @@ def build_cases(observed_at_utc: str) -> dict:
     quoted['OpportunityKey'] = stable_key(quoted)
     add('quoted_source_identity_create', quoted, prior=False, result='Succeeded', writes=1)
     projected = copy.deepcopy(updated)
+    projected['RetrievedUTC'] = (observed + timedelta(seconds=2)).isoformat()
     projected.update(DeadlinePrecision='day', DeadlineTimezone='Australia/Sydney',
                      DeadlineLocalTime='00:30:00', DeadlineUTCInstant='2026-10-05T13:30:00Z',
                      DeadlineBrisbaneDate='2026-10-05', DeadlineBrisbaneTime='23:30:00',
