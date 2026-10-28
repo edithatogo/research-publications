@@ -35,14 +35,19 @@ Internal disk exhaustion was observed during startup; avoid large allocations
 and use owned temporary outputs on PortableSSD without moving active environments.
 Earlier assignments below are history, including the superseded local-only hold.
 
-### Exact guarded DEV assignment — E04 theme identity
+### Exact guarded DEV assignment — E04 theme and direct-field labels
 
 Dashboard chat `01a1831e-cc0d-7340-a1da-95c81b8e93fa` is the sole native writer
 for the exact existing E04 report in the retained reconciled-report-target manifest.
 Fresh readback matches all75 report parts and61 common-model parts. Assigned
-change: only the registered custom-theme resource internal `/name`, matched to
-its existing registration. Frozen candidate/inverse references are in the lane
-handoff. Require fresh prewrite drift check, complete preimage, qualified save,
+change: registered custom-theme internal `/name` plus69 missing exact direct-field
+`nativeQueryRef` labels in45 enumerated parts, as reviewed in the expanded lane
+packet. Body69e5956a, delta dfc34a78 and inverse867664a3 pin that prepared packet;
+fresh drift proof is still required. The10 unchanged clipping warnings remain
+rendering requirements; two unavailable exact-version schemas remain a recorded
+coverage limit. No actual schema error may be waived. Establish actual baseline
+rendering before save, retain one-attempt journals, and qualify the owned inverse
+before guarded final corrected reapplication. Frozen references remain private. Require fresh prewrite drift check, complete preimage, qualified save,
 full definition/binding readback, bounded inverse and actual rendered verification.
 Common model, separate T18 report, data, filters, layout, refresh, schedule, sharing
 and production promotion are outside this write assignment. Stop on drift,
@@ -70,8 +75,8 @@ Publications continues correction/retraction and source-disposition closure.
 Grants continues relationship guards, then compatible planning/recovery closure.
 Dashboard owns the exact E04 DEV report only. One-field theme validation exposed
 69 pre-existing missing projection labels; a minimally expanded theme/label
-candidate is preparation-only pending semantic review and explicit exact scope.
-No service write has occurred. The shared model and separate T18 report retain
+candidate passed exact semantic review and has the bounded assignment above.
+No service write has occurred as of this checkpoint. The shared model and separate T18 report retain
 read-only status; T18's retained Fabric route returned404 and needs exact-target
 route reconciliation. The isolated funding-only model is unsuitable for E04.
 
