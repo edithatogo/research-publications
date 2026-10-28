@@ -68,12 +68,12 @@ def project(
     ambiguity. The documented offset ceiling is explicit: larger scopes need
     a separately qualified source profile, never truncation.
     """
-    _pin(pages, expected_pages_sha256)
-    _pin(scope, expected_scope_sha256)
-    _pin(generation, expected_generation_sha256)
     pages, scope, publications, generation = copy.deepcopy(
         (pages, scope, publications, generation)
     )
+    _pin(pages, expected_pages_sha256)
+    _pin(scope, expected_scope_sha256)
+    _pin(generation, expected_generation_sha256)
     if not isinstance(pages, list) or not isinstance(publications, list):
         raise ValueError("Explicit page and canonical arrays required")  # noqa: TRY004 - malformed evidence contract
     _complete(scope)

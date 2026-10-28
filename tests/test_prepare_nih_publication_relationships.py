@@ -2,6 +2,7 @@ import copy
 import hashlib
 import json
 import unittest
+from unittest.mock import patch
 
 from scripts.prepare_nih_publication_relationships import ENDPOINT, project
 from scripts.source_relationship_evidence import fingerprint
@@ -108,6 +109,23 @@ def change_response(page, change):
 
 
 class NihPublicationRelationshipTests(unittest.TestCase):
+    def test_copy_time_mutation_cannot_project_under_original_pin(self):
+        values = fixture()
+        generation, pins = prepare(values)
+        original_deepcopy = copy.deepcopy
+
+        def mutate_before_copy(inputs):
+            change_response(
+                values[0][0], lambda doc: doc["results"][0].update(applid=999)
+            )
+            return original_deepcopy(inputs)
+
+        with patch(
+            "scripts.prepare_nih_publication_relationships.copy.deepcopy",
+            side_effect=mutate_before_copy,
+        ), self.assertRaisesRegex(ValueError, "Pinned input changed"):
+            project(*values, generation, **pins)
+
     def test_complete_candidates_preserve_values_and_zero_scope(self):
         values = fixture()
         before = copy.deepcopy(values)

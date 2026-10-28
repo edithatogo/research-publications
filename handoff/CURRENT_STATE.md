@@ -1,5 +1,33 @@
 # Current integration checkpoint — 29 October 2026
 
+## Orchestration transfer complete — 29 October 2026
+
+Sole orchestrator/integrator and shared-record owner is now
+`01a184bf-c06f-7703-9e9e-b1bcdc95f3e1`, managed checkout
+`/Users/doughnut/.codex/worktrees/fb8d/chhhs-research-publications`, branch
+`codex/rims-orchestrator-takeover`, starting at retained `b634ab52`.
+The former owner confirmed transfer complete. Earlier assignments below are
+history. All three existing app follow-ups target this chat; do not duplicate them.
+Original native objects, authentication renewal, services and journals retain
+their existing owners. This checkout has no native writing assignment.
+
+Current operation: correct the reviewed NIH copy/pin race locally, receive the
+replacement acquisition owner's DataCite parameter/chronology correction, then
+integrate reviewed admission `a80bc1f7`, relationships `190430ef` and corrected
+DataCite serially with exact preflights and coherent source/hosted gates.
+Admission chat `01a1831e-cc6d-7371-9d57-021a339b708a` retains ef45 and its frozen
+packet; its next assignment is a read-only connected-outcome recommendation.
+Replacement acquisition creation is pending; it owns only the DataCite helper,
+paired test and closure leaf, with no native scope. NIH source/test and shared
+records remain with this integrator. No other writer owns this checkout.
+
+The restored old rims-reconcile checkout is clean detached `b634ab52` with no
+ignored artifacts. App archival refused removal because it is the task's primary
+checkout; retain it without a writing assignment. Its old private/ops and .venv
+were not restored. External logs/packages remain under
+`/Volumes/PortableSSD/rims-orchestration-temp`; selected artifacts need verification
+before reuse. No new native or runtime acceptance follows from this transfer.
+
 ## Scheduled continuation and workspace cleanup — 29 October 2026
 
 The user's latest direction authorises scheduled continuation and effectiveness
