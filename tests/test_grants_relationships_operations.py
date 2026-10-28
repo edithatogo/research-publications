@@ -106,6 +106,90 @@ class GrantsRelationshipTests(unittest.TestCase):
             with self.subTest(record=record), self.assertRaisesRegex(ValueError, message):
                 normalize_relationship(record)
 
+    def test_award_relationship_requires_funder_scoped_source_key(self):
+        for key in ('AWARD:1', 'AWARD::1', 'AWARD:MRFF:', 'AWARD:MRFF: 1'):
+            with self.subTest(key=key), self.assertRaisesRegex(
+                    ValueError, 'award relationships must link an AWARD key to a PUB key'):
+                normalize_relationship(self._award_link(from_key=key))
+
+
+    def test_batch_rejects_award_key_namespace_that_disagrees_with_funder(self):
+        source = {**self._award_sources()[0], 'FunderKey': 'FUNDER:nhmrc'}
+        result = validate_relationship_batch(
+            [self._award_link()], publication_keys=['PUB:1'], opportunity_keys=[],
+            award_sources=[source], affiliation_sources={})
+        self.assertEqual(result['validated'], [])
+        self.assertEqual(result['rejected'], [{
+            'index': 0,
+            'reasons': ['award_funder_key_namespace_mismatch'],
+        }])
+
+
+    def test_batch_accepts_canonical_funder_namespace_key(self):
+        source = {**self._award_sources()[0], 'AwardKey': 'AWARD:arc:source-1',
+                  'FunderKey': 'FUNDER:arc'}
+        candidate = self._award_link(from_key='AWARD:arc:source-1')
+        result = validate_relationship_batch(
+            [candidate], publication_keys=['PUB:1'], opportunity_keys=[],
+            award_sources=[source], affiliation_sources={})
+        self.assertEqual(len(result['validated']), 1)
+        self.assertEqual(result['rejected'], [])
+
+
+    def test_batch_detects_duplicate_award_identity_across_funder_key_aliases(self):
+        sources = [
+            {'AwardKey': 'AWARD:MRFF:1', 'AwardID': 'A-1',
+             'FunderKey': 'MRFF', 'AwardStatus': 'active'},
+            {'AwardKey': 'AWARD:mrff:1', 'AwardID': 'A-1',
+             'FunderKey': 'FUNDER:mrff', 'AwardStatus': 'active'},
+        ]
+        result = validate_relationship_batch(
+            [self._award_link()], publication_keys=['PUB:1'], opportunity_keys=[],
+            award_sources=sources, affiliation_sources={})
+        self.assertEqual(result['validated'], [])
+        self.assertEqual(result['rejected'], [{
+            'index': 0, 'reasons': ['award_funder_identity_ambiguous'],
+        }])
+
+
+    def test_batch_keeps_candidate_affiliation_unresolved_when_identity_is_ambiguous(self):
+        candidate = {'RelationshipType': 'investigator_affiliation',
+                     'FromKey': 'AUTH:1', 'ToKey': 'ORG:1',
+                     'EvidenceURL': 'https://evidence', 'Confidence': 'candidate'}
+        result = validate_relationship_batch(
+            [candidate], publication_keys=[], opportunity_keys=[], award_sources=[],
+            affiliation_sources={'AUTH:1': ['ORG:1', 'ORG:2']})
+        self.assertEqual(result['validated'], [])
+        self.assertEqual(result['rejected'], [
+            {'index': 0, 'reasons': ['affiliation_identity_ambiguous']},
+        ])
+
+
+    def test_namespace_comparison_does_not_rekey_or_promote_a_candidate(self):
+        candidate = self._award_link(Confidence='candidate', RelationshipType='candidate_award_match')
+        candidate['ReviewStatus'] = 'Needs Review'
+        before = normalize_relationship(candidate)
+        result = validate_relationship_batch(
+            [candidate], publication_keys=['PUB:1'], opportunity_keys=[],
+            award_sources=[{**self._award_sources()[0], 'FunderKey': 'FUNDER:mrff'}],
+            affiliation_sources={})
+        self.assertEqual(result['validated'], [before])
+        self.assertEqual(result['validated'][0]['FromKey'], 'AWARD:MRFF:1')
+        self.assertEqual(result['validated'][0]['ReviewStatus'], 'Needs Review')
+        self.assertEqual(normalize_relationship(self._award_link())['RelationshipKey'],
+                         'REL:43faab7ab068494b3196272b')
+
+    def test_single_target_candidate_affiliation_remains_a_candidate(self):
+        candidate = {'RelationshipType': 'investigator_affiliation',
+                     'FromKey': 'AUTH:1', 'ToKey': 'ORG:1',
+                     'EvidenceURL': 'https://evidence', 'Confidence': 'candidate'}
+        result = validate_relationship_batch(
+            [candidate], publication_keys=[], opportunity_keys=[], award_sources=[],
+            affiliation_sources={'AUTH:1': ['ORG:1']})
+        self.assertEqual(result['validated'][0]['Confidence'], 'candidate')
+        self.assertEqual(result['validated'][0]['ReviewStatus'], 'Needs Review')
+        self.assertEqual(result['rejected'], [])
+
     def test_batch_rejects_duplicate_source_keys_and_withdrawn_award(self):
         duplicate_sources = self._award_sources() * 2
         result = validate_relationship_batch(
