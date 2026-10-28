@@ -20,8 +20,10 @@ No source or package result implies native acceptance.
 | Preservation `01a1831e-cc0d-7340-a1da-95c81b8e93fa`; `/Users/doughnut/.codex/worktrees/c4c7/chhhs-research-publications` | Seven legacy-preservation helpers, seven paired tests and closure leaf, from verified PR63 main. | None. Complete inventory/history diagnostics; candidate-only planning. Finish existing assignment without moving active checkout. |
 | Contracts `01a1831e-cc6d-7371-9d57-021a339b708a`; `/Users/doughnut/.codex/worktrees/ef45/chhhs-research-publications` | Terminal packet `8d368c34` reviewed and integrated locally: three offline verifiers/preparers, paired tests and forty-path disposition. Next operation is read-only assessment of nine bootstrap/helper paths. | None. 35 focused stdlib tests passed. No new source writes until next verified-main handover and exact assignment. |
 
-Next integration: legacy-preservation packet plus the reviewed contract packet,
-then exact preflight/review, combined checks and serial PR/main verification.
+Current integration: the reviewed contract packet and retained field-description
+proposal pass the combined harness (1,614 Python tests, 19 skips, 58 Node tests,
+446 project checks). They receive their own serial PR/main checkpoint. The
+legacy-preservation packet will follow when its owner reaches a terminal handoff.
 Only a lane's sole writer fast-forwards its clean branch. Preserve active work,
 ordinary hooks and original environments; never reset/clean, steal locks or
 rewrite indexes/refs to bypass ownership. Local main now follows canonical
