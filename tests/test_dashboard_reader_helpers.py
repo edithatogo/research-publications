@@ -286,6 +286,10 @@ class FreshnessReaderTests(ReaderFixtureTest):
             self.assertIn(meaning, text)
         self.assertIn('Blank cards mean unavailable', text)
         self.assertIn('not proof that the whole model processed successfully', text)
+        dora = next(d for d in docs if d['name'] == 'source-2')
+        self.assertIn('Acquisition: Unavailable', json.dumps(dora))
+        dora_value = next(d for d in docs if d['name'] == 'timestamp-2')
+        self.assertIn('latest retained observation UTC', json.dumps(dora_value))
         self.assertEqual(receipt['changed_existing'], ['definition/pages/pages.json'])
 
     def test_absent_observation_field_never_uses_publication_date_or_other_provider(self):

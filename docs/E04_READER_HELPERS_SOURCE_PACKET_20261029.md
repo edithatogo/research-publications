@@ -99,7 +99,8 @@ and are not used as freshness dates. No processing-success receipt is consumed.
 Funding and relationship required bindings all resolve in the frozen capture.
 Four timestamp cards have qualified dateTime dependencies: FreshSearchAudit.
 RefreshedAtUTC (PubMed search observation), DORA Activity Registry.DORAObservedUTC
-(activity acquisition), OpenAlexWorks.OpenAlexObservedUTC (imported-work observation),
+(activity source observation, with acquisition independently unavailable),
+OpenAlexWorks.OpenAlexObservedUTC (imported-work observation),
 and ReportingWindow.RefreshedAtUTC (materialization context).
 
 Three additional fields exist as **string**, so their chronological scalar
@@ -159,3 +160,10 @@ T18 still requires current-target identification before its separate preserved
 reader/performance/report-restore gates can resume. Canonical metric denominators,
 taxonomy/provider-ID criteria, five forecast origins per horizon and suppression
 rules remain unchanged; no data, forecast, model or outcome acceptance is added.
+
+Final event-meaning correction: the frozen DORA Activity Registry partition
+requires an explicit UTC source observation timestamp. It does not independently
+establish acquisition time. The final timestamp candidate is
+`freshness-observation.Report`; its earlier local candidate is preserved as history.
+The changed event-meaning test passed again; unchanged test/validation evidence
+for the other helpers is reused. No model value or type is changed.
