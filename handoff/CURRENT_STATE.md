@@ -23,10 +23,14 @@ worktrees are also absent; original operational/runtime checkouts remain.
 Necessary replacement admission chat `01a184ec-294d-7451-ba5e-c1781d3aa3d8`
 is attached to new managed `/Users/doughnut/.codex/worktrees/8cd6/chhhs-research-publications`
 at verified `7c202562` (initially detached). Its readiness turn currently reports
-an app approval wait; branch/runtime readiness is not yet established. Leave
-approval with the human. The same three-file completed-simulation parity source
-assignment is reserved to this successor; no implementation release until exact
-PR71 main gates and its actual isolated readiness. No old environment, native
+an initial app approval wait, subsequently resolved. It returned READY: clean
+branch `codex/rims-consumer-outcomes-source` at `7c202562`, fresh lane-local
+`.venv/bin/python` actually reporting 3.15.1, no copied private/native artifacts.
+The same three-file completed-simulation parity source assignment is reserved
+to this successor; implementation remains held only for exact PR71 main gates.
+The existing delivery heartbeat was updated in place with this owner/recovery
+and pending-gate checkpoint; its ID, target, cadence and Active status are
+preserved. No new job was created. No old environment, native
 object, auth or journal ownership transfers. Do not duplicate the new chat or
 restore ef45 by assumption. This supersedes older active-ef45 assignments below.
 
