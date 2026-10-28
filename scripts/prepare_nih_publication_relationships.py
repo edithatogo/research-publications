@@ -285,6 +285,19 @@ def project(
                 "PMID": pmid,
                 "complete": True,
                 "returned_references": total,
+                "page_evidence": [
+                    {
+                        key: copy.deepcopy(page[key])
+                        for key in (
+                            "name",
+                            "sha256",
+                            "bytes",
+                            "observed_utc",
+                            "request",
+                        )
+                    }
+                    for _, _, _, page, _ in group
+                ],
                 "interpretation": "no returned references"
                 if total == 0
                 else "source references only",

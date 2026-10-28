@@ -116,6 +116,9 @@ class NihPublicationRelationshipTests(unittest.TestCase):
         self.assertEqual(len(result["rows"]), 2)
         self.assertEqual(result["canonical_publication_count"], 1)
         self.assertEqual(result["coverage"][1]["returned_references"], 0)
+        self.assertEqual(
+            result["coverage"][1]["page_evidence"][0]["sha256"], values[0][-1]["sha256"]
+        )
         row = result["rows"][0]
         self.assertEqual(
             row["SourceRecord"]["extra"]["original"], [None, "unknown", "A\r\nB"]
