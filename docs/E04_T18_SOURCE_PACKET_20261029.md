@@ -274,3 +274,118 @@ the common model or the other report.
 Second-packet verification: repo-local Python 3.15.1; 36 focused tests pass across
 12 new test modules. Initial packet tests were reused without rerunning the
 unchanged batch. No dependency installation/build or native/auth operation occurred.
+
+## Read-only assignment checkpoint — 29 October 2026
+
+After source integration the parent assigned this lane exclusive read verification
+of the exact E04 report/common model and the separate T18 reader from the private
+manifests above. No native mutation or authentication renewal was assigned.
+
+### Actual route boundary
+
+The owned retained Fabric candidate runs actual Python 3.15.1 and contains
+`azure.identity`, but not `azure.cli`. Its qualified `AzureCliCredential` provider
+delegates to the installed Azure CLI. Inspection of the actual launcher shows it
+selects Python 3.14; the independent Fabric CLI interpreter reports 3.12.13 and
+its retained compatibility record excludes Python 3.15. The original repo-local
+3.15.1 environment also has no Azure CLI package. No environment or launcher was
+changed and no dependency build was attempted here; the parent owns that work.
+
+An owned exact-E04-item read gate used the retained 3.15.1 Azure credential SDK
+and refused the unsupported credential subprocess before execution. Receipt:
+`private/ops/e04-t18-read-verification-20261029/exact-read-route-gate.json` in this
+delivery worktree. Actual result: `BLOCKED_LOCAL_CREDENTIAL_RUNTIME_GATE`, zero
+credential subprocesses, zero native requests, no login/renewal and no attached
+old Fabric host invocation. It does not establish an expired session, tenant
+denial or unavailable target permission. Fresh account/tenant identity, definitions,
+bindings and remote writer/in-flight state remain unverified. No matching local
+report/model mutation helper was observed; that alone cannot certify remote state.
+
+The inspected retained Node adapter at original
+`private/ops/2026-10-28-e04-completion-01/powerbi-read.mjs` invokes `az rest`; it
+does not provide an independent qualified Node credential route. No additional
+client or resource pins were introduced. Parent acknowledged this route boundary
+and retained ownership of new Azure CLI runtime qualification.
+
+### Useful frozen reconciliation completed
+
+New evidence is confined to this delivery worktree's ignored
+`private/ops/e04-t18-read-verification-20261029/`. Originals and authentication
+stores remain untouched. `frozen-summary.json`, `e04-frozen-consumer-map.json` and
+`t18-frozen-consumer-map.json` compare complete frozen report parts to the retained
+61-part/53-table model. The E04 capture contains six pages, 62 visuals and 95 direct
+Column/Measure reference occurrences in visual JSON. The T18 capture contains
+16 pages, 230 visuals and 416 such occurrences. All these references resolve to
+the frozen model, including resolved local query aliases. Counts exclude other
+reference kinds and page/report-level filter traversal; they are not a substitute
+for the broader retained native binding audits, semantic execution or security
+qualification. No new data query, current definition read or refresh occurred.
+
+### Concrete report-only proposal: one theme identity field
+
+The frozen six-page E04 baseline references one registered custom-theme resource
+whose internal `name` differs from its registration. Its exact resource path,
+full baseline/candidate/part SHA256 values and old/new strings are retained in
+`theme-identity-only-proposal.json`. The prepared full 75-part candidate is
+`theme-identity-only-candidate.json`; the exact original part is
+`theme-identity-only-inverse-part.json` in the same ignored directory.
+
+The proposed JSON delta is solely that resource's `/name` value. All 74 unrelated
+parts are byte-exact. Theme colours, fonts and styles are semantically exact;
+model binding, page/visual IDs, filters, order and landing are byte-exact. Applying
+the inverse part in memory restores the complete original definition exactly.
+The frozen input was rechecked after preparation. Native submissions: zero.
+
+This deliberately does not invoke the older theme helper's projection-label
+normalization. The frozen report retains 69 missing projection-label diagnostics;
+they and remote-schema warnings remain separate. A one-field repair does not
+establish whole-report CLI portability or fix unrelated validation findings.
+
+Before any effect: parent qualifies the retained same-client Python 3.15.1 read
+route, assigns the exact report mutation scope, verifies current identity and
+operation ownership, captures a fresh complete preimage and rechecks this specific
+mismatch. Rebase the proposal if any byte drifts; never submit the frozen body
+over intervening edits. Required transport/schema validation must be explicit.
+The common model and separate T18 report are outside this proposed write scope.
+
+Acceptance for a later assigned effect: saved complete definition shows only the
+intended resource delta (or specifically evidenced service normalization); resource
+registration and internal name agree; unrelated parts, binding, theme properties
+and page/visual/filter/landing behavior survive; actual overview/profile/source/
+monthly rendering is checked. Qualify the bounded inverse against the candidate
+hash and read back the restored full baseline. No model save, processing, refresh,
+other-report rebind or promotion is part of this proposal.
+
+Terminal checkpoint:
+`private/ops/e04-t18-read-verification-20261029/terminal-checkpoint.json`.
+Next operation remains the fresh exact-target read batch once the parent-owned
+runtime route qualifies. Existing source tests/checks are reused; this continuation
+adds frozen analytical receipts and a proposal, not a native acceptance claim.
+
+### Parent-owned CLI candidate follow-up
+
+The parent subsequently installed a separate candidate at
+`/Users/doughnut/.codex/worktrees/rims-reconcile/chhhs-research-publications/private/ops/2026-10-29-integration/azure-cli315`.
+This lane verified its explicit interpreter reports Python 3.15.1 and
+`bin/python -m azure.cli version` reports Azure CLI/core 2.90.0. The installed
+system launchers and shared Fabric host were not invoked or changed. The earlier
+3.14 credential-runtime refusal above is retained history, not the final barrier.
+
+The bounded next command, that same candidate's
+`bin/python -m azure.cli account show --output json`, timed out after 40 seconds
+with `subprocess.TimeoutExpired`. It had not returned selected-account metadata;
+the batch stopped before identity comparison, token acquisition or any Fabric/
+Power BI request. No retry, login, explicit renewal or consent was submitted.
+This is a local selected-account read timeout, not an expired-session or permission
+finding. The parent owns candidate/runtime diagnosis and qualification; this lane
+did not install or change it.
+
+Exact receipt:
+`private/ops/e04-t18-read-verification-20261029/live-read1/account-show-timeout.json`
+in this delivery worktree. The attempted read script and guarded operation scope
+are retained beside it; no credential is stored. The terminal checkpoint now
+records `TERMINAL_LOCAL_SELECTED_ACCOUNT_TIMEOUT`, with the earlier checkpoint
+preserved as `terminal-checkpoint-before-cli315.json`. The one-part frozen theme
+proposal, all 74 untouched-part checks and exact inverse were rechecked afterward.
+Fresh target identity, definitions, bindings, remote writer and in-flight state
+remain outstanding; the proposal has not become a current native preimage.
