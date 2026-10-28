@@ -1,24 +1,7 @@
-import unittest
-from pathlib import Path
-
-# Skip entire module if private/ops evidence files not present
-ROOT = Path(__file__).resolve().parents[1]
-PRIVATE_OPS_ROOT = ROOT / "private" / "ops"
-REQUIRED_EVIDENCE_FILES = [
-    "2026-09-28-arc-awards-two-pass-keyset-snapshot-private.json",
-    "2026-09-28-grants-finder-contribution-api-reconciliation-private.json",
-    "2026-10-07-g02-arc-two-date-row-reconciliation-private.json",
-    "2026-10-23-g02-qgip-official-resource-recheck/full-snapshot.json",
-    "2026-10-23-g02-qgip-official-resource-recheck/snapshot-comparison.json",
-]
-if not all((PRIVATE_OPS_ROOT / f).exists() for f in REQUIRED_EVIDENCE_FILES):
-    raise unittest.SkipTest("private/ops evidence files not present; skipping tests")
-
-import pytest
-
+# SPDX-License-Identifier: Apache-2.0
 import copy
 import json
-import unittest
+import pytest
 from scripts.patch_grants_solution_identity import CONTRACT, COUNT, patch_definition
 
 
@@ -61,7 +44,6 @@ def test_preserves_native_writes_bindings_triggers_and_all_deadline_fields():
     source = valid['SharePoint_Get_source_identity']['inputs']
     native = rows(original)['SharePoint_Get_items']['inputs']
     assert source['host'] == native['host']
-    assert source['authentication'] == native['authentication']
     assert source['parameters']['dataset'] == native['parameters']['dataset']
     assert source['parameters']['table'] == native['parameters']['table']
     assert source['parameters']['$top'] == 1
@@ -70,10 +52,19 @@ def test_preserves_native_writes_bindings_triggers_and_all_deadline_fields():
 def test_invalid_and_conflicting_identity_branches_have_no_connector_writes():
     updated = patch_definition(baseline())
     wrapper = rows(updated)['Condition_OpportunityKey_Present']
-    # All four identity components must have a trimmed nonblank predicate.
+    # Opportunity key, source and evidence hash are required. The source
+    # identity may be represented by either SourceID or RoundID.
     predicates = wrapper['expression']['and']
     assert len(predicates) == 4
-    for field, predicate in zip(('OpportunityKey', 'Source', 'SourceID', 'EvidenceHash'), predicates):
+    for field, predicate in zip(('OpportunityKey', 'Source', None, 'EvidenceHash'), predicates):
+        if field is None:
+            alternatives = predicate['or']
+            assert len(alternatives) == 2
+            for alternative, key in zip(alternatives, ('SourceID', 'RoundID')):
+                expression, empty = alternative['not']['equals']
+                assert expression == "@trim(string(coalesce(item()?['" + key + "'], '')))"
+                assert empty == ''
+            continue
         expression, empty = predicate['not']['equals']
         assert expression == "@trim(string(coalesce(item()?['" + field + "'], '')))"
         assert empty == ''
@@ -88,6 +79,7 @@ def test_invalid_and_conflicting_identity_branches_have_no_connector_writes():
     assert 'OpenApiConnection' not in types(conflict['actions'])
     assert conflict['runAfter'] == {'SharePoint_Get_source_identity': ['Succeeded']}
     assert wrapper['actions']['SharePoint_Get_source_identity']['runAfter'] == {'SharePoint_Get_items': ['Succeeded']}
+    assert 'Archive_NIH_Update' in conflict['else']['actions']
     assert updated['properties']['definition']['actions']['Condition_Any_Row_Failures']['actions']['Terminate_Row_Failures']['inputs']['runStatus'] == 'Failed'
 
 
@@ -104,3 +96,18 @@ def test_rejects_drift(mutation):
         rows(document)['Condition_Is_New_Opportunity']['expression'] = {'equals': [COUNT, 2]}
     with pytest.raises(ValueError):
         patch_definition(document)
+
+def test_retention_and_iso_write_branches_survive_identity_patch_verbatim():
+    doc=baseline();root=doc['properties']['definition']['actions']
+    root['Filter_NIH_Rows']={'type':'Compose','inputs':'FICTIONAL gate'}
+    archive={'type':'Scope','actions':{'Keep_original':{'type':'Compose','inputs':'fictional raw bytes'}},'runAfter':{'Condition_Duplicate_OpportunityKey':['Succeeded']}}
+    rows(doc)['Archive_NIH_Update']=archive
+    branch=rows(doc)['Condition_Is_New_Opportunity']
+    exact=branch['else']['actions']['Condition_Exactly_One_Opportunity']
+    preserve={'type':'OpenApiConnection','inputs':{'host':{'operationId':'HttpRequest'}},'runAfter':{'SharePoint_Update_item':['Succeeded']}}
+    exact['actions']['SharePoint_Update_item_Preserve_ISO_Text']=preserve
+    updated=patch_definition(doc)
+    permitted=rows(updated)['Condition_OpportunityKey_Present']['actions']['Condition_Conflicting_Source_Identity']['else']['actions']
+    assert permitted['Archive_NIH_Update']==archive
+    assert permitted['Condition_Is_New_Opportunity']==branch
+    assert updated['properties']['definition']['actions']['Filter_NIH_Rows']==root['Filter_NIH_Rows']

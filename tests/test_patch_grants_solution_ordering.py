@@ -1,19 +1,4 @@
-import unittest
-from pathlib import Path
-
-# Skip entire module if private/ops evidence files not present
-ROOT = Path(__file__).resolve().parents[1]
-PRIVATE_OPS_ROOT = ROOT / "private" / "ops"
-REQUIRED_EVIDENCE_FILES = [
-    "2026-09-28-arc-awards-two-pass-keyset-snapshot-private.json",
-    "2026-09-28-grants-finder-contribution-api-reconciliation-private.json",
-    "2026-10-07-g02-arc-two-date-row-reconciliation-private.json",
-    "2026-10-23-g02-qgip-official-resource-recheck/full-snapshot.json",
-    "2026-10-23-g02-qgip-official-resource-recheck/snapshot-comparison.json",
-]
-if not all((PRIVATE_OPS_ROOT / f).exists() for f in REQUIRED_EVIDENCE_FILES):
-    raise unittest.SkipTest("private/ops evidence files not present; skipping tests")
-
+# SPDX-License-Identifier: Apache-2.0
 import pytest
 
 import copy
@@ -94,3 +79,13 @@ def test_guard_drift_and_missing_failure_aggregation_are_rejected():
     del original['properties']['definition']['actions']['Condition_Any_Row_Failures']
     with pytest.raises(ValueError):
         patch_definition(original)
+
+
+def test_iso_preservation_stays_inside_chronology_gate_without_field_changes():
+    original=baseline();actions=exact(original)['actions']
+    preserve={'type':'OpenApiConnection','inputs':{'host':{'operationId':'HttpRequest'}},'runAfter':{'SharePoint_Update_item':['Succeeded']}}
+    actions['SharePoint_Update_item_Preserve_ISO_Text']=preserve
+    result=patch_definition(original)
+    guarded=exact(result)['actions']['Condition_Observation_Time_Known']['actions']['Condition_Observation_Not_Older']['actions']
+    assert guarded==actions
+    assert patch_definition(result)==result
