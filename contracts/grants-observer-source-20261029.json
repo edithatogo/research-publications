@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "scope": "source-only",
+  "base_commit": "0e9b595e243315760086be301e769d6060ffce98",
+  "native_acceptance": false,
+  "native_operations_submitted": 0,
+  "source_files": [
+    {
+      "path": "scripts/grants_monitor.py",
+      "retained_sha256": "192df538acd849d8a5656115d495dea5da391305faf49202abff9fc916a4ed8c",
+      "integrated_sha256": "192df538acd849d8a5656115d495dea5da391305faf49202abff9fc916a4ed8c",
+      "retained_bytes_equal": true
+    },
+    {
+      "path": "scripts/grants_nih_observer.py",
+      "retained_sha256": "56f1e7fa9350223be087a95c984205debd2e3b2fbad2391afac7f8dab42bad34",
+      "integrated_sha256": "888e14f3f56aca97a448ab3249f399d47d8fbb4924263428140a7e826032e747",
+      "retained_bytes_equal": false
+    },
+    {
+      "path": "scripts/grants_source_health.py",
+      "retained_sha256": "28da6b213815b1651a207a657d9acb4b1f182e8de949092293619f6a71cfcd21",
+      "integrated_sha256": "28da6b213815b1651a207a657d9acb4b1f182e8de949092293619f6a71cfcd21",
+      "retained_bytes_equal": true
+    },
+    {
+      "path": "scripts/grants_live_delivery.py",
+      "retained_sha256": "be111f4cf695b1c32c11aa33e85c1038f1e82b8bb14830021521ef8546779fb5",
+      "integrated_sha256": "be111f4cf695b1c32c11aa33e85c1038f1e82b8bb14830021521ef8546779fb5",
+      "retained_bytes_equal": true
+    },
+    {
+      "path": "scripts/prepare_grants_delivery_worker.py",
+      "retained_sha256": "aa15b7282abd1e5ddb32f40a9760552bf0767c6e66fba7c23da738e00cd9c352",
+      "integrated_sha256": "aa15b7282abd1e5ddb32f40a9760552bf0767c6e66fba7c23da738e00cd9c352",
+      "retained_bytes_equal": true
+    },
+    {
+      "path": "scripts/grants_operations.py",
+      "retained_sha256": "8346ecdb60ab22d6db3f2859ce80d637322f68f125b02641525dc8f75b5ac4b9",
+      "integrated_sha256": "8346ecdb60ab22d6db3f2859ce80d637322f68f125b02641525dc8f75b5ac4b9",
+      "retained_bytes_equal": true
+    },
+    {
+      "path": "tests/test_grants_monitor.py",
+      "retained_sha256": "063d538127cc3e66c393fba99d0f56a28a929fbd205ebec5358e953ab11a4157",
+      "integrated_sha256": "063d538127cc3e66c393fba99d0f56a28a929fbd205ebec5358e953ab11a4157",
+      "retained_bytes_equal": true
+    },
+    {
+      "path": "tests/test_grants_nih_observer.py",
+      "retained_sha256": "61b9c5e80cbe1986108ca3962c97bf2ac8f2b878bc30348f11bef6f78439373f",
+      "integrated_sha256": "439f300ac661469f357a046713a3a08a6aca1239a45f6c469bb3dfcc7191c9a3",
+      "retained_bytes_equal": false
+    },
+    {
+      "path": "tests/test_grants_source_health.py",
+      "retained_sha256": "d2beb1424326894756516c24463d747d4563bbf7e816d6c5d048bdef96c128a0",
+      "integrated_sha256": "17c10e45162dcf68ec81f434bd7ce707dc28f4d4e5c74096f32275de6705348f",
+      "retained_bytes_equal": false
+    },
+    {
+      "path": "tests/test_grants_live_delivery.py",
+      "retained_sha256": "56467c7370dc86f755103074d02bc785a0732b235a3a7fea62dbf4617798f59f",
+      "integrated_sha256": "77389c1010c1fba292caebbb416b5b525a68e83c3f13db4ec1a3f628f9fa53f2",
+      "retained_bytes_equal": false
+    },
+    {
+      "path": "tests/test_prepare_grants_delivery_worker.py",
+      "retained_sha256": "652b863c19b164134d6bcded7ba51a40c0133038e281cca88b8dc81825a681d2",
+      "integrated_sha256": "652b863c19b164134d6bcded7ba51a40c0133038e281cca88b8dc81825a681d2",
+      "retained_bytes_equal": true
+    },
+    {
+      "path": "tests/test_grants_operations_health.py",
+      "retained_sha256": "849f08d0673d927557dc53af05c31703ded905cc55c06191668d05a49fe23032",
+      "integrated_sha256": "849f08d0673d927557dc53af05c31703ded905cc55c06191668d05a49fe23032",
+      "retained_bytes_equal": true
+    }
+  ],
+  "frozen_receipt_references": [
+    {
+      "path": "private/ops/2026-10-28-g07-activation/acceptance.json",
+      "sha256": "b5d3fb6f203568186b1c32a3c9b8cf0f605f3459164c695a5db81ec6c7997697",
+      "copied": false
+    },
+    {
+      "path": "private/ops/2026-10-28-g07-activation/review-guard-acceptance.json",
+      "sha256": "7da16a7340e8f1f48a61347e29ce0f2c5c42470bf2acff5aa3993da8a49fafa3",
+      "copied": false
+    },
+    {
+      "path": "private/ops/2026-10-28-g07-activation/monitor/runs/20261028T123712Z-72682/result.json",
+      "sha256": "641e4a83e8cd7e542c64b8b523deef0d8e1a3e227ec4a69e6365dec4f6ebda75",
+      "copied": false
+    },
+    {
+      "path": "private/ops/2026-10-28-g07-activation/renew-sharepoint/result.json",
+      "sha256": "50b3994074adb50ac750b1b1f79da1c57d9e1c256b624792d7055906bf620c45",
+      "copied": false
+    },
+    {
+      "path": "private/ops/2026-10-28-g07-activation/renew-flow-r2/result.json",
+      "sha256": "e84bfe9012d755540137b5109a599b04090f0cca2d17b857edc6acae9db6a283",
+      "copied": false
+    }
+  ],
+  "runtime_dependency_outside_lane": [
+    "scripts/m365-qualified.mjs and its guarded workload dependency closure"
+  ],
+  "deferred_test_dependency_outside_lane": [
+    "scripts/rims_operator.py grants-health command and recovery catalogue"
+  ],
+  "source_disposition": "retained original untouched; semantic review preserves canonical-only fixes",
+  "handoff": "docs/G07_SOURCE_HANDOFF_20261029.md"
+}
