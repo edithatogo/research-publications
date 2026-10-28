@@ -53,19 +53,40 @@ DEV authority; it does not extend notification, authentication or delivery scope
 ### Current continuation
 
 PR57 merged at `75376d0f9224aa22c7a955d9c27bf2a1f425250c`; main quality
-40718887255 and security 40718887527 pass. The repaired canary qualified an
-actual Python3.15.2 candidate on Ubuntu24.04; it did not promote runtimes or locks.
-The active lane baseline remains verified3.15.1 pending complete qualification
-and safe environment handover. Combined source extraction at `edfe2eee` passed
-the full harness, with NativeAcceptance=false.
+40718887255 and security40718887527 pass. PR58 merged at
+`62f025d4096693ae9d04cce10d1bf005898de32d`; main quality40720921417 and
+security40720921411 pass. The second combined milestone passed1,213 Python tests
+with25 capability skips and446 project checks. Initial clean-package evidence
+at `edfe2eee` covers only the first batch; later packets require fresh extraction.
 
-Dashboard second packet `bcc2ce15` is integrated locally. Its next assignment is
-read-only current definition/binding reconciliation for the exact E04 report,
-separate T18 reader and common model using retained private target manifests.
-No writes/refresh/auth renewal are assigned. The funding-calendar-only isolated
-model is unsuitable for publication changes; report-only repair needs a concrete
-fresh preimage and inverse before any write assignment. Publications and grants
-continue their second source packets; no competing native targets are assigned.
+Current local integration adds the conditional definition adapter and monitor
+compatibility guards, reviewed calendar export, finite grants source disposition,
+and complete offline PubMed reconstruction. CLI guards now participate in both
+the full harness and clean-package validation. The conditional adapter remains
+injected-transport source only; it is not wired into the running MailWorker.
+Original jobs, journals, bindings and environments remain in their existing path.
+
+Publications continues correction/retraction and source-disposition closure.
+Grants continues relationship guards, then compatible planning/recovery closure.
+Dashboard owns the exact E04 DEV report only. One-field theme validation exposed
+69 pre-existing missing projection labels; a minimally expanded theme/label
+candidate is preparation-only pending semantic review and explicit exact scope.
+No service write has occurred. The shared model and separate T18 report retain
+read-only status; T18's retained Fabric route returned404 and needs exact-target
+route reconciliation. The isolated funding-only model is unsuitable for E04.
+
+The repaired canary qualified Python3.15.2 on Ubuntu24.04 without runtime/lock
+promotion. Active lanes remain verified3.15.1. An isolated AzureCLI2.90.0 candidate
+uses Python3.15.1 and the existing normal profile; exact E04/model reads succeeded
+through its supported SDK, without credential transfer or authentication renewal.
+Process-local extension isolation also qualified the core account-read command.
+The old shared host has not been restarted or replaced: E10 terminal handover and
+other-consumer/runtime qualification remain open.
+
+Native publication admission requires fresh schema/engine parity, owned rollback
+and notification suppression. The offline1279-record candidate is not admitted.
+Dashboard rendering/interaction/performance, evidence-dependent outcomes, grants
+operational exits and the post-1November natural monthly observation remain open.
 
 ### First integration milestone
 
