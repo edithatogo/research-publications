@@ -1,5 +1,16 @@
 # Track register
 
+## Connected candidate consumer milestone — 29 October 2026
+
+PR70 and exact main `7c202562` quality/security are accepted source evidence.
+Pinned NIH/DataCite candidates, collector admission adapters and typed model/
+reader preparation are integrated. Candidate relationship JSON/CSV export
+`26cfe460` and admission-to-registry/model/full/monthly parity `13da4635` are now
+reviewed and locally merged; coherent hosted integration remains pending.
+These connect existing preparers without qualifying native persistence, engine,
+rendering, real outcome evidence or scheduled delivery. Current ownership and
+next exact milestone remain in [CURRENT_STATE](../handoff/CURRENT_STATE.md).
+
 ## Current execution authority — 29 October 2026
 
 The approved entire-roadmap implementation and guarded isolated DEV/no-send

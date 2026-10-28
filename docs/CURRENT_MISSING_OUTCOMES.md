@@ -5,8 +5,16 @@
 This table supersedes older pending/priority statements below. The entire
 unfinished roadmap is selected; accepted historical tests are reused. Current
 source/native ownership is in [CURRENT_STATE](../handoff/CURRENT_STATE.md).
-PR57–PR69 are merged and their exact main quality/security checks passed. The next bounded
+PR57–PR70 are merged and their exact main quality/security checks passed. The next bounded
 source assignments are recorded in the handoff; local success is not native acceptance.
+
+PR70 includes the reviewed NIH/DataCite candidates, collector-artifact admission
+adapters and typed relationship model/reader preparation. The connected candidate
+evidence exporter and admission-to-consumer parity checker are subsequently
+reviewed and locally merged, pending coherent hosted integration. Real pinned
+captures/mappings, writer graph adoption, actual processing-time observations,
+typed persistence, current native consumers and the existing runtime/rendering/
+schedule exits remain unqualified. Candidate parity never substitutes for them.
 
 | Requirement family | Delivered or retained evidence | Concrete remaining dependency / next exit |
 |---|---|---|

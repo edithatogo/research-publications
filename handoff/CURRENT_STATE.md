@@ -1,5 +1,28 @@
 # Current integration checkpoint — 29 October 2026
 
+## Connected consumer milestone — 29 October 2026
+
+Admission owner returned clean terminal `13da4635a3d1d9d5375cdf3d294f40cc32b6ab35`,
+exactly its three assigned files. Integrator bounded source/test review found no
+actionable issue. Exact preflight against `038179ec` found both checkouts clean,
+no overlap, missing files or staged deletions. Local merge is `4ba35dd3`; all
+26 focused fictional parity tests pass on this checkout's Python3.15.1.
+Previously reviewed relationship export `26cfe460` and its 13 focused tests are
+retained. Both owners are terminal; preserve ef45 and the relationship checkout.
+
+Current operation: one coherent combined harness, PR and exact-main quality/
+security milestone. No native read/write, auth renewal or journal transfer is
+assigned. Candidate parity does not qualify real mapping/capture provenance,
+admission, refresh, rendering or scheduled output.
+
+Human requests the next bounded admission source assignment after integration.
+Sequence it from the next verified main: extend the existing consumer-parity
+packet to reconcile complete pinned writer-simulation outcomes and actual
+processing timestamps, rather than treating planning-time candidate values as
+executed values. Reuse the existing feed/protocol and outcome checks; do not
+create a native adapter or modify the guarded writer/shared contracts. Exact
+three-file assignment and acceptance will be released only after main gates.
+
 ## Delivery continuation — 29 October 2026, 09:30 Brisbane
 
 Relationship export owner returned clean terminal
