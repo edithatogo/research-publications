@@ -13,7 +13,8 @@ historical. This reconciliation changes no visibility or sharing setting.
 
 Of 53 pre-existing local branch refs, 20 tips are ancestors of main and another
 29 have merged PRs. Squash merges explain why those 29 tips can still appear
-ahead/behind. They need no second merge. The complete branch/PR mapping is in
+ahead/behind. Their merged heads match28 tips; the remaining grants tip has one extra patch
+identical to `455c4830`, already in main through PR20. They need no second merge. The complete branch/PR mapping is in
 [the aggregate inventory](../audit/worktree-reconciliation-20261029.json).
 There were no open PRs at entry.
 
@@ -52,6 +53,16 @@ records, private bindings or mutation journals were imported. The original
 checkout, index and environment remain in place; a grants-monitor process was
 observed there. Chat archival is not a process stop or native-operation release.
 
+## Additional authoring packet integrated
+
+The retained `publication_batch_contract.py` and its15-test module are integrated
+with exact source bytes. Before the repair, those tests produced11 failures and
+three errors against canonical main. Afterward all15 pass: malformed inputs,
+empty error envelopes, invalid partial flags, cursor cycles, missing terminal
+pages and untrimmed/non-text keys fail closed. Valid positive complete batches
+and explicit null initial cursors remain supported. This local contract has no
+native invocation path and does not prove live pagination or writer acceptance.
+
 ## Actual remaining work
 
 This table reconciles saved source/receipts; it is not a new live tenant audit.
@@ -60,7 +71,7 @@ main as an acceptance claim. Historical receipts remain with their existing owne
 
 | Work | Current position | Next meaningful exit |
 |---|---|---|
-| Source consolidation | Two small unmerged packets integrated; large original-checkout delta preserved and inventoried. This is the main repository debt. | Migrate reviewed dependency-closed packets with their tests and receipt references, starting with G07 observer/worker source, current publication validators and metadata comparators, then report/source-generator work. Reconcile licence/NOTICE packaging and current setup instructions within those packets. Avoid bulk-copying generated/private tooling or replacing canonical-only fixes. |
+| Source consolidation | Three small source packets integrated; large original-checkout delta preserved and inventoried. This is the main repository debt. | Migrate reviewed dependency-closed packets with their tests and receipt references, starting with G07 observer/worker source, remaining publication validators and metadata comparators, then report/source-generator work. Reconcile licence/NOTICE packaging and current setup instructions within those packets. Avoid bulk-copying generated/private tooling or replacing canonical-only fixes. |
 | G07 reliable operation | Main already contains PR35 original-retention and PR51 scheduled NIH chain/recovery acceptance. Later authoring evidence reports hourly local monitoring, own-notification activation and natural/expiry-recovery observations. | Integrate that later source/receipt handover. Preserve the live job and one-send journal. Real reviewed notice/changed deadline, sustained operation and retention/credential-disaster limits remain distinct; current Needs Review is not an implementation defect. Do not rerun mail or change schedules for Git reconciliation. |
 | Publication acquisition/current admission | Main contains selected saved-generation key/metadata/export/preservation closeout (PR53/55). Original-checkout records compare 1,279 retained PubMed IDs against 1,277 consumed and account for DoRA metadata. | Integrate the current validators/comparators and determine the genuinely missing current typed-admission/runtime delta from frozen receipts. Historical full-generation accounting is complete. Archived E01/T11 broader runtime/recovery scope must not be silently recommissioned. Crossref retained-operation state needs its existing terminal receipt before a new operation. |
 | E04 dashboard and forecast | Original-checkout 28 October review says P00 complete, P01–P12 whole exits open and native writer held local-only. Forecast dependency/import slice is retained here exactly. | Integrate the scoped report/metric/topic/researcher sources and coverage contracts, then finish the selected local work. Scientific baseline/rolling-origin evaluation, weights/inference and native rendered/accessibility acceptance remain separate. Preserve the writer hold. |
@@ -84,7 +95,7 @@ does not prove long-term operation or broaden notification authority.
 ## Verification of this integration
 
 Fresh worktree-local Python reports 3.15.1; dependencies use the existing exact
-hash lock. Full unittest discovery: 998 tests, 25 capability skips, no failures.
+hash lock. Full unittest discovery after both code repairs: 1,008 tests, 25 capability skips, no failures.
 Project validator: 446 checks pass. Web-first contracts pass with native acceptance
 false. These checks qualify local source integration only. Existing private
 native receipts are consumed by reference; no provider harvest, native mutation,

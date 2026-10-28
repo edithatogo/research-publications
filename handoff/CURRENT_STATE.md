@@ -9,7 +9,8 @@
   to archived chat `01a17f83-9384-75b3-b9fa-167ae2befc4c`. Prior assignments below
   are retained history. No other chat is restarted or given source ownership.
 - Integrated packet: DoRA stale-cache guard `ae9217db`; exact forecast dependency
-  record from `266d1819`. Its old worktree checkpoint is not copied as current.
+  record from `266d1819`, plus the exact retained paged-batch validator/test repair.
+  The old worktree checkpoint is not copied as current.
 - Original checkout: `/Volumes/PortableSSD/GitHub/RIMS/chhhs-research-publications`,
   branch `implementation/webui-first-v040`, remains untouched. Its private grants
   monitor, bindings, journals, archives and environments stay in place. Archived
