@@ -17,7 +17,24 @@ limits below describe the prior reconciliation, not the current assignment.
 Reuse accepted receipts; retain exact access, rollback, exclusive native ownership,
 runtime/rendering gates and separate decisions for sending/schedules/sharing.
 
-## Verified Git state
+## Canonical local main correction — 29 October 2026
+
+No registered worktree used local `main`. Its unrelated old history is now
+preserved, unchanged, as local `codex/retained-main-20261029` at
+`92c1d0e0ddfe5ee3400b054d50ad3abeb11a8665`. Ordinary Git branch rename and tracking
+branch creation made local `main` equal verified `origin/main` at
+`16d4b822c0f11b7a66953b776147c0dba31fe94e` (PR62). The retained branch is not pushed.
+No checkout, index, working file, active environment or native job changed.
+The original full status remains byte-identical to the frozen entry inventory.
+
+Use verified `origin/main` for new delivery branches. At each terminal packet,
+integrate serially and verify main CI, then have that lane's sole writer fast-forward
+its clean branch to the same main before a new assignment. Never reset a dirty lane
+or merge the retained unrelated history. The original checkout remains the protected
+native/runtime home until its own exact terminal handover; it is not a second
+canonical development baseline. The dated inventory below is preserved history.
+
+## Verified Git state at entry
 
 The canonical source base is `origin/main` at `76d42f84` (PR55). The existing
 GitHub repository is currently public; older handoffs calling it private are

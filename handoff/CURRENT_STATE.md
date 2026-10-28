@@ -56,6 +56,21 @@ The failed operation, readback, original payload and screenshots remain private;
 
 ### Current continuation
 
+Local main is reconciled without changing a checkout: former unrelated main
+`92c1d0e0` is preserved as local `codex/retained-main-20261029`; new tracking
+`main` equals PR62/verified origin at `16d4b822`. Original full status is unchanged.
+Delivery lanes will fast-forward at their clean terminal handoff after reviewed
+main integration/CI, before further implementation. No force reset or branch
+history deletion is used. Original native/runtime checkout remains protected.
+
+PR62 merged at `16d4b822c0f11b7a66953b776147c0dba31fe94e`; main quality
+40738041214 and security40738041273 pass. Sixth combined source harness passes
+1,454 Python tests with25 skips,25 Node guards and446 project checks. The seventh
+packet begins with library adapters (`60202e6d`, clarification `2d7a0e62`):33
+transport tests are included through unittest; direct native CLI is disabled.
+Access inheritance-shape checks are explicitly not complete permission parity.
+
+
 PR61 merged at `dced8588ca921af2ee0f164b635d2af5da9c57af`; main quality
 40735674079 and security40735674002 pass. Fresh private source extraction at
 `b7dea107` passes, archive SHA256
