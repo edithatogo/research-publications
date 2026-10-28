@@ -134,14 +134,6 @@ jobs:
         with:
           persist-credentials: false
           submodules: recursive
-      - name: Read qualified shared runtime discovery helper
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          repository: edithatogo/careops
-          ref: 6319d0c0c76ee672223c156abce9d4181c41aa9a
-          path: .careops-ci-tools
-          persist-credentials: false
-          submodules: false
       - id: qualified_python
         uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
@@ -154,7 +146,7 @@ jobs:
       - name: Verify failed discovery retains a terminal receipt
         run: |
           probe_receipt=".local/runtime-contract-probe/discovery.json"
-          .venv-ci/bin/python .careops-ci-tools/portfolio-scripts/ci_delivery.py runtime-finalize --receipt "$probe_receipt" --discovery-outcome failure --outcome skipped
+          .venv-ci/bin/python scripts/runtime_candidate.py runtime-finalize --receipt "$probe_receipt" --discovery-outcome failure --outcome skipped
           .venv-ci/bin/python - "$probe_receipt" <<'PYTHON'
           import json
           import sys
@@ -184,7 +176,7 @@ jobs:
           assert re.fullmatch(r'[a-f0-9]{40}', revision)
           baseline = Path('.python-version').read_text().strip()
           assert baseline == '3.15.1'
-          spec = importlib.util.spec_from_file_location('qualified_discovery', '.careops-ci-tools/portfolio-scripts/ci_delivery.py')
+          spec = importlib.util.spec_from_file_location('qualified_discovery', 'scripts/runtime_candidate.py')
           helper = importlib.util.module_from_spec(spec)
           spec.loader.exec_module(helper)
           raw = Path('.local/runtime-canary/manifest.json').read_bytes()
@@ -221,7 +213,7 @@ jobs:
         env:
           DISCOVERY_OUTCOME: ${{ steps.discover.outcome }}
           RUNTIME_TEST_OUTCOME: ${{ steps.runtime_tests.outcome }}
-        run: .venv-ci/bin/python .careops-ci-tools/portfolio-scripts/ci_delivery.py runtime-finalize --receipt .local/runtime-canary/discovery.json --outcome "$RUNTIME_TEST_OUTCOME" --discovery-outcome "$DISCOVERY_OUTCOME"
+        run: .venv-ci/bin/python scripts/runtime_candidate.py runtime-finalize --receipt .local/runtime-canary/discovery.json --outcome "$RUNTIME_TEST_OUTCOME" --discovery-outcome "$DISCOVERY_OUTCOME"
       - name: Retain runtime setup failure without a fallback interpreter
         if: always() && steps.qualified_env.outcome != 'success'
         run: |
