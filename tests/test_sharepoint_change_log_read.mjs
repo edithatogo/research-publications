@@ -1,10 +1,19 @@
 // Apache-2.0. Offline change-log admission and transport checks.
-import test from 'node:test';
+import test, {after} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
+import os from 'node:os';
+import {execFileSync} from 'node:child_process';
 import {validatePlan,makeQuery,runGuarded} from '../scripts/sharepoint_change_log_read.mjs';
-const testRoot=path.resolve('.venv/m365-offline-tests');fs.mkdirSync(testRoot,{recursive:true});
+// This test file runs in its own Node test process. Preserve the real Git
+// ignore guard inside a disposable checkout, including in clean source archives.
+const previousCwd=process.cwd();
+const testRoot=fs.mkdtempSync(path.join(os.tmpdir(),'rims-change-log-fixture-'));
+execFileSync('git',['init','--quiet',testRoot]);
+fs.writeFileSync(path.join(testRoot,'.gitignore'),'*\n');
+process.chdir(testRoot);
+after(()=>{process.chdir(previousCwd);fs.rmSync(testRoot,{recursive:true,force:true});});
 const root="https://example.sharepoint.com/sites/test/_api/web/lists(guid'11111111-1111-1111-1111-111111111111')";
 const plan={listUrl:root,startToken:'1;3;11111111-1111-1111-1111-111111111111;1;1',endToken:'1;3;11111111-1111-1111-1111-111111111111;2;2'};
 test('only an already pinned exact list and native same-list token bounds are admitted',()=>{
