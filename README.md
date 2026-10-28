@@ -10,6 +10,9 @@ The earlier v0.3 source is preserved as a baseline with known defects; old deplo
 
 # CHHHS Research Publications
 
+Project-owned software is licensed under [Apache-2.0](LICENSE), with scope and
+third-party exclusions in [NOTICE](NOTICE). Source packages retain both files.
+
 Browser-first Power BI/Fabric project for a monthly Cairns and Hinterland Hospital and Health Service publication report.
 
 The canonical report combines **PubMed affiliation discovery** with the **Queensland Health DORA CHHHS RSS feed**, deduplicates cross-source records conservatively and retains source/attribution evidence.

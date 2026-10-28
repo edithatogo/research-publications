@@ -1,13 +1,35 @@
 # Agent instructions
 
+Project-owned code uses Apache-2.0; retain the complete LICENSE and NOTICE in
+source packages. Preserve upstream terms and attribution. The code licence grants
+no redistribution rights over external documents, datasets or private evidence.
+
+## Serial integration — 29 October 2026
+
+Read the current integration assignment at the top of `handoff/CURRENT_STATE.md`
+and the [worktree reconciliation](docs/WORKTREE_RECONCILIATION_20261029.md).
+Inspect the actual checkout, ownership and native operations before writing.
+Use one source writer per checkout and one integrator for main, shared handoffs,
+contracts, dependencies, runtimes, hooks and submodule pins. Supporting work stays
+in separate worktrees with scoped commits and one terminal handoff. Preserve
+prior assignments as history; chat archival does not stop a scheduled service
+or transfer a native object, authentication renewal or one-send journal.
+
+Keep ordinary Git hooks enabled. Never remove another process's lock, reset or
+clean a shared checkout, replace an active environment, or use custom index/ref
+scripts to bypass competing writers. Prefer managed worktrees; after an exact
+managed-tool failure caused by a non-Git project parent, a standard Git worktree
+at the verified repository is the recorded CLI fallback. Do not merge the
+unrelated private-authoring history into the canonical source history.
+
 ## Runtime and dependency compatibility — 24 October 2026
 
-Prefer the latest qualified runtime and dependency versions, including Python
-3.15.1 for the current repository environment. Another version may be used when
-needed for application, tooling, CI/helper or provider compatibility. Choose the
-newest suitable version that works; record the concrete reason and scope of an
-exception and verify the actual interpreter and dependency behavior. A necessary
-alternate version does not require additional permission.
+The user's 29 October direction supersedes the earlier compatibility exception:
+every active repository Python use must use Python 3.15 at the newest qualified
+patch release, currently 3.15.1. Select a repo-local interpreter and verify its
+actual version. Align development, tests, build, CI, automation and helpers;
+report unsupported dependencies as blockers rather than downgrading Python.
+Historical evidence and deliberate version-handling fixtures remain unchanged.
 
 Select the repo-local interpreter explicitly for repository checks. Preserve
 working latest-version environments and in-flight operations; do not downgrade

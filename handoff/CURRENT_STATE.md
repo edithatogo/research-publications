@@ -1,3 +1,28 @@
+## Serial integration ownership — 29 October 2026
+
+- Chat: `01a182f2-fd8e-7953-9bd2-f9b8002664a6`, RIMS — Integration — Reconcile worktrees and remaining work.
+- Actual integration worktree: `/Users/doughnut/.codex/worktrees/rims-reconcile/chhhs-research-publications`;
+  branch `codex/rims-worktree-reconciliation`, created through the app-managed tool
+  from canonical `origin/main` at `76d42f84`.
+- Owns this integration branch and its shared source/handoff changes. This is
+  the sole repository integration assignment, superseding the earlier assignment
+  to archived chat `01a17f83-9384-75b3-b9fa-167ae2befc4c`. Prior assignments below
+  are retained history. No other chat is restarted or given source ownership.
+- Integrated packet: DoRA stale-cache guard `ae9217db`; exact forecast dependency
+  record from `266d1819`, plus the exact retained paged-batch validator/test repair.
+  The old worktree checkpoint is not copied as current.
+- Original checkout: `/Volumes/PortableSSD/GitHub/RIMS/chhhs-research-publications`,
+  branch `implementation/webui-first-v040`, remains untouched. Its private grants
+  monitor, bindings, journals, archives and environments stay in place. Archived
+  grants chat `01a17231-8ec3-7383-bf55-494e53280a9b` and runtime/backlog chat
+  `01a170c7-bfae-7f90-af03-d4899b29afa5` retain their historical evidence scope.
+- Native scope of this integration: none. Archival transfers no delivery approval;
+  do not invoke, stop, resend, renew authentication or deploy a report to reconcile
+  Git. Preserve the E04 local-only writer hold and existing G07 job/journal state.
+- Next operation: source review, hosted checks and serial main integration, then
+  one source-only migration packet at a time from the preserved authoring checkout.
+  [Inventory, disposition and actual remaining outcomes](../docs/WORKTREE_RECONCILIATION_20261029.md).
+
 # Current RIMS checkpoint
 
 Updated: 2026-09-22. This is the compact resumption checkpoint, not a live acceptance certificate. Refresh after meaningful work; keep historical narrative in existing evidence documents.

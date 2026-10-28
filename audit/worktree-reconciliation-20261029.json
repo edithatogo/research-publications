@@ -1,0 +1,414 @@
+{
+  "schema_version": 1,
+  "snapshot_date": "2026-10-29",
+  "canonical_base": "76d42f84fb7325dbab32050a1e43f361467dd24c",
+  "integration_parent": "ae9217db1e4dd3ce47585f47573495e9b435178c",
+  "branches": [
+    {
+      "branch": "ci/private-rims-shared-baseline",
+      "tip": "84d2fdcb854d827bd10677fa2faa889fd184f4ee",
+      "disposition": "already_in_main",
+      "merged_pr": 6
+    },
+    {
+      "branch": "codex/conductor-goal-source",
+      "tip": "266d18190a74abac46e2c1cff2e1e7abd17e009c",
+      "disposition": "requires_disposition",
+      "merged_pr": null
+    },
+    {
+      "branch": "codex/crossref-isolated-qualification",
+      "tip": "a44ee1851220aed8a3b506eecb83fbb8e4f3c93e",
+      "disposition": "already_in_main",
+      "merged_pr": 16
+    },
+    {
+      "branch": "codex/crossref-monthly-continuation",
+      "tip": "c1f734232a8c09695692801a95fef6b7ba19f425",
+      "disposition": "merged_by_pr",
+      "merged_pr": 14,
+      "merged_pr_head": "c1f734232a8c09695692801a95fef6b7ba19f425",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/crossref-optimised-source",
+      "tip": "65fc2f02947667690a54aa1a01bae003fc8780b2",
+      "disposition": "merged_by_pr",
+      "merged_pr": 13,
+      "merged_pr_head": "65fc2f02947667690a54aa1a01bae003fc8780b2",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/crossref-qualification-native-validation",
+      "tip": "badbfe2de88a4094beee20a1873b2d1cea4901bb",
+      "disposition": "already_in_main",
+      "merged_pr": 18
+    },
+    {
+      "branch": "codex/crossref-qualified-handover",
+      "tip": "63059e3c6a65c1cdb0fdc8ac7e79ce54efb766ae",
+      "disposition": "already_in_main",
+      "merged_pr": 19
+    },
+    {
+      "branch": "codex/crossref-targeted-discovery",
+      "tip": "cc83d4388cab79fd68cea32f58355780eb4ff4e9",
+      "disposition": "merged_by_pr",
+      "merged_pr": 49,
+      "merged_pr_head": "cc83d4388cab79fd68cea32f58355780eb4ff4e9",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/dora-retrieval-pacing",
+      "tip": "893993522811153d925b292701b3033b6216fde9",
+      "disposition": "merged_by_pr",
+      "merged_pr": 54,
+      "merged_pr_head": "893993522811153d925b292701b3033b6216fde9",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/e01-efficient-delivery",
+      "tip": "bb63f482239c201e561a95dd7845f1089c04f7a3",
+      "disposition": "merged_by_pr",
+      "merged_pr": 22,
+      "merged_pr_head": "bb63f482239c201e561a95dd7845f1089c04f7a3",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/e01-reconcile",
+      "tip": "eda2a5bf569a2a83deb562ef1eafc89076183f7f",
+      "disposition": "already_in_main",
+      "merged_pr": 7
+    },
+    {
+      "branch": "codex/e09-feed-preparation",
+      "tip": "9c58e7aa63005faa05ee720eae35128f55412400",
+      "disposition": "already_in_main",
+      "merged_pr": 8
+    },
+    {
+      "branch": "codex/e10-python315-track",
+      "tip": "b863688b8d7029f02a1436f47944541cc0964f62",
+      "disposition": "merged_by_pr",
+      "merged_pr": 11,
+      "merged_pr_head": "b863688b8d7029f02a1436f47944541cc0964f62",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/execution-efficiency",
+      "tip": "a94ca7449d878563f533db3fc5ddec2d09ace52d",
+      "disposition": "merged_by_pr",
+      "merged_pr": 39,
+      "merged_pr_head": "a94ca7449d878563f533db3fc5ddec2d09ace52d",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/explicit-ci-python-envs",
+      "tip": "80d6a9a77f50e2dbccafc764f02025894e8c8d01",
+      "disposition": "merged_by_pr",
+      "merged_pr": 15,
+      "merged_pr_head": "80d6a9a77f50e2dbccafc764f02025894e8c8d01",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/flow-operations-view",
+      "tip": "d12592955ff69bdaf82bb7727cde58ba39c83b2f",
+      "disposition": "merged_by_pr",
+      "merged_pr": 43,
+      "merged_pr_head": "d12592955ff69bdaf82bb7727cde58ba39c83b2f",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/grants-cluster-reconciliation",
+      "tip": "f54b24d7b00229f834512cc4beb6ebb9d044db3a",
+      "disposition": "merged_by_pr",
+      "merged_pr": 10,
+      "merged_pr_head": "f54b24d7b00229f834512cc4beb6ebb9d044db3a",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/grants-continuation-recovery",
+      "tip": "e18df5a6b6aba273f892d5ed1ef6ce10584d3330",
+      "disposition": "merged_by_pr",
+      "merged_pr": 17,
+      "merged_pr_head": "d0d73815ba18aa656fa00ee7f12b06c1374faeaa",
+      "tip_matches_merged_pr_head": false,
+      "extra_patch_equivalent_to_main_commit": "455c48305a089fac7e368bbe382a8e654401e5a4",
+      "stable_patch_id": "61edc9041ab1c13478d98dc6d3c9dce173df305d"
+    },
+    {
+      "branch": "codex/grants-import-original-retention",
+      "tip": "09c75887b55b1c8f89a39fd52485632a4d6eb231",
+      "disposition": "already_in_main",
+      "merged_pr": null
+    },
+    {
+      "branch": "codex/grants-last-good-proof",
+      "tip": "7f4da4053d94d9ec04de0505423e9df8888b9969",
+      "disposition": "already_in_main",
+      "merged_pr": 28
+    },
+    {
+      "branch": "codex/grants-model-refresh-proof",
+      "tip": "ca8f552b8f193fbdbea9685123935f8f43f45200",
+      "disposition": "already_in_main",
+      "merged_pr": 29
+    },
+    {
+      "branch": "codex/grants-multirow-recovery",
+      "tip": "adc9f14b690520ae4cc17298825a877d894f628a",
+      "disposition": "merged_by_pr",
+      "merged_pr": 33,
+      "merged_pr_head": "adc9f14b690520ae4cc17298825a877d894f628a",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/grants-solution-doc-reconciliation",
+      "tip": "9ab7f9a2b0afe828381ddefae0d496e86c1402c2",
+      "disposition": "already_in_main",
+      "merged_pr": 30
+    },
+    {
+      "branch": "codex/grants-tmdl-native-repair",
+      "tip": "ba2f03b250933b1794e4becb704eb710126f9602",
+      "disposition": "already_in_main",
+      "merged_pr": 23
+    },
+    {
+      "branch": "codex/grants-tool-runtime-policy",
+      "tip": "5e6eda26ce40fcab13f5dd3ea2b6d70791aff35a",
+      "disposition": "already_in_main",
+      "merged_pr": 21
+    },
+    {
+      "branch": "codex/grants-university-identities",
+      "tip": "455c48305a089fac7e368bbe382a8e654401e5a4",
+      "disposition": "already_in_main",
+      "merged_pr": 20
+    },
+    {
+      "branch": "codex/ingestion-payload-efficiency",
+      "tip": "2a76102e48c7ed8f6e5aefd99b6309bc931fe485",
+      "disposition": "merged_by_pr",
+      "merged_pr": 52,
+      "merged_pr_head": "2a76102e48c7ed8f6e5aefd99b6309bc931fe485",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/lane-resume-refinement",
+      "tip": "98ef2840b87ba74d83d1fb59ecaefd4bfe0c2054",
+      "disposition": "merged_by_pr",
+      "merged_pr": 40,
+      "merged_pr_head": "98ef2840b87ba74d83d1fb59ecaefd4bfe0c2054",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/nih-bounded-import",
+      "tip": "5c28167469d371aabe32831026ab2b2571d20ef7",
+      "disposition": "already_in_main",
+      "merged_pr": 26
+    },
+    {
+      "branch": "codex/nih-replay-proof",
+      "tip": "52e932a4c146b0f297102a331f349a06dae42c47",
+      "disposition": "already_in_main",
+      "merged_pr": 27
+    },
+    {
+      "branch": "codex/nih-scheduled-observation",
+      "tip": "5e3f3a94a2f45aee00bfc4d6e20e2180db3354a6",
+      "disposition": "merged_by_pr",
+      "merged_pr": 34,
+      "merged_pr_head": "5e3f3a94a2f45aee00bfc4d6e20e2180db3354a6",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/nih-source-admission",
+      "tip": "bdb8e45a277216f526047a44044b711dae9df60b",
+      "disposition": "already_in_main",
+      "merged_pr": 25
+    },
+    {
+      "branch": "codex/opencitations-assertion-admission",
+      "tip": "42eb01bf90596afe50b9d6e35cccf7113595153d",
+      "disposition": "already_in_main",
+      "merged_pr": 36
+    },
+    {
+      "branch": "codex/opencitations-bootstrap",
+      "tip": "2e8a3f85744075d35af85191b32842374a8160ac",
+      "disposition": "merged_by_pr",
+      "merged_pr": 24,
+      "merged_pr_head": "2e8a3f85744075d35af85191b32842374a8160ac",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/opencitations-citation-links",
+      "tip": "068669d89976674dc875d9b2f88f48d44ff06983",
+      "disposition": "already_in_main",
+      "merged_pr": 38
+    },
+    {
+      "branch": "codex/opencitations-metadata",
+      "tip": "04dffb0b1d45d4f15619d2696d3259215d0a474a",
+      "disposition": "merged_by_pr",
+      "merged_pr": 32,
+      "merged_pr_head": "04dffb0b1d45d4f15619d2696d3259215d0a474a",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/opencitations-native-docs",
+      "tip": "95b6a162bb67d70d58e4a571121b185275020dfe",
+      "disposition": "already_in_main",
+      "merged_pr": 37
+    },
+    {
+      "branch": "codex/opencitations-retained-batch",
+      "tip": "bab89d2bd74dae2c4c4a6248561d135309aedf02",
+      "disposition": "merged_by_pr",
+      "merged_pr": 31,
+      "merged_pr_head": "bab89d2bd74dae2c4c4a6248561d135309aedf02",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/operator-tools",
+      "tip": "633f28ea06166d7520750a3c64d3c331931d29ca",
+      "disposition": "already_in_main",
+      "merged_pr": 5
+    },
+    {
+      "branch": "codex/populate-correlated-generation",
+      "tip": "bce4b918ee72394d41ae0d001d0bddf34c0da889",
+      "disposition": "merged_by_pr",
+      "merged_pr": 47,
+      "merged_pr_head": "bce4b918ee72394d41ae0d001d0bddf34c0da889",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/portable-reconciliation-tools",
+      "tip": "ae62ba4af07aa2f85b758fcb38c2ecb7d266cd41",
+      "disposition": "merged_by_pr",
+      "merged_pr": 48,
+      "merged_pr_head": "ae62ba4af07aa2f85b758fcb38c2ecb7d266cd41",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/publication-source-disposition",
+      "tip": "e19bbe3a80f3c8497911f8b87283fd5c851462d9",
+      "disposition": "merged_by_pr",
+      "merged_pr": 45,
+      "merged_pr_head": "e19bbe3a80f3c8497911f8b87283fd5c851462d9",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/pubmed-dora-runtime-qualification",
+      "tip": "ae9217db1e4dd3ce47585f47573495e9b435178c",
+      "disposition": "requires_disposition",
+      "merged_pr": null
+    },
+    {
+      "branch": "codex/python315-latest-dependencies",
+      "tip": "9ec12c514265841cbab064598f31ab92ad9271a3",
+      "disposition": "merged_by_pr",
+      "merged_pr": 9,
+      "merged_pr_head": "9ec12c514265841cbab064598f31ab92ad9271a3",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/qualified-shared-security",
+      "tip": "717d32e2cf24741d178479907f895c4568f853bf",
+      "disposition": "merged_by_pr",
+      "merged_pr": 12,
+      "merged_pr_head": "717d32e2cf24741d178479907f895c4568f853bf",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/reader-disposition",
+      "tip": "3edbe8f906f7f2acacf229a93c163058ed745745",
+      "disposition": "merged_by_pr",
+      "merged_pr": 50,
+      "merged_pr_head": "3edbe8f906f7f2acacf229a93c163058ed745745",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/reconcile-outstanding-outcomes",
+      "tip": "79c1a5ddef67e3b1d7f3fe0d0755b8318dddcd47",
+      "disposition": "merged_by_pr",
+      "merged_pr": 41,
+      "merged_pr_head": "79c1a5ddef67e3b1d7f3fe0d0755b8318dddcd47",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/reconciliation-links",
+      "tip": "607112e34fb24eb28b921f46e1e6afa2d55925ce",
+      "disposition": "merged_by_pr",
+      "merged_pr": 53,
+      "merged_pr_head": "607112e34fb24eb28b921f46e1e6afa2d55925ce",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/reusable-flow-deployment",
+      "tip": "6168d5ddc1a1f067da4d36c2fc7615aaa9e2ed5a",
+      "disposition": "merged_by_pr",
+      "merged_pr": 42,
+      "merged_pr_head": "6168d5ddc1a1f067da4d36c2fc7615aaa9e2ed5a",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/whole-system-final-reconciliation",
+      "tip": "6a14e08c65f5264b8c085a46c5b7d6c99f55fd91",
+      "disposition": "merged_by_pr",
+      "merged_pr": 55,
+      "merged_pr_head": "6a14e08c65f5264b8c085a46c5b7d6c99f55fd91",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "codex/whole-system-reconciliation",
+      "tip": "c18e5bfe6eab4bbabb13e81e59abac73363ed902",
+      "disposition": "merged_by_pr",
+      "merged_pr": 44,
+      "merged_pr_head": "c18e5bfe6eab4bbabb13e81e59abac73363ed902",
+      "tip_matches_merged_pr_head": true
+    },
+    {
+      "branch": "implementation/webui-first-v040",
+      "tip": "cde439c0d0ee35676c05362b2ef9498dafbd4bcc",
+      "disposition": "requires_disposition",
+      "merged_pr": null
+    },
+    {
+      "branch": "main",
+      "tip": "92c1d0e0ddfe5ee3400b054d50ad3abeb11a8665",
+      "disposition": "requires_disposition",
+      "merged_pr": null
+    }
+  ],
+  "counts": {
+    "already_in_main": 20,
+    "requires_disposition": 4,
+    "merged_by_pr": 29
+  },
+  "private_authoring_history_is_unrelated": true,
+  "native_acceptance": false,
+  "integration_dispositions": {
+    "codex/pubmed-dora-runtime-qualification": "fast_forward_integrated",
+    "codex/conductor-goal-source": "exact_standalone_document_integrated_checkpoint_superseded",
+    "implementation/webui-first-v040": "preserve_unrelated_authoring_history",
+    "main": "preserve_older_unrelated_history"
+  },
+  "retained_authoring_source_packet": {
+    "scripts/publication_batch_contract.py": "8560cfb5aa7c93806e10a911d445750e8a1f85b949379b3383aba7b8663e788f",
+    "tests/test_publication_batch_contract.py": "0954fb12be17b7767c28fc8669b256d0b6278b03ffd21ded2729912d5306f1d0"
+  },
+  "validation": {
+    "python": "3.15.1",
+    "unittest_total": 1011,
+    "unittest_skips": 25,
+    "unittest_failures": 0,
+    "project_checks": 446,
+    "conductor_errors": 0,
+    "native_acceptance": false
+  },
+  "security_workflow_disposition": "restore_repo_owned_job_from_public_RIMS_history_remove_private_reusable_dependency",
+  "licence_disposition": "Apache-2.0_LICENSE_and_scoped_NOTICE_integrated"
+}
