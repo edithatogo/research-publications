@@ -872,6 +872,23 @@ class NativeDataCiteRelationshipTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     native_run(root, updated)
 
+    def test_native_undeclared_request_parameters_cannot_claim_complete_zero(self):
+        for key, value in (
+            ("resource-type-id", "dataset"),
+            ("client-id", "fictional"),
+            ("page[number]", 1),
+            ("unknown-option", "true"),
+        ):
+            with self.subTest(parameter=key), tempfile.TemporaryDirectory() as d:
+                root = Path(d) / "native"
+                packet = native_fixture(root, [])
+                path = root / "related-0-page-0.json"
+                page = json.loads(path.read_bytes())
+                page["parameters"][key] = value
+                path.write_bytes(json_bytes(page))
+                with self.assertRaisesRegex(ValueError, "parameters/cursor drift"):
+                    native_run(root, native_pin(root, packet[0]))
+
     def test_native_complete_zero_is_not_unavailable(self):
         with tempfile.TemporaryDirectory() as d:
             root = Path(d) / "native"
@@ -913,6 +930,44 @@ class NativeDataCiteRelationshipTests(unittest.TestCase):
                 root, packet, prior_manifest=prior_raw, expected_prior_sha256=prior_pin
             )
             self.assertEqual(result["coverage"]["scope"], "native_overlap_update")
+            for full, baseline, previous in (
+                (True, "2026-10-28T00:00:00Z", "2026-10-29T00:00:00Z"),
+                (True, "2026-10-30T00:00:00Z", "2026-10-29T00:00:00Z"),
+                (False, "2026-10-30T00:00:00Z", "2026-10-29T00:00:00Z"),
+            ):
+                with self.subTest(full=full, baseline=baseline):
+                    invalid_prior = copy.deepcopy(prior)
+                    invalid_prior["full_reconciliation"] = full
+                    invalid_prior["baseline_completed_at"] = baseline
+                    invalid_prior["until"] = previous
+                    invalid_raw = json_bytes(invalid_prior)
+                    invalid_pin = hashlib.sha256(invalid_raw).hexdigest()
+                    manifest["baseline_completed_at"] = baseline
+                    for name in (
+                        "manifest.json",
+                        "datacite-discovery-complete-fictional-native-run.json",
+                    ):
+                        (root / name).write_bytes(json_bytes(manifest))
+                    invalid_packet = native_pin(root, packet[0])
+                    invalid_packet[2]["prior_manifest_sha256"] = invalid_pin
+                    with self.assertRaisesRegex(
+                        ValueError, "Prior baseline chronology"
+                    ):
+                        native_run(
+                            root,
+                            invalid_packet,
+                            prior_manifest=invalid_raw,
+                            expected_prior_sha256=invalid_pin,
+                        )
+            manifest["baseline_completed_at"] = prior["baseline_completed_at"]
+            for name in (
+                "manifest.json",
+                "datacite-discovery-complete-fictional-native-run.json",
+            ):
+                (root / name).write_bytes(json_bytes(manifest))
+            packet = native_pin(root, packet[0])
+            packet[2]["prior_manifest_sha256"] = prior_pin
+
             self.assertIsNone(result["rows"][0]["SourceCapturedUTC"])
             self.assertEqual(result["SourceCutoffUTC"], "2026-11-05T00:00:00Z")
             with self.assertRaises(ValueError):

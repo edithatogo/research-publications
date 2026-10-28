@@ -806,6 +806,10 @@ def _native(archive, pin, generation, receipt_raw, receipt_pin, prior_raw, prior
         utc(previous)
         old = datetime.fromisoformat(previous)
         new = datetime.fromisoformat(cutoff)
+        if datetime.fromisoformat(baseline) > old or (
+            prior["full_reconciliation"] and baseline != previous
+        ):
+            raise ValueError("Prior baseline chronology contradicts reconciliation")
         if new <= old:
             raise ValueError("Native update cutoff must advance prior cutoff")
         previous_ids = prior.get("publication_dois")
@@ -951,7 +955,7 @@ def _native(archive, pin, generation, receipt_raw, receipt_pin, prior_raw, prior
                 or type(params.get("page[size]")) not in (str, int)
                 or str(params["page[size]"]) != str(size)
                 or any(params.get(k) != v for k, v in options.items())
-                or "page[number]" in params
+                or set(params) != {"query", "page[cursor]", "page[size]", *options}
             ):
                 raise ValueError("Native request parameters/cursor drift")
             if url.query and any(

@@ -64,12 +64,17 @@ size; no fixed 65/76-query or 1,281/1,501-DOI assumption exists in code. Each sa
 request must retain the exact query/window, opaque cursor and full metadata
 options. HTTP status/count types, original XML metadata presence, complete row
 and unique-ID totals, terminal state and endpoint are checked. Continuation
-origins, scope-changing parameters and cursor cycles fail closed. No link or
+origins, scope-changing parameters and cursor cycles fail closed. The explicit request
+allowlist is exactly query, page cursor, page size and the three full-metadata
+options; extra resource-type, client and unknown filters are refused before
+coverage or zero counts can be emitted. No link or
 cursor is followed.
 
 Full baselines bind their own cutoff. Overlap updates require separate prior
 manifest bytes/pin, also bound by `generation.prior_manifest_sha256`; prior
-scope/baseline/publication population must agree, cutoff must advance and the
+scope/baseline/publication population must agree. A prior full reconciliation
+must bind its own exact cutoff, and every prior baseline must be no later than
+its cutoff. The new cutoff must advance and the
 institutional window must have the exact seven-day overlap. Related queries
 retain their complete created-through-cutoff population. An update is complete
 for its declared windows, not a replacement of prior baseline history.
@@ -153,7 +158,7 @@ ignored `private/ops`, outside the immutable archive. Finite serialization occur
 before output creation; exclusive mode-0600 verified writes retain fsync/readback
 and overwrite refusal. Source API calls perform no writes.
 
-Actual repo-local Python **3.15.1** passes **24 focused stdlib tests** with `-S`:
+Actual repo-local Python **3.15.1** passes **25 focused stdlib tests** with `-S`:
 
 ```sh
 .venv/bin/python -S -B -m unittest discover -s tests -p test_prepare_datacite_output_relationships.py -v
