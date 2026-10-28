@@ -642,3 +642,50 @@ Ignored evidence is in this lane's
 remain unchanged. Native failure is stronger evidence than the incomplete local
 schema result. Continue only read-only compatibility and target reconciliation
 until a new bounded write assignment is explicitly established.
+
+### Read-only import compatibility qualification
+
+Installed `powerbi-report-author`0.5.0 source (`buildPackBody`, lines2089–2118)
+walks included files and Base64-encodes their exact bytes. No occurrence of
+`linguisticSchemaSyncVersion` exists in that installed CLI source, and the packer
+performs no documented field stripping or server-generated-field recovery.
+The approved packed payload already matched the complete candidate exactly.
+
+The [official PBIR documentation](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report)
+links Microsoft's [published report schemas](https://github.com/microsoft/json-schemas/tree/main/fabric/item/report/definition/report).
+A bounded read of that official directory lists versions1.0.0 through3.3.0,
+with no3.4.0 directory. Exact report3.4.0 and visualContainer2.14.0 raw official
+schema fetches also returned404. The published3.3.0 report schema and changelog
+were inspected as references only: neither mentions the rejected property, and
+3.3.0 disallows additional top-level properties. They were **not** substituted
+for3.4.0, used to validate the candidate, or installed as a downgrade.
+
+Official documentation requires supported PBIR files to conform to their declared
+schemas; it does not establish that this specific property is read-only,
+server-generated, automatically regenerated or safely removable. The native
+failure establishes rejection on import, not the property's purpose or the
+reversibility of omitting it. Because the original export contains the same
+property, exact original-part restoration cannot currently be claimed as a
+qualified import recovery route either. No revised candidate or rollback is
+proposed from unsupported semantics. The remaining dependency is an authoritative
+compatible export/import contract for this exact version/property and a proven
+bounded recovery route, followed by a newly scoped candidate if justified.
+Compatibility source receipts are private under `compatibility/`.
+
+### Bounded T18 inventory reconciliation
+
+One current personal report-list GET and one report-list GET in the retained
+assigned workspace each returned200, one report, and no continuation. Neither
+contains the retained T18 report ID or a report name with its retained20261022
+marker. The personal report is the already assigned E04 report on the common
+model; shared model identity alone does not identify T18. These reads strengthen
+the earlier exact404 result only within those two scopes. They do not establish
+deletion, another workspace's contents, or a replacement reader identity. No
+other report definition was read or substituted, and no write scope transferred.
+Private inventory/comparison receipts are under `bounded-t18-inventory/`.
+
+The actual E04 report was reloaded after failed-save reconciliation; its overview
+still rendered the original1344/1277/709/642 counts and default filter state,
+with no visual query error panel. This confirms continued baseline availability,
+not corrected-render acceptance. Screenshot/AX evidence is under
+`failed-save-render/`. The lane remains stopped for native writes.
