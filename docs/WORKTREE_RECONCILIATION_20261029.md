@@ -240,3 +240,13 @@ of floating, malformed and tagged-container references, including nested jobs.
 The already selected complete Apache-2.0 LICENSE and scoped NOTICE are integrated
 from the preserved authoring checkout. The existing tracked-file source packager
 includes both without changing third-party licences or release/native claims.
+
+## Verified PR68 checkpoint
+
+PR68 merged at `0bdb35c3b874f295521f657372151d99bc67df8c`; exact main quality
+`40765581408` and security `40765581502` passed. The private v7 verified receipt
+retains the reviewed packet and now records these gates. Its 1,353 further-review
+paths remain source dispositions, not a feature count. Provider foundation
+through f6b83d5f is a subsequent locally reviewed/merged packet with39 focused
+tests; its combined/hosted acceptance remains separate. Original/native ownership
+and all earlier inventory versions are preserved.
