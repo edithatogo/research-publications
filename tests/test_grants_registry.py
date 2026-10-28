@@ -15,6 +15,34 @@ class GrantsRegistryTests(unittest.TestCase):
         self.assertEqual(normalize_opportunity(rss)["OpportunityKey"], normalize_opportunity(api)["OpportunityKey"])
         self.assertEqual(normalize_opportunity(rss)["DeadlinePrecision"], "month")
 
+    def test_unqualified_funder_or_category_assignments_fail_instead_of_disappearing(self):
+        for field, value in (("FunderKey", "FUNDER:nhmrc"),
+                             ("CategoryKeys", ["health"]),
+                             ("CategoryKeysJSON", '["health"]')):
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, "evidence-backed reviewed classification"):
+                normalize_opportunity({"Source":"NHMRC","SourceID":"G-1","Title":"Call",
+                    "URL":"https://example.org/call", field:value})
+        baseline=normalize_opportunity({"Source":"NHMRC","SourceID":"G-1","Title":"Call",
+            "URL":"https://example.org/call"})
+        unclassified=normalize_opportunity({"Source":"NHMRC","SourceID":"G-1","Title":"Call",
+            "URL":"https://example.org/call","FunderKey":None,"CategoryKeys":[]})
+        self.assertEqual(unclassified['OpportunityKey'],baseline['OpportunityKey'])
+
+    def test_rejected_classification_does_not_mutate_input_or_approve_it(self):
+        import copy
+        row={'Source':'NHMRC','SourceID':'G-1','Title':'Call','Funder':'Stated funder label',
+             'URL':'https://example.org/call','ReviewStatus':'Needs Review',
+             'FunderKey':'funder:unverified','CategoryKeysJSON':'["health"]'}
+        original=copy.deepcopy(row)
+        with self.assertRaises(ValueError):normalize_opportunity(row)
+        self.assertEqual(row,original)
+        for field in ['FunderKey','CategoryKeysJSON']:row.pop(field)
+        normal=normalize_opportunity(row,retrieved_at='2026-10-29T00:00:00Z')
+        self.assertEqual(normal['Funder'],'Stated funder label')
+        self.assertEqual(normal['ReviewStatus'],'Needs Review')
+        self.assertNotIn('FunderKey',normal)
+        self.assertNotIn('CategoryKeysJSON',normal)
+
     def test_canonical_normalizer_rejects_non_text_and_falsey_source_values(self):
         for field, value in (("SourceID", 0), ("Title", False), ("URL", []),
                              ("Deadline", 2027), ("RetrievedUTC", {}),
