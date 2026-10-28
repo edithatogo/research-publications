@@ -1,0 +1,21 @@
+{
+  "name": "RIMSPublicationOutcomesDark3.json",
+  "foreground": "#FFFFFF",
+  "background": "#252423",
+  "backgroundLight": "#1B1A19",
+  "foregroundLight": "#E1DFDD",
+  "tableAccent": "#69AFE5",
+  "dataColors": [
+    "#69AFE5",
+    "#C8B6ED",
+    "#A19F9D",
+    "#92C353",
+    "#F1707B",
+    "#FCE100"
+  ],
+  "foregroundButton": "#172B4D",
+  "hyperlink": "#69AFE5",
+  "visitedHyperlink": "#69AFE5",
+  "foregroundNeutralSecondary": "#E1DFDD",
+  "foregroundNeutralTertiary": "#E1DFDD"
+}

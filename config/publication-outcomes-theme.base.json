@@ -1,0 +1,502 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/powerbi-desktop-samples/main/Report%20Theme%20JSON%20Schema/reportThemeSchema-2.159.json",
+  "dataColors": [
+    "#005A9E",
+    "#8764B8",
+    "#767676",
+    "#107C10",
+    "#A4262C",
+    "#986F0B"
+  ],
+  "textClasses": {
+    "callout": {
+      "fontSize": 28,
+      "fontFace": "Segoe UI"
+    },
+    "title": {
+      "fontSize": 20,
+      "fontFace": "Segoe UI"
+    },
+    "header": {
+      "fontSize": 20,
+      "fontFace": "Segoe UI"
+    },
+    "label": {
+      "fontSize": 20,
+      "fontFace": "Segoe UI"
+    },
+    "smallLabel": {
+      "fontSize": 20,
+      "fontFace": "Segoe UI"
+    },
+    "largeLabel": {
+      "fontSize": 20,
+      "fontFace": "Segoe UI"
+    },
+    "lightLabel": {
+      "fontSize": 20,
+      "fontFace": "Segoe UI"
+    },
+    "largeLightLabel": {
+      "fontSize": 20,
+      "fontFace": "Segoe UI"
+    },
+    "smallLightLabel": {
+      "fontSize": 20,
+      "fontFace": "Segoe UI"
+    }
+  },
+  "visualStyles": {
+    "cardVisual": {
+      "*": {
+        "value": [
+          {
+            "fontSize": 28,
+            "$id": "default",
+            "fontColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            }
+          }
+        ],
+        "label": [
+          {
+            "fontSize": 20,
+            "$id": "default",
+            "fontColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            }
+          }
+        ],
+        "padding": [
+          {
+            "paddingUniform": 16,
+            "$id": "default"
+          }
+        ]
+      }
+    },
+    "lineChart": {
+      "*": {
+        "lineStyles": [
+          {
+            "strokeWidth": 2
+          }
+        ],
+        "categoryAxis": [
+          {
+            "fontSize": 20,
+            "labelColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            },
+            "titleColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "fontSize": 20,
+            "labelColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            },
+            "titleColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            }
+          }
+        ],
+        "legend": [
+          {
+            "fontSize": 18,
+            "labelColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "listSlicer": {
+      "*": {
+        "value": [
+          {
+            "fontSize": 20
+          }
+        ],
+        "label": [
+          {
+            "fontSize": 20
+          }
+        ]
+      }
+    },
+    "advancedSlicerVisual": {
+      "*": {
+        "value": [
+          {
+            "fontSize": 16,
+            "$id": "default",
+            "textWrap": true
+          },
+          {
+            "$id": "selection:selected",
+            "fontSize": 16,
+            "fontColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "textWrap": true
+          }
+        ],
+        "label": [
+          {
+            "fontSize": 16,
+            "$id": "default",
+            "textWrap": true,
+            "fontColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            }
+          },
+          {
+            "$id": "selection:selected",
+            "fontSize": 16,
+            "fontColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "textWrap": true
+          }
+        ],
+        "fillCustom": [
+          {
+            "$id": "default",
+            "fillColor": {
+              "solid": {
+                "color": "background"
+              }
+            }
+          },
+          {
+            "$id": "interaction:hover",
+            "fillColor": {
+              "solid": {
+                "color": "background"
+              }
+            }
+          },
+          {
+            "$id": "selection:selected",
+            "fillColor": {
+              "solid": {
+                "color": "#005A9E"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "*": {
+      "*": {
+        "title": [
+          {
+            "fontSize": 22,
+            "fontFamily": "Segoe UI",
+            "fontColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            }
+          }
+        ],
+        "border": [
+          {
+            "show": false
+          }
+        ],
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "background"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    },
+    "actionButton": {
+      "*": {
+        "text": [
+          {
+            "fontSize": 20,
+            "fontFamily": "Segoe UI",
+            "topMargin": 0,
+            "bottomMargin": 0,
+            "$id": "default",
+            "fontColor": {
+              "solid": {
+                "color": "foregroundButton"
+              }
+            }
+          }
+        ],
+        "fill": [
+          {
+            "fillColor": {
+              "solid": {
+                "color": "tableAccent"
+              }
+            },
+            "transparency": 0,
+            "$id": "default"
+          }
+        ]
+      }
+    },
+    "barChart": {
+      "*": {
+        "categoryAxis": [
+          {
+            "fontSize": 20,
+            "labelColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            },
+            "titleColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "fontSize": 20,
+            "labelColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            },
+            "titleColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            }
+          }
+        ],
+        "legend": [
+          {
+            "fontSize": 18,
+            "labelColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "hundredPercentStackedColumnChart": {
+      "*": {
+        "categoryAxis": [
+          {
+            "fontSize": 20,
+            "labelColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            },
+            "titleColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "fontSize": 20,
+            "labelColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            },
+            "titleColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            }
+          }
+        ],
+        "legend": [
+          {
+            "fontSize": 18,
+            "labelColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "tableEx": {
+      "*": {
+        "columnHeaders": [
+          {
+            "fontSize": 20,
+            "fontColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": "background"
+              }
+            }
+          }
+        ],
+        "values": [
+          {
+            "fontSize": 20,
+            "fontColorPrimary": {
+              "solid": {
+                "color": "foreground"
+              }
+            },
+            "fontColorSecondary": {
+              "solid": {
+                "color": "foreground"
+              }
+            },
+            "backColorPrimary": {
+              "solid": {
+                "color": "background"
+              }
+            },
+            "backColorSecondary": {
+              "solid": {
+                "color": "backgroundLight"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "backgroundLight"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    },
+    "clusteredColumnChart": {
+      "*": {
+        "categoryAxis": [
+          {
+            "fontSize": 20,
+            "labelColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "fontSize": 20,
+            "labelColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            }
+          }
+        ],
+        "labels": [
+          {
+            "color": {
+              "solid": {
+                "color": "foreground"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "slicer": {
+      "*": {
+        "items": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            },
+            "background": {
+              "solid": {
+                "color": "background"
+              }
+            }
+          }
+        ],
+        "header": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "foreground"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [
+          {
+            "color": {
+              "solid": {
+                "color": "foreground"
+              }
+            }
+          }
+        ],
+        "categoryLabels": [
+          {
+            "color": {
+              "solid": {
+                "color": "foreground"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
