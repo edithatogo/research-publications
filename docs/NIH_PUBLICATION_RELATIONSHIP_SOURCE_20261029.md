@@ -58,12 +58,17 @@ reference key. There is no store, implicit withdrawal or replacement of human ed
 
 ## Verification and remaining exits
 
-Twelve focused fictional tests pass on repository-local Python3.15.1 with `-S`.
+Thirteen focused fictional tests pass on repository-local Python3.15.1.
 They cover two-page completeness, complete zero versus missing coverage, exact
 identifiers, strict raw JSON/byte proofs, independent pins, ambiguous canonical
 bindings, duplicate/drifting pages, candidate preservation and stable revisions.
 Ruff and formatting checks pass. The public sample is not a fictional test or a
 complete source acceptance receipt.
+
+The copy-time mutation regression first reproduced projection of changed source
+application data under the original pin. Inputs are now copied before pin
+validation, and validation/projection use only that copy; changed copied inputs
+fail the independent hash check before any candidate output.
 
 Remaining dependencies are a qualified complete retained source capture for the
 selected repository PMID scope, temporal snapshot/reconciliation evidence,

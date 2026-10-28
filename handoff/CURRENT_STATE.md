@@ -11,15 +11,35 @@ history. All three existing app follow-ups target this chat; do not duplicate th
 Original native objects, authentication renewal, services and journals retain
 their existing owners. This checkout has no native writing assignment.
 
-Current operation: correct the reviewed NIH copy/pin race locally, receive the
-replacement acquisition owner's DataCite parameter/chronology correction, then
-integrate reviewed admission `a80bc1f7`, relationships `190430ef` and corrected
-DataCite serially with exact preflights and coherent source/hosted gates.
+NIH copy/pin race is corrected at `4591f6a2` with a reproduced failing regression
+and 13 passing focused tests. Admission `a80bc1f7` and relationships `190430ef`
+are locally merged after clean exact preflights. Corrected DataCite `efb20397`
+(original packet `5cad863a`) is merged at `f45e5596` after clean exact preflight;
+25 focused tests pass. Extra native request filters and contradictory prior
+baseline chronology now fail closed. Completed cross-reviews were reused.
+Current operation: coherent final harness, hosted PR and exact-main gates.
 Admission chat `01a1831e-cc6d-7371-9d57-021a339b708a` retains ef45 and its frozen
 packet; its next assignment is a read-only connected-outcome recommendation.
-Replacement acquisition creation is pending; it owns only the DataCite helper,
-paired test and closure leaf, with no native scope. NIH source/test and shared
-records remain with this integrator. No other writer owns this checkout.
+Replacement acquisition owns only the DataCite helper, paired test and closure
+leaf in managed b9f6, branch `codex/datacite-review-fixes`, now clean at `efb20397`.
+Its creation receipt is `client-new-thread:133b68c9-776f-4fa2-9f60-21ca035eb3d6`;
+the app's thread inventory has not yet supplied its canonical chat ID. Do not
+create a duplicate or dispatch by that client ID. Replacement relationships chat
+`01a184c7-5192-71b1-b1fb-be4888a04f51` retains clean managed
+`rims-relationship-replacement/chhhs-research-publications`, branch
+`codex/rims-relationship-connected-reader` at `190430ef`. Its bounded read-only
+recommendation is complete. Both recommendation lanes wait for common verified
+main before implementation: admission proposes consumer parity; relationships
+proposes typed evidence export. No native scope is assigned. NIH source/test and
+shared records remain with this integrator. No other writer owns this checkout.
+
+Pre-DataCite checkpoint `a713f8ba` passed the complete harness: 2,090 Python tests
+with 19 capability skips, 25 Node guard tests, 446 project checks, web-first and
+Conductor validation, plus read-only tooling preflight. The local interpreter
+actually reports Python3.15.1 and uses the existing hash-locked dev dependencies
+in a fresh lane-local .venv. No old environment/private receipt was copied.
+Missing ignored private directory was created for existing CLI test fixtures;
+no source test failure was hidden. Final combined/hosted results remain pending.
 
 The restored old rims-reconcile checkout is clean detached `b634ab52` with no
 ignored artifacts. App archival refused removal because it is the task's primary
