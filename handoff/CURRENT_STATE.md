@@ -7,10 +7,10 @@ dependencies, runtime promotion and authentication coordination. The entire
 unfinished roadmap is selected for guarded DEV/no-send work; cancelled
 Windows/Desktop routes remain excluded. Blocked work does not count complete.
 
-Verified main: `546926c0ab3186527a3d4c9d738d55712ff7ae68` (PR64).
-Main quality `40747963519` and security `40747963618` passed. Combined harness:
-1,579 Python tests, 19 capability skips, 58 Node tests and 446 project checks.
-PR57–PR64 are merged. Clean source package `0.4.0-roadmap.10` at `75ff865d`
+Verified main: `d6ede523966e8e83e01c9085c6db8238bed0d710` (PR65).
+Main quality `40750218821` and security `40750218936` passed. Combined harness:
+1,614 Python tests, 19 capability skips, 58 Node tests and 446 project checks.
+PR57–PR65 are merged. Clean source package `0.4.0-roadmap.11` at `1c9ce69f`
 passed extraction/full harness; newer source commits have their own checks.
 No source or package result implies native acceptance.
 
@@ -18,12 +18,13 @@ No source or package result implies native acceptance.
 |---|---|---|
 | Publications `01a1831e-449a-7693-af1a-08bb23391c76`; `/Users/doughnut/.codex/worktrees/fa70/chhhs-research-publications` | QGIP/PubMed/DoRA collector builders, bounded read-retry helper, four paired tests and acquisition closure leaf. Must clean-fast-forward to verified PR64 main before writing. | None. Pure source proposals and focused stdlib tests; no provider calls, observer fabrication, activation or native retries. |
 | Preservation `01a1831e-cc0d-7340-a1da-95c81b8e93fa`; `/Users/doughnut/.codex/worktrees/c4c7/chhhs-research-publications` | Seven legacy-preservation helpers, seven paired tests and closure leaf, from verified PR63 main. | None. Complete inventory/history diagnostics; candidate-only planning. Finish existing assignment without moving active checkout. |
-| Contracts `01a1831e-cc6d-7371-9d57-021a339b708a`; `/Users/doughnut/.codex/worktrees/ef45/chhhs-research-publications` | Terminal packet `8d368c34` reviewed and integrated locally: three offline verifiers/preparers, paired tests and forty-path disposition. Next operation is read-only assessment of nine bootstrap/helper paths. | None. 35 focused stdlib tests passed. No new source writes until next verified-main handover and exact assignment. |
+| Registry `01a1831e-cc6d-7371-9d57-021a339b708a`; `/Users/doughnut/.codex/worktrees/ef45/chhhs-research-publications` | Pure bootstrap utilities and field-help/index/quality/view plans, their five tests and metadata closure leaf. Must clean-fast-forward to PR65 main before writing. Existing field-meanings config remains parent-owned. | None. Preserve metadata/ETags and preimage-bound plans; no capture, native adapters or generated migration shell. Exclude unqualified field creation/type changes. |
 
-Current integration: the reviewed contract packet and retained field-description
-proposal pass the combined harness (1,614 Python tests, 19 skips, 58 Node tests,
-446 project checks). They receive their own serial PR/main checkpoint. The
-legacy-preservation packet will follow when its owner reaches a terminal handoff.
+Current review: legacy packet `63931b69` passed 85 focused tests but is not merged.
+Its owner is fixing same-target pagination binding, unsupported historical
+absence wording, strict JSON and single-read hash provenance. Acquisition and
+registry metadata packets continue independently; their terminal handoffs enter
+serial preflight/review and coherent PR/main verification.
 Only a lane's sole writer fast-forwards its clean branch. Preserve active work,
 ordinary hooks and original environments; never reset/clean, steal locks or
 rewrite indexes/refs to bypass ownership. Local main now follows canonical
