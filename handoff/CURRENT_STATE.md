@@ -1,3 +1,40 @@
+## Autonomous roadmap ownership — 29 October 2026
+
+The user approved the entire unfinished roadmap, including unfinished archived
+and deferred requirements, and lifted the E04 local-only hold for guarded DEV
+changes and controlled no-send tests. Cancelled Windows/Desktop routes remain
+excluded. Accepted receipts retain their scoped acceptance.
+
+Sole orchestrator/integrator: `01a182f2-fd8e-7953-9bd2-f9b8002664a6`,
+RIMS — Orchestration — Autonomous roadmap delivery. Actual checkout:
+`/Users/doughnut/.codex/worktrees/rims-reconcile/chhhs-research-publications`,
+branch `codex/rims-worktree-reconciliation`. Owns shared contracts, dependencies,
+runtime/auth coordination, shared Conductor records and serial main integration.
+Verified canonical base: `0e9b595e243315760086be301e769d6060ffce98`.
+
+| Owner/chat | Actual managed worktree | Source scope / next operation |
+|---|---|---|
+| Publications `01a1831e-449a-7693-af1a-08bb23391c76` | `/Users/doughnut/.codex/worktrees/fa70/chhhs-research-publications` | Publication validators, metadata comparators, associated tests/docs; first dependency-closed source packet |
+| Grants `01a1831e-cc6d-7371-9d57-021a339b708a` | `/Users/doughnut/.codex/worktrees/ef45/chhhs-research-publications` | G07 observer/worker, grants operational scripts/tests/docs; source closure preserving live services |
+| Dashboard `01a1831e-cc0d-7340-a1da-95c81b8e93fa` | `/Users/doughnut/.codex/worktrees/c4c7/chhhs-research-publications` | Report/model builders and metric/topic/researcher/forecast/outcome contracts/tests; E04/T18 source closure |
+
+Each lane creates its own `codex/rims-*-roadmap` branch from canonical main
+before writing. Initial packets are source-only; the orchestrator assigns exact
+native objects after source handoff. Guarded existing isolated DEV saves require
+qualified access, current preimage, rollback, exclusive ownership, saved-definition
+readback and relevant runtime/output proof. Shared files and main have one writer.
+No new sending, schedule changes, sharing, production promotion, purchase or
+consent. Existing grants services retain original private bindings/journals and
+exact delivery authority. No duplicate monitor, resend or active-env replacement.
+
+Next: serial preflight, semantic review, focused checks and main CI for each
+packet. Actual repo-local Python3.15.1 is required. Monthly natural export and
+observer evidence is due after 1 November 2026, 12:05 Australia/Brisbane; no
+manual substitute or new recurring job. Missing evidence remains incomplete.
+Internal disk exhaustion was observed during startup; avoid large allocations
+and use owned temporary outputs on PortableSSD without moving active environments.
+Earlier assignments below are history, including the superseded local-only hold.
+
 ## Serial integration ownership — 29 October 2026
 
 - Chat: `01a182f2-fd8e-7953-9bd2-f9b8002664a6`, RIMS — Integration — Reconcile worktrees and remaining work.

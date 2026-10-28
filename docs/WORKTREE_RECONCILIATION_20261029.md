@@ -5,6 +5,18 @@ and status text. The many old branch names mostly represent delivered work.
 Keep one integrator and canonical source base; retire duplicate execution from
 the backlog without deleting its evidence or restarting archived chats.
 
+## Approved delivery expansion — 29 October 2026
+
+After PR56 merged at `0e9b595e`, the user approved three managed delivery
+worktrees and this chat as sole orchestrator/integrator. Exact owners and paths
+are in [CURRENT_STATE](../handoff/CURRENT_STATE.md). The entire unfinished
+roadmap is selected, including archived/deferred residuals and later T18 slices.
+The E04 local-only hold is lifted for guarded isolated DEV/no-send work.
+Cancelled/superseded Windows/Desktop routes remain excluded. Historical scope
+limits below describe the prior reconciliation, not the current assignment.
+Reuse accepted receipts; retain exact access, rollback, exclusive native ownership,
+runtime/rendering gates and separate decisions for sending/schedules/sharing.
+
 ## Verified Git state
 
 The canonical source base is `origin/main` at `76d42f84` (PR55). The existing
