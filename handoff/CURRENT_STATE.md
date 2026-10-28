@@ -56,6 +56,32 @@ The failed operation, readback, original payload and screenshots remain private;
 
 ### Current continuation
 
+PR61 merged at `dced8588ca921af2ee0f164b635d2af5da9c57af`; main quality
+40735674079 and security40735674002 pass. Fresh private source extraction at
+`b7dea107` passes, archive SHA256
+`a9078e71ae5b2ad26677f4579f6a81ef5785702c3a0d70ba43f54649d70c1201`,
+NativeAcceptance=false. These receipts remain unchanged.
+
+Current sixth source packet includes advisory request/failure binding (`3d6ce3ea`),
+paper/report metadata preparation (`bc1ff7b5`), explicit grants classification
+refusal and complete164-path ledger (`58d04c52`), and the parent's OA correction.
+Publication lane owns the two exact library appliers plus offline transport tests;
+without mutation-qualified entry they require injected sessions and disabled CLI.
+Grants lane owns the24 remaining ledger source paths in four bounded families:
+importer safety, synthetic runtime cases, isolated preparation and historical text
+preparation. Reserved model/shared-definition portions stay excluded. Dashboard
+continues the exact pure outcome evidence/revision assignment above. No native
+ownership or authentication scope transfers with these source assignments.
+
+
+Parent owns the bounded legacy E03 source correction in
+`scripts/open_access_trials.py`, `tests/test_open_access_trials.py` and
+`docs/OPEN_ACCESS_TRIALS_SPEC.md`: prevent category/license hints from asserting
+policy compliance or invented OA route; preserve existing recorded values and
+schema/identifiers. No native row/model migration or trial-route change is in
+this packet. Other lanes retain their assignments.
+
+
 Fifth combined milestone passes:1,414 Python tests with25 capability skips,
 25 offline Node guards,446 project checks and all remaining harness gates.
 Current exact assignments: publications owns document-library source preservation;

@@ -18,32 +18,66 @@ class TestOpenAccessTrials(unittest.TestCase):
     def test_classify_gold_oa(self):
         cat, comp = classify_open_access_status("gold")
         self.assertEqual(cat, "Gold")
-        self.assertEqual(comp, "Fully Compliant")
+        self.assertEqual(comp, "Unknown")
 
     def test_classify_hybrid_oa(self):
         cat, comp = classify_open_access_status("hybrid")
         self.assertEqual(cat, "Hybrid")
-        self.assertEqual(comp, "Fully Compliant")
+        self.assertEqual(comp, "Unknown")
 
     def test_classify_green_oa(self):
         cat, comp = classify_open_access_status("green")
         self.assertEqual(cat, "Green")
-        self.assertEqual(comp, "Fully Compliant")
+        self.assertEqual(comp, "Unknown")
 
     def test_classify_bronze_oa(self):
         cat, comp = classify_open_access_status("bronze")
         self.assertEqual(cat, "Bronze")
-        self.assertEqual(comp, "Conditionally Compliant")
+        self.assertEqual(comp, "Unknown")
 
     def test_classify_closed(self):
         cat, comp = classify_open_access_status("closed")
         self.assertEqual(cat, "Closed")
-        self.assertEqual(comp, "Non-Compliant")
+        self.assertEqual(comp, "Unknown")
 
     def test_classify_by_license(self):
         cat, comp = classify_open_access_status(None, license_str="CC-BY 4.0", is_oa=True)
-        self.assertEqual(cat, "Gold")
-        self.assertEqual(comp, "Fully Compliant")
+        self.assertEqual(cat, "Unknown")
+        self.assertEqual(comp, "Unknown")
+
+    def test_category_hints_cannot_establish_route_or_policy_compliance(self):
+        for status, licence, flag in [
+            (None, 'CC-BY-NC 4.0', True), (None, 'CC-BY 4.0', True),
+            ('not gold', None, True), ('open', None, True),
+            ('unknown', 'Creative Commons Attribution', None),
+            ('green', 'CC-BY', False), ('closed', None, True),
+        ]:
+            with self.subTest(status=status, licence=licence, flag=flag):
+                self.assertEqual(classify_open_access_status(status, licence, flag),
+                                 ('Unknown', 'Unknown'))
+
+    def test_existing_recorded_category_and_compliance_are_preserved(self):
+        record = {'OpenAccessStatus': 'gold', 'OACategory': 'Human reviewed route',
+                  'OAComplianceNHMRC': 'Recorded assessment with evidence',
+                  'HumanNotes': '  retain\nexact text  '}
+        result = enrich_record_open_access_trials(record)
+        self.assertEqual(result['OACategory'], 'Human reviewed route')
+        self.assertEqual(result['OAComplianceNHMRC'], 'Recorded assessment with evidence')
+        self.assertEqual(result['HumanNotes'], '  retain\nexact text  ')
+
+    def test_cached_batch_consumer_retains_schema_and_unknown_assessment(self):
+        from batch_enrich_sources import enrich_record_from_cache
+        from unittest.mock import patch
+        record = {'DOI': '10.1234/fictional', 'Title': 'Synthetic publication'}
+        cache = {'10.1234/fictional': {'OpenAccessStatus': 'green', 'License': 'CC-BY'}}
+        with patch('batch_enrich_sources.fetch_doi_metrics', side_effect=AssertionError('No network')):
+            result = enrich_record_from_cache(record, cache)
+        self.assertEqual(result['OACategory'], 'Green')
+        self.assertEqual(result['OAComplianceNHMRC'], 'Unknown')
+        self.assertEqual(result['DOI'], '10.1234/fictional')
+        self.assertEqual(result['License'], 'CC-BY')
+        before = dict(result)
+        self.assertEqual(enrich_record_from_cache(result, cache), before)
 
     def test_extract_anzctr_trial(self):
         text = "This trial was registered with the Australian New Zealand Clinical Trials Registry (ACTRN12618000123456)."
@@ -81,7 +115,7 @@ class TestOpenAccessTrials(unittest.TestCase):
         }
         enriched = enrich_record_open_access_trials(rec)
         self.assertEqual(enriched["OACategory"], "Gold")
-        self.assertEqual(enriched["OAComplianceNHMRC"], "Fully Compliant")
+        self.assertEqual(enriched["OAComplianceNHMRC"], "Unknown")
         self.assertEqual(enriched["TrialRegistryID"], "ACTRN12619000987654")
         self.assertEqual(
             enriched["TrialRegistryURL"],

@@ -1,8 +1,8 @@
-"""Open Access compliance and Clinical Trial Registry linkage.
+"""Open Access category evidence and Clinical Trial Registry linkage.
 
 Deterministic, keyless processing for:
 1. Open Access category classification (Gold, Hybrid, Green, Bronze, Closed)
-2. NHMRC / MRFF Open Access Policy 2022 compliance determination
+2. Unknown policy compliance when applicability/version/timing evidence is absent
 3. ANZCTR (ACTRN...) and ClinicalTrials.gov (NCT...) identification and URL resolution
 """
 from __future__ import annotations
@@ -19,39 +19,24 @@ def classify_open_access_status(
     license_str: str | None = None,
     is_oa: bool | None = None,
 ) -> tuple[str, str]:
-    """Classify Open Access category and NHMRC mandate compliance.
+    """Return an explicit provider category and unknown policy compliance.
 
-    Returns:
-        (category, compliance_status)
-        Categories: 'Gold', 'Hybrid', 'Green', 'Bronze', 'Closed', 'Unknown'
-        Compliance: 'Fully Compliant', 'Conditionally Compliant', 'Non-Compliant', 'Unknown'
+    The legacy tuple/field names remain compatible. Category, licence text and
+    an access flag cannot establish grant/policy applicability, version, timing,
+    embargo, rights or an evidence-backed compliance decision. Licence hints also
+    cannot identify a journal/repository route. Contradictions remain unknown.
     """
-    status_lower = str(oa_status or "").strip().lower()
-    lic_lower = str(license_str or "").strip().lower()
-
-    if is_oa is False or status_lower == "closed":
-        return ("Closed", "Non-Compliant")
-
-    if "gold" in status_lower:
-        return ("Gold", "Fully Compliant")
-    if "hybrid" in status_lower:
-        return ("Hybrid", "Fully Compliant")
-    if "green" in status_lower:
-        return ("Green", "Fully Compliant")
-    if "bronze" in status_lower:
-        return ("Bronze", "Conditionally Compliant")
-
-    # If status is simply "open" or unknown, infer from license
-    if "cc-by" in lic_lower or "creative commons attribution" in lic_lower:
-        return ("Gold", "Fully Compliant")
-    if "cc-by-nc" in lic_lower or "cc by" in lic_lower:
-        return ("Hybrid", "Fully Compliant")
-
-    if is_oa is True or status_lower in ("open", "oa"):
-        # Without specific license or repo flag, free-to-read is treated as Bronze
-        return ("Bronze", "Conditionally Compliant")
-
-    return ("Unknown", "Unknown")
+    if oa_status is not None and not isinstance(oa_status, str):
+        return ("Unknown", "Unknown")
+    if is_oa is not None and type(is_oa) is not bool:
+        return ("Unknown", "Unknown")
+    status = (oa_status or "").strip().lower()
+    categories = {name.lower(): name for name in ("Gold", "Hybrid", "Green", "Bronze", "Closed")}
+    category = categories.get(status, "Unknown")
+    if ((category == "Closed" and is_oa is True)
+            or (category not in {"Closed", "Unknown"} and is_oa is False)):
+        category = "Unknown"
+    return (category, "Unknown")
 
 
 def extract_trial_registrations(text: str | None) -> list[dict[str, str]]:
@@ -95,14 +80,16 @@ def format_trial_registry_summary(trials: list[dict[str, str]]) -> tuple[str | N
 
 
 def enrich_record_open_access_trials(record: dict[str, Any]) -> dict[str, Any]:
-    """Enrich a publication record with OA status, NHMRC compliance, and trial links."""
+    """Fill absent OA fields conservatively, preserving recorded assessments."""
     oa_status = record.get("OpenAccessStatus") or record.get("EuropePMC_OpenAccess")
     lic = record.get("License") or record.get("OALicense")
     is_oa = record.get("IsOpenAccess")
 
     category, compliance = classify_open_access_status(oa_status, license_str=lic, is_oa=is_oa)
-    record["OACategory"] = category
-    record["OAComplianceNHMRC"] = compliance
+    if record.get("OACategory") in (None, ""):
+        record["OACategory"] = category
+    if record.get("OAComplianceNHMRC") in (None, ""):
+        record["OAComplianceNHMRC"] = compliance
 
     corpus = f"{record.get('Title', '')} {record.get('AttributionEvidence', '')} {record.get('MeSHHeadings', '')} {record.get('ClinicalTrialID', '')}"
     trials = extract_trial_registrations(corpus)

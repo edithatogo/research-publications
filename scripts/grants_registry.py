@@ -336,6 +336,11 @@ def normalize_opportunity(record: dict[str, Any], retrieved_at: str | None = Non
     if not isinstance(record, dict):
         raise ValueError("opportunity record must be an object")
     record = dict(record)
+    classification_fields = {"FunderKey", "CategoryKeys", "CategoryKeysJSON"}
+    if any(record.get(field) not in (None, "", []) for field in classification_fields):
+        raise ValueError(
+            "funder/category assignments require an evidence-backed reviewed classification contract"
+        )
     for field in _TEXT_INPUT_FIELDS:
         if field in record and record[field] is not None and not isinstance(record[field], str):
             raise ValueError(f"{field} must be text or null")
