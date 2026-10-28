@@ -1,0 +1,1730 @@
+{
+  "kind": "publication_retained_source_disposition_v1",
+  "date": "2026-10-29",
+  "base_commit": "fbc75ca3891c059a4367229fecb41be7df65c1ae",
+  "scope": "Original top-level scripts/tests with publication, pubmed or metadata in filename, plus the assigned capture_report_bound_source_union pair and paired export_failure_signals test. Fixtures/private/generated/model definitions/shared build_native helpers are outside this inventory; none is imported by the inventory.",
+  "original_script_count": 94,
+  "original_test_count": 74,
+  "disposition_counts": {
+    "bounded_export_guard_integrated": 2,
+    "canonical_contract_preserved": 5,
+    "exact_source_covered": 11,
+    "historical_evidence_only": 6,
+    "offline_slice_integrated_native_remainder_retained": 5,
+    "outside_model_report_scope": 45,
+    "outside_publication_scope": 2,
+    "retained_delivery_packet": 1,
+    "retained_document_library_packet": 6,
+    "retained_export_fidelity_packet": 1,
+    "retained_identity_diagnostic_packet": 8,
+    "retained_legacy_preservation_packet": 14,
+    "retained_native_contract_packet": 40,
+    "retained_provider_dependency_packet": 9,
+    "selected_lane_slice_integrated": 13
+  },
+  "entries": [
+    {
+      "path": "scripts/apply_paper_library_metadata.mjs",
+      "surface": "script",
+      "retained_sha256": "86d0a3b62ab42f97a1f5fa0c9e3c6faeab1a791f3a2fd908dc8ff26a80c2f6c8",
+      "lane_sha256": null,
+      "disposition": "retained_document_library_packet",
+      "reason": "Document-library metadata and native application remain separate consumer scope; no replacement generator or native save."
+    },
+    {
+      "path": "scripts/apply_report_library_metadata.mjs",
+      "surface": "script",
+      "retained_sha256": "ddd9a9f2fd08ed31ab67feaae522b87f0c13ea8103d586386ae82b0f2a53c45c",
+      "lane_sha256": null,
+      "disposition": "retained_document_library_packet",
+      "reason": "Document-library metadata and native application remain separate consumer scope; no replacement generator or native save."
+    },
+    {
+      "path": "scripts/audit_publication_writer_readiness.py",
+      "surface": "script",
+      "retained_sha256": "1bf28b227f598c7d5c45ce428d068028391f6b9eebaba732c57b0cdc9d8b984c",
+      "lane_sha256": "a0775c019a56f02362b13f157bf2af19eb19d5d86c7fc5efa077423fd06cc2f8",
+      "disposition": "selected_lane_slice_integrated",
+      "reason": "Reviewed bounded source/test slice is delivered; preserve lane hardening and excluded native/provider dependencies documented in leaf handoffs.",
+      "function_review": {
+        "same_ast": [
+          "assess",
+          "integer",
+          "one",
+          "private_path",
+          "rows"
+        ],
+        "changed_ast": [
+          "main",
+          "utc"
+        ],
+        "retained_only": [
+          "acquisition_health"
+        ],
+        "lane_only": []
+      }
+    },
+    {
+      "path": "scripts/build_fresh_pubmed_projections.py",
+      "surface": "script",
+      "retained_sha256": "60ea540c343634cef20663726dc43cead99baaf90f6b4eae90d83bee2dbc4800",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/build_publication_identity_resolution_packet.py",
+      "surface": "script",
+      "retained_sha256": "cc64a787b4ebcff20665342912a11214be0a1e371d6e44502c73d9e527b6a5e1",
+      "lane_sha256": null,
+      "disposition": "retained_identity_diagnostic_packet",
+      "reason": "Optional exact-source identity diagnostics need their evidence/input closure; they do not create routine admission decisions."
+    },
+    {
+      "path": "scripts/build_publication_identity_review.py",
+      "surface": "script",
+      "retained_sha256": "37629582f4e95deda3a65705f61a4a1c54ab619b649dd58082c695e1b64046ef",
+      "lane_sha256": "f5b912125601e0cb6561c499c5909a05baca3bc613f6d8ffd75d30637a15cfff",
+      "disposition": "selected_lane_slice_integrated",
+      "reason": "Reviewed bounded source/test slice is delivered; preserve lane hardening and excluded native/provider dependencies documented in leaf handoffs.",
+      "function_review": {
+        "same_ast": [],
+        "changed_ast": [
+          "build",
+          "main"
+        ],
+        "retained_only": [],
+        "lane_only": []
+      }
+    },
+    {
+      "path": "scripts/build_publication_stub_preservation_ledger.py",
+      "surface": "script",
+      "retained_sha256": "afef5a9b5e8f4ed70a75702ed2b60d38a174cd5d27e5dbcc886ececbd9390dc5",
+      "lane_sha256": null,
+      "disposition": "retained_legacy_preservation_packet",
+      "reason": "Legacy blank/stub identity preservation requires its own exact saved version/lookup closure and native owner; do not migrate/delete or restart operations."
+    },
+    {
+      "path": "scripts/build_unified_publication_review_queue.py",
+      "surface": "script",
+      "retained_sha256": "e5b41d574ce4ecce0e081e0aeb3d6170e362e8ce211e6e1acdef2b7a7c27547f",
+      "lane_sha256": null,
+      "disposition": "retained_identity_diagnostic_packet",
+      "reason": "Optional exact-source identity diagnostics need their evidence/input closure; they do not create routine admission decisions."
+    },
+    {
+      "path": "scripts/capture_query_pubmed_source.py",
+      "surface": "script",
+      "retained_sha256": "c08c8fabe023601ef758e063ab818e7c9bc9dce6937795a0e9d611d8b74255d6",
+      "lane_sha256": null,
+      "disposition": "retained_provider_dependency_packet",
+      "reason": "Acquisition/enrichment adapter needs its exact provider/runtime/raw-receipt dependencies; no harvest or collector expansion here."
+    },
+    {
+      "path": "scripts/capture_report_bound_source_union.py",
+      "surface": "script",
+      "retained_sha256": "afb048bdd538523334915b01b15107e985628b79afde82ea6357ca660d98e49c",
+      "lane_sha256": "4784ac0f4ee299ec55ef071923515441c92dce9af6ae64670f7a5923dfaa289b",
+      "disposition": "offline_slice_integrated_native_remainder_retained",
+      "reason": "Complete offline typed candidate closure is delivered; native auth/acquisition/refresh/decision remainder is retained without invocation.",
+      "function_review": {
+        "same_ast": [
+          "_electronic_date",
+          "_ncbi_date",
+          "_xml_text"
+        ],
+        "changed_ast": [
+          "project_current_pubmed_efetch"
+        ],
+        "retained_only": [
+          "archive_metadata_parity",
+          "classify_current_source_differences",
+          "evaluate_consumer_additions",
+          "evaluate_fields",
+          "evaluate_sources",
+          "fetch_current_pubmed_efetch",
+          "main",
+          "metadata_key_batches",
+          "private",
+          "read_metadata_batches",
+          "reconcile_pubmed_archive_metadata",
+          "rows",
+          "rows_from_payload",
+          "split_pubmed_keys"
+        ],
+        "lane_only": []
+      }
+    },
+    {
+      "path": "scripts/collect_pubmed.py",
+      "surface": "script",
+      "retained_sha256": "2eede3048b122af602fd0d970b8270f65da20c3dc2d4c88d03d9668a20d099b2",
+      "lane_sha256": "cfc889528777c832638da724e72f718629ad84dda86e4f367235c35954245b74",
+      "disposition": "canonical_contract_preserved",
+      "reason": "Collector expansion and retry/health dependencies remain a separate provider packet.",
+      "function_review": {
+        "same_ast": [
+          "atomic_json",
+          "canonical_json",
+          "parse_records",
+          "text",
+          "validate_config"
+        ],
+        "changed_ast": [
+          "main"
+        ],
+        "retained_only": [
+          "is_retryable_request_error"
+        ],
+        "lane_only": []
+      }
+    },
+    {
+      "path": "scripts/export_publication_register.py",
+      "surface": "script",
+      "retained_sha256": "f3808cce01d68c1662d4b907fcbed0e3a62e1bbe9ef8f047651f25e91bc6358a",
+      "lane_sha256": "d08f797b8b86d79b101ca69286c24ffe14d05ec6ca0df974bdd488be6ed90707",
+      "disposition": "bounded_export_guard_integrated",
+      "reason": "Retain canonical export behavior; import declared-failure checks with strict empty-error and flag handling plus paired tests.",
+      "function_review": {
+        "same_ast": [
+          "_rename_directory_no_replace",
+          "assemble_paginated_export",
+          "canonical_export_key",
+          "export_errors",
+          "html_text_with_linebreaks",
+          "key_hash",
+          "key_set_difference",
+          "main",
+          "publish_path_no_replace",
+          "render_exports",
+          "safe_cell",
+          "safe_link",
+          "verify_written_exports"
+        ],
+        "changed_ast": [
+          "extraction_failure_errors"
+        ],
+        "retained_only": [],
+        "lane_only": []
+      }
+    },
+    {
+      "path": "scripts/match_publication_stub_actions.py",
+      "surface": "script",
+      "retained_sha256": "45e33405a3c4bf24673ddc76a4ec468da9ac86eacd03619fd3d7222fdc3f5d58",
+      "lane_sha256": null,
+      "disposition": "retained_legacy_preservation_packet",
+      "reason": "Legacy blank/stub identity preservation requires its own exact saved version/lookup closure and native owner; do not migrate/delete or restart operations."
+    },
+    {
+      "path": "scripts/merge_pubmed_archive_definition.py",
+      "surface": "script",
+      "retained_sha256": "49e7e823216510e03d7e26151935779d0a3786c801e969b650745756d88f639c",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/oa_pubmed_retained.py",
+      "surface": "script",
+      "retained_sha256": "fe474351cbfc8aed9dd6e1636a140466fa06f0b8abd2b78f2ec0b723188e50f1",
+      "lane_sha256": null,
+      "disposition": "retained_provider_dependency_packet",
+      "reason": "Acquisition/enrichment adapter needs its exact provider/runtime/raw-receipt dependencies; no harvest or collector expansion here."
+    },
+    {
+      "path": "scripts/patch_isolated_pubmed_ingestion_audit.py",
+      "surface": "script",
+      "retained_sha256": "04821da775a61cec8da3c594eac04d70a385c95a1646a9822b2db0a13557a6a0",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "scripts/patch_publication_model_binding.py",
+      "surface": "script",
+      "retained_sha256": "f9b919d54f08b40f6e624336544a0132e2d765516d1947582d7fdddffa1ec7ce",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/patch_publication_native_comparison.py",
+      "surface": "script",
+      "retained_sha256": "e3383bac5d1b021f7675393f6f4fd43347a4a90b82886abafb235a8585566e73",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "scripts/patch_publication_pmid_package.py",
+      "surface": "script",
+      "retained_sha256": "63674033b2e5547a9bec61e865ab76dd32cc74e25cb10c6ded5560f6b1d6aaab",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "scripts/patch_publication_row_count_guard.py",
+      "surface": "script",
+      "retained_sha256": "f2c2c2422b7da5c6c25da0e9fd9a597ba0861682eb8416f78ec7636342b5e467",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "scripts/patch_publication_sourcekey_guard.py",
+      "surface": "script",
+      "retained_sha256": "731eb379026773977e177ae373c2634ae26c4c1119092c2de6422cbfd6a9c764",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "scripts/patch_report_bound_pubmed_current_union.py",
+      "surface": "script",
+      "retained_sha256": "5ed4bfe1ebd8817037afb6a9a9f880487db266a0754e1e61541f09ee59cd8658",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/patch_report_bound_pubmed_metadata_union.py",
+      "surface": "script",
+      "retained_sha256": "0d9e23b7cb43850c274fa2d8dc650a40ee72c5a43b63b54513017c4807b47eec",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/patch_report_bound_pubmed_split_union.py",
+      "surface": "script",
+      "retained_sha256": "ac5c48299a861f77e68cc5357a3fd8cacd91a8236435ca8bd58702ae01980fec",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/patch_retained_canary_pubmed_efficiency.py",
+      "surface": "script",
+      "retained_sha256": "3a83a17983a881342041996c3e2fd9b1e817e890a9020f9805cda1c2baf2ac0f",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "scripts/plan_publication_organisation_backfill.py",
+      "surface": "script",
+      "retained_sha256": "ab7c0df0e20ddf8abbb3171bceb74abb51e6e942d002169d765de5134a95aa29",
+      "lane_sha256": null,
+      "disposition": "retained_identity_diagnostic_packet",
+      "reason": "Requires the exact alias-reference/validity and protected review baseline; no automatic organisation correction is imported."
+    },
+    {
+      "path": "scripts/plan_publication_stub_restore.py",
+      "surface": "script",
+      "retained_sha256": "158ad3519c941b7b3445d486c4c6f547bd3ea2dc2e66b85ef000a1c15e538ae7",
+      "lane_sha256": null,
+      "disposition": "retained_legacy_preservation_packet",
+      "reason": "Legacy blank/stub identity preservation requires its own exact saved version/lookup closure and native owner; do not migrate/delete or restart operations."
+    },
+    {
+      "path": "scripts/preflight_publication_flow_activation.py",
+      "surface": "script",
+      "retained_sha256": "495ca0b50013cbc657754ce2e6ec7c11fc76061ae2add3d13fadddaa44fbbb4b",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "scripts/preflight_publication_key_migration.py",
+      "surface": "script",
+      "retained_sha256": "be27bcb012d70d13829cd1f8e23c59774b7cd772b977d629e6c88ffec6591e54",
+      "lane_sha256": null,
+      "disposition": "retained_legacy_preservation_packet",
+      "reason": "Legacy blank/stub identity preservation requires its own exact saved version/lookup closure and native owner; do not migrate/delete or restart operations."
+    },
+    {
+      "path": "scripts/prepare_dora_metadata_cycle.py",
+      "surface": "script",
+      "retained_sha256": "5060a3551416441a00ac55800f515f6cff2af59ad53a34a12fb384071134930c",
+      "lane_sha256": "6e4898c3d60ddff84a1ee3649cb51cf3976f351da3b8dbc31d46735be20282e3",
+      "disposition": "selected_lane_slice_integrated",
+      "reason": "Reviewed bounded source/test slice is delivered; preserve lane hardening and excluded native/provider dependencies documented in leaf handoffs.",
+      "function_review": {
+        "same_ast": [
+          "current_validation_query"
+        ],
+        "changed_ast": [
+          "prepare"
+        ],
+        "retained_only": [],
+        "lane_only": []
+      }
+    },
+    {
+      "path": "scripts/prepare_dora_publication_collection.py",
+      "surface": "script",
+      "retained_sha256": "7fa7bd79bde2096b0fa5e2a6f9b435b61939927e78f2e7d5dff0f1fbbb219ee4",
+      "lane_sha256": null,
+      "disposition": "retained_provider_dependency_packet",
+      "reason": "Acquisition/enrichment adapter needs its exact provider/runtime/raw-receipt dependencies; no harvest or collector expansion here."
+    },
+    {
+      "path": "scripts/prepare_paper_library_metadata.py",
+      "surface": "script",
+      "retained_sha256": "6ca0a29ef0919f935d80860487e84c671eb4aa649d1124a9062f5c21e386b7b2",
+      "lane_sha256": null,
+      "disposition": "retained_document_library_packet",
+      "reason": "Document-library metadata and native application remain separate consumer scope; no replacement generator or native save."
+    },
+    {
+      "path": "scripts/prepare_publication_control_states.py",
+      "surface": "script",
+      "retained_sha256": "7c0e30359d01c148e135ba08f16ae37ca3cc09e3c9f6358ad5e39c710d925765",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/prepare_publication_evidence_layout.py",
+      "surface": "script",
+      "retained_sha256": "84f374dc8e9c9ed4a9a59d00a518d47eacc5db5716fd1d6c4f27a66cf81b3a28",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/prepare_publication_field_help.py",
+      "surface": "script",
+      "retained_sha256": "d444d1cff1005b8530522581dfe43262901ccfd2e70727093fddfca1ea353bd5",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "scripts/prepare_publication_indexes.py",
+      "surface": "script",
+      "retained_sha256": "fcfd1a1372d8707b7468ad5fb072b08edf612e7a5b26c7d5d4a07e28b0eacc0f",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "scripts/prepare_publication_landing.py",
+      "surface": "script",
+      "retained_sha256": "c5d51ad2d7170d03aa593cb8229aae03df6cf193e881fd23cb2535cc1d1d8f4a",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/prepare_publication_modern_controls.py",
+      "surface": "script",
+      "retained_sha256": "7c479e89b5a788d915aeb3022ce14763389e8de56eb9939b39fc59f78745bb94",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/prepare_publication_observation_concurrency.py",
+      "surface": "script",
+      "retained_sha256": "cf5149a79c13bfa7dcbc79869fca1e5f8d0746c33a9276e2d2f93aa247bd132b",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "scripts/prepare_publication_operator_flow.py",
+      "surface": "script",
+      "retained_sha256": "a3ee8b7f62f79f3910495353f418d8359e86c1fcd7d1a13c2be016ab3aac3491",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "scripts/prepare_publication_outcome_measures.py",
+      "surface": "script",
+      "retained_sha256": "64fec69809e0ab1e89562d8d2b4de1c74f2a0beaa15c7eae57f293e0fa12cd53",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/prepare_publication_outcome_reader.py",
+      "surface": "script",
+      "retained_sha256": "58d0af4924b6745f247722463c4c940113718356ffc9ef4b5e851af62ca1294c",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/prepare_publication_quality.py",
+      "surface": "script",
+      "retained_sha256": "a8a4b6fba6b86f3861a330c70ef6b05bb108b9ea61617ee6a8f65404d3366090",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "scripts/prepare_publication_reader_recovery.py",
+      "surface": "script",
+      "retained_sha256": "68a10ba2cd99a9bd5945026ad8a88d16d7e10722658fc985e8e7c7ae60f83f84",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/prepare_publication_reader_theme.py",
+      "surface": "script",
+      "retained_sha256": "a442bca51b6fc09860de30a62f6358d8ce11de64a188ff425710c26ea1ceac42",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/prepare_publication_registry_bootstrap.py",
+      "surface": "script",
+      "retained_sha256": "daffb467a7e229273ee24f082c187a17616a2197b181370b9633cf35ab82a082",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "scripts/prepare_publication_reporting_snapshot.py",
+      "surface": "script",
+      "retained_sha256": "b2893dc038805a66c9e22f68357ae1de99b123c97c328656d677afe50b6b2ec0",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/prepare_publication_rss_history_candidate.py",
+      "surface": "script",
+      "retained_sha256": "fab62b5dfa247669f15dc12163f0a5110b47425677b970a9484e6a51d5747f54",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/prepare_publication_title_projection.py",
+      "surface": "script",
+      "retained_sha256": "85c344ce9730d28537f60b98378376a35668b2c544460ab8e2f8535b48c0fa54",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "scripts/prepare_publication_versioned_reader.py",
+      "surface": "script",
+      "retained_sha256": "019c0e17380278341e847c3534a0c4a3ba91fa0d5bbcfc81dd9bbf3a5addb5d5",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/prepare_publication_views.py",
+      "surface": "script",
+      "retained_sha256": "deb0a2611cb4513572b4b82ef13684b71cf5bc3b5cd62b814715bc38213c9698",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "scripts/prepare_pubmed_acquisition.py",
+      "surface": "script",
+      "retained_sha256": "bcbf110cd18179fcce850249f1ca91cbe89fe89a2bdb08564e814a7f46de6f01",
+      "lane_sha256": null,
+      "disposition": "retained_provider_dependency_packet",
+      "reason": "Acquisition/enrichment adapter needs its exact provider/runtime/raw-receipt dependencies; no harvest or collector expansion here."
+    },
+    {
+      "path": "scripts/prepare_pubmed_privacy_safe_snapshot.py",
+      "surface": "script",
+      "retained_sha256": "0bdfc9363d0ad7fcb51c7e02fecce8f55d1c77dc9ebd3580dc2f093a67fc0129",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/prepare_pubmed_raw_source_capture.py",
+      "surface": "script",
+      "retained_sha256": "8f1b44a1055c864d5d480b8f3a50016e393b9c4b69dafaada86dca48bd4a8c23",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/prepare_pubmed_single_evaluation.py",
+      "surface": "script",
+      "retained_sha256": "0b03385fa8a8d80f5e315057d52e0c4213c002bb7bf766ea50bf8d31aadae3f8",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/prepare_raw_publication_doi_inputs.py",
+      "surface": "script",
+      "retained_sha256": "b3ee3c2536e90d6754b118c0338699e188cb45dff454ac4b7e4bd2b4c06dbb74",
+      "lane_sha256": null,
+      "disposition": "retained_provider_dependency_packet",
+      "reason": "Acquisition/enrichment adapter needs its exact provider/runtime/raw-receipt dependencies; no harvest or collector expansion here."
+    },
+    {
+      "path": "scripts/prepare_registered_publication_analytics.py",
+      "surface": "script",
+      "retained_sha256": "f94ca984c5d6ae94f83208417888be86a34ada9ec85841d392fa1ec7d73afd9d",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/prepare_registry_publication_model.py",
+      "surface": "script",
+      "retained_sha256": "36be58dbc8db84991e08c93f8b3b95967ca2ed9de300a24b07d302aaabf8b0fd",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/prepare_registry_publication_report.py",
+      "surface": "script",
+      "retained_sha256": "77d7f519156a74628029ea34e629e614c5006ad0d1c9139aba3233a1b6e5458b",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/prepare_registry_source_metadata.py",
+      "surface": "script",
+      "retained_sha256": "a99286213ac93a3b8eaa7f0a0408d7cacd35a4a9959cd8b6accb91fd93f33f87",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "scripts/prepare_report_library_metadata.py",
+      "surface": "script",
+      "retained_sha256": "412ce5be93f51bf1b34e94d15726b24238da556ee2f83e43ee237f657426c3ef",
+      "lane_sha256": null,
+      "disposition": "retained_document_library_packet",
+      "reason": "Document-library metadata and native application remain separate consumer scope; no replacement generator or native save."
+    },
+    {
+      "path": "scripts/publication_batch_contract.py",
+      "surface": "script",
+      "retained_sha256": "8560cfb5aa7c93806e10a911d445750e8a1f85b949379b3383aba7b8663e788f",
+      "lane_sha256": "8560cfb5aa7c93806e10a911d445750e8a1f85b949379b3383aba7b8663e788f",
+      "disposition": "exact_source_covered",
+      "reason": "Identical retained bytes already present; no second import."
+    },
+    {
+      "path": "scripts/publication_committed_flow_contract.py",
+      "surface": "script",
+      "retained_sha256": "652e0de88d1e7b95d67b351c443d0119dc07652f984d98c943ce32e552345f74",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "scripts/publication_field_help_native.js",
+      "surface": "script",
+      "retained_sha256": "ba1c5665c5266696133f60fdebd5f51c737c57945730b1099eb3c082b35c4766",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "scripts/publication_indexes_native.js",
+      "surface": "script",
+      "retained_sha256": "95daffd10f4a14dc52a816f25f132bdb44c7889c782de12a78c1c51d087649dd",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "scripts/publication_metadata_conflicts.py",
+      "surface": "script",
+      "retained_sha256": "7dc584e2866c321dfd04d52861595336853b15dc5243231a6d24d55b0a137d06",
+      "lane_sha256": "298c05fa6ee746c86ccadd77057cbbc21c1acbe08902217e0603de5ec6e281c4",
+      "disposition": "selected_lane_slice_integrated",
+      "reason": "Reviewed bounded source/test slice is delivered; preserve lane hardening and excluded native/provider dependencies documented in leaf handoffs.",
+      "function_review": {
+        "same_ast": [
+          "cases_from_metadata_differences",
+          "review_page"
+        ],
+        "changed_ast": [
+          "build_metadata_review_slice",
+          "metadata_difference_kind"
+        ],
+        "retained_only": [],
+        "lane_only": []
+      }
+    },
+    {
+      "path": "scripts/publication_policy.py",
+      "surface": "script",
+      "retained_sha256": "714935b5f0a383873b11035ef2f8750d6d639cfa8b788e315efd92450acb2a0f",
+      "lane_sha256": "1ebd97de9af4d2a568fdca6ac2c03e86af05a675863a5a6dd88df6979e05fccc",
+      "disposition": "selected_lane_slice_integrated",
+      "reason": "Reviewed bounded source/test slice is delivered; preserve lane hardening and excluded native/provider dependencies documented in leaf handoffs.",
+      "function_review": {
+        "same_ast": [
+          "load_policy"
+        ],
+        "changed_ast": [
+          "evaluate",
+          "notice_flags",
+          "validate_policy"
+        ],
+        "retained_only": [],
+        "lane_only": [
+          "_enrich_policy_evidence",
+          "_inside_reference_window",
+          "_publication_window"
+        ]
+      }
+    },
+    {
+      "path": "scripts/publication_quality_native.js",
+      "surface": "script",
+      "retained_sha256": "958109e4c66906753d888bda15fae8d5fd628e93a8ab5c250813615568d10b74",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "scripts/publication_reconciliation.py",
+      "surface": "script",
+      "retained_sha256": "77b259e3d9a7d42e5efd43c218b2f25043cc0b807da13efbba937ed62a176c68",
+      "lane_sha256": "985dd707a0449408d3630cd587396c08cd7bed89463970fd8a448086ca37194a",
+      "disposition": "selected_lane_slice_integrated",
+      "reason": "Reviewed bounded source/test slice is delivered; preserve lane hardening and excluded native/provider dependencies documented in leaf handoffs.",
+      "function_review": {
+        "same_ast": [
+          "_canonical",
+          "_freeze",
+          "_plain",
+          "build_case",
+          "cases_from_canonical",
+          "validate_ai_result"
+        ],
+        "changed_ast": [
+          "process_ai_result"
+        ],
+        "retained_only": [],
+        "lane_only": []
+      }
+    },
+    {
+      "path": "scripts/publication_registry.py",
+      "surface": "script",
+      "retained_sha256": "dca31e31954d9ab3aad1b97fd6a19a192029f867ef67b029d07732426d065890",
+      "lane_sha256": "dca31e31954d9ab3aad1b97fd6a19a192029f867ef67b029d07732426d065890",
+      "disposition": "exact_source_covered",
+      "reason": "Identical retained bytes already present; no second import."
+    },
+    {
+      "path": "scripts/publication_retained_cycle.py",
+      "surface": "script",
+      "retained_sha256": "718951c0659005a88aff65256d82cdab5038e803d9b2300bd3d32bea468f4836",
+      "lane_sha256": "6bcc9538206a018f52aa28c3f4b35cbf53230af2e715fa487ad26751a90a691b",
+      "disposition": "selected_lane_slice_integrated",
+      "reason": "Reviewed bounded source/test slice is delivered; preserve lane hardening and excluded native/provider dependencies documented in leaf handoffs.",
+      "function_review": {
+        "same_ast": [
+          "digest",
+          "latest_projection"
+        ],
+        "changed_ast": [
+          "retain",
+          "utc",
+          "validate_state"
+        ],
+        "retained_only": [
+          "main",
+          "prepare",
+          "seed_archive"
+        ],
+        "lane_only": []
+      }
+    },
+    {
+      "path": "scripts/publication_views_native.js",
+      "surface": "script",
+      "retained_sha256": "ce39c6a81398472beb2abaf89a37b00d802de88d5ae144a7d36ee10b23b85c82",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "scripts/publication_weekly_digest.py",
+      "surface": "script",
+      "retained_sha256": "ff0115d39c6351d55c675dbce6b13b32b73473a7881ee4b88cc14373779ef893",
+      "lane_sha256": null,
+      "disposition": "retained_delivery_packet",
+      "reason": "Delivery/sender and notification paths remain separately owned and unqualified; no send/activation import here."
+    },
+    {
+      "path": "scripts/pubmed_reference.py",
+      "surface": "script",
+      "retained_sha256": "c50287ed15429ab288d441487dd08f063711ffd46c7a6562282ed31cefb1a9b7",
+      "lane_sha256": "c50287ed15429ab288d441487dd08f063711ffd46c7a6562282ed31cefb1a9b7",
+      "disposition": "exact_source_covered",
+      "reason": "Identical retained bytes already present; no second import."
+    },
+    {
+      "path": "scripts/qualify_protocol_award_metadata.py",
+      "surface": "script",
+      "retained_sha256": "8f63d47fb5460d050200838a7d58db0cb31f77f0c43b99eec4ea5c2a6d04d814",
+      "lane_sha256": null,
+      "disposition": "outside_publication_scope",
+      "reason": "Protocol-award/grants metadata is not this publication acquisition/notice lane."
+    },
+    {
+      "path": "scripts/query_pubmed_projections.py",
+      "surface": "script",
+      "retained_sha256": "94b123c6ecf17ca9077128e089fd6ef23860aaab11abbd20bedeaa740cffdbfd",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/reconcile_publication_outcome_views.py",
+      "surface": "script",
+      "retained_sha256": "49b61640a728d235f5f51cbb9fcb76ae1812ddffc07b5e7222830d2fb2a7c580",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/reconcile_publication_sources.py",
+      "surface": "script",
+      "retained_sha256": "2b661ab796e241b798f90ee97571b7a5defb9c877e06fc7d65c3b85995af3242",
+      "lane_sha256": "424ab2879bca3d7d6809c1e33c3c9e7c041ec4c63aed3e5c8cbc9e4ae895783b",
+      "disposition": "canonical_contract_preserved",
+      "reason": "Retain the canonical lightweight policy-contract import; the original switches to the heavier writer/enrichment policy module.",
+      "function_review": {
+        "same_ast": [
+          "_direct_source_key",
+          "_key",
+          "_member_identity",
+          "_namespace",
+          "main",
+          "membership_rows",
+          "reconcile",
+          "retained_rows"
+        ],
+        "changed_ast": [
+          "reconcile_automatic"
+        ],
+        "retained_only": [],
+        "lane_only": []
+      }
+    },
+    {
+      "path": "scripts/reconcile_publication_stub_disposition.py",
+      "surface": "script",
+      "retained_sha256": "2c4559df1b5466d6bac8c4c86bc7cbcd914d1ce4ece882c75594cbf13f36da43",
+      "lane_sha256": null,
+      "disposition": "retained_legacy_preservation_packet",
+      "reason": "Legacy blank/stub identity preservation requires its own exact saved version/lookup closure and native owner; do not migrate/delete or restart operations."
+    },
+    {
+      "path": "scripts/reconcile_publication_stub_version_pagination.py",
+      "surface": "script",
+      "retained_sha256": "cf04868e57aba3c1214970b0e324a027e73ef5bdd10302aaf5a46021fda71aad",
+      "lane_sha256": null,
+      "disposition": "retained_legacy_preservation_packet",
+      "reason": "Legacy blank/stub identity preservation requires its own exact saved version/lookup closure and native owner; do not migrate/delete or restart operations."
+    },
+    {
+      "path": "scripts/reconcile_pubmed_registry_keys.py",
+      "surface": "script",
+      "retained_sha256": "1adc621a8bbf1b6d06ea8e525e28cf6df8030c48c113338c40b6c5880e528a02",
+      "lane_sha256": "1adc621a8bbf1b6d06ea8e525e28cf6df8030c48c113338c40b6c5880e528a02",
+      "disposition": "exact_source_covered",
+      "reason": "Identical retained bytes already present; no second import."
+    },
+    {
+      "path": "scripts/reconcile_pubmed_source_cycle.py",
+      "surface": "script",
+      "retained_sha256": "d947730dc788062557380827c9f78df7aa1750047edf889908dd90d52c795ba8",
+      "lane_sha256": "cf129296cfdd2eb2f34ae9c89933b9f2e18e6b2b0c68dd106d790243c78206bc",
+      "disposition": "offline_slice_integrated_native_remainder_retained",
+      "reason": "Complete offline typed candidate closure is delivered; native auth/acquisition/refresh/decision remainder is retained without invocation.",
+      "function_review": {
+        "same_ast": [],
+        "changed_ast": [],
+        "retained_only": [
+          "_canonical_pubmed_date",
+          "_summarize_source_date_evolution",
+          "digest",
+          "key_from_review",
+          "load",
+          "main",
+          "one_row",
+          "private_file",
+          "reconcile",
+          "verify_current_archive_metadata",
+          "verify_current_validation",
+          "verify_review_reconciliation"
+        ],
+        "lane_only": [
+          "prepare_offline_typed_candidate"
+        ]
+      }
+    },
+    {
+      "path": "scripts/registry_publication_crosswalks.py",
+      "surface": "script",
+      "retained_sha256": "f532b43a9f1c03144534fd482974f25945302778a9fb3fbd755543bbe8d074cf",
+      "lane_sha256": null,
+      "disposition": "retained_identity_diagnostic_packet",
+      "reason": "Optional exact-source identity diagnostics need their evidence/input closure; they do not create routine admission decisions."
+    },
+    {
+      "path": "scripts/rehearse_publication_stub_restore.py",
+      "surface": "script",
+      "retained_sha256": "1711dbf94ab896940622a403ae527903747b38786a4757b394605858e5b19139",
+      "lane_sha256": null,
+      "disposition": "retained_legacy_preservation_packet",
+      "reason": "Legacy blank/stub identity preservation requires its own exact saved version/lookup closure and native owner; do not migrate/delete or restart operations."
+    },
+    {
+      "path": "scripts/repair_publication_month_axis.py",
+      "surface": "script",
+      "retained_sha256": "687b5bc076840c375d71435883522c00bebe00ee1d4ffdb4790c92e0ef8e415f",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "scripts/review_publication_candidates.py",
+      "surface": "script",
+      "retained_sha256": "1108af9e192c05937f0a108d3cc82fdce8917fd916de7ba46926b3920b44d326",
+      "lane_sha256": "1108af9e192c05937f0a108d3cc82fdce8917fd916de7ba46926b3920b44d326",
+      "disposition": "exact_source_covered",
+      "reason": "Identical retained bytes already present; no second import."
+    },
+    {
+      "path": "scripts/stage_collected_publications.py",
+      "surface": "script",
+      "retained_sha256": "ab11f09281792adec9a2a495d2e57e0a0aa4fd0d5495a1f560bb4b14fc06ebc4",
+      "lane_sha256": "ab11f09281792adec9a2a495d2e57e0a0aa4fd0d5495a1f560bb4b14fc06ebc4",
+      "disposition": "exact_source_covered",
+      "reason": "Identical retained bytes already present; no second import."
+    },
+    {
+      "path": "scripts/validate_publication_platform_contract.py",
+      "surface": "script",
+      "retained_sha256": "3c71e3ca8310c2793192dd60f96eece807e645800dec8bdf0cfcb5282c867d61",
+      "lane_sha256": "aeaaf95c824a8542a89043f6db82708082acbd83319e9a5c743e166e2fe677ea",
+      "disposition": "canonical_contract_preserved",
+      "reason": "Preserve canonical manifest validation; retained source removes it and adds dependencies on unqualified native missing-only/title extensions.",
+      "function_review": {
+        "same_ast": [
+          "_definition",
+          "_graph_errors",
+          "_tracked_definition"
+        ],
+        "changed_ast": [
+          "main",
+          "validate"
+        ],
+        "retained_only": [],
+        "lane_only": [
+          "_manifest",
+          "validate_manifest"
+        ]
+      }
+    },
+    {
+      "path": "scripts/validate_pubmed_human_decisions.py",
+      "surface": "script",
+      "retained_sha256": "34d10d2dcfce5dbedcbba6dc3e658441e48eb79e688d07b8450b15ca11126f29",
+      "lane_sha256": null,
+      "disposition": "historical_evidence_only",
+      "reason": "Dated human-decision/gap validator remains evidence; automatic routine inclusion does not reacquire this historical admission prerequisite."
+    },
+    {
+      "path": "scripts/validate_pubmed_report_consumer_gap.py",
+      "surface": "script",
+      "retained_sha256": "475d9f13a8e5a995576c24aecd1163ad2464b7e2c29280e3f8f823719822e175",
+      "lane_sha256": null,
+      "disposition": "historical_evidence_only",
+      "reason": "Dated human-decision/gap validator remains evidence; automatic routine inclusion does not reacquire this historical admission prerequisite."
+    },
+    {
+      "path": "scripts/verify_publication_protected_fields.py",
+      "surface": "script",
+      "retained_sha256": "242511a0261dc1fdb5787fecf19e582b65340020d349593428a0f55ec818ab30",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "scripts/verify_publication_replay.py",
+      "surface": "script",
+      "retained_sha256": "6fd97b08d3f92ba283c4d2a1f396099f421c19d8afd0741937d4ab33445176ee",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "scripts/verify_retained_canary_metadata_values.py",
+      "surface": "script",
+      "retained_sha256": "dbc18d699f511aa03025d339ad75f3d0e72eb86a922fe79227eac3bcdefc9f26",
+      "lane_sha256": "dbc18d699f511aa03025d339ad75f3d0e72eb86a922fe79227eac3bcdefc9f26",
+      "disposition": "exact_source_covered",
+      "reason": "Identical retained bytes already present; no second import."
+    },
+    {
+      "path": "scripts/verify_retained_metadata_page.py",
+      "surface": "script",
+      "retained_sha256": "50d8940c0f5bee9381aed7917b2fc98280d6a2ec0d1ed1596a3a651efda749fd",
+      "lane_sha256": null,
+      "disposition": "historical_evidence_only",
+      "reason": "Fixed 1,970-row archive page validator is retained for its historical baseline; it is not the current generation validator."
+    },
+    {
+      "path": "tests/test_audit_publication_writer_readiness.py",
+      "surface": "test",
+      "retained_sha256": "ab251adc8ba5eaf6b0d9b6b4c8767c4b0bdc35552852bdd6845bd7852c45ed45",
+      "lane_sha256": "3609248c9c278a49a03061344fa880db18e9892f3efd51c1dbb4af53a7f554f9",
+      "disposition": "selected_lane_slice_integrated",
+      "reason": "Reviewed bounded source/test slice is delivered; preserve lane hardening and excluded native/provider dependencies documented in leaf handoffs.",
+      "function_review": {
+        "same_ast": [
+          "response"
+        ],
+        "changed_ast": [],
+        "retained_only": [],
+        "lane_only": []
+      }
+    },
+    {
+      "path": "tests/test_build_fresh_pubmed_projections.py",
+      "surface": "test",
+      "retained_sha256": "271ed72dbf10829a33f0725f4644582e93ab7efc6d6f714ab80aa09d04503312",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "tests/test_build_publication_identity_review.py",
+      "surface": "test",
+      "retained_sha256": "3a1981c7c947a5b0073121fbdc9db40b9bb218cc392256559ce6bfa21e938ca5",
+      "lane_sha256": "5eb0da380172d1ba47bf651a2f2a97f0ac6dae445b7b38a82160b29ebecae486",
+      "disposition": "selected_lane_slice_integrated",
+      "reason": "Reviewed bounded source/test slice is delivered; preserve lane hardening and excluded native/provider dependencies documented in leaf handoffs.",
+      "function_review": {
+        "same_ast": [],
+        "changed_ast": [],
+        "retained_only": [],
+        "lane_only": []
+      }
+    },
+    {
+      "path": "tests/test_build_publication_stub_preservation_ledger.py",
+      "surface": "test",
+      "retained_sha256": "f40242886de4ac63ad2b40b6baa9d7d838f38e6c9a2601aca9b84b705c62c467",
+      "lane_sha256": null,
+      "disposition": "retained_legacy_preservation_packet",
+      "reason": "Legacy blank/stub identity preservation requires its own exact saved version/lookup closure and native owner; do not migrate/delete or restart operations."
+    },
+    {
+      "path": "tests/test_build_unified_publication_review_queue.py",
+      "surface": "test",
+      "retained_sha256": "63657b305ce28976ff38ba5ea097039c6593392ef833dda7415f1e06a27aed99",
+      "lane_sha256": null,
+      "disposition": "retained_identity_diagnostic_packet",
+      "reason": "Optional exact-source identity diagnostics need their evidence/input closure; they do not create routine admission decisions."
+    },
+    {
+      "path": "tests/test_capture_report_bound_source_union.py",
+      "surface": "test",
+      "retained_sha256": "ef256c91648e198ae08c6750e1f93a3f26294317d26b265db1411ca610e59d5c",
+      "lane_sha256": null,
+      "disposition": "offline_slice_integrated_native_remainder_retained",
+      "reason": "Complete offline typed candidate closure is delivered; native auth/acquisition/refresh/decision remainder is retained without invocation."
+    },
+    {
+      "path": "tests/test_export_failure_signals.py",
+      "surface": "test",
+      "disposition": "bounded_export_guard_integrated",
+      "reason": "Retained failure cases imported; explicit clear markers stay accepted, while empty error objects and malformed flags reject matching-key exports.",
+      "retained_sha256": "587f2bcef912784fc3eea327d6f94c6915578ff9ecc28373dfb8bc8bff1bb224",
+      "lane_sha256": "c2dc4a2352caa92034f74c586da3a378c7fa6e5038eb31b3d15eca57aa905b97",
+      "function_review": {
+        "same_ast": [],
+        "changed_ast": [],
+        "retained_only": [],
+        "lane_only": []
+      }
+    },
+    {
+      "path": "tests/test_match_publication_stub_actions.py",
+      "surface": "test",
+      "retained_sha256": "d70ff6707c0b621158cdacae9834b2036340b3278e54bdf436c4f4e74719576e",
+      "lane_sha256": null,
+      "disposition": "retained_legacy_preservation_packet",
+      "reason": "Legacy blank/stub identity preservation requires its own exact saved version/lookup closure and native owner; do not migrate/delete or restart operations."
+    },
+    {
+      "path": "tests/test_merge_pubmed_archive_definition.py",
+      "surface": "test",
+      "retained_sha256": "33bcefd3cbb91dcad7cd0a45da783c0bedb6766431e6a61328f2239c31918578",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "tests/test_oa_pubmed_retained.py",
+      "surface": "test",
+      "retained_sha256": "750508ced6fb29a96c99ca4aa38eadd2ebee25536687f14001d29731d92301a7",
+      "lane_sha256": null,
+      "disposition": "retained_provider_dependency_packet",
+      "reason": "Acquisition/enrichment adapter needs its exact provider/runtime/raw-receipt dependencies; no harvest or collector expansion here."
+    },
+    {
+      "path": "tests/test_patch_isolated_pubmed_ingestion_audit.py",
+      "surface": "test",
+      "retained_sha256": "992d8ed3aed1bb55396e283d8854973360ec090a529b3d565e89add845e9d989",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "tests/test_patch_publication_model_binding.py",
+      "surface": "test",
+      "retained_sha256": "11e044e725e2773cdc1cd9416a7efc3b0f9fc92fc7c84260bf2c8d7a14f58634",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "tests/test_patch_publication_pmid_package.py",
+      "surface": "test",
+      "retained_sha256": "6f496288f8b4642eecf0b3e3be7c3d4106f0fd36ea1e617608891034bd4af771",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "tests/test_patch_publication_row_count_guard.py",
+      "surface": "test",
+      "retained_sha256": "5b952baee730a85a7e1709ea641849b2aade596db10ff52df86b17290b801a1f",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "tests/test_patch_publication_sourcekey_guard.py",
+      "surface": "test",
+      "retained_sha256": "799ec8a572eacbf95ce074e7de8fc500bd593a1528844d2d1d257a74f609630e",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "tests/test_patch_report_bound_pubmed_current_union.py",
+      "surface": "test",
+      "retained_sha256": "e9081490c9ab86038a75c3994332212088ae21b2af1c315508e1cad0ec72ee7a",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "tests/test_patch_report_bound_pubmed_metadata_union.py",
+      "surface": "test",
+      "retained_sha256": "6379283f19981384e6b0ee4937baeb8cb4c16f9808d414d68dc80ce8a8086565",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "tests/test_patch_report_bound_pubmed_split_union.py",
+      "surface": "test",
+      "retained_sha256": "eac7e3a834d070d1f434756a61f6582ee0763f0089074b81927fb76efe295f68",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "tests/test_patch_retained_canary_pubmed_efficiency.py",
+      "surface": "test",
+      "retained_sha256": "db5155f6cd84f7b65c70a9bca4f26a512caf4ccb5c461d11bf6df670fbd8b871",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "tests/test_preflight_publication_flow_activation.py",
+      "surface": "test",
+      "retained_sha256": "478d367eea5140a60235590d8d9f881b2e829d7c9a59ca1fc5677566397ccda4",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "tests/test_preflight_publication_key_migration.py",
+      "surface": "test",
+      "retained_sha256": "5ae788de40553d6194d021a7d4ba484cd214043b52ed15360827dd908dc9926f",
+      "lane_sha256": null,
+      "disposition": "retained_legacy_preservation_packet",
+      "reason": "Legacy blank/stub identity preservation requires its own exact saved version/lookup closure and native owner; do not migrate/delete or restart operations."
+    },
+    {
+      "path": "tests/test_prepare_dora_metadata_cycle.py",
+      "surface": "test",
+      "retained_sha256": "23d5aa9c671aaa9f82d63e67d633bfd33157022f44974dd9f8c84e2750c4ad8a",
+      "lane_sha256": "557d4650d45c843eadba9f175a89d6f3004c638e558430e5c3974f51bd5b65e9",
+      "disposition": "selected_lane_slice_integrated",
+      "reason": "Reviewed bounded source/test slice is delivered; preserve lane hardening and excluded native/provider dependencies documented in leaf handoffs.",
+      "function_review": {
+        "same_ast": [
+          "fields",
+          "record"
+        ],
+        "changed_ast": [],
+        "retained_only": [],
+        "lane_only": []
+      }
+    },
+    {
+      "path": "tests/test_prepare_dora_publication_collection.py",
+      "surface": "test",
+      "retained_sha256": "5d1cff05982c9aa18f9a5f956ce432ca7d2e266e8d5f69abd27709c8522765f1",
+      "lane_sha256": null,
+      "disposition": "retained_provider_dependency_packet",
+      "reason": "Acquisition/enrichment adapter needs its exact provider/runtime/raw-receipt dependencies; no harvest or collector expansion here."
+    },
+    {
+      "path": "tests/test_prepare_paper_library_metadata.py",
+      "surface": "test",
+      "retained_sha256": "27f5698024024d610f3891e2863c2e0928c24346ebc7aaa1ebea30ce390fa4f7",
+      "lane_sha256": null,
+      "disposition": "retained_document_library_packet",
+      "reason": "Document-library metadata and native application remain separate consumer scope; no replacement generator or native save."
+    },
+    {
+      "path": "tests/test_prepare_publication_indexes.py",
+      "surface": "test",
+      "retained_sha256": "73c80abe627232be2c8ca03843d729572cb66ad90b27e5344a60b990b3f2833d",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "tests/test_prepare_publication_observation_concurrency.py",
+      "surface": "test",
+      "retained_sha256": "dd8febe5ded7999994fa485e4fc2c91a8944dc772b917fecf4f99c17701f1a06",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "tests/test_prepare_publication_operator_flow.py",
+      "surface": "test",
+      "retained_sha256": "35d9afb1159f796ce0c70775b5f267fda50cfff0c46c840056678f8b1c51fc28",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "tests/test_prepare_publication_quality.py",
+      "surface": "test",
+      "retained_sha256": "bf71c1cb3dbb45c74891dff9cea40e999f97a977fedeedb6a34b5c89655fabc9",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "tests/test_prepare_publication_registry_bootstrap.py",
+      "surface": "test",
+      "retained_sha256": "06829201366a42360f4826cfc270be8639dea243f1e2ae4410605702138db7a2",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "tests/test_prepare_publication_rss_history_candidate.py",
+      "surface": "test",
+      "retained_sha256": "6071cb1e27c0aed2651eb7f7b3b472b18bfffb37f48573e1de19a10dec525775",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "tests/test_prepare_publication_title_projection.py",
+      "surface": "test",
+      "retained_sha256": "0c9848484c31706187e801283025108b60765ba2a06cae268fa91b10a237bbd1",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "tests/test_prepare_publication_views.py",
+      "surface": "test",
+      "retained_sha256": "33d43ab2be5b629caee32d9d1ce7628e0c1369364bbdbda67609777251eb6adb",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "tests/test_prepare_pubmed_acquisition.py",
+      "surface": "test",
+      "retained_sha256": "fc80e78c512393831d863d0adfa38d4891429dc5a115562da55bff721590617f",
+      "lane_sha256": null,
+      "disposition": "retained_provider_dependency_packet",
+      "reason": "Acquisition/enrichment adapter needs its exact provider/runtime/raw-receipt dependencies; no harvest or collector expansion here."
+    },
+    {
+      "path": "tests/test_prepare_pubmed_raw_source_capture.py",
+      "surface": "test",
+      "retained_sha256": "d6ec466c322b4445e6c845a6761a459e0227408a937016696c80a4010a3fec53",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "tests/test_prepare_raw_publication_doi_inputs.py",
+      "surface": "test",
+      "retained_sha256": "30c6a6db2ad71bac511f47c65bf2d2caa50cb64c682f101b46918aa27f83786f",
+      "lane_sha256": null,
+      "disposition": "retained_provider_dependency_packet",
+      "reason": "Acquisition/enrichment adapter needs its exact provider/runtime/raw-receipt dependencies; no harvest or collector expansion here."
+    },
+    {
+      "path": "tests/test_prepare_registry_publication_model.py",
+      "surface": "test",
+      "retained_sha256": "9890d4a88c5f361912a631d647ebbad0422ce8a8972001f3b05059dada436d38",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "tests/test_prepare_report_library_metadata.py",
+      "surface": "test",
+      "retained_sha256": "549f7af2d2fcab7b2e28ca4aaee1180526b63a39d45b8f30dece85f26311cbd6",
+      "lane_sha256": null,
+      "disposition": "retained_document_library_packet",
+      "reason": "Document-library metadata and native application remain separate consumer scope; no replacement generator or native save."
+    },
+    {
+      "path": "tests/test_publication_batch_contract.py",
+      "surface": "test",
+      "retained_sha256": "0954fb12be17b7767c28fc8669b256d0b6278b03ffd21ded2729912d5306f1d0",
+      "lane_sha256": "0954fb12be17b7767c28fc8669b256d0b6278b03ffd21ded2729912d5306f1d0",
+      "disposition": "exact_source_covered",
+      "reason": "Identical retained bytes already present; no second import."
+    },
+    {
+      "path": "tests/test_publication_committed_flow_contract.py",
+      "surface": "test",
+      "retained_sha256": "d1888c62307cfe183be33169ba3312a87fb729e63cd95135201c334863a43409",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "tests/test_publication_export_multiline.py",
+      "surface": "test",
+      "retained_sha256": "b930f8335b520ab1135086a43305e22196a68b7890e8d6ed3a8c4b6979fc8bbe",
+      "lane_sha256": null,
+      "disposition": "retained_export_fidelity_packet",
+      "reason": "Explicit future export-only packet: qualify the retained multiline CSV/HTML cases against canonical output behavior; no duplicate historical export is required."
+    },
+    {
+      "path": "tests/test_publication_identity_resolution_packet.py",
+      "surface": "test",
+      "retained_sha256": "9d7cdd272390cc17afb843d5023a6f0a42492ec8e3ce5df7ffaebedef3d32d3f",
+      "lane_sha256": null,
+      "disposition": "retained_identity_diagnostic_packet",
+      "reason": "Paired retained build_publication_identity_resolution_packet evidence tests; input/provenance closure is not imported."
+    },
+    {
+      "path": "tests/test_publication_metadata_conflicts.py",
+      "surface": "test",
+      "retained_sha256": "0a2c688bae5d62731d5971dc283718a6d3a22102309c05f7d3592bc78edd9f3b",
+      "lane_sha256": "3490a8a9cc14c38eacfde9f44d834e1d643cc11bb038993631dfd20450f985d7",
+      "disposition": "selected_lane_slice_integrated",
+      "reason": "Reviewed bounded source/test slice is delivered; preserve lane hardening and excluded native/provider dependencies documented in leaf handoffs.",
+      "function_review": {
+        "same_ast": [],
+        "changed_ast": [],
+        "retained_only": [],
+        "lane_only": []
+      }
+    },
+    {
+      "path": "tests/test_publication_organisation_backfill_plan.py",
+      "surface": "test",
+      "retained_sha256": "4c5e34971a24625e0525c204005e18a7e383876ef4b8557063b8b612ede323b9",
+      "lane_sha256": null,
+      "disposition": "retained_identity_diagnostic_packet",
+      "reason": "Paired organisation-backfill diagnostic test; reference/validity and protected review dependencies remain."
+    },
+    {
+      "path": "tests/test_publication_outcome_measures.py",
+      "surface": "test",
+      "retained_sha256": "bfa29dd7c69bdba9111433c53d8b2b1c0c13e2145d540cdfeab5fe1320beef52",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "tests/test_publication_outcome_reader.py",
+      "surface": "test",
+      "retained_sha256": "8f2d012df94b01534def4524251cfc0a1915e71d2d75bec9caa53fa298208ccf",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "tests/test_publication_platform_contract.py",
+      "surface": "test",
+      "retained_sha256": "92e0d1366f07aa7fc6659787a20407c760a745dbeaa02bfaec2a9e22ea945419",
+      "lane_sha256": "f3647beedb98133105077ad7764cc4511d67b0467269155d068890b4fff1b937",
+      "disposition": "canonical_contract_preserved",
+      "reason": "Existing canonical behavior is retained; the source difference is not an instruction to overwrite or re-import.",
+      "function_review": {
+        "same_ast": [],
+        "changed_ast": [],
+        "retained_only": [],
+        "lane_only": []
+      }
+    },
+    {
+      "path": "tests/test_publication_policy.py",
+      "surface": "test",
+      "retained_sha256": "e661cc554511b2a99345329375eacb35579f8ebc2d380e1ae5a1dc4ed13855c6",
+      "lane_sha256": "d1962073b67b232ddda954472467df4056d8678013287b0df9bfe02ec423e11b",
+      "disposition": "selected_lane_slice_integrated",
+      "reason": "Reviewed bounded source/test slice is delivered; preserve lane hardening and excluded native/provider dependencies documented in leaf handoffs.",
+      "function_review": {
+        "same_ast": [],
+        "changed_ast": [],
+        "retained_only": [],
+        "lane_only": []
+      }
+    },
+    {
+      "path": "tests/test_publication_reader_recovery.py",
+      "surface": "test",
+      "retained_sha256": "0b328dc1c6546fa18a7475dd9ddd9a15f6832bcb39d85d8250f387b4f893ec15",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "tests/test_publication_reader_theme.py",
+      "surface": "test",
+      "retained_sha256": "92381e2cce89aee9709ea8a90f8c5bdb80e98046195d17f4b295f82ab252e8b4",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "tests/test_publication_reconciliation.py",
+      "surface": "test",
+      "retained_sha256": "85b465f56c67f437ba69471729158773d759d6d3288ffdfd4663b743ed1c6506",
+      "lane_sha256": "f48e0e9d84a25432ce6a91500db1d0764bb3a99e9458f5200f5dab43e7cf9674",
+      "disposition": "selected_lane_slice_integrated",
+      "reason": "Reviewed bounded source/test slice is delivered; preserve lane hardening and excluded native/provider dependencies documented in leaf handoffs.",
+      "function_review": {
+        "same_ast": [],
+        "changed_ast": [],
+        "retained_only": [],
+        "lane_only": []
+      }
+    },
+    {
+      "path": "tests/test_publication_registry.py",
+      "surface": "test",
+      "retained_sha256": "06d66a1c6e21cc49fd90c0a1db06001eda61a636e1cea017220324e860b041df",
+      "lane_sha256": "06d66a1c6e21cc49fd90c0a1db06001eda61a636e1cea017220324e860b041df",
+      "disposition": "exact_source_covered",
+      "reason": "Identical retained bytes already present; no second import."
+    },
+    {
+      "path": "tests/test_publication_reporting_snapshot.py",
+      "surface": "test",
+      "retained_sha256": "44175c30d0b325081a9f9061b8312aed6e200a7edf649549a2c6e18a21e8b182",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "tests/test_publication_retained_cycle_cli.py",
+      "surface": "test",
+      "retained_sha256": "5ffa1b0230c5a6edd1624805d19dcc5d9df42518a57f3c1a9877f3cf8e8c66ab",
+      "lane_sha256": null,
+      "disposition": "offline_slice_integrated_native_remainder_retained",
+      "reason": "Pure append-only core is integrated; original archive-seeding/current-native receipt CLI remains excluded without stubs."
+    },
+    {
+      "path": "tests/test_publication_sourcekey_flow_guard.py",
+      "surface": "test",
+      "retained_sha256": "3fb7742a3c2bda447e3b63be3f67be599067468f7ae929c51deb12558c000ea2",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "tests/test_publication_sourcekey_projection.py",
+      "surface": "test",
+      "retained_sha256": "0e00955bb640c777464f4dc627c5f8e35c5959c3e277f99fdf93b525a9c93429",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "tests/test_publication_stub_restore.py",
+      "surface": "test",
+      "retained_sha256": "8b8ac9df556bcc8ff8580f03d050588afbbfa781e1e4b45a00e6f49b72a12e6a",
+      "lane_sha256": null,
+      "disposition": "retained_legacy_preservation_packet",
+      "reason": "Paired legacy restoration evidence/rollback tests remain with that specific operation, not routine admission."
+    },
+    {
+      "path": "tests/test_publication_versioned_reader.py",
+      "surface": "test",
+      "retained_sha256": "559688dd1745dc374fc708f0e7387ef754c1ae5ae9f9fb48fb38987a4d72ce18",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "tests/test_pubmed_source_only_chain.py",
+      "surface": "test",
+      "retained_sha256": "110a37bc97e3d1f5f1ace56ec15c34cc1bece5536d8c6955a125d3ab593ce6af",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/source declaration chain tests require shared owner qualification of exact definitions and engine baseline; not imported here."
+    },
+    {
+      "path": "tests/test_qualify_protocol_award_metadata.py",
+      "surface": "test",
+      "retained_sha256": "edff3286e8ecdfc3cfb89ef30340bf19e0b027b3e68e05e30bfedbe69d807af8",
+      "lane_sha256": null,
+      "disposition": "outside_publication_scope",
+      "reason": "Protocol-award/grants metadata is not this publication acquisition/notice lane."
+    },
+    {
+      "path": "tests/test_reconcile_publication_outcome_views.py",
+      "surface": "test",
+      "retained_sha256": "a9d1cd99e80ff1f78fa0a78e784dcf2e3e16c231bc6a76936e3997c2f94d1a6e",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "tests/test_reconcile_publication_sources.py",
+      "surface": "test",
+      "retained_sha256": "e88aa22b1ed964143dc02776570b120b66eb9ce8e6d236aa07eecc8b5a211357",
+      "lane_sha256": "e2dca3948cd386899c10ceae02044f8a59cdd2125f323274fcb373d3978049f7",
+      "disposition": "canonical_contract_preserved",
+      "reason": "Retain the canonical lightweight policy-contract import; the original switches to the heavier writer/enrichment policy module.",
+      "function_review": {
+        "same_ast": [
+          "archive",
+          "envelope",
+          "member",
+          "not_admitted"
+        ],
+        "changed_ast": [],
+        "retained_only": [],
+        "lane_only": []
+      }
+    },
+    {
+      "path": "tests/test_reconcile_publication_stub_disposition.py",
+      "surface": "test",
+      "retained_sha256": "e840c376e213cb14b9492c24b3c619512e476763f53cc22dac80ec800f922292",
+      "lane_sha256": null,
+      "disposition": "retained_legacy_preservation_packet",
+      "reason": "Legacy blank/stub identity preservation requires its own exact saved version/lookup closure and native owner; do not migrate/delete or restart operations."
+    },
+    {
+      "path": "tests/test_reconcile_publication_stub_version_pagination.py",
+      "surface": "test",
+      "retained_sha256": "0f93744a19b3d4c519f6f0dfb7103f23da98499d39488c1e2fb5463851c0e222",
+      "lane_sha256": null,
+      "disposition": "retained_legacy_preservation_packet",
+      "reason": "Legacy blank/stub identity preservation requires its own exact saved version/lookup closure and native owner; do not migrate/delete or restart operations."
+    },
+    {
+      "path": "tests/test_reconcile_pubmed_registry_keys.py",
+      "surface": "test",
+      "retained_sha256": "d8b7d43c07b77ed6f4763190bbfb38f2b44a9354e8013584bdf0d1eea781cacf",
+      "lane_sha256": "d8b7d43c07b77ed6f4763190bbfb38f2b44a9354e8013584bdf0d1eea781cacf",
+      "disposition": "exact_source_covered",
+      "reason": "Identical retained bytes already present; no second import."
+    },
+    {
+      "path": "tests/test_reconcile_pubmed_source_cycle.py",
+      "surface": "test",
+      "retained_sha256": "f1fd7c99b050b72c3c2946e5b430ce4bf266ead64ae773f442a46029ef7f0710",
+      "lane_sha256": null,
+      "disposition": "offline_slice_integrated_native_remainder_retained",
+      "reason": "Complete offline typed candidate closure is delivered; native auth/acquisition/refresh/decision remainder is retained without invocation."
+    },
+    {
+      "path": "tests/test_registered_publication_analytics_candidate.py",
+      "surface": "test",
+      "retained_sha256": "25483456d4213a2a68d32675d004338a0a504821c2d3f5d89792ed60cd7ef775",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "tests/test_registry_publication_crosswalks.py",
+      "surface": "test",
+      "retained_sha256": "6fe0513880e235009f945ddb4e96823af51ce8e36c4747dbb164f860f560922d",
+      "lane_sha256": null,
+      "disposition": "retained_identity_diagnostic_packet",
+      "reason": "Optional exact-source identity diagnostics need their evidence/input closure; they do not create routine admission decisions."
+    },
+    {
+      "path": "tests/test_rehearse_publication_stub_restore.py",
+      "surface": "test",
+      "retained_sha256": "99f230d71a9a2db2025d6bb8355a2a03bd6da00ecae4ac0256686739a28d8a5b",
+      "lane_sha256": null,
+      "disposition": "retained_legacy_preservation_packet",
+      "reason": "Legacy blank/stub identity preservation requires its own exact saved version/lookup closure and native owner; do not migrate/delete or restart operations."
+    },
+    {
+      "path": "tests/test_repair_publication_month_axis.py",
+      "surface": "test",
+      "retained_sha256": "59f0397d2d75c79dd1e2d7921857d72b248859cf92837fc696a9a57ca1f1bf04",
+      "lane_sha256": null,
+      "disposition": "outside_model_report_scope",
+      "reason": "Model/report/snapshot declarations require the integrator and dashboard owner; no declaration or write imported."
+    },
+    {
+      "path": "tests/test_validate_pubmed_human_decisions.py",
+      "surface": "test",
+      "retained_sha256": "81d80760070ad1bbae7f8f16150902310d2b0589e0733b670b1ba6e729c80f47",
+      "lane_sha256": null,
+      "disposition": "historical_evidence_only",
+      "reason": "Dated human-decision/gap validator remains evidence; automatic routine inclusion does not reacquire this historical admission prerequisite."
+    },
+    {
+      "path": "tests/test_validate_pubmed_report_consumer_gap.py",
+      "surface": "test",
+      "retained_sha256": "69bcd3620e87d163988de488972fcf7d4107229064e5f3b9539b6d43623d7a3f",
+      "lane_sha256": null,
+      "disposition": "historical_evidence_only",
+      "reason": "Dated human-decision/gap validator remains evidence; automatic routine inclusion does not reacquire this historical admission prerequisite."
+    },
+    {
+      "path": "tests/test_verify_publication_replay.py",
+      "surface": "test",
+      "retained_sha256": "09ee289d7fbf991773f86d748f9ccb9ec1019712583649d201c488a6b8470c12",
+      "lane_sha256": null,
+      "disposition": "retained_native_contract_packet",
+      "reason": "Native/definition/schema preparation requires an exact dependency closure, frozen preimage and consumer/rollback proof; no current native authority follows from retained code."
+    },
+    {
+      "path": "tests/test_verify_retained_canary_metadata_values.py",
+      "surface": "test",
+      "retained_sha256": "a0fea39ce1ea98ddf39b6fc4eb2628113e53375ccb684400d37d1cb41bf0e7fe",
+      "lane_sha256": "a0fea39ce1ea98ddf39b6fc4eb2628113e53375ccb684400d37d1cb41bf0e7fe",
+      "disposition": "exact_source_covered",
+      "reason": "Identical retained bytes already present; no second import."
+    },
+    {
+      "path": "tests/test_verify_retained_metadata_page.py",
+      "surface": "test",
+      "retained_sha256": "486f1e144ee016c7d75b5c07c759ea4853c0aa3aac002b5d72d1b1cc99d0b705",
+      "lane_sha256": null,
+      "disposition": "historical_evidence_only",
+      "reason": "Paired fixed historical archive-page cases are preserved without making them current-generation gates."
+    }
+  ],
+  "lane_or_canonical_only": [
+    {
+      "path": "scripts/audit_whole_system_metadata.py",
+      "sha256": "36ae1d3f8e444e1879965451287995239a13cf19e90d63667c8d98a4c546c5f8",
+      "disposition": "preserve_lane_or_canonical_only_source"
+    },
+    {
+      "path": "scripts/dispose_publication_source_differences.py",
+      "sha256": "f67b1fa3bf564e193f69a22e791567485bd5bb6590b2539563d4935e3bd56f0c",
+      "disposition": "preserve_lane_or_canonical_only_source"
+    },
+    {
+      "path": "scripts/prepare_opencitations_metadata.py",
+      "sha256": "3c105951786be20822d899d660e5615d334a38e74fc3c0d02e7255ca6b29da59",
+      "disposition": "preserve_lane_or_canonical_only_source"
+    },
+    {
+      "path": "scripts/publication_current_generation_gap.py",
+      "sha256": "de466a5698a235af9489d80373ee407062d4a44978ee87beec01568b7e0027d8",
+      "disposition": "preserve_lane_or_canonical_only_source"
+    },
+    {
+      "path": "scripts/publication_notice_evidence.py",
+      "sha256": "4e3a664eacc052e698bac8ff5ad53c1270f80fad869d2bd83287937889512b17",
+      "disposition": "preserve_lane_or_canonical_only_source"
+    },
+    {
+      "path": "scripts/publication_policy_contract.py",
+      "sha256": "66b718685d0485188084dab3dd3afb6d6204536fdb1bf4dd0c6be7eed9fcd10c",
+      "disposition": "preserve_lane_or_canonical_only_source"
+    },
+    {
+      "path": "scripts/publication_source_metadata_contract.py",
+      "sha256": "775f549c83ec8a2c984b600acc5eed73c004c47e4f4cb80b31d4f6b00929b440",
+      "disposition": "preserve_lane_or_canonical_only_source"
+    },
+    {
+      "path": "scripts/publication_xml_metadata.py",
+      "sha256": "87fe6c21c0aad8990667328b5badc73c999da13942c2fdce50c2b858f905832e",
+      "disposition": "preserve_lane_or_canonical_only_source"
+    },
+    {
+      "path": "tests/test_audit_whole_system_metadata.py",
+      "sha256": "87a1218c95f55bce89351046458573889ed506a99a988dac4c8d58f0098322d9",
+      "disposition": "preserve_lane_or_canonical_only_source"
+    },
+    {
+      "path": "tests/test_publication_current_generation_gap.py",
+      "sha256": "5dc0aa143cc14032ad7aeb1b1bbd51412c10b2a34b17ba3041def0c0a16ce063",
+      "disposition": "preserve_lane_or_canonical_only_source"
+    },
+    {
+      "path": "tests/test_publication_cycle_boundaries.py",
+      "sha256": "8f73fced8c329961ee63bffced4080ebb26d833b10af3f6167aa567ce3b507e7",
+      "disposition": "preserve_lane_or_canonical_only_source"
+    },
+    {
+      "path": "tests/test_publication_metadata_review_builder.py",
+      "sha256": "49c141cd23d61376a659957060b647af2e29efdfe94d083410d052d8a5560f53",
+      "disposition": "preserve_lane_or_canonical_only_source"
+    },
+    {
+      "path": "tests/test_publication_notice_evidence.py",
+      "sha256": "4f89fbedbd9cfaa2b6a02bcd0707845e2f0a9f4cfaae928ee81f6190a8483aa3",
+      "disposition": "preserve_lane_or_canonical_only_source"
+    },
+    {
+      "path": "tests/test_publication_policy_contract.py",
+      "sha256": "e27b8fec4c9aa7a2dbd8bc1d525b10b718a9c2811cce5ce24e2602c7e1ae1005",
+      "disposition": "preserve_lane_or_canonical_only_source"
+    },
+    {
+      "path": "tests/test_pubmed_offline_typed_candidate.py",
+      "sha256": "bf931f6581761ba7b5e1f02924d4a9b14b627197943bf616ddafbd8fbdc19716",
+      "disposition": "preserve_lane_or_canonical_only_source"
+    }
+  ],
+  "native_or_auth_operation_submitted": false,
+  "retained_checkout_head": "cde439c0d0ee35676c05362b2ef9498dafbd4bcc",
+  "retained_bytes_are_working_tree_snapshot": true
+}
