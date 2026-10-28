@@ -63,7 +63,7 @@ Its pinned archive receipt supplies exact existing site/folder, export/source ru
 identities, positive actual-integer row count, ordered twelve-field inventory,
 awards-only kind, completeness/unpaged declaration and manifest SHA-256. It also
 binds `snapshot_file_sha256` and `snapshot_records_sha256` to a separately supplied
-saved snapshot whose bytes, records, IDs/count and all twelve raw text/null fields
+saved snapshot whose bytes, records, IDs/count and all twelve raw text fields
 are validated. The manifest digest is supplied evidence; this helper does not
 recapture or independently authenticate the native archive manifest or source.
 The existing M reader retains its native archive validation responsibility.
@@ -114,7 +114,7 @@ Direct CLI `--help` exposes the required pins. Comparator uses
 `--baseline-sha256` and `--current-sha256`. Model uses `--expected-sha256`,
 `--expected-parts` (JSON path inventory), `--archive-receipt`, `--archive-sha256`,
 `--snapshot`, `--snapshot-sha256` and the exact site/folder/runs/count. Reader uses
-`--expected-sha256` and `--expected-parts`. Definitions may contain private native
+`--expected-sha256` and `--expected-parts`, plus the model and binding inputs documented below. Definitions may contain private native
 identities and therefore remain ignored. The model's optional outer `definition`
 wrapper is preserved; its expected digest applies to the inner definition. The
 reader's expected digest applies to its complete outer document.
@@ -137,3 +137,62 @@ continues to use `scripts/outcome_evidence.py`; authoritative records/custodian,
 indicator versions, denominators/comparators, follow-up, native persistence and
 semantic-reader acceptance remain unresolved. No shared contracts, runtimes,
 dependencies, coordination records or existing native objects are changed.
+
+## Connected contract review correction
+
+Raw snapshot diagnosis and qualified text export are distinct. The comparator
+still preserves nulls and missing values as supplied. The unchanged canonical M
+reader requires exactly its twelve fields and text in every field. Model
+preparation therefore rejects nulls, extra/missing fields and nontext values as
+unqualified export evidence. A supplied empty string remains an empty string;
+there is no null-to-blank conversion or invented date/amount. The fictional model
+fixture now uses the historical export contract's blank-text unknowns. Tests
+exercise null rejection across all twelve fields without changing saved bytes.
+
+Reader preparation also requires a complete, independently pinned model document
+and explicit part inventory. There is no fixed model/table count. It validates
+one exact `ARCAwardContext` reference/table, all twelve unique source columns,
+string types, `summarizeBy: none`, exact source-column mappings and URL's WebUrl
+metadata before adding any visuals. Wrong or absent table/columns, numeric types,
+summary behavior, URL metadata and duplicate columns fail preparation. Model
+input may be bare or wrapped in `definition`; its expected digest covers the
+entire supplied model document. Existing parts and binding bytes remain intact.
+
+Binding identity is a separate gate. A bounded read of the existing 17 October
+ARC receipt confirmed its stored shape, without recapture: `definition.pbir`
+contains `datasetReference.byConnection.connectionString` with a
+`semanticmodelid`, and the independent stored report binding response has
+`status_code: 200`, `text.id` and `text.datasetId`. Only those structural facts
+were inspected; private identifiers and content are not included here. This
+historical observation does not qualify any current native binding.
+
+The reader now requires `--model-definition`, `--model-expected-sha256`,
+`--model-expected-parts`, `--binding-evidence` and `--binding-sha256`. Independently
+pinned binding evidence must contain:
+
+- Exact `report_id` and `model_id` UUIDs; `complete: true` and aware UTC
+  `observed_at_utc`.
+- Nonblank `report_capture_ref` and `model_capture_ref` associating the captured
+  definitions with their exact native identities.
+- `report_preimage_sha256` and `model_preimage_sha256`, matching both entire
+  supplied documents, independently of the report's own hash.
+- `report_binding_readback` in the observed response shape, with actual integer
+  HTTP 200, exact report ID and exact matching dataset/model ID.
+
+That model ID must also match the report connection's `semanticmodelid`.
+Conflicting, duplicate or absent connection properties, unsupported byPath
+binding, failed responses, missing capture associations or model-hash drift block
+preparation. Missing current identity remains explicitly unqualified; no target
+or identity is fabricated. The pin verifies supplied evidence association, not
+its authenticity or currency. The native owner must supply trusted current
+capture/readback evidence; none was acquired by this packet.
+
+Correction verification: 17 affected stdlib tests passed on Python 3.15.1 with
+`-S` (seven model, ten reader); the unchanged twelve comparator methods retain
+prior passing evidence. Three new methods cover null export rejection, wrong
+model dependencies and independent binding conflicts. The direct CLI regression
+now passes the actual prepared model output and inventory into the reader,
+with separately labelled fictional binding evidence; it checks connected
+model-to-reader success and unchanged model/report parts. Tests also cover a
+wrapped model capture and all previously tested failure/output guards. This
+remains source-only and does not certify model processing or native acceptance.

@@ -16,7 +16,7 @@ def archive(**args):
 def snapshot(rows=2):
     records=[dict.fromkeys(FIELDS,'') for _ in range(rows)]
     for i,row in enumerate(records):
-        row.update(RecordKind='Award',Source='arc',SourceID=str(i),AwardCode='CODE-'+str(i),Amount=None,RetrievedUTC=None)
+        row.update(RecordKind='Award',Source='arc',SourceID=str(i),AwardCode='CODE-'+str(i),Amount='',RetrievedUTC='')
     return dict(source='arc',record_kind='awards_only',snapshot_complete=True,next_links=[],
                 source_total=rows,snapshot_hash=fingerprint(records),records=records)
 
@@ -54,6 +54,23 @@ def build(data, **kwargs):
 
 
 class AwardModelTests(unittest.TestCase):
+    def test_model_rejects_null_export_fields_without_coercing_raw_snapshot(self):
+        for field in FIELDS:
+            data=fixture();saved=snapshot();saved['records'][0][field]=None
+            saved['snapshot_hash']=fingerprint(saved['records'])
+            with self.subTest(field=field),tempfile.TemporaryDirectory() as temp:
+                path=Path(temp)/'snapshot.json';raw=json.dumps(saved).encode();path.write_bytes(raw)
+                sha=hashlib.sha256(raw).hexdigest()
+                args=dict(site=SITE,folder=SITE+'/Shared Documents/accepted/',export_run='export-run',source_run='source-run',rows=2)
+                receipt=archive(**args);receipt.update(snapshot_file_sha256=sha,snapshot_records_sha256=saved['snapshot_hash'])
+                with self.assertRaises(ValueError):
+                    raw_prepare(data,**args,expected_sha256=fingerprint(data),expected_parts=[p['path'] for p in data['parts']],
+                        archive_receipt=receipt,archive_sha256=fingerprint(receipt),snapshot_path=path,snapshot_sha256=sha)
+                self.assertEqual(path.read_bytes(),raw)
+        good=build(fixture())
+        self.assertIn('dataType: string',base64.b64decode(good['parts'][-1]['payload']).decode())
+        self.assertEqual(snapshot()['records'][0]['Amount'],'')
+
     def test_pinned_preimage_inventory_and_archive_evidence_fail_closed(self):
         data=fixture();saved=snapshot()
         with tempfile.TemporaryDirectory() as temp:
@@ -124,9 +141,17 @@ class AwardModelTests(unittest.TestCase):
             report={'sections':[{'name':str(i),'displayName':str(i),'ordinal':i,'visualContainers':[]} for i in range(8)]}
             reader={'definition':{'format':'PBIR-Legacy','parts':[
                 {'path':'report.json','payloadType':'InlineBase64','payload':base64.b64encode(json.dumps(report).encode()).decode()},
-                {'path':'definition.pbir','payloadType':'InlineBase64','payload':base64.b64encode(b'unchanged existing binding').decode()}]}}
+                {'path':'definition.pbir','payloadType':'InlineBase64','payload':base64.b64encode(json.dumps({'datasetReference':{'byConnection':{'connectionString':'semanticmodelid=11111111-1111-4111-8111-111111111111;'}}}).encode()).decode()}]}}
             reportfile=save('report.json',reader);parts=save('report-parts.json',['report.json','definition.pbir']);out=folder/'reader-proposal.json'
-            command=['prepare_arc_award_report_page.py','--definition',reportfile,'--output',out,
+            binding=dict(complete=True,report_id='22222222-2222-4222-8222-222222222222',model_id='11111111-1111-4111-8111-111111111111',
+                report_preimage_sha256=fingerprint(reader),model_preimage_sha256=fingerprint(proposed),
+                report_capture_ref='fixture://report',model_capture_ref='fixture://model',observed_at_utc='2026-10-29T01:00:00Z',
+                report_binding_readback={'status_code':200,'text':{'id':'22222222-2222-4222-8222-222222222222','datasetId':'11111111-1111-4111-8111-111111111111'}})
+            bindingfile=save('binding-evidence.json',binding);modelparts=save('prepared-model-parts.json',[p['path'] for p in proposed['parts']])
+            command=['prepare_arc_award_report_page.py','--model-definition',output,
+                     '--model-expected-sha256',fingerprint(proposed),'--model-expected-parts',modelparts,
+                     '--binding-evidence',bindingfile,'--binding-sha256',fingerprint(binding),
+                     '--definition',reportfile,'--output',out,
                      '--expected-sha256',fingerprint(reader),'--expected-parts',parts]
             run(*command);result=json.loads(out.read_text())
             self.assertEqual(result['definition']['parts'][1],reader['definition']['parts'][1])

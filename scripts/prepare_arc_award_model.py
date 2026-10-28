@@ -42,12 +42,12 @@ def prepare(definition, *, site, folder, export_run, source_run, rows,
     snapshot, _, _ = _load_snapshot(snapshot_path, snapshot_sha256)
     if (snapshot['source_total'] != rows or archive_receipt.get('snapshot_file_sha256') != snapshot_sha256
             or archive_receipt.get('snapshot_records_sha256') != snapshot['snapshot_hash']
-            or any(set(FIELDS) - set(row) for row in snapshot['records'])):
+            or any(set(FIELDS) != set(row) for row in snapshot['records'])):
         raise ValueError('Archive receipt must bind the complete exact snapshot and fields')
     for row in snapshot['records']:
         if row['Source'] != 'arc' or row['RecordKind'] != 'Award' or any(
-                value is not None and not isinstance(value,str) for value in (row[f] for f in FIELDS)):
-            raise ValueError('Exact award source and raw text fields required')
+                not isinstance(value,str) for value in (row[f] for f in FIELDS)):
+            raise ValueError('Qualified text export required; nulls remain unqualified raw snapshot evidence')
     a, b = urlsplit(site), urlsplit(folder)
     if (a.scheme != 'https' or not a.hostname or not a.hostname.endswith('.sharepoint.com')
             or a.username or a.password or a.query or a.fragment or a.port not in (None,443) or site!=site.strip()
