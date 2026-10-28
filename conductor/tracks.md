@@ -35,6 +35,15 @@ and consumer parity, and retained G03 item-8 disposition/recovery. These were
 identified by reviewing 59 original specifications/plans across 32 track folders;
 other historical Conductor files remain preserved for source disposition.
 
+The next reviewed local integration adds [source relationships](../docs/SOURCE_RELATIONSHIP_EVIDENCE_CLOSURE_20261029.md),
+[ARC source/export](../docs/ARC_SOURCE_EXPORT_CLOSURE_20261029.md),
+[publication admission proposals](../docs/PUBLICATION_ADMISSION_WRITER_SOURCE_20261029.md)
+and [award crosswalks](../docs/PUBLICATION_AWARD_CROSSWALK_SOURCE_20261029.md).
+Combined harness: 1,951 Python tests, 19 capability skips, 58 Node tests and
+446 project checks; hosted verification remains pending. Provider foundation
+implementation and bounded writer/workbook assessments continue in the existing
+three lanes. No native, schedule or delivery acceptance follows from these packets.
+
 ## Reconciled later requirements — 29 October 2026
 
 - [~] [E09 collaborative research feed](tracks/collaborative_research_feed_20261022/plan.md) — owner-only/no-send technical receipts retained; broader actor, curation, persistence, solution and adoption dependencies remain explicit.

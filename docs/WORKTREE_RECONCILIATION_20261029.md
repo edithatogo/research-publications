@@ -101,6 +101,26 @@ This explicit development-base exception was not verified-main acceptance.
 PR integration remains serial and requires hosted checks. The original checkout,
 private bindings and active jobs remain with their existing owners.
 
+## Next reviewed source packet
+
+At local integration `bdcf959b`, private v7 accounts for 16 further retained source
+paths: 435 exact equivalents, 210 reviewed amendments, 136 scoped dependencies
+or preserved canonical contracts, 127 private evidence, 55 archives, 11 tooling
+references and 59 reviewed requirement documents. The remaining 1,353 paths still
+need source disposition; these are not a feature count. The combined harness
+passes 1,951 Python tests with 19 capability skips, 58 Node tests and 446 project
+checks. Hosted checks remain pending. Original full status is still byte-identical
+to entry when compared with the same all-untracked-files inventory command.
+
+The four packets close reviewed source dependencies while retaining explicit
+native limits. Admission rejects conflicting own article identities and unsupported
+XML encodings/entities before projection. ARC offline/native-definition proposals
+agree on per-page replay; CSV display escaping leaves JSON evidence unchanged.
+Relationship and award projections preserve occurrences, ambiguous identities,
+independent authority pins, revisions and unknowns without conferring funding,
+identity or G06 write authority. One exact historical gitleaks fingerprint was
+reviewed as ordinary ARC file-validation prose; no broad security rule is disabled.
+
 ## Verified Git state at entry
 
 The canonical source base is `origin/main` at `76d42f84` (PR55). The existing
