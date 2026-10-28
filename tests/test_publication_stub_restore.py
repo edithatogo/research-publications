@@ -56,6 +56,20 @@ class StubRestorePlanTests(unittest.TestCase):
         self.assertTrue(target_qualification(a,a)['qualified'])
         with self.assertRaises(ValueError): target_qualification(a,{})
 
+    def test_emitted_target_binding_conflicts_and_false_claims_rejected(self):
+        from scripts.plan_publication_stub_restore import same_target, target_qualification
+        target={'site_id':'site','list_id':'list'}
+        top={'target':target}
+        emitted={'target_binding':{'qualified':True,'target':target}}
+        self.assertEqual(same_target(top,emitted),target)
+        for binding in ({'qualified':True,'target':dict(target,list_id='other')},
+                        {'qualified':False,'target':target},
+                        {'qualified':1,'target':target}):
+            with self.subTest(binding=binding), self.assertRaises(ValueError):
+                target_qualification(top,{'target':target,'target_binding':binding})
+        with self.assertRaises(ValueError):
+            same_target(top,{'target_binding':{'qualified':False}})
+
     def test_missing_exports_are_explicit_gaps(self):
         report = self.run_plan(self.registry, self.candidates, self.schema)
         self.assertEqual(report["candidate_count"], 1)

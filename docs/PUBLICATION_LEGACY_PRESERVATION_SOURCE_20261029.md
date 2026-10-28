@@ -132,3 +132,28 @@ methods (the previous 85 plus four new regression methods). No full repository
 harness or native operation was run. The added cases cover target/GUID conflicts,
 strict JSON, unqualified target diagnostics and single-read byte binding; the
 existing multiversion fixture also checks the corrected unknown-content wording.
+
+## Connected receipt target propagation
+
+The common target accessor accepts either an explicit top-level `target` or an
+emitted `target_binding` with an actual boolean `qualified: true` and a complete
+exact site/list identity. When both are present they must agree. Malformed
+bindings, false bindings carrying identity, conflicts, and mixing a qualified
+receipt with an unqualified partner are rejected. Wholly legacy inputs remain
+unqualified; no identity is fabricated. This allows qualified correlation,
+rehearsal, planning and disposition receipts to connect without losing scope.
+
+Every target binding now labels the scope of success flags: supplied-evidence
+checks never imply native acceptance or authority. The historical
+`constraint_preflight_ready` field explicitly has `diagnostic_checks_only` scope;
+`constraint_diagnostics_passed` states that result directly, while
+`target_qualified_constraint_evidence` also requires qualified same-target
+binding. Neither authorizes schema changes.
+
+Focused Python 3.15.1 verification for this correction passed 9 disposition,
+33 planner, 8 key-preflight and 7 pagination methods. The new qualified connected
+pipeline first reproduced the missing-target failure, then passed after the
+accessor correction. Conflict tests cover top-level versus emitted identity,
+false and nonboolean qualification, and absent identity; the positive preflight
+fixture checks both diagnostic-only and target-qualified results. All authority
+flags remain false. No full repository suite or native calls were run.

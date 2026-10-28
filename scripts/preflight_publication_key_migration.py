@@ -88,14 +88,18 @@ def assess(aggregate: dict, keyed: dict, disposition: dict) -> dict:
         blockers.append("source_key_required_not_enabled")
     # No automatic CanonicalKey uniqueness requirement: canonical identity may
     # be shared across source rows. Its existing index is an independent fact.
+    binding = target_qualification(aggregate, keyed, disposition)
     return {
         "schema": "publication-key-migration-preflight/v1",
         "read_only": True,
         "mutation_authorized": False,
-        "target_binding": target_qualification(aggregate, keyed, disposition),
+        "target_binding": binding,
         "schema_change_authorized": False,
         "write_payload": None,
         "constraint_preflight_ready": not blockers,
+        "constraint_preflight_ready_scope": "diagnostic_checks_only",
+        "constraint_diagnostics_passed": not blockers,
+        "target_qualified_constraint_evidence": not blockers and binding['qualified'],
         "native_integrity_accepted": False,
         "blockers": sorted(set(blockers)),
         "counts": {"total": count, "keyed": len(rows), "blank_stubs": len(stubs)},

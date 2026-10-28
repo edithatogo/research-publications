@@ -65,28 +65,52 @@ def strict_json_loads(raw: str | bytes) -> Any:
     return json.loads(raw, object_pairs_hook=pairs, parse_constant=constant, parse_float=number)
 
 
-def same_target(*snapshots: dict) -> dict:
-    """Require explicit exact site/list scope; integer item IDs are list-local."""
-    targets = []
-    for snapshot in snapshots:
-        target = snapshot.get('target')
-        if not isinstance(target, dict) or set(target) != {'site_id', 'list_id'}:
-            raise ValueError('Explicit site/list target required; receipt unqualified')
-        if any(not isinstance(v, str) or not v or v != v.strip() for v in target.values()):
+def _target(snapshot: dict) -> dict | None:
+    """Read explicit identity or our emitted binding without upgrading diagnostics."""
+    top = snapshot.get('target')
+    binding = snapshot.get('target_binding')
+    bound = None
+    if 'target_binding' in snapshot:
+        if not isinstance(binding, dict) or type(binding.get('qualified')) is not bool:
+            raise ValueError('Invalid target binding qualification')
+        if binding['qualified']:
+            bound = binding.get('target')
+            if bound is None:
+                raise ValueError('Qualified target binding lacks identity')
+        elif 'target' in binding or 'target' in snapshot:
+            raise ValueError('Unqualified binding cannot carry qualified target identity')
+    for value in (top, bound):
+        if value is not None and (not isinstance(value, dict) or set(value) != {'site_id', 'list_id'}
+                or any(not isinstance(v, str) or not v or v != v.strip() for v in value.values())):
             raise ValueError('Invalid site/list target')
-        targets.append(target)
-    if not targets or any(t != targets[0] for t in targets):
+    if 'target' in snapshot and top is None:
+        raise ValueError('Invalid site/list target')
+    if top is not None and bound is not None and top != bound:
+        raise ValueError('Conflicting top-level and bound target identities')
+    return top if top is not None else bound
+
+
+def same_target(*snapshots: dict) -> dict:
+    """Require exact scope from explicit targets or validated emitted bindings."""
+    targets = [_target(snapshot) for snapshot in snapshots]
+    if not targets or any(target is None for target in targets):
+        raise ValueError('Explicit site/list target required; receipt unqualified')
+    if any(target != targets[0] for target in targets):
         raise ValueError('Evidence target mismatch')
     return copy.deepcopy(targets[0])
 
 
 def target_qualification(*snapshots: dict) -> dict:
-    """Missing identity is unqualified; supplied conflicting identity is rejected."""
+    """Keep origin qualification separate from successful content diagnostics."""
     present = [s for s in snapshots if isinstance(s, dict)]
-    if any('target' in s for s in present):
-        same_target(*present)
-        return {'qualified': True, 'target': same_target(*present)}
-    return {'qualified': False, 'reason': 'Missing explicit site/list target; ID joins are unqualified diagnostics'}
+    targets = [_target(s) for s in present]
+    if any(t is not None for t in targets):
+        return {'qualified': True, 'target': same_target(*present),
+                'evidence_status': 'same_target_bound_diagnostics',
+                'success_flags_scope': 'supplied evidence checks only; not native acceptance or authority'}
+    return {'qualified': False, 'evidence_status': 'unqualified_diagnostics',
+            'success_flags_scope': 'content/ID checks only; native origin unqualified',
+            'reason': 'Missing explicit site/list target; ID joins are unqualified diagnostics'}
 
 
 def _read(path: Path | None) -> dict[str, Any] | None:

@@ -77,6 +77,14 @@ class KeyMigrationPreflightTests(unittest.TestCase):
         disposition={'items':[],'candidate_count':0,'cross_receipt_evidence_coherent':True,'disposition_decided':True,'mutation_authorized':True}
         result=assess(aggregate,keyed,disposition)
         self.assertTrue(result['constraint_preflight_ready'])
+        self.assertTrue(result['constraint_diagnostics_passed'])
+        self.assertEqual(result['constraint_preflight_ready_scope'],'diagnostic_checks_only')
+        self.assertFalse(result['target_qualified_constraint_evidence'])
+        for snapshot in (aggregate,keyed,disposition):
+            snapshot['target']={'site_id':'fictional-site','list_id':'fictional-list'}
+        qualified=assess(aggregate,keyed,disposition)
+        self.assertTrue(qualified['target_qualified_constraint_evidence'])
+        self.assertFalse(qualified['schema_change_authorized'])
         self.assertFalse(result['schema_change_authorized']);self.assertFalse(result['native_integrity_accepted'])
 
 

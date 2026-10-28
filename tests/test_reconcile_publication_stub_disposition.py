@@ -90,6 +90,12 @@ class DispositionEvidenceTests(unittest.TestCase):
             with self.subTest(mode=mode), self.assertRaises(ValueError):reconcile(*parts)
 
     def test_fictional_exact_correlation_through_rehearsal_and_planning_stays_read_only(self):
+        self.connected_pipeline(False)
+
+    def test_fully_target_qualified_connected_pipeline(self):
+        self.connected_pipeline(True)
+
+    def connected_pipeline(self, qualified):
         from datetime import datetime,timezone
         from scripts.match_publication_stub_actions import correlate
         from scripts.plan_publication_stub_restore import plan,schema_field_inventory_sha256
@@ -98,6 +104,10 @@ class DispositionEvidenceTests(unittest.TestCase):
         candidates={'candidate_count':1,'observed_at_utc':stamp,'items':[{'id':7}]}
         actions={'schema_version':'publication-create-action-outputs/v1','actions':[
             {'run_id':'fictional-run','action_id':'fictional-action','status':'Succeeded','created_item_id':7,'evidence_ref':'fixture://exact-action'}]}
+        target={'site_id':'fictional-site','list_id':'fictional-list'}
+        if qualified:
+            candidates['target']=copy.deepcopy(target)
+            actions['target']=copy.deepcopy(target)
         correlation=correlate(candidates,actions)
         schema={'inventory_complete':True,'source':'fixture://schema','observed_at_utc':stamp,'count':3,
                 'fields':[{'internal_name':n,'type':'Text'} for n in ('Title','field_1','field_2')]}
@@ -113,12 +123,22 @@ class DispositionEvidenceTests(unittest.TestCase):
         registry={'complete':True,'next_links':[],'observed_at_utc':stamp,'rows':[{'Id':7,'SourceKey':''}]}
         policy={'policy_id':'fictional','evidence_ref':'fixture://policy','max_age_hours':48,
                 'max_skew_hours':24,'max_context_skew_hours':1,'max_review_age_hours':48}
+        if qualified:
+            for snapshot in (registry,schema,details,versions,attachments):
+                snapshot['target']=copy.deepcopy(target)
         before=copy.deepcopy((registry,candidates,schema,details,versions,attachments))
         rehearsal=rehearse(details,versions,correlation,schema)
         readiness=plan(registry,candidates,schema,details,versions,attachments,
                        now=datetime(2026,9,24,13,tzinfo=timezone.utc),freshness_policy=policy)
         result=reconcile(candidates,correlation,rehearsal,readiness)
         self.assertEqual(before,(registry,candidates,schema,details,versions,attachments))
+        if qualified:
+            for receipt in (correlation,rehearsal,readiness,result):
+                self.assertTrue(receipt['target_binding']['qualified'])
+                self.assertEqual(receipt['target_binding']['target'],target)
+        else:
+            self.assertFalse(result['target_binding']['qualified'])
+            self.assertEqual(result['target_binding']['evidence_status'],'unqualified_diagnostics')
         self.assertTrue(result['cross_receipt_evidence_coherent'])
         self.assertEqual(result['counts']['older_values_available'],1)
         self.assertEqual(result['counts']['exact_create_match'],1)
