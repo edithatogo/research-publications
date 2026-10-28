@@ -52,6 +52,38 @@ def gate(expression, previous):
     )
 
 
+def capture_failed_http(actions, stage, source, flag, filename, save):
+    """Build a diagnostic branch; no HTTP/storage operation is executed."""
+    raw = "Raw_failure_" + stage
+    mark = "Mark_failure_" + stage
+    actions[raw] = {
+        "type": "Compose",
+        "runAfter": {stage: ["Failed", "TimedOut"]},
+        "inputs": {
+            "kind": "rims-source-http-failure-v1",
+            "source": source,
+            "stage": stage,
+            "response": "@outputs('" + stage + "')",
+            "body_content": "@outputs('" + stage + "')?['body']",
+            "content_state": "@if(equals(outputs('"
+            + stage
+            + "')?['body'],null),'unavailable','available')",
+            "captured_utc": "@utcNow()",
+            "accepted": False,
+            "source_valid": False,
+            "fidelity": "available_native_HTTP_outputs; original_transport_bytes_not_certified",
+        },
+    }
+    actions[mark] = {
+        "type": "SetVariable",
+        "runAfter": {raw: ["Succeeded"]},
+        "inputs": {"name": flag, "value": True},
+    }
+    return save(
+        actions, "failure_" + stage, filename, "string(outputs('" + raw + "'))", mark
+    )
+
+
 def build(site: str, archive_parent: str, reference: dict) -> dict:
     if (
         not isinstance(site, str)
@@ -565,6 +597,8 @@ def build(site: str, archive_parent: str, reference: dict) -> dict:
 
 
 def main():
+    from scripts.patch_clinicaltrials_read_retries import strict_json
+
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--site", required=True)
     parser.add_argument("--archive-parent", required=True)
@@ -575,7 +609,7 @@ def main():
     if not args.output.resolve().is_relative_to(root / "private/ops"):
         raise ValueError("Tenant-specific output must stay in ignored private/ops")
     candidate = build(
-        args.site, args.archive_parent, json.loads(args.reference.read_bytes())
+        args.site, args.archive_parent, strict_json(args.reference.read_bytes())
     )
     with args.output.open("x") as stream:
         json.dump(candidate, stream, indent=2)

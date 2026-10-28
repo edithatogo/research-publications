@@ -6,7 +6,66 @@ import unittest
 from scripts.prepare_pubmed_acquisition import build, with_daily_updates
 
 
+def trace_failure(actions, stage, status):
+    """Local runAfter routing model only; does not execute WDL or storage."""
+    states = {stage: status}
+    while True:
+        pending = {}
+        for name, node in actions.items():
+            after = node.get("runAfter", {})
+            if name not in states and after and all(key in states for key in after):
+                pending[name] = (
+                    "Succeeded"
+                    if all(states[key] in allowed for key, allowed in after.items())
+                    else "Skipped"
+                )
+        if not pending:
+            return states
+        states.update(pending)
+
+
 class PubMedAcquisitionTests(unittest.TestCase):
+    def test_failed_or_timed_out_http_routes_preserve_outputs_and_block_success(self):
+        a = self.fixture()["properties"]["definition"]["actions"]
+        cases = [
+            (a, "Search_Before", "Raw_search_Before"),
+            (a, "Search_After", "Raw_search_After"),
+            (a["For_each_batch"]["actions"], "Fetch_xml", "Raw_xml"),
+        ]
+        for actions, stage, success in cases:
+            for status in ("Failed", "TimedOut"):
+                with self.subTest(stage=stage, status=status):
+                    states = trace_failure(actions, stage, status)
+                    self.assertEqual(states["Verify_failure_" + stage], "Succeeded")
+                    self.assertEqual(states[success], "Skipped")
+                    self.assertNotEqual(states.get("Record_file"), "Succeeded")
+                    self.assertNotEqual(
+                        states.get("Save_complete_checkpoint"), "Succeeded"
+                    )
+                    envelope = actions["Raw_failure_" + stage]["inputs"]
+                    self.assertEqual(envelope["response"], "@outputs('" + stage + "')")
+                    self.assertIn("'unavailable'", envelope["content_state"])
+                    self.assertFalse(envelope["accepted"])
+                    self.assertEqual(
+                        actions["Mark_failure_" + stage]["inputs"],
+                        {"name": "AcquisitionFailed", "value": True},
+                    )
+                    self.assertEqual(
+                        actions["Save_failure_" + stage]["inputs"]["retryPolicy"],
+                        {"type": "none"},
+                    )
+                    self.assertEqual(
+                        actions["Read_failure_" + stage]["inputs"]["retryPolicy"],
+                        {"type": "none"},
+                    )
+        self.assertIn(
+            "not(variables('AcquisitionFailed'))", a["Guard_complete"]["inputs"]
+        )
+        self.assertEqual(
+            a["For_each_batch"]["actions"]["Raw_xml"]["inputs"],
+            "@string(body('Fetch_xml'))",
+        )
+
     def fixture(self):
         c = {
             "facility_query_version": "test",
@@ -113,6 +172,23 @@ class PubMedAcquisitionTests(unittest.TestCase):
 
 
 class PubMedBoundedRecoveryTests(unittest.TestCase):
+    def test_duplicate_or_nonfinite_observer_preimage_is_refused(self):
+        d = self.fixture()
+        before = copy.deepcopy(d)
+        self.prepare(d)
+        raw = json.dumps(
+            d["properties"]["definition"]["actions"]["Observe_failed_generation"]
+        ).encode()
+        for suffix in (b',"type":"Scope"', b',"unused":NaN', b',"unused":Infinity'):
+            malformed = raw[:-1] + suffix + b"}"
+            with self.subTest(suffix=suffix), self.assertRaises(ValueError):
+                self.prepare(
+                    d,
+                    observer_preimage_bytes=malformed,
+                    expected_observer_sha256=hashlib.sha256(malformed).hexdigest(),
+                )
+            self.assertEqual(d, before)
+
     def fixture(self):
         d = PubMedAcquisitionTests().fixture()
         d["properties"]["definition"]["actions"]["Observe_failed_generation"] = {

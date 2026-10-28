@@ -60,6 +60,26 @@ occupied top-level, loop-action or newly managed Manifest namespaces. It never
 overwrites an existing completion action or DOI-provenance field. Rejected
 preparation leaves the supplied graph and policy untouched.
 
+The review follow-up preserves every existing `Record_file.runAfter` dependency
+and status list, adding `Set_own_dois: [Succeeded]` as a further requirement.
+Unknown predecessors, sibling cycles and guards statically incompatible with
+required `Guard_record` success are refused. This is a limited dependency check,
+not an interpreter or proof of arbitrary WDL conditions. Before adding the array,
+a conservative recursive scan rejects existing `OwnPublicationDOIs` declarations
+under any initializer/action name or nesting, including case variants.
+
+PubMed search/XML and DoRA collection/record success paths retain their original
+content expressions and success dependencies. Separate Failed/TimedOut branches
+now propose raw failure envelopes containing the available HTTP outputs and body,
+capture time, stage and explicit `accepted:false`/`source_valid:false`. A missing
+body is labelled `unavailable` and remains null; no XML, HTML or success response
+is synthesized. These envelopes are distinct from successful source artifacts.
+The branch sets a generation failure flag before its separate zero-retry
+save/readback/verification chain. Completion guards require that flag to remain
+false; successful failure-evidence storage cannot authorize a complete marker.
+Serialization certifies no original transport bytes. These generated branches
+are not an installed or verified durable native observer.
+
 These are generated WDL structures and local fixture checks. Native connector
 response shapes, WDL execution, HTML/XML behavior, complete stored content,
 failure paths and output fidelity remain separate qualification. No native
@@ -102,18 +122,30 @@ observer evidence. Before adoption the native owner must supply the real current
 observer/readback and independently prove its durable failure receipt and recovery
 behavior. A dictionary, a hash or the presence of a Scope is not that proof.
 
+Saved QGIP reference JSON, retry CLI definition JSON and PubMed observer preimage
+JSON now share a strict parser local to this packet. Duplicate keys at any level
+and NaN/Infinity values are refused before preparation. They are not silently
+collapsed into an apparently matching current preimage. Valid JSON and existing
+create-only output behavior remain unchanged; no new parser dependency is added.
+
 ## Verification and native remainder
 
-Actual repo-local Python3.15.1. Focused stdlib discovery passes **37 tests**:
-8 QGIP,12 PubMed,7 DoRA and10 ClinicalTrials retry tests. They include changed
+Actual repo-local Python3.15.1. The review follow-up passes **45 focused stdlib
+tests**:9 QGIP,14 PubMed,11 DoRA and11 ClinicalTrials retry tests. The original
+37-test baseline remains in its original logs. Current cases include changed
 input/definition/observer hashes, strict URI/body selection, action/field collisions,
 input immutability, preservation of unrelated actions and references, manual-only
 output, selected policy diffs, deterministic unchanged retry preparation and local
-CLI create-only/failure preservation. Ruff check/format and leaf link/diff checks
+CLI create-only/failure preservation, strict saved JSON, preserved record guards,
+variable collisions and failure-route structure. A small local runAfter model
+checks Failed/TimedOut branch selection, failure-evidence ordering and skipped
+success paths; it does not execute WDL, storage or a native observer.
+Ruff check/format and leaf link/diff checks
 pass for the owned packet. No broad unchanged harness is rerun.
 
 Ignored `private/ops/acquisition-builders/` retains original eight-file hashes,
-baseline/failing/final focused logs and the source disposition receipt. All eight
+baseline/failing/final focused logs and source disposition receipts. The follow-up
+uses `review-*-final.log` and its separate receipt, preserving earlier evidence. All eight
 original files remain byte-identical to the recorded authoring-checkout versions.
 Neither its active services nor its journals/environment are touched.
 

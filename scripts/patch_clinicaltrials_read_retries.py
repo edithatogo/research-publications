@@ -31,6 +31,27 @@ DISCOVERY = "@concat('https://clinicaltrials.gov/api/v2/studies?format=json&coun
 DETAIL = "@concat('https://clinicaltrials.gov/api/v2/studies/',items('For_each_trial'))"
 
 
+def strict_json(raw):
+    """Decode saved UTF8 JSON without duplicate keys or nonfinite evidence."""
+
+    def unique(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise ValueError("Duplicate key in saved JSON evidence")
+            result[key] = value
+        return result
+
+    def finite(_value):
+        raise ValueError("Nonfinite saved JSON evidence")
+
+    if isinstance(raw, bytes):
+        raw = raw.decode("utf-8")
+    if not isinstance(raw, str):
+        raise ValueError("Saved UTF8 JSON text/bytes required")  # noqa: TRY004 - retained validation ValueError contract
+    return json.loads(raw, object_pairs_hook=unique, parse_constant=finite)
+
+
 def _expression(value, expected, path):
     if not isinstance(value, str) or value != expected:
         raise ValueError("Exact provider expression allowlist required")
@@ -156,7 +177,7 @@ def main():
     )
     args = parser.parse_args()
     candidate, receipt = prepare(
-        json.loads(args.source.read_text()),
+        strict_json(args.source.read_bytes()),
         expected_definition_sha256=args.expected_definition_sha256,
         selected_paths=tuple(
             PATHS[0 if name == "discovery" else 1] for name in args.action

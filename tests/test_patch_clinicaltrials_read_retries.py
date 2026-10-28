@@ -17,6 +17,48 @@ from scripts.patch_clinicaltrials_read_retries import (
 
 
 class ClinicalTrialsRetryPatchTests(unittest.TestCase):
+    def test_cli_rejects_duplicate_or_nonfinite_saved_definition(self):
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            source = folder / "definition.json"
+            out = folder / "candidate.json"
+            valid = json.dumps(self.fixture()).encode()
+            source.write_bytes(valid)
+            command = [
+                sys.executable,
+                "-m",
+                "scripts.patch_clinicaltrials_read_retries",
+                "--source",
+                str(source),
+                "--expected-definition-sha256",
+                definition_sha256(self.fixture()["properties"]["definition"]),
+                "--action",
+                "detail",
+                "--output",
+                str(out),
+            ]
+            result = subprocess.run(
+                command, capture_output=True, text=True, check=False
+            )
+            self.assertEqual(result.returncode, 0, result.stderr)
+            saved = out.read_bytes()
+            for suffix in (
+                b',"unused":1,"unused":2',
+                b',"unused":NaN',
+                b',"unused":-Infinity',
+            ):
+                raw = valid[:-1] + suffix + b"}"
+                source.write_bytes(raw)
+                command[-1] = str(folder / "bad.json")
+                with self.subTest(suffix=suffix):
+                    result = subprocess.run(
+                        command, capture_output=True, text=True, check=False
+                    )
+                    self.assertNotEqual(result.returncode, 0)
+                    self.assertFalse(Path(command[-1]).exists())
+                    self.assertEqual(source.read_bytes(), raw)
+                    self.assertEqual(out.read_bytes(), saved)
+
     def fixture(self):
         # A minimal fictional definition, never a native observer or runtime receipt.
         def read(uri):

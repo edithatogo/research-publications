@@ -22,6 +22,143 @@ def checkpoint(document, **overrides):
 
 
 class PublicationCollectionTests(unittest.TestCase):
+    def test_failed_or_timed_out_http_routes_preserve_outputs_and_block_success(self):
+        # Same small dependency-routing model as the PubMed suite; no WDL execution.
+        def trace(actions, stage, status):
+            states = {stage: status}
+            while True:
+                pending = {}
+                for name, node in actions.items():
+                    after = node.get("runAfter", {})
+                    if (
+                        name not in states
+                        and after
+                        and all(key in states for key in after)
+                    ):
+                        pending[name] = (
+                            "Succeeded"
+                            if all(
+                                states[key] in allowed for key, allowed in after.items()
+                            )
+                            else "Skipped"
+                        )
+                if not pending:
+                    return states
+                states.update(pending)
+
+        a = self.fixture()["properties"]["definition"]["actions"]
+        cases = [
+            (
+                a["Scan_collection_" + suffix]["actions"],
+                "Get_collection_" + suffix,
+                "Raw_collection_" + suffix,
+            )
+            for suffix in ("Before", "After")
+        ]
+        cases.append((a["For_each_record"]["actions"], "Get_full_record", "Raw_record"))
+        for actions, stage, success in cases:
+            for status in ("Failed", "TimedOut"):
+                with self.subTest(stage=stage, status=status):
+                    states = trace(actions, stage, status)
+                    self.assertEqual(states["Verify_failure_" + stage], "Succeeded")
+                    self.assertEqual(states[success], "Skipped")
+                    self.assertNotEqual(states.get("Record_file"), "Succeeded")
+                    envelope = actions["Raw_failure_" + stage]["inputs"]
+                    self.assertEqual(envelope["response"], "@outputs('" + stage + "')")
+                    self.assertIn("'unavailable'", envelope["content_state"])
+                    self.assertFalse(envelope["accepted"])
+                    self.assertEqual(
+                        actions["Mark_failure_" + stage]["inputs"],
+                        {"name": "ScanFailed", "value": True},
+                    )
+                    self.assertEqual(
+                        actions["Save_failure_" + stage]["inputs"]["retryPolicy"],
+                        {"type": "none"},
+                    )
+        self.assertIn(
+            "not(variables('ScanFailed'))", a["Guard_collection_stable"]["inputs"]
+        )
+        self.assertEqual(
+            a["For_each_record"]["actions"]["Raw_record"]["inputs"],
+            "@string(body('Get_full_record'))",
+        )
+
+    def test_record_dependencies_and_status_conditions_are_preserved(self):
+        d = self.fixture()
+        loop = d["properties"]["definition"]["actions"]["For_each_record"]["actions"]
+        loop["Caller_guard"] = {
+            "type": "Compose",
+            "inputs": True,
+            "runAfter": {"Guard_record": ["Succeeded"]},
+        }
+        loop["Record_file"]["runAfter"]["Caller_guard"] = ["Succeeded", "Skipped"]
+        before = copy.deepcopy(d)
+        result = checkpoint(d)
+        dependencies = result["properties"]["definition"]["actions"]["For_each_record"][
+            "actions"
+        ]["Record_file"]["runAfter"]
+        self.assertEqual(
+            dependencies,
+            {
+                "Guard_record": ["Succeeded"],
+                "Caller_guard": ["Succeeded", "Skipped"],
+                "Set_own_dois": ["Succeeded"],
+            },
+        )
+        self.assertEqual(d, before)
+
+    def test_record_cycles_and_incompatible_guards_are_refused(self):
+        for case in ("cycle", "incompatible", "unknown", "incompatible-ancestor"):
+            d = self.fixture()
+            loop = d["properties"]["definition"]["actions"]["For_each_record"][
+                "actions"
+            ]
+            if case == "cycle":
+                loop["Caller_guard"] = {
+                    "type": "Compose",
+                    "inputs": True,
+                    "runAfter": {"Record_file": ["Succeeded"]},
+                }
+                loop["Record_file"]["runAfter"]["Caller_guard"] = ["Succeeded"]
+            elif case == "incompatible":
+                loop["Record_file"]["runAfter"]["Guard_record"] = ["Failed"]
+            elif case == "incompatible-ancestor":
+                loop["Caller_guard"] = {
+                    "type": "Compose",
+                    "inputs": True,
+                    "runAfter": {"Guard_record": ["Failed"]},
+                }
+                loop["Record_file"]["runAfter"]["Caller_guard"] = ["Succeeded"]
+            else:
+                loop["Record_file"]["runAfter"]["Missing_guard"] = ["Succeeded"]
+            before = copy.deepcopy(d)
+            with self.subTest(case=case), self.assertRaises(ValueError):
+                checkpoint(d)
+            self.assertEqual(d, before)
+
+    def test_alternate_and_nested_variable_declarations_are_refused(self):
+        for nested in (False, True):
+            d = self.fixture()
+            actions = d["properties"]["definition"]["actions"]
+            declaration = {
+                "type": "InitializeVariable",
+                "runAfter": {},
+                "inputs": {
+                    "variables": [
+                        {"name": "OwnPublicationDOIs", "type": "array", "value": []}
+                    ]
+                },
+            }
+            actions["Different_name"] = (
+                {"type": "Scope", "actions": {"Nested_initializer": declaration}}
+                if nested
+                else declaration
+            )
+            before = copy.deepcopy(d)
+            with self.subTest(nested=nested), self.assertRaises(ValueError):
+                checkpoint(d)
+            self.assertEqual(d, before)
+
     def fixture(self):
         return build(
             "https://example.sharepoint.com/sites/dev",
@@ -97,7 +234,8 @@ class PublicationCollectionTests(unittest.TestCase):
             )
         self.assertEqual(values, ["10.1000/own(1)"])
         self.assertEqual(
-            loop["Record_file"]["runAfter"], {"Set_own_dois": ["Succeeded"]}
+            loop["Record_file"]["runAfter"],
+            {"Guard_record": ["Succeeded"], "Set_own_dois": ["Succeeded"]},
         )
         self.assertEqual(
             a["Save_complete_checkpoint"]["runAfter"],

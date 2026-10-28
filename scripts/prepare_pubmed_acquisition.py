@@ -12,7 +12,7 @@ from urllib.parse import urlsplit
 
 from scripts.collect_pubmed import BASE, validate_config
 from scripts.prepare_qgip_source_collection import build as archive_base
-from scripts.prepare_qgip_source_collection import compose, gate
+from scripts.prepare_qgip_source_collection import capture_failed_http, compose, gate
 
 
 def build(site, archive_parent, reference, collector, policy):
@@ -83,9 +83,18 @@ def build(site, archive_parent, reference, collector, policy):
             "pubmed": pubmed,
         }
     )
-    a["Initialize_ids"] = {
+    a["Initialize_acquisition_failure"] = {
         "type": "InitializeVariable",
         "runAfter": {"Scope": ["Succeeded"]},
+        "inputs": {
+            "variables": [
+                {"name": "AcquisitionFailed", "type": "boolean", "value": False}
+            ]
+        },
+    }
+    a["Initialize_ids"] = {
+        "type": "InitializeVariable",
+        "runAfter": {"Initialize_acquisition_failure": ["Succeeded"]},
         "inputs": {"variables": [{"name": "FetchedIds", "type": "array", "value": []}]},
     }
     a["Initialize_files"] = {
@@ -148,6 +157,14 @@ def build(site, archive_parent, reference, collector, policy):
         a["Raw_search_" + suffix] = compose(
             "@outputs('Search_" + suffix + "')", "Search_" + suffix
         )
+        capture_failed_http(
+            a,
+            "Search_" + suffix,
+            "pubmed",
+            "AcquisitionFailed",
+            "failure-search-" + suffix.lower() + ".json",
+            save,
+        )
         lastsearch = save(
             a,
             "search_" + suffix,
@@ -200,6 +217,14 @@ def build(site, archive_parent, reference, collector, policy):
         },
     }
     loop["Raw_xml"] = compose("@string(body('Fetch_xml'))", "Fetch_xml")
+    capture_failed_http(
+        loop,
+        "Fetch_xml",
+        "pubmed",
+        "AcquisitionFailed",
+        "@concat('failure-pmid-',first(items('For_each_batch')),'.json')",
+        save,
+    )
     filename = "@concat('pmid-',first(items('For_each_batch')),'.xml')"
     lastxml = save(loop, "xml", filename, "outputs('Raw_xml')", "Raw_xml")
     loop["XML_for_identity"] = compose(
@@ -266,7 +291,7 @@ def build(site, archive_parent, reference, collector, policy):
         "actions": loop,
     }
     a["Guard_complete"] = gate(
-        "and(equals(sort(body('Search_Before')?['esearchresult']?['idlist']),sort(body('Search_After')?['esearchresult']?['idlist'])),equals(sort(variables('FetchedIds')),sort(body('Search_Before')?['esearchresult']?['idlist'])))",
+        "and(not(variables('AcquisitionFailed')),equals(sort(body('Search_Before')?['esearchresult']?['idlist']),sort(body('Search_After')?['esearchresult']?['idlist'])),equals(sort(variables('FetchedIds')),sort(body('Search_Before')?['esearchresult']?['idlist'])))",
         "Guard_search_After",
     )
     a["Manifest"] = compose(
@@ -353,7 +378,11 @@ def with_bounded_read_recovery(
     The supplied observer bytes/hash bind existing source identity only. They do
     not certify native storage, deployment or durable failed-generation behavior.
     """
-    from scripts.patch_clinicaltrials_read_retries import POLICY, definition_sha256
+    from scripts.patch_clinicaltrials_read_retries import (
+        POLICY,
+        definition_sha256,
+        strict_json,
+    )
 
     d = copy.deepcopy(document)
     p = d.get("properties", {})
@@ -392,7 +421,7 @@ def with_bounded_read_recovery(
         not isinstance(observer_preimage_bytes, bytes)
         or hashlib.sha256(observer_preimage_bytes).hexdigest()
         != expected_observer_sha256
-        or definition_sha256(json.loads(observer_preimage_bytes))
+        or definition_sha256(strict_json(observer_preimage_bytes))
         != definition_sha256(observer)
     ):
         raise ValueError(

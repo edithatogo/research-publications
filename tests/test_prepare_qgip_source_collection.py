@@ -12,6 +12,51 @@ from scripts.prepare_qgip_source_collection import build
 
 
 class QGIPCollectorTests(unittest.TestCase):
+    def test_cli_rejects_duplicate_or_nonfinite_saved_reference(self):
+        root = Path(__file__).resolve().parents[1]
+        scratch = root / "private/ops"
+        scratch.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=scratch) as directory:
+            folder = Path(directory)
+            source = folder / "reference.json"
+            out = folder / "candidate.json"
+            valid = json.dumps(self.ref).encode()
+            command = [
+                sys.executable,
+                "-m",
+                "scripts.prepare_qgip_source_collection",
+                "--site",
+                "https://example.sharepoint.com/sites/dev",
+                "--archive-parent",
+                "/Documents/archive",
+                "--reference",
+                str(source),
+                "--output",
+                str(out),
+            ]
+            source.write_bytes(valid)
+            result = subprocess.run(
+                command, capture_output=True, text=True, check=False
+            )
+            self.assertEqual(result.returncode, 0, result.stderr)
+            saved = out.read_bytes()
+            for suffix in (
+                b',"source":"Embedded"',
+                b',"diagnostic":NaN',
+                b',"diagnostic":Infinity',
+            ):
+                raw = valid[:-1] + suffix + b"}"
+                source.write_bytes(raw)
+                command[-1] = str(folder / "bad.json")
+                with self.subTest(suffix=suffix):
+                    result = subprocess.run(
+                        command, capture_output=True, text=True, check=False
+                    )
+                    self.assertNotEqual(result.returncode, 0)
+                    self.assertFalse(Path(command[-1]).exists())
+                    self.assertEqual(source.read_bytes(), raw)
+                    self.assertEqual(out.read_bytes(), saved)
+
     def setUp(self):
         self.ref = {
             "source": "Embedded",

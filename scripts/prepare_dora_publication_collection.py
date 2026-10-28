@@ -9,7 +9,7 @@ import hashlib
 import json
 
 from scripts.prepare_qgip_source_collection import build as archive_base
-from scripts.prepare_qgip_source_collection import compose, gate
+from scripts.prepare_qgip_source_collection import capture_failed_http, compose, gate
 
 BASE = "https://dora.health.qld.gov.au"
 COLLECTION = BASE + "/qldresearchjspui/handle/1/849"
@@ -173,6 +173,16 @@ def build(site, parent, reference, policy):
             },
             get,
         )
+        capture_failed_http(
+            page,
+            get,
+            "dora",
+            "ScanFailed",
+            "@concat('failure-collection-"
+            + suffix.lower()
+            + "-offset-',string(variables('Offset')),'.json')",
+            save,
+        )
         name = (
             "@concat('collection-"
             + suffix.lower()
@@ -320,6 +330,14 @@ def build(site, parent, reference, policy):
         "Guard_handle_key",
     )
     loop["Raw_record"] = compose("@string(body('Get_full_record'))", "Get_full_record")
+    capture_failed_http(
+        loop,
+        "Get_full_record",
+        "dora",
+        "ScanFailed",
+        "@concat('failure-handle-1-',items('For_each_record'),'.json')",
+        save,
+    )
     name = "@concat('handle-1-',items('For_each_record'),'.html')"
     last = save(loop, "record", name, "outputs('Raw_record')", "Raw_record")
     loop["Full_metadata_table"] = compose(
@@ -357,7 +375,7 @@ def build(site, parent, reference, policy):
     }
     after = scan("After", "For_each_record")
     a["Guard_collection_stable"] = gate(
-        "and(equals(sort(variables('FirstKeys')),sort(variables('Keys'))),equals(length(variables('RecordFiles')),length(variables('FirstKeys'))))",
+        "and(not(variables('ScanFailed')),equals(sort(variables('FirstKeys')),sort(variables('Keys'))),equals(length(variables('RecordFiles')),length(variables('FirstKeys'))))",
         after,
     )
     a["Manifest"] = compose(
@@ -391,6 +409,74 @@ def with_daily_updates(document):
     raise ValueError("Daily proposal unavailable in the manual-only source packet")
 
 
+def _declares_own_dois(value):
+    if isinstance(value, dict):
+        if value.get("type") == "InitializeVariable":
+            inputs = value.get("inputs")
+            if not isinstance(inputs, dict):
+                raise ValueError("Malformed variable inputs")
+            variables = inputs.get("variables")
+            if not isinstance(variables, list):
+                raise ValueError("Malformed variable declarations")
+            if any(
+                not isinstance(v, dict)
+                or not isinstance(v.get("name"), str)
+                or not v["name"]
+                or v["name"] != v["name"].strip()
+                for v in variables
+            ):
+                raise ValueError("Malformed variable identity")
+            if any(
+                isinstance(v, dict)
+                and isinstance(v.get("name"), str)
+                and v["name"].casefold() == "ownpublicationdois"
+                for v in variables
+            ):
+                return True
+        return any(_declares_own_dois(v) for v in value.values())
+    if isinstance(value, list):
+        return any(_declares_own_dois(v) for v in value)
+    return False
+
+
+def _dependencies(actions):
+    """Check the changed sibling scope, without evaluating WDL expressions."""
+    parents = {}
+    for name, node in actions.items():
+        after = node.get("runAfter", {}) if isinstance(node, dict) else None
+        if not isinstance(after, dict):
+            raise ValueError("Malformed action dependencies")  # noqa: TRY004 - retained validation ValueError contract
+        for parent, statuses in after.items():
+            if (
+                parent not in actions
+                or not isinstance(statuses, list)
+                or not statuses
+                or any(
+                    s not in ("Succeeded", "Failed", "TimedOut", "Skipped")
+                    for s in statuses
+                )
+                or len(set(statuses)) != len(statuses)
+            ):
+                raise ValueError("Unknown or incompatible action dependency")
+        parents[name] = set(after)
+    visited = set()
+    active = set()
+
+    def visit(name):
+        if name in active:
+            raise ValueError("Cyclic action dependencies")
+        if name in visited:
+            return
+        active.add(name)
+        for parent in parents[name]:
+            visit(parent)
+        active.remove(name)
+        visited.add(name)
+
+    for name in parents:
+        visit(name)
+
+
 def with_raw_doi_checkpoint(document, *, expected_definition_sha256=None):
     """Expose explicit own DOI fields after complete raw metadata preservation."""
     d = copy.deepcopy(document)
@@ -406,7 +492,7 @@ def with_raw_doi_checkpoint(document, *, expected_definition_sha256=None):
         != "rims-dora-publication-raw-commit-v1"
     ):
         raise ValueError("Stopped DoRA publication collector required")
-    if "Initialize_own_publication_dois" in a:
+    if "Initialize_own_publication_dois" in a or _declares_own_dois(p["definition"]):
         raise ValueError("Raw DOI producer already configured")
     top = {
         "Save_complete_checkpoint",
@@ -431,6 +517,31 @@ def with_raw_doi_checkpoint(document, *, expected_definition_sha256=None):
         raise ValueError(
             "Existing DOI/checkpoint namespace must be reconciled, not overwritten"
         )
+    loop = a["For_each_record"]["actions"]
+    _dependencies(loop)
+    record_after = copy.deepcopy(loop["Record_file"].get("runAfter"))
+    if not isinstance(record_after, dict) or "Succeeded" not in record_after.get(
+        "Guard_record", []
+    ):
+        raise ValueError("Record guard is incompatible with own-DOI success")
+    # Guard_record success is necessary for the new DOI chain. Propagate only
+    # statically forced skips; do not pretend to evaluate arbitrary WDL bodies.
+    known = {"Guard_record": "Succeeded"}
+    while True:
+        forced = {
+            name: "Skipped"
+            for name, node in loop.items()
+            if name not in known
+            and any(
+                parent in known and known[parent] not in statuses
+                for parent, statuses in node.get("runAfter", {}).items()
+            )
+        }
+        if not forced:
+            break
+        known.update(forced)
+    if known.get("Record_file") == "Skipped":
+        raise ValueError("Record dependency requires an incompatible guard outcome")
     previous = copy.deepcopy(a["Run_folder"]["runAfter"])
     a["Initialize_own_publication_dois"] = {
         "type": "InitializeVariable",
@@ -473,7 +584,9 @@ def with_raw_doi_checkpoint(document, *, expected_definition_sha256=None):
             "value": "@outputs('Merged_own_dois')",
         },
     }
-    loop["Record_file"]["runAfter"] = {"Set_own_dois": ["Succeeded"]}
+    record_after["Set_own_dois"] = ["Succeeded"]
+    loop["Record_file"]["runAfter"] = record_after
+    _dependencies(loop)
     a["Manifest"]["inputs"]["publication_doi_values"] = (
         "@variables('OwnPublicationDOIs')"
     )
