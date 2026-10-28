@@ -1,5 +1,39 @@
 # Current integration checkpoint — 29 October 2026
 
+## Effectiveness review — 29 October 2026, 09:21 Brisbane
+
+Compared with the former review/integration bottleneck at `b634ab52`, all three
+terminal delivery packets and parent NIH work are now ancestors of verified
+PR70 main `7c202562`. The NIH pin race and both DataCite review findings were
+corrected before integration. Exact-main CI receipts are retained in this lane's
+ignored takeover evidence and were reused, not rerun. There is no remaining
+terminal source-code integration backlog from that batch. At review entry only
+one coordination commit (`205024b2`, created 09:19 Brisbane) was ahead of main;
+this is fresh documentation divergence, not an aged delivery packet.
+
+No native/runtime or operational requirement gained acceptance in this interval.
+The accepted result is source integration and review correction, not live typed
+admission, bridge persistence, report import/rendering or delivery. Existing E04
+import/inverse, T18 identity, notification/auth ownership, E10 terminal host and
+post-1-November monthly dependencies remain open. No new failure or duplicate
+implementation is evidenced by this bounded review; no broad review was repeated.
+
+Both active delivery owners have independently advanced to the same verified
+main. Keep only these two writers active; the integrated DataCite lane remains
+unassigned rather than filling concurrency for its own sake. Do not retire its
+checkout or the unused initial fec1 checkout until app ownership and needed
+ignored artifacts are qualified; clean/merged source alone is insufficient.
+
+Bounded adjustment: the current PR70 assignments above the transfer-time history
+are authoritative. Older pending-review, PR-open and waiting-base statements
+below are explicitly historical. Do not dispatch another helper wave before
+collecting these two connected terminal packets and their exact input/native
+dependency handoffs. Next measurable result is admission-to-consumer field/key
+parity and typed evidence export parity on independently pinned supplied inputs,
+or a concrete missing-input/capability record. Neither can be counted as native
+acceptance without its separate runtime/readback evidence. Preserve the active
+writers and all existing native/auth owners; no extra chat or timer is needed.
+
 ## Orchestration transfer complete — 29 October 2026
 
 ### Verified PR70 and next connected assignments
@@ -32,6 +66,8 @@ Cleanup readback after the former owner's final message: rims-reconcile is now
 absent from both the filesystem and registered Git worktree inventory. The
 earlier app refusal below is retained as history; this integrator did not remove
 it or alter private app state. Original operational/runtime checkouts remain.
+
+### Transfer-time history — superseded by the PR70 checkpoint above
 
 Sole orchestrator/integrator and shared-record owner is now
 `01a184bf-c06f-7703-9e9e-b1bcdc95f3e1`, managed checkout
