@@ -6,6 +6,11 @@ performs no network I/O and never creates a mutation or restore payload.
 from __future__ import annotations
 
 import argparse
+
+if __package__:
+    from scripts.plan_publication_stub_restore import strict_json_loads, same_target, target_qualification
+else:
+    from plan_publication_stub_restore import strict_json_loads, same_target, target_qualification
 import copy
 from collections import Counter
 from datetime import datetime, timezone
@@ -94,7 +99,7 @@ def verify_action_references(correlation: dict, private_root: Path) -> dict:
         if not match:
             raise ValueError('Exact native action item reference required')
         raw = path.read_bytes()
-        capture = json.loads(raw)
+        capture = strict_json_loads(raw)
         if (capture.get('schema_version') != 'publication-create-repetition-ids/v1'
                 or capture.get('read_only') is not True
                 or capture.get('complete_repetition_index_set') is not True):
@@ -146,7 +151,7 @@ def verify_native_files(cohort: dict, registry: list[dict], directory: Path,
         for index,page in enumerate(pages):
             if not re.fullmatch(r'versions-'+str(ident)+r'-[0-9]+\.json',page['file']):
                 raise ValueError('Version filename is not bound to the item')
-            capture=json.loads(artifact(directory,page['file'],page['sha256']))
+            capture=strict_json_loads(artifact(directory,page['file'],page['sha256']))
             if 'error' in capture or capture.get('errors') or not isinstance(capture.get('value'),list):
                 raise ValueError('Native version response is incomplete')
             if '@odata.nextLink' in capture and 'odata.nextLink' in capture and capture['@odata.nextLink']!=capture['odata.nextLink']:
@@ -294,12 +299,12 @@ def build(registry: list[dict], cohort: dict, original: dict, correlation: dict,
                 'status': 'preservation_only', 'decision': 'retain', 'reviewed_at_utc': reviewed_at,
                 'actor': 'not asserted; source validation is not human review',
                 'item_evidence': 'current record/hash, complete native version and retained item-specific creation evidence or explicit unresolved origin',
-                'rationale': ('Exact creation provenance exists, but no older content, effective policy clearance or removal authority.'
+                'rationale': ('Exact creation provenance exists, but older content recoverability is not assessed, and there is no effective policy clearance or removal authority.'
                               if grade == 'direct_action_id_match' else
                               'Exact creation action remains unresolved; retain the item without inference from neighbouring IDs or timestamps.'),
             },
             'restore_ready': False, 'mutation_authorized': False, 'write_payload': None,
-            'recovery_limits': ['No older saved version with publication content is available.',
+            'recovery_limits': ['Older saved publication content recoverability is not assessed; version counts alone do not prove content absence.',
                                 'Effective site/list retention, holds and record declarations remain unqualified.',
                                 'Ordinary recreation cannot promise original ID/GUID, system audit fields or version history.',
                                 'No removal, quarantine or native restore was executed.'],
@@ -309,6 +314,7 @@ def build(registry: list[dict], cohort: dict, original: dict, correlation: dict,
         raise ValueError('Action provenance aggregate differs from per-item evidence')
     return {
         'schema': 'publication-stub-preservation-ledger/v1',
+        "target_binding": target_qualification(cohort, original, correlation, context),
         'read_only': True, 'candidate_count': len(ids),
         'disposition_scope': 'preservation_only', 'disposition_decided': False,
         'mutation_authorized': False, 'cleanup_authorized': False, 'restore_ready_count': 0,
@@ -326,6 +332,12 @@ def build(registry: list[dict], cohort: dict, original: dict, correlation: dict,
     }
 
 
+def saved_inputs(paths: list[Path]) -> tuple[list[bytes], list]:
+    """Parse and hash only the same single capture of each input."""
+    payloads = [path.read_bytes() for path in paths]
+    return payloads, [strict_json_loads(raw) for raw in payloads]
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ('registry', 'cohort', 'original', 'correlation', 'shapes', 'fields', 'context', 'output'):
@@ -339,18 +351,18 @@ def main() -> None:
     if len({path.resolve() for path in paths}) != len(paths) or args.output.exists():
         parser.error('Distinct inputs and a new output are required')
     private_output(args.output, [*paths[:-1],args.version_field_map])
-    values = [json.loads(path.read_text()) for path in paths[:-1]]
+    payloads, values = saved_inputs(paths[:-1])
     if isinstance(values[5], dict):
         if values[5].get('@odata.nextLink',values[5].get('odata.nextLink')) is not None:
             parser.error('Native field inventory pagination remains incomplete')
         values[5] = values[5]['value']
-    if values[6].get('field_inventory',{}).get('artifact_sha256') != hashlib.sha256(args.fields.read_bytes()).hexdigest():
+    if values[6].get('field_inventory',{}).get('artifact_sha256') != hashlib.sha256(payloads[5]).hexdigest():
         parser.error('Native field inventory response bytes changed')
     result = build(*values)
-    cohort_bytes = args.registry.read_bytes()
+    cohort_bytes = payloads[0]
     if values[1].get('baseline_rows_sha256') != hashlib.sha256(cohort_bytes).hexdigest():
         parser.error('Current registry bytes do not match the native cohort baseline')
-    result['native_file_verification'] = verify_native_files(values[1], values[0], args.cohort.parent / 'native', values[5], version_field_map=json.loads(args.version_field_map.read_bytes()), inventory_receipt=values[6]['field_inventory'])
+    result['native_file_verification'] = verify_native_files(values[1], values[0], args.cohort.parent / 'native', values[5], version_field_map=strict_json_loads(args.version_field_map.read_bytes()), inventory_receipt=values[6]['field_inventory'])
     result['retained_action_verification'] = verify_action_references(values[3], private)
     with args.output.open('x', encoding='utf-8') as output:
         output.write(json.dumps(result, indent=2, ensure_ascii=False) + '\n')

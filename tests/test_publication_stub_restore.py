@@ -42,6 +42,20 @@ class StubRestorePlanTests(unittest.TestCase):
             'policy_id':'fictional-policy', 'evidence_ref':'fixture://governed-policy',
             'max_age_hours':48, 'max_skew_hours':24, 'max_context_skew_hours':1, 'max_review_age_hours':48})
 
+    def test_saved_json_rejects_duplicate_keys_and_nonfinite_numbers(self):
+        from scripts.plan_publication_stub_restore import strict_json_loads
+        for raw in ('{"Id":2,"Id":3}', '{"nested":{"x":1,"x":2}}',
+                    '{"x":NaN}', '{"x":Infinity}', '{"x":1e999}'):
+            with self.subTest(raw=raw), self.assertRaises(ValueError):
+                strict_json_loads(raw)
+
+    def test_missing_target_is_unqualified_and_conflicting_targets_rejected(self):
+        from scripts.plan_publication_stub_restore import target_qualification
+        self.assertFalse(target_qualification({}, {})['qualified'])
+        a={'target':{'site_id':'site','list_id':'list'}}
+        self.assertTrue(target_qualification(a,a)['qualified'])
+        with self.assertRaises(ValueError): target_qualification(a,{})
+
     def test_missing_exports_are_explicit_gaps(self):
         report = self.run_plan(self.registry, self.candidates, self.schema)
         self.assertEqual(report["candidate_count"], 1)

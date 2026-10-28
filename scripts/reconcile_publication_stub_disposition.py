@@ -7,6 +7,11 @@ read-only evidence matrix; it never proposes a SharePoint write.
 from __future__ import annotations
 
 import argparse
+
+if __package__:
+    from scripts.plan_publication_stub_restore import strict_json_loads, same_target, target_qualification
+else:
+    from plan_publication_stub_restore import strict_json_loads, same_target, target_qualification
 import hashlib
 import json
 from pathlib import Path
@@ -118,6 +123,7 @@ def reconcile(candidates: dict[str, Any], correlation: dict[str, Any],
         raise ValueError("item export aggregate disagrees with rows")
     return {"receipt_schema_version": "publication-stub-disposition-evidence/v1",
             "read_only": True, "mutation_authorized": False,
+            "target_binding": target_qualification(candidates, correlation, rehearsal, readiness),
             "disposition_decided": False, "candidate_count": len(ids),
             "cross_receipt_evidence_coherent": not cross_receipt_mismatches,
             "cross_receipt_mismatches": cross_receipt_mismatches,
@@ -142,7 +148,7 @@ def main() -> None:
     inputs = [getattr(args, name) for name in ("candidates", "correlation", "rehearsal", "readiness")]
     if args.output.resolve() in {path.resolve() for path in inputs}:
         parser.error("output cannot overwrite an input")
-    result = reconcile(*(json.loads(path.read_text(encoding="utf-8")) for path in inputs))
+    result = reconcile(*(strict_json_loads(path.read_text(encoding="utf-8")) for path in inputs))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open('x', encoding='utf-8') as stream:
         stream.write(json.dumps(result, indent=2) + "\n")

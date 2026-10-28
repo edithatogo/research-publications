@@ -10,6 +10,11 @@ an item may be removed or restored.
 from __future__ import annotations
 
 import argparse
+
+if __package__:
+    from scripts.plan_publication_stub_restore import strict_json_loads, same_target, target_qualification
+else:
+    from plan_publication_stub_restore import strict_json_loads, same_target, target_qualification
 import hashlib
 import json
 from pathlib import Path
@@ -81,6 +86,7 @@ def correlate(candidates: dict[str, Any], actions: dict[str, Any]) -> dict[str, 
                             "evidence_ref": evidence_ref}
     return {
         "schema_version": "publication-stub-action-correlation/v1",
+        "target_binding": target_qualification(candidates, actions),
         "read_only": True,
         "disposition_decided": False,
         "restore_ready": False,
@@ -112,8 +118,8 @@ def main() -> None:
         parser.error("correlation output must be under ignored private/ops")
     if output_path in {args.candidates.resolve(), args.actions.resolve()}:
         parser.error("correlation output cannot overwrite an input")
-    result = correlate(json.loads(args.candidates.read_text(encoding="utf-8")),
-                       json.loads(args.actions.read_text(encoding="utf-8")))
+    result = correlate(strict_json_loads(args.candidates.read_text(encoding="utf-8")),
+                       strict_json_loads(args.actions.read_text(encoding="utf-8")))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open('x', encoding='utf-8') as stream:
         stream.write(json.dumps(result, indent=2, ensure_ascii=False) + "\n")

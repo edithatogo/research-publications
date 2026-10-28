@@ -8,6 +8,11 @@ All output is field names and counts; source values remain in private inputs.
 from __future__ import annotations
 
 import argparse
+
+if __package__:
+    from scripts.plan_publication_stub_restore import strict_json_loads, same_target, target_qualification
+else:
+    from plan_publication_stub_restore import strict_json_loads, same_target, target_qualification
 import copy
 import hashlib
 import json
@@ -22,7 +27,7 @@ else:
 
 
 def _load(path: Path) -> dict[str, Any]:
-    value = json.loads(path.read_text(encoding="utf-8"))
+    value = strict_json_loads(path.read_text(encoding="utf-8"))
     if not isinstance(value, dict):
         raise ValueError("input must be an object")
     return value
@@ -132,6 +137,7 @@ def rehearse(details: dict[str, Any], versions: dict[str, Any],
         })
     return {
         "receipt_schema_version": "publication-stub-offline-rehearsal/v1",
+        "target_binding": target_qualification(details, versions, correlation, schema),
         "read_only": True,
         "mutation_authorized": False,
         "write_payload": None,

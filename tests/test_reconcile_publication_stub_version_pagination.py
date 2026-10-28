@@ -19,6 +19,20 @@ class VersionPaginationReconcileTests(unittest.TestCase):
                          "items": [{"id": i, "status": 200, "count": 1,
                                     "next": None, "labels": ["1.0"]} for i in (2, 3)]}
 
+        for snapshot in (self.export, self.readback):
+            snapshot['target'] = {'site_id':'fictional-site','list_id':'fictional-list'}
+            for row in snapshot['items']:
+                row['GUID'] = 'fictional-guid-' + str(row.get('Id',row.get('id')))
+
+    def test_missing_or_mismatched_target_and_guid_fail_closed(self):
+        for mode in ('missing','list','site','guid'):
+            live=copy.deepcopy(self.readback)
+            if mode=='missing': live.pop('target')
+            elif mode in ('site','list'): live['target'][mode+'_id']='unrelated'
+            else: live['items'][0]['GUID']='unrelated'
+            with self.subTest(mode=mode), self.assertRaises(ValueError):
+                reconcile(self.export,live)
+
     def test_exact_complete_readback_marks_only_reconciled_items(self):
         result = reconcile(self.export, self.readback)
         self.assertTrue(all(row["version_history_complete"] and

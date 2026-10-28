@@ -6,6 +6,11 @@ It never grants authority to dispose of rows or change a SharePoint field.
 from __future__ import annotations
 
 import argparse
+
+if __package__:
+    from scripts.plan_publication_stub_restore import strict_json_loads, same_target, target_qualification
+else:
+    from plan_publication_stub_restore import strict_json_loads, same_target, target_qualification
 import hashlib
 import json
 from collections import Counter
@@ -87,6 +92,7 @@ def assess(aggregate: dict, keyed: dict, disposition: dict) -> dict:
         "schema": "publication-key-migration-preflight/v1",
         "read_only": True,
         "mutation_authorized": False,
+        "target_binding": target_qualification(aggregate, keyed, disposition),
         "schema_change_authorized": False,
         "write_payload": None,
         "constraint_preflight_ready": not blockers,
@@ -108,7 +114,7 @@ def main() -> int:
     sources = [args.aggregate, args.keyed, args.disposition]
     if args.output: private_output(args.output, sources)
     payloads = [x.read_bytes() for x in sources]
-    result = assess(*(json.loads(x) for x in payloads))
+    result = assess(*(strict_json_loads(x) for x in payloads))
     result["input_sha256"] = {name: hashlib.sha256(data).hexdigest() for name, data in zip(("aggregate", "keyed", "disposition"), payloads)}
     text = json.dumps(result, indent=2) + "\n"
     if args.output:

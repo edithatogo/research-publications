@@ -48,6 +48,16 @@ def fixture():
 
 
 class PreservationLedgerTests(unittest.TestCase):
+    def test_saved_inputs_parse_and_hash_one_identical_byte_capture(self):
+        from unittest.mock import Mock
+        from scripts.build_publication_stub_preservation_ledger import saved_inputs
+        path=Mock()
+        path.read_bytes.side_effect=[b'{"value":1}',b'{"value":2}']
+        raw,values=saved_inputs([path])
+        self.assertEqual(values,[{'value':1}])
+        self.assertEqual(raw,[b'{"value":1}'])
+        path.read_bytes.assert_called_once_with()
+
     def native_fixture(self, root):
         args=fixture(); rows,cohort=args[:2]
         args[5].append({'InternalName':'field_59','ReadOnlyField':False,'Hidden':False,'TypeAsString':'Note'})
@@ -183,6 +193,8 @@ class PreservationLedgerTests(unittest.TestCase):
             result=build(*args)
             self.assertEqual(result['items'][0]['older_saved_versions'],1)
             self.assertIsNone(result['counts']['older_saved_content_recoverable'])
+            self.assertIn('not assessed',result['items'][0]['recovery_limits'][0])
+            self.assertNotIn('no older content',result['items'][0]['preservation_review']['rationale'])
             self.assertEqual(result['counts']['no_attachments'],1)
             self.assertEqual(result['items'][0]['current_record']['field_59'],'Fictional protected human review')
             result['items'][0]['current_record']['field_59']='overwrite'

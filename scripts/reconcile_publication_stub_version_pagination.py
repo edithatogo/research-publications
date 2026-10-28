@@ -9,6 +9,11 @@ authorize mutation.
 from __future__ import annotations
 
 import argparse
+
+if __package__:
+    from scripts.plan_publication_stub_restore import strict_json_loads, same_target
+else:
+    from plan_publication_stub_restore import strict_json_loads, same_target
 import copy
 import json
 from pathlib import Path
@@ -36,6 +41,7 @@ def private_path(path: Path) -> Path:
 
 def reconcile(export: dict[str, Any], readback: dict[str, Any]) -> dict[str, Any]:
     export, readback = copy.deepcopy((export, readback))
+    same_target(export, readback)
     old = export.get("items")
     live = readback.get("items")
     if (export.get("complete") is not True or export.get("next_links") != []
@@ -65,6 +71,9 @@ def reconcile(export: dict[str, Any], readback: dict[str, Any]) -> dict[str, Any
         versions = row.get("versions")
         version_entries(versions)
         observed = by_id[row["Id"]]
+        if (not isinstance(row.get("GUID"), str) or not row["GUID"] or row["GUID"] != row["GUID"].strip()
+                or observed.get("GUID") != row["GUID"]):
+            raise ValueError("Exact item GUID binding required; receipt unqualified")
         count(observed.get('count'), len(versions), 'version count')
         if (not isinstance(versions, list) or observed.get("status") != 200
                 or observed.get("count") != len(versions)
@@ -88,7 +97,7 @@ def main() -> None:
     private_output(a.output, [a.versions, a.readback], root=ROOT)
     if len({versions_path, readback_path, output_path}) != 3 or output_path.exists():
         p.error("Private evidence inputs/output must be distinct and output new")
-    result = reconcile(json.loads(versions_path.read_text()), json.loads(readback_path.read_text()))
+    result = reconcile(strict_json_loads(versions_path.read_text()), strict_json_loads(readback_path.read_text()))
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with output_path.open('x', encoding='utf-8') as stream:
         stream.write(json.dumps(result, indent=2) + "\n")

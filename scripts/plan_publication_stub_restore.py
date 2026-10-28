@@ -46,10 +46,53 @@ else:
 # SPDX-License-Identifier: Apache-2.0
 
 
+def strict_json_loads(raw: str | bytes) -> Any:
+    """Reject ambiguous saved JSON before interpreting or hashing evidence."""
+    def pairs(entries):
+        result = {}
+        for key, value in entries:
+            if key in result:
+                raise ValueError('Duplicate JSON object key')
+            result[key] = value
+        return result
+    def constant(value):
+        raise ValueError('Nonfinite JSON number')
+    def number(value):
+        result = float(value)
+        if not __import__('math').isfinite(result):
+            raise ValueError('Nonfinite JSON number')
+        return result
+    return json.loads(raw, object_pairs_hook=pairs, parse_constant=constant, parse_float=number)
+
+
+def same_target(*snapshots: dict) -> dict:
+    """Require explicit exact site/list scope; integer item IDs are list-local."""
+    targets = []
+    for snapshot in snapshots:
+        target = snapshot.get('target')
+        if not isinstance(target, dict) or set(target) != {'site_id', 'list_id'}:
+            raise ValueError('Explicit site/list target required; receipt unqualified')
+        if any(not isinstance(v, str) or not v or v != v.strip() for v in target.values()):
+            raise ValueError('Invalid site/list target')
+        targets.append(target)
+    if not targets or any(t != targets[0] for t in targets):
+        raise ValueError('Evidence target mismatch')
+    return copy.deepcopy(targets[0])
+
+
+def target_qualification(*snapshots: dict) -> dict:
+    """Missing identity is unqualified; supplied conflicting identity is rejected."""
+    present = [s for s in snapshots if isinstance(s, dict)]
+    if any('target' in s for s in present):
+        same_target(*present)
+        return {'qualified': True, 'target': same_target(*present)}
+    return {'qualified': False, 'reason': 'Missing explicit site/list target; ID joins are unqualified diagnostics'}
+
+
 def _read(path: Path | None) -> dict[str, Any] | None:
     if path is None:
         return None
-    value = json.loads(path.read_text(encoding="utf-8"))
+    value = strict_json_loads(path.read_bytes())
     if not isinstance(value, dict):
         raise ValueError(f"snapshot must be a JSON object: {path}")
     return value
@@ -348,6 +391,7 @@ def plan(
         raise ValueError('Caller-explicit aware UTC planning time required')
     planning_now = utc(now.isoformat())
     policy = governed_policy(freshness_policy)
+    target_binding = target_qualification(registry, candidates, schema, details, versions, attachments)
     registry, candidates, schema, details, versions, attachments, context, flow_evidence = copy.deepcopy(
         (registry, candidates, schema, details, versions, attachments, context, flow_evidence))
     if registry.get("complete") is not True or registry.get("next_links") != []:
@@ -599,6 +643,7 @@ def plan(
         "item_export_complete_count": sum(row["item_export_complete"] for row in rows),
         "all_restore_exports_complete": all(row["restore_export_complete"] for row in rows),
         "restore_ready_count": 0,
+        "target_binding": target_binding,
         "candidate_evidence_complete_count": sum(row["candidate_evidence_complete"] for row in rows),
         # Compatibility field: this has historically meant the full gated
         # restore package, including policy context. Keep it fail-closed.

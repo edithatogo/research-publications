@@ -106,3 +106,29 @@ This is focused source verification. Native behavior, preservation acceptance,
 restoration, disposition and scheduled operation remain unverified and
 unauthorized by this packet. Shared contracts, dependency/runtime files,
 coordination handoffs and historical audit inventories are outside its scope.
+
+## Review corrections
+
+The pagination reconciler now requires identical explicit `target` objects with
+nonempty exact `site_id` and `list_id`, and matching per-item `GUID` values in
+saved exports and readback receipts. Missing identity leaves historical receipts
+unqualified: no recapture or inferred identity is permitted. Integer IDs and
+version labels alone cannot certify complete history.
+
+Other joins expose `target_binding`: absent site/list evidence is explicitly
+unqualified diagnostic evidence, while supplied missing or conflicting target
+partners fail validation. Existing content and ID-match counts describe supplied
+evidence only; they do not qualify its native origin. Cross-receipt hashes bind
+specific inputs but cannot establish the native origin of those inputs.
+
+Every helper's saved JSON ingestion rejects duplicate object keys, NaN, Infinity
+and overflowed nonfinite numbers. Ledger registry and field inputs are each read
+once; both parsing and captured-byte hash comparisons use that same byte buffer.
+Older-version counts do not establish whether publication content is absent or
+recoverable; the ledger explicitly leaves that assessment unknown.
+
+After review corrections, affected file-level unittest runs passed all 89
+methods (the previous 85 plus four new regression methods). No full repository
+harness or native operation was run. The added cases cover target/GUID conflicts,
+strict JSON, unqualified target diagnostics and single-read byte binding; the
+existing multiversion fixture also checks the corrected unknown-content wording.
