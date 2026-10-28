@@ -35,6 +35,21 @@ Internal disk exhaustion was observed during startup; avoid large allocations
 and use owned temporary outputs on PortableSSD without moving active environments.
 Earlier assignments below are history, including the superseded local-only hold.
 
+### Exact guarded DEV assignment — E04 theme identity
+
+Dashboard chat `01a1831e-cc0d-7340-a1da-95c81b8e93fa` is the sole native writer
+for the exact existing E04 report in the retained reconciled-report-target manifest.
+Fresh readback matches all75 report parts and61 common-model parts. Assigned
+change: only the registered custom-theme resource internal `/name`, matched to
+its existing registration. Frozen candidate/inverse references are in the lane
+handoff. Require fresh prewrite drift check, complete preimage, qualified save,
+full definition/binding readback, bounded inverse and actual rendered verification.
+Common model, separate T18 report, data, filters, layout, refresh, schedule, sharing
+and production promotion are outside this write assignment. Stop on drift,
+unsupported save/validation, uncertain response or conflicting ownership.
+No other lane has a native write assignment. This uses the user-approved guarded
+DEV authority; it does not extend notification, authentication or delivery scope.
+
 ### Current continuation
 
 PR57 merged at `75376d0f9224aa22c7a955d9c27bf2a1f425250c`; main quality
