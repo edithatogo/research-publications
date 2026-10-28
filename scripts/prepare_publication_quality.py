@@ -45,6 +45,12 @@ def build(snapshot,disposition,packet):
         if identity not in rows or identity in paired or len(source)!=1 or not isinstance(source[0].get('values'),dict):raise ValueError('Exact unique source pair required')
         key=core.identifier(record.get('source_key'),'SourceKey')
         if not core.same(key,rows[identity].get('field_1')) or not core.same(key,source[0].get('source_key')):raise ValueError('Source identities disagree')
+        if 'values' in record:
+            retained_values=record['values']
+            if not isinstance(retained_values,dict) or set(retained_values)-set(FIELDS):raise ValueError('Retained values require supported logical metadata fields')
+            for field,value in retained_values.items():
+                native=FIELDS[field]
+                if native not in rows[identity] or not core.same(value,rows[identity][native]):raise ValueError('Retained case value differs from current registry')
         paired[identity]=(case_id,source[0]['values'])
     output=[];seen=set()
     for d in diffs:

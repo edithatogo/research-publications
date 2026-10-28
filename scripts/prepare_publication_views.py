@@ -74,6 +74,7 @@ def prepare(before,as_of,bindings):
         if identity is not None and v is None:raise ValueError('Bound view missing; no identity guessing')
         if v is not None and (v['DefaultView'] or v['PersonalView'] or v['Hidden']):raise ValueError('Protected view cannot be replaced')
         desired=wanted[role]
+        if any(other['Id']!=identity and other['Title'].casefold()==desired['Title'].casefold() for other in s['views']):raise ValueError('Desired view title belongs to another identity; explicit handover required')
         if v is None or any(not core.same(v.get(k),value) for k,value in desired.items()):
             changes.append(dict(role=role,id=identity,before=copy.deepcopy(v),desired=copy.deepcopy(desired),
                 fields=copy.deepcopy(v['resolvedFields']['Items']['results'] if v else COLUMNS)))

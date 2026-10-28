@@ -72,7 +72,11 @@ with exact IDs and SourceKeys. No query is executed by these scripts.
 
 View roles `publications`, `month`, `uncertainty`, `placeholders` require complete
 bindings: exact GUID or null for a proposed new view. Default, personal and hidden
-views are protected. Period bounds use an aware as-of converted to Brisbane;
+views are protected. Desired titles are compared with casefolding against every
+other view identity. New bindings cannot recreate an existing desired title;
+existing bindings cannot rename over another identity. Previously created views
+require explicit receipt-ID handover rather than implicit title adoption. Period
+bounds use an aware as-of converted to Brisbane;
 no automatic rollover is installed. Keyed nonExcluded rows are register cohorts,
 not accepted canonical totals. Unknown months remain unknown, placeholders remain
 retained, and no publication date is invented. Supplied native query results must
@@ -86,6 +90,12 @@ exact `{id,field,registry,canonical}` entries. Case packet includes a source SHA
 exact case/difference counts and one exact `registry:<positive ID>` /
 `canonical-for:<same ID>` pair per case. Both SourceKeys must match the current
 row; every supplied difference must match retained and source values exactly.
+A retained record may be a pointer with no `values` member. If `values` is
+supplied it must be an object using only the nine supported logical metadata
+fields in `FIELDS`; every supplied value, including fields outside the disputed
+set, must match its exact current registry value and JSON type. Native field
+aliases, context labels and other unsupported fields fail rather than being
+discarded. Absence of `values` does not assert a retained value snapshot.
 Duplicate, stale, uncovered, malformed and mixed-generation pairs fail. The source
 hash binds a supplied source assertion; this helper does not fetch or hash an
 external source. Cases and differences cover the complete supplied historical set,
@@ -184,8 +194,13 @@ with site packages disabled:
   tests.test_prepare_publication_quality -q
 ```
 
-All 39 tests pass, including exact preservation, plan tampering, malformed and
+The original packet passed 39 tests, including exact preservation, plan
+tampering, malformed and
 partial inputs, explicit policy qualification, cohorts of 201 comparisons,
 empty differences, receipt substitution and local CLI round trips/exclusive
-outputs. These are synthetic fixtures. Broad unchanged harness/native checks
-were not repeated; the integrator retains the integration/release gates.
+outputs. The review follow-up passed all 20 affected view/quality tests on the
+same Python 3.15.1 interpreter, including four new regressions for replay after
+creation, unrelated title collisions, contradictory retained values and
+unsupported/malformed retained-value objects. These are synthetic fixtures.
+Unchanged tests reuse the original receipt; broad harness/native checks were not
+repeated. The integrator retains the integration/release gates.

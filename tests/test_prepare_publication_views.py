@@ -69,3 +69,22 @@ class ViewTests(unittest.TestCase):
             with patch.object(views,'ROOT',root):
                 self.assertEqual(views.main(args),0);raw=out.read_bytes();self.assertEqual(views.main(args),2);self.assertEqual(out.read_bytes(),raw)
                 args[-1]=str(private/'other.json');self.assertEqual(views.main(args+['--created',str(private/'bindings.json')]),2);self.assertFalse((private/'other.json').exists())
+
+    def test_replay_after_new_views_requires_explicit_identity_handover(self):
+        from tests.test_prepare_publication_registry_bootstrap import view
+        s=metadata_snapshot();bindings=dict.fromkeys(views.ROLES);p=views.prepare(s,'2026-10-29T00:00:00Z',bindings);after=copy.deepcopy(s);created={}
+        for i,c in enumerate(p['changes']):
+            v=view(c['role'],400+i);v.update(copy.deepcopy(c['desired']));v['resolvedFields']['Items']['results']=copy.deepcopy(c['fields']);after['views'].append(v);created[c['role']]=v['Id']
+        after['counts']['views']=len(after['views'])
+        with self.assertRaises(ValueError):views.prepare(after,'2026-10-29T00:00:00Z',bindings)
+        self.assertEqual(views.prepare(after,'2026-10-29T00:00:00Z',created)['changes'],[])
+
+    def test_other_view_title_collision_cannot_be_created_or_renamed_over(self):
+        for new_binding in (True,False):
+            for case_variant in (False,True):
+                s=metadata_snapshot();bindings=self.args(s);title=views.definitions('2026-09','2026-10')['month']['Title']
+                s['views'][4]['Title']=title.upper() if case_variant else title
+                if new_binding:bindings['month']=None
+                original=copy.deepcopy(s)
+                with self.subTest(new_binding=new_binding,case_variant=case_variant),self.assertRaises(ValueError):views.prepare(s,'2026-10-29T00:00:00Z',bindings)
+                self.assertEqual(s,original)

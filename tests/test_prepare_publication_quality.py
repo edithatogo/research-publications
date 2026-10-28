@@ -131,3 +131,16 @@ class QualityTests(unittest.TestCase):
             args+=['--plan',str(output),'--after',str(private/'after.json'),'--effects',str(private/'effects.json'),'--query-results',str(private/'queries.json'),'--expected-plan-sha256',p['plan_sha256']]
             self.assertEqual(quality.main(args),0)
             self.assertFalse(json.loads((private/'report.json').read_bytes())['result']['native_acceptance'])
+
+    def test_supplied_retained_values_are_checked_even_outside_disputed_fields(self):
+        s,d,c=self.inputs();record=c['cases'][0]['records'][0]
+        record['values']={name:copy.deepcopy(s['items'][0][native]) for name,native in quality.FIELDS.items()}
+        original=copy.deepcopy(c);self.assertEqual(quality.build(s,d,c)['coverage']['difference_count'],1);self.assertEqual(c,original)
+        for field in ('Title','Authors','PublicationYear'):
+            bad=copy.deepcopy(c);bad['cases'][0]['records'][0]['values'][field]='contradictory'
+            with self.subTest(field=field),self.assertRaises(ValueError):quality.build(s,d,bad)
+
+    def test_retained_values_reject_ambiguous_unknown_fields_and_malformed_objects(self):
+        for values in ({'field_3':'A; B'},{'ValueRole':'retained'},{'RegistryItemID':1},None,[],{'PublicationYear':False}):
+            s,d,c=self.inputs();c['cases'][0]['records'][0]['values']=values
+            with self.subTest(values=values),self.assertRaises(ValueError):quality.build(s,d,c)
