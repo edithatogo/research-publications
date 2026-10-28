@@ -15,6 +15,7 @@ try:
     from scripts.source_capture_receipt import (
         commit_generation,
         create_output,
+        reject_failure_envelope,
         response_retainer,
         scope_sha256,
         strict_json,
@@ -39,6 +40,7 @@ except ImportError:
     from source_capture_receipt import (
         commit_generation,
         create_output,
+        reject_failure_envelope,
         response_retainer,
         scope_sha256,
         strict_json,
@@ -137,6 +139,7 @@ def project(record, publication_doi):
 
 def _validated_page(raw, doi, page, expected_total=None):
     payload = strict_json(raw)
+    reject_failure_envelope(payload)
     if (
         not isinstance(payload, dict)
         or not isinstance(payload.get("meta"), dict)
@@ -165,6 +168,11 @@ def _validated_page(raw, doi, page, expected_total=None):
         raise ValueError("Unexpected DataCite page coverage")
     if len(data) != min(PAGE_SIZE, max(0, total - (page - 1) * PAGE_SIZE)):
         raise ValueError("DataCite page row count differs from declared total")
+    links = payload.get("links")
+    if links is not None and not isinstance(links, dict):
+        raise ValueError("DataCite governing links must be an object")
+    if page == pages and links is not None and links.get("next") is not None:
+        raise ValueError("DataCite terminal page advertises continuation")
     keys = []
     rows = []
     for record in data:

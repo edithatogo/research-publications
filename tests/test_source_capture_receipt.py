@@ -10,6 +10,65 @@ from scripts import source_capture_receipt as receipts
 
 
 class ReceiptTests(unittest.TestCase):
+    def test_overlapping_inventories_use_one_read_and_return_the_verified_buffer(self):
+        with tempfile.TemporaryDirectory(dir=receipts.PRIVATE_ROOT) as directory:
+            root = Path(directory) / "failed"
+            receipts.create_output(root)
+            raw = b'{"same":"buffer"}'
+            entry = receipts.write_verified(root, "raw.json", raw)
+            scope = {"requested_ids": ["A", "B"]}
+            receipts.write_failure_receipt(
+                root,
+                source="fictional",
+                scope=scope,
+                files=[entry],
+                completed_ids=["A"],
+                failed_id="B",
+                error=ValueError("fictional"),
+            )
+            real = Path.read_bytes
+            reads = []
+
+            def read(path):
+                reads.append(path.name)
+                if path.name == "raw.json" and reads.count("raw.json") > 1:
+                    return b"mutated second read"
+                return real(path)
+
+            with patch.object(Path, "read_bytes", read):
+                _, inventory, _ = receipts.verified_failure(
+                    root, "fictional", scope, ["A", "B"]
+                )
+            self.assertEqual(reads.count("raw.json"), 1)
+            self.assertEqual(reads.count("failed-generation.json"), 1)
+            self.assertEqual(inventory["raw.json"][1], raw)
+
+    def test_conflicting_overlapping_inventory_assertions_are_refused(self):
+        for field, value in (("bytes", 999), ("sha256", "0" * 64)):
+            with (
+                self.subTest(field=field),
+                tempfile.TemporaryDirectory(dir=receipts.PRIVATE_ROOT) as directory,
+            ):
+                root = Path(directory) / "failed"
+                receipts.create_output(root)
+                entry = receipts.write_verified(root, "raw.json", b"{}")
+                scope = {"requested_ids": ["A", "B"]}
+                receipts.write_failure_receipt(
+                    root,
+                    source="fictional",
+                    scope=scope,
+                    files=[entry],
+                    completed_ids=["A"],
+                    failed_id="B",
+                    error=ValueError("fictional"),
+                )
+                path = root / "failed-generation.json"
+                receipt = json.loads(path.read_bytes())
+                receipt["observed_files"][0][field] = value
+                path.write_text(json.dumps(receipt))
+                with self.assertRaises(ValueError):
+                    receipts.verified_failure(root, "fictional", scope, ["A", "B"])
+
     def test_resume_refuses_scope_hash_boolean_counts_unindexed_files_and_symlinks(
         self,
     ):

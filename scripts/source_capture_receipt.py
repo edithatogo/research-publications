@@ -220,22 +220,32 @@ def verified_failure(folder, source, scope, ids):
         if type(receipt.get(field)) is not int or receipt[field] != expected:
             raise ValueError("Exact integer failure receipt counts required")
     inventory = {}
+    buffers = {}
+
+    def verified_content(entry):
+        name = _name(entry.get("name"))
+        if name not in buffers:
+            file = folder / name
+            if file.is_symlink() or not file.is_file():
+                raise ValueError("Missing or unsafe raw evidence")
+            content = file.read_bytes()
+            buffers[name] = (content, len(content), hashlib.sha256(content).hexdigest())
+        content, length, digest = buffers[name]
+        if (
+            type(entry.get("bytes")) is not int
+            or entry["bytes"] != length
+            or entry.get("sha256") != digest
+        ):
+            raise ValueError("Retained raw bytes differ from receipt")
+        return content
+
     for entry in files:
         if not isinstance(entry, dict):
             raise ValueError("Malformed raw file entry")  # noqa: TRY004 - malformed evidence uses ValueError
         name = _name(entry.get("name"))
         if name in inventory:
             raise ValueError("Duplicate raw filename")
-        file = folder / name
-        if file.is_symlink() or not file.is_file():
-            raise ValueError("Missing or unsafe raw evidence")
-        content = file.read_bytes()
-        if (
-            type(entry.get("bytes")) is not int
-            or len(content) != entry["bytes"]
-            or hashlib.sha256(content).hexdigest() != entry.get("sha256")
-        ):
-            raise ValueError("Retained raw bytes differ from receipt")
+        content = verified_content(entry)
         inventory[name] = (entry, content)
     observed = receipt.get("observed_files")
     # Older v1 receipts did not contain observed_files. Require exact inventoried
@@ -252,16 +262,12 @@ def verified_failure(folder, source, scope, ids):
             name = _name(entry.get("name"))
             if name in expected_names:
                 raise ValueError("Duplicate observed file")
-            file = folder / name
-            if file.is_symlink() or not file.is_file():
-                raise ValueError("Missing observed file")
-            content = file.read_bytes()
-            if (
-                type(entry.get("bytes")) is not int
-                or len(content) != entry["bytes"]
-                or hashlib.sha256(content).hexdigest() != entry.get("sha256")
+            if name in inventory and any(
+                entry.get(key) != inventory[name][0].get(key)
+                for key in ("bytes", "sha256")
             ):
-                raise ValueError("Observed failed-generation bytes differ")
+                raise ValueError("Conflicting overlapping file inventory assertions")
+            verified_content(entry)
             expected_names.add(name)
         if not set(inventory) <= expected_names:
             raise ValueError("Raw inventory missing from observed files")
@@ -294,6 +300,32 @@ def validate_dois(ids):
     if len({value.casefold() for value in ids}) != len(ids):
         raise ValueError("Duplicate canonical DOI requests")
     return list(ids)
+
+
+def reject_failure_envelope(payload):
+    """Check governing root fields only; nested source metadata stays untouched."""
+    if not isinstance(payload, dict):
+        raise ValueError("Provider governing object required")  # noqa: TRY004 - malformed evidence uses ValueError
+    if any(key in payload for key in ("error", "errors", "failure")):
+        raise ValueError("Provider governing failure envelope contradicts success")
+    if any(
+        key in payload and payload[key] is not False
+        for key in ("partial", "truncated", "incomplete", "failed")
+    ):
+        raise ValueError("Provider governing partial/failure flag contradicts success")
+    if any(
+        key in payload and payload[key] is not True for key in ("complete", "success")
+    ):
+        raise ValueError("Provider governing completion flag contradicts success")
+    if isinstance(payload.get("status"), str) and payload["status"].casefold() in (
+        "error",
+        "errors",
+        "failed",
+        "failure",
+        "partial",
+        "incomplete",
+    ):
+        raise ValueError("Provider governing status contradicts success")
 
 
 def response_retainer(output, manifest, entry, filename, *, allow_404=False):

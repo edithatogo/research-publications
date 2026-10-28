@@ -12,6 +12,56 @@ from scripts.source_capture_receipt import PRIVATE_ROOT
 
 
 class DataCiteCaptureTests(unittest.TestCase):
+    def test_failure_envelopes_and_terminal_next_link_refuse_commit_with_raw_retained(
+        self,
+    ):
+        cases = [
+            {flag: value}
+            for flag, value in (
+                ("error", "failed"),
+                ("errors", [{"detail": "failed"}]),
+                ("partial", True),
+                ("complete", False),
+                ("success", False),
+            )
+        ] + [{"links": {"next": "https://api.datacite.org/dois?page%5Bnumber%5D=2"}}]
+        for extra in cases:
+            raw = json.dumps(
+                {"meta": {"page": 1, "total": 0, "totalPages": 0}, "data": [], **extra}
+            ).encode()
+            with (
+                self.subTest(extra=extra),
+                TemporaryDirectory(dir=PRIVATE_ROOT) as directory,
+            ):
+                root = Path(directory) / "capture"
+                with (
+                    patch(
+                        "scripts.datacite_source.urlopen",
+                        return_value=self.response(raw),
+                    ),
+                    self.assertRaises(ValueError),
+                ):
+                    capture(["10.5555/example"], root)
+                receipt = json.loads((root / "failed-generation.json").read_bytes())
+                self.assertEqual((root / receipt["files"][0]["name"]).read_bytes(), raw)
+                self.assertFalse((root / "manifest.json").exists())
+        from scripts.datacite_source import _validated_page
+
+        payload = {
+            "meta": {
+                "page": 1,
+                "total": 0,
+                "totalPages": 0,
+                "ordinary_metadata": {"partial": True},
+            },
+            "data": [],
+            "links": {"next": None},
+        }
+        self.assertEqual(
+            _validated_page(json.dumps(payload).encode(), "10.5555/example", 1)[:2],
+            (0, 1),
+        )
+
     def test_strict_page_types_unknowns_identity_and_duplicate_records(self):
         from scripts.datacite_source import _validated_page, project
 

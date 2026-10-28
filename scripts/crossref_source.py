@@ -15,6 +15,7 @@ try:
     from scripts.source_capture_receipt import (
         commit_generation,
         create_output,
+        reject_failure_envelope,
         response_retainer,
         scope_sha256,
         strict_json,
@@ -39,6 +40,7 @@ except ImportError:
     from source_capture_receipt import (
         commit_generation,
         create_output,
+        reject_failure_envelope,
         response_retainer,
         scope_sha256,
         strict_json,
@@ -85,6 +87,7 @@ def project(payload, doi, http=200):
             "Relation": None,
             "Assertions": None,
         }
+    reject_failure_envelope(payload)
     if not isinstance(payload, dict) or not isinstance(payload.get("message"), dict):
         raise ValueError("Crossref message object required")  # noqa: TRY004 - malformed evidence uses ValueError
     message = payload["message"]

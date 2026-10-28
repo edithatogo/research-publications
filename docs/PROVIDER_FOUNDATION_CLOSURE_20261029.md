@@ -133,8 +133,8 @@ not automatically compatible or migrated by this packet.
 ## Evidence and retained limits
 
 Explicit repo-local interpreter: Python **3.15.1**. Five focused stdlib suites
-pass **33 tests** under `-S`: receipt 6, retry 7, ClinicalTrials 7, Crossref 5,
-DataCite 8. Ruff and formatting checks pass. Direct provider CLI `--help` entry
+pass **39 tests** under `-S`: receipt 8, retry 7, ClinicalTrials 9, Crossref 6,
+DataCite 9. Ruff and formatting checks pass. Direct provider CLI `--help` entry
 points run outside the repository with `PYTHONPATH` absent and `-S -B`; their
 helper imports need no site packages. Every positive capture/resume/transport
 test injects fictional responses or patches the opener; no provider request,
@@ -159,3 +159,35 @@ conditional register writes, replay/rollback and downstream field/key parity.
 Schedules, sends, activation, authentication renewal and operational recurrence
 retain their existing explicit authority. Native/provider/authentication scope
 for this packet is **none**.
+
+## Bounded parent-review correction
+
+Successful-shaped payloads no longer override contradictory governing fields.
+The three providers reject root `error`, `errors` or `failure` members; partial,
+truncated, incomplete and failed flags must be literal false when present, while
+complete/success flags must be literal true. Known failure/partial status strings
+are refused. These checks apply at the governing root only: ordinary nested
+source metadata with the same names remains untouched. Raw bytes are already
+retained before refusal, and no success manifest is committed. DataCite also
+rejects a non-null `links.next` on its declared terminal page, including a zero-row
+terminal result; absent/null next links remain compatible.
+
+Failure receipt raw/observed inventories now validate against one cached immutable
+byte buffer per file. Overlapping length/hash assertions must agree, both are
+checked against that same buffer, and the exact verified bytes are returned for
+projection. The receipt itself is read once too. Synthetic read-count/mutable
+second-read and conflicting-inventory tests qualify this frozen-buffer boundary;
+it does not assert that a mutable filesystem path cannot later change.
+
+ClinicalTrials separates its bounded `Title` display fallback from
+`FullStudyTitle`. Missing/null source titles remain null in FullStudyTitle and
+empty source titles remain empty; the NCT ID may fill the display field only.
+Display truncation is explicitly limited to 255 UTF-16 code units without
+splitting supplementary characters, while FullStudyTitle retains the complete
+source text. This is a pure source proposal and supplies no native field-size,
+schema-save or rendering acceptance.
+
+The correction stays within the same eleven-path assignment on the existing
+branch, directly after `1b2163eb98f8cc8f62ab90d17b189f4f42f64379`. Unchanged retry
+tests are reused; the four affected suites are rerun. No canonical helper,
+dependency, provider, authentication, native object or accepted history changed.

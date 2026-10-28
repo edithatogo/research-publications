@@ -14,6 +14,7 @@ try:
     from scripts.source_capture_receipt import (
         commit_generation,
         create_output,
+        reject_failure_envelope,
         response_retainer,
         scope_sha256,
         strict_json,
@@ -38,6 +39,7 @@ except ImportError:
     from source_capture_receipt import (
         commit_generation,
         create_output,
+        reject_failure_envelope,
         response_retainer,
         scope_sha256,
         strict_json,
@@ -65,6 +67,20 @@ import re
 API = "https://clinicaltrials.gov/api/v2/studies/"
 
 
+def _bounded_display_title(value):
+    """At most 255 UTF-16 code units without cutting a supplementary character."""
+    units = 0
+    for index, char in enumerate(value):
+        code = ord(char)
+        if 0xD800 <= code <= 0xDFFF:
+            raise ValueError("Unpaired surrogate in display title")
+        width = 2 if code > 0xFFFF else 1
+        if units + width > 255:
+            return value[:index]
+        units += width
+    return value
+
+
 def register_fields(row, raw_sha256, observed_utc, archive_url):
     """Prepare only source-owned fields; never emit operator-maintained values."""
     nct_id = validate_ids([row["NCTId"]])[0]
@@ -72,12 +88,15 @@ def register_fields(row, raw_sha256, observed_utc, archive_url):
         raise ValueError("Conflicting trial source key")
     if not re.fullmatch(r"[0-9a-f]{64}", raw_sha256):
         raise ValueError("Full retained payload hash required")
-    title = row.get("Title") or nct_id
+    source_title = row.get("Title")
+    if source_title is not None and not isinstance(source_title, str):
+        raise ValueError("Source title must be text or null")
+    title = _bounded_display_title(source_title or nct_id)
     return {
-        "Title": title[:255],
+        "Title": title,
         "SourceKey": row["SourceKey"],
         "NCTId": nct_id,
-        "FullStudyTitle": title,
+        "FullStudyTitle": source_title,
         "OfficialTitle": row.get("OfficialTitle") or "",
         "OverallStatus": row.get("OverallStatus") or "",
         "StudyType": row.get("StudyType") or "",
@@ -100,6 +119,7 @@ def register_fields(row, raw_sha256, observed_utc, archive_url):
 
 def project(record, expected_id):
     validate_ids([expected_id])
+    reject_failure_envelope(record)
     if not isinstance(record, dict) or not isinstance(
         record.get("protocolSection"), dict
     ):

@@ -12,6 +12,49 @@ from scripts.source_capture_receipt import PRIVATE_ROOT
 
 
 class CrossrefCaptureTests(unittest.TestCase):
+    def test_governing_failure_envelopes_reject_success_shaped_body_without_losing_raw(
+        self,
+    ):
+        from io import BytesIO
+        from unittest.mock import Mock
+
+        class Response(BytesIO):
+            status = 200
+            headers: ClassVar[dict] = {}
+
+        from scripts.crossref_source import project
+
+        for flag, value in (
+            ("error", "failed"),
+            ("errors", [{"detail": "failed"}]),
+            ("partial", True),
+            ("complete", False),
+            ("success", False),
+        ):
+            raw = json.dumps(
+                {"status": "ok", "message": {"DOI": "10.5555/example"}, flag: value}
+            ).encode()
+            with (
+                self.subTest(flag=flag),
+                TemporaryDirectory(dir=PRIVATE_ROOT) as directory,
+            ):
+                root = Path(directory) / "capture"
+                with self.assertRaises(ValueError):
+                    capture(
+                        ["10.5555/example"],
+                        root,
+                        opener=Mock(return_value=Response(raw)),
+                    )
+                receipt = json.loads((root / "failed-generation.json").read_bytes())
+                self.assertEqual((root / receipt["files"][0]["name"]).read_bytes(), raw)
+                self.assertFalse((root / "manifest.json").exists())
+        payload = {
+            "status": "ok",
+            "message": {"DOI": "10.5555/example", "error": "ordinary source metadata"},
+            "ordinary_metadata": {"errors": ["nested"]},
+        }
+        self.assertEqual(project(payload, "10.5555/example")["LookupStatus"], "found")
+
     def test_404_body_is_retained_without_json_or_absence_inference(self):
         from io import BytesIO
         from urllib.error import HTTPError

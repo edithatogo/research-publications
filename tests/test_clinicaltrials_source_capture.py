@@ -37,6 +37,65 @@ class Response(BytesIO):
 
 
 class ClinicalTrialsTests(unittest.TestCase):
+    def test_governing_failure_flags_reject_success_shaped_payload_but_nested_metadata_survives(
+        self,
+    ):
+        for flag, value in (
+            ("error", "failed"),
+            ("errors", [{"detail": "failed"}]),
+            ("partial", True),
+            ("complete", False),
+            ("success", False),
+        ):
+            payload = json.loads(raw_study("NCT00000001"))
+            payload[flag] = value
+            raw = json.dumps(payload).encode()
+            with (
+                self.subTest(flag=flag),
+                tempfile.TemporaryDirectory(dir=PRIVATE_ROOT) as directory,
+            ):
+                root = Path(directory) / "capture"
+                with self.assertRaises(ValueError):
+                    source.capture(
+                        ["NCT00000001"], root, opener=Mock(return_value=Response(raw))
+                    )
+                self.assertEqual((root / "NCT00000001.json").read_bytes(), raw)
+                self.assertFalse((root / "manifest.json").exists())
+                self.assertTrue((root / "failed-generation.json").exists())
+        payload = json.loads(raw_study("NCT00000001"))
+        payload["ordinary_metadata"] = {"error": "source field", "partial": True}
+        self.assertEqual(source.project(payload, "NCT00000001")["NCTId"], "NCT00000001")
+
+    def test_unknown_full_title_and_utf16_display_limit_preserve_source_semantics(self):
+        base = {
+            "NCTId": "NCT00000001",
+            "SourceKey": "clinicaltrials.gov:NCT00000001",
+            "SourceURL": "https://clinicaltrials.gov/study/NCT00000001",
+        }
+        for value in (None, ""):
+            fields = source.register_fields(
+                {**base, "Title": value},
+                "a" * 64,
+                "2026-10-29T00:00:00Z",
+                "https://example.invalid/archive",
+            )
+            self.assertEqual(fields["Title"], "NCT00000001")
+            self.assertEqual(fields["FullStudyTitle"], value)
+        fields = source.register_fields(
+            base, "a" * 64, "2026-10-29T00:00:00Z", "https://example.invalid/archive"
+        )
+        self.assertIsNone(fields["FullStudyTitle"])
+        for title in ("😀" * 200, "x" * 253 + "😀" + "tail", "x" * 254 + "😀"):
+            fields = source.register_fields(
+                {**base, "Title": title},
+                "a" * 64,
+                "2026-10-29T00:00:00Z",
+                "https://example.invalid/archive",
+            )
+            self.assertLessEqual(len(fields["Title"].encode("utf-16-le")) // 2, 255)
+            self.assertEqual(fields["FullStudyTitle"], title)
+            self.assertTrue(title.startswith(fields["Title"]))
+
     def test_all_collectors_default_to_no_retry_and_retain_http_error_bodies(self):
         from scripts import crossref_source, datacite_source
 
