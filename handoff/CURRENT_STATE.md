@@ -1,6 +1,132 @@
 # Current integration checkpoint — 29 October 2026
 
+## Connected consumer milestone — 29 October 2026
+
+Admission owner returned clean terminal `13da4635a3d1d9d5375cdf3d294f40cc32b6ab35`,
+exactly its three assigned files. Integrator bounded source/test review found no
+actionable issue. Exact preflight against `038179ec` found both checkouts clean,
+no overlap, missing files or staged deletions. Local merge is `4ba35dd3`; all
+26 focused fictional parity tests pass on this checkout's Python3.15.1.
+Previously reviewed relationship export `26cfe460` and its 13 focused tests are
+retained. Both owners are terminal; preserve ef45 and the relationship checkout.
+
+Current operation: one coherent combined harness, PR and exact-main quality/
+security milestone. No native read/write, auth renewal or journal transfer is
+assigned. Candidate parity does not qualify real mapping/capture provenance,
+admission, refresh, rendering or scheduled output.
+
+Combined checkout harness at `9ec802f2` passed 2,154 Python tests with 19 skips,
+25 Node guards, 446 project checks and remaining gates; range secret scan and
+dependency consistency passed. PR71 is open. A separate fresh archive check
+then reproduced one exporter CLI-test portability error: it invoked a hard-coded
+extraction-local `.venv/bin/python`, absent from clean packages and CI's
+`.venv-ci` layout. Integrator owns the terminal packet's test correction locally:
+reuse the selected running interpreter rather than inventing an environment.
+Preserve the failed .16 archive/evidence and qualify a separately named corrected
+package; neither the checkout harness nor archive presence proves clean closure.
+
+Human requests the next bounded admission source assignment after integration.
+Sequence it from the next verified main: extend the existing consumer-parity
+packet to reconcile complete pinned writer-simulation outcomes and actual
+processing timestamps, rather than treating planning-time candidate values as
+executed values. Reuse the existing feed/protocol and outcome checks; do not
+create a native adapter or modify the guarded writer/shared contracts. Exact
+three-file assignment and acceptance will be released only after main gates.
+
+## Delivery continuation — 29 October 2026, 09:30 Brisbane
+
+Relationship export owner returned clean terminal
+`26cfe460c2d45250b0b2fea26c67b67b305bbd87`, exactly its three assigned files.
+Integrator reviewed that bounded implementation and tests; no actionable finding.
+Exact read-only preflight against `779f6962` found both checkouts clean, no
+overlap, missing file or staged deletion. It is locally merged at `8263895a`.
+All 13 focused exporter tests pass using this checkout's actual Python3.15.1.
+The new bundle connects the frozen typed projection/model proposal to JSON/CSV,
+retaining independent pins, reversible display encoding and exclusive readback.
+It does not supply a real native producer/binding or qualify import/render/export.
+
+Admission consumer-parity owner is still active in ef45 on common verified main
+`7c202562`; its three new files are not yet committed. Preserve that writer and
+collect its terminal handoff before reviewing or merging its source. The compact
+handoff reports passing expanded preservation/context checks and documentation
+in progress; this is progress, not a terminal receipt. No new task was dispatched.
+
+Next operation: collect/review the frozen admission packet, run its exact
+preflight and integrate serially if qualified, then one coherent harness/PR and
+exact-main milestone for both connected packets and coordination changes. Do
+not restart accepted PR70 checks or create another helper wave while waiting.
+Main remains verified `7c202562`; this local merge is not hosted-main acceptance.
+Evidence is retained under this lane's ignored takeover directory. Native/auth
+owners, services, journals, gates and the November natural review are unchanged.
+
+## Effectiveness review — 29 October 2026, 09:21 Brisbane
+
+Compared with the former review/integration bottleneck at `b634ab52`, all three
+terminal delivery packets and parent NIH work are now ancestors of verified
+PR70 main `7c202562`. The NIH pin race and both DataCite review findings were
+corrected before integration. Exact-main CI receipts are retained in this lane's
+ignored takeover evidence and were reused, not rerun. There is no remaining
+terminal source-code integration backlog from that batch. At review entry only
+one coordination commit (`205024b2`, created 09:19 Brisbane) was ahead of main;
+this is fresh documentation divergence, not an aged delivery packet.
+
+No native/runtime or operational requirement gained acceptance in this interval.
+The accepted result is source integration and review correction, not live typed
+admission, bridge persistence, report import/rendering or delivery. Existing E04
+import/inverse, T18 identity, notification/auth ownership, E10 terminal host and
+post-1-November monthly dependencies remain open. No new failure or duplicate
+implementation is evidenced by this bounded review; no broad review was repeated.
+
+Both active delivery owners have independently advanced to the same verified
+main. Keep only these two writers active; the integrated DataCite lane remains
+unassigned rather than filling concurrency for its own sake. Do not retire its
+checkout or the unused initial fec1 checkout until app ownership and needed
+ignored artifacts are qualified; clean/merged source alone is insufficient.
+
+Bounded adjustment: the current PR70 assignments above the transfer-time history
+are authoritative. Older pending-review, PR-open and waiting-base statements
+below are explicitly historical. Do not dispatch another helper wave before
+collecting these two connected terminal packets and their exact input/native
+dependency handoffs. Next measurable result is admission-to-consumer field/key
+parity and typed evidence export parity on independently pinned supplied inputs,
+or a concrete missing-input/capability record. Neither can be counted as native
+acceptance without its separate runtime/readback evidence. Preserve the active
+writers and all existing native/auth owners; no extra chat or timer is needed.
+
 ## Orchestration transfer complete — 29 October 2026
+
+### Verified PR70 and next connected assignments
+
+PR70 is merged at verified main `7c20256211e961be7b5f19ceadf08287bf309d34`.
+Exact-main quality `40786340401` and security `40786340390` passed, as did all
+three PR-head checks at `ee5c038a`. Main's source tree equals that reviewed head.
+The integrator fast-forwarded local main and its own clean branch with ordinary
+Git commands; no history, hook or index workaround was used.
+
+Next writers must themselves verify a clean fast-forward to this exact common
+main before implementation. Each owns only the three new files below, retains
+existing reusable validators, uses repo-local actual Python3.15.1 and existing
+hash locks, and returns one terminal scoped commit with focused behavior tests.
+Neither assignment has native/provider/authentication, shared-file or dependency
+scope. Existing source snapshots, human values, unknowns and independent pins
+must survive. Source success is not native acceptance.
+
+| Owner / checkout | Exclusive paths and finish line |
+|---|---|
+| Admission `01a1831e-cc6d-7371-9d57-021a339b708a`, `/Users/doughnut/.codex/worktrees/ef45/chhhs-research-publications` | `scripts/prepare_publication_consumer_parity.py`, paired test, `docs/PUBLICATION_CONSUMER_PARITY_SOURCE_20261029.md`: pinned admission/preimage/field-filter contract to expected registry and supplied model/full/monthly consumer parity; preserve human fields, history, multiplicity, date uncertainty and explicit exclusions. Reject incomplete or mismatched generations and unsupported mappings. |
+| Relationships `01a184c7-5192-71b1-b1fb-be4888a04f51`, `/Users/doughnut/.codex/worktrees/rims-relationship-replacement/chhhs-research-publications` | `scripts/prepare_source_relationship_export.py`, paired test, `docs/SOURCE_RELATIONSHIP_EXPORT_CLOSURE_20261029.md`: existing typed producer/model projection to deterministic JSON/CSV evidence exports with exact digest/key/count parity, reversible display escaping and exclusive output creation. Preserve all occurrences, revisions, ambiguity and unknowns. |
+
+The corrected DataCite packet is integrated; its b9f6 owner has no further
+implementation assignment. Do not duplicate its client creation or infer a new
+source-capture/native authority. All automations remain the existing transferred
+jobs. Native exits and the after-1-November12:05 monthly evidence gate are unchanged.
+
+Cleanup readback after the former owner's final message: rims-reconcile is now
+absent from both the filesystem and registered Git worktree inventory. The
+earlier app refusal below is retained as history; this integrator did not remove
+it or alter private app state. Original operational/runtime checkouts remain.
+
+### Transfer-time history — superseded by the PR70 checkpoint above
 
 Sole orchestrator/integrator and shared-record owner is now
 `01a184bf-c06f-7703-9e9e-b1bcdc95f3e1`, managed checkout
