@@ -52,14 +52,44 @@ def generations(values,target):
     return result
 
 
+def pubmed_root(raw):
+    """Validate the UTF-8 profile and own-record shape before any projection."""
+    try:text=raw.decode('utf-8-sig')
+    except UnicodeError:raise ValueError('PubMed artifact must use the explicit UTF-8 profile') from None
+    if '\x00' in text:raise ValueError('PubMed artifact must use the explicit UTF-8 profile')
+    if re.match(r'<\?xml(?:\s|\?>)',text):
+        declaration=re.match(r"""<\?xml\s+version\s*=\s*(['"])1\.0\1(?:\s+encoding\s*=\s*(['"])([A-Za-z][A-Za-z0-9._-]*)\2)?(?:\s+standalone\s*=\s*(['"])(?:yes|no)\4)?\s*\?>""",text)
+        if declaration is None or declaration[3] is not None and declaration[3].casefold()!='utf-8':raise ValueError('Only an absent or UTF-8 XML encoding declaration is supported')
+    if '<!ENTITY' in text.upper():raise ValueError('XML entity declarations unsupported')
+    root=ET.fromstring(text)
+    if root.tag!='PubmedArticleSet' or not len(root) or any(a.tag!='PubmedArticle' for a in root):raise ValueError('Exact nonempty PubMed article set required')
+    structural={'PubmedArticleSet','PubmedArticle','MedlineCitation','PMID','Article','ArticleTitle','Journal','Title'}
+    def scalar_title(node):
+        if not ''.join(node.itertext()).strip() or any(child.tag.rsplit('}',1)[-1] in structural for child in node.iter() if child is not node):raise ValueError('Nonblank mixed-text title required; nested own fields are unsupported')
+    for article in root:
+        citations=article.findall('MedlineCitation')
+        if len(citations)!=1:raise ValueError('Exactly one own MedlineCitation required')
+        pmids=citations[0].findall('PMID');articles=citations[0].findall('Article')
+        if len(pmids)!=1 or len(articles)!=1:raise ValueError('Exactly one own PMID and Article required')
+        pmid=pmids[0]
+        if len(pmid) or re.fullmatch('[1-9][0-9]*',pmid.text or '') is None or (pmid.tail or '').strip():raise ValueError('Exact scalar own PMID required')
+        titles=articles[0].findall('ArticleTitle');journals=articles[0].findall('Journal')
+        if len(titles)!=1 or len(journals)>1:raise ValueError('Unambiguous own article title and journal required')
+        scalar_title(titles[0])
+        if journals:
+            journal_titles=journals[0].findall('Title')
+            if len(journal_titles)>1:raise ValueError('Ambiguous journal title')
+            for title in journal_titles:scalar_title(title)
+    return root
+
+
 def project_part(part,raw):
     """Only two explicit retained profiles; unknown raw content is never guessed."""
     if not isinstance(raw,bytes):raise ValueError('Exact artifact bytes required')
     source=part['source'];projected={}
     try:
         if source=='PubMed' and part['format']=='pubmed_efetch_xml_v1':
-            if b'<!ENTITY' in raw.upper():raise ValueError('XML entity declarations unsupported')
-            rows=project_current_pubmed_efetch(raw);root=ET.fromstring(raw)
+            root=pubmed_root(raw);rows=project_current_pubmed_efetch(raw)
             metadata={a.findtext('MedlineCitation/PMID'):core.decode_json(article_metadata(a)['MetadataJSON']) for a in root}
             projected={key:(row,metadata[key]) for key,row in rows.items()}
         elif source=='DORA' and part['format']=='dora_metadata_records_v1':

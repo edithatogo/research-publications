@@ -89,8 +89,17 @@ SHA256, own identity inventory and generation must match.
 
 Two retained source artifact profiles are supported:
 
-- `pubmed_efetch_xml_v1`: the existing pure EFetch projector supplies typed
-  display/date/author fields. Complete article metadata is independently retained
+- `pubmed_efetch_xml_v1`: input bytes must decode as UTF-8 (optional UTF-8 BOM),
+  contain no NULs, and have an absent or explicitly UTF-8 XML encoding declaration.
+  XML 1.0 declarations are checked before parsing; UTF-16/32 and other declared
+  encodings are unsupported. Entity declarations are rejected on the verified
+  decoded text before any parser/projection can expand them. Every own article
+  must have exactly one direct MedlineCitation, one scalar positive PMID, one
+  Article and one nonblank ArticleTitle. Duplicate own citations/IDs/articles/
+  titles and nested own fields in scalar values fail. A supplied journal/title
+  cannot be ambiguous. Legitimate mixed title markup, built-in/numeric escaped
+  text and PMIDs in cited-reference metadata remain supported. The existing
+  pure EFetch projector then supplies typed display/date/author fields. Complete article metadata is independently retained
   through `publication_xml_metadata.article_metadata`. Missing/duplicate/foreign
   structures and declared XML entities fail. Original file bytes remain referenced
   by their exact hash; serialized metadata is not claimed byte-identical XML.
@@ -226,3 +235,15 @@ and source clocks, all seven pilot blockers, strict/exclusive CLI behavior and
 both direct-script subprocess entry points under the selected Python with `-S`.
 No provider, native capture, runtime, deployment or broad unchanged check is
 repeated. Integrator-owned integration/release and native gates remain separate.
+
+## Raw PubMed review correction
+
+The follow-up to `0b4a40ed` closes reproduced duplicate-own-ID and UTF-16
+entity-declaration gaps entirely within the admission helper. The shared EFetch
+projector remains unchanged. Five added regression methods cover duplicated same/
+different own PMIDs; duplicated own citation/article/title; malformed scalar
+structure; entity declarations in UTF-8/16/32 and unsupported declarations; and
+preserved cited IDs, mixed markup, escaped text and original bytes. All 29
+admission tests pass under repository Python 3.15.1 with `-S`, including the
+existing direct CLI tests. The original six unchanged preflight tests reuse their
+prior receipt. No native/source binding, shared helper or tracked flow changed.

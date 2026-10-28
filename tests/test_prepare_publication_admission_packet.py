@@ -282,3 +282,43 @@ class AdmissionTests(unittest.TestCase):
         source=next(v for v in p['retained_state_candidate']['versions'] if v['SourceKey']==create['SourceKey']);self.assertEqual(source['ObservedAtUTC'],OBSERVED)
         docs['schema']['timestamp_profile']='source_observation_utc'
         with self.assertRaises(ValueError):self.prepare(docs,files)
+
+    def test_own_pmid_cardinality_rejects_duplicate_same_and_conflicting_ids(self):
+        for value in ('1','2'):
+            raw=('<PubmedArticleSet>'+article('1')+'</PubmedArticleSet>').encode();root=ET.fromstring(raw);citation=root[0].find('MedlineCitation');duplicate=ET.Element('PMID');duplicate.text=value;citation.insert(1,duplicate);raw=ET.tostring(root)
+            with self.subTest(value=value),self.assertRaises(ValueError):admission.project_part(dict(source='PubMed',format='pubmed_efetch_xml_v1',source_ids=['1']),raw)
+
+    def test_own_citation_article_and_title_cardinality_is_checked_before_projection(self):
+        for name in ('MedlineCitation','Article','ArticleTitle'):
+            root=ET.fromstring('<PubmedArticleSet>'+article('1')+'</PubmedArticleSet>')
+            parent={'MedlineCitation':root[0],'Article':root[0].find('MedlineCitation'),'ArticleTitle':root[0].find('MedlineCitation/Article')}[name];parent.append(copy.deepcopy(parent.find(name)))
+            with self.subTest(name=name),self.assertRaises(ValueError):admission.project_part(dict(source='PubMed',format='pubmed_efetch_xml_v1',source_ids=['1']),ET.tostring(root))
+
+    def test_identity_and_title_scalar_structure_cannot_hide_nested_own_fields(self):
+        for fault in ('pmid_child','nested_title','empty_title','duplicate_journal_title'):
+            root=ET.fromstring('<PubmedArticleSet>'+article('1')+'</PubmedArticleSet>');own=root[0].find('MedlineCitation/Article');title=own.find('ArticleTitle')
+            if fault=='pmid_child':root[0].find('MedlineCitation/PMID').append(ET.Element('i'))
+            elif fault=='nested_title':ET.SubElement(title,'ArticleTitle').text='other'
+            elif fault=='empty_title':title.text=' '
+            else:own.find('Journal').append(copy.deepcopy(own.find('Journal/Title')))
+            with self.subTest(fault=fault),self.assertRaises(ValueError):admission.project_part(dict(source='PubMed',format='pubmed_efetch_xml_v1',source_ids=['1']),ET.tostring(root))
+
+    def test_utf16_and_other_encoding_profiles_cannot_bypass_entity_refusal(self):
+        body='<!DOCTYPE PubmedArticleSet [<!ENTITY own "Expanded">]><PubmedArticleSet>'+article('1',title='&own;')+'</PubmedArticleSet>'
+        for encoding in ('utf-8','utf-16','utf-16-le','utf-16-be','utf-32'):
+            declared='UTF-8' if encoding=='utf-8' else 'UTF-16' if encoding.startswith('utf-16') else 'UTF-32'
+            raw=('<?xml version="1.0" encoding="'+declared+'"?>'+body).encode(encoding)
+            with self.subTest(encoding=encoding),self.assertRaises(ValueError):admission.project_part(dict(source='PubMed',format='pubmed_efetch_xml_v1',source_ids=['1']),raw)
+        raw=('<?xml version="1.0" encoding="ISO-8859-1"?><PubmedArticleSet>'+article('1')+'</PubmedArticleSet>').encode('ascii')
+        with self.assertRaises(ValueError):admission.project_part(dict(source='PubMed',format='pubmed_efetch_xml_v1',source_ids=['1']),raw)
+
+    def test_cited_pmids_mixed_title_markup_and_escaped_entities_are_preserved(self):
+        title='Café &amp; <i>mixed</i> H<sub>2</sub>O &lt; 3'
+        xml='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><PubmedArticleSet>'+article('1',title=title)+'<PubmedArticle><MedlineCitation><PMID>2</PMID><Article><ArticleTitle>Second</ArticleTitle></Article></MedlineCitation></PubmedArticle></PubmedArticleSet>'
+        root=ET.fromstring(xml);references=ET.SubElement(root[0],'ReferenceList')
+        for value in ('1','2','999'):
+            reference=ET.SubElement(references,'Reference');ET.SubElement(reference,'PMID').text=value
+        raw=b'\xef\xbb\xbf'+b'<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'+ET.tostring(root,encoding='utf-8');saved=raw
+        projected=admission.project_part(dict(source='PubMed',format='pubmed_efetch_xml_v1',source_ids=['1','2']),raw)
+        self.assertEqual(projected['1'][0]['Title'],'Café & mixed H2O < 3');self.assertEqual(set(projected),{'1','2'});self.assertEqual(raw,saved)
+        self.assertEqual(projected['1'][1],core.decode_json(article_metadata(ET.fromstring(raw)[0])['MetadataJSON']))
