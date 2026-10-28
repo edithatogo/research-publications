@@ -1,5 +1,15 @@
 # Current missing outcomes — 24 October 2026
 
+## Integration correction — 29 October 2026
+
+Use the [reconciled source and outcome backlog](WORKTREE_RECONCILIATION_20261029.md)
+before dispatching work below. PR35 closed original-retention handover, PR51
+qualified the selected scheduled NIH acquisition/register/model chain, and PR55
+closed the selected saved whole-system metadata accounting. Their older pending
+rows below are historical. Later G07 activation and E04/T15/T18 source records
+remain in the preserved authoring checkout until scoped source integration;
+their existence is not canonical source parity or a fresh native audit.
+
 See the [flow operations view](FLOW_OPERATIONS.md) for configured state, saved
 schedules and accepted runtime evidence by flow.
 

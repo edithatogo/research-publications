@@ -1,5 +1,13 @@
 # CHHHS research publications: current Conductor context
 
+## Integration checkpoint — 29 October 2026
+
+[Worktree reconciliation and remaining work](../docs/WORKTREE_RECONCILIATION_20261029.md)
+supersedes branch-count and stale-backlog implications only. Use the current
+assignment in [CURRENT_STATE](../handoff/CURRENT_STATE.md); retain earlier receipts,
+native ownership and the user’s local-only report hold. Canonical source and the
+private authoring checkout remain separate histories. No new native acceptance.
+
 ## Flow operations snapshot — 24 October 2026
 
 [What is configured and running?](../docs/FLOW_OPERATIONS.md) lists all41 observed
