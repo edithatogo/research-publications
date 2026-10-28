@@ -8,8 +8,8 @@ priority/deferral paragraphs. Three isolated lanes deliver scoped packets to one
 integrator. Blocked requirements remain open. T16/T17 are cancelled and excluded,
 despite their historical conditional labels below. Accepted receipts are reused.
 
-Canonical source milestones PR57–PR66 are merged with main quality and
-security checks passing. These do not close native/operational track exits.
+Canonical source milestones PR57–PR67 are merged. PR67 and its exact main
+quality/security checks passed. These do not close native/operational track exits.
 Current evidence and residual requirements are consolidated in the
 [publication cycle](../docs/PUBLICATION_CYCLE_CLOSURE_20261029.md),
 [complete PubMed candidate](../docs/PUBMED_OFFLINE_TYPED_CANDIDATE_20261029.md),
@@ -17,17 +17,32 @@ Current evidence and residual requirements are consolidated in the
 [relationship compatibility](../docs/G06_RELATIONSHIP_GUARDS_20261029.md),
 [classification closure](../docs/G07_CLASSIFICATION_SOURCE_20261029.md), and
 [E04/T18 reader handoff](../docs/E04_T18_SOURCE_PACKET_20261029.md).
-S02 clean-source extraction passes at `6c62888d` with NativeAcceptance=false;
+S02 clean-source extraction passes at `e98c6a0b` with NativeAcceptance=false;
 E10 shared-host promotion, current native recovery/rendering and the post-1November
 natural monthly observation remain open. No accepted historical route is reopened
 merely to reproduce unchanged evidence.
 
-Latest integrated source checkpoint: library adapters with33 offline transport
-cases; all24 bounded grants preparation paths; outcome evidence/revision projection
-with18 fictional cases. PR66 combined harness:1,705 Python tests/19 capability skips,
-58 Node tests and446 project checks. [Current remaining dependencies](../docs/CURRENT_MISSING_OUTCOMES.md)
-separate source closure from native adoption. All three lanes confirmed clean fast-forwards to verified main `63222432` before
-the next bounded source assignments in CURRENT_STATE.
+Latest combined source checkpoint: 1,826 Python tests/19 capability skips,
+58 Node tests and 446 project checks. Acquisition builders, registry metadata
+proposals and ARC model/reader closure are merged. The three current packets
+cover admission proposals, ARC source/export closure and relationship evidence.
+Each lane's sole writer advanced its clean branch to frozen reviewed `e98c6a0b`
+while hosted runners were queued; this explicitly authorised development base
+was not called verified main. Integration remains serial and CI-gated.
+[Current remaining dependencies](../docs/CURRENT_MISSING_OUTCOMES.md) include
+G02/G05 institutional/conditional source coverage, G06 cross-vertical persistence
+and consumer parity, and retained G03 item-8 disposition/recovery. These were
+identified by reviewing 59 original specifications/plans across 32 track folders;
+other historical Conductor files remain preserved for source disposition.
+
+The next reviewed local integration adds [source relationships](../docs/SOURCE_RELATIONSHIP_EVIDENCE_CLOSURE_20261029.md),
+[ARC source/export](../docs/ARC_SOURCE_EXPORT_CLOSURE_20261029.md),
+[publication admission proposals](../docs/PUBLICATION_ADMISSION_WRITER_SOURCE_20261029.md)
+and [award crosswalks](../docs/PUBLICATION_AWARD_CROSSWALK_SOURCE_20261029.md).
+Combined harness: 1,951 Python tests, 19 capability skips, 58 Node tests and
+446 project checks; hosted verification remains pending. Provider foundation
+implementation and bounded writer/workbook assessments continue in the existing
+three lanes. No native, schedule or delivery acceptance follows from these packets.
 
 ## Reconciled later requirements — 29 October 2026
 

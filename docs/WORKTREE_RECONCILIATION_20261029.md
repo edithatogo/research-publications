@@ -79,6 +79,48 @@ its unrelated history remain preserved. Private source package
 `0.4.0-roadmap.12` at `6c62888d` passed fresh extraction and its full harness.
 No native acceptance, public release or wider sharing follows from packaging.
 
+## Source and requirement accounting after PR67
+
+PR67 merged the acquisition, registry metadata and ARC model/reader packets at
+`329a6679`. Its PR and exact main hosted quality/security checks passed. The private
+v6 source disposition pins the reviewed packet at `e98c6a0b`: of 2,386 original
+paths, 435 are exact equivalents, 194 reviewed amendments, 138 scoped dependencies
+or canonical contracts, 127 private evidence, 55 original archives, 11 local
+tooling references and 59 reviewed original requirement documents. The remaining
+1,367 paths need source disposition, not necessarily implementation.
+
+The requirement review covered 59 specifications/plans across 32 track folders,
+not all 348 Conductor paths. Accepted historical scopes remain accepted and
+T16/T17 remain cancelled. The review exposed G02/G05 institutional and conditional
+source dependencies, G06 cross-vertical producer/consumer closure and G03 item-8
+recovery disposition; these now appear in CURRENT_MISSING_OUTCOMES.
+
+While hosted runners were queued, all three clean lanes advanced by their own
+writers to the same reviewed, locally tested `e98c6a0b` for disjoint next packets.
+This explicit development-base exception was not verified-main acceptance.
+PR integration remains serial and requires hosted checks. The original checkout,
+private bindings and active jobs remain with their existing owners.
+
+## Next reviewed source packet
+
+At local integration `bdcf959b`, private v7 accounts for 16 further retained source
+paths: 435 exact equivalents, 210 reviewed amendments, 136 scoped dependencies
+or preserved canonical contracts, 127 private evidence, 55 archives, 11 tooling
+references and 59 reviewed requirement documents. The remaining 1,353 paths still
+need source disposition; these are not a feature count. The combined harness
+passes 1,951 Python tests with 19 capability skips, 58 Node tests and 446 project
+checks. Hosted checks remain pending. Original full status is still byte-identical
+to entry when compared with the same all-untracked-files inventory command.
+
+The four packets close reviewed source dependencies while retaining explicit
+native limits. Admission rejects conflicting own article identities and unsupported
+XML encodings/entities before projection. ARC offline/native-definition proposals
+agree on per-page replay; CSV display escaping leaves JSON evidence unchanged.
+Relationship and award projections preserve occurrences, ambiguous identities,
+independent authority pins, revisions and unknowns without conferring funding,
+identity or G06 write authority. One exact historical gitleaks fingerprint was
+reviewed as ordinary ARC file-validation prose; no broad security rule is disabled.
+
 ## Verified Git state at entry
 
 The canonical source base is `origin/main` at `76d42f84` (PR55). The existing

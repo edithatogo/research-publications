@@ -7,26 +7,41 @@ dependencies, runtime promotion and authentication coordination. The entire
 unfinished roadmap is selected for guarded DEV/no-send work; cancelled
 Windows/Desktop routes remain excluded. Blocked work does not count complete.
 
-Verified main: `396c2d5809cc1adfaa680f4b73148a73af2e915f` (PR66).
-Main quality `40753242018` and security `40753242033` passed. Combined harness:
-1,705 Python tests, 19 capability skips, 58 Node tests and 446 project checks.
-PR57–PR66 are merged. Clean source package `0.4.0-roadmap.12` at `6c62888d`
-passed extraction/full harness; newer source commits have their own checks.
-No source or package result implies native acceptance.
+Verified main: `329a6679dce6a9fa5be759f82be8a322d55773d8` (PR67).
+PR and exact main quality `40758441439` and security `40758441410` passed.
+Verified-main harness: 1,826 Python tests, 19 capability skips,
+58 Node tests and 446 project checks. PR57–PR67 are merged.
+Clean source package `0.4.0-roadmap.13` at `e98c6a0b` passed fresh extraction
+and full harness. No source or package result implies native acceptance.
 
 | Current owner / actual managed checkout | Exclusive source assignment | Native scope / next handoff |
 |---|---|---|
-| Publications `01a1831e-449a-7693-af1a-08bb23391c76`; `/Users/doughnut/.codex/worktrees/fa70/chhhs-research-publications` | QGIP/PubMed/DoRA collector builders, bounded read-retry helper, four paired tests and acquisition closure leaf. Must clean-fast-forward to verified PR64 main before writing. | None. Pure source proposals and focused stdlib tests; no provider calls, observer fabrication, activation or native retries. |
-| Funding reader `01a1831e-cc0d-7340-a1da-95c81b8e93fa`; `/Users/doughnut/.codex/worktrees/c4c7/chhhs-research-publications` | ARC snapshot reconciler, model and report-page builders, three paired tests and closure leaf. Clean fast-forward to verified PR66 main before writing. | None. Supplied-evidence source packet; preserve raw amount/unknown semantics. Eight-page legacy reader must reject current six-page E04 target. No native replay or F01 funding inference. |
-| Registry `01a1831e-cc6d-7371-9d57-021a339b708a`; `/Users/doughnut/.codex/worktrees/ef45/chhhs-research-publications` | Pure bootstrap utilities and field-help/index/quality/view plans, their five tests and metadata closure leaf. Must clean-fast-forward to PR65 main before writing. Existing field-meanings config remains parent-owned. | None. Preserve metadata/ETags and preimage-bound plans; no capture, native adapters or generated migration shell. Exclude unqualified field creation/type changes. |
+| Acquisition `01a1831e-449a-7693-af1a-08bb23391c76`; `/Users/doughnut/.codex/worktrees/fa70/chhhs-research-publications` | Five provider foundation modules (capture receipt, retry classifier, ClinicalTrials, Crossref, DataCite), five focused tests and closure leaf. ARC source/export through 36e66cbf is locally merged with 35 focused tests. | None. Injected fictional read transports only; zero retries by default, strict retained bytes/pagination and create-only failure evidence. No live acquisition, resume or native operation. |
+| Relationships `01a1831e-cc0d-7340-a1da-95c81b8e93fa`; `/Users/doughnut/.codex/worktrees/c4c7/chhhs-research-publications` | Relationship packet through f6a05a5f (28 tests) and award alias/Crossref packet through da27d986 (27) are locally merged. Read-only government workbook family assessment is next. | None. No native calls or environment mutation. Lane-local incomplete openpyxl installation is distinct from the parent environment, where locked openpyxl 3.1.5 / et_xmlfile 2.0.0 pass a fictional workbook roundtrip on Python 3.15.1. |
+| Admission `01a1831e-cc6d-7371-9d57-021a339b708a`; `/Users/doughnut/.codex/worktrees/ef45/chhhs-research-publications` | Admission packet through 688bbdf0 is locally merged with 35 focused admission/preflight tests. Read-only assessment of the complete protected writer source boundary is next. | None. Parent retains tracked-flow/shared-contract ownership. No edits, generated payload, apply or activation during assessment. |
 
-Current integration: registry metadata through `65eb642a` (43 focused tests),
+PR67 integrated registry metadata through `65eb642a` (43 focused tests),
 manual acquisition through `0d09312f` (49), and ARC source/model/reader through
-`3f9c2571` (29) are locally merged after exact clean preflights. Combined Python
-3.15.1 harness passes 1,826 tests with 19 capability skips, 58 Node tests and
-446 project checks. Next: hosted PR/main verification. Terminal lanes assess
-admission, ARC source/export and remaining requirement coverage read-only;
-none moves its branch before the verified main handoff.
+`3f9c2571` (29), after exact clean preflights. While hosted runners were queued,
+the integrator explicitly assigned the next packets from the same frozen,
+reviewed and locally tested `e98c6a0b`. All three owners fast-forwarded their
+clean existing branches before writing. This development-base exception was
+not represented as verified main; main integration remains serial and CI-gated.
+Initial delivery branches were created from verified main as required. The relationship
+owner may continue the disjoint alias/Crossref packet from its clean f6a05a5f
+dependency after parent review/local merge, pending the combined hosted milestone.
+The acquisition owner also continues its disjoint provider foundation from clean
+36e66cbf after parent review/local merge, without moving or amending prior commits.
+The completed source relationship assignment remains recorded in its closure leaf
+and Git history; this next packet excludes government/workbook and protocol/PDF families.
+
+Next integration milestone: reviewed relationship (28), ARC source/export (35),
+admission/preflight (35) and award-crosswalk (27) focused suites pass. Combined
+Python 3.15.1 harness passes **1,951 tests, 19 capability skips, 58 Node tests and
+446 project checks**. Hosted PR/main checks remain next; source success grants no
+native admission or writer readiness. Original full status remains byte-identical
+using the same all-untracked-files inventory command.
+
 Only a lane's sole writer fast-forwards its clean branch. Preserve active work,
 ordinary hooks and original environments; never reset/clean, steal locks or
 rewrite indexes/refs to bypass ownership. Local main now follows canonical
