@@ -1,5 +1,55 @@
 # Current integration checkpoint — 29 October 2026
 
+## Scheduled continuation and workspace cleanup — 29 October 2026
+
+The user's latest direction authorises scheduled continuation and effectiveness
+reviews. Two app heartbeats now target this sole orchestrator: delivery every
+30 minutes (`rims-delivery-orchestration`) and effectiveness review daily at
+09:00 Australia/Brisbane (`rims-delivery-effectiveness-review`). The existing
+one-time November natural-run review remains separate and unchanged. These are
+app follow-ups, not new native services or delivery schedules. Workers remain
+event-driven; no worker timers or duplicate coordination jobs are assigned.
+
+Current repository inventory: six checkouts, comprising this integrator, three
+delivery lanes, the original operational checkout and the older runtime checkout.
+All four integration/delivery checkouts are clean. Each delivery lane has one
+terminal source commit beyond verified PR69; parent NIH work and checkpoint
+commits are also pending. The original all-untracked-files status is byte-identical
+to the entry snapshot. The runtime checkout is clean and its source tip is already
+in main, but ignored runtime/private dependencies must be qualified before retirement.
+Do not equate clean Git status with safe environment deletion.
+
+Removed 19 non-checked-out local branch references after verifying their unchanged
+tips were ancestors of origin/main. Their commits remain in main; remote refs and
+unrelated/private history were preserved. Exact branch/tip inventory and deletion
+receipt are in ignored private integration evidence. There are 39 local branches
+remaining; branch count alone is not divergence or a cleanup mandate.
+
+Frozen packets awaiting review and serial integration:
+
+| Packet | Exact terminal commit | Current next operation |
+|---|---|---|
+| DataCite output relationships | `5cad863a930746ae87d34f116588f455a6a77392` | Admission lane performs read-only cross-review of its three files. |
+| Collector admission adapters | `a80bc1f79c93775cf0efb9f5ece1bf197fc5e747` | Relationship lane performs read-only cross-review of its five files. |
+| Relationship model/reader | `190430ef57073d6b1b112cb4cb74da24f3dce69a` | Parent reviews seven files; casefold conflict correction is included. |
+| NIH publication references | `e983a162`, corrected by `fab3316f` | Acquisition lane performs read-only review of parent-owned three-file source packet. |
+
+These review assignments have no writing, provider, authentication or native scope.
+One terminal finding handoff each; reuse existing focused results. Parent retains
+all integration and shared records. After review, rerun preflight at each merge
+decision, integrate serially, run the coherent harness and verify exact main CI.
+Only then may sole lane writers advance clean branches to that verified main.
+
+Effectiveness baseline: current bottleneck is review/integration, not lack of
+parallel writers. Keep three delivery lanes; do not add chats. Evaluate the next
+milestone by clearing these reviewed packets and reducing concrete connected-journey
+dependencies, not by counting helpers or tests as accepted requirements. Native
+acceptance remains unchanged. Scheduled reviews should adjust sequencing or reduce
+idle concurrency when evidence warrants; no global instruction/memory changes or
+automatic permission expansion. If only external dependencies remain, record them
+and avoid repeated unchanged probes. Disable delivery/review jobs only on verified
+roadmap completion; blocked work remains incomplete.
+
 Sole orchestrator/integrator: `01a182f2-fd8e-7953-9bd2-f9b8002664a6` in
 `/Users/doughnut/.codex/worktrees/rims-reconcile/chhhs-research-publications`,
 branch `codex/rims-worktree-reconciliation`. Owns main, shared records/contracts,
