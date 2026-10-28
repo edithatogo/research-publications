@@ -461,3 +461,49 @@ The terminal checkpoint now records
 both earlier failures. Next: parent reviews this current report-only proposal and,
 if selected, assigns the exact E04 write/inverse scope. Do not execute the proposal
 or replace the unresolved T18 target under this read assignment.
+
+### Assigned theme write: required validation stopped the save
+
+The parent subsequently assigned this lane sole guarded DEV write scope for only
+the current E04 registered theme resource's internal `/name`, with fresh drift
+check, full saved-definition/binding readback, actual rendering, bounded inverse
+and separately intentional final reapplication. All other report fields, the
+common model and T18 remained excluded. The current parent ownership record was
+read before proceeding; no competing assigned writer was introduced.
+
+The installed `powerbi-report-author` is 0.5.0. The complete current native
+baseline and one-field candidate were reconstructed with its supported `unpack`
+operation into new ignored directories. Baseline unpack was independently checked
+against every native part byte; candidate path set and exactly one changed part
+were preserved. Full `validate` ran on both with remote schema checks enabled.
+No schema bypass, format-version downgrade or artifact pruning was used.
+
+| Validation | Errors | Warnings | Exact disposition |
+| --- | ---: | ---: | --- |
+| Current native baseline | 70 | 12 | One `PBIR_THEME_FILE_NAME_MISMATCH` plus 69 `PBIR_PROJECTION_MISSING_NATIVE_QUERY_REF` errors. |
+| Assigned one-field candidate | 69 | 12 | The theme mismatch is removed; all 69 existing missing-projection-label errors remain. |
+
+Both retain ten `PBIR_TEXTBOX_HEIGHT_BELOW_FLOOR` warnings and two
+`PBIR_SCHEMA_UNREACHABLE` warnings. The 69 missing `nativeQueryRef` labels span
+44 visual files. Diagnostic inspection confirms all are exact direct Column/
+Measure bindings, but repairing those visual properties is outside this assigned
+one-field delta. No additional report change was made to obtain a green result.
+
+The [Power BI report CLI skill](/Users/doughnut/.agents/skills/powerbi-report-cli/SKILL.md),
+management mode's modern-PBIR preflight, requires: "fix every error before packing."
+Its authoring validation procedure also blocks preview on errors. The parent's
+assignment explicitly required stopping when existing validation findings block
+the supported save. Therefore no pack, updateDefinition, inverse, reapplication,
+preview or screenshot operation was submitted. Native report state is preserved;
+rendered acceptance and native inverse remain incomplete rather than assumed.
+
+Exact private evidence in this delivery worktree:
+`private/ops/e04-theme-write-scope-20261029/` contains
+`baseline-validation.json`, `candidate-validation.json`, their command receipts,
+the exact unpacked baseline/candidate, `projection-label-diagnostics.json` and
+`write-preflight.json`. The terminal write disposition is
+`BLOCKED_REQUIRED_FULL_REPORT_VALIDATION`, with zero save/pack/preview attempts.
+Existing current E04/model native read receipts remain accepted at their read
+scope; no new refresh, model effect, authentication renewal or other-object write
+occurred. Next dependency is parent reconciliation of the 44-file label repair
+scope and the retained schema warnings before reconsidering the guarded save.
