@@ -50,7 +50,7 @@ Default to one implementer. Use temporary subagents only for independent researc
 
 ## Verification and resumption
 
-Use focused tests during work and all three required checks plus Conductor integrity validation at handoff; the all route runs all four. Tests should exercise user-visible failure modes, not merely assert that output contains a string. A skipped private fixture is a skip, not native proof. Add adversarial cases for same-title/different-round records, invalid dates, changed deadlines, concurrent duplicate creation, and unsubscribe-before-send as the relevant features are implemented.
+Use focused tests during work and the full harness at integration milestones. The all route runs Python tests, project and web-first validation, Conductor structure, tooling preflight and the offline Node CLI guards. Clean-package validation invokes the same harness, so missing Node source dependencies cannot be hidden by Python-only success. Tests should exercise user-visible failure modes. A skipped private fixture is a skip, not native proof. Add adversarial cases for same-title/different-round records, invalid dates, changed deadlines, concurrent duplicate creation, and unsubscribe-before-send as relevant features are implemented.
 
 On failure, retain the failing case, fix the cause and rerun affected checks. Do not update a golden manifest solely to turn a failure green. On interruption, update CURRENT_STATE with the exact next action; do not leave a transcript dump. Before completion, inspect the scoped diff and preserve other work. Commit coherent task changes when appropriate; no remote push or forced cleanup is implicit.
 

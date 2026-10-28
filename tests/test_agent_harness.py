@@ -28,8 +28,10 @@ class HarnessTests(unittest.TestCase):
 
     def test_all_route_includes_required_checks(self):
         checks = commands(load_config(), 'all')
-        self.assertEqual(len(checks), 5)
+        self.assertEqual(len(checks), 6)
         self.assertIn('scripts/validate_project.py', checks[1])
         self.assertIn('scripts/webfirst_contracts.py', checks[2])
         self.assertIn('scripts/validate_conductor.py', checks[3])
         self.assertIn('scripts/powerplatform_tooling.py', checks[4])
+        self.assertIn('tests/test_m365_qualified.mjs', checks[5])
+        self.assertEqual(checks[5][:2], ['node', '--test'])
