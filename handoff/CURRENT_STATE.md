@@ -14,10 +14,12 @@ cancelled Windows/Desktop routes stay excluded. No blocked item counts complete.
 | Outcomes `01a1831e-cc0d-7340-a1da-95c81b8e93fa` | `/Users/doughnut/.codex/worktrees/c4c7/chhhs-research-publications` | `36d4dccf`: pure outcome evidence/revision/projection; no native store or real outcome claimed |
 
 All three packets are reviewed and integrated in this checkout. The seventh
-combined harness passes **1,502 Python tests,22 capability skips,58 offline Node
+combined harness passes **1,552 Python tests,19 capability skips,58 offline Node
 tests (33 through unittest and25 direct),446 project checks**, plus the remaining
-harness gates. Three obsolete private-fixture skips were removed only where the
-selected tests use tracked/synthetic inputs. Exact preflights are clean.
+harness gates. Six obsolete private-fixture skips were removed only where the
+selected tests use tracked/synthetic inputs. Hosted CI exposed six retained
+pytest-function modules absent from unittest coverage; their53 cases now run
+under stdlib discovery with site packages disabled. Exact preflights are clean.
 
 PR57–PR62 are merged with verified main quality/security gates. This checkpoint's
 source packet requires its own PR/main CI receipt; do not infer that from earlier
