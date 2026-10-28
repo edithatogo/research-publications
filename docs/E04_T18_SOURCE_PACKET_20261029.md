@@ -589,3 +589,56 @@ data/refresh, sharing, schedules and sends remain excluded.
 No native save, inverse, reapplication or rendering operation occurred in this
 prepare-only continuation. The candidate is ready for parent review with the
 schema and rendering caveats above; it is not whole-report acceptance.
+
+## Guarded native attempt and terminal blocker — 29 October 2026
+
+The integrator's expanded assignment authorised exactly the prepared 69 direct
+labels and registered theme name, with the ten inherited geometry warnings open
+and the two unavailable exact-version schemas recorded as coverage limits. The
+actual internal-browser baseline rendered all six pages without visual query
+error panels. Tiny/clipped inherited text and substantive wording were preserved;
+this inspection does not close those rendering/content requirements.
+
+One direct GET to each official exact-version schema URL returned HTTP404. The
+same-client Python3.15.1 Azure CLI SDK route then freshly verified the exact owned
+report binding, all75 report parts, all61 common-model parts, all four datasource
+bindings and a Completed latest refresh against the frozen baseline. The token
+exposed `user_impersonation`; a local scope-name heuristic initially stopped
+before a request. It was replaced by the exact service qualification: Microsoft's
+get-definition API documents the same report read/write permission and scopes as
+update-definition, and this client's exact get-definition succeeded. No new
+client, login, consent, permission or scope request occurred. This did not promise
+that the update itself would succeed.
+
+The fresh preflight process exited138 after receiving the model definition's202.
+Its retained operation handle was recovered by GET to Succeeded/result200, with
+no repeat submission. A new immediate full report preimage and binding check
+again matched before the sole update attempt. The durable intent pins the
+approved body69e5956a; the full preimage, response and operation handle remain
+private. The intent's escaped trailing newline is preserved verbatim, alongside a
+normalised read receipt; it does not authorise another attempt.
+
+Exactly one `updateDefinition` POST returned202. The retained operation reached
+**Failed**, `Report_Import_FailedToImportReport`, `isRetriable=false`. Native import
+rejected `linguisticSchemaSyncVersion` in `report.json` as an additional property
+not allowed by its schema. Both original export and approved candidate contain
+that unchanged property with value2 under the existing report3.4.0 schema URL.
+The unavailable local exact-version schema meant the zero-error local validation
+could not establish this native import compatibility.
+
+A separate full effect readback returned the exact original75 path/payload
+bytes, with zero changed/added/removed parts and the same owned report/model
+binding. The failed save made no observed report-definition change. No inverse,
+reapplication, common-model mutation, refresh, schedule, sharing or send occurred.
+The accepted corrected-save and recovery milestones remain unproved. Removing
+this newly rejected property would exceed the exact70-property assignment and
+requires a separately qualified candidate/recovery argument; no removal is made.
+
+Ignored evidence is in this lane's
+`private/ops/e04-expanded-save-20261029/`: `official-schema-check.json`,
+`baseline-render/`, `prewrite2/` (including retained model-result recovery),
+`save1/` (intent, original response/handle and failed terminal poll), and
+`failed-save-readback/verification.json`. The original candidate/inverse hashes
+remain unchanged. Native failure is stronger evidence than the incomplete local
+schema result. Continue only read-only compatibility and target reconciliation
+until a new bounded write assignment is explicitly established.
