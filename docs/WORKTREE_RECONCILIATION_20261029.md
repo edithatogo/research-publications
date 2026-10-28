@@ -79,6 +79,28 @@ its unrelated history remain preserved. Private source package
 `0.4.0-roadmap.12` at `6c62888d` passed fresh extraction and its full harness.
 No native acceptance, public release or wider sharing follows from packaging.
 
+## Source and requirement accounting after PR67
+
+PR67 merged the acquisition, registry metadata and ARC model/reader packets at
+`329a6679`. Its PR and exact main hosted quality/security checks passed. The private
+v6 source disposition pins the reviewed packet at `e98c6a0b`: of 2,386 original
+paths, 435 are exact equivalents, 194 reviewed amendments, 138 scoped dependencies
+or canonical contracts, 127 private evidence, 55 original archives, 11 local
+tooling references and 59 reviewed original requirement documents. The remaining
+1,367 paths need source disposition, not necessarily implementation.
+
+The requirement review covered 59 specifications/plans across 32 track folders,
+not all 348 Conductor paths. Accepted historical scopes remain accepted and
+T16/T17 remain cancelled. The review exposed G02/G05 institutional and conditional
+source dependencies, G06 cross-vertical producer/consumer closure and G03 item-8
+recovery disposition; these now appear in CURRENT_MISSING_OUTCOMES.
+
+While hosted runners were queued, all three clean lanes advanced by their own
+writers to the same reviewed, locally tested `e98c6a0b` for disjoint next packets.
+This explicit development-base exception was not verified-main acceptance.
+PR integration remains serial and requires hosted checks. The original checkout,
+private bindings and active jobs remain with their existing owners.
+
 ## Verified Git state at entry
 
 The canonical source base is `origin/main` at `76d42f84` (PR55). The existing
