@@ -15,6 +15,16 @@ security milestone. No native read/write, auth renewal or journal transfer is
 assigned. Candidate parity does not qualify real mapping/capture provenance,
 admission, refresh, rendering or scheduled output.
 
+Combined checkout harness at `9ec802f2` passed 2,154 Python tests with 19 skips,
+25 Node guards, 446 project checks and remaining gates; range secret scan and
+dependency consistency passed. PR71 is open. A separate fresh archive check
+then reproduced one exporter CLI-test portability error: it invoked a hard-coded
+extraction-local `.venv/bin/python`, absent from clean packages and CI's
+`.venv-ci` layout. Integrator owns the terminal packet's test correction locally:
+reuse the selected running interpreter rather than inventing an environment.
+Preserve the failed .16 archive/evidence and qualify a separately named corrected
+package; neither the checkout harness nor archive presence proves clean closure.
+
 Human requests the next bounded admission source assignment after integration.
 Sequence it from the next verified main: extend the existing consumer-parity
 packet to reconcile complete pinned writer-simulation outcomes and actual

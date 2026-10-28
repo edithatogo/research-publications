@@ -8,6 +8,7 @@ import io
 import json
 from pathlib import Path
 import subprocess
+import sys
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -177,7 +178,7 @@ class ExportTests(unittest.TestCase):
             base = Path(tmp)
             source = base/'input.json'
             source.write_bytes(export.json_bytes(inputs()))
-            command = [str(root/'.venv/bin/python'), '-B', '-S',
+            command = [sys.executable, '-B', '-S',
                        str(root/'scripts/prepare_source_relationship_export.py'),
                        '--input', str(source), '--output', str(base/'output'), '--input-sha256']
             bad = subprocess.run(command+['0'*64], capture_output=True)
