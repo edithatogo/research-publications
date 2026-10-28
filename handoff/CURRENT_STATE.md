@@ -56,6 +56,70 @@ The failed operation, readback, original payload and screenshots remain private;
 
 ### Current continuation
 
+Fifth combined milestone passes:1,414 Python tests with25 capability skips,
+25 offline Node guards,446 project checks and all remaining harness gates.
+Current exact assignments: publications owns document-library source preservation;
+E09 owns advisory-consumer refinement; dashboard owns a minimal pure
+TranslationEvent/OutcomeObservation validation/revision/projection path against
+the restored T18 specification, using fictional fixtures only. Dashboard source
+ownership is `scripts/outcome_evidence.py`, its direct test and leaf handoff;
+no shared schema/model/DAX, native persistence or substantive impact judgement.
+All three retain isolated worktrees and terminal handoffs. Parent retains native
+objects, authentication coordination, shared records and integration.
+
+
+Fifth packet is being assembled: publication identity diagnostics and lossless
+multiline exports (`f8401e46`), E09 preview/builder (`76fc710b`) and additive
+reference compatibility (`10354634`), plus bounded reader textbox clearance
+(`3a179510`). Reviewed exact preflights show no dirty overlaps or staged deletions.
+Source evidence does not establish current native adoption.
+
+Publication lane now owns the six retained document-library scripts/tests and
+leaf handoff; E09 lane owns advisory-consumer refinement and direct tests/leaf
+handoff. Neither owns shared contracts, dependencies, native objects or auth.
+Dashboard continues funding/relationship/freshness reader-only preparation.
+
+The publication notification read was held before any request: existing shared
+Toolkit renewal owner remains active, and the general read binding does not admit
+the installed flow-get resource. The retained narrower writer binding does not
+cover the business digest. No pin was broadened or alternate client used. Saved
+Stopped/subscribed snapshots are historical; current per-flow failure alerts and
+account weekly failure-digest suppression remain unresolved prerequisites.
+
+PR60 merged at `fc5ea5ac2e3b506e5192e9f92d5f98e54a586af8`; main quality
+40730761222 and security40730761008 pass. Private clean extraction at `f80e8139`
+passed the full harness with NativeAcceptance=false. Preserve those checks for
+unchanged parts; the fifth combined milestone will verify the new packet.
+
+The missing E09/T18/monthly and archived E08 requirement records are reconciled
+in the existing Conductor register with source hashes. Historical scoped
+acceptance is retained, private identifiers omitted, and unfinished broader
+requirements stay open. Missing historical leaf documents remain named original
+references, not substitute evidence. All T18 slices are now in scope, while
+outcome measures still require real authorised identities/periods/denominators.
+
+### Earlier continuation assignments (preserved history)
+
+E09 bounded interface extension is assigned exclusively to the grants/E09 lane
+`01a1831e-cc6d-7371-9d57-021a339b708a`: `e09_first_discovery.py`, native-input
+adapter, corresponding no-send-builder guard and exact dependent tests/docs.
+Parent reviewed `e2b387c8`: retained spec and frozen field/input evidence support
+strict PUB/PMID/official-DoRA reference syntax, but stored mapping proof is PUB
+only. Preserve byte-identical existing PUB outputs/IDs and every temporal/alias
+hold, including83 unqualified-first-observation rows. This is additive source
+acceptance only, with no row migration, identity conversion, source/model keyset
+change, native persistence claim or flow deployment. Shared JSON schemas do not
+need widening. Parent retains review, serial integration and native ownership.
+
+After its current identity/export source packet reaches a clean terminal commit,
+publications chat `01a1831e-449a-7693-af1a-08bb23391c76` owns bounded read-only
+qualification of the exact retained publication writer and business-digest flow
+notification settings, plus the same account's weekly failure-digest preference
+only through an already qualified supported read route. Use retained exact IDs
+and workload pins; no broad flow inventory, invocation, setting change, explicit
+auth renewal or credential transfer. The original grants worker/auth journal is
+excluded. Parent retains authentication coordination and any later mutation scope.
+
 Fourth combined local milestone:1,306 Python tests with25 capability skips,25
 offline Node guards,446 project checks and remaining harness checks pass. Native
 acceptance is not inferred. The two macOS SIGBUS events (packager and native

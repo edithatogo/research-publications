@@ -5,13 +5,15 @@ row shapes, using only field identities documented in
 ``docs/SHAREPOINT_LIST_REGISTRY.md``:
 
 * ``SourceKey`` — stable ``source:SourceID`` identity (``pubmed:…``/``dora:…``);
-* ``CanonicalKey`` — stable deduplicated publication key (``PUB:…`` hex);
+* ``CanonicalKey`` — exact retained PUB deduplication or PMID/official DoRA
+  candidate reference; syntax alone establishes no accepted canonical membership;
 * ``ReviewStatus`` — retained ``Included`` / ``Needs Review`` / ``Excluded``
   labels, where Needs Review is uncertainty, not an approval gate;
 * ``FirstObservedUTC`` — registry processing first-seen UTC instant, written at
   create and never overwritten on replay; it is not an external
   source-observation timestamp;
-* ``LastObservedUTC`` — most recent verifying harvest (optional in selection);
+* ``LastObservedUTC`` — latest registry upsert processing time (optional in
+  selection), not independent evidence of upstream harvest freshness;
 * ``Title`` — indexed registry publication title (documented field; optional in
   the row shape because the historical DEV readback found it optional).
 
@@ -48,7 +50,11 @@ from scripts.e09_feed_contracts import (
 
 REVIEW_STATUSES = {"Included", "Needs Review", "Excluded"}
 STATUS_TIERS = {"Included": "confirmed", "Needs Review": "possible", "Excluded": "rejected"}
-CANONICAL_KEY_RE = re.compile(r"^PUB:[0-9a-f]+$")
+CANONICAL_KEY_RE = re.compile(
+    r"(?:PUB:[0-9a-f]+|PMID:[1-9][0-9]*|"
+    r"DORA:https://dora\.health\.qld\.gov\.au/qldresearchjspui/handle/"
+    r"[1-9][0-9]*/[1-9][0-9]*)"
+)
 
 REGISTRY_ROW_FIELDS = {
     "SourceKey", "CanonicalKey", "ReviewStatus",
@@ -67,7 +73,7 @@ def _utc_instant(value: Any, field: str) -> datetime:
 def _canonical_key(value: Any) -> str:
     key = _required_identifier(value, "CanonicalKey")
     if not CANONICAL_KEY_RE.fullmatch(key):
-        raise ValueError("CanonicalKey must be hex 'PUB:…' deduplication identity text")
+        raise ValueError("CanonicalKey must be exact PUB hex, positive ASCII PMID or official DoRA handle reference")
     return key
 
 

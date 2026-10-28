@@ -75,9 +75,11 @@ pages and untrimmed/non-text keys fail closed. Valid positive complete batches
 and explicit null initial cursors remain supported. This local contract has no
 native invocation path and does not prove live pagination or writer acceptance.
 
-## Actual remaining work
+## Remaining work at initial reconciliation (historical)
 
-This table reconciles saved source/receipts; it is not a new live tenant audit.
+Current implementation and dependencies are in [CURRENT_MISSING_OUTCOMES](CURRENT_MISSING_OUTCOMES.md#autonomous-delivery-checkpoint--29-october-2026). The table below preserves the initial reconciliation; its local-only hold and narrow/deferred scope are superseded by the approved expansion above.
+
+This historical table reconciles saved source/receipts; it is not a new live tenant audit.
 Later original-checkout evidence is labelled explicitly rather than copied into
 main as an acceptance claim. Historical receipts remain with their existing owner.
 

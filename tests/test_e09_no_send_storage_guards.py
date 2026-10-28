@@ -13,7 +13,7 @@ from tests.test_e09_subscription_editions import preference, discovered
 
 class NoSendStorageGuardTests(unittest.TestCase):
     def test_renderer_rejects_contradictory_labels_and_invented_dates_or_identity(self):
-        for changes in [{'review_status':'Included'}, {'canonical_key':'PMID:1'},
+        for changes in [{'review_status':'Included'}, {'canonical_key':'PMID:01'},
                         {'discovered_on':'2026-02-30'}, {'PublicationMonth':'2026-13'},
                         {'publication_key':' qualification:e09-mapping '}]:
             with self.subTest(changes=changes), self.assertRaises(ValueError):

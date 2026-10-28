@@ -1,0 +1,8 @@
+{
+  "id": "publication_monthly_monitoring_20261024",
+  "status": "in_progress",
+  "historical_status": "new",
+  "reconciled_on": "2026-10-29",
+  "depends_on": [],
+  "source_history": "Retained authoring checkout cde439c0; reviewed source hashes in reconciliation manifest; no unrelated-history merge."
+}

@@ -1,0 +1,57 @@
+{
+  "source_checkout_head": "cde439c0d0ee35676c05362b2ef9498dafbd4bcc",
+  "scope": "Requirements and historical scoped evidence only; current native acceptance not inferred",
+  "transformations": [
+    "Historical/current authority preamble",
+    "Private UUIDs omitted",
+    "Missing historical links retained as literal original references",
+    "Minimal metadata retains original status separately",
+    "E09 broader pending acceptance made explicit"
+  ],
+  "files": [
+    {
+      "path": "conductor/tracks/collaborative_research_feed_20261022/spec.md",
+      "sha256": "c17d4d6b512d370f9d904b8f4f98b5c8b9de0dcfe8c3fa20bbf480ef280158b7"
+    },
+    {
+      "path": "conductor/tracks/collaborative_research_feed_20261022/plan.md",
+      "sha256": "6d53a8989b038cd8048c628a19118626dd252d60377c74b56f73e22a1caf9a97"
+    },
+    {
+      "path": "conductor/tracks/chhhs_outcomes_powerbi_20261021/spec.md",
+      "sha256": "7ab7935dff79bbe261668fe2f12cfbb2879fcd58d49fa7780622087750d95337"
+    },
+    {
+      "path": "conductor/tracks/chhhs_outcomes_powerbi_20261021/plan.md",
+      "sha256": "e9d6bed5034e7e116bd193d2d61616965a01b03d9b3035246567dcbe13773de0"
+    },
+    {
+      "path": "conductor/tracks/chhhs_outcomes_powerbi_20261021/outcomes.md",
+      "sha256": "1d53ad765321b33f8ac10c7befbd3799a0b0c8e318a8aa5521597bc123f1e070"
+    },
+    {
+      "path": "conductor/tracks/chhhs_outcomes_powerbi_20261021/tooling.md",
+      "sha256": "55824421dcdab6c092534b0077b6b914af6522bd6631945cc51b3926efbf20e3"
+    },
+    {
+      "path": "conductor/tracks/publication_monthly_monitoring_20261024/spec.md",
+      "sha256": "deb81eee8250eac293273955c7b98549ea095c954035ce3b3c772bf74737ff86"
+    },
+    {
+      "path": "conductor/tracks/publication_monthly_monitoring_20261024/plan.md",
+      "sha256": "16cbf6f887b9c51968b58a185ae4842095477c973e794e30e0556a0051bb473f"
+    },
+    {
+      "path": "conductor/archive/E08_operational_followups/spec.md",
+      "sha256": "1ec8524f70ee773876afd4dfcb09defab0fdcff21abd9e4281d118dac3ba7cbf"
+    },
+    {
+      "path": "conductor/archive/E08_operational_followups/plan.md",
+      "sha256": "fe03dc75c15c3c84cc33efca28e5dbaa48922e4628812f24e7d7f1c3e30e0b3c"
+    },
+    {
+      "path": "conductor/archive/E08_operational_followups/closeout-20261028.md",
+      "sha256": "e03e7a9d4e44639d0e6d94437e41b8884f6f7bdd7ceed5226fbd02a6545e5de7"
+    }
+  ]
+}
