@@ -35,27 +35,32 @@ Internal disk exhaustion was observed during startup; avoid large allocations
 and use owned temporary outputs on PortableSSD without moving active environments.
 Earlier assignments below are history, including the superseded local-only hold.
 
-### Exact guarded DEV assignment — E04 theme and direct-field labels
+### Exact DEV assignment — stopped after terminal import rejection
 
-Dashboard chat `01a1831e-cc0d-7340-a1da-95c81b8e93fa` is the sole native writer
-for the exact existing E04 report in the retained reconciled-report-target manifest.
-Fresh readback matches all75 report parts and61 common-model parts. Assigned
-change: registered custom-theme internal `/name` plus69 missing exact direct-field
-`nativeQueryRef` labels in45 enumerated parts, as reviewed in the expanded lane
-packet. Body69e5956a, delta dfc34a78 and inverse867664a3 pin that prepared packet;
-fresh drift proof is still required. The10 unchanged clipping warnings remain
-rendering requirements; two unavailable exact-version schemas remain a recorded
-coverage limit. No actual schema error may be waived. Establish actual baseline
-rendering before save, retain one-attempt journals, and qualify the owned inverse
-before guarded final corrected reapplication. Frozen references remain private. Require fresh prewrite drift check, complete preimage, qualified save,
-full definition/binding readback, bounded inverse and actual rendered verification.
-Common model, separate T18 report, data, filters, layout, refresh, schedule, sharing
-and production promotion are outside this write assignment. Stop on drift,
-unsupported save/validation, uncertain response or conflicting ownership.
-No other lane has a native write assignment. This uses the user-approved guarded
-DEV authority; it does not extend notification, authentication or delivery scope.
+Dashboard chat `01a1831e-cc0d-7340-a1da-95c81b8e93fa` attempted exactly one
+approved E04 theme/direct-label definition save after fresh report/model/binding
+preimages and six-page baseline rendering. The retained operation failed native
+import because existing `report.json` property `linguisticSchemaSyncVersion` is
+rejected. Full effect readback is byte-identical across75 report parts and the
+binding. No inverse or second save occurred. Native writes are stopped.
+
+Official exact schema URLs return404; installed packer and published schema
+references do not establish safe removal or round-trip recovery for this property.
+The dependency is a compatible exact-version export/import contract and qualified
+recovery, not approval to guess. T18's exact ID remains absent from bounded current
+workspace/personal report inventories. No replacement report is inferred.
+The lane continues independent reader accessibility/source-disposition work.
+Common model, T18, data/refresh, schedules, sharing and sends retain their scope.
+The failed operation, readback, original payload and screenshots remain private;
+[the lane handoff](../docs/E04_T18_SOURCE_PACKET_20261029.md) records the full chain.
 
 ### Current continuation
+
+Fourth combined local milestone:1,306 Python tests with25 capability skips,25
+offline Node guards,446 project checks and remaining harness checks pass. Native
+acceptance is not inferred. The two macOS SIGBUS events (packager and native
+preflight) are retained; native handle recovery used reads only, not resubmission.
+Environment stability remains an E10 qualification consideration.
 
 PR59 merged at `3d1882a1a16f299d782cc9232ae5b5cf12a46230`; main quality
 40728275915 and security40728275966 pass. Fresh source extraction at `56ac7d92`
@@ -79,12 +84,13 @@ the full harness and clean-package validation. The conditional adapter remains
 injected-transport source only; it is not wired into the running MailWorker.
 Original jobs, journals, bindings and environments remain in their existing path.
 
-Publications continues correction/retraction and source-disposition closure.
-Grants continues relationship guards, then compatible planning/recovery closure.
-Dashboard owns the exact E04 DEV report only. One-field theme validation exposed
-69 pre-existing missing projection labels; a minimally expanded theme/label
-candidate passed exact semantic review and has the bounded assignment above.
-No service write has occurred as of this checkpoint. The shared model and separate T18 report retain
+Publications has closed correction/retraction and scoped disposition; it now
+owns identity diagnostics and multiline-export fidelity source closure.
+Grants has closed relationship/classification guards and no-send storage; it now
+owns E09 preview/no-send-builder source closure. Event-key migration stays held.
+Dashboard owns the exact E04 report evidence and reader source scope. Its expanded
+metadata candidate failed native import and left the report unchanged, as above.
+Native mutation is stopped; independent source development continues. The shared model and separate T18 report retain
 read-only status; T18's retained Fabric route returned404 and needs exact-target
 route reconciliation. The isolated funding-only model is unsuitable for E04.
 
