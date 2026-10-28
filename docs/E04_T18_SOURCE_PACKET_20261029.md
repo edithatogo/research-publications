@@ -589,3 +589,103 @@ data/refresh, sharing, schedules and sends remain excluded.
 No native save, inverse, reapplication or rendering operation occurred in this
 prepare-only continuation. The candidate is ready for parent review with the
 schema and rendering caveats above; it is not whole-report acceptance.
+
+## Guarded native attempt and terminal blocker — 29 October 2026
+
+The integrator's expanded assignment authorised exactly the prepared 69 direct
+labels and registered theme name, with the ten inherited geometry warnings open
+and the two unavailable exact-version schemas recorded as coverage limits. The
+actual internal-browser baseline rendered all six pages without visual query
+error panels. Tiny/clipped inherited text and substantive wording were preserved;
+this inspection does not close those rendering/content requirements.
+
+One direct GET to each official exact-version schema URL returned HTTP404. The
+same-client Python3.15.1 Azure CLI SDK route then freshly verified the exact owned
+report binding, all75 report parts, all61 common-model parts, all four datasource
+bindings and a Completed latest refresh against the frozen baseline. The token
+exposed `user_impersonation`; a local scope-name heuristic initially stopped
+before a request. It was replaced by the exact service qualification: Microsoft's
+get-definition API documents the same report read/write permission and scopes as
+update-definition, and this client's exact get-definition succeeded. No new
+client, login, consent, permission or scope request occurred. This did not promise
+that the update itself would succeed.
+
+The fresh preflight process exited138 after receiving the model definition's202.
+Its retained operation handle was recovered by GET to Succeeded/result200, with
+no repeat submission. A new immediate full report preimage and binding check
+again matched before the sole update attempt. The durable intent pins the
+approved body69e5956a; the full preimage, response and operation handle remain
+private. The intent's escaped trailing newline is preserved verbatim, alongside a
+normalised read receipt; it does not authorise another attempt.
+
+Exactly one `updateDefinition` POST returned202. The retained operation reached
+**Failed**, `Report_Import_FailedToImportReport`, `isRetriable=false`. Native import
+rejected `linguisticSchemaSyncVersion` in `report.json` as an additional property
+not allowed by its schema. Both original export and approved candidate contain
+that unchanged property with value2 under the existing report3.4.0 schema URL.
+The unavailable local exact-version schema meant the zero-error local validation
+could not establish this native import compatibility.
+
+A separate full effect readback returned the exact original75 path/payload
+bytes, with zero changed/added/removed parts and the same owned report/model
+binding. The failed save made no observed report-definition change. No inverse,
+reapplication, common-model mutation, refresh, schedule, sharing or send occurred.
+The accepted corrected-save and recovery milestones remain unproved. Removing
+this newly rejected property would exceed the exact70-property assignment and
+requires a separately qualified candidate/recovery argument; no removal is made.
+
+Ignored evidence is in this lane's
+`private/ops/e04-expanded-save-20261029/`: `official-schema-check.json`,
+`baseline-render/`, `prewrite2/` (including retained model-result recovery),
+`save1/` (intent, original response/handle and failed terminal poll), and
+`failed-save-readback/verification.json`. The original candidate/inverse hashes
+remain unchanged. Native failure is stronger evidence than the incomplete local
+schema result. Continue only read-only compatibility and target reconciliation
+until a new bounded write assignment is explicitly established.
+
+### Read-only import compatibility qualification
+
+Installed `powerbi-report-author`0.5.0 source (`buildPackBody`, lines2089–2118)
+walks included files and Base64-encodes their exact bytes. No occurrence of
+`linguisticSchemaSyncVersion` exists in that installed CLI source, and the packer
+performs no documented field stripping or server-generated-field recovery.
+The approved packed payload already matched the complete candidate exactly.
+
+The [official PBIR documentation](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report)
+links Microsoft's [published report schemas](https://github.com/microsoft/json-schemas/tree/main/fabric/item/report/definition/report).
+A bounded read of that official directory lists versions1.0.0 through3.3.0,
+with no3.4.0 directory. Exact report3.4.0 and visualContainer2.14.0 raw official
+schema fetches also returned404. The published3.3.0 report schema and changelog
+were inspected as references only: neither mentions the rejected property, and
+3.3.0 disallows additional top-level properties. They were **not** substituted
+for3.4.0, used to validate the candidate, or installed as a downgrade.
+
+Official documentation requires supported PBIR files to conform to their declared
+schemas; it does not establish that this specific property is read-only,
+server-generated, automatically regenerated or safely removable. The native
+failure establishes rejection on import, not the property's purpose or the
+reversibility of omitting it. Because the original export contains the same
+property, exact original-part restoration cannot currently be claimed as a
+qualified import recovery route either. No revised candidate or rollback is
+proposed from unsupported semantics. The remaining dependency is an authoritative
+compatible export/import contract for this exact version/property and a proven
+bounded recovery route, followed by a newly scoped candidate if justified.
+Compatibility source receipts are private under `compatibility/`.
+
+### Bounded T18 inventory reconciliation
+
+One current personal report-list GET and one report-list GET in the retained
+assigned workspace each returned200, one report, and no continuation. Neither
+contains the retained T18 report ID or a report name with its retained20261022
+marker. The personal report is the already assigned E04 report on the common
+model; shared model identity alone does not identify T18. These reads strengthen
+the earlier exact404 result only within those two scopes. They do not establish
+deletion, another workspace's contents, or a replacement reader identity. No
+other report definition was read or substituted, and no write scope transferred.
+Private inventory/comparison receipts are under `bounded-t18-inventory/`.
+
+The actual E04 report was reloaded after failed-save reconciliation; its overview
+still rendered the original1344/1277/709/642 counts and default filter state,
+with no visual query error panel. This confirms continued baseline availability,
+not corrected-render acceptance. Screenshot/AX evidence is under
+`failed-save-render/`. The lane remains stopped for native writes.
