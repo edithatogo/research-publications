@@ -8,7 +8,7 @@ priority/deferral paragraphs. Three isolated lanes deliver scoped packets to one
 integrator. Blocked requirements remain open. T16/T17 are cancelled and excluded,
 despite their historical conditional labels below. Accepted receipts are reused.
 
-Canonical source milestones PR57–PR62 are merged with main quality and
+Canonical source milestones PR57–PR63 are merged with main quality and
 security checks passing. These do not close native/operational track exits.
 Current evidence and residual requirements are consolidated in the
 [publication cycle](../docs/PUBLICATION_CYCLE_CLOSURE_20261029.md),
@@ -17,17 +17,17 @@ Current evidence and residual requirements are consolidated in the
 [relationship compatibility](../docs/G06_RELATIONSHIP_GUARDS_20261029.md),
 [classification closure](../docs/G07_CLASSIFICATION_SOURCE_20261029.md), and
 [E04/T18 reader handoff](../docs/E04_T18_SOURCE_PACKET_20261029.md).
-S02 clean-source extraction passes at `f80e8139` with NativeAcceptance=false;
+S02 clean-source extraction passes at `75ff865d` with NativeAcceptance=false;
 E10 shared-host promotion, current native recovery/rendering and the post-1November
 natural monthly observation remain open. No accepted historical route is reopened
 merely to reproduce unchanged evidence.
 
 Latest integrated source checkpoint: library adapters with33 offline transport
 cases; all24 bounded grants preparation paths; outcome evidence/revision projection
-with18 fictional cases. Combined harness:1,502 Python tests/22 capability skips,
+with18 fictional cases. Combined harness:1,552 Python tests/19 capability skips,
 58 Node tests and446 project checks. [Current remaining dependencies](../docs/CURRENT_MISSING_OUTCOMES.md)
-separate source closure from native adoption. All lanes return to the same verified
-main at terminal integration before further implementation.
+separate source closure from native adoption. All three lanes confirmed clean fast-forwards to verified main `63222432` before
+the next bounded source assignments in CURRENT_STATE.
 
 ## Reconciled later requirements — 29 October 2026
 
@@ -76,8 +76,8 @@ Execution order and boundaries: [detailed handoff](PUBLICATION_STABILISATION.md)
 [T07 Fabric Git acceptance](tracks/T07_fabric_live_acceptance/plan.md) is retired.
 
 ## Multi-source enrichment extension
-- [x] [Multi-source enrichment and deduplication](../docs/FUTURE_SOURCE_ENRICHMENT.md) — completed (OpenAlex, Crossref, Dimensions, Scopus, Web of Science, ARDC RLA integrated into registry, enrichment pipeline, and seed datasets).
-- [x] [Keyless & Token-Free Enrichment Plan](../docs/KEYLESS_ENRICHMENT_PLAN.md) — active policy (strict zero-key/zero-token rule; only OpenAlex polite-pool, Crossref polite-pool, PubMed E-Utilities, and internal deterministic governance classifiers; proprietary paywalled APIs excluded).
+- [x] [Multi-source enrichment and deduplication](../docs/FUTURE_SOURCE_ENRICHMENT.md) — historical source/catalogue implementation (OpenAlex, Crossref, Dimensions, Scopus, Web of Science, ARDC RLA). This is not current provider-access, acquisition or native-admission acceptance; restricted routes retain their exact access dependencies.
+- [x] [Keyless & Token-Free Enrichment Plan](../docs/KEYLESS_ENRICHMENT_PLAN.md) — retained public-provider policy. Current approved route and exact target qualification control; this does not revoke existing qualified Microsoft workload authentication or authorize restricted-provider access.
 
 ## Platform completion roadmap (separation of concerns)
 - [x] [Phase 1: Central Research Data Persistence & Review (SharePoint List)](../docs/PLATFORM_COMPLETION_PLAN.md#phase-1-sharepoint-publication-registry-highest-value) — **Highest Value** (historical synchronization evidence; live readback and current reconciliation remain gated)
