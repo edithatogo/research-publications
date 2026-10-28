@@ -354,7 +354,7 @@ def render_exports(envelope: dict[str, Any], output: Path) -> dict[str, Any]:
             + ' | <strong>Reconciliation:</strong> ' + escape(str(row.get('DedupMethod') or 'Not supplied')) + '</p>'
             '<p>' + '<br>'.join(links) + '</p><details open><summary>Complete record metadata</summary><dl>'
             + ''.join('<dt>' + escape(name) + '</dt><dd data-field="' + name + '">'
-                      + escape('' if row.get(name) is None else str(row[name])) + '</dd>' for name in EXPORT_FIELDS)
+                      + escape('' if row.get(name) is None else str(row[name])).replace('\r', '&#13;') + '</dd>' for name in EXPORT_FIELDS)
             + '</dl></details></article>')
     css = '''body{font:16px/1.5 Georgia,serif;max-width:960px;margin:2rem auto;padding:0 1.2rem}
  h1{font-size:1.7rem}h2{font-size:1.12rem}article{border-top:1px solid;padding:1rem 0;overflow-wrap:anywhere}dd{white-space:pre-wrap}dt{font-weight:bold}
