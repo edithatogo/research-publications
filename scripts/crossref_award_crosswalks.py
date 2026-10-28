@@ -11,11 +11,11 @@ import re
 from urllib.parse import parse_qs, unquote, urlparse
 
 if __package__:
-    from scripts.award_identifier_crosswalks import qualify_award_alias, authority_contract, exact_text, identifier, validate_grant_records
+    from scripts.award_identifier_crosswalks import qualify_award_alias, authority_contract, exact_text, identifier, validate_grant_records, governing_envelope
     from scripts.source_relationship_evidence import normalise_doi, fingerprint
     from scripts.plan_publication_stub_restore import strict_json_loads, utc
 else:
-    from award_identifier_crosswalks import qualify_award_alias, authority_contract, exact_text, identifier, validate_grant_records
+    from award_identifier_crosswalks import qualify_award_alias, authority_contract, exact_text, identifier, validate_grant_records, governing_envelope
     from source_relationship_evidence import normalise_doi, fingerprint
     from plan_publication_stub_restore import strict_json_loads, utc
 
@@ -49,6 +49,7 @@ def _observed(query):
 
 
 def _complete(query):
+    governing_envelope(query)
     if (query.get('complete') is not True or query.get('next_links') != []
             or type(query.get('http_status')) is not int or query['http_status'] != 200):
         raise ValueError('Successful complete unpaged query required')
@@ -67,6 +68,7 @@ def _capture(folder, expected_manifest_sha256):
     if hashlib.sha256(raw).hexdigest() != _sha(expected_manifest_sha256):
         raise ValueError('Independent manifest pin mismatch')
     manifest = strict_json_loads(raw)
+    governing_envelope(manifest)
     if (not isinstance(manifest, dict) or manifest.get('kind') != 'publication_award_crosswalk_retention_v1'
             or manifest.get('complete') is not True or manifest.get('next_links') != []
             or manifest.get('namespace') != 'nhmrc'):
@@ -109,6 +111,7 @@ def project_packet(folder, publications, *, expected_manifest_sha256,
     publications, generation = copy.deepcopy((publications, generation))
     if not isinstance(publications, list) or not isinstance(generation, dict):
         raise ValueError('Caller-bound canonical generation required')
+    governing_envelope(generation)
     for key in ('generation_id', 'canonical_snapshot_id'):
         exact_text(generation.get(key))
     if (generation.get('complete') is not True or generation.get('next_links') != []

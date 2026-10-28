@@ -241,3 +241,38 @@ class CrossrefAwardCrosswalkTests(unittest.TestCase):
         for cwd,code in ((repo,'from scripts import award_identifier_crosswalks,crossref_award_crosswalks'),(repo/'scripts','import award_identifier_crosswalks,crossref_award_crosswalks')):
             result=subprocess.run([sys.executable,'-S','-c',code],cwd=cwd,capture_output=True,text=True)
             self.assertEqual(result.returncode,0,result.stderr)
+
+    def test_all_governing_envelopes_reject_failure_partial_and_continuation_despite_valid_pins(self):
+        indicators=(('error',None),('errors',[]),('partial',True),('incomplete',True),
+                    ('is_partial',True),('truncated',True),('status','incomplete'),
+                    ('nextLink','more'),('continuation_token','more'))
+        for location in ('manifest','generation','crossref','ardc','authority-binding'):
+            for key,value in indicators:
+                with self.subTest(location=location,key=key),tempfile.TemporaryDirectory() as d:
+                    root=self.fixture(d);m=json.loads((root/'manifest.json').read_bytes())
+                    if location=='manifest':m[key]=value
+                    elif location in ('crossref','ardc'):m[location][0][key]=value
+                    self.write(root,'manifest.json',m)
+                    self.pins[root]['expected_manifest_sha256']=hashlib.sha256((root/'manifest.json').read_bytes()).hexdigest()
+                    args=self.arguments(root,[])
+                    if location=='generation':args['generation'][key]=value
+                    elif location=='authority-binding':
+                        args['authority_binding']=dict(args['authority_binding'],**{key:value})
+                        args['authority_binding_sha256']=fingerprint(args['authority_binding'])
+                    with self.assertRaises(ValueError):raw_project(root,[],**args)
+
+    def test_unknown_times_and_ordinary_nested_source_metadata_are_not_failure_envelopes(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=self.fixture(d);c=json.loads((root/'crossref.json').read_bytes())
+            c['message']['custom_metadata']={'partial':True,'error':'source annotation','unknown_date':None}
+            self.write(root,'crossref.json',c);m=json.loads((root/'manifest.json').read_bytes())
+            for envelope in (m,m['crossref'][0],m['ardc'][0]):
+                envelope.update(partial=False,incomplete=False,nextLink=None,continuationToken='')
+            m['crossref'][0]['observed_utc']=None
+            self.write(root,'manifest.json',m);self.reseal(root)
+            args=self.arguments(root,[]);args['generation']['partial']=False
+            args['authority_binding']=dict(args['authority_binding'],observed_utc=None)
+            args['authority_binding_sha256']=fingerprint(args['authority_binding'])
+            rows=raw_project(root,[],**args)
+            self.assertEqual(len(rows),1);self.assertIsNone(rows[0]['ObservedUTC'])
+            self.assertIsNone(json.loads(rows[0]['ReferenceType'])['ardcObservedUTC'])

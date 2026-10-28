@@ -26,12 +26,39 @@ def identifier(value):
     return value
 
 
+def governing_envelope(value):
+    """Reject contradictory known control fields, without scanning source metadata."""
+    if not isinstance(value,dict):raise ValueError('Structured governing envelope required')
+    if any(key in value for key in ('error','errors')):
+        raise ValueError('Failure envelope cannot certify complete evidence')
+    for key in ('partial','is_partial','isPartial','incomplete','is_incomplete','isIncomplete',
+                'truncated','is_truncated','isTruncated','failed','failure','has_more','hasMore','has_next','hasNext'):
+        if key in value and value[key] is not False:
+            raise ValueError('Partial/failure/continuation flag contradicts completion')
+    for key in ('complete','is_complete','isComplete','pagination_complete','paginationComplete','success','succeeded'):
+        if key in value and value[key] is not True:
+            raise ValueError('Completion flag is not explicitly true')
+    if 'next_links' in value and value['next_links']!=[]:
+        raise ValueError('Continuation links contradict completion')
+    for key in ('next','nextLink','next_link','@odata.nextLink','odata.nextLink','next_page','nextPage',
+                'next_token','nextToken','continuation','continuation_token','continuationToken',
+                'cursor','next_cursor','nextCursor'):
+        if key in value and value[key] not in (None,'',[]):
+            raise ValueError('Continuation evidence contradicts completion')
+    nonterminal={'failed','failure','error','errors','partial','incomplete','truncated','pending','running',
+                 'in_progress','in progress','continuation','cancelled','canceled','timed_out','timeout'}
+    for key in ('status','state','outcome'):
+        if isinstance(value.get(key),str) and value[key].strip().casefold() in nonterminal:
+            raise ValueError('Nonterminal/failure status contradicts completion')
+
+
 def authority_contract(authority, expected_sha256):
     """A caller pin binds supplied authority; it is not proof of its authenticity."""
     if (not isinstance(expected_sha256, str) or not re.fullmatch('[0-9a-f]{64}', expected_sha256)
             or not isinstance(authority, dict) or fingerprint(authority) != expected_sha256
             or authority.get('complete') is not True):
         raise ValueError('Independent complete authority binding and SHA256 required')
+    governing_envelope(authority)
     identifier(authority.get('namespace'))
     ror = exact_text(authority.get('ror'))
     if not re.fullmatch(r'https://ror\.org/[A-Za-z0-9]+',ror):

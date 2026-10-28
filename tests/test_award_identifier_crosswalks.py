@@ -80,3 +80,10 @@ class AwardIdentifierCrosswalkTests(unittest.TestCase):
         result=qualify_award_alias({},self.authority['ror'],self.authority,[record],authority_sha256=fingerprint(self.authority))
         self.assertEqual(result['state'],'missing_award_number');self.assertEqual(record,saved)
         with self.assertRaises(ValueError):qualify_award_alias({},None,self.authority,[{}],authority_sha256=fingerprint(self.authority))
+
+    def test_pinned_authority_binding_rejects_contradictory_completion_envelope(self):
+        for key,value in (('error',None),('errors',[]),('partial',True),('incomplete',True),
+                          ('status','failed'),('nextLink','more'),('continuationToken','more')):
+            binding=copy.deepcopy(self.authority);binding[key]=value
+            with self.subTest(key=key),self.assertRaises(ValueError):
+                qualify_award_alias({'funder_award_id':'123'},binding['ror'],binding,[self.record()],authority_sha256=fingerprint(binding))

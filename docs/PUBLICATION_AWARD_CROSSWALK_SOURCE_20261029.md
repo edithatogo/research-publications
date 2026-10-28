@@ -143,3 +143,26 @@ preimages, permissions, typed bridge persistence/readback and model/cardinality
 acceptance. G06-H03 still needs authorised reviewed live links, correction and
 withdrawal history plus recovery and unchanged publication totals. No real alias
 capture was replayed and no native graph, funding fact or authority was accepted.
+
+## Governing-envelope review correction
+
+A shared local validator now rejects contradictory known control evidence in the
+manifest, canonical generation, Crossref/ARDC query envelopes and direct authority
+binding. Presence of `error`/`errors` is disqualifying even if empty/null, matching
+the existing failure-envelope convention. Known partial/incomplete/truncated or
+failure/has-more flags must be explicitly false; supplied completion/success
+flags must be explicitly true. Known continuation links/tokens/cursors must be
+terminal, and explicit failed, partial, incomplete or nonterminal status/state/
+outcome values cannot coexist with a completeness claim.
+
+The validator is limited to these governing envelopes and does not recursively
+reinterpret ordinary provider metadata. Unknown observation timestamps remain
+null. A positive regression retains nested source annotations containing error/
+partial words and terminal indicators without fabricating dates. Native
+admission and authority flags remain false.
+
+Three new focused methods exercise direct authority binding plus every governing
+envelope with otherwise valid hashes, independent pins and counts, and preserve
+the unknown-time/source-metadata case. The direct binding regression first
+reproduced the gap. All 27 focused stdlib methods subsequently pass on Python
+3.15.1 with `-S`, including the previous 24. No shared or native changes occurred.
