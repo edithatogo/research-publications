@@ -507,3 +507,85 @@ Existing current E04/model native read receipts remain accepted at their read
 scope; no new refresh, model effect, authentication renewal or other-object write
 occurred. Next dependency is parent reconciliation of the 44-file label repair
 scope and the retained schema warnings before reconsidering the guarded save.
+
+### Expanded metadata-only candidate — prepared, not submitted
+
+The parent then assigned local preparation of the smallest validation repair:
+only the theme resource internal `/name` and the 69 missing direct-field
+`nativeQueryRef` labels. No expanded save authority was assigned. The existing
+`prepare_dashboard_reader_increment.prepare`/`projection_labels` guards ran with
+`reader_controls=False`; every affected queryRef equals its explicit entity and
+property, and every Column/Measure property exists in the complete current model
+capture. No aggregate, alias-based inference or model change was admitted.
+
+Machine verification identifies exactly 70 JSON-property changes in 45 parts:
+69 labels in 44 visual files plus one theme name. All 30 other parts remain
+byte-exact. Restoring those label fields and the theme name makes each parsed
+document equal its baseline; restoring the 45 retained inverse parts restores
+every original byte. Report/model binding, IDs, values, titles, filters, layout,
+order and controls remain unchanged. Three adversarial in-memory cases reject an
+extra visual-identity change, a missing model contract and an aggregate projection.
+
+Required full CLI validation now reports `succeededWithWarnings`: **zero errors,
+12 warnings**. The 12 warnings are exactly unchanged from the native baseline.
+This is successful CLI structural validation, not complete remote-schema or
+rendered acceptance. No schema version was changed and `--no-schema` was not used.
+
+| Page/visual | Current height | Font/padding | Validator minimum / disposition |
+| --- | ---: | --- | --- |
+| Overview caption | 40px | 22pt, 8+8px | 51px; inherited clipping/scrollbar risk |
+| Overview heading | 48px | 36pt, 8+8px | 73px; inherited clipping/scrollbar risk |
+| Monthly caption | 40px | 22pt, 8+8px | 51px; inherited clipping/scrollbar risk |
+| Monthly footer | 32px | 22pt, 8+8px | 51px; inherited clipping/scrollbar risk |
+| Monthly heading | 48px | 36pt, 8+8px | 73px; inherited clipping/scrollbar risk |
+| Sources caption | 40px | 22pt, 8+8px | 51px; inherited clipping/scrollbar risk |
+| Sources heading | 48px | 36pt, 8+8px | 73px; inherited clipping/scrollbar risk |
+| Profile caption | 40px | 22pt, 8+8px | 51px; inherited clipping/scrollbar risk |
+| Profile footer | 40px | 22pt, 8+8px | 51px; inherited clipping/scrollbar risk |
+| Profile heading | 48px | 36pt, 8+8px | 73px; inherited clipping/scrollbar risk |
+| Report schema | — | `report/3.4.0/schema.json` | Fetch unavailable; exact-version JSON-Schema coverage skipped |
+| Visual-container schema | — | `visualContainer/2.14.0/schema.json` | Fetch unavailable; exact-version JSON-Schema coverage skipped |
+
+The ten geometry warnings require actual reader inspection; no height, padding
+or typography was changed within this metadata-only preparation. The two schema
+URLs are the existing `developer.microsoft.com/json-schemas/fabric/item/report/definition/`
+references. They remain explicit coverage gaps, not silently downgraded schemas.
+
+After the expanded candidate's zero-error result, the supported deterministic
+CLI pack produced all 75 paths/payloads exactly. Prepared body SHA256:
+`69e5956ac2ab9ad817503b47d20c39faff332d717db978d091688fa03ae6828e`.
+Inverse-parts SHA256:
+`867664a3d8957e4c4fc03bfb63757384edebce749b6492b8c6a82a61f3e6e89f`.
+These identify local artifacts, not permission to submit them over later drift.
+
+One extra serialization diagnostic was inadvertently run against the original
+baseline after its validation had failed. That breached the required prepack
+gate; it is retained as `rejected-baseline-pack-diagnostic.json` with an explicit
+rejection receipt and is excluded from all submission/recovery artifacts. No
+service call occurred. The authoritative inverse uses the original retained
+parts, not that rejected diagnostic. Exact native rollback restores the original
+70-error CLI baseline; do not present it as a new green authoring candidate.
+
+The review packet is this delivery worktree's ignored
+`private/ops/e04-theme-write-scope-20261029/expanded/`:
+`semantic-delta.json`, `inverse-parts.json`, `update-body.json`,
+`final-candidate-manifest.json`, `independent-verification.json`,
+`warnings-classified.json`, `validation.json` and
+`save-inverse-render-plan.json`. The initial helper manifest records the
+projection-label stage before the separate theme-name change; the final manifest
+and independent verification describe the complete reviewed candidate.
+
+The plan requires parent final expanded scope and explicit warning/preview
+disposition; a fresh same-client identity, complete preimage, binding, operation
+and drift check; an exclusive one-attempt corrected save; complete saved-part/
+binding readback and actual all-six-page rendering; a separately journalled
+inverse from the verified owned candidate checkpoint and exact original readback;
+then a fresh guarded corrected reapplication only if inverse succeeds. Preserve
+uncertain handles and reconcile effects rather than resend. Use the existing
+internal-browser route for actual saved-report rendering; do not start an external
+browser or authentication renewal as a preview side effect. Common model, T18,
+data/refresh, sharing, schedules and sends remain excluded.
+
+No native save, inverse, reapplication or rendering operation occurred in this
+prepare-only continuation. The candidate is ready for parent review with the
+schema and rendering caveats above; it is not whole-report acceptance.
