@@ -23,6 +23,24 @@ is under serial integration; its local success is not native acceptance.
 | S02/E10 | Private clean extraction atf80e8139 passed full harness; Python3.15.1 selected. Linux3.15.2 canary passed without promotion. | Shared helper-host handover only at verified terminal boundary; Mac/native dependency qualification and two retained SIGBUS observations remain relevant. Native restore/release acceptance is distinct; no public release created. |
 | E08/monthly | Accepted ROR and four NHMRC/MRFF natural-generation archive receipts retained. | Remaining due source histories and selected operating windows need actual occurrence/output evidence. Monthly export and independent observer combined review only after1November2026 12:05Brisbane; no manual substitute or new recurring job. |
 
+Archived E02/E03/E05/E06 requirements retain their accepted local scopes:
+clinical attribution/taxonomy still needs source-qualified author-role and
+classification identifiers before native interpretation; E03's category-only
+compliance inference is corrected locally, while trial identifiers/resolver
+candidates still need exact provider/readback qualification; E05's derived author
+registry does not establish person identity from names; E06's normalized opportunity
+contract continues through the grants lanes. Neither authorship nor a topic label
+establishes workforce, institutional leadership or verified outcome evidence.
+
+Restricted-provider requirements remain conditional on exact approved access:
+WHO ICTRP retrieval/use and ANZCTR successful authenticated payload/pagination
+are unqualified in retained receipts. No entitlement or identity is inferred from
+an anonymous error. Standalone Europe PMC/ORCID native producer admission needs
+its own complete retained payload, exact identity and consumer/rollback contract;
+existing accepted PubMed/PMC and OpenAlex routes remain usable. Provider expansion
+must preserve originals and raw schema before filtering, with no restricted-access
+bypass, new client/consent or automatic external upload.
+
 See the [reconciled track register](../conductor/tracks.md) for the original
 specifications, retained scoped acceptance and unchecked residual requirements.
 No blocked or unavailable requirement is marked complete by this checkpoint.

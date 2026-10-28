@@ -44,7 +44,7 @@ credentials or private receipt contents are included.
 | Exact covered | 46 | Exact retained bytes already exist in this lane source snapshot. |
 | Superseded | 52 | Preserve canonical safety corrections, migrated guarded packets or the previous frozen disposition. Do not overwrite with the retained variant. |
 | Scoped remaining implementation | 24 | Four bounded source families below, with direct tests and existing contracts preserved. |
-| Native/private dependency | 42 | Explicit native/model/runtime, identity-accounting, mixed-scope or private-fixture dependency. This includes dated evidence documents, not 48 missing features. |
+| Native/private dependency | 42 | Explicit native/model/runtime, identity-accounting, mixed-scope or private-fixture dependency. This includes dated evidence documents, not 42 missing features. |
 
 Already closed families include reviewed calendar export, relationship namespace/
 alias guards, classification mapping/invalidation, E09 storage/preview/identity/
