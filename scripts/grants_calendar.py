@@ -11,15 +11,20 @@ import argparse
 import datetime as dt
 import hashlib
 import json
+import os
 import re
+import subprocess
 from pathlib import Path
 from typing import Any, Iterable
+from urllib.parse import urlsplit
 
 from scripts.grants_planning import (
     institutional_deadline,
     institutional_policy_status,
     validate_policy,
 )
+
+_ROOT = Path(__file__).resolve().parents[1]
 
 
 def _escape(value: Any) -> str:
@@ -159,16 +164,104 @@ def build_icalendar(opportunities: Iterable[dict[str, Any]], policy: dict[str, A
     return "\r\n".join(physical for line in lines for physical in _fold_content_line(line)) + "\r\n"
 
 
+def build_native_calendar_export(rows: Iterable[dict[str, Any]], *, generated_utc: str) -> str:
+    """One-time private export of committed reviewed native calendar days.
+
+    No institutional offset is calculated. The native DateTime field is never
+    used to infer a day. UID follows DeadlineKey; native item version provides
+    monotonic SEQUENCE for changed/cancelled snapshots of that same item.
+    """
+    if not re.fullmatch(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z', generated_utc):
+        raise ValueError('second-precision UTC capture time required')
+    dt.datetime.strptime(generated_utc, '%Y-%m-%dT%H:%M:%SZ')
+    lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//CHHHS RIMS//Reviewed Calendar Snapshot//EN','CALSCALE:GREGORIAN']
+    rows = list(rows)
+    if any(not isinstance(row, dict) for row in rows):
+        raise ValueError('native calendar rows must be objects')
+    seen=set()
+    for row in sorted(rows,key=lambda r:str(r.get('DeadlineKey',''))):
+        if row.get('ReviewStatus')!='Reviewed' or row.get('RevisionApplied') is not True:
+            continue
+        key=row.get('DeadlineKey')
+        if not isinstance(key,str) or not key or key!=key.strip() or key in seen:
+            raise ValueError('unique exact native DeadlineKey required')
+        seen.add(key)
+        if type(row.get('Cancelled')) is not bool:
+            raise ValueError('explicit cancellation state required')
+        if row.get('DeadlinePrecision')!='day':
+            continue
+        day=_date(row.get('Calendar_x0020_day'))
+        if day is None:
+            raise ValueError('exact source calendar day required; UTC DateTime is not a fallback')
+        if ('odata.etag' in row and '@odata.etag' in row
+                and row['odata.etag'] != row['@odata.etag']):
+            raise ValueError('conflicting native item-version ETags')
+        version=re.fullmatch(r'"([1-9]\d*)"',str(row.get('odata.etag') or row.get('@odata.etag') or ''))
+        if not version:
+            raise ValueError('native JSON item-version ETag required')
+        source=row.get('SourceURL');source=source.get('Url') if isinstance(source,dict) else source
+        if not isinstance(source,str) or source != source.strip() or any(ord(c)<32 for c in source):
+            raise ValueError('safe source URL required')
+        url=urlsplit(source)
+        if url.scheme!='https' or not url.hostname or url.username or url.password or url.port==0:
+            raise ValueError('attributable HTTPS source required')
+        title=row.get('Title')
+        if not isinstance(title,str) or not title.strip():
+            raise ValueError('source title required')
+        uid=event_uid(key,'source-calendar-day','native-reviewed-calendar','1')
+        end=(dt.date.fromisoformat(day)+dt.timedelta(days=1)).strftime('%Y%m%d')
+        # Outlook file import can ignore STATUS:CANCELLED in its display.
+        # Keep cancellation unmistakable and grant dates out of free/busy time.
+        lines.extend(['BEGIN:VEVENT',f'UID:{uid}',f'SEQUENCE:{int(version[1])}',
+            'DTSTAMP:'+generated_utc.replace('-','').replace(':',''),
+            'DTSTART;VALUE=DATE:'+day.replace('-',''),'DTEND;VALUE=DATE:'+end,
+            'CLASS:PRIVATE','TRANSP:TRANSPARENT',
+            'SUMMARY:'+_escape(('CANCELLED: ' if row['Cancelled'] else '')+title),
+            'STATUS:'+('CANCELLED' if row['Cancelled'] else 'TENTATIVE'),
+            'DESCRIPTION:'+_escape('One-time reviewed source-date snapshot. Confirm the source before acting. DeadlineKey: '+key),
+            'URL:'+source,'END:VEVENT'])
+    lines.append('END:VCALENDAR')
+    return '\r\n'.join(part for line in lines for part in _fold_content_line(line))+'\r\n'
+
+
+def write_native_calendar_export(out: Path, output: str) -> None:
+    """Create a new private snapshot; never replace a prior export or human edit."""
+    target = out.absolute()
+    parent = target.parent.resolve(strict=True)
+    private_root = _ROOT / 'private' / 'ops'
+    if target.is_symlink() or parent != target.parent or not parent.is_relative_to(private_root):
+        raise ValueError('existing private/ops directory without symlink redirection required')
+    subprocess.run(['git', 'check-ignore', '-q', '--', str(target)], cwd=_ROOT,
+                   check=True, capture_output=True)
+    fd = os.open(target, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+    with os.fdopen(fd, 'w', encoding='utf-8', newline='') as stream:
+        stream.write(output)
+        stream.flush()
+        os.fsync(stream.fileno())
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("opportunities", type=Path, help="JSON array of canonical opportunity rows")
-    parser.add_argument("policy", type=Path, help="versioned institutional date policy JSON")
+    parser.add_argument("policy", type=Path, nargs="?", help="versioned institutional date policy JSON")
+    parser.add_argument("--native-calendar", action="store_true", help="one-time committed reviewed source-day export; no institutional calculation")
     parser.add_argument("--generated-utc", required=True)
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
-    output = build_icalendar(json.loads(args.opportunities.read_text()), json.loads(args.policy.read_text()), generated_utc=args.generated_utc)
-    args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text(output, encoding="utf-8", newline="")
+    rows = json.loads(args.opportunities.read_text())
+    if args.native_calendar:
+        if args.policy is not None:
+            parser.error("native calendar export does not take an institutional policy")
+        output = build_native_calendar_export(rows, generated_utc=args.generated_utc)
+    else:
+        if args.policy is None:
+            parser.error("institutional projection requires a policy")
+        output = build_icalendar(rows, json.loads(args.policy.read_text()), generated_utc=args.generated_utc)
+    if args.native_calendar:
+        write_native_calendar_export(args.out, output)
+    else:
+        args.out.parent.mkdir(parents=True, exist_ok=True)
+        args.out.write_text(output, encoding="utf-8", newline="")
 
 
 if __name__ == "__main__":
