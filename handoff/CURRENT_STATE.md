@@ -56,6 +56,18 @@ The failed operation, readback, original payload and screenshots remain private;
 
 ### Current continuation
 
+Fifth combined milestone passes:1,414 Python tests with25 capability skips,
+25 offline Node guards,446 project checks and all remaining harness gates.
+Current exact assignments: publications owns document-library source preservation;
+E09 owns advisory-consumer refinement; dashboard owns a minimal pure
+TranslationEvent/OutcomeObservation validation/revision/projection path against
+the restored T18 specification, using fictional fixtures only. Dashboard source
+ownership is `scripts/outcome_evidence.py`, its direct test and leaf handoff;
+no shared schema/model/DAX, native persistence or substantive impact judgement.
+All three retain isolated worktrees and terminal handoffs. Parent retains native
+objects, authentication coordination, shared records and integration.
+
+
 Fifth packet is being assembled: publication identity diagnostics and lossless
 multiline exports (`f8401e46`), E09 preview/builder (`76fc710b`) and additive
 reference compatibility (`10354634`), plus bounded reader textbox clearance
