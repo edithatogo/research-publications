@@ -2,6 +2,12 @@
 
 ## Integration ownership and isolated reconciliation — 29 October 2026
 
+### Clean-source package fixture qualification — 29 October 2026
+
+At `a91cb993`, source package `0.4.0-integration.2` passed fresh extraction and the full harness. Archive SHA256 `44db0609854d4c0e87e3857f8e9bd682bd54b1cd5ea427e7ca24d2967b82e7d1`; private lane-local receipt is under `private/ops/integration-package-20261029/`. After verifying the manifest, extraction explicitly provisions a disposable empty Git repository, checks the actual ignore policy for private outputs, and creates Python3.15.1 with the dev lock before the full harness. The receipt records this fixture; archive contains no Git history, private runtime, credentials or native bindings. Git-dependent helpers still fail closed without an applicable repository/ignore policy; unconfigured extraction runtime is not claimed. Twenty-six focused packaging tests passed, including missing runtime dependency and missing ignore-policy rejection. The previous package failure below is historical.
+
+Branch inventory compared 103 non-symbolic local/remote refs at current `main`: 30 ancestral, 59 at exact heads of merged PRs, three associated with merged PRs at other heads, and 11 needing further scoped disposition. GitHub lists 49 origin branches, all matching their cached heads; three cached origin refs no longer exist on GitHub. Forecast branch `266d1819` has an exact matching forecast-document blob on main, but its shared-handoff changes still need disposition. No branch was deleted. Branch inventory lives in ignored `private/ops/integration-package-20261029/branch-inventory.json`. No open PR was observed. Native ownership remains unchanged.
+
 ### Latest integration qualification and original checkout disposition
 
 At candidate `3e78d6bb`, the full `agent_harness.py check --task all` passed locally: 2,256 Python tests (19 skips), 25 Node guard cases and local structural checks. A redacted gitleaks scan of the three candidate commits found no leaks. Exact byte comparison confirmed all 43 imported source/test files match their recorded G06 or ARDC source commits. Changed Markdown relative links resolve.
