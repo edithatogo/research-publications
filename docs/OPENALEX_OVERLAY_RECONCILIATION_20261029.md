@@ -20,3 +20,15 @@ The remaining OpenAlex branch has additional source, model and documentation
 changes and later versions in the original authoring checkout. Its complete
 source, dependencies, provenance and native gates remain to be reconciled.
 This packet must be integrated serially after PR74's verified main result.
+
+The same retained branch also contains `prepare_openalex_retention.py` and its
+paired tests, byte-identical to the observed authoring copy before this change.
+The source preparer preserves full provider response bytes and recursive schema
+before projection and retains failed attempts without replacement. During review,
+its CLI's directory-name check was found insufficient to prove that inputs and
+outputs were actually ignored by Git. The candidate now requires the real
+repository ignore policy to cover the private root and each exact input/output
+path; absent Git or a missing ignore rule fails before reading or writing data.
+Eight focused retention tests pass, including a temporary-repository test of
+ignored and non-ignored paths. This does not qualify native storage or enable a
+provider request.
