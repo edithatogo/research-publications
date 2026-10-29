@@ -2,6 +2,7 @@ import ast
 import copy
 import csv
 import io
+import json
 import re
 import unittest
 from urllib.parse import unquote
@@ -59,6 +60,37 @@ class CanonicalOutputTests(unittest.TestCase):
         writer = {'properties': {'connectionReferences': {'shared_sharepointonline': {'pin': 'sp'}, 'shared_powerbi': {'pin': 'pbi'}},
             'definition': {'actions': {'Query': operation('ExecuteDatasetQuery', {'groupid': 'group', 'datasetid': 'model', 'specification/query': 'old'}, 'shared_powerbi')}}}}
         return exporter, writer
+
+    def test_guarded_additive_connection_transport(self):
+        from scripts.flow_deployment import prepare, verify
+        exporter, writer = self.inputs()
+        snapshot = {'published': {'workflowid': '00000000-0000-0000-0000-000000000001',
+            'name': 'Synthetic exporter', 'statecode': 0, 'componentstate': 0,
+            'clientdata': json.dumps(exporter)}, 'draft_checked': True, 'draft': None,
+            'runs_complete': True, 'active_runs': []}
+        contract = {'writer': writer, 'reporting_month': None,
+            'period_policy': 'previous-completed-month-brisbane', 'revision': 'v1'}
+        candidate = build(exporter, **contract)
+        with self.assertRaises(ValueError):
+            prepare(snapshot, candidate)
+        plan, formula = prepare(snapshot, candidate, canonical_contract=contract)
+        self.assertEqual(plan['canonical_addition']['added_connection_names'], ['shared_powerbi'])
+        self.assertIn('FLOW_PREIMAGE_CHANGED', formula)
+        saved = copy.deepcopy(snapshot)
+        saved['published']['clientdata'] = json.dumps(candidate)
+        self.assertFalse(verify(plan, candidate, saved)['native_runtime_proven'])
+        for mutate in ('reference', 'schedule', 'action', 'active'):
+            changed, state = copy.deepcopy(candidate), copy.deepcopy(snapshot)
+            if mutate == 'reference':
+                changed['properties']['connectionReferences']['shared_powerbi'] = {'pin': 'other'}
+            elif mutate == 'schedule':
+                changed['properties']['definition']['triggers'] = {}
+            elif mutate == 'action':
+                changed['properties']['definition']['actions']['Export_Run']['actions']['Canonical_Period']['inputs'] = 'wrong'
+            else:
+                state['published']['statecode'] = 1
+            with self.subTest(mutate=mutate), self.assertRaises(ValueError):
+                prepare(state, changed, canonical_contract=contract)
 
     def test_existing_actions_schedule_and_references_preserved(self):
         exporter, writer = self.inputs()

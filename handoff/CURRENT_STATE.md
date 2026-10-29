@@ -15,6 +15,18 @@ change is part of this packet; native acceptance remains separate.
 
 # Current integration checkpoint — 29 October 2026
 
+## Canonical connection preparation — 30 October 2026
+
+Integrator chat `01a1874d-b9d7-7e61-b198-943e93ee28ad` owns
+`codex/canonical-connection-preparation` in
+`/Users/doughnut/.codex/worktrees/rims-integration-reconcile/chhhs-research-publications`.
+Scope: offline canonical builder, guarded deployment helper, tests and handoff.
+Native exporter, schedule and authentication remain with the completion owner.
+The complete candidate now has an exact-rebuild connection compatibility path;
+no general reference-change exemption is introduced. The full offline harness passed; the candidate, contract and exact rollback
+are frozen in the ignored source-integration package. Platform verification stays deferred until all packages are ready.
+Prior assignments below are history.
+
 ## Source route preparation — 30 October 2026
 
 The integrator owns `codex/offline-source-packages` in the existing reconciliation
