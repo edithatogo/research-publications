@@ -14,7 +14,8 @@ combined source harness passes 2,168 Python tests (19 skips), 25 Node guards
 and 446 project checks. No native/runtime acceptance follows from simulation.
 The current no-Power-Automate-Premium direction is locally integrated from the
 separate user-authorised entitlement packet in PR72. The next existing-preflight
-extension reconciles supplied Standard-connector evidence under that constraint;
+extension `f6e6f19c` now locally reconciles supplied Standard-connector evidence
+under that constraint, pending coherent hosted integration;
 licensing, permission, DLP, connections and runtime retain distinct native gates.
 These connect existing preparers without qualifying native persistence, engine,
 rendering, real outcome evidence or scheduled delivery. Current ownership and

@@ -14,7 +14,12 @@ evidence exporter and admission-to-consumer parity checker are subsequently
 reviewed and merged in verified PR71. A completed-simulation consumer-parity
 extension `7f67406b` is merged and source-qualified in PR72, not an accepted
 runtime result. The current workload has no Power Automate
-Premium entitlement; Power BI Premium is separate. Real pinned
+Premium entitlement; Power BI Premium is separate.
+Standard-connector evidence preflight `f6e6f19c` is reviewed/local-merged, with
+all classifications explicitly unauthenticated and every authority flag false.
+The next selected exit is actual retained-input completeness and native evidence
+disposition, without copying private bindings or making an unchanged live probe.
+Real pinned
 captures/mappings, writer graph adoption, actual processing-time observations,
 typed persistence, current native consumers and the existing runtime/rendering/
 schedule exits remain unqualified. Candidate parity never substitutes for them.

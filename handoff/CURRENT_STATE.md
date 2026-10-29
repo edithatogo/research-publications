@@ -1,6 +1,33 @@
 # Current integration checkpoint — 29 October 2026
 
-## PR72 verified; no-Premium preflight extension released — 29 October 2026
+## Standard evidence preflight reviewed; integration gates pending — 29 October 2026
+
+Source lane `01a184ec-294d-7451-ba5e-c1781d3aa3d8` returned clean terminal
+`f6e6f19c82490b99a18420285c1341b170d1fc51` from verified PR72 main `d20e9b77`.
+Only its three assigned files changed. Bounded review found no actionable issue;
+exact preflight against `6d1528b6` found both checkouts clean with no overlaps,
+missing files or staged deletions. It is locally merged. Reuse the owner's 20
+affected tests, including six existing default tests and frozen default-receipt
+compatibility. Combined source/hosted/exact-main gates remain required.
+
+The opt-in diagnostic preserves complete supplied node/classification/reference
+evidence and unknowns, handles exact action/trigger paths and keeps every existing
+readiness/activation/write flag false. Classifications are unauthenticated claims;
+even a consistent Standard inventory does not qualify actual licence rights,
+permission, DLP, connection availability, operation schemas or runtime.
+
+After verified main, the next bounded task is actual retained-input assessment,
+not another helper wave: assess the original stopped-writer evidence in place
+with the qualified verifier, preserve original raw/bindings/journals, and report
+the exact missing independent captures/classifications rather than fabricating
+them. The cited original writer snapshot exists and a bounded read found 44
+saved action nodes, one trigger and two references. Its independent byte pin
+stays in private evidence/task handoff, not a public raw snapshot. This is dated
+retained evidence, not a new native read or current acceptance. No probes/auth/
+mutation or source edits are authorised by that future assessment. Keep the
+source lane at its terminal commit until exact-main release.
+
+## PR72 verified; no-Premium preflight extension released — retained history
 
 Verified main is `d20e9b773a775d1d056ed60fb43999a4736c2d15` (PR72). All three
 PR-head checks at `30ba0fd2` passed. Exact-main quality `40794514385` and
