@@ -68,3 +68,56 @@ The preferred workspace is feasible for continued personal development. End-to-e
 ## Deferred additional sources
 
 The [future-source plan](FUTURE_SOURCE_ENRICHMENT.md) adds OpenAlex, Crossref, conditional ARDC research activities and freely permitted Dimensions capabilities after the current foundation is accepted. Reuse the existing workspace and native collection/retention pattern. Provider free tiers do not grant premium connector rights. No new source is enabled by this amendment.
+
+## Power Platform authoring assurance — 30 October 2026
+
+Identify authoritative source and its generator, inspect the relevant schema and
+accepted connector example, edit parsed JSON, run focused validation, review the
+semantic delta, then pack affected solution releases. Preserve tested generators;
+structural changes use parsed objects regardless of line count. Never replace a
+working flow with guessed connector fields. Preserve unknown properties.
+
+Use the installed qualified PAC/CLI route and already-exposed Power Platform MCP
+tools. Tool visibility and local help do not qualify native permissions. Retain
+workload identity pins, guarded M365 entry points and authentication ownership.
+Use native UI only for a specific missing capability, rendering or human login.
+
+The offline power-automate-profile.json is a project-owned structural profile,
+with the source WDL URL/hash and explicit Power Automate extension limits. It is
+not a full expression compiler. Reports distinguish pass/fail/unverified/
+not_applicable and never imply native deployment readiness. Preserve exact
+connection references; parameter names alone do not prove environment variables.
+
+Keep native inputs, component maps and pack outputs private. Public maps use
+sanitized sources only. Read relevant dependency XML; ignore-file conventions are
+search hints, not confidentiality controls. Sync an active Canvas authoring
+session before local edits and use its supported current source route, not the
+retired experimental Canvas unpack format.
+
+Do not add blanket pack/check runs to every edit. Pack affected solution releases
+and compare unpacked source; cloud Solution Checker is a separate authorized
+operation. Keep output/replay/recovery evidence separate from all local checks.
+
+### Current local authoring commands
+
+Use `.venv/bin/python scripts/powerplatform_tooling.py validate-flow --input PATH`
+(optionally `--component-map` for sanitized source), `validate-solution --input ZIP`,
+and `validate-release-dependencies`. For a candidate delta, use
+`compare_solution_release.py BASELINE CANDIDATE --validate-structure` with existing
+exact action-pointer allowances. Ordinary comparison defaults remain compatible;
+release qualification includes the explicit structural option. All inputs from
+native exports and resulting component maps remain private. E09's existing
+builder now validates its generated graph before returning it.
+
+### Tool qualification and native limits
+
+PAC 2.13.1 local help confirms solution pack and copilot mcp. This session exposes
+Power Platform solution export/import/check and env-fetch tools; local pack/unpack
+used the installed CLI. No second MCP server, client, connection, authentication
+renewal or native mutation was introduced. Tool exposure is not an operation grant.
+Native inputs/maps and exact tool/ownership receipts remain ignored/private.
+
+The upstream WDL schema was retrieved on 30 October and hashed in the offline
+profile. The implementation checks its declared structural subset plus the
+Power Automate connector envelope; it does not claim exhaustive WDL/schema or
+expression compilation. Existing independent module tests own connector semantics.

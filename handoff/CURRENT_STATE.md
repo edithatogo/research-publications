@@ -1,3 +1,18 @@
+## Authoring assurance integration — 30 October 2026
+
+Chat `01a188d4-a0fc-79e2-83d3-39eb38459056` owns the scoped
+`codex/rims-assurance-integration` packet in its isolated app-managed worktree;
+the exact path and source preimages remain in ignored private evidence. This
+ports only offline flow validation, E09 preflight and release dependency checks
+onto canonical main. It does not merge unrelated private-authoring history.
+The newer canonical E09 no-send guards and all existing authoring-tool behavior
+are preserved. Other source lanes, original dirty files and native/authentication
+owners retain their assignments. Qualification: 2,346 unittest cases pass (19 existing skips), 446 project
+checks pass, and web-first contracts pass. The canonical E09 generated definition
+is identical for the selected fictional input. Next operation: serial source
+integration and hosted checks. No deployment, activation, run, send or schedule
+change is part of this packet; native acceptance remains separate.
+
 # Current integration checkpoint — 29 October 2026
 
 ## Source route preparation — 30 October 2026

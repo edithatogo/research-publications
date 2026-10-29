@@ -263,5 +263,11 @@ def validate_no_send_definition(graph, site_url, list_id):
 
 
 def definition(site_url, list_id):
+    try:
+        from .powerplatform_validation import validate_flow
+    except ImportError:
+        from powerplatform_validation import validate_flow
     graph = _definition(site_url, list_id)
+    if validate_flow(graph)["status"] == "FAIL":
+        raise ValueError("Generated flow failed structural validation")
     return validate_no_send_definition(graph, site_url, list_id)
