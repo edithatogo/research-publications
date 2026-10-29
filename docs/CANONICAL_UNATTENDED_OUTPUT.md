@@ -11,7 +11,9 @@ Use the existing saved exporter and writer captures. Their SharePoint references
 must match exactly; only the writer's pinned Power BI reference may be added.
 The model query returns the existing 18 export fields. Independently queried
 ordered keys and counts must match both the complete output and its monthly
-selection. Duplicate keys, incomplete/error envelopes and missing fields fail.
+selection. Duplicate or padded keys, blank titles, invalid source/precision values,
+nested error envelopes and missing fields fail. Uncertain dates cannot allocate
+a month, and corroborated month/day dates require a matching year and month.
 An empty month is valid and produces a header-only CSV and empty HTML report.
 
 ```sh

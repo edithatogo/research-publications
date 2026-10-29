@@ -15,9 +15,9 @@ from urllib.parse import urlsplit
 from pathlib import Path
 
 try:
-    from scripts.export_publication_register import EXPORT_FIELDS, MONTH
+    from scripts.export_publication_register import EXPORT_FIELDS, MONTH, PRECISIONS, SOURCE_SETS
 except ImportError:
-    from export_publication_register import EXPORT_FIELDS, MONTH
+    from export_publication_register import EXPORT_FIELDS, MONTH, PRECISIONS, SOURCE_SETS
 
 
 def unpack(record):
@@ -199,11 +199,23 @@ def build(exporter, writer, *, reporting_month=None, period_policy=None, revisio
         action['inputs']['retryPolicy'] = {'type': 'none'}
         target[name] = action
         check = 'Canonical_Check_' + label
+        result = f"first(body('{name}')?['results'])"
+        table = f"first({result}?['tables'])"
         target[check] = gate(
             f"and(empty(body('{name}')?['error']),empty(body('{name}')?['errors']),"
             f"equals(coalesce(body('{name}')?['truncated'],false),false),"
             f"equals(coalesce(body('{name}')?['partial'],false),false),"
-            f"contains(body('{name}'),'firstTableRows'))", name, 'CANONICAL_QUERY_ERROR')
+            f"equals(length(body('{name}')?['results']),1),"
+            f"empty({result}?['error']),empty({result}?['errors']),"
+            f"equals(coalesce({result}?['truncated'],false),false),"
+            f"equals(coalesce({result}?['partial'],false),false),"
+            f"equals(length({result}?['tables']),1),"
+            f"empty({table}?['error']),empty({table}?['errors']),"
+            f"equals(coalesce({table}?['truncated'],false),false),"
+            f"equals(coalesce({table}?['partial'],false),false),"
+            f"contains(body('{name}'),'firstTableRows'),"
+            f"equals(body('{name}')?['firstTableRows'],{table}?['rows']))",
+            name, 'CANONICAL_QUERY_ERROR')
         rows = 'Canonical_Raw_' + label
         target[rows] = compose(f"@body('{name}')?['firstTableRows']", check)
         previous = rows
@@ -212,7 +224,14 @@ def build(exporter, writer, *, reporting_month=None, period_policy=None, revisio
         'additionalProperties': False,
         'properties': {'[' + f + ']': {'type': ['string', 'null'] if f != 'PublicationYear'
                                      else ['string', 'integer', 'null']} for f in EXPORT_FIELDS}}}
-    schema['items']['properties']['[CanonicalKey]'] = {'type': 'string', 'minLength': 1}
+    properties = schema['items']['properties']
+    properties['[CanonicalKey]'] = {'type': 'string', 'minLength': 1,
+        'pattern': r'^(?!\s)(?!.*\s$)[^\u0000-\u001f\u007f-\u009f\u200b-\u200f\u2028-\u202e\u2060-\u206f\ufeff]+$'}
+    properties['[Title]'] = {'type': 'string', 'pattern': r'\S'}
+    properties['[SourceSet]'] = {'type': 'string', 'enum': sorted(SOURCE_SETS)}
+    properties['[PublicationDatePrecision]'] = {'type': 'string', 'enum': sorted(PRECISIONS)}
+    properties['[PublicationMonth]'] = {'type': ['string', 'null'],
+        'pattern': r'^(?:|(?!0000)[0-9]{4}-(?:0[1-9]|1[0-2]))$'}
     target['Canonical_Parse_rows'] = {'type': 'ParseJson',
         'inputs': {'content': "@outputs('Canonical_Raw_Rows')", 'schema': schema},
         'runAfter': {previous: ['Succeeded']}}
@@ -220,9 +239,24 @@ def build(exporter, writer, *, reporting_month=None, period_policy=None, revisio
         'from': "@body('Canonical_Parse_rows')",
         'select': {f: f"@item()?['[{f}]']" for f in EXPORT_FIELDS}},
         'runAfter': {'Canonical_Parse_rows': ['Succeeded']}}
+    # Apply the established export invariants before a date can enter a month.
+    month = "string(coalesce(item()?['PublicationMonth'],''))"
+    precision = "item()?['PublicationDatePrecision']"
+    invalid = (
+        "or(not(equals(trim(item()?['CanonicalKey']),item()?['CanonicalKey'])),"
+        "empty(trim(item()?['Title'])),startsWith(item()?['CanonicalKey'],'TEST:'),"
+        "startsWith(item()?['Title'],'[SYNTHETIC]'),"
+        f"if(empty({month}),contains(createArray('day','month'),{precision}),"
+        f"or(contains(createArray('year','range','unknown','rss_unverified'),{precision}),"
+        f"not(equals(string(item()?['PublicationYear']),substring(concat({month},'0000'),0,4))))))")
+    target['Canonical_Invalid_rows'] = {'type': 'Query', 'inputs': {
+        'from': "@body('Canonical_Rows')", 'where': '@' + invalid},
+        'runAfter': {'Canonical_Rows': ['Succeeded']}}
+    target['Canonical_Verify_row_invariants'] = gate("empty(body('Canonical_Invalid_rows'))",
+        'Canonical_Invalid_rows', 'CANONICAL_SOURCE_ROW_INVALID')
     target['Canonical_Month'] = {'type': 'Query', 'inputs': {
         'from': "@body('Canonical_Rows')", 'where': "@equals(item()?['PublicationMonth'],outputs('Canonical_Period'))"},
-        'runAfter': {'Canonical_Rows': ['Succeeded']}}
+        'runAfter': {'Canonical_Verify_row_invariants': ['Succeeded']}}
     previous = 'Canonical_Month'
     for label, source in [('Full', 'Canonical_Rows'), ('Month', 'Canonical_Month')]:
         name = 'Canonical_' + label + '_keys'
@@ -273,6 +307,8 @@ def build(exporter, writer, *, reporting_month=None, period_policy=None, revisio
             verified.append(path)
     target['Canonical_Manifest'] = compose({'kind': 'rims_canonical_outputs_v1',
         'reporting_month': "@outputs('Canonical_Period')", 'revision': revision,
+        'source_model': {k: query_template['inputs']['parameters'][k] for k in ('groupid', 'datasetid')},
+        'query_contract_sha256': hashlib.sha256(json.dumps(queries, sort_keys=True).encode()).hexdigest(),
         'full_count': "@length(body('Canonical_Rows'))", 'month_count': "@length(body('Canonical_Month'))",
         'keys': "@body('Canonical_Full_keys')", 'month_keys': "@body('Canonical_Month_keys')",
         'readback_verified': True, 'csv_encoding': 'Formula-like and leading control text has one protective apostrophe.',
