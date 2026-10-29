@@ -43,3 +43,14 @@ well-formed matching OpenAlex work ID. A fictional end-to-end test constructs an
 envelope through the retained preparer, reconstructs its chunks and projects its
 fields. Seven projector tests pass; these are local source checks and do not
 qualify native schema, capture or model parity.
+
+The branch's archive-page preparer and bounded bootstrap-increment helper are
+included with their retained tests. They prepare supplied candidate definitions
+and pages only: prior chunks are retained, failed/partial source outcomes cannot
+advance the candidate, and archive commit/readback gates remain explicit. The
+archive CLI now verifies actual Git ignore coverage for the private root, inputs,
+optional native preimage/receipt and output before reading or creating files.
+A fictional temporary-repository test exercises denial and the allowed ignored
+path; no native operation is performed. Forty-seven focused OpenAlex tests pass
+across the currently selected source packet. Existing 46-part fixture checks are
+not proof of the current native model, and the wider branch still requires review.
