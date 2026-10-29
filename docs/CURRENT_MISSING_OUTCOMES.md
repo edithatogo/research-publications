@@ -19,6 +19,13 @@ Standard-connector evidence preflight `f6e6f19c` is integrated in verified PR73,
 all classifications explicitly unauthenticated and every authority flag false.
 The next selected exit is actual retained-input completeness and native evidence
 disposition, without copying private bindings or making an unchanged live probe.
+The scoped retained-input assessment is `BLOCKED_INPUTS`: raw writer inventory
+exists, but the required normalized revision/run-history, full registry response,
+complete classification/schema profile and independent full-target input set are
+not established by the selected artifacts. The advertised registry capture records
+exit 1 with no response at that path. This is not whole-store absence or a current
+permission denial. Current native/auth ownership and a qualified read route must
+be established before missing captures; no new helper wave is selected.
 Real pinned
 captures/mappings, writer graph adoption, actual processing-time observations,
 typed persistence, current native consumers and the existing runtime/rendering/

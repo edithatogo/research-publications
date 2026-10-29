@@ -1,6 +1,40 @@
 # Current integration checkpoint — 29 October 2026
 
-## PR73 verified; retained-input assessment released — 29 October 2026
+## PR73 verified; retained-input gaps established — 29 October 2026
+
+The 8cd6 checkout disappeared after its clean terminal handoff; `f6e6f19c` remains
+safely merged in PR73. No old environment/private artifact was recovered or
+claimed preserved. Its lane was told to hold and not recreate the checkout.
+The integrator completed the data-only assessment in fb8d using the qualified
+code, without creating another writer or changing original/native ownership.
+
+Result: `BLOCKED_INPUTS`. The pinned original raw writer parses into 45 paths
+(44 actions, one trigger; two references), but is not the required normalized
+writer wrapper with captured revision/context and complete run history. The
+scoped full-registry response is absent and its retained command records exit 1;
+metadata/two-field/key-only artifacts do not establish the complete required
+registry/schema/view/item input. A complete versioned classification/schema
+profile and independently qualified full-target input set are not established
+by these scoped artifacts. No full preflight ran and no missing evidence was
+invented. This does not invalidate accepted historical accounting or prove
+whole-store absence, current state, a permission denial or licence eligibility.
+
+One sanitized create-only assessment and an owner-checkpoint disposition are
+in ignored `private/ops/2026-10-29-standard-evidence-integration/`, also preserved
+with verified byte readback under
+`/Volumes/PortableSSD/rims-orchestration-temp/standard-evidence-assessment-20261029-c9a137c4/`.
+Original raw snapshots/bindings/journals were not copied or written; native and
+auth requests were zero. Original E01/PubMed-DoRA checkpoints report owners from
+24 October, not current authority; publication-reliability is not accepted by
+the current bounded checkpoint reader. No old owner was revived or messaged.
+
+Next bounded gate is current native/auth ownership and existing qualified-read
+route reconciliation before obtaining missing exact captures. No more helper
+wave, blind live probe, login/renewal, cache transfer, mutation or activation is
+selected. The source/data checks above are terminal; repeat only for changed
+inputs. Roadmap/native acceptance remains incomplete at these concrete gaps.
+
+## PR73 verification and assessment assignment — retained history
 
 Verified main is `c9a137c48c838df40f3b1d6f955378a519f73829` (PR73). All three
 checks at PR head `d446b420` passed; exact-main quality `40796691106` and
