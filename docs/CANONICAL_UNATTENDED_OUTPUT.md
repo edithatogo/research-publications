@@ -66,9 +66,15 @@ clientdata for rollback and a plan limited to canonical actions plus the one
 Power BI reference. It deliberately reports `deployment_ready=false`: a fresh
 exact-target read must establish stopped state, complete inactive-run history,
 no unowned draft and the permitted connection binding before native update.
-The generic stopped-record helper forbids connection-reference changes; do not
-bypass its guard. Use the existing qualified operation-specific update route
-only with the explicit additive reference scope and exact saved readback.
+The stopped-record helper forbids reference changes by default. Its explicit
+`--canonical-contract` option accepts a JSON object containing `writer` (the
+complete retained writer snapshot), `reporting_month`, `period_policy` and
+`revision`. It rebuilds the complete candidate from the fresh exporter preimage
+and requires exact equality before permitting the pinned Power BI addition.
+Existing SharePoint credentials, wrapper, actions and schedule cannot change.
+The plan pins the donor snapshot hash. Real stopped-state, draft and inactive-run
+readbacks remain required; never fabricate these from the historical running
+snapshot. Source compatibility does not prove current permission or execution.
 
 One bounded native verification of the added path remains necessary after the
 package is approved for that target. Check the saved definition and all four

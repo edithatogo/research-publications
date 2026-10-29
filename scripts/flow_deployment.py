@@ -3,10 +3,10 @@
 No network, token handling, draft deletion, activation, invocation or retries.
 """
 import argparse
-from datetime import datetime, timezone
 import hashlib
 import json
 import subprocess
+from datetime import UTC, datetime, timezone
 from pathlib import Path
 from uuid import UUID
 
@@ -65,13 +65,24 @@ def validate_inputs(candidate, body):
             'invoked': False, 'warning': 'Management run/callback fallback may omit inputs; never use silently'}
 
 
-def prepare(snapshot, candidate, inputs=None):
+def prepare(snapshot, candidate, inputs=None, *, canonical_contract=None):
     before = inspect(snapshot)
     old = clientdata(before)
     props = candidate['properties']
+    additive_plan = None
+    if canonical_contract is not None:
+        # No arbitrary reference exemption: rebuild the entire permitted delta.
+        from scripts.prepare_canonical_output import build, deployment_plan
+        if set(canonical_contract) != {'writer', 'reporting_month', 'period_policy', 'revision'}:
+            raise ValueError('Complete explicit canonical build contract required')
+        expected = build(before, **canonical_contract)
+        if candidate != expected:
+            raise ValueError('Candidate differs from exact canonical rebuild')
+        additive_plan = deployment_plan(before, candidate)
+        additive_plan['writer_snapshot_sha256'] = digest(canonical_contract['writer'])
     if set(candidate) != set(old) or {k: v for k, v in candidate.items() if k != 'properties'} != {k: v for k, v in old.items() if k != 'properties'}:
         raise ValueError('Unexpected clientdata wrapper change')
-    if set(props) != set(old['properties']) or any(props[k] != v for k, v in old['properties'].items() if k != 'definition'):
+    if set(props) != set(old['properties']) or any(props[k] != v for k, v in old['properties'].items() if k != 'definition' and not (additive_plan is not None and k == 'connectionReferences')):
         raise ValueError('Connection/credential mode or non-definition properties changed')
     if not isinstance(props['definition'], dict) or not props['definition'].get('triggers'):
         raise ValueError('Complete candidate definition required')
@@ -101,8 +112,9 @@ def prepare(snapshot, candidate, inputs=None):
     plan = {'schema_version': 1, 'workflowid': before['workflowid'], 'name': before['name'],
             'preimage_sha256': digest(before), 'candidate_sha256': digest(candidate),
             'references_sha256': digest(props['connectionReferences']),
-            'prepared_at': datetime.now(timezone.utc).isoformat(),
+            'prepared_at': datetime.now(UTC).isoformat(),
             'atomic_conditional_write': False, 'native_acceptance': False,
+            'canonical_addition': additive_plan,
             'input_contract': validate_inputs(candidate, inputs) if inputs is not None else None}
     return plan, formula
 
@@ -140,6 +152,7 @@ def main():
     parser.add_argument('--plan', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--inputs', type=Path)
+    parser.add_argument('--canonical-contract', type=Path, help='Exact writer snapshot and explicit canonical build options; prepare only')
     args = parser.parse_args()
     read = lambda p: json.loads(p.read_text())
     try:
@@ -148,7 +161,7 @@ def main():
             args.plan = private_output(args.plan)
         snapshot, candidate = read(args.snapshot), read(args.candidate)
         if args.mode == 'prepare':
-            plan, formula = prepare(snapshot, candidate, read(args.inputs) if args.inputs else None)
+            plan, formula = prepare(snapshot, candidate, read(args.inputs) if args.inputs else None, canonical_contract=read(args.canonical_contract) if args.canonical_contract else None)
             if args.plan.exists() or args.output.exists() or args.plan.resolve() == args.output.resolve():
                 raise ValueError('Use distinct new private output paths; never overwrite evidence')
             with args.plan.open('x') as f:
@@ -156,6 +169,8 @@ def main():
             with args.output.open('x') as f:
                 f.write(formula)
         else:
+            if args.canonical_contract:
+                raise ValueError('Canonical contract applies only to prepare')
             result = verify(read(args.plan), candidate, snapshot)
             with args.output.open('x') as f:
                 json.dump(result, f, indent=2)

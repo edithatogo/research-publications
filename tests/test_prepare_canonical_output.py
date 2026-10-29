@@ -2,9 +2,10 @@ import ast
 import copy
 import csv
 import io
+import json
 import re
 import unittest
-from urllib.parse import unquote
+from urllib.parse import quote, unquote
 
 from scripts.export_publication_register import EXPORT_FIELDS, safe_cell
 from scripts.prepare_canonical_output import build, csv_cell, deployment_plan, html
@@ -24,6 +25,7 @@ def evaluate(expression, value):
         'string': lambda v: '' if v is None else str(v), 'trim': lambda v: v.strip(),
         'empty': lambda v: v is None or len(v) == 0,
         'replace': lambda v, old, new: v.replace(old, new), 'decodeUriComponent': unquote,
+        'uriComponent': lambda v: quote(v, safe="~()*!.'-"),
         'concat': lambda *v: ''.join(v), 'startsWith': lambda v, p: v.startswith(p)}
     def run(node):
         if isinstance(node, ast.Constant): return node.value
@@ -59,6 +61,37 @@ class CanonicalOutputTests(unittest.TestCase):
         writer = {'properties': {'connectionReferences': {'shared_sharepointonline': {'pin': 'sp'}, 'shared_powerbi': {'pin': 'pbi'}},
             'definition': {'actions': {'Query': operation('ExecuteDatasetQuery', {'groupid': 'group', 'datasetid': 'model', 'specification/query': 'old'}, 'shared_powerbi')}}}}
         return exporter, writer
+
+    def test_guarded_additive_connection_transport(self):
+        from scripts.flow_deployment import prepare, verify
+        exporter, writer = self.inputs()
+        snapshot = {'published': {'workflowid': '00000000-0000-0000-0000-000000000001',
+            'name': 'Synthetic exporter', 'statecode': 0, 'componentstate': 0,
+            'clientdata': json.dumps(exporter)}, 'draft_checked': True, 'draft': None,
+            'runs_complete': True, 'active_runs': []}
+        contract = {'writer': writer, 'reporting_month': None,
+            'period_policy': 'previous-completed-month-brisbane', 'revision': 'v1'}
+        candidate = build(exporter, **contract)
+        with self.assertRaises(ValueError):
+            prepare(snapshot, candidate)
+        plan, formula = prepare(snapshot, candidate, canonical_contract=contract)
+        self.assertEqual(plan['canonical_addition']['added_connection_names'], ['shared_powerbi'])
+        self.assertIn('FLOW_PREIMAGE_CHANGED', formula)
+        saved = copy.deepcopy(snapshot)
+        saved['published']['clientdata'] = json.dumps(candidate)
+        self.assertFalse(verify(plan, candidate, saved)['native_runtime_proven'])
+        for mutate in ('reference', 'schedule', 'action', 'active'):
+            changed, state = copy.deepcopy(candidate), copy.deepcopy(snapshot)
+            if mutate == 'reference':
+                changed['properties']['connectionReferences']['shared_powerbi'] = {'pin': 'other'}
+            elif mutate == 'schedule':
+                changed['properties']['definition']['triggers'] = {}
+            elif mutate == 'action':
+                changed['properties']['definition']['actions']['Export_Run']['actions']['Canonical_Period']['inputs'] = 'wrong'
+            else:
+                state['published']['statecode'] = 1
+            with self.subTest(mutate=mutate), self.assertRaises(ValueError):
+                prepare(state, changed, canonical_contract=contract)
 
     def test_existing_actions_schedule_and_references_preserved(self):
         exporter, writer = self.inputs()
@@ -136,6 +169,8 @@ class CanonicalOutputTests(unittest.TestCase):
             with self.subTest(value=value):
                 self.assertEqual(evaluate(csv_cell('Title'), value), safe_cell(value))
                 self.assertEqual(unescape(evaluate('@' + html('Title'), value)), '' if value is None else str(value))
+        self.assertIn('startsWith(uriComponent(', csv_cell('Title'))
+        self.assertNotIn("startsWith(string(coalesce(item()?['Title'],'')),decodeUriComponent", csv_cell('Title'))
         # Native trim additionally protects Unicode-whitespace-prefixed formulas.
         self.assertEqual(evaluate(csv_cell('Title'), '\u00a0=cmd'), "'\u00a0=cmd")
 
@@ -166,13 +201,23 @@ class CanonicalOutputTests(unittest.TestCase):
                         self.assertFalse(evaluate(condition, value))
             mismatch = copy.deepcopy(valid)
             mismatch['firstTableRows'] = [{'[CanonicalKey]': 'different'}]
-            self.assertFalse(evaluate(condition, mismatch))
+            self.assertTrue(evaluate(condition, mismatch))
+        captured_shape = {'results': [{'tables': [{'rows': [{'[CanonicalKey]': 'DORA:1', '[PMID]': None}]}]}],
+                          'firstTableRows': [{'[CanonicalKey]': 'DORA:1'}]}
+        self.assertTrue(evaluate(condition, captured_shape))
+        self.assertEqual(evaluate(a['Canonical_Raw_Rows']['inputs'], captured_shape),
+                         captured_shape['results'][0]['tables'][0]['rows'])
+        missing = {'results': [{'tables': [{}]}]}
+        self.assertFalse(evaluate(condition, missing))
 
     def test_source_key_and_date_invariants_reject_malformed_records(self):
         exporter, writer = self.inputs()
         a = build(exporter, writer, reporting_month='2026-09')['properties']['definition']['actions']['Export_Run']['actions']
         schema = a['Canonical_Parse_rows']['inputs']['schema']['items']['properties']
         predicate = a['Canonical_Invalid_rows']['inputs']['where']
+        key_predicate = a['Canonical_Invalid_keys']['inputs']['where']
+        self.assertNotIn('"pattern"', __import__('json').dumps(schema))
+        self.assertLess(len(key_predicate), 8192)
         row = {f: None for f in EXPORT_FIELDS}
         row.update(CanonicalKey='PMID:123', Title='Paper', SourceSet='PubMed', PublicationDatePrecision='day', PublicationMonth='2026-09', PublicationYear=2026)
         def allowed(value):
@@ -180,14 +225,21 @@ class CanonicalOutputTests(unittest.TestCase):
                 rules = schema['[' + field + ']']
                 if 'enum' in rules and data not in rules['enum']: return False
                 if data is not None and 'pattern' in rules and not re.search(rules['pattern'], data): return False
-            return not evaluate(predicate, value)
+            return not evaluate(predicate, value) and not evaluate(key_predicate, value)
         self.assertTrue(allowed(row))
         for patch in [{'CanonicalKey': '   '}, {'CanonicalKey': ' PMID:123'}, {'CanonicalKey': 'PMID:123 '},
                       {'CanonicalKey': 'PMID:123\n'}, {'Title': '  '}, {'SourceSet': 'unqualified'},
-                      {'PublicationMonth': '2026-13'}, {'PublicationMonth': '0000-01', 'PublicationYear': 0},
+                      {'PublicationMonth': '2026-13'}, {'PublicationMonth': '2026/09'},
+                      {'PublicationMonth': '20x6-09'}, {'PublicationMonth': '2026-9'},
+                      {'PublicationMonth': '0000-01', 'PublicationYear': 0},
                       {'PublicationYear': 2025}, {'PublicationMonth': None}, {'PublicationDatePrecision': 'invented'},
                       {'CanonicalKey': 'TEST:1'}, {'Title': '[SYNTHETIC] paper'}]:
             with self.subTest(patch=patch): self.assertFalse(allowed(dict(row, **patch)))
+        for code in [*range(32), *range(127, 160), *range(0x200b, 0x2010),
+                     *range(0x2028, 0x202f), *range(0x2060, 0x2070), 0xfeff]:
+            with self.subTest(code=code):
+                self.assertFalse(allowed(dict(row, CanonicalKey='PMID:1' + chr(code) + '23')))
+        self.assertTrue(allowed(dict(row, CanonicalKey='DORA:é-α')))
         for precision in ('year', 'range', 'unknown', 'rss_unverified'):
             self.assertFalse(allowed(dict(row, PublicationDatePrecision=precision)))
             self.assertTrue(allowed(dict(row, PublicationDatePrecision=precision, PublicationMonth=None)))
