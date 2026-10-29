@@ -14,8 +14,9 @@ combined source harness passes 2,168 Python tests (19 skips), 25 Node guards
 and 446 project checks. No native/runtime acceptance follows from simulation.
 The current no-Power-Automate-Premium direction is locally integrated from the
 separate user-authorised entitlement packet in PR72. The next existing-preflight
-extension `f6e6f19c` now locally reconciles supplied Standard-connector evidence
-under that constraint, pending coherent hosted integration;
+extension `f6e6f19c` is integrated in verified PR73 main `c9a137c4` with exact-main
+quality/security passed and 2,182 source tests (19 skips), 25 Node guards and
+446 project checks. The next step is actual retained-input completeness assessment;
 licensing, permission, DLP, connections and runtime retain distinct native gates.
 These connect existing preparers without qualifying native persistence, engine,
 rendering, real outcome evidence or scheduled delivery. Current ownership and

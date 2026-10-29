@@ -145,7 +145,7 @@ class PackageReleaseTests(unittest.TestCase):
                 second_manifest = build_manifest(paths, "1.2.3", "schema-v1", "batch-1", root)
                 self.assertEqual(first_manifest, second_manifest)
                 outputs = [Path(temporary) / "release-a", Path(temporary) / "release-b"]
-                with patch("scripts.package_release.validate_extraction"):
+                with patch("scripts.package_release.validate_extraction"), patch("scripts.package_release.prepare_extraction_test_environment"):
                     first = package(outputs[0], "1.2.3", "schema-v1", "batch-1", root)
                     second = package(outputs[1], "1.2.3", "schema-v1", "batch-1", root)
             self.assertEqual(first["Archive"]["sha256"], second["Archive"]["sha256"])
@@ -179,7 +179,7 @@ class PackageReleaseTests(unittest.TestCase):
             validate_extraction(extracted)
         run.assert_called_once_with(
             [
-                sys.executable,
+                str(extracted / '.venv' / 'bin' / 'python'),
                 "scripts/agent_harness.py",
                 "check",
                 "--task",
@@ -188,12 +188,31 @@ class PackageReleaseTests(unittest.TestCase):
             extracted,
         )
 
+    def test_extraction_fixture_requires_real_ignore_policy(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / '.gitignore').write_text('private/\n.venv/\n')
+            (root / 'requirements-dev.txt').write_text('')
+            original_run = package_release.run
+            def fixture_run(arguments, cwd):
+                return '' if arguments[0] == 'uv' else original_run(arguments, cwd)
+            with patch('scripts.package_release.run', side_effect=fixture_run):
+                package_release.prepare_extraction_test_environment(root)
+            self.assertTrue((root / '.git').is_dir())
+            self.assertTrue((root / '.venv/bin/python').exists())
+            self.assertEqual(list((root / 'private/ops').iterdir()), [])
+        with tempfile.TemporaryDirectory() as temporary:
+            with self.assertRaises(RuntimeError):
+                package_release.prepare_extraction_test_environment(Path(temporary))
+
     def test_omitted_runtime_dependency_fails_extracted_harness_without_receipt(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary) / "source"
             harness = root / "scripts" / "agent_harness.py"
             harness.parent.mkdir(parents=True)
             harness.write_text("import release_required_helper\n", encoding="utf-8")
+            (root / '.gitignore').write_text('private/\n.venv/\n')
+            (root / 'requirements-dev.txt').write_text('')
             output = Path(temporary) / "release"
             original_run = package_release.run
 
@@ -201,9 +220,11 @@ class PackageReleaseTests(unittest.TestCase):
                 if arguments == ["git", "status", "--porcelain"]:
                     return ""
                 if arguments == ["git", "ls-files", "-z"]:
-                    return "scripts/agent_harness.py"
+                    return "scripts/agent_harness.py\0.gitignore\0requirements-dev.txt"
                 if arguments == ["git", "rev-parse", "HEAD"]:
                     return "a" * 40
+                if arguments[0] == 'uv':
+                    return ''
                 return original_run(arguments, cwd)
 
             with patch("scripts.package_release.run", side_effect=fixture_run):

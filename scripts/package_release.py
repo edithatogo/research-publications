@@ -69,7 +69,27 @@ def write_release_receipt(path: Path, receipt: dict) -> None:
 
 def validate_extraction(extracted: Path) -> None:
     """Run the repository's required full harness from the fresh extraction."""
-    run([sys.executable, "scripts/agent_harness.py", "check", "--task", "all"], extracted)
+    run([str(extracted / '.venv' / 'bin' / 'python'), "scripts/agent_harness.py", "check", "--task", "all"], extracted)
+
+
+def prepare_extraction_test_environment(extracted: Path) -> None:
+    """Configure a disposable checkout fixture after archive integrity verification.
+
+    Git-dependent guards must see a real ignore policy. This fixture has no
+    source history, credentials or native bindings and is never archived.
+    """
+    if (extracted / ".git").exists() or (extracted / ".venv").exists():
+        raise RuntimeError("fresh extraction unexpectedly contains local state")
+    run(["git", "init", "--quiet"], extracted)
+    (extracted / "private" / "ops").mkdir(parents=True)
+    for path in ("private/ops/probe", ".venv/probe"):
+        run(["git", "check-ignore", "-q", path], extracted)
+    run([sys.executable, "-m", "venv", ".venv"], extracted)
+    version = run([str(extracted / ".venv" / "bin" / "python"), "--version"], extracted)
+    if version != "Python 3.15.1":
+        raise RuntimeError(f"unexpected extraction test interpreter: {version}")
+    run(["uv", "pip", "sync", "--require-hashes", "--python", str(extracted / ".venv" / "bin" / "python"),
+         "requirements-dev.txt"], extracted)
 
 
 def validate_version(version: str) -> str:
@@ -322,12 +342,14 @@ def package(output: Path, version: str = "0.3.0-rc1", schema_version: str = "pub
         if extracted_manifest != manifest:
             raise RuntimeError("fresh extraction manifest differs")
         verify_manifest(extracted, extracted_manifest)
+        prepare_extraction_test_environment(extracted)
         validate_extraction(extracted)
 
     receipt = {
         **manifest,
         "Archive": {"path": archive.name, "sha256": digest(archive), "bytes": archive.stat().st_size},
         "FreshExtractionVerified": True,
+        "ExtractionTestSetup": "disposable empty Git repository, ignored private directory, and Python 3.15.1 environment synced from the dev lock; no native bindings",
         "ContainsGitHistory": False,
         "ContainsPrivateRuntime": False,
     }

@@ -1,6 +1,138 @@
 # Current integration checkpoint — 29 October 2026
 
-## Standard evidence preflight reviewed; integration gates pending — 29 October 2026
+## Integration ownership and isolated reconciliation — 29 October 2026
+
+### Clean-source package fixture qualification — 29 October 2026
+
+At `a91cb993`, source package `0.4.0-integration.2` passed fresh extraction and the full harness. Archive SHA256 `44db0609854d4c0e87e3857f8e9bd682bd54b1cd5ea427e7ca24d2967b82e7d1`; private lane-local receipt is under `private/ops/integration-package-20261029/`. After verifying the manifest, extraction explicitly provisions a disposable empty Git repository, checks the actual ignore policy for private outputs, and creates Python3.15.1 with the dev lock before the full harness. The receipt records this fixture; archive contains no Git history, private runtime, credentials or native bindings. Git-dependent helpers still fail closed without an applicable repository/ignore policy; unconfigured extraction runtime is not claimed. Twenty-six focused packaging tests passed, including missing runtime dependency and missing ignore-policy rejection. The previous package failure below is historical.
+
+Branch inventory compared 103 non-symbolic local/remote refs at current `main`: 30 ancestral, 59 at exact heads of merged PRs, three associated with merged PRs at other heads, and 11 needing further scoped disposition. GitHub lists 49 origin branches, all matching their cached heads; three cached origin refs no longer exist on GitHub. Forecast branch `266d1819` has an exact matching forecast-document blob on main, but its shared-handoff changes still need disposition. No branch was deleted. Branch inventory lives in ignored `private/ops/integration-package-20261029/branch-inventory.json`. No open PR was observed. Native ownership remains unchanged.
+
+### Latest integration qualification and original checkout disposition
+
+At candidate `3e78d6bb`, the full `agent_harness.py check --task all` passed locally: 2,256 Python tests (19 skips), 25 Node guard cases and local structural checks. A redacted gitleaks scan of the three candidate commits found no leaks. Exact byte comparison confirmed all 43 imported source/test files match their recorded G06 or ARDC source commits. Changed Markdown relative links resolve.
+
+Clean-source package `0.4.0-integration.1` FAILED fresh-extraction harness: 2,256 tests with one failure, six errors and 57 skips. Four tests require a missing `private/ops` test directory; three runner/consumer cases require `git check-ignore` in an extraction without Git metadata. The latter guard fails closed and must not be bypassed for native or private outputs. The source archive has no success receipt; the diagnostic package is lane-local ignored evidence. Source-only extraction and this runtime contract require a supported repair and focused verification before release/promotion. The integration commit and normal worktree passing tests do not establish clean-package or native acceptance.
+
+Frozen status readback against the candidate found 1,353 original file entries: 180 byte-identical to candidate, 266 different, 847 absent, 58 missing/non-regular and two symlinks. All 55 deleted track paths have preserved archive counterparts. `.flowagent` accounts for 126 candidate-absent paths and remains private. The lane-private hash/status inventory is `private/ops/integration-package-20261029/original-status-disposition.json`. These are file comparisons, not source acceptance, and the remaining differences require scope and content review. The original status was stable during that read; no live content was moved or altered.
+
+The user assigned chat `01a1874d-b9d7-7e61-b198-943e93ee28ad` repository integration and main/shared-record ownership, superseding the earlier integrator assignment below. Its managed worktree is `/Users/doughnut/.codex/worktrees/rims-integration-reconcile/chhhs-research-publications`, branch `codex/rims-scoped-integration-20261029`, based on main `c9a137c48c838df40f3b1d6f955378a519f73829`. This transfer is source integration only; native objects, authentication, journals and running operations retain their existing owners.
+
+The isolated candidate imports the ARDC scripts and tests at `5b6abce1` and G06 writer/consumer scripts, tests and bounded review evidence at `6c9bec2f`, plus the missing funding-context producer from that same source history. Existing main `grants_relationships.py` is preserved; its stricter identity rules are not replaced. Source target paths were checked against main; copied source/test paths were absent there. On the lane-local Python 3.15.1 with the existing dev lock, 2,256 unittest cases passed with 19 skips, 446 project checks passed, and web-first contracts returned PASS_LOCAL_ONLY. The selected ARDC Node tests (5) and G06 Node tests (13) passed. These are local checks, not native or operational acceptance. Full review, clean packaging, source-closure and hosted gates remain before promotion.
+
+A read-only expanded-status comparison with main found 1,353 paths: 55 deleted tracked paths; 236 modified tracked paths (including 10 byte-identical to main, 99 different and 126 absent from main, with one tracked worktree path missing on disk); and 1,062 untracked file entries (145 byte-identical to main, 162 different, 751 absent and four missing/non-regular). Status is tracked against the unrelated original branch; these paths need path-by-path disposition rather than bulk copying or deletion. The original inventory is not yet reconciled. No original files or native state were changed.
+
+The original checkout `/Volumes/PortableSSD/GitHub/RIMS/chhhs-research-publications` has substantial uncommitted work and remains preserved. ARDC branch `codex/ardc-source-preservation` ends at `5b6abce1`; G06 closeout `codex/g06-review-closeout` ends at `6c9bec2f`. Their history and main have distinct roots: direct branch merge and the normal preflight merge-base comparison cannot be used. Exact G06 packet preflight against the original `cde439c0` checkout found 35 overlapping paths with matching working bytes, but does not qualify integration into main. The current isolated candidate replays selected source files only and requires dependency closure, review, focused and full project gates before any main promotion. Existing committed PubMed/DoRA and Power Automate entitlement worktree heads are already in main.
+
+
+## PR73 verified; retained-input gaps established — retained coordination history
+
+The source integration assignment at the top supersedes earlier integration ownership; the native/auth ownership statements below remain scoped historical evidence and require current verification before any native operation.
+
+### Shared Toolkit read checkpoint — coordination update
+
+Latest coordinator update: the cached-only check stopped before HTTP. PPG
+lifecycle chat `01a17267` now exclusively owns one retained same-client
+`form_post` renewal, with no auth operation observed when it was assigned.
+RIMS must not start, renew, switch or access that shared profile concurrently.
+Wait for lifecycle's terminal identity/exact-target validation and explicit
+lease release. This authorises no new client, consent, credential transfer,
+catalogue mutation or notification. Continue only disjoint offline/source work;
+the earlier bounded-read assignment below is preserved as history.
+
+Workspace coordinator `01a182a1-9a69-7360-80bc-22f99cd17f68` confirms PPG lifecycle
+chat `01a17267` owns one bounded existing-client Toolkit no-interactive read
+checkpoint, then releases a frozen result. Coordinate any same-cache RIMS read
+or renewal before overlap; no new login/cache change is requested or assigned.
+Do not treat this as a hold on unrelated clients/resources. RIMS currently has
+no Toolkit auth/native read in progress. The retained extension PAC session
+89077 is terminal (25 October auth/org/workflow reads exit 0); no session was
+transferred, and its old observation is not a blanket Toolkit gate. The separate
+FlowAgent provenance/ownership reconciliation remains local/read-only.
+
+### Local read-route reconciliation — 11:06 Brisbane heartbeat
+
+The original retained Toolkit binding exists, its required identity/resource
+pin fields are populated, and installed SDK metadata matches pinned
+`12.0.0-beta.f682e10`. The workload lock was absent and no matching guarded
+renewal process was observed; neither establishes current native/auth ownership.
+No cache, token or SDK authentication was restored. Pure read-guard admission
+of the exact frozen writer identity failed locally: its native flow root is not
+in that binding's allowed roots. No pin was changed and no native request ran.
+This is a local scope hold, not a tenant denial or a verdict on another route.
+
+The retained capture reader instead points through original
+`native_cli_adoption.py` to the separate FlowAgent/Power Automate MCP CLI and
+`source_flow_cli_transport_guard.mjs`. Next bounded step is that existing guard's
+installed provenance and current owner reconciliation, not another Toolkit
+attempt, new client or FlowAgent reconnect. Current live identity/permission
+remains unqualified. The sanitized create-only receipt is in this checkout's
+ignored standard-evidence-integration directory and the existing external
+assessment folder, with byte readback verified. Native/auth operations were zero.
+
+The 8cd6 checkout disappeared after its clean terminal handoff; `f6e6f19c` remains
+safely merged in PR73. No old environment/private artifact was recovered or
+claimed preserved. Its lane was told to hold and not recreate the checkout.
+The integrator completed the data-only assessment in fb8d using the qualified
+code, without creating another writer or changing original/native ownership.
+
+Result: `BLOCKED_INPUTS`. The pinned original raw writer parses into 45 paths
+(44 actions, one trigger; two references), but is not the required normalized
+writer wrapper with captured revision/context and complete run history. The
+scoped full-registry response is absent and its retained command records exit 1;
+metadata/two-field/key-only artifacts do not establish the complete required
+registry/schema/view/item input. A complete versioned classification/schema
+profile and independently qualified full-target input set are not established
+by these scoped artifacts. No full preflight ran and no missing evidence was
+invented. This does not invalidate accepted historical accounting or prove
+whole-store absence, current state, a permission denial or licence eligibility.
+
+One sanitized create-only assessment and an owner-checkpoint disposition are
+in ignored `private/ops/2026-10-29-standard-evidence-integration/`, also preserved
+with verified byte readback under
+`/Volumes/PortableSSD/rims-orchestration-temp/standard-evidence-assessment-20261029-c9a137c4/`.
+Original raw snapshots/bindings/journals were not copied or written; native and
+auth requests were zero. Original E01/PubMed-DoRA checkpoints report owners from
+24 October, not current authority; publication-reliability is not accepted by
+the current bounded checkpoint reader. No old owner was revived or messaged.
+
+Next bounded gate is current native/auth ownership and existing qualified-read
+route reconciliation before obtaining missing exact captures. No more helper
+wave, blind live probe, login/renewal, cache transfer, mutation or activation is
+selected. The source/data checks above are terminal; repeat only for changed
+inputs. Roadmap/native acceptance remains incomplete at these concrete gaps.
+
+## PR73 verification and assessment assignment — retained history
+
+Verified main is `c9a137c48c838df40f3b1d6f955378a519f73829` (PR73). All three
+checks at PR head `d446b420` passed; exact-main quality `40796691106` and
+security `40796691190` completed successfully at this SHA. The source tree
+equals the reviewed PR head; local main/integrator branch advanced normally.
+Combined harness passed 2,182 Python tests (19 capability skips), 25 Node guards,
+446 project checks and remaining gates. Range secret scan and dependency checks
+passed. Prior accepted proofs were reused; no rights/runtime acceptance follows.
+
+Standard evidence preflight `f6e6f19c` is integrated. Source owner
+`01a184ec-294d-7451-ba5e-c1781d3aa3d8` retains 8cd6 and must first fast-forward
+its own clean branch to this exact main. Next scope is data assessment only:
+read the specifically referenced original frozen writer/binding/registry evidence
+in place, retain raw files/bindings/journals with their original owner, and assess
+whether the qualified preflight's independently pinned inputs actually exist.
+Use supported pure APIs for authorised in-memory data; never relax private-path
+guards, copy raw snapshots, invent capture/revision metadata or make a probe.
+The retained original writer reference and byte pin are in the private task
+handoff; its dated inventory is 44 actions, one trigger and two references.
+Inventory parsing alone is not full-preflight or current native acceptance.
+
+Output: one sanitized create-only report under the lane's ignored private/ops,
+plus one terminal handoff of aggregate findings, original references/hashes and
+exact missing captures/classifications. No tracked source changes, new helper,
+test reruns, auth/native request, activation, schedule, send or ownership transfer.
+If complete independently captured inputs are missing, report that concrete gap;
+do not synthesize evidence or use a lower-level diagnostic as a full assessment.
+Keep permission/DLP/connection/schema/current-runtime and scheduled proof open.
+
+## Standard evidence preflight reviewed; integration gates pending — retained history
 
 Source lane `01a184ec-294d-7451-ba5e-c1781d3aa3d8` returned clean terminal
 `f6e6f19c82490b99a18420285c1341b170d1fc51` from verified PR72 main `d20e9b77`.
