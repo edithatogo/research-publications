@@ -1,5 +1,13 @@
 # Current integration checkpoint — 29 October 2026
 
+## Verified integration and original-checkout coordination — 29 October 2026
+
+PR74 merged as `84ea06ba8c3ddae432e6ea90dd7d9bbc265af321`; PR75 merged as `ce604dc7cea55325434d03cc84ab19a7b17a7fba`. Both merged trees matched their reviewed PR heads. Exact-main quality and security runs passed for each. Their source packages passed fresh extraction with the documented disposable Git fixture and locked Python3.15.1; no native acceptance follows. The two corresponding integrator-created local and remote branches were pruned after reachability and exact-head lease checks. Private receipts remain under `private/ops/integration-package-20261029/` in this integrator checkout.
+
+The original checkout remains `/Volumes/PortableSSD/GitHub/RIMS/chhhs-research-publications`, on `implementation/webui-first-v040` at `cde439c0`, with uncommitted source, private evidence and native/runtime state preserved. Chat `01a1876d-55fc-7e42-b806-18589a94e6fa` was observed active there on a delivery-streamlining assignment. This integrator owns only the separate integration checkout and main/shared source records; the other chat's native/auth and local scope cannot be inferred from its title. Do not move or reset the original work, replace its environment or interrupt its operations.
+
+The latest exact-byte original comparison against PR75 main contains 1,353 status entries: 181 identical at the same path, eight reviewed OpenAlex amendments, 55 archive counterparts retained, 126 private runtime entries, two retained symlinks and 981 further-review entries. Twenty-four of the latter have identical tracked bytes at different canonical paths, primarily original archive paths versus canonical track paths; identical bytes do not reconcile archive status or authorise deletion. Detailed ignored inventories and branch/prune receipts remain in `private/ops/integration-package-20261029/`; prior counts below are historical. Remaining source dispositions, worktree ownership and applicable native gates remain open. No current native write is assigned to this integrator.
+
 ## Integration ownership and isolated reconciliation — 29 October 2026
 
 ### Clean-source package fixture qualification — 29 October 2026
