@@ -1,5 +1,18 @@
 # Current integration checkpoint — 29 October 2026
 
+## Source route preparation — 30 October 2026
+
+The integrator owns `codex/offline-source-packages` in the existing reconciliation
+checkout; native/authentication ownership is unchanged. [The source route
+packet](../docs/SOURCE_HTTP_ROUTE_PREPARATION_20261030.md) records implemented
+complete-discovery, all-agency/activity and all-workbook CLI alternatives,
+31 focused passing tests and verified retained NHMRC14/MRFF3/ROR-full packages.
+No provider/native calls or platform tests occurred. Generic HTTP definitions
+remain held until exact archive-to-consumer packages are complete; helper
+presence or historical runtime does not establish entitlement or deployment.
+The completion lane owns the additive canonical-output source packet; its
+integration does not mean the running exporter has been changed.
+
 ## Finite local-work disposition — 30 October 2026
 
 [Local work disposition](../docs/LOCAL_WORK_DISPOSITION_20261030.md) accounts for
