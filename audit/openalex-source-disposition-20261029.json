@@ -1,0 +1,260 @@
+{
+  "sourceCommit": "c38a266dd62849ab2455324dd8a21cfe6dc5df54",
+  "comparisonMain": "c4acd9926761e679029ca4e6bc442d9a2ac83134",
+  "mergeBase": "700ece2125826f7b538c68363c7de982c0ef0f33",
+  "backup": "/Volumes/PortableSSD/rims-orchestration-temp/integration-recovery-20261029/remaining-disposition-GrrhQG/remaining-history.bundle",
+  "entries": [
+    {
+      "path": "config/native-openalex-retention.tmdl",
+      "sourceBlob": "a107f2577f5ea9f90092dd1d015faa7b5fba47a6",
+      "mainBlob": null,
+      "disposition": "preserved-roadmap",
+      "reason": "Historical provider acquisition, native model preparation, flow enrichment or accompanying evidence. Not needed for the accepted captured-generation publication cloud-file path; retain exact source for future scoped use."
+    },
+    {
+      "path": "config/source-OpenAlexMetadataChunks-page.dax",
+      "sourceBlob": "066c9c570b9b4fa8b0ec0c39c1f05767dd46ba2c",
+      "mainBlob": null,
+      "disposition": "preserved-roadmap",
+      "reason": "Historical provider acquisition, native model preparation, flow enrichment or accompanying evidence. Not needed for the accepted captured-generation publication cloud-file path; retain exact source for future scoped use."
+    },
+    {
+      "path": "docs/OPENALEX_FIELD_ALIGNMENT.md",
+      "sourceBlob": "a2e81bf08a95c064b11e27de6b9d87db1c3b0886",
+      "mainBlob": null,
+      "disposition": "preserved-roadmap",
+      "reason": "Historical provider acquisition, native model preparation, flow enrichment or accompanying evidence. Not needed for the accepted captured-generation publication cloud-file path; retain exact source for future scoped use."
+    },
+    {
+      "path": "docs/OPENALEX_PHASE_SOURCE_ROUTES.md",
+      "sourceBlob": "d7816ea91b88b71b56090ad16c0b35d117c5c46c",
+      "mainBlob": null,
+      "disposition": "preserved-roadmap",
+      "reason": "Historical provider acquisition, native model preparation, flow enrichment or accompanying evidence. Not needed for the accepted captured-generation publication cloud-file path; retain exact source for future scoped use."
+    },
+    {
+      "path": "handoff/OPENALEX_RETAINED_INTEGRATION.md",
+      "sourceBlob": "ddaed2e79d5d15604732a84af98ad11392a8fff5",
+      "mainBlob": null,
+      "disposition": "preserved-roadmap",
+      "reason": "Historical provider acquisition, native model preparation, flow enrichment or accompanying evidence. Not needed for the accepted captured-generation publication cloud-file path; retain exact source for future scoped use."
+    },
+    {
+      "path": "powerquery/OpenAlexMetadataChunks.m",
+      "sourceBlob": "422115d398955202d55a067769f780fd2e803a50",
+      "mainBlob": null,
+      "disposition": "preserved-roadmap",
+      "reason": "Historical provider acquisition, native model preparation, flow enrichment or accompanying evidence. Not needed for the accepted captured-generation publication cloud-file path; retain exact source for future scoped use."
+    },
+    {
+      "path": "powerquery/RetainedOpenAlexPublications.m",
+      "sourceBlob": "cc3c7ed2a116e4acee46dcfa68bfa94961d21d56",
+      "mainBlob": null,
+      "disposition": "preserved-roadmap",
+      "reason": "Historical provider acquisition, native model preparation, flow enrichment or accompanying evidence. Not needed for the accepted captured-generation publication cloud-file path; retain exact source for future scoped use."
+    },
+    {
+      "path": "powerquery/fnAcquireOpenAlexRaw.m",
+      "sourceBlob": "9f7ae2dfde43cf5e2913670e13f0a11fcb17fbc9",
+      "mainBlob": "9f7ae2dfde43cf5e2913670e13f0a11fcb17fbc9",
+      "disposition": "already-integrated",
+      "reason": "Exact committed blob matches main."
+    },
+    {
+      "path": "powerquery/fnMergeOpenAlexPublicationContext.m",
+      "sourceBlob": "9998c17e360060309f229e337b8f868160b2e541",
+      "mainBlob": "9998c17e360060309f229e337b8f868160b2e541",
+      "disposition": "already-integrated",
+      "reason": "Exact committed blob matches main."
+    },
+    {
+      "path": "powerquery/fnPrepareOpenAlexCapturedEnvelope.m",
+      "sourceBlob": "d5b54dcf2aa6b248d71b171fe9407ee36b87407a",
+      "mainBlob": "d5b54dcf2aa6b248d71b171fe9407ee36b87407a",
+      "disposition": "already-integrated",
+      "reason": "Exact committed blob matches main."
+    },
+    {
+      "path": "powerquery/fnProjectRetainedOpenAlex.m",
+      "sourceBlob": "2e44aa2906d8f005d5e351be41df01463719e394",
+      "mainBlob": "2e44aa2906d8f005d5e351be41df01463719e394",
+      "disposition": "already-integrated",
+      "reason": "Exact committed blob matches main."
+    },
+    {
+      "path": "powerquery/fnProjectRetainedOpenAlexAligned.m",
+      "sourceBlob": "c4867045d4b204f3e81a73d9ddd08e43ba72dee3",
+      "mainBlob": "c4867045d4b204f3e81a73d9ddd08e43ba72dee3",
+      "disposition": "already-integrated",
+      "reason": "Exact committed blob matches main."
+    },
+    {
+      "path": "scripts/author_registry.py",
+      "sourceBlob": "e937352ac1fdddf454fc617dda9b9c5290c593d8",
+      "mainBlob": "be83d89d7a2b9cd5824a4e4b5887549d152a441e",
+      "disposition": "selectively-integrated",
+      "reason": "Evidence provenance, affiliation, validation and publication-role fixes integrated while preserving existing author keys. Scheme/scoped key migration deferred pending explicit identity inventory."
+    },
+    {
+      "path": "scripts/build_openalex_acquisition_model.py",
+      "sourceBlob": "78c60f8aeb52eb615b80eca28a3d32deec7193cd",
+      "mainBlob": null,
+      "disposition": "preserved-roadmap",
+      "reason": "Historical provider acquisition, native model preparation, flow enrichment or accompanying evidence. Not needed for the accepted captured-generation publication cloud-file path; retain exact source for future scoped use."
+    },
+    {
+      "path": "scripts/build_openalex_alignment_model.py",
+      "sourceBlob": "a4c94cb14095b38d87e0cd970e6c5adf2a22e0d9",
+      "mainBlob": null,
+      "disposition": "preserved-roadmap",
+      "reason": "Historical provider acquisition, native model preparation, flow enrichment or accompanying evidence. Not needed for the accepted captured-generation publication cloud-file path; retain exact source for future scoped use."
+    },
+    {
+      "path": "scripts/build_openalex_archive_reader_model.py",
+      "sourceBlob": "c88b12407bd7d49373fde245dc97778bdf76bd07",
+      "mainBlob": "0a0ef449da6f264a34e7cdff954005c241de0cd6",
+      "disposition": "superseded",
+      "reason": "Main retains later exact identity, private-path, baseline-fingerprint and source-drift guards and their regression tests; historical replacement would remove those safeguards."
+    },
+    {
+      "path": "scripts/build_openalex_native_bootstrap.py",
+      "sourceBlob": "f4205612f59c4e4c85933fabac5c15dfd5919626",
+      "mainBlob": null,
+      "disposition": "preserved-roadmap",
+      "reason": "Historical provider acquisition, native model preparation, flow enrichment or accompanying evidence. Not needed for the accepted captured-generation publication cloud-file path; retain exact source for future scoped use."
+    },
+    {
+      "path": "scripts/build_openalex_paged_archive.py",
+      "sourceBlob": "56287fd247eec8251b09f3e9a93e101a09755ef0",
+      "mainBlob": null,
+      "disposition": "preserved-roadmap",
+      "reason": "Historical provider acquisition, native model preparation, flow enrichment or accompanying evidence. Not needed for the accepted captured-generation publication cloud-file path; retain exact source for future scoped use."
+    },
+    {
+      "path": "scripts/build_openalex_pending_stage.py",
+      "sourceBlob": "6470b66d81b7f9e502ab776bb53e1a2037e3d6b9",
+      "mainBlob": null,
+      "disposition": "preserved-roadmap",
+      "reason": "Historical provider acquisition, native model preparation, flow enrichment or accompanying evidence. Not needed for the accepted captured-generation publication cloud-file path; retain exact source for future scoped use."
+    },
+    {
+      "path": "scripts/collect_openalex_native_batches.py",
+      "sourceBlob": "1b5ae2e62a2706e614e326d91b7c77915f08140c",
+      "mainBlob": null,
+      "disposition": "preserved-roadmap",
+      "reason": "Historical provider acquisition, native model preparation, flow enrichment or accompanying evidence. Not needed for the accepted captured-generation publication cloud-file path; retain exact source for future scoped use."
+    },
+    {
+      "path": "scripts/extend_openalex_native_bootstrap.py",
+      "sourceBlob": "a0dc54bff05adeee994068b3ad6c87ed7aeed1f2",
+      "mainBlob": "a0dc54bff05adeee994068b3ad6c87ed7aeed1f2",
+      "disposition": "already-integrated",
+      "reason": "Exact committed blob matches main."
+    },
+    {
+      "path": "scripts/merge_openalex_context.py",
+      "sourceBlob": "0c4f2742c8b3e5abfe6f70947cf2ef65e2914c88",
+      "mainBlob": "dbf37eb477e090b4632917a5772bcb130371319b",
+      "disposition": "superseded",
+      "reason": "Main retains later exact identity, private-path, baseline-fingerprint and source-drift guards and their regression tests; historical replacement would remove those safeguards."
+    },
+    {
+      "path": "scripts/prepare_openalex_archive_stage.py",
+      "sourceBlob": "e529e76651245524bc80da5a501d834cd8943eb8",
+      "mainBlob": "b65d1e6485819be8c27f9bf2c60d61922809d22d",
+      "disposition": "superseded",
+      "reason": "Main retains later exact identity, private-path, baseline-fingerprint and source-drift guards and their regression tests; historical replacement would remove those safeguards."
+    },
+    {
+      "path": "scripts/prepare_openalex_flow.py",
+      "sourceBlob": "56e01c2b94b301e35dd23e31cd303d27d963ad5b",
+      "mainBlob": null,
+      "disposition": "preserved-roadmap",
+      "reason": "Historical provider acquisition, native model preparation, flow enrichment or accompanying evidence. Not needed for the accepted captured-generation publication cloud-file path; retain exact source for future scoped use."
+    },
+    {
+      "path": "scripts/prepare_openalex_retention.py",
+      "sourceBlob": "b8cea1d9d4052897761ca260fad3754ef961656e",
+      "mainBlob": "015eb0c99b51b22b7d37ff2e303effcf51c78226",
+      "disposition": "superseded",
+      "reason": "Main retains later exact identity, private-path, baseline-fingerprint and source-drift guards and their regression tests; historical replacement would remove those safeguards."
+    },
+    {
+      "path": "scripts/project_retained_openalex_fields.py",
+      "sourceBlob": "e32850e88bcc896830c886f73463e1ca09a828bd",
+      "mainBlob": "3fa0c530f409d0cc5d877c2e4abef384bd91d731",
+      "disposition": "superseded",
+      "reason": "Main retains later exact identity, private-path, baseline-fingerprint and source-drift guards and their regression tests; historical replacement would remove those safeguards."
+    },
+    {
+      "path": "tests/test_author_registry.py",
+      "sourceBlob": "396b1e2125b6f7141762cca459bfc706339706ab",
+      "mainBlob": "1d87c55202e9529a522d8ef74ce51b16f19659f2",
+      "disposition": "selectively-integrated",
+      "reason": "Evidence provenance, affiliation, validation and publication-role fixes integrated while preserving existing author keys. Scheme/scoped key migration deferred pending explicit identity inventory."
+    },
+    {
+      "path": "tests/test_openalex_archive_reader_model.py",
+      "sourceBlob": "51f5fed8b341724077988af110c0b3adddc636b1",
+      "mainBlob": "cb441ab96b515f401a712d77663d809fc735d16f",
+      "disposition": "superseded",
+      "reason": "Main retains later exact identity, private-path, baseline-fingerprint and source-drift guards and their regression tests; historical replacement would remove those safeguards."
+    },
+    {
+      "path": "tests/test_openalex_archive_stage.py",
+      "sourceBlob": "7f94a0e44d4cbca8ecc357c3b88ecc9bc0582729",
+      "mainBlob": "11ffafcfdfc884c6770c4c2a500c99b57f6ffebc",
+      "disposition": "superseded",
+      "reason": "Main retains later exact identity, private-path, baseline-fingerprint and source-drift guards and their regression tests; historical replacement would remove those safeguards."
+    },
+    {
+      "path": "tests/test_openalex_context.py",
+      "sourceBlob": "04881ea006b484478bab42b13c8fd09af8c48f3c",
+      "mainBlob": "fb380b895ca004ace224d4920ec6b45123196acc",
+      "disposition": "superseded",
+      "reason": "Main retains later exact identity, private-path, baseline-fingerprint and source-drift guards and their regression tests; historical replacement would remove those safeguards."
+    },
+    {
+      "path": "tests/test_openalex_field_alignment.py",
+      "sourceBlob": "5b9341a75f926a118a1a2f122e99fb7b6a0bda3c",
+      "mainBlob": "b353a60c013159e3e99781437c88a6e11d690cde",
+      "disposition": "superseded",
+      "reason": "Main retains later exact identity, private-path, baseline-fingerprint and source-drift guards and their regression tests; historical replacement would remove those safeguards."
+    },
+    {
+      "path": "tests/test_openalex_flow.py",
+      "sourceBlob": "5cbf4ffdcc4cb162d3dcd47ccc3c3e0cf138ec2b",
+      "mainBlob": null,
+      "disposition": "preserved-roadmap",
+      "reason": "Historical provider acquisition, native model preparation, flow enrichment or accompanying evidence. Not needed for the accepted captured-generation publication cloud-file path; retain exact source for future scoped use."
+    },
+    {
+      "path": "tests/test_openalex_increment.py",
+      "sourceBlob": "c5986bed96d1dbd69e556d4bdf953dec2f5ec8e5",
+      "mainBlob": "c5986bed96d1dbd69e556d4bdf953dec2f5ec8e5",
+      "disposition": "already-integrated",
+      "reason": "Exact committed blob matches main."
+    },
+    {
+      "path": "tests/test_openalex_native_alignment.py",
+      "sourceBlob": "d0a96e8aedf88a686d21d88d9a6220ed9d78a0f0",
+      "mainBlob": null,
+      "disposition": "preserved-roadmap",
+      "reason": "Historical provider acquisition, native model preparation, flow enrichment or accompanying evidence. Not needed for the accepted captured-generation publication cloud-file path; retain exact source for future scoped use."
+    },
+    {
+      "path": "tests/test_openalex_native_bootstrap.py",
+      "sourceBlob": "3d987b331376168d21b1b261e60180f148d49c6b",
+      "mainBlob": null,
+      "disposition": "preserved-roadmap",
+      "reason": "Historical provider acquisition, native model preparation, flow enrichment or accompanying evidence. Not needed for the accepted captured-generation publication cloud-file path; retain exact source for future scoped use."
+    },
+    {
+      "path": "tests/test_openalex_retention.py",
+      "sourceBlob": "3956dfed6ea9ef33ac01580bb22601b002be7b8d",
+      "mainBlob": "5506e9db7536c4a1d09385698e4093a9a3d29159",
+      "disposition": "superseded",
+      "reason": "Main retains later exact identity, private-path, baseline-fingerprint and source-drift guards and their regression tests; historical replacement would remove those safeguards."
+    }
+  ]
+}
