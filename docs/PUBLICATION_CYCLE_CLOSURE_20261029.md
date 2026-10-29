@@ -1,5 +1,39 @@
 # Publication policy and cycle closure — 29 October 2026
 
+## Reader verified; unattended occurrence awaits its scheduled date
+
+Current native readback confirms the existing **CHHHS Research Dashboard** still
+uses the accepted model. All three publication pages render in Viewing:
+Overview shows 1,344 publications (1,277 PubMed, 709 DoRA, 642 overlap), Monthly
+shows September's 14 and 190 without a usable month, and Sources & Quality
+shows provenance and review counts. Selecting DoRA-only returns 67; clearing
+the filter restores 1,344. No report save, rebind or model refresh was needed.
+The retained [28 October reader closeout](../conductor/tracks/T15_web_acceptance_release/native-reader-closeout-20261028.md)
+is now included in canonical source, preserving its recovery and portability limits.
+
+The existing register exporter and independent delivery monitor are both Started,
+confirmed by Dataverse and FlowAgent. Their unchanged schedules start on
+1 November 2026: export at 09:00 Brisbane on day 1 each month, monitor daily at
+12:05 Brisbane. Export reads the existing keyed registry and writes CSV/HTML;
+it performs no source acquisition or registry updates. The observer reads its
+correlated stored outputs. It does not establish canonical monthly membership.
+
+Current run-history reads confirm the accepted export completed with stored CSV,
+index, manifest and part verification. Its `testFlow` marker establishes manual
+commissioning, not recurrence. Observer commissioning passed its output-readback
+case and separately detected missing delivery. Those checks remain reusable.
+There is no genuine scheduled occurrence to verify before 1 November; do not
+alter the calendar or run manual substitutes to close that evidence gap.
+
+One read-only app follow-up, `verify-rims-scheduled-delivery`, is scheduled for
+1 November at 12:10 Brisbane with one occurrence. It must correlate actual trigger
+origin, terminal runs, saved outputs and the monitor observation before closing
+unattended acceptance. No new native monitor, email, schedule change or freshness
+work was added. The two newer PubMed records remain deferred. Current private
+proofs are `reader-unattended-verification.json`, `delivery-runtime-verification.json`,
+`monthly-native-current.json` and `delivery-monitor-current.json` beneath the
+existing essential-registry-capture evidence root.
+
 ## Captured-generation cloud output
 
 The user's latest direction defers the two newer PubMed identities. Do not repeat

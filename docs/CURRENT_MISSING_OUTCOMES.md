@@ -34,8 +34,10 @@ byte readback and unchanged replay. The completion owner recorded this evidence
 in [cycle closure](PUBLICATION_CYCLE_CLOSURE_20261029.md#captured-generation-cloud-output).
 The user deferred the two newer PubMed identities; freshness and new-source
 admission are outside this completion. Required source integration remains the
-integrator's final gate. Unattended recurrence, flow execution and Power BI
-rendering retain their separate acceptance requirements. The older input-gap
+integrator's final gate. The existing Power BI reader is now verified in Viewing with the accepted
+model, counts and filter recovery. The exporter and observer are enabled on
+their existing schedules; genuine unattended acceptance remains pending the
+1 November 2026 occurrence. Prior successful manual runs do not prove recurrence. The older input-gap
 assessment below is historical and does not negate the later captured-generation
 output acceptance.
 
