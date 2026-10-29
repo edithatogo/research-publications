@@ -235,13 +235,13 @@ def build(exporter, writer, *, reporting_month=None, period_policy=None, revisio
         'properties': {'[' + f + ']': {'type': ['string', 'null'] if f != 'PublicationYear'
                                      else ['string', 'integer', 'null']} for f in EXPORT_FIELDS}}}
     properties = schema['items']['properties']
-    properties['[CanonicalKey]'] = {'type': 'string', 'minLength': 1,
-        'pattern': r'^(?!\s)(?!.*\s$)[^\u0000-\u001f\u007f-\u009f\u200b-\u200f\u2028-\u202e\u2060-\u206f\ufeff]+$'}
-    properties['[Title]'] = {'type': 'string', 'pattern': r'\S'}
+    # Connector-backed flows reject ParseJson pattern/patternProperties.
+    # Keep lexical checks in native Query expressions, before any file write.
+    properties['[CanonicalKey]'] = {'type': 'string', 'minLength': 1}
+    properties['[Title]'] = {'type': 'string'}
     properties['[SourceSet]'] = {'type': 'string', 'enum': sorted(SOURCE_SETS)}
     properties['[PublicationDatePrecision]'] = {'type': 'string', 'enum': sorted(PRECISIONS)}
-    properties['[PublicationMonth]'] = {'type': ['string', 'null'],
-        'pattern': r'^(?:|(?!0000)[0-9]{4}-(?:0[1-9]|1[0-2]))$'}
+    properties['[PublicationMonth]'] = {'type': ['string', 'null']}
     target['Canonical_Parse_rows'] = {'type': 'ParseJson',
         'inputs': {'content': "@outputs('Canonical_Raw_Rows')", 'schema': schema},
         'runAfter': {previous: ['Succeeded']}}
@@ -252,17 +252,35 @@ def build(exporter, writer, *, reporting_month=None, period_policy=None, revisio
     # Apply the established export invariants before a date can enter a month.
     month = "string(coalesce(item()?['PublicationMonth'],''))"
     precision = "item()?['PublicationDatePrecision']"
+    key = "item()?['CanonicalKey']"
+    forbidden = [*range(32), *range(127, 160), *range(0x200b, 0x2010),
+                 *range(0x2028, 0x202f), *range(0x2060, 0x2070), 0xfeff]
+    key_checks = [f"empty({key})", f"not(equals(trim({key}),{key}))"]
+    for code in forbidden:
+        encoded = ''.join(f'%{byte:02X}' for byte in chr(code).encode('utf-8'))
+        key_checks.append(f"contains({key},decodeUriComponent('{encoded}'))")
+    target['Canonical_Invalid_keys'] = {'type': 'Query', 'inputs': {
+        'from': "@body('Canonical_Rows')", 'where': '@or(' + ','.join(key_checks) + ')'},
+        'runAfter': {'Canonical_Rows': ['Succeeded']}}
+    year = f"substring(concat({month},'0000000'),0,4)"
+    nondigits = year
+    for digit in '0123456789':
+        nondigits = f"replace({nondigits},'{digit}','')"
+    valid_month_expression = (f"and(equals(length({month}),7),empty({nondigits}),"
+        f"not(equals({year},'0000')),equals(substring(concat({month},'0000000'),4,1),'-'),"
+        f"contains(createArray('01','02','03','04','05','06','07','08','09','10','11','12'),"
+        f"substring(concat({month},'0000000'),5,2)))")
     invalid = (
         "or(not(equals(trim(item()?['CanonicalKey']),item()?['CanonicalKey'])),"
         "empty(trim(item()?['Title'])),startsWith(item()?['CanonicalKey'],'TEST:'),"
         "startsWith(item()?['Title'],'[SYNTHETIC]'),"
         f"if(empty({month}),contains(createArray('day','month'),{precision}),"
-        f"or(contains(createArray('year','range','unknown','rss_unverified'),{precision}),"
+        f"or(not({valid_month_expression}),contains(createArray('year','range','unknown','rss_unverified'),{precision}),"
         f"not(equals(string(item()?['PublicationYear']),substring(concat({month},'0000'),0,4))))))")
     target['Canonical_Invalid_rows'] = {'type': 'Query', 'inputs': {
         'from': "@body('Canonical_Rows')", 'where': '@' + invalid},
-        'runAfter': {'Canonical_Rows': ['Succeeded']}}
-    target['Canonical_Verify_row_invariants'] = gate("empty(body('Canonical_Invalid_rows'))",
+        'runAfter': {'Canonical_Invalid_keys': ['Succeeded']}}
+    target['Canonical_Verify_row_invariants'] = gate("and(empty(body('Canonical_Invalid_rows')),empty(body('Canonical_Invalid_keys')))",
         'Canonical_Invalid_rows', 'CANONICAL_SOURCE_ROW_INVALID')
     target['Canonical_Month'] = {'type': 'Query', 'inputs': {
         'from': "@body('Canonical_Rows')", 'where': "@equals(item()?['PublicationMonth'],outputs('Canonical_Period'))"},

@@ -205,6 +205,9 @@ class CanonicalOutputTests(unittest.TestCase):
         a = build(exporter, writer, reporting_month='2026-09')['properties']['definition']['actions']['Export_Run']['actions']
         schema = a['Canonical_Parse_rows']['inputs']['schema']['items']['properties']
         predicate = a['Canonical_Invalid_rows']['inputs']['where']
+        key_predicate = a['Canonical_Invalid_keys']['inputs']['where']
+        self.assertNotIn('"pattern"', __import__('json').dumps(schema))
+        self.assertLess(len(key_predicate), 8192)
         row = {f: None for f in EXPORT_FIELDS}
         row.update(CanonicalKey='PMID:123', Title='Paper', SourceSet='PubMed', PublicationDatePrecision='day', PublicationMonth='2026-09', PublicationYear=2026)
         def allowed(value):
@@ -212,14 +215,21 @@ class CanonicalOutputTests(unittest.TestCase):
                 rules = schema['[' + field + ']']
                 if 'enum' in rules and data not in rules['enum']: return False
                 if data is not None and 'pattern' in rules and not re.search(rules['pattern'], data): return False
-            return not evaluate(predicate, value)
+            return not evaluate(predicate, value) and not evaluate(key_predicate, value)
         self.assertTrue(allowed(row))
         for patch in [{'CanonicalKey': '   '}, {'CanonicalKey': ' PMID:123'}, {'CanonicalKey': 'PMID:123 '},
                       {'CanonicalKey': 'PMID:123\n'}, {'Title': '  '}, {'SourceSet': 'unqualified'},
-                      {'PublicationMonth': '2026-13'}, {'PublicationMonth': '0000-01', 'PublicationYear': 0},
+                      {'PublicationMonth': '2026-13'}, {'PublicationMonth': '2026/09'},
+                      {'PublicationMonth': '20x6-09'}, {'PublicationMonth': '2026-9'},
+                      {'PublicationMonth': '0000-01', 'PublicationYear': 0},
                       {'PublicationYear': 2025}, {'PublicationMonth': None}, {'PublicationDatePrecision': 'invented'},
                       {'CanonicalKey': 'TEST:1'}, {'Title': '[SYNTHETIC] paper'}]:
             with self.subTest(patch=patch): self.assertFalse(allowed(dict(row, **patch)))
+        for code in [*range(32), *range(127, 160), *range(0x200b, 0x2010),
+                     *range(0x2028, 0x202f), *range(0x2060, 0x2070), 0xfeff]:
+            with self.subTest(code=code):
+                self.assertFalse(allowed(dict(row, CanonicalKey='PMID:1' + chr(code) + '23')))
+        self.assertTrue(allowed(dict(row, CanonicalKey='DORA:é-α')))
         for precision in ('year', 'range', 'unknown', 'rss_unverified'):
             self.assertFalse(allowed(dict(row, PublicationDatePrecision=precision)))
             self.assertTrue(allowed(dict(row, PublicationDatePrecision=precision, PublicationMonth=None)))
