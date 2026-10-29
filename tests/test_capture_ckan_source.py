@@ -130,6 +130,16 @@ class CKANCaptureTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(dir=PRIVATE_ROOT) as directory, self.assertRaisesRegex(ValueError, 'Ambiguous'):
             self.run_capture('dora-activities', Path(directory) / 'capture', opener)
 
+    def test_dora_rebound_resource_fails_before_any_row_capture(self):
+        def rebound(action, query, value, _):
+            if action == 'resource_show': value['package_id'] = R2
+            if action == 'package_show' and query['id'] == R2: value['id'] = R2
+            return value
+        opener, calls = self.fixture(mutate=rebound)
+        with tempfile.TemporaryDirectory(dir=PRIVATE_ROOT) as directory, self.assertRaisesRegex(ValueError, 'rebound'):
+            self.run_capture('dora-activities', Path(directory) / 'capture', opener)
+        self.assertFalse(any(action == 'datastore_search' for action, _ in calls))
+
 
 if __name__ == '__main__':
     unittest.main()

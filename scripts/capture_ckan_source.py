@@ -127,6 +127,9 @@ def capture(source, output, *, opener=None, sleep=time.sleep, page_size=100, cat
             package_id = identity(resource.get('package_id'))
             package = read('package_show', {'id': package_id}, resource_id + '-package-before.json')
             schema = read('datastore_info', {'id': resource_id}, resource_id + '-schema-before.json')
+            if source == 'dora-activities' and (
+                    package_id != initial.get('id') or package.get('name') != DORA_PACKAGE):
+                raise ValueError('DoRA resource rebound outside the maintained package')
             fields = schema.get('fields')
             if (resource.get('id') != resource_id or package.get('id') != package_id
                     or not isinstance(package.get('license_id'), str) or not package['license_id']
