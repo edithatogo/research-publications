@@ -1,4 +1,4 @@
-"""Bounded CLI discovery capture for existing Crossref and ClinicalTrials scopes.
+"""Bounded CLI discovery capture for existing Crossref, DataCite and ClinicalTrials scopes.
 
 Two complete reads must agree on every full source record before committing a
 local generation. Raw responses are retained before parsing. No Microsoft API,
@@ -13,7 +13,7 @@ import time
 import uuid
 from datetime import UTC, datetime
 from pathlib import Path
-from urllib.parse import urlencode
+from urllib.parse import parse_qs, urlencode, urlsplit
 from urllib.request import Request
 
 from scripts.clinicaltrials_source import validate_ids
@@ -30,10 +30,13 @@ from scripts.source_capture_receipt import (
 from scripts.source_http_retry import guarded_urlopen, read_response
 
 ENDPOINTS = {'crossref': 'https://api.crossref.org/works',
-             'clinicaltrials.gov': 'https://clinicaltrials.gov/api/v2/studies'}
+             'clinicaltrials.gov': 'https://clinicaltrials.gov/api/v2/studies',
+             'datacite': 'https://api.datacite.org/dois'}
 MAX_PAGES = 1000
 MAX_RECORDS = 50000
-MAX_TOTAL_BYTES = 256_000_000
+MAX_TOTAL_BYTES = 2_500_000_000
+SOURCE_BYTE_LIMITS = {'crossref': 256_000_000, 'datacite': 256_000_000,
+                      'clinicaltrials.gov': 2_500_000_000}
 
 
 def validate_scope(scope):
@@ -69,6 +72,11 @@ def validate_scope(scope):
             bounds = params['filter'].split(',')
             if len(bounds) == 2 and bounds[0].split(':', 1)[1] > bounds[1].split(':', 1)[1]:
                 raise ValueError('Discovery bounds reversed')
+        elif source == 'datacite':
+            if (set(params) != {'query', 'page[size]', 'detail', 'affiliation', 'publisher'}
+                    or params['page[size]'] != '100'
+                    or any(params[k] != 'true' for k in ('detail', 'affiliation', 'publisher'))):
+                raise ValueError('Full DataCite metadata and bounded explicit query required')
         else:
             allowed = {'query.loc', 'query.term', 'filter.advanced', 'pageSize', 'countTotal', 'format'}
             page_size = params.get('pageSize', '')
@@ -92,6 +100,10 @@ def page_records(source, payload, expected):
             raise ValueError('Crossref message required')
         reject_failure_envelope(data)
         rows, count, token = data.get('items'), data.get('total-results'), data.get('next-cursor')
+    elif source == 'datacite':
+        if not isinstance(payload.get('meta'), dict) or not isinstance(payload.get('links', {}), dict):
+            raise ValueError('DataCite metadata and links required')
+        rows, count, token = payload.get('data'), payload['meta'].get('total'), payload.get('links', {}).get('next')
     else:
         rows, count, token = payload.get('studies'), payload.get('totalCount', expected), payload.get('nextPageToken')
     if not isinstance(rows, list) or any(not isinstance(row, dict) for row in rows):
@@ -105,6 +117,13 @@ def page_records(source, payload, expected):
         reject_failure_envelope(row)
         if source == 'crossref':
             key = validate_dois([row.get('DOI')])[0].lower()
+        elif source == 'datacite':
+            attrs = row.get('attributes')
+            if not isinstance(attrs, dict) or not isinstance(attrs.get('xml'), str) or not attrs['xml']:
+                raise ValueError('Complete DataCite XML metadata required')
+            key = validate_dois([row.get('id')])[0].lower()
+            if validate_dois([attrs.get('doi')])[0].lower() != key:
+                raise ValueError('DataCite record identity conflict')
         else:
             key = validate_ids([row.get('protocolSection', {}).get('identificationModule', {}).get('nctId')])[0]
         if key in indexed:
@@ -134,7 +153,7 @@ def capture(scope, output, *, opener=None, sleep=time.sleep):
             opener=opener or guarded_urlopen, max_attempts=1, sleep=sleep,
             retain=response_retainer(output, manifest, {'source_url': url, **metadata}, name))
         total_bytes += len(raw)
-        if total_bytes > MAX_TOTAL_BYTES:
+        if total_bytes > min(MAX_TOTAL_BYTES, SOURCE_BYTE_LIMITS[source]):
             raise ValueError('Combined discovery raw byte cap exceeded')
         return strict_json(raw)
 
@@ -151,18 +170,19 @@ def capture(scope, output, *, opener=None, sleep=time.sleep):
             current = query['key']
             reference = None
             for pass_number in (1, 2):
-                records, expected, token, seen_tokens = {}, None, '*' if source == 'crossref' else None, set()
+                initial_token = {'crossref': '*', 'datacite': '1'}.get(source)
+                records, expected, token, seen_tokens = {}, None, initial_token, set()
                 for page in range(MAX_PAGES):
                     params = dict(query['parameters'])
                     if token:
-                        params['cursor' if source == 'crossref' else 'pageToken'] = token
+                        params[{'crossref': 'cursor', 'datacite': 'page[cursor]', 'clinicaltrials.gov': 'pageToken'}[source]] = token
                     url = ENDPOINTS[source] + '?' + urlencode(params)
                     name = f'{current}-pass{pass_number}-page{page:04d}.json'
                     payload = read(url, name, {'query_key': current, 'pass': pass_number, 'page': page})
                     incoming, expected, next_token = page_records(source, payload, expected)
                     if set(incoming) & records.keys():
                         raise ValueError('Repeated discovery identities across pages')
-                    if len(incoming) > int(params['rows' if source == 'crossref' else 'pageSize']):
+                    if len(incoming) > int(params[{'crossref': 'rows', 'datacite': 'page[size]', 'clinicaltrials.gov': 'pageSize'}[source]]):
                         raise ValueError('Response exceeds requested page bound')
                     records.update(incoming)
                     if len(records) > expected:
@@ -177,16 +197,26 @@ def capture(scope, output, *, opener=None, sleep=time.sleep):
                         break
                     if not next_token or not incoming:
                         raise ValueError('Nonterminal discovery lacks rows or continuation')
-                    if source == 'clinicaltrials.gov' and next_token in seen_tokens:
-                        raise ValueError('Repeated trial continuation token')
+                    if source == 'datacite':
+                        link = urlsplit(next_token)
+                        query_values = parse_qs(link.query, keep_blank_values=True)
+                        cursor = query_values.pop('page[cursor]', None)
+                        if (link.scheme != 'https' or link.netloc != 'api.datacite.org'
+                                or link.path != '/dois' or link.fragment
+                                or not cursor or len(cursor) != 1 or not cursor[0]
+                                or query_values != {k: [v] for k, v in query['parameters'].items()}):
+                            raise ValueError('DataCite continuation changed the complete query scope')
+                        next_token = cursor[0]
+                    if source != 'crossref' and (next_token == token or next_token in seen_tokens):
+                        raise ValueError('Repeated discovery continuation token')
                     seen_tokens.add(next_token)
                     token = next_token
                     sleep(1)
                 else:
                     raise ValueError('Discovery page cap reached without terminal proof')
                 if reference is None:
-                    reference = records
-                elif reference != records:
+                    reference = {key: scope_sha256(row) for key, row in records.items()}
+                elif reference != {key: scope_sha256(row) for key, row in records.items()}:
                     raise ValueError('Complete discovery reads differ in identities or full metadata')
             for key, row in records.items():
                 if key in all_records and all_records[key] != row:

@@ -57,7 +57,7 @@ class DiscoveryTests(unittest.TestCase):
             self.assertNotIn('fields', query)
 
     def test_empty_query_is_complete_only_with_explicit_zero_total(self):
-        for provider in source.ENDPOINTS:
+        for provider in ('crossref', 'clinicaltrials.gov'):
             page = ({'status': 'ok', 'message-type': 'work-list', 'message': {'items': [], 'total-results': 0}}
                     if provider == 'crossref' else {'studies': [], 'totalCount': 0})
             values = [page, page] if provider == 'crossref' else [self.version(), page, page, self.version()]
@@ -99,6 +99,38 @@ class DiscoveryTests(unittest.TestCase):
                 failure = json.loads((output / 'failed-generation.json').read_bytes())
                 self.assertFalse(failure['complete'])
                 self.assertTrue(failure['files'])
+
+    def test_datacite_full_scope_metadata_cursor_and_rejections(self):
+        from urllib.parse import urlencode
+        params = {'query': 'creators.affiliation.name:"Fictional"', 'page[size]': '100',
+                  'detail': 'true', 'affiliation': 'true', 'publisher': 'true'}
+        scope = {'source': 'datacite', 'kind': 'complete_discovery',
+                 'queries': [{'key': 'institutional', 'parameters': params}]}
+        row = {'id': '10.5555/one', 'attributes': {'doi': '10.5555/one', 'xml': '<resource/>',
+               'future_metadata': [None, False]}}
+        first = {'data': [row], 'meta': {'total': 2}, 'links': {'next':
+            source.ENDPOINTS['datacite'] + '?' + urlencode({**params, 'page[cursor]': 'opaque'})}}
+        second = {'data': [{**row, 'id': '10.5555/two', 'attributes': {**row['attributes'], 'doi': '10.5555/two'}}],
+                  'meta': {'total': 2}, 'links': {'next': None}}
+        with tempfile.TemporaryDirectory(dir=PRIVATE_ROOT) as directory:
+            output = Path(directory) / 'capture'
+            result = source.capture(scope, output, opener=self.opener([first, second, first, second]), sleep=lambda _: None)
+            self.assertEqual(result['count'], 2)
+            self.assertEqual(json.loads((output / 'records.json').read_text())[0], row)
+        for kind in ('foreign_host', 'changed_query', 'missing_xml', 'identity', 'total', 'repeat'):
+            broken = copy.deepcopy(first)
+            if kind == 'foreign_host': broken['links']['next'] = broken['links']['next'].replace('api.datacite.org', 'example.invalid')
+            elif kind == 'changed_query': broken['links']['next'] += '&query=foreign'
+            elif kind == 'missing_xml': del broken['data'][0]['attributes']['xml']
+            elif kind == 'identity': broken['data'][0]['attributes']['doi'] = '10.5555/other'
+            elif kind == 'total': del broken['meta']['total']
+            else: broken['links']['next'] = broken['links']['next'].replace('opaque', '1')
+            with self.subTest(kind=kind), tempfile.TemporaryDirectory(dir=PRIVATE_ROOT) as directory:
+                output = Path(directory) / 'capture'; read = self.opener([broken])
+                with self.assertRaises(ValueError):
+                    source.capture(scope, output, opener=read, sleep=lambda _: None)
+                self.assertEqual(read.call_count, 1)
+                self.assertFalse((output / 'manifest.json').exists())
 
     def test_scope_rejected_before_network_or_directory_creation(self):
         for parameter in ('fields', 'filter.ids', 'pageToken', 'url'):
