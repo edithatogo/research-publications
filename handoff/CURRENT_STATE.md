@@ -1,6 +1,6 @@
 # Current integration checkpoint — 29 October 2026
 
-## PR71 merged; exact main gate pending — 29 October 2026
+## PR71 verified; replacement source lane released — 29 October 2026
 
 PR71's remaining dependency job passed; all three PR-head checks at `cbd791ce`
 are accepted. PR71 is merged as `3eb68e1a56cd8d50853c894e2c0ed004bd1328af`.
@@ -8,17 +8,27 @@ Its complete source tree equals the qualified PR head. Local main was advanced
 with an ordinary fast-forward; the integrator's retained coordination commits
 were preserved by an ordinary merge. No completed local/package checks rerun.
 
-Exact-main security run `40790735787` passed. Quality run `40790735708` is waiting
-for runners for source validation `123175020235` and locked dependencies
-`123175020632`. This is not a failed check or permission denial. Do not restart
-CI, repeat accepted local checks or release implementation until that quality
-run completes successfully at this exact main SHA.
+Exact-main security `40790735787` and quality `40790735708` both completed
+successfully at this exact SHA; quality includes source validation
+`123175020235` and locked dependencies `123175020632`. PR71's runner wait is
+closed. Reuse the retained PR/main receipts and clean-package evidence; no
+unchanged local test, package or hosted run was restarted to close this gate.
 
 Replacement lane `01a184ec-294d-7451-ba5e-c1781d3aa3d8` is READY in clean managed
 8cd6, branch `codex/rims-consumer-outcomes-source`, actual fresh Python3.15.1.
-Its reserved three-file completed-simulation parity task remains unchanged and
-held solely for the exact-main quality gate. After success, send one release
-with this exact main SHA; its sole writer fast-forwards its own clean branch.
+Its three-file completed-simulation parity task is now released from this exact
+verified main. Its sole writer verifies clean state and fast-forwards its own
+branch before edits. Exclusive paths remain
+`scripts/prepare_publication_consumer_parity.py`, its paired test and
+`docs/PUBLICATION_CONSUMER_PARITY_SOURCE_20261029.md`. Reuse existing feed/
+simulation/outcome checks; preserve the default planning-candidate profile.
+Opt-in completed-simulation parity must bind complete pinned initial state,
+feed, clocks, result/journal/postimages and exact target/generation, reject
+partial/uncertain/forged outcomes and preserve human/history/noop values.
+Simulated IDs/clocks never qualify native identity, runtime or admission.
+Completion is one terminal scoped commit, meaningful focused fictional tests
+on its existing Python3.15.1 environment, and explicit remaining native/input
+dependencies. Other helpers, shared contracts and dependencies are unassigned.
 Native/auth/journal owners and all operational gates remain unchanged.
 
 ## PR71 gate and workspace change — retained history
