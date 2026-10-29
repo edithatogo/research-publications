@@ -8,6 +8,15 @@ The [automatic-update implementation sequence](DYNAMIC_UPDATE_IMPLEMENTATION.md)
 
 ## Observed entitlements
 
+**Current workload direction — 29 October 2026:** The user confirms there is no
+Power Automate Premium entitlement for this workload. Power BI Premium is a
+separate entitlement and does not grant Power Automate Premium connector rights.
+Treat Premium HTTP, custom connectors and other Premium flow capabilities as
+unavailable under the present licence; use qualified Standard routes and retain
+the documented assisted fallback and native acceptance gates. Do not infer a
+licence assignment, trial, purchase, tenant-wide policy or permission change.
+The dated UI observations below are historical, not the current Power BI status.
+
 Read-only Chrome checks in the signed-in organisation account showed:
 
 | Surface | Observed | Planning consequence |
