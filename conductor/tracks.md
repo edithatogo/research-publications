@@ -24,11 +24,12 @@ next exact milestone remain in [CURRENT_STATE](../handoff/CURRENT_STATE.md).
 
 ## Current execution authority — 29 October 2026
 
-The approved entire-roadmap implementation and guarded isolated DEV/no-send
-scope in [CURRENT_STATE](../handoff/CURRENT_STATE.md) supersede historical
-priority/deferral paragraphs. Three isolated lanes deliver scoped packets to one
-integrator. Blocked requirements remain open. T16/T17 are cancelled and excluded,
-despite their historical conditional labels below. Accepted receipts are reused.
+The later simplify-and-finish direction narrows execution to the three exits in
+[completion scope](../docs/CURRENT_MISSING_OUTCOMES.md#completion-scope--29-october-2026).
+The earlier entire-roadmap selection below is superseded. Optional expansions
+remain open on that roadmap, not marked complete or required for this release.
+Current source/native ownership remains in [CURRENT_STATE](../handoff/CURRENT_STATE.md);
+no new lanes are commissioned. T16/T17 remain cancelled. Reuse accepted receipts.
 
 Canonical source milestones PR57–PR69 are merged. PR69 and its exact main
 quality/security checks passed. These do not close native/operational track exits.
@@ -70,7 +71,7 @@ three lanes. No native, schedule or delivery acceptance follows from these packe
 ## Reconciled later requirements — 29 October 2026
 
 - [~] [E09 collaborative research feed](tracks/collaborative_research_feed_20261022/plan.md) — owner-only/no-send technical receipts retained; broader actor, curation, persistence, solution and adoption dependencies remain explicit.
-- [~] [T18 outcomes and reader journeys](tracks/chhhs_outcomes_powerbi_20261021/plan.md) — all three existing slices are in scope; evidence-dependent outcomes stay unavailable. The retained reader ID is currently unresolved; E04 import compatibility also blocks native promotion.
+- [~] [T18 outcomes and reader journeys](tracks/chhhs_outcomes_powerbi_20261021/plan.md) — optional reader/outcome expansion is roadmap-only; evidence-dependent outcomes stay unavailable. The retained reader ID is currently unresolved; E04 import compatibility also blocks native promotion.
 - [ ] [Monthly export and independent observer](tracks/publication_monthly_monitoring_20261024/plan.md) — combined natural readback only after 1 November 2026, 12:05 Brisbane.
 - [~] [E08 retained operational follow-ups](archive/E08_operational_followups/plan.md) — archived administration is preserved; F03/F04 remain unaccepted and F05/F06 conditional. Reuse accepted ROR and NHMRC/MRFF archive receipts.
 

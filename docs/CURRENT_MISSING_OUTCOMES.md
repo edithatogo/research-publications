@@ -1,9 +1,57 @@
 # Current missing outcomes — 24 October 2026
 
+## Completion scope — 29 October 2026
+
+The later user request to simplify and finish supersedes the earlier selection
+of the entire unfinished roadmap. Finish the existing single-operator publication
+workflow and preserve delivered grants functions. Deferred work stays open below;
+it is no longer a prerequisite for this technical completion. Existing services,
+explicit operating commitments and their owners continue unchanged.
+
+Only these outcomes remain on the completion path:
+
+1. **Required source integration.** The existing integrator finishes the source
+   and dependency changes needed by the working publication/grants functions.
+   Classify remaining historical, duplicate and optional files for preservation;
+   their presence does not require implementing or importing them. Reuse accepted
+   package and CI receipts for unchanged inputs.
+2. **Current publication data through the existing outputs.** Reuse the retained
+   complete PubMed/DoRA bootstrap and existing admission/consumer tools. Resolve
+   the missing exact writer/registry inputs, apply only the necessary guarded
+   changes, then reconcile identities, metadata, protected review values and
+   full/monthly output keys. Keep the last accepted generation until replacement
+   succeeds. A new helper or simulated result does not close this exit.
+3. **One usable operating path.** Verify the changed native path's saved state,
+   terminal execution, replay/recovery and existing reader/output access. Reuse
+   unchanged historical acceptance; repair a report import only if that import
+   is necessary for the selected working path. Retain the existing operator
+   runbook and record the exact working generation and limitations once.
+
+The current evidence does not close outcomes 1–3. In particular, the retained
+writer/registry input gap below remains unresolved. Scope reduction does not
+convert missing data or native proof into success.
+
+| Existing requirement | Disposition for this completion |
+| --- | --- |
+| Additional providers, institutional feeds, specialist grants and exhaustive enrichment (T11/G02/G05) | Roadmap; reopen for a measured gap in an existing consumer and an available source route. |
+| Wider relationship mappings, author identity and institutional outcomes (G06/T18/E02/E03/E05) | Roadmap; reopen for a named use with authoritative identifiers and real evidence. Preserve accepted relationships. |
+| Collaboration, cross-user privacy, subscriptions and wider audiences (E09/G08) | Roadmap; reopen for a specifically commissioned multi-user rollout. Preserve current owner-only functions. |
+| New reader journeys, visual redesign, performance studies and forecast models (E04/T18/Forecast) | Roadmap; fix only defects that prevent the existing reader/output path from working. |
+| Word/PDF replacement, new frameworks, generic tooling and optional portability | Roadmap; keep working outputs and qualified CLI/bootstrap routes. Reconsider for an unmet output requirement. |
+| Historical item-8 investigation, legacy cleanup and expanded disaster exercises (G03/E07) | Preserve evidence and records; later investigation unless a concrete defect affects the selected path. |
+| Natural monthly/source observations (E08/T14) and broader unattended operation | Operational follow-up, not a coding blocker. Retain the existing 1 November after 12:05 Brisbane observation and existing approved services; do not add polling jobs or claim recurrence from a manual run. |
+| Runtime/source-package work (E10/S02) | Required compatibility and dependency closure for the selected path stay essential; shared-host changes wait for their actual terminal handover. |
+| Windows/Desktop fallback (T16/T17) | Remains cancelled; do not reopen. |
+
+No extra approval is needed for routine implementation already in scope. Exact
+send, activation, sharing, production, capacity and access boundaries remain.
+No new governance system, review queue or repeated unchanged-blocker check is
+part of this completion. Use the [execution cadence](SOLO_AGENT_WORKFLOW.md#completion-cadence--29-october-2026).
+
 ## Autonomous delivery checkpoint — 29 October 2026
 
-This table supersedes older pending/priority statements below. The entire
-unfinished roadmap is selected; accepted historical tests are reused. Current
+This table retains the detailed evidence and residual requirements. Selection
+is now governed by Completion scope above; accepted historical tests are reused. Current
 source/native ownership is in [CURRENT_STATE](../handoff/CURRENT_STATE.md).
 PR57–PR73 are merged and their exact main quality/security checks passed. The next bounded
 source assignments are recorded in the handoff; local success is not native acceptance.

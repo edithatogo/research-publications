@@ -7,6 +7,12 @@ the backlog without deleting its evidence or restarting archived chats.
 
 ## Approved delivery expansion — 29 October 2026
 
+The later user request to simplify and finish narrows the execution queue to
+[completion scope](CURRENT_MISSING_OUTCOMES.md#completion-scope--29-october-2026).
+The assignment below is retained history. Source integration remains with its
+current owner; optional residuals need preservation/disposition, not automatic
+implementation. No existing native operation is cancelled or transferred.
+
 After PR56 merged at `0e9b595e`, the user approved three managed delivery
 worktrees and this chat as sole orchestrator/integrator. Exact owners and paths
 are in [CURRENT_STATE](../handoff/CURRENT_STATE.md). The entire unfinished
@@ -181,7 +187,7 @@ native invocation path and does not prove live pagination or writer acceptance.
 
 ## Remaining work at initial reconciliation (historical)
 
-Current implementation and dependencies are in [CURRENT_MISSING_OUTCOMES](CURRENT_MISSING_OUTCOMES.md#autonomous-delivery-checkpoint--29-october-2026). The table below preserves the initial reconciliation; its local-only hold and narrow/deferred scope are superseded by the approved expansion above.
+Current implementation and dependencies are in [CURRENT_MISSING_OUTCOMES](CURRENT_MISSING_OUTCOMES.md#completion-scope--29-october-2026). The table below preserves the initial reconciliation. The later completion scope governs selection; historical local-only holds and whole-roadmap expansion do not override it.
 
 This historical table reconciles saved source/receipts; it is not a new live tenant audit.
 Later original-checkout evidence is labelled explicitly rather than copied into
