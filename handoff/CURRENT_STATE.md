@@ -1,5 +1,21 @@
 # Current integration checkpoint — 29 October 2026
 
+## Finite local-work disposition — 30 October 2026
+
+[Local work disposition](../docs/LOCAL_WORK_DISPOSITION_20261030.md) accounts for
+all 1,353 original paths with verified archives and hashes. Preserved variants,
+native support and optional work are not automatic integration requirements.
+The original checkout remains the protected native/runtime home. The completion
+checkout is retained after the managed archive tool refused primary-checkout
+removal; its branch must remain while checked out. G06 and retained-main were
+retired with verified source/private archives. No native state changed.
+
+The later source-integration direction selects existing source integrations for
+CLI-first offline preparation, followed by one coordinated deployment and minimal
+verification phase. No new providers are selected. Bounded reads may establish
+missing inputs; platform test runs wait until packages are ready. Existing
+accepted publication generation and scheduled-observation commitments remain.
+
 ## Reader and scheduled-delivery reconciliation
 
 Completion-owner source packet `aeceea22` records current native verification

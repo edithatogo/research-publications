@@ -48,8 +48,9 @@ their existing ownership and state. Natural scheduled-delivery proof remains due
 on 1 November after 12:05 Brisbane; reconciliation does not claim that proof.
 
 G06 and retained-main history were separately bundled and verified by the
-integrator before their checkout/refs were retired. The completion worktree can
-be retired after this record is integrated and its ignored files are preserved.
+integrator before their checkout/refs were retired. The completion worktree remains retained: the managed archive tool refused
+removal because it is the chat's primary checkout. Its ignored files and final
+branch are backed up; this does not authorize bypassing that lifecycle boundary.
 See [worktree reconciliation](WORKTREE_RECONCILIATION_20261029.md) for the current
 integration record. Branch/worktree retirement is distinct from merging unrelated
 history; retained archives intentionally contain work that is not on main.
