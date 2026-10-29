@@ -29,6 +29,17 @@ class PublicationPlatformContractTests(unittest.TestCase):
     def test_tracked_definition_matches_flow_contract(self):
         self.assertEqual(validate(_tracked_definition()), [])
 
+    def test_rejects_shell_line_continuations_in_saved_dax(self):
+        for newline in ("\n", "\r\n"):
+            with self.subTest(newline=repr(newline)):
+                definition = copy.deepcopy(_tracked_definition())
+                parameters = definition["actions"]["Run_publication_rows_query"]["inputs"]["parameters"]
+                parameters["specification/query"] = "EVALUATE\\" + newline + parameters["specification/query"]
+                self.assertIn(
+                    "publication rows query contains shell-style line continuations, which are not DAX",
+                    validate(definition),
+                )
+
     def test_daily_recurrence_trigger_is_required(self):
         definition = copy.deepcopy(_tracked_definition())
         definition["triggers"]["Recurrence"]["recurrence"]["schedule"]["hours"] = ["21"]
