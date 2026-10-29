@@ -8,8 +8,10 @@ Pinned NIH/DataCite candidates, collector admission adapters and typed model/
 reader preparation are integrated. Candidate relationship JSON/CSV export
 `26cfe460` and admission-to-registry/model/full/monthly parity `13da4635` are now
 reviewed and merged in PR71, including the clean-package CLI portability repair.
-The completed-simulation consumer-parity extension is active in its isolated
-replacement lane on that verified common base; no terminal result exists yet.
+Completed-simulation consumer parity `7f67406b` is reviewed and locally merged
+with 40 affected tests retained; its combined hosted milestone remains pending.
+The current no-Power-Automate-Premium direction is locally integrated from the
+separate user-authorised entitlement packet. Neither closes native acceptance.
 These connect existing preparers without qualifying native persistence, engine,
 rendering, real outcome evidence or scheduled delivery. Current ownership and
 next exact milestone remain in [CURRENT_STATE](../handoff/CURRENT_STATE.md).

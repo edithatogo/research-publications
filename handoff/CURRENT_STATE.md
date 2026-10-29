@@ -1,6 +1,41 @@
 # Current integration checkpoint — 29 October 2026
 
-## PR71 verified; replacement source lane released — 29 October 2026
+## Completed-simulation packet reviewed and locally integrated — 29 October 2026
+
+Replacement owner `01a184ec-294d-7451-ba5e-c1781d3aa3d8` returned clean terminal
+`7f67406b72ccc18973d5d8833d5acd983411135e` on verified PR71 base `3eb68e1a`.
+Only its three assigned files changed. Bounded source/test review found no
+actionable issue; exact read-only preflight found both checkouts clean with no
+overlap, missing file or staged deletion. Local merge is `692f0197`. Reuse the
+owner's 40 affected tests, including all 26 unchanged planning-profile cases.
+The opt-in profile deterministically rebuilds feed and complete in-memory
+simulation, checks outcome/replay parity and uses simulated processing values.
+It grants no native identity, admission, writer or runtime acceptance.
+
+The user separately authorised integration of entitlement update `034dd38a`
+through PPG coordinator `01a17231-07b3-7610-980a-ed60aeceda48`. That clean one-file
+packet passed its own exact preflight and is locally merged. It records the
+confirmed absence of Power Automate Premium for this workload, independently of
+Power BI Premium, preserving historical observations and native/schedule gates.
+No entitlement probe, activation, purchase or permission change was performed.
+
+This managed fb8d checkout was observed clean/detached at retained `6dbf9088`,
+with its ignored .venv absent. The integrator reattached the same checkout,
+selected its retained `codex/rims-orchestrator-takeover` branch, and created a
+fresh lane-local environment: actual Python3.15.1, existing hash-locked dev
+dependencies, consistent metadata. Other runtimes/auth/journals were untouched.
+Do not assume old ignored receipts were restored. Canonical CI/source history
+and external packages remain distinct from this new environment.
+
+Current operation: combined harness/hosted PR and exact-main gates for these
+bounded packets. Keep 8cd6 at its clean terminal; no implementation assignment
+is released yet. Its sole owner may give one read-only next-step recommendation
+for extending the existing writer preflight under the no-Premium constraint,
+with exact files/inputs/finish line and concrete native blockers. No duplicated
+framework, speculative action classification or new native/auth probe is allowed.
+Root retains integration/shared records; original native ownership is unchanged.
+
+## PR71 verified; replacement source lane released — retained history
 
 PR71's remaining dependency job passed; all three PR-head checks at `cbd791ce`
 are accepted. PR71 is merged as `3eb68e1a56cd8d50853c894e2c0ed004bd1328af`.

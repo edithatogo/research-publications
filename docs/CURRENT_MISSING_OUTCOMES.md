@@ -12,7 +12,9 @@ PR70 includes the reviewed NIH/DataCite candidates, collector-artifact admission
 adapters and typed relationship model/reader preparation. The connected candidate
 evidence exporter and admission-to-consumer parity checker are subsequently
 reviewed and merged in verified PR71. A completed-simulation consumer-parity
-extension is active source work, not an accepted runtime result. Real pinned
+extension `7f67406b` is reviewed/local-merged source work awaiting hosted gates,
+not an accepted runtime result. The current workload has no Power Automate
+Premium entitlement; Power BI Premium is separate. Real pinned
 captures/mappings, writer graph adoption, actual processing-time observations,
 typed persistence, current native consumers and the existing runtime/rendering/
 schedule exits remain unqualified. Candidate parity never substitutes for them.
