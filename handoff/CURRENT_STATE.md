@@ -31,6 +31,22 @@ on its existing Python3.15.1 environment, and explicit remaining native/input
 dependencies. Other helpers, shared contracts and dependencies are unassigned.
 Native/auth/journal owners and all operational gates remain unchanged.
 
+Delivery heartbeat at 10:06 Brisbane: the replacement writer is active on this
+verified base, implementing the failing executed-clock case within its existing
+three-file scope. No terminal commit is available yet. Preserve that writer;
+collect its terminal handoff before review/integration. PR71/main/package checks
+remain accepted and were not repeated. No new task or coordination job assigned.
+
+An independently appearing checkout was also observed at
+`/Users/doughnut/.codex/worktrees/rims-pa-entitlement-20261029`, branch
+`codex/pa-entitlement-20261029`, based on `f2162179`, with an in-flight change to
+`docs/POWER_PLATFORM_NATIVE_PLAN.md`. Its chat identity was not returned by the
+bounded app inventory. This is not a new assignment from this orchestrator.
+Preserve that file/checkout and do not duplicate entitlement/auth/native probes
+or consume an unfinished working diff as accepted capability evidence. Root
+retains shared coordination; the observed lane's actual native/auth scope needs
+its own terminal owner handoff before any integration or native interpretation.
+
 ## PR71 gate and workspace change — retained history
 
 PR71 head is `cbd791ce55f58bac7f7fe5b76a0800f11e593d41`. Hosted source validation

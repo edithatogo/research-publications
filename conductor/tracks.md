@@ -2,11 +2,14 @@
 
 ## Connected candidate consumer milestone — 29 October 2026
 
-PR70 and exact main `7c202562` quality/security are accepted source evidence.
+PR70 and PR71 exact-main quality/security are accepted source evidence; current
+verified main is `3eb68e1a56cd8d50853c894e2c0ed004bd1328af`.
 Pinned NIH/DataCite candidates, collector admission adapters and typed model/
 reader preparation are integrated. Candidate relationship JSON/CSV export
 `26cfe460` and admission-to-registry/model/full/monthly parity `13da4635` are now
-reviewed and locally merged; coherent hosted integration remains pending.
+reviewed and merged in PR71, including the clean-package CLI portability repair.
+The completed-simulation consumer-parity extension is active in its isolated
+replacement lane on that verified common base; no terminal result exists yet.
 These connect existing preparers without qualifying native persistence, engine,
 rendering, real outcome evidence or scheduled delivery. Current ownership and
 next exact milestone remain in [CURRENT_STATE](../handoff/CURRENT_STATE.md).
