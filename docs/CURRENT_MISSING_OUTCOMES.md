@@ -8,7 +8,7 @@ workflow and preserve delivered grants functions. Deferred work stays open below
 it is no longer a prerequisite for this technical completion. Existing services,
 explicit operating commitments and their owners continue unchanged.
 
-Only these outcomes remain on the completion path:
+The selected completion outcomes and their current disposition are:
 
 1. **Required source integration.** The existing integrator finishes the source
    and dependency changes needed by the working publication/grants functions.
@@ -27,9 +27,17 @@ Only these outcomes remain on the completion path:
    is necessary for the selected working path. Retain the existing operator
    runbook and record the exact working generation and limitations once.
 
-The current evidence does not close outcomes 1–3. In particular, the retained
-writer/registry input gap below remains unresolved. Scope reduction does not
-convert missing data or native proof into success.
+Outcomes 2 and 3 are complete for the selected captured-generation, operator-run
+cloud-file path: 1,344 full records and 14 September records exported as four
+CSV/HTML files in the existing SharePoint reporting folder, with exact native
+byte readback and unchanged replay. The completion owner recorded this evidence
+in [cycle closure](PUBLICATION_CYCLE_CLOSURE_20261029.md#captured-generation-cloud-output).
+The user deferred the two newer PubMed identities; freshness and new-source
+admission are outside this completion. Required source integration remains the
+integrator's final gate. Unattended recurrence, flow execution and Power BI
+rendering retain their separate acceptance requirements. The older input-gap
+assessment below is historical and does not negate the later captured-generation
+output acceptance.
 
 | Existing requirement | Disposition for this completion |
 | --- | --- |

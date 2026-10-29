@@ -7,8 +7,10 @@ acquisition or make freshness a prerequisite for delivering this generation.
 The 1,344-record bibliography and 14-record September 2026 output are now saved
 as CSV and HTML in the existing owner-only SharePoint `03 Reporting` folder.
 All four native byte hashes match the verified exports. Earlier files and
-registry review values remain unchanged. The monthly CSV link opens Office on
-the web; this is link access, not full visual rendering acceptance.
+registry review values remain unchanged. The completion owner also observed the monthly CSV in Excel on the web in
+Viewing mode, with all 18 headers and 14 populated data rows (last row 15).
+`cloud-reader-verification.json` retains this bounded reader evidence; it does
+not establish Power BI report rendering.
 
 The retained `sync_dataset_documentation.mjs` uploader is reused unchanged and
 its `documentation-sync` mode is now available in the canonical guarded wrapper.
