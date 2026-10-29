@@ -1,5 +1,13 @@
 # Current integration checkpoint — 29 October 2026
 
+## Integration ownership and isolated reconciliation — 29 October 2026
+
+The user assigned chat `01a1874d-b9d7-7e61-b198-943e93ee28ad` repository integration and main/shared-record ownership, superseding the earlier integrator assignment below. Its managed worktree is `/Users/doughnut/.codex/worktrees/rims-integration-reconcile/chhhs-research-publications`, branch `codex/rims-scoped-integration-20261029`, based on main `c9a137c48c838df40f3b1d6f955378a519f73829`. This transfer is source integration only; native objects, authentication, journals and running operations retain their existing owners.
+
+The isolated candidate imports the ARDC scripts and tests at `5b6abce1` and G06 writer/consumer scripts, tests and bounded review evidence at `6c9bec2f`, plus the missing funding-context producer from that same source history. Existing main `grants_relationships.py` is preserved; its stricter identity rules are not replaced. Source target paths were checked against main; copied source/test paths were absent there. On the lane-local Python 3.15.1 with the existing dev lock, 2,256 unittest cases passed with 19 skips, 446 project checks passed, and web-first contracts returned PASS_LOCAL_ONLY. The selected ARDC Node tests (5) and G06 Node tests (13) passed. These are local checks, not native or operational acceptance. Full review, clean packaging, source-closure and hosted gates remain before promotion.
+
+The original checkout `/Volumes/PortableSSD/GitHub/RIMS/chhhs-research-publications` has substantial uncommitted work and remains preserved. ARDC branch `codex/ardc-source-preservation` ends at `5b6abce1`; G06 closeout `codex/g06-review-closeout` ends at `6c9bec2f`. Their history and main have distinct roots: direct branch merge and the normal preflight merge-base comparison cannot be used. Exact G06 packet preflight against the original `cde439c0` checkout found 35 overlapping paths with matching working bytes, but does not qualify integration into main. The current isolated candidate replays selected source files only and requires dependency closure, review, focused and full project gates before any main promotion. Existing committed PubMed/DoRA and Power Automate entitlement worktree heads are already in main.
+
 ## Standard evidence preflight reviewed; integration gates pending — 29 October 2026
 
 Source lane `01a184ec-294d-7451-ba5e-c1781d3aa3d8` returned clean terminal
