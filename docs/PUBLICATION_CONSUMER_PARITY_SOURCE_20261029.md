@@ -1,5 +1,128 @@
 # Publication admission-to-consumer parity — 29 October 2026
 
+## Completed-simulation profile — replacement source lane
+
+The replacement lane owns only this leaf, the existing parity helper and its
+paired test in managed checkout
+`/Users/doughnut/.codex/worktrees/8cd6/chhhs-research-publications`, branch
+`codex/rims-consumer-outcomes-source`. After the sole orchestrator released PR71,
+the clean branch fast-forwarded to exact verified main
+`3eb68e1a56cd8d50853c894e2c0ed004bd1328af`. Its fresh repo-local
+`.venv/bin/python` actually reports Python 3.15.1. No environment, dependency
+lock, authentication, private evidence or journal was copied or changed.
+The older ownership and planning-profile receipt below remain history; the
+archived ef45 checkout and its ignored artifacts were not restored.
+
+`prepare` retains its default `profile="planning_candidate"` behavior and
+receipt shape. The opt-in `profile="completed_simulation"` requires
+`simulation` and `simulation_pins`. It compares consumers with completed
+in-memory postimages, including each operation's simulated processing timestamp,
+instead of the admission packet's planning timestamp. It grants no native or
+writer authority. All new completed-profile receipts, verification results and
+CLI output envelopes have `simulation_only=true`; existing false native/write
+authority flags remain false.
+
+The simulation bundle has exactly:
+
+| Field | Required content |
+|---|---|
+| `kind` | `publication_completed_simulation_v1` |
+| `feed` | `{manifest, parts_utf8}` with the entire immutable feed, including its empty terminal part and every canonical UTF-8 part string |
+| `profiles` | Complete guarded-writer declaration inventory, scoped to the exact feed, target, writer preimage, connections and schema |
+| `initial_rows` | Every complete row from the pinned original registry, including saved metadata and history |
+| `clocks` | Exactly one explicit processing UTC instant per non-noop operation, in feed order |
+| `result` | Exact completed result from the built-in guarded-writer simulator |
+| `state` | Complete final `MemoryTransport.snapshot()`: `rows`, remaining `clocks`, `faults`, `journal`, `generation_claims`, `consumer_commits`, `calls` |
+
+`simulation_pins` independently supplies canonical SHA-256 digests for exactly
+`bundle` (the entire bundle), `manifest` (the entire manifest including its own
+digest), `parts_utf8`, `profiles`, `initial_rows`, `clocks`, `result`, `state`,
+`journal` and `postimages`. `journal` hashes `state.journal`; `postimages` hashes
+the complete operation-ID-to-postimage mapping extracted from that journal.
+These are supplied separately from the bundle, admission/packet pins and
+consumer pins. A declaration pin establishes consistency, never native
+qualification or authenticity.
+
+Before deriving consumer values the helper:
+
+1. Rebuilds the admission using its existing verifier and independently pinned
+   source inputs, then checks the complete simulation bundle/component pins.
+2. Uses the existing feed validator and rebuilds the complete feed with
+   `prepare_publication_writer_feed.build` from the verified admission and raw
+   bytes, using the pinned part/manifest bounds. The entire manifest and exact
+   part bytes must match. An internally valid feed for another packet cannot
+   qualify even if all its supplied hashes are refreshed.
+3. Checks that initial rows equal the complete pinned registry. Clocks must be
+   nondecreasing across operations and no earlier than the planning clock;
+   the existing simulator also guards each retained row's observation clock.
+   Noop operations consume no clock and retain their exact original values.
+4. Starts the existing built-in `MemoryTransport` from those rows/clocks with
+   an empty journal and no faults. It reuses the existing declaration, simulation
+   and outcome checks; arbitrary transports/callbacks are unsupported. Only a
+   rebuilt `SIMULATED_COMPLETE` result with consumer commit qualifies. Both the
+   supplied result and every byte-equivalent final state value must match.
+5. Replays the same simulation through its existing done-outcome checks and
+   requires identical result/state, with no additional effects, consumed clocks
+   or duplicate consumer commit. It reuses `check_outcome` on each journal
+   postimage before deriving consumer fields.
+
+The completed consumer contract/capture context additionally requires
+`parity_profile: "completed_simulation"` and
+`simulation_sha256: simulation_pins.bundle`; its `data_kind` must be `synthetic`.
+Every registry/model/full/monthly capture repeats that context. Planning context
+cannot be substituted, even when callers repeat a forged completion flag.
+The planning profile rejects simulation arguments and retains its original
+context requirements.
+
+Existing rows retain `item:<original ID>`; new rows retain `new:<SourceKey>`.
+The simulator's generated integer IDs, fake ETags and appended versions remain
+simulation evidence only and are never accepted as native identities. Registry
+captures include every original schema field, while complete hidden metadata,
+versions, journal and postimages remain independently pinned and checked against
+the rebuilt state. Untouched history/placeholders, human fields, noops, source
+full titles and date uncertainty remain protected. The same model/export
+projection, completeness and monthly reconciliation checks are reused.
+
+For the existing API example below, opt in by adding:
+
+```python
+profile="completed_simulation",
+simulation=complete_simulation_bundle,
+simulation_pins=independent_simulation_pins,
+```
+
+For the existing CLI command below, add:
+
+```sh
+--profile completed_simulation \
+--simulation private/parity/completed-simulation.json \
+--simulation-pins private/parity/completed-simulation-pins.json
+```
+
+Both additional inputs retain the ignored-private-path, exact-file-hash and
+exclusive-output rules. Missing evidence, incomplete/stopped/uncertain outcomes,
+forged results, feed/target/generation rebinding, missing or mismatched clocks,
+hidden protected-field/history changes and simulated IDs presented as native
+consumer identities fail closed. A planning time alone cannot establish an
+executed value. Even a matching rebuilt simulation qualifies only fictional
+execution and supplied synthetic captures.
+
+Verification on Python 3.15.1: all **40 affected unittest cases** pass, comprising
+the unchanged 26 planning cases and 14 completed-profile cases. The new cases
+cover differing operation clocks, multiple records, create/observe/noop, long
+Unicode title and unknown dates, included historical values, independently
+pinned components, repinned tampering, real simulated failures followed by
+forged completion, immutable replay, context/receipt binding and atomic CLI
+failure/replay preservation. Direct `python -S` CLI help and scoped whitespace
+checks pass. Full harness/clean-package/hosted gates remain with the integrator;
+unchanged PR71 evidence was not rerun by this lane.
+
+Native dependencies remain unchanged: qualified native writer/action graph,
+authenticated operation declarations, actual processing clocks, durable native
+journal and exact protected readback, accepted admission, native create identity
+and defaults, consumer capture adapters/lineage, model refresh, rendering and
+real scheduled delivery. This profile neither invokes nor accepts those exits.
+
 ## Ownership and delivery boundary
 
 Admission chat `01a1831e-cc6d-7371-9d57-021a339b708a` owns only

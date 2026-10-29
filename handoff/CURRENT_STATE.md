@@ -1,5 +1,121 @@
 # Current integration checkpoint — 29 October 2026
 
+## Completed-simulation packet reviewed and locally integrated — 29 October 2026
+
+Replacement owner `01a184ec-294d-7451-ba5e-c1781d3aa3d8` returned clean terminal
+`7f67406b72ccc18973d5d8833d5acd983411135e` on verified PR71 base `3eb68e1a`.
+Only its three assigned files changed. Bounded source/test review found no
+actionable issue; exact read-only preflight found both checkouts clean with no
+overlap, missing file or staged deletion. Local merge is `692f0197`. Reuse the
+owner's 40 affected tests, including all 26 unchanged planning-profile cases.
+The opt-in profile deterministically rebuilds feed and complete in-memory
+simulation, checks outcome/replay parity and uses simulated processing values.
+It grants no native identity, admission, writer or runtime acceptance.
+
+The user separately authorised integration of entitlement update `034dd38a`
+through PPG coordinator `01a17231-07b3-7610-980a-ed60aeceda48`. That clean one-file
+packet passed its own exact preflight and is locally merged. It records the
+confirmed absence of Power Automate Premium for this workload, independently of
+Power BI Premium, preserving historical observations and native/schedule gates.
+No entitlement probe, activation, purchase or permission change was performed.
+
+This managed fb8d checkout was observed clean/detached at retained `6dbf9088`,
+with its ignored .venv absent. The integrator reattached the same checkout,
+selected its retained `codex/rims-orchestrator-takeover` branch, and created a
+fresh lane-local environment: actual Python3.15.1, existing hash-locked dev
+dependencies, consistent metadata. Other runtimes/auth/journals were untouched.
+Do not assume old ignored receipts were restored. Canonical CI/source history
+and external packages remain distinct from this new environment.
+
+Current operation: combined harness/hosted PR and exact-main gates for these
+bounded packets. Keep 8cd6 at its clean terminal; no implementation assignment
+is released yet. Its sole owner may give one read-only next-step recommendation
+for extending the existing writer preflight under the no-Premium constraint,
+with exact files/inputs/finish line and concrete native blockers. No duplicated
+framework, speculative action classification or new native/auth probe is allowed.
+Root retains integration/shared records; original native ownership is unchanged.
+
+## PR71 verified; replacement source lane released — retained history
+
+PR71's remaining dependency job passed; all three PR-head checks at `cbd791ce`
+are accepted. PR71 is merged as `3eb68e1a56cd8d50853c894e2c0ed004bd1328af`.
+Its complete source tree equals the qualified PR head. Local main was advanced
+with an ordinary fast-forward; the integrator's retained coordination commits
+were preserved by an ordinary merge. No completed local/package checks rerun.
+
+Exact-main security `40790735787` and quality `40790735708` both completed
+successfully at this exact SHA; quality includes source validation
+`123175020235` and locked dependencies `123175020632`. PR71's runner wait is
+closed. Reuse the retained PR/main receipts and clean-package evidence; no
+unchanged local test, package or hosted run was restarted to close this gate.
+
+Replacement lane `01a184ec-294d-7451-ba5e-c1781d3aa3d8` is READY in clean managed
+8cd6, branch `codex/rims-consumer-outcomes-source`, actual fresh Python3.15.1.
+Its three-file completed-simulation parity task is now released from this exact
+verified main. Its sole writer verifies clean state and fast-forwards its own
+branch before edits. Exclusive paths remain
+`scripts/prepare_publication_consumer_parity.py`, its paired test and
+`docs/PUBLICATION_CONSUMER_PARITY_SOURCE_20261029.md`. Reuse existing feed/
+simulation/outcome checks; preserve the default planning-candidate profile.
+Opt-in completed-simulation parity must bind complete pinned initial state,
+feed, clocks, result/journal/postimages and exact target/generation, reject
+partial/uncertain/forged outcomes and preserve human/history/noop values.
+Simulated IDs/clocks never qualify native identity, runtime or admission.
+Completion is one terminal scoped commit, meaningful focused fictional tests
+on its existing Python3.15.1 environment, and explicit remaining native/input
+dependencies. Other helpers, shared contracts and dependencies are unassigned.
+Native/auth/journal owners and all operational gates remain unchanged.
+
+Delivery heartbeat at 10:06 Brisbane: the replacement writer is active on this
+verified base, implementing the failing executed-clock case within its existing
+three-file scope. No terminal commit is available yet. Preserve that writer;
+collect its terminal handoff before review/integration. PR71/main/package checks
+remain accepted and were not repeated. No new task or coordination job assigned.
+
+An independently appearing checkout was also observed at
+`/Users/doughnut/.codex/worktrees/rims-pa-entitlement-20261029`, branch
+`codex/pa-entitlement-20261029`, based on `f2162179`, with an in-flight change to
+`docs/POWER_PLATFORM_NATIVE_PLAN.md`. Its chat identity was not returned by the
+bounded app inventory. This is not a new assignment from this orchestrator.
+Preserve that file/checkout and do not duplicate entitlement/auth/native probes
+or consume an unfinished working diff as accepted capability evidence. Root
+retains shared coordination; the observed lane's actual native/auth scope needs
+its own terminal owner handoff before any integration or native interpretation.
+
+## PR71 gate and workspace change — retained history
+
+PR71 head is `cbd791ce55f58bac7f7fe5b76a0800f11e593d41`. Hosted source validation
+and security passed; the locked-dependency job in quality run `40788773758`
+is queued for a runner. Do not waive that gate or call PR71 merged. Corrected
+source package `0.4.0-roadmap.16.2` at this head passed fresh extraction/full
+harness with NativeAcceptance=false; archive SHA256 is
+`d9c6ee134f5f22f29b0b55327bbe040a05164c09c39ee4be8059e9c0e2fa3359`.
+It is retained at `/Volumes/PortableSSD/rims-orchestration-temp/consumer-package-cbd791ce-20261029/release/`.
+The earlier .16 test-path failure and .16.1 internal-temp ENOSPC failure remain
+preserved. The successful run used only its own PortableSSD temporary directory.
+
+Changed ownership evidence: after ef45's clean terminal handoff/preflight,
+that path disappeared from disk and Git's worktree inventory. Its app attachment
+listed active but exposed no archived snapshot; the chat subsequently became
+app-archived. This integrator did not remove/move the checkout or revive the
+archived chat. All source remains in PR71. Retention of its ignored .venv/private
+artifacts is unverified; never describe them as recovered. Other terminal delivery
+worktrees are also absent; original operational/runtime checkouts remain.
+
+Necessary replacement admission chat `01a184ec-294d-7451-ba5e-c1781d3aa3d8`
+is attached to new managed `/Users/doughnut/.codex/worktrees/8cd6/chhhs-research-publications`
+at verified `7c202562` (initially detached). Its readiness turn currently reports
+an initial app approval wait, subsequently resolved. It returned READY: clean
+branch `codex/rims-consumer-outcomes-source` at `7c202562`, fresh lane-local
+`.venv/bin/python` actually reporting 3.15.1, no copied private/native artifacts.
+The same three-file completed-simulation parity source assignment is reserved
+to this successor; implementation remains held only for exact PR71 main gates.
+The existing delivery heartbeat was updated in place with this owner/recovery
+and pending-gate checkpoint; its ID, target, cadence and Active status are
+preserved. No new job was created. No old environment, native
+object, auth or journal ownership transfers. Do not duplicate the new chat or
+restore ef45 by assumption. This supersedes older active-ef45 assignments below.
+
 ## Connected consumer milestone — 29 October 2026
 
 Admission owner returned clean terminal `13da4635a3d1d9d5375cdf3d294f40cc32b6ab35`,
