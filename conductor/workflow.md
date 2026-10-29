@@ -1,5 +1,7 @@
 # Workflow
 
+Current selection: [completion scope](../docs/CURRENT_MISSING_OUTCOMES.md#completion-scope--29-october-2026). Follow its three essential exits and [execution cadence](../docs/SOLO_AGENT_WORKFLOW.md#completion-cadence--29-october-2026). Historical discovery, expansion and fallback instructions below do not reopen accepted work or deferred features.
+
 ## Current route precedence — 13 October 2026
 
 Follow the [shared-data delivery contract](../docs/PLATFORM_COMPLETION_PLAN.md#shared-data-delivery-contract--13-october-2026): CLI/API-first on qualified exact targets, existing archive bootstrap, complete raw payload/schema retention before vertical filtering, and one writer per file/object. Historical browser-first/no-CLI statements and dated completion claims do not override this direction. Preserve current source scope, permissions, isolation, rollback and explicit activation/delivery gates. The publications chat retains its current objects and checkpoint; shared-data work requires disjoint scope or explicit handoff.
@@ -14,13 +16,13 @@ Follow the [shared-data delivery contract](../docs/PLATFORM_COMPLETION_PLAN.md#s
 7. Evidence gates fail closed: do not distribute incomplete/stale output, treat absent optional metadata as missing, retain ambiguous records, and preserve the last good archive. Never silently drop DORA-only rows or report API failures as zero publications.
 8. Close only completed tasks with evidence references and commit `type(scope): subject`. Completion of local T09 does not close any live track. Archive native tracks only after actual accepted execution.
 9. No public publishing, sharing/permission/RLS changes, production rebind, mail send, flow activation, license/capacity purchase or remote repository creation without the corresponding explicit approval. Keep secrets, real tenant evidence and cached data in ignored private storage.
-10. A verified web-authoring incompatibility can propose T16/T17. Missing plugin exposure, unresolved credentials, tenant policy or missing permission are not grounds to bypass controls with a VM. Fallback activation and existing VM changes require owner confirmation.
+10. T16/T17 remain cancelled. Use the existing qualified operating path; an unavailable authoring route does not commission a Windows/VM fallback.
 
 Full integration commands (integration/release milestones or broad shared changes):
 ```
-python -m unittest discover -s tests -v
-python scripts/validate_project.py
-python scripts/webfirst_contracts.py validate
+.venv/bin/python -m unittest discover -s tests -v
+.venv/bin/python scripts/validate_project.py
+.venv/bin/python scripts/webfirst_contracts.py validate
 ```
 
 Conductor plugin checkout: populated at the revision pinned by the `.agents/plugins/conductor` Git submodule. Repository skills in `.agents/skills/` link to its upstream skills. After cloning, run `git submodule update --init .agents/plugins/conductor` to populate them. Antigravity (`agy`) loads workspace skills from `.agents/skills/` and global skills from `~/.gemini/config/skills/`; legacy Codex skills were installed in `~/.codex/skills/`. See [AGY_HANDOVER.md](../AGY_HANDOVER.md). Installation does not assert that any project workflow or native Power BI gate has been executed.

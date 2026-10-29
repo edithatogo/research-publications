@@ -1,5 +1,7 @@
 # Platform Completion Plan: CHHHS Research Publication System
 
+Current selection: [completion scope](CURRENT_MISSING_OUTCOMES.md#completion-scope--29-october-2026). Follow its three essential exits and [execution cadence](SOLO_AGENT_WORKFLOW.md#completion-cadence--29-october-2026). Historical discovery, expansion and fallback instructions below do not reopen accepted work or deferred features.
+
 ## Connector-assisted source priorities — 13 October 2026
 
 Use the [Microsoft connector/source selection](FUTURE_SOURCE_ENRICHMENT.md#microsoft-connector-and-contextual-source-selection--13-october-2026).

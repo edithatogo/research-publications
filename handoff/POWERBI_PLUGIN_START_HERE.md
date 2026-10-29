@@ -1,5 +1,7 @@
 # Start here in the chat with the Power BI plugin
 
+Current selection: [completion scope](../docs/CURRENT_MISSING_OUTCOMES.md#completion-scope--29-october-2026). Follow its three essential exits and [execution cadence](../docs/SOLO_AGENT_WORKFLOW.md#completion-cadence--29-october-2026). Historical discovery, expansion and fallback instructions below do not reopen accepted work or deferred features.
+
 ## Current route precedence — 13 October 2026
 
 Follow the [shared-data delivery contract](../docs/PLATFORM_COMPLETION_PLAN.md#shared-data-delivery-contract--13-october-2026): CLI/API-first on qualified exact targets, existing archive bootstrap, complete raw payload/schema retention before vertical filtering, and one writer per file/object. Historical browser-first/no-CLI statements and dated completion claims do not override this direction. Preserve current source scope, permissions, isolation, rollback and explicit activation/delivery gates. The publications chat retains its current objects and checkpoint; shared-data work requires disjoint scope or explicit handoff.

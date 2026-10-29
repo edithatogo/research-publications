@@ -5,8 +5,7 @@
 [Worktree reconciliation and remaining work](../docs/WORKTREE_RECONCILIATION_20261029.md)
 supersedes branch-count and stale-backlog implications only. Use the current
 assignment in [CURRENT_STATE](../handoff/CURRENT_STATE.md); retain earlier receipts,
-native ownership. The approved roadmap in CURRENT_STATE supersedes the former
-local-only report hold and reopens unfinished deferred requirements. Canonical source and the
+native ownership. The [completion scope](../docs/CURRENT_MISSING_OUTCOMES.md#completion-scope--29-october-2026) selects only three essential exits. Optional residuals remain roadmap work; historical instructions do not reopen them. Canonical source and the
 private authoring checkout remain separate histories. No new native acceptance.
 
 ## Flow operations snapshot — 24 October 2026
