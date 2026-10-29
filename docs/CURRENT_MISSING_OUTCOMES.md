@@ -5,7 +5,7 @@
 This table supersedes older pending/priority statements below. The entire
 unfinished roadmap is selected; accepted historical tests are reused. Current
 source/native ownership is in [CURRENT_STATE](../handoff/CURRENT_STATE.md).
-PR57–PR72 are merged and their exact main quality/security checks passed. The next bounded
+PR57–PR73 are merged and their exact main quality/security checks passed. The next bounded
 source assignments are recorded in the handoff; local success is not native acceptance.
 
 PR70 includes the reviewed NIH/DataCite candidates, collector-artifact admission
@@ -15,7 +15,7 @@ reviewed and merged in verified PR71. A completed-simulation consumer-parity
 extension `7f67406b` is merged and source-qualified in PR72, not an accepted
 runtime result. The current workload has no Power Automate
 Premium entitlement; Power BI Premium is separate.
-Standard-connector evidence preflight `f6e6f19c` is reviewed/local-merged, with
+Standard-connector evidence preflight `f6e6f19c` is integrated in verified PR73, with
 all classifications explicitly unauthenticated and every authority flag false.
 The next selected exit is actual retained-input completeness and native evidence
 disposition, without copying private bindings or making an unchanged live probe.

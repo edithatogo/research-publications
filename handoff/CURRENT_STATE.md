@@ -1,6 +1,36 @@
 # Current integration checkpoint — 29 October 2026
 
-## Standard evidence preflight reviewed; integration gates pending — 29 October 2026
+## PR73 verified; retained-input assessment released — 29 October 2026
+
+Verified main is `c9a137c48c838df40f3b1d6f955378a519f73829` (PR73). All three
+checks at PR head `d446b420` passed; exact-main quality `40796691106` and
+security `40796691190` completed successfully at this SHA. The source tree
+equals the reviewed PR head; local main/integrator branch advanced normally.
+Combined harness passed 2,182 Python tests (19 capability skips), 25 Node guards,
+446 project checks and remaining gates. Range secret scan and dependency checks
+passed. Prior accepted proofs were reused; no rights/runtime acceptance follows.
+
+Standard evidence preflight `f6e6f19c` is integrated. Source owner
+`01a184ec-294d-7451-ba5e-c1781d3aa3d8` retains 8cd6 and must first fast-forward
+its own clean branch to this exact main. Next scope is data assessment only:
+read the specifically referenced original frozen writer/binding/registry evidence
+in place, retain raw files/bindings/journals with their original owner, and assess
+whether the qualified preflight's independently pinned inputs actually exist.
+Use supported pure APIs for authorised in-memory data; never relax private-path
+guards, copy raw snapshots, invent capture/revision metadata or make a probe.
+The retained original writer reference and byte pin are in the private task
+handoff; its dated inventory is 44 actions, one trigger and two references.
+Inventory parsing alone is not full-preflight or current native acceptance.
+
+Output: one sanitized create-only report under the lane's ignored private/ops,
+plus one terminal handoff of aggregate findings, original references/hashes and
+exact missing captures/classifications. No tracked source changes, new helper,
+test reruns, auth/native request, activation, schedule, send or ownership transfer.
+If complete independently captured inputs are missing, report that concrete gap;
+do not synthesize evidence or use a lower-level diagnostic as a full assessment.
+Keep permission/DLP/connection/schema/current-runtime and scheduled proof open.
+
+## Standard evidence preflight reviewed; integration gates pending — retained history
 
 Source lane `01a184ec-294d-7451-ba5e-c1781d3aa3d8` returned clean terminal
 `f6e6f19c82490b99a18420285c1341b170d1fc51` from verified PR72 main `d20e9b77`.
