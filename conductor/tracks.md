@@ -71,7 +71,7 @@ three lanes. No native, schedule or delivery acceptance follows from these packe
 ## Reconciled later requirements — 29 October 2026
 
 - [~] [E09 collaborative research feed](tracks/collaborative_research_feed_20261022/plan.md) — owner-only/no-send technical receipts retained; broader actor, curation, persistence, solution and adoption dependencies remain explicit.
-- [~] [T18 outcomes and reader journeys](tracks/chhhs_outcomes_powerbi_20261021/plan.md) — all three existing slices are in scope; evidence-dependent outcomes stay unavailable. The retained reader ID is currently unresolved; E04 import compatibility also blocks native promotion.
+- [~] [T18 outcomes and reader journeys](tracks/chhhs_outcomes_powerbi_20261021/plan.md) — optional reader/outcome expansion is roadmap-only; evidence-dependent outcomes stay unavailable. The retained reader ID is currently unresolved; E04 import compatibility also blocks native promotion.
 - [ ] [Monthly export and independent observer](tracks/publication_monthly_monitoring_20261024/plan.md) — combined natural readback only after 1 November 2026, 12:05 Brisbane.
 - [~] [E08 retained operational follow-ups](archive/E08_operational_followups/plan.md) — archived administration is preserved; F03/F04 remain unaccepted and F05/F06 conditional. Reuse accepted ROR and NHMRC/MRFF archive receipts.
 

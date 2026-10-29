@@ -1,6 +1,6 @@
 > Reconciled 29 October 2026 from the retained authoring checkout. Dated
 > observations below are historical evidence, not refreshed native state.
-> The current entire-roadmap direction reopens unfinished requirements;
+> Selection follows [completion scope](../../../docs/CURRENT_MISSING_OUTCOMES.md#completion-scope--29-october-2026); optional residuals stay on the roadmap;
 > prior bounded acceptance remains valid only for its stated scope.
 > Current ownership and authority: [CURRENT_STATE](../../../handoff/CURRENT_STATE.md).
 > Cancelled Desktop/Windows routes stay excluded; no new sends or schedules.

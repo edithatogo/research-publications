@@ -7,7 +7,9 @@ packet on `codex/rims-completion-scope`, managed worktree
 `/Users/doughnut/.codex/worktrees/rims-completion-scope/chhhs-research-publications`,
 based on `ce604dc7`. Paths: `docs/CURRENT_MISSING_OUTCOMES.md`,
 `docs/SOLO_AGENT_WORKFLOW.md`, `docs/WORKTREE_RECONCILIATION_20261029.md`,
-`conductor/tracks.md` and this proposed handoff entry. Native/auth scope: none.
+`conductor/tracks.md`, Conductor entry points and imported scope banners,
+`docs/PLATFORM_COMPLETION_PLAN.md`, `handoff/POWERBI_PLUGIN_START_HERE.md` and
+this proposed handoff entry. Native/auth scope: none.
 The earlier whole-roadmap selection is superseded by the user's simplify-and-finish
 request; optional requirements retain their evidence and move out of the completion
 queue. See the [three remaining exits](../docs/CURRENT_MISSING_OUTCOMES.md#completion-scope--29-october-2026).
