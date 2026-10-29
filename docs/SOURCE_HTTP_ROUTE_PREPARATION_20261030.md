@@ -82,7 +82,7 @@ Private artifacts are under the integrator's
 The packages preserve original observation dates; packaging is not a new source
 observation. Native bindings and private raw content remain outside Git.
 
-The30 focused tests cover the new routes and existing exact-ID complements with
+The31 focused tests cover the new routes and existing exact-ID complements with
 fictional injected transport. They include missing/estimated/changing totals,
 duplicates, pagination, full-field drift, version changes, byte limits, failed
 responses, disabled policy and historical-vintage retention. No platform tests

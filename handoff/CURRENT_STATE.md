@@ -6,7 +6,7 @@ The integrator owns `codex/offline-source-packages` in the existing reconciliati
 checkout; native/authentication ownership is unchanged. [The source route
 packet](../docs/SOURCE_HTTP_ROUTE_PREPARATION_20261030.md) records implemented
 complete-discovery, all-agency/activity and all-workbook CLI alternatives,
-30 focused passing tests and verified retained NHMRC14/MRFF3/ROR-full packages.
+31 focused passing tests and verified retained NHMRC14/MRFF3/ROR-full packages.
 No provider/native calls or platform tests occurred. Generic HTTP definitions
 remain held until exact archive-to-consumer packages are complete; helper
 presence or historical runtime does not establish entitlement or deployment.
