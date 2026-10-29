@@ -88,7 +88,7 @@ def prepare_extraction_test_environment(extracted: Path) -> None:
     version = run([str(extracted / ".venv" / "bin" / "python"), "--version"], extracted)
     if version != "Python 3.15.1":
         raise RuntimeError(f"unexpected extraction test interpreter: {version}")
-    run(["uv", "pip", "sync", "--python", str(extracted / ".venv" / "bin" / "python"),
+    run(["uv", "pip", "sync", "--require-hashes", "--python", str(extracted / ".venv" / "bin" / "python"),
          "requirements-dev.txt"], extracted)
 
 

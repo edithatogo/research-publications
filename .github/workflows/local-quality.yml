@@ -34,37 +34,40 @@ jobs:
       - name: Create and verify explicit repository Python
         env:
           BOOTSTRAP_PYTHON: ${{ steps.python.outputs.python-path }}
-        run: bash scripts/create_ci_python_env.sh "$BOOTSTRAP_PYTHON" .venv-ci 3.15.1
+        run: bash scripts/create_ci_python_env.sh "$BOOTSTRAP_PYTHON" .venv 3.15.1
+
+      - name: Prepare ignored test scratch
+        run: mkdir -p private/ops
 
       - name: Run unit tests
-        run: .venv-ci/bin/python -m unittest discover -s tests -v
+        run: .venv/bin/python -m unittest discover -s tests -v
 
       - name: Offline qualified CLI guards
         run: node --test tests/test_m365_qualified.mjs tests/test_m365_workload_lock.mjs tests/test_sharepoint_change_log_read.mjs tests/test_grants_monitor_compatibility.mjs
 
       - name: Check offline comparator CLI portability without site packages
-        run: .venv-ci/bin/python -S scripts/check_reconciliation_portability.py --smoke-only
+        run: .venv/bin/python -S scripts/check_reconciliation_portability.py --smoke-only
 
       - name: Validate project contracts
-        run: .venv-ci/bin/python scripts/validate_project.py
+        run: .venv/bin/python scripts/validate_project.py
 
       - name: Validate web-first contracts
-        run: .venv-ci/bin/python scripts/webfirst_contracts.py validate
+        run: .venv/bin/python scripts/webfirst_contracts.py validate
 
       - name: Validate Conductor structure
-        run: .venv-ci/bin/python scripts/validate_conductor.py
+        run: .venv/bin/python scripts/validate_conductor.py
 
       - name: Run read-only Power Platform tooling preflight
-        run: .venv-ci/bin/python scripts/powerplatform_tooling.py check
+        run: .venv/bin/python scripts/powerplatform_tooling.py check
 
       - name: Validate visual standards
-        run: .venv-ci/bin/python scripts/validate_visual_standards.py
+        run: .venv/bin/python scripts/validate_visual_standards.py
 
       - name: Validate canonical flow contracts
         run: |
-          .venv-ci/bin/python scripts/validate_publication_platform_contract.py
-          .venv-ci/bin/python scripts/validate_grants_flow_contract.py
-          .venv-ci/bin/python scripts/validate_dora_activity_flow_contract.py
+          .venv/bin/python scripts/validate_publication_platform_contract.py
+          .venv/bin/python scripts/validate_grants_flow_contract.py
+          .venv/bin/python scripts/validate_dora_activity_flow_contract.py
 
   locked-dependencies:
     name: Python3.15.1 locked artifact dependencies
@@ -83,18 +86,19 @@ jobs:
       - name: Create and verify explicit repository Python
         env:
           BOOTSTRAP_PYTHON: ${{ steps.python.outputs.python-path }}
-        run: bash scripts/create_ci_python_env.sh "$BOOTSTRAP_PYTHON" .venv-ci 3.15.1
+        run: bash scripts/create_ci_python_env.sh "$BOOTSTRAP_PYTHON" .venv 3.15.1
       - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
         with:
           version: '0.13.5'
           enable-cache: false
       - name: Install exact hash-locked development dependencies
-        run: uv pip sync --python "$GITHUB_WORKSPACE/.venv-ci/bin/python" --require-hashes requirements-dev.txt
+        run: uv pip sync --python "$GITHUB_WORKSPACE/.venv/bin/python" --require-hashes requirements-dev.txt
       - name: Verify installed dependency metadata and artifact libraries
         run: |
-          .venv-ci/bin/python -m pip check
-          .venv-ci/bin/python -c "import sys, certifi, docx, lxml.etree, openpyxl; assert sys.version_info[:3] == (3, 15, 1)"
-      - run: .venv-ci/bin/python -m unittest discover -s tests -v
-      - run: .venv-ci/bin/python scripts/validate_project.py
-      - run: .venv-ci/bin/python scripts/webfirst_contracts.py validate
-      - run: .venv-ci/bin/python scripts/validate_conductor.py
+          .venv/bin/python -m pip check
+          .venv/bin/python -c "import sys, certifi, docx, lxml.etree, openpyxl; assert sys.version_info[:3] == (3, 15, 1)"
+      - run: mkdir -p private/ops
+      - run: .venv/bin/python -m unittest discover -s tests -v
+      - run: .venv/bin/python scripts/validate_project.py
+      - run: .venv/bin/python scripts/webfirst_contracts.py validate
+      - run: .venv/bin/python scripts/validate_conductor.py

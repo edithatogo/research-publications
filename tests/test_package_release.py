@@ -193,7 +193,11 @@ class PackageReleaseTests(unittest.TestCase):
             root = Path(temporary)
             (root / '.gitignore').write_text('private/\n.venv/\n')
             (root / 'requirements-dev.txt').write_text('')
-            package_release.prepare_extraction_test_environment(root)
+            original_run = package_release.run
+            def fixture_run(arguments, cwd):
+                return '' if arguments[0] == 'uv' else original_run(arguments, cwd)
+            with patch('scripts.package_release.run', side_effect=fixture_run):
+                package_release.prepare_extraction_test_environment(root)
             self.assertTrue((root / '.git').is_dir())
             self.assertTrue((root / '.venv/bin/python').exists())
             self.assertEqual(list((root / 'private/ops').iterdir()), [])
@@ -219,6 +223,8 @@ class PackageReleaseTests(unittest.TestCase):
                     return "scripts/agent_harness.py\0.gitignore\0requirements-dev.txt"
                 if arguments == ["git", "rev-parse", "HEAD"]:
                     return "a" * 40
+                if arguments[0] == 'uv':
+                    return ''
                 return original_run(arguments, cwd)
 
             with patch("scripts.package_release.run", side_effect=fixture_run):
