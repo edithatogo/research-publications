@@ -1,6 +1,41 @@
 # Current integration checkpoint — 29 October 2026
 
-## Completed-simulation packet reviewed and locally integrated — 29 October 2026
+## PR72 verified; no-Premium preflight extension released — 29 October 2026
+
+Verified main is `d20e9b773a775d1d056ed60fb43999a4736c2d15` (PR72). All three
+PR-head checks at `30ba0fd2` passed. Exact-main quality `40794514385` and
+security `40794514724` completed successfully at this SHA. Its source tree
+equals the reviewed PR head; local main and this integrator branch advanced
+with ordinary fast-forwards. Combined source harness: 2,168 Python tests with
+19 capability skips, 25 Node guards, 446 project checks and all other gates.
+Range secret scan, dependency consistency and whitespace checks passed. PR71's
+unchanged receipts/package proof were reused; no native acceptance is implied.
+
+Completed simulation `7f67406b` and entitlement direction `034dd38a` are now
+integrated source outcomes. No Power Automate Premium is available for this
+workload; Power BI Premium supplies no substitute. Licensing classification,
+permission, DLP, connection availability and operation/runtime behavior remain
+distinct requirements, not inferred from this documentation or simulation.
+
+Replacement source owner `01a184ec-294d-7451-ba5e-c1781d3aa3d8` retains managed
+8cd6 and branch `codex/rims-consumer-outcomes-source`. Its next three-file task
+is released only after it verifies clean state and fast-forwards its own branch
+to the exact main above. Exclusive files: `scripts/preflight_publication_flow_activation.py`,
+`tests/test_preflight_publication_flow_activation.py`, and
+`docs/PUBLICATION_ADMISSION_WRITER_SOURCE_20261029.md`. Extend the existing
+stopped-writer preflight with an opt-in supplied Standard-connector evidence
+profile. Independently pin complete writer/target/revision, references,
+path-qualified action/trigger inventory, connector/operation classifications
+and explicit no-Premium workload policy. Missing/unknown/Premium/custom or
+inconsistent evidence stays blocking; never guess licensing from names/suffixes.
+Preserve default receipt bytes/semantics and every false readiness/activation/
+write flag. All results remain supplied-source diagnostics; native truth and
+rights are unqualified. No probes, new adapter/framework, shared contracts,
+runtime/dependency change, auth, activation or send is assigned. One terminal
+scoped commit, focused fictional tests and exact remaining native-input blockers.
+No further helper wave is selected before that connected handoff is assessed.
+
+## Completed-simulation packet reviewed and locally integrated — retained history
 
 Replacement owner `01a184ec-294d-7451-ba5e-c1781d3aa3d8` returned clean terminal
 `7f67406b72ccc18973d5d8833d5acd983411135e` on verified PR71 base `3eb68e1a`.

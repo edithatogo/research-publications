@@ -5,15 +5,15 @@
 This table supersedes older pending/priority statements below. The entire
 unfinished roadmap is selected; accepted historical tests are reused. Current
 source/native ownership is in [CURRENT_STATE](../handoff/CURRENT_STATE.md).
-PR57–PR71 are merged and their exact main quality/security checks passed. The next bounded
+PR57–PR72 are merged and their exact main quality/security checks passed. The next bounded
 source assignments are recorded in the handoff; local success is not native acceptance.
 
 PR70 includes the reviewed NIH/DataCite candidates, collector-artifact admission
 adapters and typed relationship model/reader preparation. The connected candidate
 evidence exporter and admission-to-consumer parity checker are subsequently
 reviewed and merged in verified PR71. A completed-simulation consumer-parity
-extension `7f67406b` is reviewed/local-merged source work awaiting hosted gates,
-not an accepted runtime result. The current workload has no Power Automate
+extension `7f67406b` is merged and source-qualified in PR72, not an accepted
+runtime result. The current workload has no Power Automate
 Premium entitlement; Power BI Premium is separate. Real pinned
 captures/mappings, writer graph adoption, actual processing-time observations,
 typed persistence, current native consumers and the existing runtime/rendering/

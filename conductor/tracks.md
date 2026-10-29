@@ -8,10 +8,14 @@ Pinned NIH/DataCite candidates, collector admission adapters and typed model/
 reader preparation are integrated. Candidate relationship JSON/CSV export
 `26cfe460` and admission-to-registry/model/full/monthly parity `13da4635` are now
 reviewed and merged in PR71, including the clean-package CLI portability repair.
-Completed-simulation consumer parity `7f67406b` is reviewed and locally merged
-with 40 affected tests retained; its combined hosted milestone remains pending.
+Completed-simulation consumer parity `7f67406b` is merged in PR72 with its 40
+affected tests retained. Verified main `d20e9b77` quality/security passed;
+combined source harness passes 2,168 Python tests (19 skips), 25 Node guards
+and 446 project checks. No native/runtime acceptance follows from simulation.
 The current no-Power-Automate-Premium direction is locally integrated from the
-separate user-authorised entitlement packet. Neither closes native acceptance.
+separate user-authorised entitlement packet in PR72. The next existing-preflight
+extension reconciles supplied Standard-connector evidence under that constraint;
+licensing, permission, DLP, connections and runtime retain distinct native gates.
 These connect existing preparers without qualifying native persistence, engine,
 rendering, real outcome evidence or scheduled delivery. Current ownership and
 next exact milestone remain in [CURRENT_STATE](../handoff/CURRENT_STATE.md).
