@@ -12,6 +12,12 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 import zipfile
 
+import sys
+if str(Path(__file__).resolve().parent) not in sys.path:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+from powerplatform_validation import loads as strict_loads, validate_members
+
+
 
 def _entries(path: Path) -> dict[str, bytes]:
     with zipfile.ZipFile(path) as archive:
@@ -110,7 +116,7 @@ def compare_release(baseline: Path, candidate: Path, allowed_workflows=(),
     for name in before:
         left, right = before[name], after[name]
         if name in workflows:
-            old, new = json.loads(left), json.loads(right)
+            old, new = strict_loads(left), strict_loads(right)
             if old != new:
                 changed += 1
             if name in allowed:
@@ -141,6 +147,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("baseline", type=Path)
     parser.add_argument("candidate", type=Path)
+    parser.add_argument("--validate-structure", action="store_true", help="Validate supported graph/profile and solution membership before comparison")
     parser.add_argument("--allow-workflow", action="append", default=[],
                         help="Legacy: exact workflow whose full action map may change")
     parser.add_argument("--allow-action-pointer", action="append", default=[], metavar="ENTRY::POINTER",
@@ -153,10 +160,17 @@ def main():
             if not separator:
                 raise ValueError("Action pointer selector must use ENTRY::POINTER")
             pointers.append((entry, pointer))
-        print(json.dumps(compare_release(args.baseline, args.candidate, args.allow_workflow, pointers), indent=2))
+        result = compare_release(args.baseline, args.candidate, args.allow_workflow, pointers)
+        if args.validate_structure:
+            result['assurance'] = {label: validate_members(_entries(path)) for label, path in [('baseline', args.baseline), ('candidate', args.candidate)]}
+            if any(item['status'] == 'FAIL' for item in result['assurance'].values()):
+                print(json.dumps(result, indent=2))
+                return 1
+        print(json.dumps(result, indent=2))
+        return 0
     except (ValueError, KeyError, TypeError, zipfile.BadZipFile, ET.ParseError) as error:
         parser.exit(1, f"Solution comparison rejected: {type(error).__name__}; inspect inputs privately.\n")
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
