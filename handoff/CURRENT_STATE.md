@@ -10,11 +10,16 @@ eight views, terminal pagination. A second complete item read matched all ETags
 and every value except the response odata.id annotation. Private evidence stays
 in the original checkout at private/ops/2026-10-29-essential-registry-capture/.
 The original binding is preserved; the scoped copy retains identity/resource pins.
-No native writes occurred. The Flow management resource separately needs renewal;
-one same-client form_post operation is awaiting human browser sign-in. This chat
-retains that live recovery operation. Next: complete its callback, read the exact
-writer and run history, then reconcile the native metadata envelope with existing
-admission tools. Do not fabricate absent field ETags or treat simulation as deployment.
+No native writes occurred. The Flow management same-client form_post renewal is
+terminal and successful after user sign-in; `flow-renewal/result.json` and identity
+validation retain its receipt. No live renewal is held by this chat. Exact-target
+readback saved `writer-current.json` (1,910,263 bytes), matching the retained writer
+identity with its definition present and state Stopped. The first local capture
+hit the subprocess output-buffer limit; the bounded read succeeded with a larger
+buffer, without another login or mutation. Next: capture relevant run history and
+reconcile the native metadata envelope with existing admission tools. Do not
+fabricate absent field ETags or treat simulation as deployment. Native implementation
+remains with this chat; terminal authentication recovery is not a new exclusive lease.
 
 ## Scoped completion change — 29 October 2026
 
