@@ -333,4 +333,286 @@ class ConsumerParityTests(unittest.TestCase):
         with self.assertRaises(ValueError):parity.verify(receipt,d,r,p,input_pins=pins(d),packet_pin=p['packet_sha256'],contract=c,captures=cs,consumer_pins=consumer_pins(c,cs),as_of=AS_OF,receipt_pin=receipt['receipt_sha256'])
 
 
+def simulation_pins(bundle):
+    state = bundle['state']
+    return dict(bundle=core.sha(bundle), manifest=core.sha(bundle['feed']['manifest']),
+        parts_utf8=core.sha(bundle['feed']['parts_utf8']), profiles=core.sha(bundle['profiles']),
+        initial_rows=core.sha(bundle['initial_rows']), clocks=core.sha(bundle['clocks']),
+        result=core.sha(bundle['result']), state=core.sha(state), journal=core.sha(state['journal']),
+        postimages=core.sha({op: entry.get('postimage') for op, entry in state['journal'].items()}))
+
+
+def completed_fixture(**kwargs):
+    from scripts import prepare_publication_writer_feed as feed
+    from scripts import prepare_publication_guarded_writer as writer
+    from tests.test_prepare_publication_guarded_writer import declarations
+    f = fixture(**kwargs)
+    d, raw, packet, contract, captures = f
+    manifest, parts = feed.build(d, raw, packet, input_pins=pins(d),
+        packet_pin=packet['packet_sha256'], as_of=AS_OF, max_part_records=1,
+        max_part_bytes=100000, max_manifest_bytes=100000)
+    profiles, pp = declarations(manifest, d['writer'])
+    clocks = ['2026-10-29T03:00:00Z', '2026-10-29T03:01:00Z', '2026-10-29T03:02:00Z']
+    clocks = clocks[:sum(p['kind'] != 'noop' for p in packet['proposals'])]
+    transport = writer.MemoryTransport(d['registry']['items'], clocks)
+    result = writer.simulate(d['writer'], manifest, parts, profiles, transport,
+        expected_writer_sha256=core.sha(d['writer']),
+        expected_manifest_sha256=manifest['manifest_sha256'], profile_pins=pp)
+    assert result['status'] == 'SIMULATED_COMPLETE', result
+    bundle = dict(kind='publication_completed_simulation_v1',
+        feed=dict(manifest=manifest, parts_utf8={n: v.decode('utf-8') for n, v in parts.items()}),
+        profiles=profiles, initial_rows=copy.deepcopy(d['registry']['items']),
+        clocks=clocks, result=result, state=transport.snapshot())
+    # Expected consumer timestamps are hand-assigned by sorted source operation,
+    # independently of the parity projection and simulation postimage helpers.
+    times = {} if kwargs.get('noop') else {'dora:1/2': clocks[0], 'pubmed:1': clocks[1]}
+    times['pubmed:2'] = clocks[-1]
+    for role in ('registry', 'model'):
+        for row in captures[role]['pages'][0]['rows']:
+            values = row['values']; logical = role == 'model'
+            key = values['SourceKey' if logical else 'field_1']
+            if key in times:
+                values['LastObservedUTC' if logical else 'field_20'] = times[key]
+                if row['row_id'] == 'new:pubmed:2':
+                    values['FirstObservedUTC' if logical else 'field_19'] = times[key]
+        reseal(captures[role])
+    ctx = contract['context']
+    ctx.update(parity_profile='completed_simulation', simulation_sha256=core.sha(bundle))
+    for role, cap in captures.items():
+        if role in ('registry', 'model'): cap['context'] = copy.deepcopy(ctx)
+        else: cap.update(ctx)
+    return f, bundle
+
+
+def run_completed(f, bundle, *, expected=None):
+    d, raw, packet, contract, captures = f
+    return parity.prepare(d, raw, packet, input_pins=pins(d), packet_pin=packet['packet_sha256'],
+        contract=contract, captures=captures, consumer_pins=consumer_pins(contract, captures),
+        as_of=AS_OF, profile='completed_simulation', simulation=bundle,
+        simulation_pins=simulation_pins(bundle) if expected is None else expected)
+
+
+def bind_simulation(f, bundle):
+    """Reseal consumer context so tampering must fail reconstruction, not stale context."""
+    f[3]['context']['simulation_sha256'] = core.sha(bundle)
+    for role, cap in f[4].items():
+        if role in ('registry', 'model'): cap['context'] = copy.deepcopy(f[3]['context'])
+        else: cap.update(f[3]['context'])
+
+
+class CompletedSimulationParityTests(unittest.TestCase):
+    def test_executed_clocks_reach_registry_and_model_preserving_complete_history(self):
+        f, bundle = completed_fixture(history_status='Included', richer=True,
+            long_title='Fictional ' + '😀α' * 200)
+        before = copy.deepcopy((f, bundle))
+        try:
+            receipt = run_completed(f, bundle)
+        except TypeError as exc:
+            self.fail('Completed-simulation profile is missing: ' + str(exc))
+        self.assertEqual((f, bundle), before)
+        self.assertEqual(receipt['status'], 'VERIFIED_SUPPLIED_SIMULATED_PARITY')
+        self.assertTrue(receipt['simulation_only'])
+        self.assertFalse(receipt['NativeAcceptance'])
+        self.assertFalse(receipt['write_authorized'])
+        self.assertFalse(receipt['writer_ready'])
+        self.assertEqual(receipt['counts']['full'], 4)
+        self.assertEqual(receipt['counts']['unknown_month'], 3)
+        self.assertEqual(receipt['simulation_sha256'], core.sha(bundle))
+        self.assertEqual(receipt, run_completed(f, bundle))
+
+    def test_every_simulation_component_requires_an_independent_pin(self):
+        f, bundle = completed_fixture()
+        for name in simulation_pins(bundle):
+            expected = simulation_pins(bundle); expected[name] = '0' * 64
+            with self.subTest(pin=name), self.assertRaisesRegex(ValueError, 'Independent simulation'):
+                run_completed(f, bundle, expected=expected)
+
+    def test_missing_stopped_partial_uncertain_and_forged_completion_fail_after_repinning(self):
+        for fault in ('stopped', 'partial', 'uncertain', 'missing', 'forged', 'uncommitted'):
+            f, bundle = completed_fixture()
+            if fault == 'stopped': bundle['result']['status'] = 'SIMULATED_STOPPED'
+            elif fault == 'partial': bundle['result']['completed_operations'].pop()
+            elif fault == 'uncertain': next(iter(bundle['state']['journal'].values()))['status'] = 'uncertain'
+            elif fault == 'missing': bundle['state']['journal'].pop(next(iter(bundle['state']['journal'])))
+            elif fault == 'forged': bundle['state']['calls'] = []
+            else: bundle['state']['consumer_commits'] = []
+            bind_simulation(f, bundle)
+            with self.subTest(fault=fault), self.assertRaisesRegex(ValueError, 'Rebuilt'):
+                run_completed(f, bundle)
+
+    def test_complete_initial_state_and_complete_declarations_are_required(self):
+        for fault in ('missing_row', 'hidden_preimage', 'profile', 'scope', 'guarantee'):
+            f, bundle = completed_fixture()
+            if fault == 'missing_row': bundle['initial_rows'].pop()
+            elif fault == 'hidden_preimage': bundle['initial_rows'][0]['versions'] = []
+            elif fault == 'profile': bundle['profiles'].pop('conditional_etag')
+            elif fault == 'scope': bundle['profiles']['conditional_etag']['scope']['target'] = {}
+            else: bundle['profiles']['conditional_etag']['guarantees'].pop()
+            bind_simulation(f, bundle)
+            with self.subTest(fault=fault), self.assertRaises(ValueError): run_completed(f, bundle)
+
+    def test_partial_feed_or_feed_from_another_packet_cannot_be_rebound(self):
+        f, bundle = completed_fixture()
+        bundle['feed']['parts_utf8'].pop(next(iter(bundle['feed']['parts_utf8'])))
+        bind_simulation(f, bundle)
+        with self.assertRaises(ValueError): run_completed(f, bundle)
+        f, bundle = completed_fixture()
+        other, other_bundle = completed_fixture(long_title='Other independently valid source packet')
+        bundle['feed'] = other_bundle['feed']; bundle['profiles'] = other_bundle['profiles']
+        bind_simulation(f, bundle)
+        with self.assertRaisesRegex(ValueError, 'Rebuilt complete simulation manifest'):
+            run_completed(f, bundle)
+
+    def test_regressing_missing_extra_or_mismatched_processing_clocks_fail(self):
+        for fault in ('planning_regression', 'operation_regression', 'missing', 'extra', 'mismatch'):
+            f, bundle = completed_fixture()
+            if fault == 'planning_regression': bundle['clocks'][0] = '2026-10-28T00:00:00Z'
+            elif fault == 'operation_regression': bundle['clocks'][1] = '2026-10-29T02:59:00Z'
+            elif fault == 'missing': bundle['clocks'].pop()
+            elif fault == 'extra': bundle['clocks'].append('2026-10-29T04:00:00Z')
+            else: bundle['clocks'][1] = '2026-10-29T03:00:30Z'
+            bind_simulation(f, bundle)
+            with self.subTest(fault=fault), self.assertRaises(ValueError): run_completed(f, bundle)
+
+    def test_planning_values_and_forged_flags_do_not_establish_executed_parity(self):
+        f, bundle = completed_fixture()
+        for role in ('registry', 'model'):
+            for row in f[4][role]['pages'][0]['rows']:
+                values = row['values']; key = values['SourceKey' if role == 'model' else 'field_1']
+                if key in ('dora:1/2', 'pubmed:1', 'pubmed:2'):
+                    values['LastObservedUTC' if role == 'model' else 'field_20'] = AS_OF
+            reseal(f[4][role])
+        with self.assertRaisesRegex(ValueError, 'Projected registry values'): run_completed(f, bundle)
+        d, r, p, c, cs = fixture()
+        with self.assertRaises(ValueError):
+            parity.prepare(d, r, p, input_pins=pins(d), packet_pin=p['packet_sha256'],
+                contract=c, captures=cs, consumer_pins=consumer_pins(c, cs), as_of=AS_OF,
+                profile='completed_simulation', simulation={'completed': True}, simulation_pins={})
+
+    def test_hidden_protected_values_and_version_history_cannot_be_lost(self):
+        for field in ('Title', 'field_18', 'field_19', 'LinkTitle', 'versions', '__metadata'):
+            f, bundle = completed_fixture()
+            state = bundle['state']; row = next(r for r in state['rows'] if r['Id'] == 1)
+            row[field] = [] if field == 'versions' else {} if field == '__metadata' else 'hidden drift'
+            # Even matching row/journal postimages and a fresh digest cannot hide drift.
+            entry = next(e for e in state['journal'].values() if e['postimage']['Id'] == 1)
+            entry['postimage'] = copy.deepcopy(row); entry['postimage_sha256'] = core.sha(row)
+            bind_simulation(f, bundle)
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, 'Rebuilt journal'):
+                run_completed(f, bundle)
+
+    def test_noops_keep_original_clocks_and_replay_has_no_duplicate_effects(self):
+        from scripts import prepare_publication_guarded_writer as writer
+        f, bundle = completed_fixture(noop=True)
+        receipt = run_completed(f, bundle)
+        self.assertEqual(len(bundle['state']['calls']), 1)
+        self.assertEqual(len(bundle['state']['journal']), 3)
+        for row in bundle['state']['rows']:
+            if row['Id'] in (1, 2): self.assertEqual(row['field_20'], AS_OF)
+        manifest = bundle['feed']['manifest']
+        transport = writer.MemoryTransport(bundle['initial_rows'], bundle['clocks'])
+        args = dict(expected_writer_sha256=core.sha(f[0]['writer']),
+            expected_manifest_sha256=manifest['manifest_sha256'],
+            profile_pins={n: core.sha(p) for n, p in bundle['profiles'].items()})
+        parts = {n: p.encode('utf-8') for n, p in bundle['feed']['parts_utf8'].items()}
+        writer.simulate(f[0]['writer'], manifest, parts, bundle['profiles'], transport, **args)
+        saved = transport.snapshot()
+        writer.simulate(f[0]['writer'], manifest, parts, bundle['profiles'], transport, **args)
+        self.assertEqual(transport.snapshot(), saved)
+        self.assertEqual(receipt, run_completed(f, bundle))
+
+    def test_failed_actual_simulation_cannot_be_promoted_by_relabelling_it_complete(self):
+        from scripts import prepare_publication_guarded_writer as writer
+        for phase in ('before_send', 'after_send', 'readback', 'outcome', 'commit'):
+            f, bundle = completed_fixture()
+            manifest = bundle['feed']['manifest']
+            transport = writer.MemoryTransport(bundle['initial_rows'], bundle['clocks'],
+                faults={'__batch__' if phase == 'commit' else 'pubmed:2': phase})
+            bundle['result'] = writer.simulate(f[0]['writer'], manifest,
+                {n: p.encode('utf-8') for n, p in bundle['feed']['parts_utf8'].items()},
+                bundle['profiles'], transport, expected_writer_sha256=core.sha(f[0]['writer']),
+                expected_manifest_sha256=manifest['manifest_sha256'],
+                profile_pins={n: core.sha(p) for n, p in bundle['profiles'].items()})
+            self.assertEqual(bundle['result']['status'], 'SIMULATED_STOPPED')
+            bundle['result'].update(status='SIMULATED_COMPLETE', consumer_committed=True)
+            bundle['state'] = transport.snapshot(); bind_simulation(f, bundle)
+            with self.subTest(phase=phase), self.assertRaises(ValueError): run_completed(f, bundle)
+
+    def test_simulated_create_id_cannot_be_used_as_a_native_consumer_identity(self):
+        f, bundle = completed_fixture()
+        for role in ('registry', 'model'):
+            cap = f[4][role]
+            next(r for r in cap['pages'][0]['rows'] if r['row_id'].startswith('new:'))['row_id'] = 'item:5'
+            reseal(cap)
+        with self.assertRaises(ValueError): run_completed(f, bundle)
+
+    def test_completed_context_and_receipt_are_bound_and_default_stays_distinct(self):
+        f, bundle = completed_fixture(); receipt = run_completed(f, bundle)
+        d, raw, packet, contract, captures = f
+        args = dict(input_pins=pins(d), packet_pin=packet['packet_sha256'], contract=contract,
+            captures=captures, consumer_pins=consumer_pins(contract, captures), as_of=AS_OF,
+            profile='completed_simulation', simulation=bundle, simulation_pins=simulation_pins(bundle))
+        verified = parity.verify(receipt, d, raw, packet, receipt_pin=receipt['receipt_sha256'], **args)
+        self.assertTrue(verified['simulation_only'])
+        self.assertFalse(verified['NativeAcceptance'])
+        receipt['simulation_only'] = False
+        with self.assertRaises(ValueError):
+            parity.verify(receipt, d, raw, packet, receipt_pin=receipt['receipt_sha256'], **args)
+        with self.assertRaises(ValueError): run(f)
+        self.assertEqual(run(fixture())['status'], 'VERIFIED_SUPPLIED_CANDIDATE_PARITY')
+        for field in ('simulation_sha256', 'parity_profile', 'target', 'source_generations'):
+            f, bundle = completed_fixture(); f[3]['context'][field] = 'rebound'
+            for role, cap in f[4].items():
+                if role in ('registry', 'model'): cap['context'] = copy.deepcopy(f[3]['context'])
+                else: cap.update(f[3]['context'])
+            with self.subTest(field=field), self.assertRaises(ValueError): run_completed(f, bundle)
+
+    def test_malformed_completed_context_and_missing_evidence_fail_closed(self):
+        for context in (None, [], 'completed'):
+            f, bundle = completed_fixture(); f[3]['context'] = context
+            with self.subTest(context=context), self.assertRaises(ValueError): run_completed(f, bundle)
+        f, bundle = completed_fixture(); d, raw, packet, contract, captures = f
+        args = dict(input_pins=pins(d), packet_pin=packet['packet_sha256'], contract=contract,
+            captures=captures, consumer_pins=consumer_pins(contract, captures), as_of=AS_OF)
+        for extras in (dict(profile='completed_simulation'),
+                dict(profile='completed_simulation', simulation=bundle),
+                dict(profile='unknown'), dict(simulation=bundle, simulation_pins=simulation_pins(bundle))):
+            with self.subTest(extras=tuple(extras)), self.assertRaises(ValueError):
+                parity.prepare(d, raw, packet, **args, **extras)
+
+    def test_completed_cli_requires_evidence_and_preserves_atomic_output_on_replay(self):
+        from unittest.mock import patch
+        from contextlib import redirect_stderr
+        import io
+        import json
+        f, bundle = completed_fixture(); d, raw, packet, contract, captures = f
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp).resolve(); private = root / 'private'; private.mkdir()
+            docs = dict(inputs=d, files={}, pins=pins(d),
+                packet=dict(kind='publication_admission_local_result_v1', result=packet),
+                contract=contract, captures=captures, consumer_pins=consumer_pins(contract, captures),
+                simulation=bundle, simulation_pins=simulation_pins(bundle))
+            for name, value in raw.items():
+                path = private / name; path.write_bytes(value); docs['files'][name] = str(path)
+            args = []
+            for name, value in docs.items():
+                path = private / (name + '.json'); path.write_text(json.dumps(value), encoding='utf-8')
+                args.extend(['--' + name.replace('_', '-'), str(path)])
+            output = private / 'result.json'
+            args += ['--output', str(output), '--packet-sha256', packet['packet_sha256'],
+                '--as-of', AS_OF, '--profile', 'completed_simulation']
+            with patch.object(parity, 'ROOT', root), redirect_stderr(io.StringIO()):
+                try: code = parity.main(args)
+                except SystemExit as exc: self.fail('Completed CLI profile is missing: ' + str(exc))
+                self.assertEqual(code, 0)
+                original = output.read_bytes()
+                self.assertTrue(core.decode_json(original)['result']['simulation_only'])
+                self.assertEqual(parity.main(args), 2)
+                self.assertEqual(output.read_bytes(), original)
+                output.unlink()
+                (private / 'simulation_pins.json').write_text('{}', encoding='utf-8')
+                self.assertEqual(parity.main(args), 2)
+                self.assertFalse(output.exists())
+
+
 if __name__=='__main__':unittest.main()
