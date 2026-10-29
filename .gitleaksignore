@@ -14,3 +14,5 @@ a2b2c37dcb42d1ba002289f3a246074ab769c04b:docs/ARC_SOURCE_EXPORT_CLOSURE_20261029
 
 # Reviewed workbook diagnostic record-key construction; no authentication credential.
 dcbd62ea58b80485f6c737270cd20bbd902fd5ff:scripts/government_award_crosswalks.py:generic-api-key:261
+# Synthetic author-record identity: SHA256 of fixture identifier 0000-0001, not a credential.
+b59291e01dadfc17f279b14093fce1b11c839c3e:tests/test_author_registry.py:generic-api-key:13

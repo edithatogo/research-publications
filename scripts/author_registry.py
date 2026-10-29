@@ -8,15 +8,45 @@ from __future__ import annotations
 
 import hashlib
 import re
-from collections import defaultdict
-from typing import Any, Iterable
+from numbers import Integral
+from typing import Any, Iterable, Mapping
 
 
 IDENTIFIER_FIELDS = ("ORCID", "AuthorORCID", "OpenAlexAuthorID", "ScopusAuthorID", "WoSResearcherID")
 
 
+
 def _clean(value: Any) -> str:
-    return re.sub(r"\s+", " ", str(value or "").strip())
+    """Normalize optional text without coercing malformed source values."""
+    if value is None:
+        return ""
+    if not isinstance(value, str):
+        raise ValueError("text fields must be strings or None")
+    return re.sub(r"\s+", " ", value.strip())
+
+
+def _validated_row(row: Any, source: str, index: int) -> dict[str, Any]:
+    if not isinstance(row, Mapping):
+        raise ValueError(f"{source} row {index} must be a mapping")
+    result = dict(row)
+    text_fields = IDENTIFIER_FIELDS + ("PMID", "AuthorName", "AffiliationText", "EvidenceKind",
+                                       "DORAKey", "Authors", "DORAURL", "PubMedURL", "AttributionEvidence",
+                                       "CHHHSAffiliatedAuthors", "SourceObservedUTC")
+    for field in text_fields:
+        if field in result and result[field] is not None and not isinstance(result[field], str):
+            raise ValueError(f"{source} row {index} field {field} must be text or None")
+    return result
+
+
+def _positive_index(row: Mapping[str, Any], field: str, source: str, row_index: int,
+                    *, required: bool) -> int | None:
+    value = row.get(field)
+    if value is None and not required:
+        return None
+    if isinstance(value, bool) or not isinstance(value, Integral) or value < 1:
+        qualifier = "required " if required else ""
+        raise ValueError(f"{source} row {row_index} field {field} must be a {qualifier}positive integer")
+    return int(value)
 
 
 def normalise_name(value: Any) -> str:
@@ -60,8 +90,10 @@ def build_author_registry(
 
     def add(name: Any, source: str, publication_key: str, row: dict[str, Any], order: int, affiliation: str = "") -> None:
         display = _clean(name)
-        if not display or not publication_key:
+        if not display:
             return
+        if not publication_key:
+            raise ValueError(f"{source} author evidence requires a stable publication key")
         identifier = _identifier(row)
         key = author_key(display, identifier)
         status = identity_status(identifier, affiliation)
@@ -82,7 +114,7 @@ def build_author_registry(
             record["NameVariants"] += "; " + display
         if status == "Confirmed" or record["IdentityStatus"] == "Unresolved":
             record["IdentityStatus"] = status
-            record["IdentityConfidence"] = "high" if status == "Confirmed" else record["IdentityConfidence"]
+            record["IdentityConfidence"] = {"Confirmed": "high", "Probable": "medium", "Unresolved": "low"}[status]
         record["Sources"].add(source)
         relation = {
             "AuthorKey": key,
@@ -93,29 +125,53 @@ def build_author_registry(
             "AffiliationText": affiliation,
             "AffiliationIndex": row.get("AffiliationIndex"),
             "EvidenceKind": _clean(row.get("EvidenceKind")) or ("DORA attribution text" if source == "DORA" else "author record"),
-            "EvidenceURL": _clean(row.get("DORAURL")),
+            "EvidenceURL": _clean(row.get("DORAURL" if source == "DORA" else "PubMedURL")),
             "AttributionEvidence": _clean(row.get("AttributionEvidence")),
+            "SourceObservedUTC": row.get("SourceObservedUTC"),
             "ReviewStatus": "Needs Review" if status in {"Candidate", "Unresolved"} else "Needs Review",
         }
         evidence.append(relation)
 
-    for row in pubmed_author_rows:
-        row = dict(row)
-        add(row.get("AuthorName"), "PubMed", _clean(row.get("PMID")), row, int(row.get("AuthorIndex") or 0), _clean(row.get("AffiliationText")))
+    for row_index, raw_row in enumerate(pubmed_author_rows, 1):
+        row = _validated_row(raw_row, "PubMed", row_index)
+        author_index = _positive_index(row, "AuthorIndex", "PubMed", row_index, required=True)
+        _positive_index(row, "AffiliationIndex", "PubMed", row_index, required=False)
+        pmid = _clean(row.get("PMID"))
+        if pmid and not pmid.isdecimal():
+            raise ValueError(f"PubMed row {row_index} field PMID must contain decimal digits")
+        add(row.get("AuthorName"), "PubMed", pmid, row, author_index, _clean(row.get("AffiliationText")))
 
-    for row in dora_records:
-        row = dict(row)
-        names = [n.strip() for n in re.split(r";|\n", _clean(row.get("Authors"))) if n.strip()]
+    for row_index, raw_row in enumerate(dora_records, 1):
+        row = _validated_row(raw_row, "DORA", row_index)
+        names = [_clean(n) for n in re.split(r";|\n", row.get("Authors") or "") if _clean(n)]
+        explicit_name = _clean(row.get("AuthorName"))
+        matches = [index for index, name in enumerate(names, 1)
+                   if explicit_name and _clean(name).casefold() == explicit_name.casefold()]
+        identifier_owner = (matches[0] if len(matches) == 1 else None) if explicit_name else (1 if len(names) == 1 else None)
         for index, name in enumerate(names, 1):
-            add(name, "DORA", _clean(row.get("DORAKey")), row, index, _clean(row.get("AttributionEvidence")) or _clean(row.get("CHHHSAffiliatedAuthors")))
+            # A publication-level identifier is not evidence for every coauthor.
+            author_row = row if index == identifier_owner else {k: v for k, v in row.items() if k not in IDENTIFIER_FIELDS}
+            affiliation = _clean(row.get("AffiliationText")) if index == identifier_owner else ""
+            add(name, "DORA", _clean(row.get("DORAKey")), author_row, index, affiliation)
+
+    publication_last_order: dict[str, int] = {}
+    author_positions: dict[str, dict[str, set[int]]] = {}
+    for relation in evidence:
+        source_key, order = relation["SourceKey"], relation["AuthorOrder"]
+        publication_last_order[source_key] = max(publication_last_order.get(source_key, 0), order)
+        author_positions.setdefault(relation["AuthorKey"], {}).setdefault(source_key, set()).add(order)
 
     for record in authors.values():
         record["Sources"] = "; ".join(sorted(record["Sources"]))
-        record["PublicationCount"] = len({r["SourceKey"] for r in evidence if r["AuthorKey"] == record["AuthorKey"]})
-        related = [r for r in evidence if r["AuthorKey"] == record["AuthorKey"]]
-        record["FirstAuthorCount"] = sum(r["AuthorOrder"] == 1 for r in related)
-        record["SeniorAuthorCount"] = sum(r["AuthorOrder"] == max(x["AuthorOrder"] for x in related) for r in related)
-        record["CollaborativeCount"] = max(0, record["PublicationCount"] - record["FirstAuthorCount"] - record["SeniorAuthorCount"] + sum(r["AuthorOrder"] == 1 and r["AuthorOrder"] == max(x["AuthorOrder"] for x in related) for r in related))
+        # Count each publication once while retaining every affiliation row.
+        positions = author_positions[record["AuthorKey"]]
+        record["PublicationCount"] = len(positions)
+        record["FirstAuthorCount"] = sum(1 in orders for orders in positions.values())
+        record["SeniorAuthorCount"] = sum(publication_last_order[key] in orders for key, orders in positions.items())
+        record["CollaborativeCount"] = sum(
+            1 not in orders and publication_last_order[key] not in orders
+            for key, orders in positions.items()
+        )
     return sorted(authors.values(), key=lambda r: r["DisplayName"].casefold()), evidence
 
 
