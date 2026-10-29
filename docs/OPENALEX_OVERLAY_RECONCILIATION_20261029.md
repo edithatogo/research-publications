@@ -54,3 +54,19 @@ A fictional temporary-repository test exercises denial and the allowed ignored
 path; no native operation is performed. Forty-seven focused OpenAlex tests pass
 across the currently selected source packet. Existing 46-part fixture checks are
 not proof of the current native model, and the wider branch still requires review.
+
+The retained committed-archive reader candidate is included with its focused
+fictional tests. It checks full page bytes, key sets and the supplied model
+preimage before preparing three changed model parts; it neither writes nor
+refreshes a model. The original hard-coded model fingerprint is replaced by a
+required independently supplied private pin, and the CLI verifies Git ignore
+coverage for the pin, all inputs/pages and output, then checks for input drift
+before creating files. Three tests pass, including non-ignored path rejection,
+wrong-pin rejection and a fictional successful candidate. The 46-part baseline
+is an old source contract and is not current-model or native acceptance proof.
+
+Source package `0.4.0-integration.4` at `b30532b7` passed fresh extraction and
+its full harness using the documented disposable Git and locked Python3.15.1
+fixture. SHA256 `9b0d5bc4839ed358ccfba43dad6934e54242c16e3b6720fe5856cb1abc2691a5`.
+This receipt predates the reader-candidate addition and is not a package test of
+that later change; requalify the next coherent source milestone.
