@@ -1,5 +1,21 @@
 # Current integration checkpoint — 29 October 2026
 
+## Essential registry capture — 29 October 2026
+
+The user directly assigned this chat bounded authentication recovery and registry
+capture, superseding the stale ownership hold for this operation. No matching
+authentication operation was running. The retained guarded Toolkit login read the
+exact writer-bound registry without renewal: 1,651 unique items, 143 fields and
+eight views, terminal pagination. A second complete item read matched all ETags
+and every value except the response odata.id annotation. Private evidence stays
+in the original checkout at private/ops/2026-10-29-essential-registry-capture/.
+The original binding is preserved; the scoped copy retains identity/resource pins.
+No native writes occurred. The Flow management resource separately needs renewal;
+one same-client form_post operation is awaiting human browser sign-in. This chat
+retains that live recovery operation. Next: complete its callback, read the exact
+writer and run history, then reconcile the native metadata envelope with existing
+admission tools. Do not fabricate absent field ETags or treat simulation as deployment.
+
 ## Scoped completion change — 29 October 2026
 
 Chat `01a1876d-55fc-7e42-b806-18589a94e6fa` owns only the completion-scope source
