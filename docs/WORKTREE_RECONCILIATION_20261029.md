@@ -1,5 +1,13 @@
 # Worktree reconciliation — 29 October 2026
 
+## Final original-source disposition — 30 October 2026
+
+[All 1,353 original paths are accounted for](LOCAL_WORK_DISPOSITION_20261030.md).
+Keep the original native/runtime checkout and the completion chat's primary
+checkout. Their preservation is intentional; neither is an unexplained source
+backlog. Remaining source implementation follows the newly selected existing-source
+integration scope, not blanket import of retained variants or unrelated history.
+
 The main source of friction is two divergent source baselines and stale ownership
 and status text. The many old branch names mostly represent delivered work.
 Keep one integrator and canonical source base; retire duplicate execution from
