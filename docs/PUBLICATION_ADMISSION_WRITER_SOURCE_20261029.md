@@ -191,6 +191,145 @@ semantics: `writer_profile_not_qualified` always remains, and no supported input
 can produce writer-ready, activation-permitted or native-accepted output.
 The tracked flow and `build_sharepoint_upsert_package` remain unchanged.
 
+### Opt-in supplied Standard-connector evidence — 29 October 2026
+
+The replacement admission source lane was explicitly assigned only
+`scripts/preflight_publication_flow_activation.py`, its paired test and this
+leaf for this packet. Its clean managed checkout
+`/Users/doughnut/.codex/worktrees/8cd6/chhhs-research-publications`, branch
+`codex/rims-consumer-outcomes-source`, fast-forwarded to orchestrator-released
+verified PR72 main `d20e9b773a775d1d056ed60fb43999a4736c2d15` before editing.
+The preserved repo-local `.venv/bin/python` actually reports Python 3.15.1.
+Shared integration, dependencies, hooks, runtime promotion and native/auth/journal
+ownership stay with their existing owners. No live probe or mutation occurred.
+
+The default assessment and CLI output remain unchanged when no optional evidence
+is supplied. A frozen fictional receipt from the PR72 implementation is compared
+by canonical SHA-256 in the paired tests. The opt-in API is:
+
+```python
+result = assess(
+    writer, complete_registry, exact_target,
+    expected_writer_sha256=independent_writer_sha256,
+    standard_evidence=supplied_evidence,
+    standard_pins=independent_evidence_pins,
+)
+```
+
+Supply both optional documents; one alone fails closed. The CLI adds paired
+`--standard-evidence private/preflight/standard-evidence.json` and
+`--standard-pins private/preflight/standard-pins.json`. It retains strict ignored
+private paths, single-read file-byte fingerprints and exclusive output. Exit zero
+still means a diagnostic was produced, including when policy blockers exist.
+An existing output survives replay or failure without overwrite.
+
+The evidence object has exactly these fields:
+
+| Field | Supplied content |
+|---|---|
+| `kind`, `complete` | `publication_standard_connector_evidence_v1`, literal `true` |
+| `scope` | Exact `writer_sha256`, `target_sha256`, `saved_revision`, `connection_references_sha256` |
+| `policy` | Explicit versioned workload policy below |
+| `inventory` | Complete, path-sorted inventory rebuilt from every action/control node and trigger, including nested branches |
+| `classifications` | Explicit versioned source/schema claims bound to exact inventory operations |
+
+The separate `standard_pins` object supplies canonical JSON SHA-256 values for
+exactly `evidence` (the entire evidence document), `writer` (the complete writer),
+`target`, `revision` (the saved revision string), `connection_references` (the
+entire captured map), `policy`, `inventory` and `classifications`. These pins
+establish consistency of the supplied snapshots, not provenance authenticity or
+rights. A self-consistent replacement scope cannot pass an independent pin or the
+comparison with the actual supplied writer/target/revision.
+
+`policy` has exactly:
+
+```json
+{
+  "kind": "publication_standard_workload_policy_v1",
+  "version": "supplied-version",
+  "reference": "supplied-user-direction-reference",
+  "power_automate_premium": false,
+  "power_bi_entitlement": "not_power_automate_evidence",
+  "custom_connectors_allowed": false,
+  "allowed_classes": ["BuiltIn", "Standard"]
+}
+```
+
+The two false values must be JSON booleans. Power BI Premium or an altered
+allowed-class list cannot replace the no-Power-Automate-Premium direction.
+This policy records the selected workload constraint; it neither discovers
+nor changes a licence assignment, purchase, trial or tenant-wide policy.
+
+Each inventory row has exactly `path`, `node_type`, `api_id`, `operation_id`,
+`connection_reference`, `node_sha256`. Paths are arrays of exact segments, such
+as `["actions", "ScopeName", "actions", "RepeatedName"]` or
+`["triggers", "RepeatedName"]`; names containing slashes and names reused in
+different branches remain distinct. Paths cover nested `actions`, `else`,
+`default`, and every `cases` branch. Missing/malformed branches and absent trigger
+inventories fail closed. Every node's complete captured bytes are represented by
+its canonical digest, including unselected parameters/metadata. Missing, extra,
+reordered or changed inventory rows fail reconstruction.
+
+Host values come from the exact `apiId`, `operationId`, and `connectionName` or
+`connectionReferenceName`. Both reference forms may coexist only when equal.
+No-host nodes explicitly retain null identity values. Each classification entry
+contains exactly `operation` (the entire matching inventory row),
+`classification`, `version`, `reference`, `source_sha256` and
+`operation_schema_sha256`. Nonblank version/reference and valid source/schema
+fingerprints are mandatory. These are retained supplied assertions; the helper
+does not fetch a reference or authenticate its classification, schema or licence.
+
+Supported declared classes are `BuiltIn`, `Standard`, `Premium`, `Custom` and
+`Unknown`. No class is inferred from a friendly name, action type, connector API
+suffix or Power BI entitlement. Missing classification coverage becomes an
+explicit `Unknown` per-path diagnostic with `missing_classification`, rather
+than disappearing. Premium, Custom and Unknown remain blocking. Duplicate,
+extra or rebound classification paths are rejected. Conflicting classifications
+for the same exact node-type/API/operation identity remain inconsistent and
+blocking; neither declaration silently wins. A connector declared BuiltIn or a
+Standard declaration lacking connector bindings is also blocking.
+
+Every hosted operation must have complete connector/operation/reference bindings.
+Its reference key must resolve in the pinned captured map, with an exact matching
+`id` and a nonblank captured `connectionName`. API namespaces are not normalized
+or matched by suffix: unresolved aliases need separate exact owner evidence.
+Expressions and unresolved `{{...}}` placeholders are not literal connector or
+connection identities and remain blocking; this checker never evaluates them.
+Missing or malformed bindings remain unresolved; unused reference entries are
+retained and blocking. A captured connection name associated with differing API
+identities is ambiguous and blocking. Reusing a connection for operations with
+the same exact API identity does not itself create that ambiguity.
+
+The opt-in result adds `standard_connector_evidence`, containing per-path
+operations/unknowns, every raw captured reference, the complete unmodified
+`supplied_evidence`, independent hashes, policy blockers and limits. Thus source
+references, versions, source/schema hashes, contradictory declarations and
+unselected raw values remain available for owner review. It does not invent
+missing classifications or discard unknowns. All original structural errors and
+blockers remain. New policy blockers are prefixed `standard_evidence:` in the
+outer result, and `standard_evidence_claims_unauthenticated` always remains.
+The diagnostic always has `claims_authenticated=false` and
+`licensing_qualified=false`; existing readiness, activation, diagnostic-run,
+write and native flags remain false even with no supplied-policy conflicts.
+
+Verification: **20 affected fictional unittest cases** pass on Python 3.15.1,
+including all six existing default cases, frozen default receipt compatibility,
+component pins/scope, Standard/Premium/Custom/Unknown/missing declarations,
+policy substitution, raw unknown/reference preservation, conflicting identities,
+all nested branches and reused names, connector triggers, malformed/incomplete
+coverage, and strict private CLI output/replay/failure behavior. No unchanged
+full harness or old review was repeated by this lane; integration/hosted gates
+remain with the integrator.
+
+Remaining native/input blockers: authoritative retained classification sources
+and exact operation schemas; current workload/licence rights and service-specific
+permissions; DLP/environment restrictions; exact available connections and
+identity/namespace resolution; native action behavior, authentication and current
+target access; guarded writer graph, durable outcome journal, processing clocks,
+protected readback, admission, refresh and consumer/runtime acceptance. The
+existing assisted fallback remains available. Supplied Standard claims cannot
+authorize save, activation, a diagnostic native run, a schedule or a send.
+
 ## Retained dispositions and remaining adoption dependencies
 
 | Retained nine-path family | Disposition |
