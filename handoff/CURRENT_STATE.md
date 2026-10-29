@@ -2,6 +2,26 @@
 
 ## PR73 verified; retained-input gaps established — 29 October 2026
 
+### Local read-route reconciliation — 11:06 Brisbane heartbeat
+
+The original retained Toolkit binding exists, its required identity/resource
+pin fields are populated, and installed SDK metadata matches pinned
+`12.0.0-beta.f682e10`. The workload lock was absent and no matching guarded
+renewal process was observed; neither establishes current native/auth ownership.
+No cache, token or SDK authentication was restored. Pure read-guard admission
+of the exact frozen writer identity failed locally: its native flow root is not
+in that binding's allowed roots. No pin was changed and no native request ran.
+This is a local scope hold, not a tenant denial or a verdict on another route.
+
+The retained capture reader instead points through original
+`native_cli_adoption.py` to the separate FlowAgent/Power Automate MCP CLI and
+`source_flow_cli_transport_guard.mjs`. Next bounded step is that existing guard's
+installed provenance and current owner reconciliation, not another Toolkit
+attempt, new client or FlowAgent reconnect. Current live identity/permission
+remains unqualified. The sanitized create-only receipt is in this checkout's
+ignored standard-evidence-integration directory and the existing external
+assessment folder, with byte readback verified. Native/auth operations were zero.
+
 The 8cd6 checkout disappeared after its clean terminal handoff; `f6e6f19c` remains
 safely merged in PR73. No old environment/private artifact was recovered or
 claimed preserved. Its lane was told to hold and not recreate the checkout.
