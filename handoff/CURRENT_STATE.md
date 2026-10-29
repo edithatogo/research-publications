@@ -1,6 +1,27 @@
 # Current integration checkpoint — 29 October 2026
 
-## PR71 gate and workspace change — 29 October 2026
+## PR71 merged; exact main gate pending — 29 October 2026
+
+PR71's remaining dependency job passed; all three PR-head checks at `cbd791ce`
+are accepted. PR71 is merged as `3eb68e1a56cd8d50853c894e2c0ed004bd1328af`.
+Its complete source tree equals the qualified PR head. Local main was advanced
+with an ordinary fast-forward; the integrator's retained coordination commits
+were preserved by an ordinary merge. No completed local/package checks rerun.
+
+Exact-main security run `40790735787` passed. Quality run `40790735708` is waiting
+for runners for source validation `123175020235` and locked dependencies
+`123175020632`. This is not a failed check or permission denial. Do not restart
+CI, repeat accepted local checks or release implementation until that quality
+run completes successfully at this exact main SHA.
+
+Replacement lane `01a184ec-294d-7451-ba5e-c1781d3aa3d8` is READY in clean managed
+8cd6, branch `codex/rims-consumer-outcomes-source`, actual fresh Python3.15.1.
+Its reserved three-file completed-simulation parity task remains unchanged and
+held solely for the exact-main quality gate. After success, send one release
+with this exact main SHA; its sole writer fast-forwards its own clean branch.
+Native/auth/journal owners and all operational gates remain unchanged.
+
+## PR71 gate and workspace change — retained history
 
 PR71 head is `cbd791ce55f58bac7f7fe5b76a0800f11e593d41`. Hosted source validation
 and security passed; the locked-dependency job in quality run `40788773758`
