@@ -1,5 +1,23 @@
 # Current integration checkpoint — 29 October 2026
 
+## Captured-generation cloud-file closeout — 29 October 2026
+
+Completion owner `01a1876d-55fc-7e42-b806-18589a94e6fa` handed off source
+commit `60624053` for serial integration in this integrator checkout. Its frozen
+receipt records four full/monthly CSV/HTML files saved to the existing owner-only
+SharePoint reporting folder, exact byte readback and an unchanged replay with no
+version bump. The captured 1,344-record bibliography and 14-record September
+output now have an accepted operator-run model-to-cloud-file path. The user
+deferred the two newer PubMed identities; no further acquisition or freshness
+work is required for this selected generation. See
+[cycle closure](../docs/PUBLICATION_CYCLE_CLOSURE_20261029.md#captured-generation-cloud-output)
+for the existing command and evidence location. Native bindings, receipts and
+operations remain with the completion owner in the original checkout. The
+integrator owns only source integration and shared status here; no native call,
+flow run, send or schedule change is made. Hosted PR/main checks remain required
+before this source packet is considered integrated. Unattended recurrence and
+Power BI rendering remain separate from this manual cloud-file acceptance.
+
 ## Essential registry capture — 29 October 2026
 
 The user directly assigned this chat bounded authentication recovery and registry

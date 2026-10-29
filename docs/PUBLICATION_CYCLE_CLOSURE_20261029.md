@@ -1,5 +1,47 @@
 # Publication policy and cycle closure — 29 October 2026
 
+## Captured-generation cloud output
+
+The user's latest direction defers the two newer PubMed identities. Do not repeat
+acquisition or make freshness a prerequisite for delivering this generation.
+The 1,344-record bibliography and 14-record September 2026 output are now saved
+as CSV and HTML in the existing owner-only SharePoint `03 Reporting` folder.
+All four native byte hashes match the verified exports. Earlier files and
+registry review values remain unchanged. The completion owner also observed the monthly CSV in Excel on the web in
+Viewing mode, with all 18 headers and 14 populated data rows (last row 15).
+`cloud-reader-verification.json` retains this bounded reader evidence; it does
+not establish Power BI report rendering.
+
+The retained `sync_dataset_documentation.mjs` uploader is reused unchanged and
+its `documentation-sync` mode is now available in the canonical guarded wrapper.
+The name is historical: the manifest specifies explicit file paths, hashes,
+site and folder. The wrapper verifies those pins before authentication. The
+uploader checks library versioning, folder identity, preflight drift, server-side
+create-only uploads and native byte readback. Different existing content requires
+its accepted baseline; unknown or human-edited content is refused. The native
+replay classified all four files as unchanged and completed with no mutations
+or version changes.
+
+Repeat from the native owner's checkout, using its ignored private bindings:
+
+```sh
+node /path/to/canonical/scripts/m365-qualified.mjs documentation-sync \
+  "$BINDING" plan "$MANIFEST" "$BASELINE" "$RECEIPT_DIR" "$LIBRARY_ID"
+node /path/to/canonical/scripts/m365-qualified.mjs documentation-sync \
+  "$BINDING" apply "$MANIFEST" "$BASELINE" "$RECEIPT_DIR" "$LIBRARY_ID"
+```
+
+Use the existing export envelopes with `export_publication_register.py` if output
+regeneration is needed. Private inputs, saved IDs/versions and replay evidence
+are under `private/ops/2026-10-29-essential-registry-capture/cloud-output-*`.
+The SharePoint login renewed through the same verified client and existing
+Queensland Health account. No permission, sharing or schedule change occurred.
+
+This verifies the captured-generation model-to-cloud-file path as an operator-run
+route. It does not claim a newly executed cloud flow, email, scheduled delivery,
+new-source admission or rendered Power BI report. Existing scheduled acceptance
+retains its own occurrence window; no extra recurrence is needed.
+
 ## Current native model-to-output verification
 
 The completion chat captured the complete registry (1,651 items, 143 fields,

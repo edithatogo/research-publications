@@ -8,7 +8,7 @@ import {execFileSync} from 'node:child_process';
 const fail = message => { throw new Error(message); };
 process.umask(0o077); // SDK response files and receipts remain owner-readable only.
 const [mode, bindingPath, ...args] = process.argv.slice(2);
-if (!['read','renew','change-log-read'].includes(mode)) fail('MODE_UNAVAILABLE_BEFORE_AUTH: this source packet implements only read, renew and change-log-read');
+if (!['read','renew','change-log-read','documentation-sync'].includes(mode)) fail('MODE_UNAVAILABLE_BEFORE_AUTH: unsupported mode');
 if (!bindingPath) fail('Private binding required');
 const bindingFile = fs.realpathSync(bindingPath);
 execFileSync('git', ['check-ignore', '-q', bindingFile]);
@@ -19,6 +19,16 @@ const pkg = JSON.parse(fs.readFileSync(path.join(pin.sdkRoot,'package.json'),'ut
 if (pkg.name !== '@pnp/cli-microsoft365' || pkg.version !== pin.sdkVersion) fail('SDK changed; requalify before login');
 const {prepareRead}=await import('./m365_read_guard.mjs');
 const assertPrivate=file=>execFileSync('git',['check-ignore','-q',path.resolve(file)]);
+if(mode==='documentation-sync'){
+  const [operation,manifestPath,baselinePath,directory,libraryId]=args;
+  if(args.length!==5 || !['plan','apply'].includes(operation)) fail('Exact documentation plan/apply arguments required');
+  for(const file of [manifestPath,baselinePath,directory]) assertPrivate(file);
+  const manifest=JSON.parse(fs.readFileSync(manifestPath,'utf8'));
+  if(!pin.resources.includes(new URL(manifest.site_url).origin)) fail('Output resource is not pinned');
+  if(!pin.documentationTarget || manifest.site_url!==pin.documentationTarget.site_url || manifest.folder!==pin.documentationTarget.folder || libraryId!==pin.documentationTarget.library_id) fail('Output target differs from private pins');
+  const {manifestFiles}=await import('./sync_dataset_documentation.mjs');
+  manifestFiles(manifest);
+}
 let rawReadUrl;
 if(mode==='read') rawReadUrl=prepareRead(args,pin,assertPrivate).rawReadUrl;
 if(mode==='renew'){
@@ -129,6 +139,11 @@ if(mode==='renew'){
   auth.ensureAccessTokenSilent=interactive;auth.ensureAccessTokenWithBrowser=interactive;
   try{await auth.ensureAccessToken(resource,quiet,false,true);guard();save('result.json',{renewed:true,calls,at:new Date().toISOString()});console.log('Qualified same-client resource renewal complete; exact-target readback still required.');}
   catch(e){save('failure.json',{message:e.message??String(e),at:new Date().toISOString()});throw e;}
+}else if(mode==='documentation-sync'){
+  process.env.RIMS_M365_CLI_DIST=path.join(pin.sdkRoot,'dist');
+  process.argv=[process.argv[0],process.argv[1],...args];
+  const {main}=await import('./sync_dataset_documentation.mjs');
+  await main();
 }else if(mode==='change-log-read'){
   const {runGuarded}=await import('./sharepoint_change_log_read.mjs');
   await runGuarded({args,auth,request,pin});

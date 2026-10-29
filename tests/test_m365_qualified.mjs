@@ -68,10 +68,19 @@ test('exact pinned GET restores only synthetic auth and confines the transport',
   const f=fixture();try{const r=f.run('read',f.args());assert.equal(r.status,0,r.stderr);assert.deepEqual(f.events().find(e=>e.step==='transport'),{step:'transport',method:'GET',url,maxRedirects:0});assert.ok(!fs.existsSync(path.join(f.root,'.m365-qualified.lock')));assert.equal(fs.readFileSync(path.join(f.root,'response.json'),'utf8'),'{}');}finally{f.close();}
 });
 test('unavailable modes and invalid exact targets fail before SDK restore or lock',()=>{
-  for(const mode of ['funding-apply','page-draft','documentation-sync','documentation-page','isolated-recovery','grants-downstream','grants-promotion','grants-preference-activation','unknown']){
+  for(const mode of ['funding-apply','page-draft','documentation-page','isolated-recovery','grants-downstream','grants-promotion','grants-preference-activation','unknown']){
     const f=fixture();try{const r=f.run(mode);assert.notEqual(r.status,0);assert.match(r.stderr,/MODE_UNAVAILABLE_BEFORE_AUTH/);assert.deepEqual(f.events(),[]);assert.ok(!fs.existsSync(path.join(f.root,'.m365-qualified.lock')));}finally{f.close();}
   }
   const f=fixture();try{const args=f.args();args[2]=url+'-other';const r=f.run('read',args);assert.notEqual(r.status,0);assert.match(r.stderr,/Unpinned native read target/);assert.deepEqual(f.events(),[]);}finally{f.close();}
+});
+test('output sync rejects incomplete arguments and unpinned folders before authentication',()=>{
+  const f=fixture();try{
+    const missing=f.run('documentation-sync');assert.notEqual(missing.status,0);assert.match(missing.stderr,/Exact documentation/);
+    const manifest=path.join(f.root,'manifest.json');
+    fs.writeFileSync(manifest,JSON.stringify({site_url:f.pin.resources[0],folder:'/unassigned',files:[]}));
+    const wrong=f.run('documentation-sync',['plan',manifest,path.join(f.root,'baseline.json'),path.join(f.root,'receipt'),'unassigned']);
+    assert.notEqual(wrong.status,0);assert.match(wrong.stderr,/target differs/);assert.deepEqual(f.events(),[]);
+  }finally{f.close();}
 });
 test('SDK drift, existing output and debug/admin/auth overrides are rejected before auth',()=>{
   for(const fault of ['sdk','exists','debug','admin','auth']){
