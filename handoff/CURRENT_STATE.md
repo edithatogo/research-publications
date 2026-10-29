@@ -1,5 +1,18 @@
 # Current integration checkpoint — 29 October 2026
 
+## Reader and scheduled-delivery reconciliation
+
+Completion-owner source packet `aeceea22` records current native verification
+of the existing reader: three publication pages, accepted model binding, counts
+and DoRA-only filter recovery. The retained 28 October closeout preserves its
+PBIR portability limitations. Both existing exporter and observer are Started
+on their unchanged 1 November schedules. Prior manual commissioning is accepted;
+the first genuine unattended occurrence remains calendar-pending. The owner
+created one read-only app follow-up for 1 November at 12:10 Brisbane. No second
+job or native action is needed here. See [cycle closure](../docs/PUBLICATION_CYCLE_CLOSURE_20261029.md#reader-verified-unattended-occurrence-awaits-its-scheduled-date).
+Earlier missing-reader statements below are historical and superseded within
+this selected single-operator scope. Freshness remains deferred.
+
 ## Captured-generation cloud-file closeout — 29 October 2026
 
 Completion owner `01a1876d-55fc-7e42-b806-18589a94e6fa` handed off source
