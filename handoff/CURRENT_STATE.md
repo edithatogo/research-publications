@@ -1,3 +1,30 @@
+## Source recovery checkout — 30 October 2026
+
+The integrator now writes only branch `codex/essential-source-recovery` at
+`/Users/doughnut/.codex/worktrees/rims-source-recovery-20261030`, a separate
+standard Git clone of canonical main. PortableSSD disappeared before the original
+reconciliation branch could be pushed; its .git link and native home are intact
+and untouched. The ten reviewed source paths from committed snapshot `ddfc2fce`
+were copied with exact SHA256 comparison. Source/private evidence was preserved
+in the original local reconciliation recovery archive; native bindings, caches,
+journals and unavailable raw-capture paths were not transplanted. This clone is
+not app-managed. A new isolated repo-local Python3.15.1 environment was qualified
+against the existing exact development lock. No shared environment was replaced.
+The remaining operation is source-only CI/main integration. Native exporter,
+schedule and platform-testing gates retain their prior ownership and state.
+
+## Essential retained-source integration — 30 October 2026
+
+Integrator `01a1874d-b9d7-7e61-b198-943e93ee28ad` owns the reconciliation
+branch and this checkout. All12 selected essential retained-input packages are
+prepared with explicit captured generations and unchanged consumer inputs.
+See [the latest source packet](../docs/SOURCE_HTTP_ROUTE_PREPARATION_20261030.md).
+Optional discovery/freshness and broader paper acquisition stay deferred; no
+historical generic HTTP flow is made deployable by this source release. Next:
+offline integration/release checks and main merge. Native exporter/auth ownership
+remains with the completion lane; no source-platform tests or schedule changes.
+Earlier assignments and readiness counts below are retained history.
+
 ## Authoring assurance integration — 30 October 2026
 
 Chat `01a188d4-a0fc-79e2-83d3-39eb38459056` owns the scoped
@@ -14,6 +41,51 @@ integration and hosted checks. No deployment, activation, run, send or schedule
 change is part of this packet; native acceptance remains separate.
 
 # Current integration checkpoint — 29 October 2026
+
+Latest source checkpoint: ARDC and ROR offline consumer bindings are complete.
+Five selected source input packages are prepared; seven remain. Existing native
+consumer inputs are unchanged. See source-package-readiness-v5 private receipt
+and the latest source-route preparation section. Platform testing stays deferred.
+
+
+ARDC recovery terminal: all816 missing pages recovered; baseline and increment
+reconcile completely and their lineage passes. Same-client SharePoint renewal
+completed with exact-target readback. No native writes or platform tests.
+Consumer generation binding remains pending.
+
+ARDC recovery continuation (historical): integrator owns bounded missing-page reads into the
+existing baseline checkpoint under the user’s explicit recovery request. Saved
+binding and checkpoint hashes match; no reader/auth lock was present. No flow
+mutation, schedule change or platform test is selected.
+
+
+## Remaining source packages — 30 October 2026
+
+Integrator chat `01a1874d-b9d7-7e61-b198-943e93ee28ad` continues on
+`codex/canonical-connection-preparation` in the reconciliation worktree. Owned
+paths now include discovery capture, offline archive/scope preparation, their
+tests and shared source-route status. Exact collector/consumer preimages are
+frozen for all15 historical HTTP definitions. NHMRC, MRFF and DoRA activity
+input packages are prepared; nine selected source packages retain explicit
+data/binding gaps. See the latest section of
+[offline source preparation](../docs/SOURCE_HTTP_ROUTE_PREPARATION_20261030.md).
+No provider/native operation or schedule change occurs in this lane. Native
+exporter ownership stays with completion chat; its separately authorised bounded
+canonical exception does not permit testing the remaining source packages.
+Platform testing here stays deferred until all packages are ready.
+
+
+## Canonical connection preparation — 30 October 2026
+
+Integrator chat `01a1874d-b9d7-7e61-b198-943e93ee28ad` owns
+`codex/canonical-connection-preparation` in
+`/Users/doughnut/.codex/worktrees/rims-integration-reconcile/chhhs-research-publications`.
+Scope: offline canonical builder, guarded deployment helper, tests and handoff.
+Native exporter, schedule and authentication remain with the completion owner.
+The complete candidate now has an exact-rebuild connection compatibility path;
+no general reference-change exemption is introduced. The full offline harness passed; the candidate, contract and exact rollback
+are frozen in the ignored source-integration package. Platform verification stays deferred until all packages are ready.
+Prior assignments below are history.
 
 ## Canonical connection preparation — 30 October 2026
 

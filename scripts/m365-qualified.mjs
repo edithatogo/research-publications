@@ -8,7 +8,7 @@ import {execFileSync} from 'node:child_process';
 const fail = message => { throw new Error(message); };
 process.umask(0o077); // SDK response files and receipts remain owner-readable only.
 const [mode, bindingPath, ...args] = process.argv.slice(2);
-if (!['read','renew','change-log-read','documentation-sync'].includes(mode)) fail('MODE_UNAVAILABLE_BEFORE_AUTH: unsupported mode');
+if (!['read','renew','change-log-read','documentation-sync','ardc-archive-read'].includes(mode)) fail('MODE_UNAVAILABLE_BEFORE_AUTH: unsupported mode');
 if (!bindingPath) fail('Private binding required');
 const bindingFile = fs.realpathSync(bindingPath);
 execFileSync('git', ['check-ignore', '-q', bindingFile]);
@@ -28,6 +28,12 @@ if(mode==='documentation-sync'){
   if(!pin.documentationTarget || manifest.site_url!==pin.documentationTarget.site_url || manifest.folder!==pin.documentationTarget.folder || libraryId!==pin.documentationTarget.library_id) fail('Output target differs from private pins');
   const {manifestFiles}=await import('./sync_dataset_documentation.mjs');
   manifestFiles(manifest);
+}
+if(mode==='ardc-archive-read'){
+  if(args.length!==2) fail('Accepted marker and existing checkpoint required');
+  for(const file of args) assertPrivate(file);
+  const {validateTarget}=await import('./ardc_bulk_archive_read.mjs');
+  validateTarget(pin,fs.readFileSync(args[0]));
 }
 let rawReadUrl;
 if(mode==='read') rawReadUrl=prepareRead(args,pin,assertPrivate).rawReadUrl;
@@ -144,6 +150,9 @@ if(mode==='renew'){
   process.argv=[process.argv[0],process.argv[1],...args];
   const {main}=await import('./sync_dataset_documentation.mjs');
   await main();
+}else if(mode==='ardc-archive-read'){
+  const {runGuarded}=await import('./ardc_bulk_archive_read.mjs');
+  await runGuarded({args:[bindingFile,...args],auth,request,pin});
 }else if(mode==='change-log-read'){
   const {runGuarded}=await import('./sharepoint_change_log_read.mjs');
   await runGuarded({args,auth,request,pin});
