@@ -32,3 +32,14 @@ path; absent Git or a missing ignore rule fails before reading or writing data.
 Eight focused retention tests pass, including a temporary-repository test of
 ignored and non-ignored paths. This does not qualify native storage or enable a
 provider request.
+
+The retained field projector and its focused tests are also reconciled from the
+same source branch and match the observed authoring copies before repair. The
+projector preserves complete raw-linked provenance, nulls and full values while
+suppressing oversized flat candidates under supplied physical limits. Review found
+that it validated the byte hash but did not bind the envelope's requested DOI to
+the DOI in those bytes. The candidate requires matching normalized DOI and a
+well-formed matching OpenAlex work ID. A fictional end-to-end test constructs an
+envelope through the retained preparer, reconstructs its chunks and projects its
+fields. Seven projector tests pass; these are local source checks and do not
+qualify native schema, capture or model parity.
