@@ -10,7 +10,7 @@ from author_registry import author_key, author_statistics, build_author_registry
 
 class AuthorRegistryTests(unittest.TestCase):
     def test_existing_identifier_key_is_preserved(self):
-        self.assertEqual(author_key("Jane", "0000-0001"), "AUTH:ca0fee7d46f7df8a2d92b027")
+        self.assertEqual(author_key("Jane", "0000-0001"), "AUTH:ca0fee7d46f7df8a2d92b027")  # gitleaks:allow -- synthetic author-record hash
 
     def test_author_evidence_without_stable_publication_key_fails_closed(self):
         with self.assertRaisesRegex(ValueError, "stable publication key"):
