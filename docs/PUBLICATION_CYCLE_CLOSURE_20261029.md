@@ -1,5 +1,37 @@
 # Publication policy and cycle closure — 29 October 2026
 
+## Current native model-to-output verification
+
+The completion chat captured the complete registry (1,651 items, 143 fields,
+eight views) and the exact stopped writer. A repeated registry read matched all
+item IDs, ETags and values except the response `odata.id` annotation. Exact PMID
+or DoRA URL joins map all 1,344 current model publications uniquely to retained
+registry items, with zero missing or ambiguous joins. Existing source/canonical
+keys and the 303 blank-key legacy rows remain unchanged; comparing canonical
+strings alone incorrectly suggests missing records.
+
+The stored Dataverse writer query executes successfully against the existing
+model. Readiness reports 1,277 retained PubMed rows, 709 DoRA rows, 1,986 history
+rows and 1,344 canonical publications. Independent key queries reconcile the
+complete current-generation export and September 2026's 14 records. The existing
+exporter generated CSV and HTML for both scopes and read back every field.
+These are local output files from live model reads, not new SharePoint uploads,
+scheduled delivery or admission of the later 1,279-record raw PubMed candidate.
+
+The CLI-rendered flow capture inserted backslashes before query line breaks;
+executing that capture failed with an invalid-token error. Authoritative Dataverse
+clientdata contains normal line breaks and exactly matches the successfully
+executed query. No native query change is needed or was made. A source validator
+now rejects shell-style line continuations so an invalid captured query cannot
+silently pass its contract. Focused checks: 24 tests, eight absent-private-package
+skips. The first run lacked the documented private test directory; provisioning
+that empty directory resolved the fixture error.
+
+Evidence and generated outputs remain under the original checkout's ignored
+`private/ops/2026-10-29-essential-registry-capture/`. No flow invocation, model
+refresh, registry mutation, send or schedule change occurred. The newer raw-source
+admission and associated native processing remain unfinished.
+
 The [PubMed offline continuation](PUBMED_OFFLINE_TYPED_CANDIDATE_20261029.md)
 subsequently closes complete offline reconstruction/comparison. Native admission
 and notification prerequisites below remain separate.

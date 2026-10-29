@@ -107,6 +107,8 @@ def validate(definition: dict) -> list[str]:
     if row_query.get("type") != "OpenApiConnection" or "Publication" not in row_query_text:
         errors.append("publication rows must come from a dedicated Power BI query")
     row_query_dax = str(row_query.get("inputs", {}).get("parameters", {}).get("specification/query", ""))
+    if "\\\n" in row_query_dax or "\\\r\n" in row_query_dax:
+        errors.append("publication rows query contains shell-style line continuations, which are not DAX")
     if "SourceKey" not in row_query_dax or "NOT ISBLANK" not in row_query_dax:
         errors.append("publication rows query must emit nonblank SourceKey values")
     if loop.get("runAfter") != {"Run_publication_rows_query": ["Succeeded"]} or "Run_publication_rows_query" not in str(loop.get("foreach", "")):
