@@ -24,11 +24,12 @@ next exact milestone remain in [CURRENT_STATE](../handoff/CURRENT_STATE.md).
 
 ## Current execution authority — 29 October 2026
 
-The approved entire-roadmap implementation and guarded isolated DEV/no-send
-scope in [CURRENT_STATE](../handoff/CURRENT_STATE.md) supersede historical
-priority/deferral paragraphs. Three isolated lanes deliver scoped packets to one
-integrator. Blocked requirements remain open. T16/T17 are cancelled and excluded,
-despite their historical conditional labels below. Accepted receipts are reused.
+The later simplify-and-finish direction narrows execution to the three exits in
+[completion scope](../docs/CURRENT_MISSING_OUTCOMES.md#completion-scope--29-october-2026).
+The earlier entire-roadmap selection below is superseded. Optional expansions
+remain open on that roadmap, not marked complete or required for this release.
+Current source/native ownership remains in [CURRENT_STATE](../handoff/CURRENT_STATE.md);
+no new lanes are commissioned. T16/T17 remain cancelled. Reuse accepted receipts.
 
 Canonical source milestones PR57–PR69 are merged. PR69 and its exact main
 quality/security checks passed. These do not close native/operational track exits.

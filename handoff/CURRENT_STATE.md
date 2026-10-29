@@ -1,5 +1,21 @@
 # Current integration checkpoint — 29 October 2026
 
+## Scoped completion change — 29 October 2026
+
+Chat `01a1876d-55fc-7e42-b806-18589a94e6fa` owns only the completion-scope source
+packet on `codex/rims-completion-scope`, managed worktree
+`/Users/doughnut/.codex/worktrees/rims-completion-scope/chhhs-research-publications`,
+based on `ce604dc7`. Paths: `docs/CURRENT_MISSING_OUTCOMES.md`,
+`docs/SOLO_AGENT_WORKFLOW.md`, `docs/WORKTREE_RECONCILIATION_20261029.md`,
+`conductor/tracks.md` and this proposed handoff entry. Native/auth scope: none.
+The earlier whole-roadmap selection is superseded by the user's simplify-and-finish
+request; optional requirements retain their evidence and move out of the completion
+queue. See the [three remaining exits](../docs/CURRENT_MISSING_OUTCOMES.md#completion-scope--29-october-2026).
+The existing integrator retains main/shared-record ownership and its unfinished
+source-disposition work. Next operation: integrate this scoped documentation packet
+serially, then prioritise required source closure and the existing writer/registry
+input gap. No current native-owner transfer or completed native exit is claimed.
+
 ## Integration ownership and isolated reconciliation — 29 October 2026
 
 ### Clean-source package fixture qualification — 29 October 2026

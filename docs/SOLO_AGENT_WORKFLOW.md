@@ -1,5 +1,27 @@
 # Solo context and harness workflow
 
+## Completion cadence — 29 October 2026
+
+Use the three exits in [current missing outcomes](CURRENT_MISSING_OUTCOMES.md#completion-scope--29-october-2026).
+Do not select the first historical unchecked task or expand into the whole roadmap.
+Start from the latest relevant receipt and next missing exit, then use the existing
+CLI/API and retained bootstrap. Read only the changed inputs and required instructions.
+Build another helper only when an existing tool cannot perform that exit.
+
+During code edits, run affected behavior tests. Documentation edits need link and
+consistency checks. Run the required full integration and clean-package gates at
+one coherent code/release milestone; reuse a successful receipt while its inputs,
+environment and scope are unchanged. Keep required hooks and hosted checks.
+Do not run the full suite again merely to repeat the same evidence in another chat.
+
+Native changes need exact saved-state and relevant runtime/output proof, with a
+recoverable preimage. Reuse existing isolation and accepted cases unless a relevant
+change invalidates them. Routine authorised work proceeds without another approval.
+Record a genuine blocker once with its exact unblock condition, then work on the
+next independent essential outcome. Deferred roadmap work is not the default
+substitute for a blocked essential. Finish with one scoped commit/handoff; do not
+add a tracking framework, recurring coordinator or extra acceptance document.
+
 ## Separate-chat execution — 13 October 2026
 
 Use the [parallel delivery assignments](PLATFORM_COMPLETION_PLAN.md#parallel-delivery-assignments--13-october-2026).
