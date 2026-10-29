@@ -9,9 +9,15 @@ import argparse
 import copy
 import hashlib
 import json
+import re
+from datetime import datetime
+from urllib.parse import urlsplit
 from pathlib import Path
 
-from scripts.export_publication_register import EXPORT_FIELDS, MONTH
+try:
+    from scripts.export_publication_register import EXPORT_FIELDS, MONTH
+except ImportError:
+    from export_publication_register import EXPORT_FIELDS, MONTH
 
 
 def unpack(record):
@@ -62,15 +68,85 @@ def html(field):
 
 def csv_cell(field):
     value = text(field)
-    # Prefix every nonempty cell. This reversible CSV convention avoids formula
-    # interpretation even with leading Unicode whitespace or control characters.
-    return f"@if(empty({value}),'',concat(decodeUriComponent('%27'),{value}))"
+    probe = f"trim(replace({value},decodeUriComponent('%EF%BB%BF'),''))"
+    controls = [f"startsWith({value},decodeUriComponent('{c}'))" for c in ('%09', '%0D', '%0A', '%EF%BB%BF')]
+    formulas = [f"startsWith({probe},'{c}')" for c in ('=', '+', '-', '@')]
+    return f"@if(or({','.join(controls + formulas)}),concat(decodeUriComponent('%27'),{value}),{value})"
 
 
-def build(exporter, writer, *, reporting_month):
+def valid_month(value):
+    if not isinstance(value, str) or not MONTH.fullmatch(value):
+        return False
+    try:
+        datetime.strptime(value, '%Y-%m')
+        return True
+    except ValueError:
+        return False
+
+
+def immutable_file(target, name, filename, content, previous, save_template, read_template):
+    """Read first, create atomically only on404, reconcile uncertain create by read.
+
+    An identical replay performs GETs only. Different content is a conflict;
+    an explicit new revision is required. Never use CreateFile's overwrite path.
+    """
+    params = save_template['inputs']['parameters']
+    folder = params['folderPath'].rstrip('/')
+    site = params['dataset']
+    if not isinstance(folder, str) or not folder.startswith('/') or "@" in folder:
+        raise ValueError('Literal existing reporting folder required')
+    full_folder = urlsplit(site).path.rstrip('/') + folder
+    def literal(value):
+        return "'" + value.replace("'", "''") + "'"
+    path = f"@concat({literal(folder + '/')},{filename})"
+    existing = name + '_Existing'
+    read = copy.deepcopy(read_template)
+    read.pop('metadata', None)
+    read['runAfter'] = {previous: ['Succeeded']}
+    read['inputs']['parameters']['path'] = path
+    read['inputs']['retryPolicy'] = {'type': 'none'}
+    target[existing] = read
+    exact = lambda read_name: f"equals(body('{read_name}')?['$content'],base64({content}))"
+    create = name + '_Create'
+    reread = name + '_Readback'
+    create_action = copy.deepcopy(save_template)
+    create_action.pop('metadata', None)
+    create_action['runAfter'] = {name + '_Require404': ['Succeeded']}
+    create_action['inputs']['host']['operationId'] = 'HttpRequest'
+    # Server-side overwrite=false retains concurrent/human writes.
+    prefix = "_api/web/GetFolderByServerRelativePath(decodedUrl='" + full_folder.replace("'", "''") + "')/Files/Add(url='"
+    uri = f"@concat({literal(prefix)},{filename},{literal("',overwrite=false)")})"
+    create_action['inputs']['parameters'] = {'dataset': site, 'parameters/method': 'POST',
+        'parameters/uri': uri, 'parameters/headers': {'Accept': 'application/json;odata=nometadata',
+        'Content-Type': 'text/plain; charset=utf-8'}, 'parameters/body': '@' + content}
+    create_action['inputs']['retryPolicy'] = {'type': 'none'}
+    after_read = copy.deepcopy(read)
+    after_read['runAfter'] = {create: ['Succeeded', 'Failed', 'TimedOut']}
+    # A failed/uncertain POST never causes another POST. Exact stored bytes are
+    # sufficient to reconcile success; absent/different bytes fail the run.
+    target[name] = {'type': 'If', 'expression': f"@equals(actions('{existing}')?['status'],'Succeeded')",
+        'runAfter': {existing: ['Succeeded', 'Failed', 'TimedOut']},
+        'actions': {name + '_Unchanged': gate(exact(existing), existing, 'CANONICAL_EXISTING_CONTENT_CONFLICT')},
+        'else': {'actions': {
+            name + '_Require404': gate(f"equals(outputs('{existing}')?['statusCode'],404)", existing, 'CANONICAL_READ_NOT_FOUND_REQUIRED'),
+            create: create_action, reread: after_read,
+            name + '_Verified': gate(exact(reread), reread, 'CANONICAL_FILE_BYTES_MISMATCH')}}}
+    # Branch entry actions have no sibling dependency on an outer scope action.
+    target[name]['actions'][name + '_Unchanged']['runAfter'] = {}
+    target[name]['else']['actions'][name + '_Require404']['runAfter'] = {}
+    return name, path
+
+
+def build(exporter, writer, *, reporting_month=None, period_policy=None, revision="v1"):
     """Explicit period only: no guessed production period or schedule changes."""
-    if not isinstance(reporting_month, str) or not MONTH.fullmatch(reporting_month):
-        raise ValueError('Explicit YYYY-MM required; frozen cases are not production defaults')
+    if (reporting_month is not None) == (period_policy is not None):
+        raise ValueError('Select one explicit month or unattended period policy')
+    if reporting_month is not None and not valid_month(reporting_month):
+        raise ValueError('Valid explicit YYYY-MM required')
+    if period_policy not in (None, 'previous-completed-month-brisbane'):
+        raise ValueError('Unknown unattended period policy')
+    if not isinstance(revision, str) or not re.fullmatch(r'[a-zA-Z0-9_-]{1,32}', revision):
+        raise ValueError('Safe explicit output revision required')
     original, donor = unpack(exporter), unpack(writer)
     candidate = copy.deepcopy(original)
     props = candidate['properties']
@@ -101,20 +177,24 @@ def build(exporter, writer, *, reporting_month):
         raise ValueError('Existing file operation contracts required')
     full_query = 'EVALUATE SELECTCOLUMNS(Publication,' + ','.join(
         f'"{f}",Publication[{f}]' for f in EXPORT_FIELDS) + ') ORDER BY [CanonicalKey]'
-    month_filter = f'FILTER(Publication,Publication[PublicationMonth]="{reporting_month}")'
+    month_filter = 'FILTER(Publication,Publication[PublicationMonth]="__RIMS_PERIOD__")'
     queries = {
         'Rows': full_query,
         'Keys': 'EVALUATE SELECTCOLUMNS(Publication,"CanonicalKey",Publication[CanonicalKey]) ORDER BY [CanonicalKey]',
         'Month_keys': f'EVALUATE SELECTCOLUMNS({month_filter},"CanonicalKey",Publication[CanonicalKey]) ORDER BY [CanonicalKey]',
         'Counts': f'EVALUATE ROW("FullCount",COALESCE(COUNTROWS(Publication),0),"MonthCount",COALESCE(COUNTROWS({month_filter}),0))',
     }
-    previous = 'Printable_Verify_manifest'
+    target['Canonical_Period'] = compose(reporting_month if reporting_month is not None else
+        "@subtractFromTime(startOfMonth(convertTimeZone(utcNow(),'UTC','E. Australia Standard Time')),1,'Month','yyyy-MM')", 'Printable_Verify_manifest')
+    previous = 'Canonical_Period'
     for label, query in queries.items():
         name = 'Canonical_Query_' + label
         action = copy.deepcopy(query_template)
         action.pop('metadata', None)
         action['runAfter'] = {previous: ['Succeeded']}
-        action['inputs']['parameters']['specification/query'] = query
+        action['inputs']['parameters']['specification/query'] = (
+            "@replace('" + query.replace("'", "''") + "','__RIMS_PERIOD__',outputs('Canonical_Period'))"
+            if '__RIMS_PERIOD__' in query else query)
         action['inputs']['parameters']['specification/serializerSettings/includeNulls'] = True
         action['inputs']['retryPolicy'] = {'type': 'none'}
         target[name] = action
@@ -141,7 +221,7 @@ def build(exporter, writer, *, reporting_month):
         'select': {f: f"@item()?['[{f}]']" for f in EXPORT_FIELDS}},
         'runAfter': {'Canonical_Parse_rows': ['Succeeded']}}
     target['Canonical_Month'] = {'type': 'Query', 'inputs': {
-        'from': "@body('Canonical_Rows')", 'where': f"@equals(item()?['PublicationMonth'],'{reporting_month}')"},
+        'from': "@body('Canonical_Rows')", 'where': "@equals(item()?['PublicationMonth'],outputs('Canonical_Period'))"},
         'runAfter': {'Canonical_Rows': ['Succeeded']}}
     previous = 'Canonical_Month'
     for label, source in [('Full', 'Canonical_Rows'), ('Month', 'Canonical_Month')]:
@@ -168,67 +248,95 @@ def build(exporter, writer, *, reporting_month):
         target[csv_name] = {'type': 'Table', 'inputs': {'from': f"@body('{safe}')", 'format': 'CSV',
             'columns': [{'header': f, 'value': f"@item()?['{f}']"} for f in EXPORT_FIELDS]},
             'runAfter': {safe: ['Succeeded']}}
+        raw_csv = csv_name
+        csv_name += '_complete'
+        header = ','.join(EXPORT_FIELDS)
+        target[csv_name] = compose(f"@if(empty(body('{source}')),concat('{header}',decodeUriComponent('%0D%0A')),body('{raw_csv}'))", raw_csv)
         rows_name = 'Canonical_' + label + '_HTML_rows'
-        cells = ",'</td><td>',".join(html(f) for f in EXPORT_FIELDS)
+        pieces = []
+        for field in EXPORT_FIELDS:
+            pieces += ["'<dt>" + field + "</dt><dd data-field=\"" + field + "\">'",
+                       "replace(" + html(field) + ",decodeUriComponent('%0D'),'&#13;')", "'</dd>'"]
         target[rows_name] = {'type': 'Select', 'inputs': {'from': f"@body('{source}')",
-            'select': "@concat('<tr><td>'," + cells + ",'</td></tr>')"},
+            'select': "@concat('<article><dl>'," + ','.join(pieces) + ",'</dl></article>')"},
             'runAfter': {csv_name: ['Succeeded']}}
         html_name = 'Canonical_' + label + '_HTML'
-        heading = 'All observed publications' if label == 'Full' else 'Publications: ' + reporting_month
-        prefix = '<!doctype html><html><head><meta charset="utf-8"><title>' + heading + '</title></head><body><h1>' + heading + '</h1><table><thead><tr>'
-        prefix += ''.join('<th>' + f + '</th>' for f in EXPORT_FIELDS) + '</tr></thead><tbody>'
-        target[html_name] = compose(f"@concat('{prefix}',join(body('{rows_name}'),''),'</tbody></table></body></html>')", rows_name)
+        heading = 'All observed publications' if label == 'Full' else 'Monthly publications'
+        prefix = '<!doctype html><html lang="en-AU"><meta charset="utf-8"><title>' + heading + '</title><style>body{font:16px Georgia;max-width:960px;margin:2rem auto}dd{white-space:pre-wrap;overflow-wrap:anywhere}article{border-top:1px solid;padding:1rem 0}</style><body><h1>' + heading + '</h1><p>Reporting month: '
+        target[html_name] = compose(f"@concat('{prefix}',outputs('Canonical_Period'),'</p>',join(body('{rows_name}'),''),'</body></html>')", rows_name)
         previous = html_name
         for extension, content in [('csv', csv_name), ('html', html_name)]:
-            name = 'Canonical_Save_' + label + '_' + extension
-            action = copy.deepcopy(save_template)
-            action['runAfter'] = {previous: ['Succeeded']}
-            action['inputs']['parameters']['name'] = f"@concat('canonical-{reporting_month}-{label.lower()}-',workflow()?['run']?['name'],'.{extension}')"
-            action['inputs']['parameters']['body'] = f"@{'body' if extension == 'csv' else 'outputs'}('{content}')"
-            action['inputs']['retryPolicy'] = {'type': 'none'}
-            target[name] = action
-            read = name.replace('Save', 'Read')
-            target[read] = copy.deepcopy(read_template)
-            target[read]['runAfter'] = {name: ['Succeeded']}
-            target[read]['inputs']['parameters']['path'] = f"@body('{name}')?['Path']"
-            verify = name.replace('Save', 'Verify')
-            expr = action['inputs']['parameters']['body'][1:]
-            target[verify] = gate(f"equals(body('{read}')?['$content'],base64({expr}))", read, 'CANONICAL_FILE_BYTES_MISMATCH')
-            verified.append(verify)
-            previous = verify
+            name = 'Canonical_Store_' + label + '_' + extension
+            filename = f"concat('canonical-',outputs('Canonical_Period'),'-{revision}-{label.lower()}.{extension}')"
+            expression = f"outputs('{content}')"
+            previous, path = immutable_file(target, name, filename, expression, previous, save_template, read_template)
+            verified.append(path)
     target['Canonical_Manifest'] = compose({'kind': 'rims_canonical_outputs_v1',
-        'reporting_month': reporting_month, 'run_id': "@workflow()?['run']?['name']",
+        'reporting_month': "@outputs('Canonical_Period')", 'revision': revision,
         'full_count': "@length(body('Canonical_Rows'))", 'month_count': "@length(body('Canonical_Month'))",
-        'csv_encoding': 'Each nonempty value has one leading apostrophe; remove exactly one to recover the source value.',
-        'replay_policy': 'Immutable per-run outputs; later runs create a new generation. No last-good file is overwritten.',
-        'verified_files': [f"@body('{name.replace('Verify', 'Save')}')?['Path']" for name in verified]}, previous)
-    target['Canonical_Save_manifest'] = copy.deepcopy(save_template)
-    save = target['Canonical_Save_manifest']
-    save['runAfter'] = {'Canonical_Manifest': ['Succeeded']}
-    save['inputs']['parameters'].update(name="@concat('canonical-',workflow()?['run']?['name'],'-complete.json')", body="@string(outputs('Canonical_Manifest'))")
-    save['inputs']['retryPolicy'] = {'type': 'none'}
-    target['Canonical_Read_manifest'] = copy.deepcopy(read_template)
-    target['Canonical_Read_manifest']['runAfter'] = {'Canonical_Save_manifest': ['Succeeded']}
-    target['Canonical_Read_manifest']['inputs']['parameters']['path'] = "@body('Canonical_Save_manifest')?['Path']"
-    target['Canonical_Verify_manifest'] = gate("equals(body('Canonical_Read_manifest')?['$content'],base64(string(outputs('Canonical_Manifest'))))", 'Canonical_Read_manifest', 'CANONICAL_MANIFEST_BYTES_MISMATCH')
+        'keys': "@body('Canonical_Full_keys')", 'month_keys': "@body('Canonical_Month_keys')",
+        'readback_verified': True, 'csv_encoding': 'Formula-like and leading control text has one protective apostrophe.',
+        'replay_policy': 'Identical period/revision outputs are read-only replays; changed or edited content requires a new explicit revision.',
+        'verified_files': verified}, previous)
+    filename = f"concat('canonical-',outputs('Canonical_Period'),'-{revision}-complete.json')"
+    immutable_file(target, 'Canonical_Store_manifest', filename,
+                   "string(outputs('Canonical_Manifest'))", 'Canonical_Manifest', save_template, read_template)
+
     return candidate
+
+
+def deployment_plan(exporter, candidate):
+    """Pin an additive source delta. This is not a native permission/read receipt."""
+    original = unpack(exporter)
+    old = original['properties']
+    new = candidate['properties']
+    reconstructed = copy.deepcopy(candidate)
+    reconstruct = reconstructed['properties']
+    new_actions = reconstruct['definition']['actions']['Export_Run']['actions']
+    added = [k for k in new_actions if k.startswith('Canonical_')]
+    if not added:
+        raise ValueError('No canonical addition')
+    for key in added:
+        del new_actions[key]
+    old_refs, new_refs = old['connectionReferences'], new['connectionReferences']
+    added_refs = sorted(set(new_refs) - set(old_refs))
+    if added_refs not in ([], ['shared_powerbi']):
+        raise ValueError('Unexpected added connection')
+    for key in added_refs:
+        del reconstruct['connectionReferences'][key]
+    if reconstructed != original:
+        raise ValueError('Existing wrapper, action, connection or schedule was changed')
+    canonical = lambda obj: json.dumps(obj, sort_keys=True, separators=(',', ':'), ensure_ascii=False).encode()
+    raw = exporter.get('clientdata')
+    return {'kind': 'canonical_output_additive_deployment_plan',
+        'workflowid': exporter.get('workflowid'),
+        'expected_clientdata_sha256': hashlib.sha256(raw.encode() if isinstance(raw, str) else canonical(original)).hexdigest(),
+        'candidate_normalized_sha256': hashlib.sha256(canonical(candidate)).hexdigest(),
+        'added_connection_names': added_refs,
+        'connection_reference_sha256': hashlib.sha256(canonical(new_refs)).hexdigest(),
+        'added_actions': added, 'required_target_statecode': 0,
+        'requires_complete_inactive_run_history': True, 'requires_no_unowned_draft': True,
+        'native_preflight_performed': False, 'native_calls': 0,
+        'rollback': 'Exact original clientdata; retain target identity, references and original activation state.'}
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--exporter', type=Path, required=True)
     parser.add_argument('--writer', type=Path, required=True)
-    parser.add_argument('--reporting-month', required=True)
+    period = parser.add_mutually_exclusive_group(required=True)
+    period.add_argument('--reporting-month')
+    period.add_argument('--period-policy', choices=['previous-completed-month-brisbane'])
+    parser.add_argument('--revision', default='v1')
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     before = args.exporter.read_bytes()
-    candidate = build(json.loads(before), json.loads(args.writer.read_bytes()), reporting_month=args.reporting_month)
+    candidate = build(json.loads(before), json.loads(args.writer.read_bytes()), reporting_month=args.reporting_month, period_policy=args.period_policy, revision=args.revision)
     # Exclusive creation prevents accidental replacement of a reviewed package.
     with args.output.open('x') as handle:
-        json.dump({'candidate': candidate, 'exporter_snapshot_sha256': hashlib.sha256(before).hexdigest(),
+        json.dump({'candidate': candidate, 'plan': deployment_plan(json.loads(before), candidate), 'rollback_clientdata': json.loads(before).get('clientdata', unpack(json.loads(before))), 'exporter_snapshot_sha256': hashlib.sha256(before).hexdigest(),
             'native_calls': 0, 'deployment_ready': False,
-            'remaining': ['Period automation binding', 'CSV parity and replay policy review',
-                          'Fresh stopped target and additive connection qualification',
+            'remaining': ['Fresh stopped target and additive connection qualification',
                           'Native definition and runtime verification deferred']}, handle, indent=2)
         handle.write('\n')
 
