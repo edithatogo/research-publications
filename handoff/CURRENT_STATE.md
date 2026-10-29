@@ -4,6 +4,15 @@
 
 ### Shared Toolkit read checkpoint — coordination update
 
+Latest coordinator update: the cached-only check stopped before HTTP. PPG
+lifecycle chat `01a17267` now exclusively owns one retained same-client
+`form_post` renewal, with no auth operation observed when it was assigned.
+RIMS must not start, renew, switch or access that shared profile concurrently.
+Wait for lifecycle's terminal identity/exact-target validation and explicit
+lease release. This authorises no new client, consent, credential transfer,
+catalogue mutation or notification. Continue only disjoint offline/source work;
+the earlier bounded-read assignment below is preserved as history.
+
 Workspace coordinator `01a182a1-9a69-7360-80bc-22f99cd17f68` confirms PPG lifecycle
 chat `01a17267` owns one bounded existing-client Toolkit no-interactive read
 checkpoint, then releases a frozen result. Coordinate any same-cache RIMS read
