@@ -1,6 +1,68 @@
 # Current integration checkpoint — 29 October 2026
 
-## Completed-simulation packet reviewed and locally integrated — 29 October 2026
+## Standard evidence preflight reviewed; integration gates pending — 29 October 2026
+
+Source lane `01a184ec-294d-7451-ba5e-c1781d3aa3d8` returned clean terminal
+`f6e6f19c82490b99a18420285c1341b170d1fc51` from verified PR72 main `d20e9b77`.
+Only its three assigned files changed. Bounded review found no actionable issue;
+exact preflight against `6d1528b6` found both checkouts clean with no overlaps,
+missing files or staged deletions. It is locally merged. Reuse the owner's 20
+affected tests, including six existing default tests and frozen default-receipt
+compatibility. Combined source/hosted/exact-main gates remain required.
+
+The opt-in diagnostic preserves complete supplied node/classification/reference
+evidence and unknowns, handles exact action/trigger paths and keeps every existing
+readiness/activation/write flag false. Classifications are unauthenticated claims;
+even a consistent Standard inventory does not qualify actual licence rights,
+permission, DLP, connection availability, operation schemas or runtime.
+
+After verified main, the next bounded task is actual retained-input assessment,
+not another helper wave: assess the original stopped-writer evidence in place
+with the qualified verifier, preserve original raw/bindings/journals, and report
+the exact missing independent captures/classifications rather than fabricating
+them. The cited original writer snapshot exists and a bounded read found 44
+saved action nodes, one trigger and two references. Its independent byte pin
+stays in private evidence/task handoff, not a public raw snapshot. This is dated
+retained evidence, not a new native read or current acceptance. No probes/auth/
+mutation or source edits are authorised by that future assessment. Keep the
+source lane at its terminal commit until exact-main release.
+
+## PR72 verified; no-Premium preflight extension released — retained history
+
+Verified main is `d20e9b773a775d1d056ed60fb43999a4736c2d15` (PR72). All three
+PR-head checks at `30ba0fd2` passed. Exact-main quality `40794514385` and
+security `40794514724` completed successfully at this SHA. Its source tree
+equals the reviewed PR head; local main and this integrator branch advanced
+with ordinary fast-forwards. Combined source harness: 2,168 Python tests with
+19 capability skips, 25 Node guards, 446 project checks and all other gates.
+Range secret scan, dependency consistency and whitespace checks passed. PR71's
+unchanged receipts/package proof were reused; no native acceptance is implied.
+
+Completed simulation `7f67406b` and entitlement direction `034dd38a` are now
+integrated source outcomes. No Power Automate Premium is available for this
+workload; Power BI Premium supplies no substitute. Licensing classification,
+permission, DLP, connection availability and operation/runtime behavior remain
+distinct requirements, not inferred from this documentation or simulation.
+
+Replacement source owner `01a184ec-294d-7451-ba5e-c1781d3aa3d8` retains managed
+8cd6 and branch `codex/rims-consumer-outcomes-source`. Its next three-file task
+is released only after it verifies clean state and fast-forwards its own branch
+to the exact main above. Exclusive files: `scripts/preflight_publication_flow_activation.py`,
+`tests/test_preflight_publication_flow_activation.py`, and
+`docs/PUBLICATION_ADMISSION_WRITER_SOURCE_20261029.md`. Extend the existing
+stopped-writer preflight with an opt-in supplied Standard-connector evidence
+profile. Independently pin complete writer/target/revision, references,
+path-qualified action/trigger inventory, connector/operation classifications
+and explicit no-Premium workload policy. Missing/unknown/Premium/custom or
+inconsistent evidence stays blocking; never guess licensing from names/suffixes.
+Preserve default receipt bytes/semantics and every false readiness/activation/
+write flag. All results remain supplied-source diagnostics; native truth and
+rights are unqualified. No probes, new adapter/framework, shared contracts,
+runtime/dependency change, auth, activation or send is assigned. One terminal
+scoped commit, focused fictional tests and exact remaining native-input blockers.
+No further helper wave is selected before that connected handoff is assessed.
+
+## Completed-simulation packet reviewed and locally integrated — retained history
 
 Replacement owner `01a184ec-294d-7451-ba5e-c1781d3aa3d8` returned clean terminal
 `7f67406b72ccc18973d5d8833d5acd983411135e` on verified PR71 base `3eb68e1a`.
