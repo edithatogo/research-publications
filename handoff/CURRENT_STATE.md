@@ -2,6 +2,18 @@
 
 ## PR73 verified; retained-input gaps established — 29 October 2026
 
+### Shared Toolkit read checkpoint — coordination update
+
+Workspace coordinator `01a182a1-9a69-7360-80bc-22f99cd17f68` confirms PPG lifecycle
+chat `01a17267` owns one bounded existing-client Toolkit no-interactive read
+checkpoint, then releases a frozen result. Coordinate any same-cache RIMS read
+or renewal before overlap; no new login/cache change is requested or assigned.
+Do not treat this as a hold on unrelated clients/resources. RIMS currently has
+no Toolkit auth/native read in progress. The retained extension PAC session
+89077 is terminal (25 October auth/org/workflow reads exit 0); no session was
+transferred, and its old observation is not a blanket Toolkit gate. The separate
+FlowAgent provenance/ownership reconciliation remains local/read-only.
+
 ### Local read-route reconciliation — 11:06 Brisbane heartbeat
 
 The original retained Toolkit binding exists, its required identity/resource
