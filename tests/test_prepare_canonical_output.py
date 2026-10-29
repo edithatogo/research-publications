@@ -1,13 +1,13 @@
-import copy
 import ast
+import copy
 import csv
 import io
 import re
-from urllib.parse import unquote
 import unittest
+from urllib.parse import unquote
 
-from scripts.prepare_canonical_output import build, csv_cell, html, deployment_plan
-from scripts.export_publication_register import safe_cell, EXPORT_FIELDS
+from scripts.export_publication_register import EXPORT_FIELDS, safe_cell
+from scripts.prepare_canonical_output import build, csv_cell, deployment_plan, html
 
 
 def evaluate(expression, value):

@@ -11,13 +11,23 @@ import hashlib
 import json
 import re
 from datetime import datetime
-from urllib.parse import urlsplit
 from pathlib import Path
+from urllib.parse import urlsplit
 
 try:
-    from scripts.export_publication_register import EXPORT_FIELDS, MONTH, PRECISIONS, SOURCE_SETS
+    from scripts.export_publication_register import (
+        EXPORT_FIELDS,
+        MONTH,
+        PRECISIONS,
+        SOURCE_SETS,
+    )
 except ImportError:
-    from export_publication_register import EXPORT_FIELDS, MONTH, PRECISIONS, SOURCE_SETS
+    from export_publication_register import (
+        EXPORT_FIELDS,
+        MONTH,
+        PRECISIONS,
+        SOURCE_SETS,
+    )
 
 
 def unpack(record):
@@ -40,8 +50,8 @@ def find_query(node):
     visit(node)
     if not found:
         raise ValueError('Existing ExecuteDatasetQuery binding required')
-    bindings = [dict(host=v['inputs']['host'], groupid=v['inputs']['parameters']['groupid'],
-                     datasetid=v['inputs']['parameters']['datasetid']) for v in found]
+    bindings = [{'host': v['inputs']['host'], 'groupid': v['inputs']['parameters']['groupid'],
+                 'datasetid': v['inputs']['parameters']['datasetid']} for v in found]
     if any(binding != bindings[0] for binding in bindings):
         raise ValueError('Ambiguous existing model bindings')
     return copy.deepcopy(found[0])
