@@ -28,6 +28,9 @@ class OpenAlexRetention(unittest.TestCase):
             require_ignored(private, (data, output))
             with self.assertRaisesRegex(ValueError, 'must be ignored'):
                 require_ignored(private, (root / 'not-private.json',))
+            subprocess.run(['git', '-C', str(root), 'add', '-f', str(data)], check=True)
+            with self.assertRaisesRegex(ValueError, 'must be ignored'):
+                require_ignored(private, (data, output))
 
     def setUp(self):
         self.frozen = json.dumps([{'DORAKey': 'preserved', 'DOI': '10.1000/example',
