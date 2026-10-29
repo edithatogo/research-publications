@@ -5,7 +5,7 @@ import io
 import json
 import re
 import unittest
-from urllib.parse import unquote
+from urllib.parse import quote, unquote
 
 from scripts.export_publication_register import EXPORT_FIELDS, safe_cell
 from scripts.prepare_canonical_output import build, csv_cell, deployment_plan, html
@@ -25,6 +25,7 @@ def evaluate(expression, value):
         'string': lambda v: '' if v is None else str(v), 'trim': lambda v: v.strip(),
         'empty': lambda v: v is None or len(v) == 0,
         'replace': lambda v, old, new: v.replace(old, new), 'decodeUriComponent': unquote,
+        'uriComponent': lambda v: quote(v, safe="~()*!.'-"),
         'concat': lambda *v: ''.join(v), 'startsWith': lambda v, p: v.startswith(p)}
     def run(node):
         if isinstance(node, ast.Constant): return node.value
@@ -168,6 +169,8 @@ class CanonicalOutputTests(unittest.TestCase):
             with self.subTest(value=value):
                 self.assertEqual(evaluate(csv_cell('Title'), value), safe_cell(value))
                 self.assertEqual(unescape(evaluate('@' + html('Title'), value)), '' if value is None else str(value))
+        self.assertIn('startsWith(uriComponent(', csv_cell('Title'))
+        self.assertNotIn("startsWith(string(coalesce(item()?['Title'],'')),decodeUriComponent", csv_cell('Title'))
         # Native trim additionally protects Unicode-whitespace-prefixed formulas.
         self.assertEqual(evaluate(csv_cell('Title'), '\u00a0=cmd'), "'\u00a0=cmd")
 

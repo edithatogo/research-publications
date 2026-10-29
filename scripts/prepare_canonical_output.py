@@ -79,7 +79,9 @@ def html(field):
 def csv_cell(field):
     value = text(field)
     probe = f"trim(replace({value},decodeUriComponent('%EF%BB%BF'),''))"
-    controls = [f"startsWith({value},decodeUriComponent('{c}'))" for c in ('%09', '%0D', '%0A', '%EF%BB%BF')]
+    # Native startsWith can treat invisible characters as ignorable prefixes.
+    # Compare their escaped bytes, not a decoded invisible search string.
+    controls = [f"startsWith(uriComponent({value}),'{c}')" for c in ('%09', '%0D', '%0A', '%EF%BB%BF')]
     formulas = [f"startsWith({probe},'{c}')" for c in ('=', '+', '-', '@')]
     return f"@if(or({','.join(controls + formulas)}),concat(decodeUriComponent('%27'),{value}),{value})"
 
