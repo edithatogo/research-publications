@@ -198,7 +198,14 @@ class CanonicalOutputTests(unittest.TestCase):
                         self.assertFalse(evaluate(condition, value))
             mismatch = copy.deepcopy(valid)
             mismatch['firstTableRows'] = [{'[CanonicalKey]': 'different'}]
-            self.assertFalse(evaluate(condition, mismatch))
+            self.assertTrue(evaluate(condition, mismatch))
+        captured_shape = {'results': [{'tables': [{'rows': [{'[CanonicalKey]': 'DORA:1', '[PMID]': None}]}]}],
+                          'firstTableRows': [{'[CanonicalKey]': 'DORA:1'}]}
+        self.assertTrue(evaluate(condition, captured_shape))
+        self.assertEqual(evaluate(a['Canonical_Raw_Rows']['inputs'], captured_shape),
+                         captured_shape['results'][0]['tables'][0]['rows'])
+        missing = {'results': [{'tables': [{}]}]}
+        self.assertFalse(evaluate(condition, missing))
 
     def test_source_key_and_date_invariants_reject_malformed_records(self):
         exporter, writer = self.inputs()

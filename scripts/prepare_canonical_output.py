@@ -223,11 +223,12 @@ def build(exporter, writer, *, reporting_month=None, period_policy=None, revisio
             f"empty({table}?['error']),empty({table}?['errors']),"
             f"equals(coalesce({table}?['truncated'],false),false),"
             f"equals(coalesce({table}?['partial'],false),false),"
-            f"contains(body('{name}'),'firstTableRows'),"
-            f"equals(body('{name}')?['firstTableRows'],{table}?['rows']))",
+            f"contains({table},'rows'))",
             name, 'CANONICAL_QUERY_ERROR')
+        # The connector shortcut drops null-valued properties. Consume the
+        # authoritative includeNulls table, preserving the full field contract.
         rows = 'Canonical_Raw_' + label
-        target[rows] = compose(f"@body('{name}')?['firstTableRows']", check)
+        target[rows] = compose(f"@{table}?['rows']", check)
         previous = rows
     schema = {'type': 'array', 'items': {'type': 'object',
         'required': ['[' + f + ']' for f in EXPORT_FIELDS],
