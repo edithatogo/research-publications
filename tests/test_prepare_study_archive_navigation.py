@@ -41,6 +41,23 @@ class ArchiveNavigationTests(unittest.TestCase):
         for replacement in (OLD.replace('Table.RowCount(Matches)=1', 'Table.RowCount(Matches)>0'),
                             OLD + ',\n' + OLD):
             changed = self.model()
+            changed['definition']['parts'] = [p for p in changed['definition']['parts'] if p['path'] != PATH]
             emit(changed, PATH, 'StudyRows=AcceptedRows,\n' + replacement)
             with self.assertRaises(ValueError):
                 prepare(changed, expected_sha256=fingerprint(changed))
+
+    def test_multiline_m_retains_tmdl_expression_indentation(self):
+        model = self.model()
+        prefix = '\t\t\t\t    '
+        model['definition']['parts'] = [p for p in model['definition']['parts'] if p['path'] != PATH]
+        emit(model, PATH, 'table SourceRelationshipEvidence\n'
+             '\tpartition SourceRelationshipEvidence = m\n\t\tsource =\n'
+             + prefix + 'StudyRows=AcceptedRows,\n' + prefix + OLD
+             + ',\n' + prefix + 'StudyEvidence=AcceptedChecks\n')
+        result = prepare(model, expected_sha256=fingerprint(model))
+        text = parts(result['candidate'])[PATH].decode()
+        replacement = NEW.replace('\n', '\n' + prefix)
+        self.assertIn(prefix + replacement, text)
+        self.assertEqual(text.replace(replacement, OLD), parts(model)[PATH].decode())
+        again = prepare(result['candidate'], expected_sha256=fingerprint(result['candidate']))
+        self.assertEqual(again['changed_paths'], [])

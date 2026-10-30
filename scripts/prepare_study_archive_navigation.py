@@ -38,7 +38,13 @@ def prepare(model, *, expected_sha256):
         raise ValueError('Exact model preimage required')
     original = parts(model)
     text = original[PATH].decode()
-    if text.count(NEW) == 1:
+    marker = 'StudyArchiveDirectory=(URL as text)'
+    position = text.find(marker) if marker in text else text.find(OLD)
+    prefix = text[text.rfind('\n', 0, position) + 1:position]
+    if prefix.strip():
+        raise ValueError('Standalone indented M reader required')
+    replacement = NEW.replace('\n', '\n' + prefix)
+    if text.count(replacement) == 1:
         return {'candidate': copy.deepcopy(model), 'recovery': model,
                 'changed_paths': [], 'runtime_verified': False}
     if text.count(OLD) != 1 or any(x in text for x in (
@@ -46,7 +52,7 @@ def prepare(model, *, expected_sha256):
         raise ValueError('Study reader drift; reconcile before editing')
     if 'StudyRows=' not in text or text.index('StudyRows=') > text.index(OLD):
         raise ValueError('Existing study rows must precede reader')
-    updated = text.replace(OLD, NEW, 1)
+    updated = text.replace(OLD, replacement, 1)
     candidate = copy.deepcopy(model)
     for part in candidate['definition']['parts']:
         if part['path'] == PATH:

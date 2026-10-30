@@ -30,12 +30,17 @@ Status is based on retained receipts; this cleanup makes no native calls.
 
 - The old manual refresh failed with the study path error; the saved fix supersedes
   that implementation blocker. Do not treat the old failure as current execution.
-- The replacement manual refresh recorded in private
-  `study-folder-fix/manual-verification/receipt.json` was submitted once. Last retained read: **30 October 2026, 23:02 Brisbane**, status **Unknown**,
-  no terminal result/error. This is a historical snapshot, not a fresh status read.
-- Next runtime action, only when requested: check that exact refresh once. If it
-  succeeded, verify study evidence and project/output data with bounded queries.
-  No polling, resubmission, new refresh or schedule is implied.
+- The replacement manual refresh, submitted once, finished **Failed at 00:30:32
+  Brisbane on 31 October 2026**. Its first three service-managed attempts failed
+  parsing JSON (unexpected `P` at position 0); the fourth exceeded the memory
+  limit: 25,568 MB consumed versus 25,488 MB allowed. These were service attempts,
+  not agent resubmissions. The prior Unknown observation is superseded.
+- Archive navigation optimization was subsequently saved and read back exactly;
+  all 69 unrelated model parts were preserved. This does not establish resolution
+  of the JSON error, memory failure or runtime output parity.
+- Next action: diagnose the JSON input from retained source evidence and reconcile
+  memory use before selecting any further runtime verification. No new refresh,
+  polling, resubmission or schedule is authorized by this status record.
 - DataCite fictional Dataset persistence is accepted for one create/readback.
   Inspection of all 70 retained model-definition parts found no reference to its
   register or projection field; the earlier refresh dependency was unsupported
@@ -51,7 +56,8 @@ Detailed dated receipts follow below. Private evidence is under
 `study-folder-fix/`, `datacite-persistence-local/` and `real-intake/`.
 Current source owner: chat `01a188d4-a0fc-79e2-83d3-39eb38459056`, isolated checkout
 `/Users/doughnut/.codex/worktrees/rims-assurance-integration/chhhs-research-publications`,
-branch `codex/rims-archive-navigation-local` for archive navigation preparation
+branch `codex/rims-archive-navigation-readback` for deployment closeout
+(previous preparation branch: `codex/rims-archive-navigation-local`)
 (previous documentation branch: `codex/rims-datacite-native-record`)
 (previous implementation branch: `codex/rims-local-outcomes`). This lane does not own shared main or CareOps
 pins. Preserve other chats' files, authentication and native operations.
@@ -394,3 +400,24 @@ in the sibling `refresh-check-once/` directory.
   Fresh definition reconciliation is required before deployment. Runtime output
   parity and performance are unverified; no speedup or refresh recovery claimed.
 - No native calls, deployment, refresh status reads, new runs or monitoring.
+
+## Archive navigation deployment/readback — 31 October 2026
+
+This result supersedes the local-only deployment status above.
+
+- Reconciled the complete current model against retained source: no intervening
+  part changes. Candidate/recovery retained privately before the save.
+- Initial save was rejected for TMDL multiline indentation. Exact subsequent
+  readback confirmed the preimage was unchanged. Fixed the preparer to preserve
+  the enclosing M expression indentation and added a realistic regression case.
+- Submitted the corrected candidate once under a separate durable send receipt.
+  Saved definition readback matches the corrected candidate exactly; only
+  SourceRelationshipEvidence changed and all 69 unrelated parts are unchanged.
+- Four focused transformation tests passed after the correction; reused for this
+  commit. No additional application suite or native call accompanies this record.
+- Evidence: `private/ops/local-first-outcomes/study-folder-fix/archive-navigation-native/`
+  contains preimage, recovery, rejected-save evidence, corrected candidate/send
+  and exact readback acceptance. Native identities stay private.
+- Finish line: deployment and saved-state readback complete. Runtime output parity,
+  JSON input failure resolution and measured performance remain unverified. No
+  new refresh, resubmission or monitoring occurred during deployment.
