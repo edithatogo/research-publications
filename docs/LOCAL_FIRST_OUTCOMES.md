@@ -677,3 +677,21 @@ M engine evaluation, output parity and actual performance require later native
 qualification; Python source checks do not establish them. Before any future
 save, reconcile a fresh complete definition with this retained preimage and retain
 other owners' changes. No deployment or refresh is selected by this increment.
+
+### Archive navigation deployment and refresh disposition — 31 October 2026
+
+The archive navigation candidate is now saved and read back exactly. Current
+preimage reconciliation found no intervening changes; the save preserved all 69
+unrelated parts. The initial save failed TMDL parsing because multiline M lacked
+its enclosing indentation; readback confirmed no effect. The preparer now retains
+that indentation, with four passing focused tests. A corrected candidate was sent
+once under a new receipt and matched the saved definition exactly.
+
+The existing manual refresh completed Failed at 00:30:32 Brisbane on 31 October:
+three service-managed attempts reported JSON input beginning with unexpected `P`;
+the fourth hit a 25,488 MB memory limit after consuming 25,568 MB. It was not
+resubmitted. This terminal evidence replaces prior Unknown snapshots. The saved
+navigation change is not proof that either runtime error is resolved. Next work
+is diagnosis of retained JSON inputs and memory use; no new refresh is selected.
+Private preimage/recovery/send/readback evidence is in
+`private/ops/local-first-outcomes/study-folder-fix/archive-navigation-native/`.
