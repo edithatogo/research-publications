@@ -1,5 +1,14 @@
 # CHHHS research publications: current Conductor context
 
+## Essential completion — 30 October 2026
+
+The three selected essential exits and final native retained-source verification
+are accepted. [Current handoff](../handoff/CURRENT_STATE.md#essential-closeout-accepted--30-october-2026)
+records receipts and scope. Only the existing 1 November at 12:10 Brisbane read-only
+natural-schedule verification remains. Deferred roadmap/SPN10/reader-adoption
+work is not an essential completion blocker. Earlier milestone status is history.
+
+
 ## Integration checkpoint — 29 October 2026
 
 [Worktree reconciliation and remaining work](../docs/WORKTREE_RECONCILIATION_20261029.md)

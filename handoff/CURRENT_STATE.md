@@ -1,3 +1,49 @@
+## Essential closeout accepted — 30 October 2026
+
+All three selected essential exits are complete: source integration (PR88,
+main `1105f2fce4ba1e2f79f361bc805e17ea113dea3f`), captured-generation publication
+outputs/reader, and final native retained-source verification. The native owner
+recorded `PASS_ESSENTIAL_RETAINED_SOURCE_NATIVE_VERIFICATION` for nine fresh
+consumer targets, seven paper/two ready-pointer artifacts and all five canonical
+output metadata objects, reusing later accepted runtime/replay receipts. No new
+flow runs, source/model refreshes, emails, native mutations or schedule changes
+were performed. Native receipt: completion checkout
+`private/ops/native-source-verification-20261030/acceptance.json`.
+Receipt SHA256: `cc37b618ce422ad7b68ef1f43209bdf1e977f40319449c507fb98bdfa79eb186`.
+
+Only the existing read-only follow-up on **1 November 2026 at 12:10 Brisbane**
+remains: establish genuine scheduled origin for the 09:00 exporter and 12:05
+monitor, then verify the October full/month CSV/HTML and completion manifest
+against retained generation keys/counts/all 18 fields. Exclude manual/testFlow runs;
+the monitor does not independently validate canonical membership. Preserve
+source/model state, original recurrence and delivery settings; no new monitor,
+flow invocation or email. Natural recurrence is not proved by manual acceptance.
+
+DoRA activity registry SPN10 promotion/runtime, raw23 downstream reader adoption,
+broader discovery/paper acquisition and freshness remain explicit roadmap scope,
+not essential blockers or claimed native acceptance. The two newer PubMed records
+remain deferred. Integrator owns shared status/main in the standard recovery
+clone `/Users/doughnut/.codex/worktrees/rims-source-recovery-20261030`; native
+objects/authentication remain with the completion owner. Earlier assignments,
+counts and pending-integration statements below are historical.
+
+## Verified lifecycle cleanup — 30 October 2026
+
+Integrated inactive branches `codex/essential-source-recovery`,
+`codex/canonical-exporter-acceptance`, `codex/canonical-connection-preparation`
+and `codex/rims-completion-scope` were retired after verified Git bundles and
+integrated source/tree comparison. Remote counterparts of the first two were
+removed with exact-head leases. Reconciliation private evidence was archived
+outside its checkout and archive integrity verified before retirement.
+
+Both managed reconciliation/completion worktree archive attempts were refused
+because the app requires those primary checkouts. They are deliberately retained;
+no CLI removal bypass is used. Reconciliation is clean and parked detached at
+canonical source; completion remains owned until its owner confirms detachment.
+The original dirty native/runtime home, private authoring checkout and active
+assurance worktree/refs are protected. These lifecycle constraints and historical
+roadmap refs do not reopen essential implementation or native acceptance.
+
 ## Source recovery checkout — 30 October 2026
 
 The integrator now writes only branch `codex/essential-source-recovery` at
