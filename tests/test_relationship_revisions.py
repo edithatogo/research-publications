@@ -12,3 +12,12 @@ class RelationshipRevisionTests(unittest.TestCase):
         h3=append(h2,corrected,revision_id='r3',supersedes='r2',state='withdrawn',reason='withdraw assertion')
         self.assertEqual(current(h3),[])
         with self.assertRaises(ValueError):append(h3,r,revision_id='r4',supersedes='r1',state='active',reason='stale')
+
+    def test_dataset_and_software_assertions_remain_candidates(self):
+        for kind in ('Dataset','Software'):
+            record=dict(RelationshipKind='datacite_output_reference',EvidenceKey='FIC-EVIDENCE',FromKey='datacite:10.1234/fictional',ToKey='doi:10.1234/publication',SourceSnapshotID='FIC-SNAPSHOT',SourceManifestSHA256='a'*64,ResourceTypeGeneralRaw=kind,ReviewState='Not reviewed',Confidence='candidate',IdentityQualified=False,CanonicalAdmission=False,MutationAuthorized=False,NativeG06Admission=False,SourceRecord={'id':'FICTIONAL'},CanonicalMatchCount=1,CanonicalKeys=['PUB:FIC'],CanonicalKey='PUB:FIC')
+            h=append([],record,revision_id='r1',supersedes=None,state='active',reason='retained assertion')
+            self.assertEqual(current(h)[0],record)
+            withdrawn=append(h,record,revision_id='r2',supersedes='r1',state='withdrawn',reason='source correction')
+            self.assertEqual(current(withdrawn),[])
+            with self.assertRaises(ValueError): append([],dict(record,CanonicalAdmission=True),revision_id='r1',supersedes=None,state='active',reason='invalid promotion')

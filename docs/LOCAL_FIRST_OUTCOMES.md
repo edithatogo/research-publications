@@ -165,3 +165,9 @@ normalizer with immutable corrections, withdrawal and replay checks. Corrections
 retain lineage identity even when evidence changes the normalized key; stale forks
 are refused. This does not replace source-key admission or promote candidates.
 Dataset/software adapters and native relationship persistence remain unfinished.
+
+The relationship revision CLI now also retains existing DataCite Dataset/Software
+assertions, complete source records, manifest hashes and canonical-match counts.
+It refuses promotion flags and cross-family corrections. Upstream source capture
+validation/admission remains required; these checks do not authenticate source
+bytes or create native relationships. Native storage mapping remains unresolved.
