@@ -321,3 +321,23 @@ in the sibling `refresh-check-once/` directory.
   complete candidate; all 69 unrelated parts are unchanged. `acceptance.json`
   records this result. Runtime confirmation remains deferred until an explicitly
   authorized future refresh; no further action is scheduled.
+
+## DataCite source-assertion adapter — local increment
+
+- **Implemented locally:** existing-register field mapping, stable source lineage,
+  immutable provenance, current/withdrawn projection, conditional request planning,
+  replay and uncertain-effect reconciliation. Reuses relationship revision guards.
+  Dataset/Software candidates remain unreviewed; no canonical or grant admission.
+- **Preserved:** existing list/column identities; Title and OperatorNotes excluded
+  from updates; legacy/other-producer rows require explicit adoption. No tenant
+  operations or changes to data the running refresh may consume.
+- **Necessary checks:** five focused cases passed after implementation; both
+  fictional CLI candidates prepared successfully. Retained schema has 10 passed
+  property checks and 7 unverified checks, zero failed; native_ready remains false.
+- **Finish line met for local preparation:** reproducible offline candidates and
+  precise native prerequisites in `docs/LOCAL_FIRST_OUTCOMES.md`. Evidence under
+  `private/ops/local-first-outcomes/datacite-persistence-local/`.
+- **Deferred:** authenticated executor binding and native application/readback.
+  Next native action requires an authorized continuation after the refresh conflict
+  is cleared, with fresh exact schema/identity/preimage qualification. No automatic
+  refresh check, deployment, migration or monitoring is selected.

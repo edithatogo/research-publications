@@ -542,3 +542,58 @@ Post-terminal native readback matches the complete candidate byte-for-byte; all
 69 unrelated model parts are preserved. The existing project/output additions
 and report remain intact. Saved-state acceptance is recorded in the private
 `study-folder-fix/acceptance.json`; runtime confirmation remains unverified.
+
+### DataCite source-assertion persistence — local preparation
+
+`scripts/source_assertion_persistence.py` maps retained Dataset/Software reference
+assertions into the existing Source Assertions fields. SourceKey is a stable
+namespaced digest of the original evidence lineage; SourceID/RelatedID retain
+current source identities. SourceProjectionJSON holds the current active assertion
+(or an empty assertion list after withdrawal). SourceProvenanceJSON holds the full
+immutable revision history, original SourceRecord objects, source snapshot/manifest
+identities and history hash. The existing relationship revision validator remains
+authoritative. This mapping does not authenticate source captures or promote any
+identity, canonical, mutation or grant-admission flags; upstream capture validation
+and review remain separate. SourceURL remains blank rather than inventing an
+archive/source URL absent from the input contract.
+
+All fields already exist in the retained Source Assertions schema. No new list or
+column is proposed. Title is supplied only for a new row; updates never include
+Title, OperatorNotes or unrelated columns. Legacy rows without this adapter's
+provenance format require separate explicit adoption. Changed human-managed
+projection/summary values, stale ETags, conflicting source keys, revision forks,
+family changes and field-capacity overflow refuse a write candidate.
+
+Offline CLI:
+
+```sh
+.venv/bin/python -m scripts.source_assertion_persistence \
+  --input private/ops/INPUT.json \
+  --schema private/ops/RETAINED_SCHEMA.json \
+  --output private/ops/NEW_CANDIDATE.json
+```
+
+Input is `{snapshot, revision}`. Snapshot is null for creation or exact
+`{item_id, etag, fields}` for updates; fields contains only the nine mapped columns.
+Revision uses the existing relationship ledger's record/revision_id/supersedes/
+state/reason contract. Output is exclusive and private, with schema check outcomes
+and native_ready=false. `request(plan,current)` produces a bounded create/MERGE
+request only after exact preimage reconciliation; identical replay produces no
+write. `reconcile(plan,current)` classifies uncertain effects without authorizing
+resubmission. These are offline functions, not an exposed authenticated executor.
+
+Before a later authorized native application: qualify the exact register, versioning,
+complete unique SourceKey lookup, writable plain Note fields and unique indexed
+SourceKey, then bind the prepared request to the existing same-client one-send
+transport with durable intent and exact readback. No schema constraints are changed
+implicitly. Unknown retained-schema properties remain unverified. A fresh candidate
+or schema/preimage change invalidates prior native assumptions. Recovery is an
+explicit compensating revision; never erase history or silently adopt another
+producer's row.
+
+Local evidence: five focused tests passed; fictional Dataset and Software candidate
+packets were generated against the retained schema (10 pass, 7 unverified property
+checks). Private receipt: `private/ops/local-first-outcomes/datacite-persistence-local/`.
+No live authentication, tenant read/write, refresh check or monitoring occurred.
+Native executor binding/application is deliberately deferred while the refresh may
+consume existing source assertions; local preparation is not native completion.
