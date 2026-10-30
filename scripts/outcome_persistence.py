@@ -177,6 +177,7 @@ def main(argv=None):
     parser.add_argument('--human-edits')
     parser.add_argument('--context')
     parser.add_argument('--field-name')
+    parser.add_argument('--project-id', action='append')
     parser.add_argument('--expected-sha256')
     parser.add_argument('--output', required=True)
     args = parser.parse_args(argv)
@@ -190,6 +191,7 @@ def main(argv=None):
                          human_edits=read(args.human_edits) if args.human_edits else None)
     elif args.action == 'project':
         result = reporting_tables(snapshot['journal'], read(args.references), **read(args.context))
+        if args.project_id: result = project_slice(result, args.project_id)
     else:
         result = schema_plan(snapshot, expected_sha256=args.expected_sha256, field_name=args.field_name or '')
     root = Path(__file__).resolve().parents[1]
@@ -203,5 +205,30 @@ def main(argv=None):
     print('PASS_LOCAL_ONLY; native acceptance not evaluated')
 
 
-if __name__ == '__main__':
-    main()
+
+
+def project_slice(tables, project_ids):
+    """Filter validated fact/bridge projections without fan-out or pooled effects."""
+    if not isinstance(project_ids, list) or not project_ids or any(not isinstance(p, str) or not p for p in project_ids) or len(set(project_ids)) != len(project_ids):
+        raise ValueError('Distinct explicit project IDs required')
+    result = copy.deepcopy(tables)
+    selected = set(project_ids)
+    event_links = [r for r in tables['EventProject'] if r['project_id'] in selected]
+    observation_links = [r for r in tables['ObservationProject'] if r['project_id'] in selected]
+    events = {r['event_id'] for r in event_links}
+    observations = {r['observation_id'] for r in observation_links}
+    result['TranslationEvent'] = [r for r in tables['TranslationEvent'] if r['event_id'] in events]
+    result['OutcomeObservation'] = [r for r in tables['OutcomeObservation'] if r['observation_id'] in observations]
+    result['EventProject'] = event_links
+    result['ObservationProject'] = observation_links
+    # Details can include withdrawn records: do not infer their scope from the
+    # eligible-only bridges or expose unscoped details in a project-filtered view.
+    result['OutcomeEvidenceDetail'] = [r for r in tables['OutcomeEvidenceDetail']
+        if (r['kind'] == 'TranslationEvent' and r['id'] in events)
+        or (r['kind'] == 'OutcomeObservation' and r['id'] in observations)]
+    result['project_filter'] = sorted(project_ids)
+    result['detail_scope'] = 'eligible-linked identities only; unscoped withdrawal audit remains separate'
+    return result
+
+
+if __name__ == '__main__': main()

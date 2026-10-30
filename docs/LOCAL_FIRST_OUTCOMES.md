@@ -97,3 +97,7 @@ route. `deploy_measures.py` now prepares its legacy measure text locally and doe
 not drive a browser editor. A supported same-client native executor remains
 blocked on exact target/client/entitlement and no-retry transport qualification;
 none of these entrypoints submits a request or reads a token file.
+
+Project-scoped CLI projections now accept repeated `--project-id` values. They filter facts through distinct bridge keys without multiplying records. This does not implement native Power BI filter propagation. Project detail is limited to eligible-linked identities; the complete withdrawal audit remains a separately scoped view.
+
+The retained completion-owner binding was inspected without authentication changes: it pins SharePoint, Graph and ARM resources, not the Fabric/Power BI definition resource. Its absence of an active lock does not transfer ownership or qualify a new resource. Native definition-write qualification remains unresolved; do not broaden this binding.

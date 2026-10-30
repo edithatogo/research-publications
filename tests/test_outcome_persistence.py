@@ -87,3 +87,17 @@ class SchemaTests(unittest.TestCase):
         capture['fields'][0]['RichText'] = True
         with self.assertRaises(ValueError): schema_plan(capture, expected_sha256=digest(capture), field_name='OutcomeJournal')
         with self.assertRaises(ValueError): schema_plan(capture, expected_sha256='stale', field_name='OutcomeJournal')
+
+
+class ProjectSliceTests(unittest.TestCase):
+    def test_multiple_project_links_do_not_multiply_facts(self):
+        from scripts.outcome_persistence import project_slice
+        t = Transport()
+        for record in (event(), observation()): apply_once(prepare(t.read(1), encode(record), references()), t)
+        tables = reporting_tables(t.snapshot['journal'], references(), cutoff_utc='2026-03-01T00:00:00Z', source_snapshot='FIC-SOURCE', model_revision='FIC-MODEL', report_revision='FIC-REPORT')
+        both = project_slice(tables, ['FIC-P1', 'FIC-P2'])
+        self.assertEqual(len(both['TranslationEvent']), 1)
+        second = project_slice(tables, ['FIC-P2'])
+        self.assertEqual(second['OutcomeObservation'], [])
+        self.assertFalse(any(d['kind'] == 'OutcomeObservation' for d in second['OutcomeEvidenceDetail']))
+        self.assertNotIn('project_filter', tables)
