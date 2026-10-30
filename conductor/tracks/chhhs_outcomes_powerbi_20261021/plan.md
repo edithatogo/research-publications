@@ -19,12 +19,12 @@ Status is based on retained receipts; this cleanup makes no native calls.
 | Outcome storage | Existing RIMS Outcome Evidence register, conditional paired journal/projection intake, revision protection and fictional save/readback implemented. | Broader real-evidence intake and business review; no new register needed. |
 | Grant relationships | Existing Grant Relationships register reused; history field, typed CLI adapter and fictional native create/readback implemented. | Optional explicit adoption of legacy rows. Native corrections/replay/recovery have local coverage only. |
 | Project/output relationships | Publication/award/dataset/software contracts, revisions and paired native storage implemented. Fictional project/publication saved and read back. | Other output types have local coverage only; no additional native cases are automatically selected. |
-| DataCite source assertions | Offline Dataset/Software mapping, provenance/history, request planning and reconciliation implemented; two fictional candidates prepared against existing fields. | Guarded CLI executor wired locally; native qualification/application/readback deferred. Seven retained-schema properties remain unverified; no columns or list creation selected. |
+| DataCite source assertions | Guarded CLI persistence implemented; fictional Dataset candidate created once in the existing register and all nine fields read back exactly. Fresh schema: 17 pass, zero fail/unverified. | Software and correction/withdrawal/replay/recovery cases retain local coverage only. No canonical admission or real-data approval claimed; refresh is not a persistence blocker. |
 | Real-data intake | 442 project and 2,217 award proposals; 442 unresolved PI role assertions; explicit unmatched and duplicate accounting implemented. | Verified person identities/periods, duplicate-project resolution, explicit project–award crosswalks and qualified award currency/date semantics. Zero links proposed from the inspected source; no name/title inference. |
 | Model/report | Outcome and project/output bindings, facts/bridges, project selector, counts and evidence pages saved to the existing model/report with preservation readback. | Runtime data verification and manual visual/accessibility acceptance. Existing definitions do not need redeployment merely for validation. |
 | Study archive lookup | Mixed escaped/literal path correction saved; exact candidate readback and 69 unrelated parts preserved. | Successful refresh/data evidence, not another source patch absent a new error. |
 | Flow orchestration | Frozen manual-flow builder and paired-field preparation implemented locally; direct CLI persistence already operates. | Native flow deployment/qualification only if the flow-mediated route is selected. No unattended ingestion service is claimed or selected. |
-| Integration | Scoped source and evidence updates are on draft PR90; prior focused checks retained. | Required integration gates, merge and qualified CareOps pin promotion remain with the integrators. |
+| Integration | PR90 merged as `705e0f3e`; three hosted checks passed and prior focused checks were reused. | Qualified CareOps pin promotion remains with its integrator. |
 
 ### Verification state and next action
 
@@ -36,9 +36,10 @@ Status is based on retained receipts; this cleanup makes no native calls.
 - Next runtime action, only when requested: check that exact refresh once. If it
   succeeded, verify study evidence and project/output data with bounded queries.
   No polling, resubmission, new refresh or schedule is implied.
-- Native DataCite writes remain deferred while the current refresh may consume
-  source assertions. Future execution must qualify the existing schema and preserve
-  current records; source proposal preparation is complete.
+- DataCite fictional Dataset persistence is accepted for one create/readback.
+  Inspection of all 70 retained model-definition parts found no reference to its
+  register or projection field; the earlier refresh dependency was unsupported
+  and is removed. Refresh/runtime verification remains a separate model task.
 - Manual acceptance is limited to changed report pages. Local checks and saved
   definitions do not prove rendering, business truth or refreshed data.
 
@@ -50,7 +51,8 @@ Detailed dated receipts follow below. Private evidence is under
 `study-folder-fix/`, `datacite-persistence-local/` and `real-intake/`.
 Current source owner: chat `01a188d4-a0fc-79e2-83d3-39eb38459056`, isolated checkout
 `/Users/doughnut/.codex/worktrees/rims-assurance-integration/chhhs-research-publications`,
-branch `codex/rims-local-outcomes`. This lane does not own shared main or CareOps
+branch `codex/rims-datacite-native-record` for this documentation follow-up
+(previous implementation branch: `codex/rims-local-outcomes`). This lane does not own shared main or CareOps
 pins. Preserve other chats' files, authentication and native operations.
 
 ## Historical plans and dated evidence
@@ -337,29 +339,29 @@ in the sibling `refresh-check-once/` directory.
   records this result. Runtime confirmation remains deferred until an explicitly
   authorized future refresh; no further action is scheduled.
 
-## DataCite source-assertion adapter — local increment
+## DataCite source-assertion persistence — native result
 
-- **Implemented locally:** existing-register field mapping, stable source lineage,
-  immutable provenance, current/withdrawn projection, conditional request planning,
-  replay and uncertain-effect reconciliation. Reuses relationship revision guards.
-  Dataset/Software candidates remain unreviewed; no canonical or grant admission.
-- **Preserved:** existing list/column identities; Title and OperatorNotes excluded
-  from updates; legacy/other-producer rows require explicit adoption. No tenant
-  operations or changes to data the running refresh may consume.
-- **Necessary checks:** five focused cases passed after implementation; both
-  fictional CLI candidates prepared successfully. Retained schema has 10 passed
-  property checks and 7 unverified checks, zero failed; native_ready remains false.
-- **Finish line met for local preparation:** reproducible offline candidates and
-  precise native prerequisites in `docs/LOCAL_FIRST_OUTCOMES.md`. Evidence under
-  `private/ops/local-first-outcomes/datacite-persistence-local/`.
-- **Implemented locally:** guarded `source-assertion-store` executor using the retained
-  client and lock, fresh schema/identity/ETag checks, durable send intent and one
-  postimage reconciliation without resend. Five fake-transport tests and five
-  domain tests pass; no authenticated invocation occurred.
-- **Deferred:** native qualification and application/readback.
-  Next native action requires an authorized continuation after the refresh conflict
-  is cleared, with fresh exact schema/identity/preimage qualification. No automatic
-  refresh check, deployment, migration or monitoring is selected.
+- **Implemented:** Dataset/Software mapping, immutable provenance, revision guards,
+  conditional request planning and guarded same-client executor. Prior five domain
+  and five fake-transport tests are reused; no new test run was needed.
+- **Native qualification:** exact existing register identity/versioning and all 17
+  schema properties passed; zero failed or unverified. The candidate key was absent.
+- **Applied once:** one fictional Dataset row created; all nine mapped fields match
+  the prepared candidate exactly on readback. Existing records were not updated.
+  The candidate remains unreviewed with canonical/native admission false.
+- **Evidence:** private `datacite-persistence-local/native-dataset-once/` retains
+  metadata, schema, preimage, durable send intent, postimage and result. Native
+  identifiers remain private. No schema migration or new register was required.
+- **Obsolete blocker removed:** all 70 retained saved model-definition parts were
+  inspected; none references this register, projection field or candidate-key
+  namespace. The refresh was not an established persistence dependency. Diagnosis
+  is retained in `study-folder-fix/manual-verification/dependency-diagnosis-once/`.
+- **Scope limits:** Software, updates, withdrawal, replay and recovery have local
+  coverage only. This create/readback does not establish those native cases or
+  substantive business approval. No additional native case is automatically selected.
+- **Finish line:** selected fictional Dataset create/readback complete. Next action
+  is documentation integration; model refresh/runtime verification remains separate.
+  No refresh monitoring, resubmission, schedules or new runs were performed.
 
 ## Real-data intake mapping — 30 October 2026
 
