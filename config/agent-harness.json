@@ -103,7 +103,8 @@
         "test_publication_outcome_measures.py",
         "test_prepare_source_relationship_report.py",
         "test_definition_packet.py",
-        "test_outcome_reader.py"
+        "test_outcome_reader.py",
+        "test_funding_capacity_reader.py"
       ]
     }
   }

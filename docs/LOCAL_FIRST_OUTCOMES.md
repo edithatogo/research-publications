@@ -123,3 +123,9 @@ by currency. It requires explicitly mapped complete inputs; existing ARC text
 amounts are not silently parsed or promoted to institutional funding. Unknown
 periods/lead evidence are counted, and FTE/training/application success remain
 unavailable. Funding/capacity model tables and report pages remain unfinished.
+
+`python -m scripts.prepare_funding_capacity_reader --help` prepares additive
+funding/capacity tables and a 1920×1080 detail page against a reviewed existing
+FundingCapacityProjection expression. It preserves existing report parts and
+keeps award currency/start cohorts separate. This implements local detail-page
+preparation, not charts, drillthrough or native source binding/acceptance.
