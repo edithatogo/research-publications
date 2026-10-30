@@ -465,3 +465,36 @@ conflicting revisions and incomplete inventories. Native scope is the single
 fictional create/readback only; other kinds and correction/replay/recovery have
 local evidence only. No model/report deployment, refresh, flow invocation,
 monitoring or scheduled run was performed.
+
+### Project/output semantic model and report candidate — 30 October 2026
+
+`scripts/prepare_project_link_reader.py` adds a ProjectLinkProjection expression
+using the accepted SharePoint.Tables source route and the exact persisted item.
+ProjectOutputLink retains all current dispositions and evidence identities;
+ProjectOutputBridge imports only the persisted reviewed bridges and deduplicates
+project/kind/output triples. ProjectLinkProject filters both through explicit
+single-direction model relationships. The new report page contains a project
+selector, reviewed-link count, reviewed links and current evidence audit. Existing
+model tables, report pages, default active page and binding identities are preserved.
+No filtering of other existing report pages is implied by the new selector.
+
+Prepare through `.venv/bin/python -m scripts.prepare_project_link_reader --model
+MODEL --report REPORT --target TARGET --model-sha256 HASH --report-sha256 HASH
+--output PRIVATE_CANDIDATE` (one command). Use the existing definition packet and
+same-client one-send deployment route. Fresh complete preimages, semantic part
+deltas and API-compatible recovery packets are retained privately under
+`private/ops/local-first-outcomes/project-link-report/`. Reconcile any intervening
+definition change before reusing the candidate; never overwrite a newer preimage.
+
+**Native blocker:** the single model update reached terminal Failed with
+`Dataset_Import_FailedToImportDataset`: “Can't deploy as target because model is
+refreshing”. Complete definition readback confirmed every preimage part remained
+byte-identical. The dependent report update was not submitted. No refresh status
+was inspected, no refresh was cancelled/resubmitted, and no monitoring or scheduled
+work was started. Resume only on a new authorized continuation when the model is
+available; capture/reconcile fresh definitions first. Saved definitions, refreshed
+runtime data and manual visual acceptance remain separate claims.
+
+The focused additive-builder check passed after implementation, covering preserved
+parts and identities, exact target binding, current-review bridge source, model
+column construction and collision refusal. Existing persistence tests were reused.

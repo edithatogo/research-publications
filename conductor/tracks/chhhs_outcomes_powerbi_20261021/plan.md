@@ -257,3 +257,21 @@ remain separate scope. No test suite, monitoring, schedule, refresh or flow run.
   and its schema/intake/preservation receipts. Four focused tests passed after
   implementation. No broad suite, packaging, monitoring, schedule, refresh or flow
   run; no solution contents changed.
+
+## Project/output model/report connection — 30 October 2026
+
+- **Implemented locally:** exact persisted projection source binding, three model
+  tables, project filtering relationships, reviewed-link measure and additive
+  project/output report page. All unrelated model/report parts are preserved in
+  candidates. Focused additive-builder check passed after implementation.
+- **Blocked natively:** one model save failed because the target model is
+  refreshing. Complete model readback is byte-identical to the captured preimage;
+  report save was not sent. Existing records/definitions remain unchanged.
+- **Finish line:** saved model binding/tables and report page match the reviewed
+  candidate; refreshed data and manual visual acceptance remain separate.
+- **Next action:** on an authorized continuation after model availability changes,
+  reconcile fresh definitions and apply the model then dependent report once.
+  Do not inspect/cancel/restart the existing refresh or arrange monitoring.
+- Exact candidates, recovery packets, failed-operation terminal receipt and model
+  readback: `private/ops/local-first-outcomes/project-link-report/`. No source data
+  writes, model refresh, flow run, schedule change or monitoring occurred.
