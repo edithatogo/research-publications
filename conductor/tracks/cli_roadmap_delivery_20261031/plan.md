@@ -1,7 +1,9 @@
 # Sequenced CLI delivery plan
 
-**Status: planned, not started; execution not authorised.** All boxes below are
-future work. The current essential closeout remains accepted. Existing G06,
+**Status: slices 1 and 2 authorised, in progress; slices 3–6 remain deferred.**
+Unchecked boxes are not accepted outcomes. The user authorises isolated/offline
+work before 1 November, preserving the working publication path and its existing
+scheduled verification. The current essential closeout remains accepted. Existing G06,
 E02/E03/E05, E04/T18, E09 and recovery tracks retain their detailed requirements;
 this plan orders their usable CLI slices rather than duplicating their backlog.
 
@@ -35,10 +37,12 @@ The plan itself needs one Conductor structure/link check, no feature tests.
 
 ## 0. Entry gate and reuse, not a new discovery phase
 
-- [ ] Consume the existing 1 November 07:50 scheduled-verification result. If it
-  fails, preserve the baseline and resolve that concrete incident before native
-  promotion; do not run a manual substitute or start roadmap work as a repair.
-- [ ] On later execution authorisation, select only the first bounded slice and
+- [ ] Before promoting changes into the working publication path, consume the
+  existing 1 November 07:50 scheduled-verification result. Isolated/offline work
+  for authorised slices 1 and 2 may proceed before then. If verification fails,
+  preserve the baseline and resolve that concrete incident before promotion;
+  do not run a manual substitute or use roadmap work as an unreviewed repair.
+- [ ] Execute only the authorised first bounded slice, then slice 2, and
   freeze its input hashes, key sets, target preimage and inverse in existing
   private receipts. Confirm ownership and no in-flight operation. Reuse source
   tests, installed versions and native reads already accepted for these inputs.
@@ -200,7 +204,7 @@ building an empty reporting system or manufacturing metrics.
   item complete only for its evidenced scope. No repeat of the current essential
   closeout or the scheduled-occurrence checks.
 
-**Recommended first authorisation:** step 1 for one retained source/consumer,
+**Current authorisation:** step 1 for one retained source/consumer,
 followed by step 2 for one identifier-backed relationship export. Steps 3–6 are
 conditional selections, not automatic commitments, and have no implementation
 dates until their inputs and operation-specific capabilities are known.

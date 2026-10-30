@@ -1,11 +1,24 @@
 {
   "id": "cli_roadmap_delivery_20261031",
   "type": "feature",
-  "status": "planned",
+  "status": "in_progress",
   "created_on": "2026-10-31",
   "updated_on": "2026-10-31",
-  "planning_status": "ready_for_review",
-  "execution_authorized": false,
-  "depends_on": ["publication_monthly_monitoring_20261024"],
-  "scope": "Sequenced CLI-first deferred roadmap; planning and documentation only"
+  "planning_status": "integrated_PR96",
+  "execution_authorized": true,
+  "depends_on": [],
+  "scope": "Execute isolated retained-archive consumer adoption, then identifier-backed relationship evidence; remaining slices deferred",
+  "authorized_slices": [
+    1,
+    2
+  ],
+  "deferred_slices": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "promotion_depends_on": [
+    "publication_monthly_monitoring_20261024"
+  ]
 }

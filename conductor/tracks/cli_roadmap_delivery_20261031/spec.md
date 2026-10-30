@@ -1,6 +1,21 @@
 # Specification: CLI-first deferred roadmap
 
-## Authority and finish line
+## Current bounded execution authority — 31 October 2026
+
+The user now authorises **only slice 1 (retained archive consumer adoption), then
+slice 2 (identifier-backed relationship evidence)** using existing CLI routes and
+captures. This supersedes the planning-only instruction below for those two
+slices only. Slices 3–6 remain deferred and require later selection.
+
+Isolated consumer/exports and offline work may proceed before 1 November. Keep
+the accepted 1,344-record working publication generation, exporter, monitor and
+existing scheduled verification intact; no disruptive working-path promotion
+before the natural occurrence is reconciled. Shared Conductor/main integration
+remains with the integrator; the completion owner writes bounded scripts/tests
+and private/native receipts. One focused test plus one consolidated verification
+per slice remains the execution cadence, reusing unchanged evidence.
+
+## Original planning authority and finish line — history
 
 The user requested a plan, efficient sequencing, anticipated blockers, a
 one-test/one-verify cadence, and incorporation into Conductor on 31 October 2026.

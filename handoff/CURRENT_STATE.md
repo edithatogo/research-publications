@@ -1,3 +1,26 @@
+## First two roadmap slices authorised — 31 October 2026
+
+The user now authorises [CLI roadmap slices 1 and 2](../conductor/tracks/cli_roadmap_delivery_20261031/plan.md):
+isolated retained-archive consumer adoption, then real identifier-backed
+relationship evidence, using existing captures/CLI routes. Slices 3–6 remain
+deferred. This supersedes the earlier planning-only restriction for these two
+slices only. Unchecked tasks are not accepted implementation/native outcomes.
+
+Completion owner `01a1876d-55fc-7e42-b806-18589a94e6fa` owns bounded scripts/tests,
+isolated outputs and private/native receipts in the completion checkout, branch
+`codex/retained-consumer-20261031`. Integrator
+`01a1874d-b9d7-7e61-b198-943e93ee28ad` retains shared Conductor/handoff/main in
+standard clone `/Users/doughnut/.codex/worktrees/rims-source-recovery-20261030`,
+branch `codex/rims-first-slices-authority-20261031`. No integrator native/auth work.
+Other checkout/native/authentication owners and private journals remain intact.
+
+Isolated consumer/exports and offline work may proceed before 1 November; no
+working-publication-path promotion that disrupts the accepted 1,344-record
+baseline or natural scheduled verification. Exporter 07:00 monthly, monitor
+07:45 daily and existing 1 November 07:50 Brisbane verification remain unchanged,
+including the noon deadline. Each bounded slice uses one focused test and one
+consolidated verification episode; reuse unchanged acceptance and rollback proof.
+
 ## Deferred roadmap plan — 31 October 2026
 
 The user requested an efficient CLI-only plan, blocker anticipation and one

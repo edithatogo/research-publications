@@ -1,6 +1,7 @@
 # CLI roadmap delivery
 
-**Planning only. Execution is not authorised.** The accepted essential system and
+**Only slices 1 and 2 are authorised for bounded execution; remaining slices are
+deferred.** Isolated/offline work may precede 1 November. The accepted essential system and
 its existing 1 November 07:50 Brisbane verification remain unchanged.
 
 - [Specification](spec.md)
