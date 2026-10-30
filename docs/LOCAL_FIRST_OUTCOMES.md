@@ -108,3 +108,11 @@ identity. The reader candidate includes an individual-observation table and a
 single-observation estimate measure; multiple selected observations produce no
 pooled estimate. This is not the remaining quantitative chart or drillthrough
 implementation and has not been verified in the native model.
+
+A bounded read of the retained exact personal-workspace report through the
+previously successful Azure CLI Power BI resource route returned AADSTS70043
+on 30 October. This is an expired/invalid refresh-token authentication result,
+not proof of a permission or non-premium licensing failure. Shared authentication
+was not renewed or switched. The existing authentication owner must complete
+supported interactive renewal before this route can supply fresh target evidence.
+The retained owner binding for other resources remains unchanged.

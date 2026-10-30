@@ -18,6 +18,8 @@ class OutcomeReaderTests(unittest.TestCase):
             source_expression_sha256=hashlib.sha256(self.expression.encode()).hexdigest(), card_template_path='card.json', table_template_path='table.json')
     def test_additive_candidate_preserves_parts_and_existing_page(self):
         result = self.build(); mp, rp = parts(result['model']), parts(result['report'])
+        page = json.loads(rp['definition/pages/OutcomeEvidence/page.json'])
+        self.assertEqual((page['width'], page['height']), (1920, 1080))
         self.assertEqual(mp['unknown.txt'], b'preserved'); self.assertEqual(rp['definition.pbir'], b'retained binding')
         self.assertEqual(json.loads(rp['definition/pages/pages.json'])['pageOrder'], ['Existing','OutcomeEvidence'])
         self.assertTrue(all('definition/tables/'+name+'.tmdl' in mp for name in TABLES))

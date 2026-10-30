@@ -81,12 +81,12 @@ def prepare(model, report, *, model_sha256, report_sha256, source_expression_sha
     card, table = (json.loads(report_parts[p]) for p in (card_template_path, table_template_path))
     if card['visual']['visualType'] != 'cardVisual' or table['visual']['visualType'] != 'tableEx':
         raise ValueError('Accepted card/table visual templates required')
-    emit(result_report, page_prefix+'page.json', json.dumps({'name': page_id, 'displayName': 'Translation and outcome evidence', 'width': 1280, 'height': 720, 'displayOption': 'FitToPage'}))
+    emit(result_report, page_prefix+'page.json', json.dumps({'name': page_id, 'displayName': 'Translation and outcome evidence', 'width': 1920, 'height': 1080, 'displayOption': 'FitToPage'}))
     for ordinal, (name, template, roles, rect) in enumerate([
-        ('events', card, {'Data': [projection('TranslationEvent', 'Eligible records', measure=True)]}, (16,16,600,120)),
-        ('observations', card, {'Data': [projection('OutcomeObservation', 'Eligible records', measure=True)]}, (640,16,600,120)),
-        ('evidence', table, {'Values': [projection('OutcomeEvidenceDetail', field) for field in ('kind','id','revision_id','verification_status','eligible','source_sha256')]}, (16,160,1224,240)),
-        ('observation-values', table, {'Values': [projection('OutcomeObservation', field) for field in ('observation_id','indicator_id','indicator_version','unit','population_id','estimate','numerator','denominator')]}, (16,416,1224,280)),
+        ('events', card, {'Data': [projection('TranslationEvent', 'Eligible records', measure=True)]}, (24,24,900,180)),
+        ('observations', card, {'Data': [projection('OutcomeObservation', 'Eligible records', measure=True)]}, (960,24,900,180)),
+        ('evidence', table, {'Values': [projection('OutcomeEvidenceDetail', field) for field in ('kind','id','revision_id','verification_status','eligible','source_sha256')]}, (24,240,1836,360)),
+        ('observation-values', table, {'Values': [projection('OutcomeObservation', field) for field in ('observation_id','indicator_id','indicator_version','unit','population_id','estimate','numerator','denominator')]}, (24,624,1836,420)),
     ]):
         visual = copy.deepcopy(template); visual['name'] = name
         visual['position'] = dict(zip(('x','y','width','height'), rect), z=ordinal, tabOrder=ordinal)
