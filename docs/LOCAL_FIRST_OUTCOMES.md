@@ -178,3 +178,10 @@ inventories. Candidate/withdrawn links stay in evidence records but not reportin
 bridges; reviewed links are deduplicated at project/output grain. Review assertions
 are caller-supplied, not certified by the tool. Native storage and source-specific
 identity/admission qualification remain required.
+
+User-assisted Azure CLI renewal subsequently completed successfully. Exact report
+and bound-model reads pass with unchanged account, tenant and selection. The
+model reports PremiumFiles storage; this is metadata, not a licensing verdict
+or proof that a non-premium definition-write route is available. No write,
+refresh or settings change was performed. Authentication expiry is resolved;
+operation-specific authoring/entitlement qualification remains open.
