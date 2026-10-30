@@ -116,3 +116,10 @@ not proof of a permission or non-premium licensing failure. Shared authenticatio
 was not renewed or switched. The existing authentication owner must complete
 supported interactive renewal before this route can supply fresh target evidence.
 The retained owner binding for other resources remains unchanged.
+
+The funding/capacity CLI projection now implements C01 active/known-led project
+counts, C02 distinct evidenced participants and F01 award-start cohorts separated
+by currency. It requires explicitly mapped complete inputs; existing ARC text
+amounts are not silently parsed or promoted to institutional funding. Unknown
+periods/lead evidence are counted, and FTE/training/application success remain
+unavailable. Funding/capacity model tables and report pages remain unfinished.

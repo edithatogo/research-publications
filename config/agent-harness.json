@@ -90,7 +90,8 @@
       "test_patterns": [
         "test_outcome_persistence.py",
         "test_prepare_source_relationship_model.py",
-        "test_prepare_source_relationship_export.py"
+        "test_prepare_source_relationship_export.py",
+        "test_funding_capacity.py"
       ]
     },
     "reader": {
