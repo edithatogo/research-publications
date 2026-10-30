@@ -7,6 +7,29 @@ scheduled verification. The current essential closeout remains accepted. Existin
 E02/E03/E05, E04/T18, E09 and recovery tracks retain their detailed requirements;
 this plan orders their usable CLI slices rather than duplicating their backlog.
 
+## Selected isolated outputs — 31 October 2026
+
+The selected scope for slices 1 and 2 is the isolated CLI consumer and stored
+cloud evidence described in [the adoption packet](../../../docs/RETAINED_CONSUMER_ADOPTION_20261031.md).
+Terminal cloud verification is accepted; both artifacts were created once and
+full downloaded-byte hashes matched. Exact receipts and hashes are in the
+[current handoff](../../../handoff/CURRENT_STATE.md). Source owner reports one focused
+consumer test invocation (2 tests) and relationship tests (2 tests), rerun only
+after the actual retained DOI defect exposed an unnecessary dependency.
+
+- [x] Selected slice 1: isolated complete PubMed CLI consumer and cloud artifact.
+- [x] Selected slice 2: isolated PMID grant-reference evidence and cloud artifact.
+
+The consumer retains 1,277 publications, complete metadata and 11,731 author
+evidence rows from accepted raw23. The PMID-only relationship export retains
+169 candidate GrantList edges mapped to 67 of the unchanged 1,344 canonical
+publications. No confirmed award relationship or canonical admission follows.
+The malformed unrelated DOI literal is preserved; the full canonical digest is
+retained. Native Power BI reader/model adoption is still unqualified and not
+marked complete; working-path promotion still requires the 1 November result.
+Remaining detailed boxes below describe broader exits, not failed isolated work.
+Slices 3–6 remain deferred.
+
 ## Execution contract: one test, one verify
 
 For each selected slice, agree one output, exact inputs/target, rollback and

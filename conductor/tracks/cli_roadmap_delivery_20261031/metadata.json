@@ -20,5 +20,11 @@
   ],
   "promotion_depends_on": [
     "publication_monthly_monitoring_20261024"
-  ]
+  ],
+  "selected_isolated_outputs": {
+    "slice_1": "accepted_cli_consumer_and_cloud_output",
+    "slice_2": "accepted_identifier_reference_and_cloud_output"
+  },
+  "native_powerbi_reader_adoption": false,
+  "native_typed_relationship_model_adoption": false
 }
