@@ -403,3 +403,15 @@ The exact candidate and receipt are retained under
 explicit resumption of the same pinned target after throttling clears, then the
 single fictional create/readback. No polling, scheduled run, refresh or flow run
 is part of this increment. Native correction/replay/recovery are not claimed.
+
+**Native continuation accepted — 30 October 2026:** after the user completed the
+retained Toolkit renewal, the additive history field and fictional candidate were
+each applied once to the existing Grant Relationships register. Exact schema and
+candidate readback passed. Both pre-existing records retained all prior fields,
+GUIDs, ETags and timestamps; only the response-generated `odata.id` annotation
+varied. Three rows are now present. The previous native blocker is resolved for
+this create/readback scope. Private receipts are in `relationship-persistence/`
+(`acceptance.json`, `schema-authenticated-once/`, `candidate-authenticated-once/`).
+No tests were rerun, and no monitoring, scheduled runs, refreshes, replay or
+recovery drills occurred. This does not admit real relationships or qualify the
+separate project/output and source-assertion families.

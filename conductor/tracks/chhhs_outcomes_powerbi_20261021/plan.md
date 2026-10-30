@@ -219,3 +219,21 @@ unimplemented and no earlier refresh or scheduled activity was inspected.
   case alone was run after sanitizing transport errors. No broad suite or package
   run: no solution contents changed. Source evidence remains private alongside
   the candidate; native persistence remains blocked, not accepted.
+
+### Native relationship persistence accepted within fictional scope — 30 October 2026
+
+The user-authorized continuation supersedes the HTTP429/authentication blocker
+above. Retained Toolkit renewal completed; the existing Grant Relationships list
+received the optional RelationshipHistory field once and the prepared fictional
+candidate once. Both operations returned exact native readback acceptance. The
+register now contains three rows. The two pre-existing candidate award records
+retain every previous field value, GUID, item identity, ETag and timestamp.
+Only the response-generated `odata.id` annotation was excluded from comparison;
+raw before/after responses remain private.
+
+Evidence: `private/ops/local-first-outcomes/relationship-persistence/acceptance.json`,
+`schema-authenticated-once/`, `candidate-authenticated-once/`, and `rows-after.json`.
+Finish line met for the four-type adapter's fictional native create/readback.
+No further native action is required for this increment. Corrections, replay and
+recovery retain local coverage only; project/output and source-assertion storage
+remain separate scope. No test suite, monitoring, schedule, refresh or flow run.
