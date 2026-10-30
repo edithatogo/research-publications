@@ -421,3 +421,27 @@ This result supersedes the local-only deployment status above.
 - Finish line: deployment and saved-state readback complete. Runtime output parity,
   JSON input failure resolution and measured performance remain unverified. No
   new refresh, resubmission or monitoring occurred during deployment.
+
+## Study JSON format diagnosis and local fix — 31 October 2026
+
+- Retained register evidence has 171 rows: six direct ClinicalTrials.gov JSON
+  envelopes, 14 ClinicalTrials.gov rows pointing to one ZIP, and 151 ANZCTR rows
+  pointing to a different ZIP. The old StudyEvidence reader passed all archive
+  bytes to Json.Document. ZIP `PK` bytes explain the observed unexpected `P` at
+  position zero; this reproduces locally without a native read.
+- Local preparer `prepare_study_json_reader.py` qualifies the retained ZIP digest,
+  complete manifest/member hashes and all 14 NCT identities, then compiles a
+  pinned-member contract using the model's existing exact-byte retention pattern.
+  At runtime it must verify actual ZIP bytes and the register payload hash before
+  parsing the selected member. Direct JSON keeps its accepted reader and all
+  existing study identity/reference/output checks remain unchanged.
+- ANZCTR rows stay in the unchanged Study register; they are explicitly outside
+  this ClinicalTrials.gov publication-reference parser. No ANZCTR relationship
+  support or source deletion is claimed. Unknown namespaces/formats fail closed.
+- Candidate changes one model part, preserving the navigation fix and 69 other
+  parts. Private candidate/recovery/diagnosis: `study-folder-fix/json-format-local/`.
+- Three focused tests pass; retained ZIP qualification verifies 14 members. Runtime
+  parity and memory improvement remain unverified; the fix is not deployed.
+- Owner: existing assurance lane, branch `codex/rims-study-json-format-fix`.
+  Next action: integrate this source candidate, then reconcile current definition
+  before any separately selected deployment. No native calls or refreshes occurred.

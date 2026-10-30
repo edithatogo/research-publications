@@ -695,3 +695,30 @@ navigation change is not proof that either runtime error is resolved. Next work
 is diagnosis of retained JSON inputs and memory use; no new refresh is selected.
 Private preimage/recovery/send/readback evidence is in
 `private/ops/local-first-outcomes/study-folder-fix/archive-navigation-native/`.
+
+### Study JSON input correction — local only, 31 October 2026
+
+The retained archive inventory explains the JSON failure: 165 study rows reference
+ZIP files, whose `PK` header cannot be parsed as JSON. The existing expression
+assumed every register row was a ClinicalTrials.gov JSON envelope. Six rows match
+that assumption; 14 ClinicalTrials.gov rows reference a manifest-bound ZIP and
+151 ANZCTR rows reference a different-format package.
+
+The local `prepare_study_json_reader.py` candidate reuses the established model
+pattern of compiling independently qualified payloads and comparing every actual
+source byte before use. It verifies the ZIP, manifest, member hashes, source URL
+and NCT identity locally. Runtime reads the pinned archive once per query evaluation,
+requires exact archive equality and register/member hash equality, then returns the
+selected raw study in the existing envelope shape. New ZIP generations require
+explicit requalification; no stale pinned fallback is allowed. Direct JSON and
+existing identity/reference projection checks are preserved.
+
+ANZCTR remains fully present in the Study register but is not interpreted as
+ClinicalTrials.gov publication references. This exclusion is explicit; adding
+ANZCTR relationship extraction is separate work. Unknown sources and unqualified
+archives fail rather than silently supplying empty records. Candidate/recovery and
+171-row disposition stay private under `study-folder-fix/json-format-local/`.
+Three focused tests pass; 14 retained ZIP member identities/hashes qualify. All 69
+unrelated model parts and the deployed navigation optimization are preserved.
+No native calls, deployment, refresh or monitoring occurred. Native M evaluation,
+output parity and resolution of the separate memory failure remain unverified.
