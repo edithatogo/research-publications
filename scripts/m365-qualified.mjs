@@ -8,7 +8,7 @@ import {execFileSync} from 'node:child_process';
 const fail = message => { throw new Error(message); };
 process.umask(0o077); // SDK response files and receipts remain owner-readable only.
 let [mode, bindingPath, ...args] = process.argv.slice(2);
-if (!['read','renew','change-log-read','documentation-sync','ardc-archive-read','outcome-store','register-read','outcome-bootstrap'].includes(mode)) fail('MODE_UNAVAILABLE_BEFORE_AUTH: unsupported mode');
+if (!['read','renew','change-log-read','documentation-sync','ardc-archive-read','outcome-store','relationship-store','register-read','outcome-bootstrap'].includes(mode)) fail('MODE_UNAVAILABLE_BEFORE_AUTH: unsupported mode');
 if (!bindingPath) fail('Private binding required');
 const bindingFile = fs.realpathSync(bindingPath);
 // A reader may use the native owner's retained binding from an isolated source
@@ -21,6 +21,18 @@ const pkg = JSON.parse(fs.readFileSync(path.join(pin.sdkRoot,'package.json'),'ut
 if (pkg.name !== '@pnp/cli-microsoft365' || pkg.version !== pin.sdkVersion) fail('SDK changed; requalify before login');
 const {prepareRead}=await import('./m365_read_guard.mjs');
 const assertPrivate=file=>execFileSync('git',['check-ignore','-q',path.resolve(file)]);
+if(mode==='relationship-store'){
+  if(args.length!==3) fail('Private relationship target, plan and new receipt directory required');
+  for(const file of args) assertPrivate(file);
+  if(fs.existsSync(args[2])) fail('Never reuse a relationship send journal');
+  const {validateTarget}=await import('./relationship_store.mjs');
+  validateTarget(pin,JSON.parse(fs.readFileSync(args[0],'utf8')));
+  const plan=JSON.parse(fs.readFileSync(args[1],'utf8'));
+  if(plan.operation==='apply') execFileSync(path.resolve('.venv/bin/python'),['-m','scripts.relationship_intake','--validate-plan',args[1]]);
+  else if(plan.operation==='schema') {if(Object.keys(plan).join()!=='operation') fail('Exact schema operation required');}
+  else if(plan.operation==='read') {if(Object.keys(plan).sort().join('|')!=='item_id|key|operation') fail('Exact relationship read required');}
+  else fail('Unsupported relationship operation');
+}
 if(mode==='outcome-bootstrap'){
   if(args.length!==2) fail('Exact site and new private receipt directory required');
   assertPrivate(args[1]);if(fs.existsSync(args[1])) fail('Never reuse a bootstrap journal');
@@ -183,6 +195,9 @@ if(mode==='renew'){
   catch(e){save('failure.json',{message:e.message??String(e),at:new Date().toISOString()});throw e;}
 }else if(mode==='outcome-bootstrap'){
   const {runGuarded}=await import('./bootstrap_outcome_register.mjs');
+  await runGuarded({args,auth,request,pin});
+}else if(mode==='relationship-store'){
+  const {runGuarded}=await import('./relationship_store.mjs');
   await runGuarded({args,auth,request,pin});
 }else if(mode==='outcome-store'){
   const {runGuarded}=await import('./outcome_store.mjs');

@@ -353,3 +353,53 @@ Use `operation: "project-history"` with `history`, current `inventories` and
 explicitly; old evidence is not rewritten. Outputs remain private and exclusively
 created. This implements local revision-aware intake/projection, not native
 relationship storage or independent approval of caller-supplied review assertions.
+
+### Native typed relationship persistence — 30 October 2026
+
+The existing Grant Relationships register is the target for the four accepted
+G06 relationship types. The bounded native read found two existing candidate award
+links, versioning enabled, and a unique indexed RelationshipKey. Both existing
+records remain untouched. This lane owns only its additive RelationshipHistory
+field candidate and explicitly fictional qualification row, not those legacy rows.
+
+`scripts/relationship_intake.py` extends the existing immutable revision ledger.
+It prepares one typed item plus its full history atomically, preserves URL
+annotations and refuses human-edited projections, stale predecessors, history
+replacement and new confirmed admission. Corrections retain native item identity;
+withdrawal retains history and removes confirmed/reviewed projection status.
+Legacy rows without a ledger require explicit adoption and are refused by default.
+DataCite source assertions and project/output links retain their separate contracts;
+they are not silently admitted to the four-type grants register.
+
+CLI recipe (all arguments below are ignored private files/directories):
+
+1. Prepare `{"operation":"schema"}` and an exact existing target containing
+   `listUrl` and `title: "Grant Relationships"`. The schema operation adds only
+   the optional plain Note field RelationshipHistory; it does not create a list.
+2. Run `node scripts/m365-qualified.mjs relationship-store BINDING TARGET PLAN NEW_RECEIPTS`.
+3. Read a lineage with a plan containing `operation: "read"`, `item_id` (null for
+   initial key lookup), and its normalized `key`. Preserve the returned snapshot.
+4. Prepare input `{snapshot, revision}` with the existing ledger arguments using
+   `.venv/bin/python -m scripts.relationship_intake --input INPUT --output PLAN`.
+5. Apply with the same guarded command once. New items require the unique key to
+   be absent; updates require the exact preimage and ETag. Readback reconciles an
+   uncertain response without resending. Never reuse a receipt directory.
+6. Recovery is a reviewed compensating revision through the same conditional
+   route, using retained before/after evidence. Do not erase history or delete a
+   field containing records. An uncertain result requires exact read reconciliation
+   before any further write; no automatic recovery drill is performed.
+
+The wrapper retains the original client's authentication and lock, disables write
+retries/redirects, and validates the complete domain plan with repository Python
+3.15.1 before authentication. Only the bound typed fields and history are updated;
+Title and unrelated fields are preserved on update. Receipts become invalid for
+an unchanged-candidate claim when target identity, schema, preimage/ETag, domain
+plan or relevant source inputs change.
+
+**Native blocker:** the first adapter metadata GET returned HTTP429 before any
+mutation. No schema field or fictional row was created, and no retry was sent.
+The exact candidate and receipt are retained under
+`private/ops/local-first-outcomes/relationship-persistence/`. Next action is one
+explicit resumption of the same pinned target after throttling clears, then the
+single fictional create/readback. No polling, scheduled run, refresh or flow run
+is part of this increment. Native correction/replay/recovery are not claimed.

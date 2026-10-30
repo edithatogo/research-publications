@@ -193,3 +193,29 @@ checks pass. No refresh readback, monitoring, schedules or native run is selecte
 Result: six affected project-output link tests passed; Conductor structure check
 reported zero errors. Local implementation complete. Native persistence remains
 unimplemented and no earlier refresh or scheduled activity was inspected.
+
+## Native relationship persistence continuation — 30 October 2026
+
+- **Implemented locally:** typed Grant Relationships adapter and immutable ledger
+  planner, reusing G06 normalization and the retained same-client wrapper. Unique
+  create, exact ETag update, correction/withdrawal, human-edit refusal and uncertain
+  write reconciliation are supported. Legacy rows and other relationship families
+  are not automatically migrated or admitted.
+- **Blocked natively:** exact initial metadata GET returned HTTP429 before writes.
+  Existing register identity, two candidate rows, versioning and unique indexed key
+  were captured successfully through the retained read route. Additive optional
+  history field and one fictional create remain unapplied; no retry or monitoring.
+- **Finish line:** same existing list contains the planned fictional revision with
+  exact readback; both pre-existing candidate rows remain unchanged.
+- **Next action:** resume the preserved schema candidate once throttling clears,
+  then apply/read back the single fictional item. Preserve the private original
+  read, schema-once result, candidate input and plan under
+  `private/ops/local-first-outcomes/relationship-persistence/`.
+- No model refresh, report change, flow invocation, scheduled run, notification or
+  legacy-row adoption. Broader project/output and source-assertion native mappings
+  remain separate work; the four-type grants adapter does not close those features.
+- Required checks after implementation: four focused Python cases and five Node
+  transport cases passed; Conductor structure has zero errors. The added throttle
+  case alone was run after sanitizing transport errors. No broad suite or package
+  run: no solution contents changed. Source evidence remains private alongside
+  the candidate; native persistence remains blocked, not accepted.
