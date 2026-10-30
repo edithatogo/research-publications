@@ -36,19 +36,36 @@ in this lane, so its target-bound migration is blocked pending that evidence.
 
 ## Apply once, read back, recover
 
-The adapter's owner-supplied transport has `read(item_id)` and
-`compare_and_set(item_id, etag, journal)`. Reads return the logical snapshot
-`item_id`, `etag`, `journal`; updates touch only the privately bound journal field.
-The transport MUST use SharePoint server-enforced `If-Match`, not a pre-read-only
-comparison; disable mutation retries and redirects. The local transport fixture
-is not qualification of a native transport.
+`scripts/outcome_intake.py` accepts a manifest of exact record files, reference
+snapshot and reporting context. It validates the whole batch through the existing
+revision rules, then prepares one paired-field update. `--apply` submits it through
+`m365-qualified.mjs outcome-store`; without that flag it reads and prepares only.
+The retained binding must already pin the exact list and include `outcomeTarget`
+with `listUrl`, `itemId`, `journalField` and `projectionField`. This code does not
+select a different client, renew login, provision a list or edit a binding.
 
-`prepare` validates the complete history and generates a before/after hash and
-conditional update. `apply_once` reads the current state, rejects drift, sends at
-most once, and reconciles a lost response by readback. Unknown results stay
-unknown; they never trigger another write. A retained preimage can be restored
-only against the actual postimage's ETag after confirming no later human edit.
-Never overwrite intervening revisions to make rollback convenient.
+`outcome_store.mjs` reads the current schema and item, requires two writable plain
+Note fields, checks the exact preimage and applies one server-enforced `If-Match`
+MERGE. Journal and derived projection are committed in the same item update.
+Direct same-client requests disable redirects and bypass the SDK retry wrapper.
+An exclusive durable send-intent file precedes the request. Lost responses are
+reconciled by exact paired-field readback; unknown results never trigger a retry.
+
+Use a new ignored directory per command, keeping records and receipts private:
+
+```sh
+.venv/bin/python -m scripts.outcome_intake --binding PRIVATE_BINDING --records RECORD_MANIFEST --references REFERENCES --context CONTEXT --output PRIVATE_NEW_DIRECTORY
+# The same command with --apply performs the reviewed conditional update.
+.venv/bin/python -m scripts.outcome_intake --binding PRIVATE_BINDING --recover-plan ORIGINAL_PLAN --output PRIVATE_NEW_DIRECTORY
+# Recovery also defaults to preparation; --apply requires the candidate still current.
+```
+
+The record manifest is a JSON array of objects with `path` (relative to the
+manifest) and optional `human_edits`. Context supplies `cutoff_utc`,
+`source_snapshot`, `model_revision` and `report_revision`. Recovery restores the
+exact original two field values against a fresh postimage ETag and refuses any
+intervening field edit. It does not delete history items or roll back a whole list.
+Neither a local fixture nor the executable transport proves native operation.
 
 For flows, reuse the existing [same-record deployment helper](FLOW_DEPLOYMENT_HELPER.md)
 and accepted SharePoint action examples. Do not guess the connector contract or
@@ -190,15 +207,50 @@ definition retrieval only; it does not qualify update permissions, non-premium
 entitlement, model definition retrieval or report rendering. Do not repeat login
 or the accepted report read unless the account, target or required input changes.
 
-The local builders above are implemented candidates. The next implementation
-exit is an executable, owner-bound SharePoint persistence transport with exact
-ETag protection and uncertain-write reconciliation. Storage selection and a fresh
-exact schema are still needed before it can be bound or run. Dynamic intake,
-relationship persistence and authoritative funding/source adapters are still
-missing; the frozen flow and caller-mapped fixtures do not implement these.
+The local builders above are implemented candidates. The dynamic CLI intake and guarded paired-field transport are implemented.
+Storage selection and a fresh exact schema are still needed before binding or
+running them. Relationship persistence and authoritative funding/source adapters
+remain missing. Intake does not create an unattended cloud service or establish
+substantive verification of the supplied evidence.
 
 The end-to-end finish line remains one fictional outcome persisted, projected,
 processed by the flow and displayed by the existing report, with replay and scoped
 recovery evidence. Model source bindings, native runtime checks and manual visual
 acceptance remain open. PR90 is not ready for a native-completion claim or CareOps
 pin promotion.
+
+## Bind and package the paired projection
+
+`python -m scripts.prepare_outcome_binding` adds an `OutcomeProjection` expression
+from an exact private target to a complete hash-bound model definition. It uses
+the standard OData feed, selects one item, requires a complete projection and
+preserves all other definition parts. It refuses to replace an existing expression.
+Pass its returned expression hash and candidate to the existing outcome reader
+builder. There are no embedded credentials. Power BI source authentication and
+native M evaluation remain separate prerequisites.
+
+For the manual-flow route, `prepare_outcome_flow --projection-field FIELD
+--item-id ID` accepts the dynamic intake's paired plan. It saves and compares both
+fields together using the existing accepted SharePoint action; trigger, connection
+reference and recovery preimage remain unchanged. The CLI computes the validated
+batch; the flow persists that frozen candidate. No activation or invocation is
+implicit, and this is not an automatically scheduled ingestion service.
+
+Storage decision: no native outcome register has been created by this lane.
+The user requested reconciliation of existing registers before any new-list
+recommendation. See the maintained [register inventory note](SHAREPOINT_LIST_REGISTRY.md#register-evidence-reconciliation--30-october-2026).
+
+Native prerequisite disposition for this batch: the retained Toolkit SharePoint
+read was stopped by `INTERACTIVE_AUTH_BLOCKED`; Azure renewal does not renew
+that separate client. No fresh register schema is claimed. The bound semantic
+model definition returned `EntityNotFound`, and the complete Fabric personal
+workspace model inventory did not contain that model identity. Do not substitute
+the other model, retry the same operation or infer a licensing denial. A supported
+non-premium model-write route remains unqualified. No native writes occurred.
+
+Verification: the implementation milestone passed 2,381 Python tests and 446
+project checks plus the existing harness gates. Focused checks after preserving
+the native definition `format` property and allowing a reader to use the owner's
+original binding passed five Python tests and nineteen Node tests. No further
+full suite or package reconstruction was run for this batch. Native end-to-end
+qualification and integration/pin promotion remain incomplete.

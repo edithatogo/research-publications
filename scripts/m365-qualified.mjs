@@ -8,10 +8,12 @@ import {execFileSync} from 'node:child_process';
 const fail = message => { throw new Error(message); };
 process.umask(0o077); // SDK response files and receipts remain owner-readable only.
 const [mode, bindingPath, ...args] = process.argv.slice(2);
-if (!['read','renew','change-log-read','documentation-sync','ardc-archive-read'].includes(mode)) fail('MODE_UNAVAILABLE_BEFORE_AUTH: unsupported mode');
+if (!['read','renew','change-log-read','documentation-sync','ardc-archive-read','outcome-store'].includes(mode)) fail('MODE_UNAVAILABLE_BEFORE_AUTH: unsupported mode');
 if (!bindingPath) fail('Private binding required');
 const bindingFile = fs.realpathSync(bindingPath);
-execFileSync('git', ['check-ignore', '-q', bindingFile]);
+// A reader may use the native owner's retained binding from an isolated source
+// worktree. Check its privacy in its own repository; retain its original lock.
+execFileSync('git', ['-C', path.dirname(bindingFile), 'check-ignore', '-q', bindingFile]);
 const pin = JSON.parse(fs.readFileSync(bindingFile, 'utf8'));
 for (const key of ['sdkRoot','sdkVersion','connectionName','appId','tenantId','username']) if (!pin[key]) fail(`Missing private pin: ${key}`);
 if (!Array.isArray(pin.resources) || !pin.resources.length) fail('Missing resource pins');
@@ -19,6 +21,13 @@ const pkg = JSON.parse(fs.readFileSync(path.join(pin.sdkRoot,'package.json'),'ut
 if (pkg.name !== '@pnp/cli-microsoft365' || pkg.version !== pin.sdkVersion) fail('SDK changed; requalify before login');
 const {prepareRead}=await import('./m365_read_guard.mjs');
 const assertPrivate=file=>execFileSync('git',['check-ignore','-q',path.resolve(file)]);
+if(mode==='outcome-store'){
+  if(args.length!==2) fail('Private outcome plan and new receipt directory required');
+  for(const file of args) assertPrivate(file);
+  if(fs.existsSync(args[1])) fail('New outcome receipt directory required; never replay a send journal');
+  const {validateTarget,validatePlan}=await import('./outcome_store.mjs');
+  validateTarget(pin);validatePlan(JSON.parse(fs.readFileSync(args[0],'utf8')));
+}
 if(mode==='documentation-sync'){
   const [operation,manifestPath,baselinePath,directory,libraryId]=args;
   if(args.length!==5 || !['plan','apply'].includes(operation)) fail('Exact documentation plan/apply arguments required');
@@ -145,6 +154,9 @@ if(mode==='renew'){
   auth.ensureAccessTokenSilent=interactive;auth.ensureAccessTokenWithBrowser=interactive;
   try{await auth.ensureAccessToken(resource,quiet,false,true);guard();save('result.json',{renewed:true,calls,at:new Date().toISOString()});console.log('Qualified same-client resource renewal complete; exact-target readback still required.');}
   catch(e){save('failure.json',{message:e.message??String(e),at:new Date().toISOString()});throw e;}
+}else if(mode==='outcome-store'){
+  const {runGuarded}=await import('./outcome_store.mjs');
+  await runGuarded({args,auth,request,pin});
 }else if(mode==='documentation-sync'){
   process.env.RIMS_M365_CLI_DIST=path.join(pin.sdkRoot,'dist');
   process.argv=[process.argv[0],process.argv[1],...args];

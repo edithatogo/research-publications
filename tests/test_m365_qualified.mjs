@@ -67,6 +67,15 @@ log({step:'complete'});
 test('exact pinned GET restores only synthetic auth and confines the transport',()=>{
   const f=fixture();try{const r=f.run('read',f.args());assert.equal(r.status,0,r.stderr);assert.deepEqual(f.events().find(e=>e.step==='transport'),{step:'transport',method:'GET',url,maxRedirects:0});assert.ok(!fs.existsSync(path.join(f.root,'.m365-qualified.lock')));assert.equal(fs.readFileSync(path.join(f.root,'response.json'),'utf8'),'{}');}finally{f.close();}
 });
+test('isolated reader uses the original private binding and original lock location',()=>{
+  const f=fixture();try{
+    const r=spawnSync(process.execPath,[path.resolve('scripts/m365-qualified.mjs'),'read',f.binding,...f.args()],
+      {cwd:process.cwd(),encoding:'utf8',timeout:5000,env:{...process.env,FAKE_BINDING:f.binding,FAKE_LOG:f.log}});
+    assert.equal(r.status,0,r.stderr);
+    assert.ok(f.events().some(e=>e.step==='transport'));
+    assert.ok(!fs.existsSync(path.join(f.root,'.m365-qualified.lock')));
+  }finally{f.close();}
+});
 test('unavailable modes and invalid exact targets fail before SDK restore or lock',()=>{
   for(const mode of ['funding-apply','page-draft','documentation-page','isolated-recovery','grants-downstream','grants-promotion','grants-preference-activation','unknown']){
     const f=fixture();try{const r=f.run(mode);assert.notEqual(r.status,0);assert.match(r.stderr,/MODE_UNAVAILABLE_BEFORE_AUTH/);assert.deepEqual(f.events(),[]);assert.ok(!fs.existsSync(path.join(f.root,'.m365-qualified.lock')));}finally{f.close();}

@@ -103,7 +103,7 @@ The publication list remains publication-centred. Author analysis must use a sep
 
 ### 2.1.2 DORA Activity Registry
 
-The linked Queensland Open Data DoRA dataset is a separate project/activity register and must not be forced into the publication list. The source-preserving target is a separate SharePoint list named `DORA Activity Registry`, described by `config/dora-activity-registry.schema.json` and read by `config/DoraActivityRegistry.m`. It contains seven provenance fields and all 19 current source columns, plus the datastore `_id` key, including ethics/review references, project/contact fields, sponsor, dates, disease category, site structure, DORA authority and consent. The source `_id` is the row identity; `Project ID` may repeat and is not a deduplication key. Native list creation, import and readback remain acceptance gates.
+The linked Queensland Open Data DoRA dataset is a separate project/activity register and must not be forced into the publication list. The source-preserving target is a separate SharePoint list named `DORA Activity Registry`, described by `config/dora-activity-registry.schema.json` and read by `config/DoraActivityRegistry.m`. It contains seven provenance fields and all 19 current source columns, plus the datastore `_id` key, including ethics/review references, project/contact fields, sponsor, dates, disease category, site structure, DORA authority and consent. The source `_id` is the row identity; `Project ID` may repeat and is not a deduplication key. The later [T11 bootstrap record](../conductor/tracks/T11_sources_and_reconciliation/plan.md#native-dora-activity-registry-bootstrap--2026-09-21) documents isolated DEV creation, schema/readback and a cleaned-up synthetic round-trip. Production use and any newly selected import remain separate gates.
 
 ### 2.1.3 Organisational hierarchy enrichment
 
@@ -196,3 +196,40 @@ If the PnP Management Shell App is granted admin consent in tenant `{{TENANT_ID}
 pwsh ./scripts/Deploy-SharePointList.ps1
 pwsh ./scripts/Import-SharePointSeed.ps1
 ```
+
+
+## Register evidence reconciliation — 30 October 2026
+
+The retained 24 October site inventory contains the following application lists.
+This is a dated inventory, not a fresh schema or creation receipt; names alone do
+not establish whether a list can hold translation/outcome revisions.
+
+| Existing list | Intended grain / evidence |
+| --- | --- |
+| Publication Registry | Publication and attribution review records |
+| DORA Activity Registry | Source-preserved project/activity rows; [creation documented](../conductor/tracks/T11_sources_and_reconciliation/plan.md#native-dora-activity-registry-bootstrap--2026-09-21) |
+| Grants Registry | Funding opportunities, separate from awards |
+| Grant Relationships | Typed evidence-bearing relationships; [isolated creation documented](../conductor/archive/G06_grants_relationships/review.md) |
+| CHHHS RIMS / Studies / Registry - DEV | Study registry; exact schema needed before reuse |
+| CHHHS RIMS / Funding / Award context - DEV | Source-scoped award records |
+| CHHHS RIMS / Data spaces / Source assertions - DEV | Source assertions, not automatically reviewed local facts |
+| CHHHS RIMS / Grants / Institutional overrides - DEV | Institutional override records |
+| CHHHS RIMS / Grants / Institutional policies - DEV | Institutional policy records |
+| Funding Calendar; Funding Calendar Changes | Calendar projection and changes |
+| Funding Delivery Ledger; My Funding Watchlist | Delivery state and user preferences |
+
+The display names above replace the native vertical-bar separators with slashes
+for readability. Live IDs, paths and the retained inventory remain private.
+
+No outcome register has been created by PR90. Its candidate stores exact
+TranslationEvent and OutcomeObservation source revisions, canonical project and
+evidence references, explicit verification/dispute/withdrawal status, protected
+human edits, and a derived report projection. It contains no patient-level data.
+The proposed two-field journal is a bounded technical adapter, not a decision to
+replace existing registers or an accepted business-facing register design.
+
+Before selecting storage, compare the actual relevant schemas and editing/history
+semantics. Preserve existing identities and consumers. The user has requested
+this reconciliation; a new-list recommendation is not yet approved. Historical
+bootstrap instructions and pending statements earlier in this document do not
+supersede later creation receipts or qualify present permissions.

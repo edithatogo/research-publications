@@ -65,12 +65,18 @@
     "outcomes": {
       "context": [
         "scripts/outcome_evidence.py",
-        "docs/LOCAL_FIRST_OUTCOMES.md"
+        "docs/LOCAL_FIRST_OUTCOMES.md",
+        "scripts/outcome_intake.py",
+        "scripts/outcome_store.mjs"
       ],
       "test_patterns": [
         "test_outcome_evidence.py",
         "test_outcome_persistence.py",
-        "test_outcome_flow.py"
+        "test_outcome_flow.py",
+        "test_outcome_intake.py"
+      ],
+      "node_tests": [
+        "tests/test_outcome_store.mjs"
       ]
     },
     "relationships": {
@@ -107,7 +113,8 @@
         "test_prepare_source_relationship_report.py",
         "test_definition_packet.py",
         "test_outcome_reader.py",
-        "test_funding_capacity_reader.py"
+        "test_funding_capacity_reader.py",
+        "test_outcome_intake.py"
       ]
     }
   }

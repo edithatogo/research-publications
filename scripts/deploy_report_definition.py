@@ -23,7 +23,9 @@ def parts(document):
     if not isinstance(document, dict) or set(document) != {'definition'}:
         raise ValueError('Complete definition envelope required; metadata updates excluded')
     definition = document['definition']
-    if not isinstance(definition, dict) or set(definition) != {'parts'} or not isinstance(definition['parts'], list) or not definition['parts']:
+    if (not isinstance(definition, dict) or set(definition) - {'parts', 'format'}
+            or not isinstance(definition.get('parts'), list) or not definition['parts']
+            or ('format' in definition and (not isinstance(definition['format'], str) or not definition['format']))):
         raise ValueError('Nonempty complete parts required')
     result = {}
     for part in definition['parts']:
