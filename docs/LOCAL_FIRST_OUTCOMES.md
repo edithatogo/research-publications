@@ -86,9 +86,9 @@ inputs. `scripts/prepare_outcome_reader.py --help` prepares additive TMDL tables
 and an evidence-count/detail page from complete model/report definitions and
 accepted card/table templates. It requires an already reviewed OutcomeProjection
 M expression; it does not invent a source URL or silently embed fictional data.
-The current subset has no project-filter relationship propagation, quantitative
-impact plots, funding/capacity pages or evidence drillthrough. These remain actual
-implementation gaps, not native acceptance-only tasks.
+The candidate includes explicit project-filter measures, individual-observation
+plots and evidence drillthrough. Funding/capacity additions use the separate
+builder below. Native filter behaviour and rendering remain unverified.
 
 `scripts/deploy_report_definition.py --help` prepares a complete definition
 update/recovery packet, refusing omitted parts, unreviewed changes and binding
@@ -106,29 +106,22 @@ The quantitative projection now exposes each eligible observation's estimate,
 numerator, denominator, explicit value states, indicator/version, unit and cohort
 identity. The reader candidate includes an individual-observation table and a
 single-observation estimate measure; multiple selected observations produce no
-pooled estimate. This is not the remaining quantitative chart or drillthrough
-implementation and has not been verified in the native model.
-
-A bounded read of the retained exact personal-workspace report through the
-previously successful Azure CLI Power BI resource route returned AADSTS70043
-on 30 October. This is an expired/invalid refresh-token authentication result,
-not proof of a permission or non-premium licensing failure. Shared authentication
-was not renewed or switched. The existing authentication owner must complete
-supported interactive renewal before this route can supply fresh target evidence.
-The retained owner binding for other resources remains unchanged.
+pooled estimate. The chart and drillthrough additions are described below; none has been
+verified in the native model.
 
 The funding/capacity CLI projection now implements C01 active/known-led project
 counts, C02 distinct evidenced participants and F01 award-start cohorts separated
 by currency. It requires explicitly mapped complete inputs; existing ARC text
 amounts are not silently parsed or promoted to institutional funding. Unknown
 periods/lead evidence are counted, and FTE/training/application success remain
-unavailable. Funding/capacity model tables and report pages remain unfinished.
+unavailable. The local model/report builder is described below; native source binding remains missing.
 
 `python -m scripts.prepare_funding_capacity_reader --help` prepares additive
 funding/capacity tables and a 1920×1080 detail page against a reviewed existing
 FundingCapacityProjection expression. It preserves existing report parts and
 keeps award currency/start cohorts separate. This implements local detail-page
-preparation, not charts, drillthrough or native source binding/acceptance.
+preparation. The chart extension is described below; native source binding and
+acceptance remain open.
 
 The outcome reader now prepares a bar chart and explicit drillthrough/back
 buttons using the existing repository visual contracts. Estimates are shown per
@@ -164,7 +157,8 @@ Relationship revision handling now wraps the existing grants relationship
 normalizer with immutable corrections, withdrawal and replay checks. Corrections
 retain lineage identity even when evidence changes the normalized key; stale forks
 are refused. This does not replace source-key admission or promote candidates.
-Dataset/software adapters and native relationship persistence remain unfinished.
+Dataset/software adapters are described below; native relationship persistence
+remains missing.
 
 The relationship revision CLI now also retains existing DataCite Dataset/Software
 assertions, complete source records, manifest hashes and canonical-match counts.
@@ -185,3 +179,26 @@ model reports PremiumFiles storage; this is metadata, not a licensing verdict
 or proof that a non-premium definition-write route is available. No write,
 refresh or settings change was performed. Authentication expiry is resolved;
 operation-specific authoring/entitlement qualification remains open.
+
+## Current finish line and remaining implementation
+
+The exact existing report definition was retrieved through the retained Azure CLI
+client after interactive renewal: the read returned HTTP202, its operation reached
+Succeeded, and the result contains 75 definition parts. The complete private
+preimage is retained under `private/ops/local-first-outcomes/`. This qualifies
+definition retrieval only; it does not qualify update permissions, non-premium
+entitlement, model definition retrieval or report rendering. Do not repeat login
+or the accepted report read unless the account, target or required input changes.
+
+The local builders above are implemented candidates. The next implementation
+exit is an executable, owner-bound SharePoint persistence transport with exact
+ETag protection and uncertain-write reconciliation. Storage selection and a fresh
+exact schema are still needed before it can be bound or run. Dynamic intake,
+relationship persistence and authoritative funding/source adapters are still
+missing; the frozen flow and caller-mapped fixtures do not implement these.
+
+The end-to-end finish line remains one fictional outcome persisted, projected,
+processed by the flow and displayed by the existing report, with replay and scoped
+recovery evidence. Model source bindings, native runtime checks and manual visual
+acceptance remain open. PR90 is not ready for a native-completion claim or CareOps
+pin promotion.
