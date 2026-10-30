@@ -1,3 +1,25 @@
+## Deferred roadmap plan — 31 October 2026
+
+The user requested an efficient CLI-only plan, blocker anticipation and one
+focused test plus one verify per bounded slice, with no implementation.
+[Conductor roadmap plan](../conductor/tracks/cli_roadmap_delivery_20261031/index.md)
+is **planned; execution NOT authorised**. Its unchecked delivery tasks neither
+reopen essential closeout nor claim new native/runtime acceptance.
+
+Planning owner `01a1876d-55fc-7e42-b806-18589a94e6fa` owns only the four-file
+`cli_roadmap_delivery_20261031` track in its completion checkout. Integrator
+`01a1874d-b9d7-7e61-b198-943e93ee28ad` owns registry/index/handoff links and
+docs-only main integration in standard clone
+`/Users/doughnut/.codex/worktrees/rims-source-recovery-20261030`, branch
+`codex/rims-roadmap-plan-integration-20261031`. Existing native/authentication,
+source-code and parallel-writer assignments are preserved. No features, tests,
+native calls or new automation are commissioned by this planning packet.
+
+The accepted exporter 07:00 monthly, monitor 07:45 daily and existing one-time
+verification 1 November 07:50 Australia/Brisbane remain unchanged. The natural
+occurrence/output evidence remains the sole pending essential follow-up; the
+explicit noon delivery deadline remains unchanged.
+
 ## Accepted schedule adjustment — 31 October 2026
 
 The user authorised changes to the existing schedules effective 1 November,
