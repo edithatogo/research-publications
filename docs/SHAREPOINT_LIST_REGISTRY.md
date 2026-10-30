@@ -233,3 +233,12 @@ semantics. Preserve existing identities and consumers. The user has requested
 this reconciliation; a new-list recommendation is not yet approved. Historical
 bootstrap instructions and pending statements earlier in this document do not
 supersede later creation receipts or qualify present permissions.
+
+### Outcome register creation — 30 October 2026
+
+A fresh complete inventory of 33 lists and the relevant current schemas preceded
+creation of **RIMS Outcome Evidence**. This lane created that dedicated versioned
+list, `OutcomeJournal` and `OutcomeProjection` plain-text fields, and an empty
+fictional qualification item. This supersedes the earlier no-register-created
+statement. Existing registers were preserved. Creation receipts and exact IDs
+remain private; end-to-end native acceptance is still pending.

@@ -7,8 +7,8 @@ import {execFileSync} from 'node:child_process';
 
 const fail = message => { throw new Error(message); };
 process.umask(0o077); // SDK response files and receipts remain owner-readable only.
-const [mode, bindingPath, ...args] = process.argv.slice(2);
-if (!['read','renew','change-log-read','documentation-sync','ardc-archive-read','outcome-store'].includes(mode)) fail('MODE_UNAVAILABLE_BEFORE_AUTH: unsupported mode');
+let [mode, bindingPath, ...args] = process.argv.slice(2);
+if (!['read','renew','change-log-read','documentation-sync','ardc-archive-read','outcome-store','register-read','outcome-bootstrap'].includes(mode)) fail('MODE_UNAVAILABLE_BEFORE_AUTH: unsupported mode');
 if (!bindingPath) fail('Private binding required');
 const bindingFile = fs.realpathSync(bindingPath);
 // A reader may use the native owner's retained binding from an isolated source
@@ -21,7 +21,20 @@ const pkg = JSON.parse(fs.readFileSync(path.join(pin.sdkRoot,'package.json'),'ut
 if (pkg.name !== '@pnp/cli-microsoft365' || pkg.version !== pin.sdkVersion) fail('SDK changed; requalify before login');
 const {prepareRead}=await import('./m365_read_guard.mjs');
 const assertPrivate=file=>execFileSync('git',['check-ignore','-q',path.resolve(file)]);
+if(mode==='outcome-bootstrap'){
+  if(args.length!==2) fail('Exact site and new private receipt directory required');
+  assertPrivate(args[1]);if(fs.existsSync(args[1])) fail('Never reuse a bootstrap journal');
+  const {target}=await import('./bootstrap_outcome_register.mjs');target(pin,args[0]);
+}
 if(mode==='outcome-store'){
+  if(args.length===3){
+    const targetPath=args.pop();assertPrivate(targetPath);
+    const selected=JSON.parse(fs.readFileSync(targetPath,'utf8'));
+    const site=selected.listUrl?.split('/_api/')[0];
+    const {target}=await import('./bootstrap_outcome_register.mjs');target(pin,site);
+    pin.outcomeTarget=selected;
+    pin.readUrlPrefixes=[...pin.readUrlPrefixes,selected.listUrl];
+  }
   if(args.length!==2) fail('Private outcome plan and new receipt directory required');
   for(const file of args) assertPrivate(file);
   if(fs.existsSync(args[1])) fail('New outcome receipt directory required; never replay a send journal');
@@ -43,6 +56,20 @@ if(mode==='ardc-archive-read'){
   for(const file of args) assertPrivate(file);
   const {validateTarget}=await import('./ardc_bulk_archive_read.mjs');
   validateTarget(pin,fs.readFileSync(args[0]));
+}
+// Explicit register reconciliation reads only: derive the site from retained
+// list pins; never persist broader pins or change authentication ownership.
+if(mode==='register-read'){
+  const index=args.indexOf('--url');
+  if(index<0) fail('Exact register read URL required');
+  const u=new URL(args[index+1]);
+  const root=u.origin+u.pathname.split('/_api/')[0]+'/_api/web/lists';
+  if(!(pin.readUrlPrefixes??[]).some(p=>p.startsWith(root+"(guid'"))) fail('Register site is not retained');
+  const suffix=u.pathname.slice(new URL(root).pathname.length);
+  if(suffix!=='' && !/^\(guid'[0-9a-f-]{36}'\)\/fields$/i.test(suffix)) fail('Only list inventory and field schema reads allowed');
+  for(const key of u.searchParams.keys()) if(!['$select','$filter','$top'].includes(key)) fail('Unsupported register query');
+  pin.readUrlPrefixes=[...pin.readUrlPrefixes,u.href];
+  mode='read';
 }
 let rawReadUrl;
 if(mode==='read') rawReadUrl=prepareRead(args,pin,assertPrivate).rawReadUrl;
@@ -154,6 +181,9 @@ if(mode==='renew'){
   auth.ensureAccessTokenSilent=interactive;auth.ensureAccessTokenWithBrowser=interactive;
   try{await auth.ensureAccessToken(resource,quiet,false,true);guard();save('result.json',{renewed:true,calls,at:new Date().toISOString()});console.log('Qualified same-client resource renewal complete; exact-target readback still required.');}
   catch(e){save('failure.json',{message:e.message??String(e),at:new Date().toISOString()});throw e;}
+}else if(mode==='outcome-bootstrap'){
+  const {runGuarded}=await import('./bootstrap_outcome_register.mjs');
+  await runGuarded({args,auth,request,pin});
 }else if(mode==='outcome-store'){
   const {runGuarded}=await import('./outcome_store.mjs');
   await runGuarded({args,auth,request,pin});

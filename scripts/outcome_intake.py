@@ -59,8 +59,9 @@ def save(path, value):
 
 
 class QualifiedStore:
-    def __init__(self, binding, directory):
+    def __init__(self, binding, directory, target=None):
         self.binding, self.directory, self.ordinal = Path(binding).resolve(), Path(directory).resolve(), 0
+        self.target = Path(target).resolve() if target else None
 
     def execute(self, plan):
         self.ordinal += 1
@@ -68,7 +69,7 @@ class QualifiedStore:
         receipt_path = self.directory / f'operation-{self.ordinal}'
         save(plan_path, plan)
         result = subprocess.run(['node', str(ROOT/'scripts/m365-qualified.mjs'), 'outcome-store',
-                                 str(self.binding), str(plan_path), str(receipt_path)], cwd=ROOT,
+                                 str(self.binding), str(plan_path), str(receipt_path), *([str(self.target)] if self.target else [])], cwd=ROOT,
                                 capture_output=True, text=True)
         # The wrapper writes only bounded summaries here, never tokens. Detailed
         # HTTP bodies stay inside its private readback files.
@@ -97,6 +98,7 @@ def main(argv=None):
     for name in ('binding', 'output'):
         parser.add_argument('--'+name, required=True)
     for name in ('references','context','records'): parser.add_argument('--'+name)
+    parser.add_argument('--target', help='Private selected register target on the retained site; original auth lock is preserved')
     parser.add_argument('--recover-plan', help='Original paired-field plan; prepare conditional recovery from a fresh read')
     parser.add_argument('--apply', action='store_true', help='Apply one conditional paired-field update; default prepares only')
     args = parser.parse_args(argv)
@@ -110,7 +112,7 @@ def main(argv=None):
             raise ValueError('Recovery and new intake inputs are mutually exclusive')
         original = load_snapshot(Path(args.recover_plan).read_bytes())
         output.mkdir(mode=0o700)
-        store = QualifiedStore(args.binding,output)
+        store = QualifiedStore(args.binding,output,args.target)
         current = store.execute({'operation':'read'})['snapshot']
         plan = recovery_plan(original,current)
         save(output/'recovery-plan.json',plan)
@@ -134,7 +136,7 @@ def main(argv=None):
         identities.append({'sha256': hashlib.sha256(source).hexdigest()})
     output.mkdir(mode=0o700)
     save(output/'inputs.json', {'records': identities, 'references_sha256': digest(references), 'context': context})
-    result = run(QualifiedStore(args.binding, output), records, references, context, apply=args.apply)
+    result = run(QualifiedStore(args.binding, output,args.target), records, references, context, apply=args.apply)
     save(output/'intake-result.json', result)
     print(json.dumps({'outcome': result['outcome'], 'writes': result['writes']}))
 

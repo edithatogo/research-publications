@@ -35,14 +35,16 @@ const equal = (snapshot, values) => snapshot.journal === values.journal && snaps
 
 export async function execute({target, plan, send, save}) {
   validatePlan(plan);
-  const schemaResponse = await send({url:target.listUrl+'/fields?$select=InternalName,TypeAsString,RichText,AppendOnly,ReadOnlyField',
-    method:'GET',headers:{Accept:'application/json;odata=verbose'},maxRedirects:0,timeout:20000,responseType:'text'});
-  const schema = typeof schemaResponse.data === 'string' ? JSON.parse(schemaResponse.data) : schemaResponse.data;
-  if (schemaResponse.status !== 200 || !Array.isArray(schema.d?.results) || schema.d.__next) fail('Complete field schema required');
+  const schema = [];
   for (const name of [target.journalField,target.projectionField]) {
-    const rows = schema.d.results.filter(f => f.InternalName === name);
-    if (rows.length !== 1 || rows[0].TypeAsString !== 'Note' || rows[0].RichText !== false
-        || rows[0].AppendOnly !== false || rows[0].ReadOnlyField !== false) fail('Dedicated plain text writable fields required');
+    const response = await send({url:target.listUrl+"/fields/getbyinternalnameortitle('"+name+"')",
+      method:'GET',headers:{Accept:'application/json;odata=verbose'},maxRedirects:0,timeout:20000,responseType:'text'});
+    const body = typeof response.data === 'string' ? JSON.parse(response.data) : response.data;
+    const field = body.d;
+    if (response.status !== 200 || field?.InternalName !== name || field.TypeAsString !== 'Note'
+        || field.RichText !== false || field.AppendOnly !== false || field.ReadOnlyField !== false)
+      fail('Dedicated plain text writable fields required');
+    schema.push(field);
   }
   save('schema.json',schema);
   const read = async label => {

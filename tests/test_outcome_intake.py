@@ -32,7 +32,7 @@ class IntakeTests(unittest.TestCase):
         self.assertEqual(parts(built['model'])['unknown.txt'],b'preserved')
         self.assertEqual(built['model']['definition']['format'],'TMDL')
         self.assertEqual(built['report']['definition']['format'],'PBIR')
-        self.assertIn(b'OData.Feed',parts(built['model'])['definition/expressions.tmdl'])
+        self.assertIn(b'SharePoint.Tables',parts(built['model'])['definition/expressions.tmdl'])
         e={'properties':{'definition':{'triggers':{'manual':{'type':'Request','kind':'Button'}},'actions':{}},'connectionReferences':{'shared_sharepointonline':{}}}}
         a={'type':'OpenApiConnection','inputs':{'host':{'operationId':'HttpRequest','apiId':'/providers/Microsoft.PowerApps/apis/shared_sharepointonline','connectionName':'shared_sharepointonline'},'parameters':{}},'runAfter':{}}
         flow=prepare_paired(e,p,item_id=1,projection_field='OutcomeProjection',expected_sha256=fingerprint(e),accepted_action=a,action_sha256=fingerprint(a),site_url='https://example.sharepoint.com/sites/fictional',list_id='00000000-0000-0000-0000-000000000001',field_name='OutcomeJournal')

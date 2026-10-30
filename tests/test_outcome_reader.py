@@ -11,6 +11,7 @@ class OutcomeReaderTests(unittest.TestCase):
         self.expression = 'expression OutcomeProjection = "FICTIONAL JSON fixture"\n'
         self.model = definition(**{'definition/expressions.tmdl': self.expression, 'definition/model.tmdl': 'model Model\n', 'unknown.txt': 'preserved'})
         self.report = definition(**{'definition/pages/pages.json': json.dumps({'pageOrder': ['Existing'], 'activePageName': 'Existing'}),
+            'definition/pages/Existing/page.json': json.dumps({'name':'Existing','$schema':'https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json'}),
             'definition.pbir': 'retained binding', 'card.json': json.dumps({'visual': {'visualType': 'cardVisual'}}),
             'table.json': json.dumps({'visual': {'visualType': 'tableEx'}})})
     def build(self):

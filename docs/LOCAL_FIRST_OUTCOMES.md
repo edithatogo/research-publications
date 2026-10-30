@@ -228,8 +228,8 @@ pin promotion.
 ## Bind and package the paired projection
 
 `python -m scripts.prepare_outcome_binding` adds an `OutcomeProjection` expression
-from an exact private target to a complete hash-bound model definition. It uses
-the standard OData feed, selects one item, requires a complete projection and
+from an exact private target to a complete hash-bound model definition. It reuses
+the existing model's SharePoint.Tables connector, selects one item, requires a complete projection and
 preserves all other definition parts. It refuses to replace an existing expression.
 Pass its returned expression hash and candidate to the existing outcome reader
 builder. There are no embedded credentials. Power BI source authentication and
@@ -260,3 +260,79 @@ the native definition `format` property and allowing a reader to use the owner's
 original binding passed five Python tests and nineteen Node tests. No further
 full suite or package reconstruction was run for this batch. Native end-to-end
 qualification and integration/pin promotion remain incomplete.
+
+## Register bootstrap execution — 30 October 2026
+
+Retained Toolkit renewal completed. A fresh complete inventory returned 33 lists.
+Fresh DORA Activity Registry, Grant Relationships, Studies and Source assertions
+schemas do not implement the paired outcome journal/projection contract. Existing
+registers and rows were preserved. The authorized RIMS Outcome Evidence list was
+created with versioning, two dedicated plain Note fields and one empty fictional
+qualification journal item. Private creation intents/responses and target identity
+are retained in `private/ops/local-first-outcomes/register-bootstrap/`.
+
+The selected target can be supplied to the CLI with `--target`; authentication
+continues through the original retained binding and its original shared lock.
+No credential or cache was copied. The exact source expression is prepared
+privately. No tests, manual flow run, scheduled run or monitoring occurred.
+
+Model reconciliation identifies the existing report-bound model as the routine
+publication source candidate; the other Fabric-listed model is a different named
+model and identity. No rebind or substitution was made. Its complete definition
+and eligible write route remain unresolved; the source expression alone is not
+a complete model update candidate. Final verification has not started.
+
+### Semantic-model workspace reconciliation
+
+CLI reconciliation supersedes the earlier model-route blocker: the report's
+connection and dataset ID match a model in another existing workspace, not its
+personal report workspace. The workspace-qualified Fabric definition request was
+accepted and its existing read operation is being resolved. No model substitution
+or report rebind occurred. The owning workspace reports dedicated capacity; that
+metadata alone does not establish a premium dependency or qualify writes. Exact
+identities and operation receipts remain private. No tests or runs were started.
+
+The corrected workspace-qualified definition operation subsequently completed:
+all 61 model parts are retained privately with their SHA256. An additive outcome
+source-binding candidate and complete recovery preimage are prepared against that
+exact model. The report remains bound to its original model; no native definition
+write, rebind, test or manual run occurred. The actual report supplies a table
+visual template but no cardVisual template, so full reader preparation must reuse
+an accepted compatible visual rather than fabricate a native template.
+
+## Deployed outcome increment — 30 October 2026
+
+The existing cross-workspace semantic model and existing report now contain the
+additive outcome changes. The corrected model operation and corrected report
+operation both reached Succeeded. All 59 unrelated model parts and 73 unrelated
+report parts are byte-identical to their preimages. Changed report JSON matches
+semantically; changed TMDL matches after the server's object ordering/indentation
+normalization. Complete raw preimages and conditional recovery inputs remain
+private. Existing report/model identities and connection are preserved.
+
+Native import exposed three concrete serialization issues, now corrected: measure
+names must be model-wide unique; new pages need the accepted page schema; and the
+exported server-managed linguisticSchemaSyncVersion property must be omitted from
+report write/recovery payloads. Raw original exports remain intact. Existing table
+visuals supply the summary style; no guessed card template is used.
+
+The final source batch passed 2,381 Python cases, 446 project checks, 30 Node cases
+and the remaining existing harness gates. No further test suites are planned.
+The single fictional intake committed journal and projection together with one
+write and exact readback. One standard manual model refresh was submitted with
+NoNotification; its exact request is retained privately and must reach terminal
+state before reporting runtime acceptance. No replay, recovery drill, schedule
+change, notification, separate flow invocation or background monitoring was added.
+CLI persistence and manual model refresh form this selected scenario; no cloud-flow
+runtime proof or visual/keyboard acceptance is claimed.
+
+### User-directed closeout — no monitoring
+
+The user subsequently directed: “Don't monitor. Just implement then move on.”
+Stop polling the submitted manual refresh; do not cancel, resubmit, query outputs
+or install follow-ups. Implementation and saved-definition acceptance are complete
+for this increment. The single intake is persisted; refresh terminal status and
+end-to-end runtime acceptance remain unverified. Earlier next-action wording to
+continue tracking that request is superseded. Resume runtime verification only
+on a new explicit request. No further test suites or package rebuilds are needed
+for this closeout.

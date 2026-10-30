@@ -32,10 +32,13 @@ def expression(target):
     def literal(value):
         # M escapes quotes and literal # before escape introducers.
         return '"'+value.replace('#', '#(#)').replace('"', '""')+'"'
-    endpoint = url+'/items?$select=Id,'+target['projectionField']+'&$filter=Id%20eq%20'+str(target['itemId'])
+    site = url.split('/_api/')[0]
+    list_id = re.search(r"guid'([0-9a-f-]{36})'", parsed.path)[1]
     return '\n'.join([
         'expression OutcomeProjection =', '\tlet',
-        '\t\tRows = OData.Feed('+literal(endpoint)+', null, [Implementation = "2.0", ODataVersion = 3, Concurrent = false]),',
+        '\t\tSource = SharePoint.Tables('+literal(site)+', [Implementation = "2.0", ViewMode = "All"]),',
+        '\t\tItems = Source{[Id = '+literal(list_id)+']}[Items],',
+        '\t\tRows = Table.SelectRows(Items, each [ID] = '+str(target['itemId'])+'),',
         '\t\tRow = if Table.RowCount(Rows) = 1 then Rows{0} else error "Exact outcome item missing or ambiguous",',
         '\t\tPayload = Record.Field(Row, '+literal(target['projectionField'])+'),',
         '\t\tParsed = if Value.Is(Payload, type text) then Json.Document(Payload) else error "Outcome projection is not text",',

@@ -10,7 +10,7 @@ function fixture(mode) {
   const receipts = {};
   const send = async c => {
     assert.equal(c.maxRedirects,0);
-    if(c.url.includes('/fields?')) return {status:200,data:{d:{results:['OutcomeJournal','OutcomeProjection'].map(InternalName=>({InternalName,TypeAsString:'Note',RichText:false,AppendOnly:false,ReadOnlyField:false}))}}};
+    if(c.url.includes('/fields/')) return {status:200,data:{d:{InternalName:c.url.includes("('OutcomeJournal')")?'OutcomeJournal':'OutcomeProjection',TypeAsString:'Note',RichText:false,AppendOnly:false,ReadOnlyField:false}}};
     if(c.method==='GET') {
       if(mode==='lost_readback' && writes) throw Error('offline');
       return {status:200,data:{d:{Id:1,__metadata:{etag},OutcomeJournal:values.journal,OutcomeProjection:values.projection}}};
@@ -43,6 +43,6 @@ test('uncertain writes, races and throttling reconcile without resend',async()=>
 });
 test('target pins and current schema are enforced before a write',async()=>{
   assert.throws(()=>validateTarget({outcomeTarget:{...target},resources:[],readUrlPrefixes:[]}));
-  const f=fixture();const send=async c=>c.url.includes('/fields?')?{status:200,data:{d:{results:[]}}}:f.send(c);
+  const f=fixture();const send=async c=>c.url.includes('/fields/')?{status:200,data:{d:{results:[]}}}:f.send(c);
   await assert.rejects(execute({target,plan,...f,send}),/plain text/);assert.equal(f.writes(),0);
 });
