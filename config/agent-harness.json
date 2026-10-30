@@ -81,7 +81,8 @@
       "test_patterns": [
         "test_grants_relationships*.py",
         "test_source_relationship_evidence.py",
-        "test_relationship_revisions.py"
+        "test_relationship_revisions.py",
+        "test_project_output_links.py"
       ]
     },
     "projections": {

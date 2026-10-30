@@ -171,3 +171,10 @@ assertions, complete source records, manifest hashes and canonical-match counts.
 It refuses promotion flags and cross-family corrections. Upstream source capture
 validation/admission remains required; these checks do not authenticate source
 bytes or create native relationships. Native storage mapping remains unresolved.
+
+`python -m scripts.project_output_links --help` prepares explicit project links
+to publications, awards, datasets and software using complete supplied canonical
+inventories. Candidate/withdrawn links stay in evidence records but not reporting
+bridges; reviewed links are deduplicated at project/output grain. Review assertions
+are caller-supplied, not certified by the tool. Native storage and source-specific
+identity/admission qualification remain required.
