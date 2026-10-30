@@ -55,6 +55,10 @@ def load_config(root=ROOT):
                 raise ValueError(f'Unsafe test pattern: {pattern}')
             if not list((root / 'tests').glob(pattern)):
                 raise ValueError(f'Test pattern has no matches: {pattern}')
+        for relative in task.get('node_tests', []):
+            if not relative.startswith('tests/test_') or not relative.endswith('.mjs') or '/' in relative[6:]:
+                raise ValueError(f'Unsafe Node test selector: {relative}')
+            public_file(root, relative)
         for relative in config['baseline'] + task['context']:
             public_file(root, relative)
     check_unittest_layout(root / 'tests')
@@ -71,9 +75,14 @@ def commands(config, task):
                 ['node', '--test', 'tests/test_m365_qualified.mjs',
                  'tests/test_m365_workload_lock.mjs',
                  'tests/test_sharepoint_change_log_read.mjs',
-                 'tests/test_grants_monitor_compatibility.mjs']]
-    return [[sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', pattern, '-v']
-            for pattern in config['tasks'][task]['test_patterns']]
+                 'tests/test_grants_monitor_compatibility.mjs',
+                 'tests/test_outcome_store.mjs']]
+    selected = config['tasks'][task]
+    result = [[sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', pattern, '-v']
+              for pattern in selected['test_patterns']]
+    if selected.get('node_tests'):
+        result.append(['node','--test',*selected['node_tests']])
+    return result
 
 
 def run_checks(checks, runner=subprocess.run):
@@ -89,12 +98,12 @@ def run_checks(checks, runner=subprocess.run):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('action', choices=['context', 'check', 'doctor'])
-    parser.add_argument('--task', default='grants')
+    parser.add_argument('--task', default='grants', help='Configured task name; use context to read its selected files, or check --task all for integration')
     args = parser.parse_args(argv)
     try:
         config = load_config()
         if args.task not in config['tasks'] and not (args.action == 'check' and args.task == 'all'):
-            raise ValueError('Unknown task; use grants, publications, organisation, platform or check --task all')
+            raise ValueError('Unknown task; use '+', '.join(config['tasks'])+' or check --task all')
         if args.action == 'doctor':
             print('PASS: public context paths and test selections exist; no tenant checks performed')
             return 0

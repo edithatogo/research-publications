@@ -1,22 +1,136 @@
 {
   "schema_version": 1,
-  "baseline": ["AGENTS.md", "conductor/index.md", "handoff/POWERBI_PLUGIN_START_HERE.md", "handoff/CURRENT_STATE.md", "conductor/workflow.md", "conductor/code_styleguides/general.md"],
+  "baseline": [
+    "AGENTS.md",
+    "conductor/index.md",
+    "handoff/POWERBI_PLUGIN_START_HERE.md",
+    "handoff/CURRENT_STATE.md",
+    "conductor/workflow.md",
+    "conductor/code_styleguides/general.md"
+  ],
   "tasks": {
     "grants": {
-      "context": ["docs/RIMS_GRANTS_EXPERIENCE.md", "docs/GRANTS_DELIVERY_REVIEW.md", "conductor/archive/G01_grants_contracts/spec.md", "conductor/archive/G01_grants_contracts/plan.md", "conductor/tracks/G02_grants_sources/plan.md", "conductor/archive/G03_grants_sharepoint/spec.md", "scripts/grants_registry.py", "scripts/grants_planning.py"],
-      "test_patterns": ["test_grants*.py"]
+      "context": [
+        "docs/RIMS_GRANTS_EXPERIENCE.md",
+        "docs/GRANTS_DELIVERY_REVIEW.md",
+        "conductor/archive/G01_grants_contracts/spec.md",
+        "conductor/archive/G01_grants_contracts/plan.md",
+        "conductor/tracks/G02_grants_sources/plan.md",
+        "conductor/archive/G03_grants_sharepoint/spec.md",
+        "scripts/grants_registry.py",
+        "scripts/grants_planning.py"
+      ],
+      "test_patterns": [
+        "test_grants*.py"
+      ]
     },
     "publications": {
-      "context": ["conductor/PUBLICATION_STABILISATION.md", "conductor/archive/S01_publication_stabilisation/spec.md", "conductor/archive/S01_publication_stabilisation/plan.md", "docs/PUBLICATION_PLATFORM_ACCEPTANCE.md", "conductor/tracks/E07_publication_platform_acceptance/execution.md", "docs/PROTECTED_DEVELOPMENT_BASELINE.md"],
-      "test_patterns": ["test_publication*.py", "test_canonical_identity.py"]
+      "context": [
+        "conductor/PUBLICATION_STABILISATION.md",
+        "conductor/archive/S01_publication_stabilisation/spec.md",
+        "conductor/archive/S01_publication_stabilisation/plan.md",
+        "docs/PUBLICATION_PLATFORM_ACCEPTANCE.md",
+        "conductor/tracks/E07_publication_platform_acceptance/execution.md",
+        "docs/PROTECTED_DEVELOPMENT_BASELINE.md"
+      ],
+      "test_patterns": [
+        "test_publication*.py",
+        "test_canonical_identity.py"
+      ]
     },
     "organisation": {
-      "context": ["docs/SHAREPOINT_LIST_REGISTRY.md", "scripts/organisation_enrichment.py", "config/organisation-hierarchy.json", "scripts/author_registry.py"],
-      "test_patterns": ["test_organisation*.py", "test_author_registry.py"]
+      "context": [
+        "docs/SHAREPOINT_LIST_REGISTRY.md",
+        "scripts/organisation_enrichment.py",
+        "config/organisation-hierarchy.json",
+        "scripts/author_registry.py"
+      ],
+      "test_patterns": [
+        "test_organisation*.py",
+        "test_author_registry.py"
+      ]
     },
     "platform": {
-      "context": ["docs/PUBLICATION_PLATFORM_ACCEPTANCE.md", "docs/RIMS_GRANTS_EXPERIENCE.md", "contracts/web-first-execution.contract.json", "handoff/POWERBI_ACCESS_RECOVERY.md"],
-      "test_patterns": ["test_webfirst.py", "test_publication_platform_contract.py"]
+      "context": [
+        "docs/PUBLICATION_PLATFORM_ACCEPTANCE.md",
+        "docs/RIMS_GRANTS_EXPERIENCE.md",
+        "contracts/web-first-execution.contract.json",
+        "handoff/POWERBI_ACCESS_RECOVERY.md"
+      ],
+      "test_patterns": [
+        "test_webfirst.py",
+        "test_publication_platform_contract.py"
+      ]
+    },
+    "outcomes": {
+      "context": [
+        "scripts/outcome_evidence.py",
+        "docs/LOCAL_FIRST_OUTCOMES.md",
+        "scripts/outcome_intake.py",
+        "scripts/outcome_store.mjs"
+      ],
+      "test_patterns": [
+        "test_outcome_evidence.py",
+        "test_outcome_persistence.py",
+        "test_outcome_flow.py",
+        "test_outcome_intake.py"
+      ],
+      "node_tests": [
+        "tests/test_outcome_store.mjs"
+      ]
+    },
+    "relationships": {
+      "context": [
+        "scripts/grants_relationships.py",
+        "docs/LOCAL_FIRST_OUTCOMES.md",
+        "scripts/relationship_intake.py",
+        "scripts/relationship_store.mjs",
+        "scripts/project_link_intake.py",
+        "scripts/source_assertion_persistence.py",
+        "scripts/source_assertion_store.mjs",
+        "scripts/source_assertion_executor_policy.py"
+      ],
+      "test_patterns": [
+        "test_grants_relationships*.py",
+        "test_source_relationship_evidence.py",
+        "test_relationship_revisions.py",
+        "test_project_output_links.py",
+        "test_relationship_intake.py",
+        "test_project_link_intake.py",
+        "test_source_assertion_persistence.py"
+      ],
+      "node_tests": [
+        "tests/test_relationship_store.mjs",
+        "tests/test_source_assertion_store.mjs"
+      ]
+    },
+    "projections": {
+      "context": [
+        "scripts/outcome_persistence.py",
+        "docs/LOCAL_FIRST_OUTCOMES.md"
+      ],
+      "test_patterns": [
+        "test_outcome_persistence.py",
+        "test_prepare_source_relationship_model.py",
+        "test_prepare_source_relationship_export.py",
+        "test_funding_capacity.py"
+      ]
+    },
+    "reader": {
+      "context": [
+        "docs/LOCAL_FIRST_OUTCOMES.md"
+      ],
+      "test_patterns": [
+        "test_publication_outcome_reader.py",
+        "test_publication_outcome_measures.py",
+        "test_prepare_source_relationship_report.py",
+        "test_definition_packet.py",
+        "test_outcome_reader.py",
+        "test_funding_capacity_reader.py",
+        "test_outcome_intake.py",
+        "test_prepare_project_link_reader.py",
+        "test_prepare_study_archive_path_fix.py"
+      ]
     }
   }
 }
