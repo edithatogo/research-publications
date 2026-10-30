@@ -123,7 +123,8 @@
         "test_outcome_reader.py",
         "test_funding_capacity_reader.py",
         "test_outcome_intake.py",
-        "test_prepare_project_link_reader.py"
+        "test_prepare_project_link_reader.py",
+        "test_prepare_study_archive_path_fix.py"
       ]
     }
   }

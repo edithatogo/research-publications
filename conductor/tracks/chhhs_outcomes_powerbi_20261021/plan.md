@@ -304,3 +304,20 @@ Private evidence: `private/ops/local-first-outcomes/project-link-report/after-re
 contains ownership, fresh preimages, exact candidates/recovery packets, terminal
 save receipts, model/report readbacks and acceptance.json. The one refresh check is
 in the sibling `refresh-check-once/` directory.
+
+## Study archive folder lookup repair — 30 October 2026
+
+- Root cause established from the complete 171-row path inventory: 165 escaped
+  archive URLs versus six literal-space URLs; an exact escaped reference resolves
+  to an existing native file, while direct Name comparison cannot match `%20`.
+- Implementation changes only the ReadStudy folder/file predicates to accept
+  literal or escaped names. Site identity, unique cardinality, types and study
+  evidence checks are preserved. Existing register records/files remain unchanged.
+- One model save reached Succeeded. Readback must be taken after its terminal state;
+  the overlapping first read returned the preimage and is retained as stale evidence.
+- Focused source check passed. No refresh, report save, schedule or monitoring.
+  Private candidate/recovery/readback evidence: `private/ops/local-first-outcomes/study-folder-fix/`.
+- **Saved-state finish line met:** post-terminal readback is byte-identical to the
+  complete candidate; all 69 unrelated parts are unchanged. `acceptance.json`
+  records this result. Runtime confirmation remains deferred until an explicitly
+  authorized future refresh; no further action is scheduled.

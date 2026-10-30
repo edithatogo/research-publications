@@ -88,7 +88,7 @@ if(mode==='register-read'){
   const root=u.origin+u.pathname.split('/_api/')[0]+'/_api/web/lists';
   if(!(pin.readUrlPrefixes??[]).some(p=>p.startsWith(root+"(guid'"))) fail('Register site is not retained');
   const suffix=u.pathname.slice(new URL(root).pathname.length);
-  if(suffix!=='' && !/^\(guid'[0-9a-f-]{36}'\)\/fields$/i.test(suffix)) fail('Only list inventory and field schema reads allowed');
+  if(suffix!=='' && !/^\(guid'[0-9a-f-]{36}'\)\/(?:fields|items)$/i.test(suffix)) fail('Only list inventory, field schema and item reads allowed');
   for(const key of u.searchParams.keys()) if(!['$select','$filter','$top'].includes(key)) fail('Unsupported register query');
   pin.readUrlPrefixes=[...pin.readUrlPrefixes,u.href];
   mode='read';

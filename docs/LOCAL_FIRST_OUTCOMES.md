@@ -511,3 +511,34 @@ The study-source failure remains a runtime blocker; refreshed data and manual
 rendering are not claimed. Other RIMS completion/integration chats were inactive;
 no overlapping active native writer was found. Evidence and recovery packets are
 under `project-link-report/after-refresh/`; no monitoring or scheduled run was added.
+
+### Study archive path compatibility correction — 30 October 2026
+
+The retained failed refresh reported a missing/duplicate study archive folder.
+A bounded complete read of the 171 Studies registry path references found two
+URL conventions: six literal-space paths and 165 percent-escaped paths. The
+sampled escaped URL resolves to an existing exact archive file; its parent folder
+names were independently read from the existing Documents library. The model's
+ReadStudy function compared decoded SharePoint Name values directly with escaped
+URL segments, so the latter could not match.
+
+`scripts/prepare_study_archive_path_fix.py` changes only the folder and filename
+predicates inside SourceRelationshipEvidence.ReadStudy: accept the literal name
+or Uri.EscapeDataString(Name). The existing site gate, exactly-one-match checks,
+folder/file type checks and study identity/content validation remain intact.
+Ambiguous matches still fail; no missing-source suppression, archive copying,
+register rewriting or alternate source was introduced. The existing register-read
+CLI guard now also permits bounded GET items queries on GUID-addressed lists on
+the already-pinned site, using the same auth owner and fixed query-option guards.
+
+The fresh complete model preimage, candidate, single-send receipt and recovery
+packet are retained in `private/ops/local-first-outcomes/study-folder-fix/`.
+The focused changed-behavior check passed after implementation. No report change,
+new refresh, monitoring, scheduled run or source-record mutation was performed.
+A future separately authorized refresh is needed to establish end-to-end runtime
+success; saved definitions alone do not provide that evidence.
+
+Post-terminal native readback matches the complete candidate byte-for-byte; all
+69 unrelated model parts are preserved. The existing project/output additions
+and report remain intact. Saved-state acceptance is recorded in the private
+`study-folder-fix/acceptance.json`; runtime confirmation remains unverified.
