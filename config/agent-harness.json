@@ -86,7 +86,9 @@
         "scripts/relationship_intake.py",
         "scripts/relationship_store.mjs",
         "scripts/project_link_intake.py",
-        "scripts/source_assertion_persistence.py"
+        "scripts/source_assertion_persistence.py",
+        "scripts/source_assertion_store.mjs",
+        "scripts/source_assertion_executor_policy.py"
       ],
       "test_patterns": [
         "test_grants_relationships*.py",
@@ -98,7 +100,8 @@
         "test_source_assertion_persistence.py"
       ],
       "node_tests": [
-        "tests/test_relationship_store.mjs"
+        "tests/test_relationship_store.mjs",
+        "tests/test_source_assertion_store.mjs"
       ]
     },
     "projections": {

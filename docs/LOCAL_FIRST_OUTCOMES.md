@@ -566,12 +566,12 @@ state/reason contract. Output is exclusive and private, with schema check outcom
 and native_ready=false. `request(plan,current)` produces a bounded create/MERGE
 request only after exact preimage reconciliation; identical replay produces no
 write. `reconcile(plan,current)` classifies uncertain effects without authorizing
-resubmission. These are offline functions, not an exposed authenticated executor.
+resubmission. The guarded executor below now reuses these offline functions.
 
 Before a later authorized native application: qualify the exact register, versioning,
 complete unique SourceKey lookup, writable plain Note fields and unique indexed
-SourceKey, then bind the prepared request to the existing same-client one-send
-transport with durable intent and exact readback. No schema constraints are changed
+SourceKey. The executor binds the prepared request to the existing same-client
+one-send transport with durable intent and exact readback. No schema constraints are changed
 implicitly. Unknown retained-schema properties remain unverified. A fresh candidate
 or schema/preimage change invalidates prior native assumptions. Recovery is an
 explicit compensating revision; never erase history or silently adopt another
@@ -581,8 +581,31 @@ Local evidence: five focused tests passed; fictional Dataset and Software candid
 packets were generated against the retained schema (10 pass, 7 unverified property
 checks). Private receipt: `private/ops/local-first-outcomes/datacite-persistence-local/`.
 No live authentication, tenant read/write, refresh check or monitoring occurred.
-Native executor binding/application is deliberately deferred while the refresh may
-consume existing source assertions; local preparation is not native completion.
+Native application remains deferred while the refresh may consume existing source
+assertions; local preparation is not native completion.
+
+Guarded executor wiring is implemented locally in `scripts/source_assertion_store.mjs`
+and `scripts/source_assertion_executor_policy.py`. Future authorized invocation:
+
+```sh
+node scripts/m365-qualified.mjs source-assertion-store \
+  PRIVATE_BINDING PRIVATE_TARGET PRIVATE_CANDIDATE NEW_PRIVATE_RECEIPTS
+```
+
+Target JSON contains exact `listUrl` and `title` for the existing Source Assertions
+register on the retained site. Candidate accepts the prepared packet or its plan.
+The wrapper validates private paths and domain policy before authentication, then
+uses its existing client and lock. Fresh metadata, schema and identity checks must
+pass before a durable exclusive send intent precedes one write. It performs one
+postimage read; uncertain effects prohibit resubmission. Replay performs no write.
+No schema constraints or authentication bindings are changed automatically.
+
+Five fake-transport tests cover create/lost-response reconciliation, conditional
+update and human-field preservation, replay/concurrency/schema refusal, durable
+intent failure and uncertain readback, plus target/domain rejection. These and
+the five domain tests passed after implementation. The relationships harness
+selection includes the executor tests. No authenticated executor invocation,
+SharePoint access or refresh check was performed.
 
 ### Real source intake proposal mapping — 30 October 2026
 

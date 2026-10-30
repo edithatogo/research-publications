@@ -19,7 +19,7 @@ Status is based on retained receipts; this cleanup makes no native calls.
 | Outcome storage | Existing RIMS Outcome Evidence register, conditional paired journal/projection intake, revision protection and fictional save/readback implemented. | Broader real-evidence intake and business review; no new register needed. |
 | Grant relationships | Existing Grant Relationships register reused; history field, typed CLI adapter and fictional native create/readback implemented. | Optional explicit adoption of legacy rows. Native corrections/replay/recovery have local coverage only. |
 | Project/output relationships | Publication/award/dataset/software contracts, revisions and paired native storage implemented. Fictional project/publication saved and read back. | Other output types have local coverage only; no additional native cases are automatically selected. |
-| DataCite source assertions | Offline Dataset/Software mapping, provenance/history, request planning and reconciliation implemented; two fictional candidates prepared against existing fields. | Authenticated executor binding and native application/readback deferred. Seven retained-schema properties remain unverified; no columns or list creation selected. |
+| DataCite source assertions | Offline Dataset/Software mapping, provenance/history, request planning and reconciliation implemented; two fictional candidates prepared against existing fields. | Guarded CLI executor wired locally; native qualification/application/readback deferred. Seven retained-schema properties remain unverified; no columns or list creation selected. |
 | Real-data intake | 442 project and 2,217 award proposals; 442 unresolved PI role assertions; explicit unmatched and duplicate accounting implemented. | Verified person identities/periods, duplicate-project resolution, explicit project–award crosswalks and qualified award currency/date semantics. Zero links proposed from the inspected source; no name/title inference. |
 | Model/report | Outcome and project/output bindings, facts/bridges, project selector, counts and evidence pages saved to the existing model/report with preservation readback. | Runtime data verification and manual visual/accessibility acceptance. Existing definitions do not need redeployment merely for validation. |
 | Study archive lookup | Mixed escaped/literal path correction saved; exact candidate readback and 69 unrelated parts preserved. | Successful refresh/data evidence, not another source patch absent a new error. |
@@ -352,7 +352,11 @@ in the sibling `refresh-check-once/` directory.
 - **Finish line met for local preparation:** reproducible offline candidates and
   precise native prerequisites in `docs/LOCAL_FIRST_OUTCOMES.md`. Evidence under
   `private/ops/local-first-outcomes/datacite-persistence-local/`.
-- **Deferred:** authenticated executor binding and native application/readback.
+- **Implemented locally:** guarded `source-assertion-store` executor using the retained
+  client and lock, fresh schema/identity/ETag checks, durable send intent and one
+  postimage reconciliation without resend. Five fake-transport tests and five
+  domain tests pass; no authenticated invocation occurred.
+- **Deferred:** native qualification and application/readback.
   Next native action requires an authorized continuation after the refresh conflict
   is cleared, with fresh exact schema/identity/preimage qualification. No automatic
   refresh check, deployment, migration or monitoring is selected.
