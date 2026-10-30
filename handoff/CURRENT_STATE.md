@@ -1,3 +1,39 @@
+## Isolated retained-consumer delivery accepted — 31 October 2026
+
+Source owner committed `a5d1f0c414b7724ae48816e1452e38dddc727f2a`:
+[retained consumer and relationship evidence](../docs/RETAINED_CONSUMER_ADOPTION_20261031.md).
+The selected slice 1 consumer retains 1,277 publications/full metadata and 11,731
+author-evidence rows; selected slice 2 exports 169 candidate grant-reference edges
+mapped to 67 of the unchanged 1,344 canonical publications. The join uses
+CanonicalKey and PMID; the unrelated malformed DOI literal is preserved, with
+the complete canonical snapshot digest retained. No confirmed award relationship,
+source freshness or new publication admission is claimed.
+
+Terminal isolated cloud-output verification is accepted. Completion checkout
+`private/ops/retained-consumer-20261031/acceptance.json` records
+`PASS_ISOLATED_RETAINED_CLI_CONSUMER_CLOUD_OUTPUT`, SHA256
+`5ee2f5fc2be1059538ee9d87f7276dd7869f267c3f65c0620600aa3ff327f0dc`.
+`private/ops/retained-relationships-20261031/acceptance.json` records
+`PASS_ISOLATED_IDENTIFIER_BACKED_GRANT_REFERENCE_CLOUD_OUTPUT`, SHA256
+`223c7a6682bc4b45bb933864c09b3b0682c8a64da6700bae61e6a7c3cd3be5c1`.
+Both original native upload receipts are `PASS_COMPLETE`: one new artifact per
+slice, create-only version 1.0, full downloaded-byte hashes matched. Relationship
+provenance keys and one intended CanonicalKey filter reconcile. Zero baseline
+writes, source requests, flow runs, schedule changes or emails. Existing typed/raw
+commit and replay proof is reused. The original team documentation folder was absent; no
+write there. The owner uses exact existing owner-only DEV reporting pins and
+new immutable names, without replacing any existing output.
+
+Native Power BI retained-reader and typed relationship model promotion remain
+unqualified. This packet does not mark those full exits complete or promote the
+working publication path before 1 November. Existing 07:00 monthly exporter,
+07:45 daily monitor, 1 November 07:50 Brisbane verification and noon deadline
+remain unchanged. Slices 3–6 remain deferred. Integrator writes only source/shared
+status in standard recovery clone, branch
+`codex/rims-retained-consumers-integration-20261031`; completion owner retains
+native/authentication and private receipt scope. No integrator slice test rerun
+or native operation is required; use source-owner evidence and existing CI once.
+
 ## First two roadmap slices authorised — 31 October 2026
 
 The user now authorises [CLI roadmap slices 1 and 2](../conductor/tracks/cli_roadmap_delivery_20261031/plan.md):

@@ -9,6 +9,11 @@ adoption, then identifier-backed relationship evidence. Remaining slices stay
 deferred. Retain existing native ownership, essential acceptance and the scheduled
 1 November read-only follow-up; isolated/offline work may proceed before then.
 
+[Selected consumer/relationship outputs](../docs/RETAINED_CONSUMER_ADOPTION_20261031.md)
+are accepted as isolated CLI/cloud delivery, with exact receipts in the handoff.
+This does not establish native
+Power BI reader/model adoption or change the scheduled baseline.
+
 ## Essential completion — 30 October 2026
 
 The three selected essential exits and final native retained-source verification

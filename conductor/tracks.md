@@ -8,6 +8,10 @@
   per slice. Slices 3–6 remain deferred. Isolated/offline work may precede
   1 November; preserve the working generation, existing schedules and observation.
 
+Selected slice outputs are [isolated CLI consumer and candidate grant references](../docs/RETAINED_CONSUMER_ADOPTION_20261031.md),
+with terminal cloud byte verification accepted. Native Power BI adoption remains
+unqualified; this does not mark the broader model/reader exits complete.
+
 ## Essential completion — 30 October 2026
 
 The three selected essential exits and final native retained-source verification
