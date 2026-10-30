@@ -242,3 +242,14 @@ list, `OutcomeJournal` and `OutcomeProjection` plain-text fields, and an empty
 fictional qualification item. This supersedes the earlier no-register-created
 statement. Existing registers were preserved. Creation receipts and exact IDs
 remain private; end-to-end native acceptance is still pending.
+
+### Project/output persistence extension — 30 October 2026
+
+The existing RIMS Outcome Evidence register/item is reused for project/output
+revision storage in two optional plain multiline fields: ProjectLinkJournal and
+ProjectLinkProjection. Its original outcome fields remain unchanged. These fields
+hold the existing typed project/output contract and retained inventory evidence;
+they do not extend Grant Relationships' grant-specific choice values or constitute
+review approval. One labelled fictional candidate has exact saved-state readback;
+no real canonical admission or report refresh is claimed. Target identities and
+receipts remain private under `private/ops/local-first-outcomes/project-link-persistence/`.

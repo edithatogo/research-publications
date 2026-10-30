@@ -84,14 +84,16 @@
         "scripts/grants_relationships.py",
         "docs/LOCAL_FIRST_OUTCOMES.md",
         "scripts/relationship_intake.py",
-        "scripts/relationship_store.mjs"
+        "scripts/relationship_store.mjs",
+        "scripts/project_link_intake.py"
       ],
       "test_patterns": [
         "test_grants_relationships*.py",
         "test_source_relationship_evidence.py",
         "test_relationship_revisions.py",
         "test_project_output_links.py",
-        "test_relationship_intake.py"
+        "test_relationship_intake.py",
+        "test_project_link_intake.py"
       ],
       "node_tests": [
         "tests/test_relationship_store.mjs"

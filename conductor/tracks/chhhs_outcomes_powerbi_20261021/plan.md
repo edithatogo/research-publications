@@ -237,3 +237,23 @@ Finish line met for the four-type adapter's fictional native create/readback.
 No further native action is required for this increment. Corrections, replay and
 recovery retain local coverage only; project/output and source-assertion storage
 remain separate scope. No test suite, monitoring, schedule, refresh or flow run.
+
+## Project/output persistence increment — 30 October 2026
+
+- **Implemented locally:** existing project/output revisions and projections now
+  use the retained paired-field CLI transport. Focused planner tests cover all
+  four types, replay, correction/withdrawal, human edits and invalid inventories.
+- **Implemented natively:** reused the existing RIMS Outcome Evidence item with
+  dedicated ProjectLinkJournal/ProjectLinkProjection fields. One fictional
+  project-publication candidate was saved once and read back exactly. No reviewed
+  bridge was admitted. Original outcome fields are byte-identical; Grant
+  Relationships and other registers were not mutated. No new list/item created.
+- **Finish line met:** immutable project-link history and derived projection are
+  stored atomically with exact native readback and preservation of outcome data.
+- **Next action:** none for this bounded persistence increment. Real canonical
+  intake and downstream model/report consumption require their own scoped work;
+  other native output types, replay and recovery are not claimed by this receipt.
+- Evidence: `private/ops/local-first-outcomes/project-link-persistence/acceptance.json`
+  and its schema/intake/preservation receipts. Four focused tests passed after
+  implementation. No broad suite, packaging, monitoring, schedule, refresh or flow
+  run; no solution contents changed.

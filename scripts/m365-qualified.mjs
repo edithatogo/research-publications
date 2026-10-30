@@ -8,7 +8,7 @@ import {execFileSync} from 'node:child_process';
 const fail = message => { throw new Error(message); };
 process.umask(0o077); // SDK response files and receipts remain owner-readable only.
 let [mode, bindingPath, ...args] = process.argv.slice(2);
-if (!['read','renew','change-log-read','documentation-sync','ardc-archive-read','outcome-store','relationship-store','register-read','outcome-bootstrap'].includes(mode)) fail('MODE_UNAVAILABLE_BEFORE_AUTH: unsupported mode');
+if (!['read','renew','change-log-read','documentation-sync','ardc-archive-read','outcome-store','relationship-store','project-link-schema','register-read','outcome-bootstrap'].includes(mode)) fail('MODE_UNAVAILABLE_BEFORE_AUTH: unsupported mode');
 if (!bindingPath) fail('Private binding required');
 const bindingFile = fs.realpathSync(bindingPath);
 // A reader may use the native owner's retained binding from an isolated source
@@ -21,6 +21,16 @@ const pkg = JSON.parse(fs.readFileSync(path.join(pin.sdkRoot,'package.json'),'ut
 if (pkg.name !== '@pnp/cli-microsoft365' || pkg.version !== pin.sdkVersion) fail('SDK changed; requalify before login');
 const {prepareRead}=await import('./m365_read_guard.mjs');
 const assertPrivate=file=>execFileSync('git',['check-ignore','-q',path.resolve(file)]);
+if(mode==='project-link-schema'){
+  if(args.length!==3) fail('Private project target, initial pair and new receipts required');
+  for(const file of args) assertPrivate(file);
+  if(fs.existsSync(args[2])) fail('Never reuse a schema receipt directory');
+  const selected=JSON.parse(fs.readFileSync(args[0],'utf8'));
+  const {target}=await import('./bootstrap_outcome_register.mjs');target(pin,selected.listUrl?.split('/_api/')[0]);
+  if(selected.journalField!=='ProjectLinkJournal'||selected.projectionField!=='ProjectLinkProjection') fail('Dedicated project fields required');
+  pin.readUrlPrefixes=[...pin.readUrlPrefixes,selected.listUrl];
+  const {validateTarget}=await import('./outcome_store.mjs');validateTarget({...pin,outcomeTarget:selected});
+}
 if(mode==='relationship-store'){
   if(args.length!==3) fail('Private relationship target, plan and new receipt directory required');
   for(const file of args) assertPrivate(file);
@@ -195,6 +205,9 @@ if(mode==='renew'){
   catch(e){save('failure.json',{message:e.message??String(e),at:new Date().toISOString()});throw e;}
 }else if(mode==='outcome-bootstrap'){
   const {runGuarded}=await import('./bootstrap_outcome_register.mjs');
+  await runGuarded({args,auth,request,pin});
+}else if(mode==='project-link-schema'){
+  const {runGuarded}=await import('./project_link_schema.mjs');
   await runGuarded({args,auth,request,pin});
 }else if(mode==='relationship-store'){
   const {runGuarded}=await import('./relationship_store.mjs');

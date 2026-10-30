@@ -415,3 +415,53 @@ this create/readback scope. Private receipts are in `relationship-persistence/`
 No tests were rerun, and no monitoring, scheduled runs, refreshes, replay or
 recovery drills occurred. This does not admit real relationships or qualify the
 separate project/output and source-assertion families.
+
+### Project/output native persistence — 30 October 2026
+
+The existing RIMS Outcome Evidence item now has dedicated plain Note fields
+`ProjectLinkJournal` and `ProjectLinkProjection`. This reuses the bounded paired
+journal design without changing OutcomeJournal/OutcomeProjection or extending
+Grant Relationships' four grant-specific types. No new register or item was
+created. Project-link revisions and retained canonical inventories share one
+conditional item update; only current reviewed assertions enter derived bridges.
+The existing project/output contract remains authoritative for publication, award,
+dataset and software links. Review labels are caller assertions, not independent
+business approval or source admission.
+
+`scripts/project_link_intake.py` reuses `project_output_links.py` and the qualified
+`outcome-store` transport. It rejects altered stored projections, incomplete
+inventories, unresolved identities, conflicting revisions, stale predecessors and
+field-capacity overflow before mutation. The transport refuses stale ETags and
+preserves other fields; uncertain writes are reconciled by readback without resend.
+
+CLI recipe, with all targets/inputs/receipts in ignored private paths:
+
+- Bootstrap the two dedicated fields on the existing versioned outcome register:
+  `node scripts/m365-qualified.mjs project-link-schema BINDING TARGET INITIAL_PAIR NEW_RECEIPTS`.
+  Initial pair must be the empty project-history envelope and its matching
+  projection. Existing nonempty fields are preserved; never reuse a send directory.
+- Prepare, or apply once with `--apply`:
+  `.venv/bin/python -m scripts.project_link_intake --binding BINDING --target TARGET --input REVISION --output NEW_RECEIPTS --apply`.
+  Target carries the existing list/item and the two dedicated field names.
+  Revision uses existing `append_revision` inputs, including complete typed
+  inventories, explicit predecessor and reason. Default is read/prepare only.
+- Recover business state with a compensating revision against a fresh snapshot;
+  retain history. Exact preimages and intents support separate conditional recovery
+  where authorized. No automatic deletion, history erasure or recovery drill.
+  Schema errors stop the batch; read saved intents and reconcile actual fields
+  before resuming. Target/schema/preimage/input changes invalidate prior receipts.
+
+Native qualification completed with one clearly fictional project-publication
+candidate. Two fields were added, then initialized together; the candidate was
+saved once and read back exactly. Existing outcome journal and projection remain
+byte-identical. Grant Relationships was not mutated. The candidate creates no
+reviewed reporting bridge. Private evidence:
+`private/ops/local-first-outcomes/project-link-persistence/acceptance.json`,
+`schema-once/`, `intake-once/`, and `outcome-preservation-read/`.
+
+Four focused planner tests passed after implementation, covering all four output
+kinds, unchanged replay, corrections/withdrawal, human-edit refusal, stale and
+conflicting revisions and incomplete inventories. Native scope is the single
+fictional create/readback only; other kinds and correction/replay/recovery have
+local evidence only. No model/report deployment, refresh, flow invocation,
+monitoring or scheduled run was performed.
