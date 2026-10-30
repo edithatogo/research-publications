@@ -159,3 +159,9 @@ revision audit, not a project-scoped security surface. Native DAX/filter behavio
 must be checked before this candidate is used operationally. The frozen flow
 candidate also passes the existing offline graph validator; connector/runtime
 semantics remain unverified.
+
+Relationship revision handling now wraps the existing grants relationship
+normalizer with immutable corrections, withdrawal and replay checks. Corrections
+retain lineage identity even when evidence changes the normalized key; stale forks
+are refused. This does not replace source-key admission or promote candidates.
+Dataset/software adapters and native relationship persistence remain unfinished.
