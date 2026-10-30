@@ -186,7 +186,7 @@ The relationship revision CLI now also retains existing DataCite Dataset/Softwar
 assertions, complete source records, manifest hashes and canonical-match counts.
 It refuses promotion flags and cross-family corrections. Upstream source capture
 validation/admission remains required; these checks do not authenticate source
-bytes or create native relationships. The DataCite storage mapping is now implemented locally; authenticated application is deferred as recorded below.
+bytes or create native relationships. The DataCite storage mapping is now implemented locally; the fictional Dataset native create/readback is accepted as recorded below.
 
 `python -m scripts.project_output_links --help` prepares explicit project links
 to publications, awards, datasets and software using complete supplied canonical
@@ -206,7 +206,7 @@ operation-specific authoring/entitlement qualification remains open.
 Use the maintained Conductor status linked above. Outcome and project/output
 storage, existing-model bindings/report additions, qualified CLI definition saves
 and the study path repair are implemented and have saved-state evidence. They are
-not missing prerequisites. Native DataCite application, selected flow deployment,
+not missing prerequisites. Additional DataCite native cases, selected flow deployment,
 real-source identity/period crosswalks and integration remain separate from the
 runtime/manual verification still outstanding. Earlier discovery and renewal
 receipts retain their original scope only.
@@ -581,8 +581,8 @@ Local evidence: five focused tests passed; fictional Dataset and Software candid
 packets were generated against the retained schema (10 pass, 7 unverified property
 checks). Private receipt: `private/ops/local-first-outcomes/datacite-persistence-local/`.
 No live authentication, tenant read/write, refresh check or monitoring occurred.
-Native application remains deferred while the refresh may consume existing source
-assertions; local preparation is not native completion.
+The earlier refresh-based deferral is superseded by the native result below.
+Local preparation alone was not native completion.
 
 Guarded executor wiring is implemented locally in `scripts/source_assertion_store.mjs`
 and `scripts/source_assertion_executor_policy.py`. Future authorized invocation:
@@ -639,3 +639,20 @@ No exact project association was supplied by the inspected award source contract
 Evidence: `private/ops/local-first-outcomes/real-intake/{projects,awards,proposals}.json`.
 Two focused source tests passed after implementation. No register write, approval,
 model change, refresh check or monitoring occurred.
+
+### DataCite native create/readback accepted — 30 October 2026
+
+The existing Source Assertions register passed exact identity/versioning checks
+and all 17 schema requirements (zero failed or unverified). The fictional Dataset
+candidate key was absent; the guarded CLI created one row with one send and read
+back all nine mapped fields exactly. Existing records and schema were unchanged.
+Candidate status remains unreviewed; no canonical or business admission is implied.
+Private receipts: `private/ops/local-first-outcomes/datacite-persistence-local/native-dataset-once/`.
+
+The previous refresh dependency is removed: inspection of all 70 parts of the
+retained saved model definition found no reference to this register, projection
+field or candidate-key namespace. Model refresh/runtime verification is separate.
+Software and update/withdrawal/replay/recovery native cases are not claimed by this
+create/readback. Prior local checks were reused; no additional native calls or tests
+were performed for this documentation update. PR90 source integration is complete
+at `705e0f3e`; CareOps pin promotion remains with its integrator.
