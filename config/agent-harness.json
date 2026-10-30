@@ -69,7 +69,8 @@
       ],
       "test_patterns": [
         "test_outcome_evidence.py",
-        "test_outcome_persistence.py"
+        "test_outcome_persistence.py",
+        "test_outcome_flow.py"
       ]
     },
     "relationships": {

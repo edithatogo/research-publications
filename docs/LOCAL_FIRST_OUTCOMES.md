@@ -143,3 +143,11 @@ one currency/cohort, converts its display value without changing retained decima
 text, and returns blank on conversion failure. Native DAX/locale, currency-series
 behaviour and rendering still require qualification; no exchange-rate comparison
 or cross-currency total is supplied.
+
+`python -m scripts.prepare_outcome_flow --help` now prepares an operator-qualified
+frozen journal update for an existing empty isolated manual flow. It preserves
+the supplied connection reference and trigger, reuses the standard SharePoint
+HTTP action contract, disables retries, enforces an exact ETag, and reads back
+after success/failure/timeout. Existing nonempty flows are refused rather than
+replaced. This is a bounded pilot candidate, not dynamic untrusted-user intake,
+a deployed persistence service or native recovery proof.
