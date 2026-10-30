@@ -592,7 +592,7 @@ def main(argv=None):
     command = commands.add_parser('summaries', help='Summarize explicit receipt files without merging runs')
     command.add_argument('receipts', type=Path, nargs='+')
     command = commands.add_parser('monitor', help='Evaluate one explicit monthly occurrence; never schedules or reads native state')
-    command.add_argument('--month', required=True, help='YYYY-MM; expected day1 09:00 and deadline noon Brisbane')
+    command.add_argument('--month', required=True, help='YYYY-MM; expected day1 07:00 and deadline noon Brisbane')
     group = command.add_mutually_exclusive_group(required=True)
     group.add_argument('--evidence', type=Path, help='Normalized runs and explicit history_complete/reads_verified flags')
     group.add_argument('--history', type=Path, help='Exact saved M365 native run-list array; cannot infer output success')

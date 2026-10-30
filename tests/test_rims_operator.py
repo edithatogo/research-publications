@@ -180,7 +180,7 @@ class OperatorToolsTests(unittest.TestCase):
             path.write_text(json.dumps(evidence))
             args = Namespace(month='2026-11', evidence=path, history=None,
                 as_of='2026-11-01T12:01:00+10:00',
-                observation_start='2026-11-01T08:00:00+10:00',
+                observation_start='2026-11-01T06:00:00+10:00',
                 observation_end='2026-11-01T12:01:00+10:00')
             self.assertEqual(monitor(args)['decision']['status'], 'MISSED')
             evidence['history_complete'] = False
@@ -194,11 +194,11 @@ class OperatorToolsTests(unittest.TestCase):
             path = Path(directory) / 'history.json'
             path.write_text(json.dumps([{'name': 'run-1',
                 'id': '/providers/Microsoft.ProcessSimple/environments/env/flows/dv/runs/run-1',
-                'properties': {'status': 'Succeeded', 'startTime': '2026-11-01T09:00:00+10:00',
-                    'endTime': '2026-11-01T09:01:00+10:00',
-                    'trigger': {'name': 'Recurrence', 'scheduledTime': '2026-11-01T09:00:00+10:00'}}}]))
+                'properties': {'status': 'Succeeded', 'startTime': '2026-11-01T07:00:00+10:00',
+                    'endTime': '2026-11-01T07:01:00+10:00',
+                    'trigger': {'name': 'Recurrence', 'scheduledTime': '2026-11-01T07:00:00+10:00'}}}]))
             args = Namespace(month='2026-11', evidence=None, history=path,
-                as_of='2026-11-01T12:01:00+10:00', observation_start='2026-11-01T08:00:00+10:00',
+                as_of='2026-11-01T12:01:00+10:00', observation_start='2026-11-01T06:00:00+10:00',
                 observation_end='2026-11-01T12:01:00+10:00', environment_id='env',
                 dataverse_flow_id='dv', runtime_flow_id='runtime', history_complete=True, reads_verified=True)
             self.assertEqual(monitor(args)['decision']['status'], 'UNKNOWN')
