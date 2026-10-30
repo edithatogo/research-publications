@@ -1,5 +1,13 @@
 # Track register
 
+## Deferred CLI roadmap plan — 31 October 2026
+
+- [ ] [CLI roadmap delivery](tracks/cli_roadmap_delivery_20261031/plan.md) —
+  **planned; execution NOT authorised**. The bounded slices define efficient
+  sequencing, prerequisite/stop conditions and one focused test plus one verify.
+  This entry records the user's planning request; it commissions no implementation
+  or native work. Existing essential acceptance and 1 November observation remain.
+
 ## Essential completion — 30 October 2026
 
 The three selected essential exits and final native retained-source verification

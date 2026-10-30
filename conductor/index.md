@@ -1,5 +1,12 @@
 # CHHHS research publications: current Conductor context
 
+## Deferred roadmap planning — 31 October 2026
+
+[CLI roadmap delivery plan](tracks/cli_roadmap_delivery_20261031/index.md)
+records sequencing, blockers and a one-test, one-verify approach per bounded
+slice. **Planning only; execution is not authorised.** Retain existing native
+ownership, essential acceptance and the scheduled 1 November read-only follow-up.
+
 ## Essential completion — 30 October 2026
 
 The three selected essential exits and final native retained-source verification
