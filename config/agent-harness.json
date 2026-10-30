@@ -88,7 +88,8 @@
         "scripts/project_link_intake.py",
         "scripts/source_assertion_persistence.py",
         "scripts/source_assertion_store.mjs",
-        "scripts/source_assertion_executor_policy.py"
+        "scripts/source_assertion_executor_policy.py",
+        "scripts/prepare_study_archive_navigation.py"
       ],
       "test_patterns": [
         "test_grants_relationships*.py",
@@ -97,7 +98,8 @@
         "test_project_output_links.py",
         "test_relationship_intake.py",
         "test_project_link_intake.py",
-        "test_source_assertion_persistence.py"
+        "test_source_assertion_persistence.py",
+        "test_prepare_study_archive_navigation.py"
       ],
       "node_tests": [
         "tests/test_relationship_store.mjs",

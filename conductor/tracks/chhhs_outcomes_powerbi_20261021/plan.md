@@ -51,7 +51,8 @@ Detailed dated receipts follow below. Private evidence is under
 `study-folder-fix/`, `datacite-persistence-local/` and `real-intake/`.
 Current source owner: chat `01a188d4-a0fc-79e2-83d3-39eb38459056`, isolated checkout
 `/Users/doughnut/.codex/worktrees/rims-assurance-integration/chhhs-research-publications`,
-branch `codex/rims-datacite-native-record` for this documentation follow-up
+branch `codex/rims-archive-navigation-local` for archive navigation preparation
+(previous documentation branch: `codex/rims-datacite-native-record`)
 (previous implementation branch: `codex/rims-local-outcomes`). This lane does not own shared main or CareOps
 pins. Preserve other chats' files, authentication and native operations.
 
@@ -379,3 +380,17 @@ in the sibling `refresh-check-once/` directory.
 - Two focused tests passed. Evidence stays private in
   `private/ops/local-first-outcomes/real-intake/`. No native writes, refresh checks,
   monitoring or automatic approval; current refresh inputs remain unchanged.
+
+## Archive navigation optimization — local increment, 31 October 2026
+
+- Owner: existing local-first lane in its isolated assurance checkout; scope is
+  the local preparer, focused tests/harness and this track's documentation only.
+- Implemented locally: reuse study directory listings within the existing reader;
+  preserve exact site/path/cardinality/type guards, projection bytes, fallback
+  archive reads and all 69 unrelated saved model parts.
+- Finish line: exact-preimage candidate and recovery prepared privately, with
+  deterministic/idempotent source transformation and drift refusal checked.
+- Next action: retain the local candidate until native qualification is selected.
+  Fresh definition reconciliation is required before deployment. Runtime output
+  parity and performance are unverified; no speedup or refresh recovery claimed.
+- No native calls, deployment, refresh status reads, new runs or monitoring.

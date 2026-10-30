@@ -656,3 +656,24 @@ Software and update/withdrawal/replay/recovery native cases are not claimed by t
 create/readback. Prior local checks were reused; no additional native calls or tests
 were performed for this documentation update. PR90 source integration is complete
 at `705e0f3e`; CareOps pin promotion remains with its integrator.
+
+### Archive navigation reuse — local candidate, 31 October 2026
+
+`scripts/prepare_study_archive_navigation.py` prepares a narrowly scoped change to
+SourceRelationshipEvidence.ReadStudy against an exact complete model preimage.
+Distinct study directory URLs receive reusable buffered lists of file-entry records;
+file binaries are read only by the selected reader. Folder and file lookup retains
+literal/escaped matching, exact cardinality, site identity and table/binary guards.
+Directories are not URI-normalized or merged. Other archive users retain the
+accepted uncached reader. The study identity/projection expressions remain byte
+unchanged, as do all 69 unrelated model parts. Repeated preparation is idempotent;
+unknown reader drift is rejected. No blanket library or binary-content buffering
+is introduced. Reuse is scoped to one query evaluation, not a persistent cache.
+
+Private candidate/recovery and hashes are in
+`private/ops/local-first-outcomes/study-folder-fix/archive-navigation-local/`.
+This is a local source candidate, not a deployed change or measured speedup.
+M engine evaluation, output parity and actual performance require later native
+qualification; Python source checks do not establish them. Before any future
+save, reconcile a fresh complete definition with this retained preimage and retain
+other owners' changes. No deployment or refresh is selected by this increment.
