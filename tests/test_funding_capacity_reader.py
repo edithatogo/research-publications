@@ -12,5 +12,8 @@ class FundingReaderTests(unittest.TestCase):
         self.assertEqual(parts(result['report'])['definition.pbir'],b'binding')
         cohort=parts(result['model'])['definition/tables/AwardStartCohort.tmdl'].decode()
         self.assertIn('column currency',cohort);self.assertIn('column start_year',cohort)
+        self.assertIn('HASONEVALUE(AwardStartCohort[currency])',cohort)
+        chart=json.loads(parts(result['report'])['definition/pages/FundingCohortChart/visuals/award-cohorts/visual.json'])
+        self.assertIn('Series',chart['visual']['query']['queryState'])
         self.assertNotIn('SUM(',cohort);self.assertFalse(result['native_ready'])
         with self.assertRaises(ValueError): prepare(m,r,model_sha256='stale',report_sha256=fingerprint(r),expression_sha256='',table_template_path='table.json')

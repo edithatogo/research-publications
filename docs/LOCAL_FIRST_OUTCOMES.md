@@ -136,3 +136,10 @@ observation and suppressed for mixed indicator/version/unit/population/setting
 contexts. The detail page carries the observation ID filter. Local structure
 checks do not prove DAX execution, filter propagation, rendering or keyboard
 behaviour; those native/manual exits remain open.
+
+Funding candidates now include an award-start chart with explicit currency series
+and navigation to the exact-decimal detail tables. The chart measure admits only
+one currency/cohort, converts its display value without changing retained decimal
+text, and returns blank on conversion failure. Native DAX/locale, currency-series
+behaviour and rendering still require qualification; no exchange-rate comparison
+or cross-currency total is supplied.
