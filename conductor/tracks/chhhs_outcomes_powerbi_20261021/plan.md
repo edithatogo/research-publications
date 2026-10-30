@@ -7,6 +7,58 @@
 
 # T18 — Implementation plan
 
+## Current implementation and verification — 30 October 2026
+
+This is the maintained status for the current local-first lane. It supersedes
+older pending/missing statements below. Historical unchecked slice tasks are
+roadmap requirements, not evidence that delivered features need rebuilding.
+Status is based on retained receipts; this cleanup makes no native calls.
+
+| Group | Implementation now | Outstanding work |
+|---|---|---|
+| Outcome storage | Existing RIMS Outcome Evidence register, conditional paired journal/projection intake, revision protection and fictional save/readback implemented. | Broader real-evidence intake and business review; no new register needed. |
+| Grant relationships | Existing Grant Relationships register reused; history field, typed CLI adapter and fictional native create/readback implemented. | Optional explicit adoption of legacy rows. Native corrections/replay/recovery have local coverage only. |
+| Project/output relationships | Publication/award/dataset/software contracts, revisions and paired native storage implemented. Fictional project/publication saved and read back. | Other output types have local coverage only; no additional native cases are automatically selected. |
+| DataCite source assertions | Offline Dataset/Software mapping, provenance/history, request planning and reconciliation implemented; two fictional candidates prepared against existing fields. | Authenticated executor binding and native application/readback deferred. Seven retained-schema properties remain unverified; no columns or list creation selected. |
+| Real-data intake | 442 project and 2,217 award proposals; 442 unresolved PI role assertions; explicit unmatched and duplicate accounting implemented. | Verified person identities/periods, duplicate-project resolution, explicit project–award crosswalks and qualified award currency/date semantics. Zero links proposed from the inspected source; no name/title inference. |
+| Model/report | Outcome and project/output bindings, facts/bridges, project selector, counts and evidence pages saved to the existing model/report with preservation readback. | Runtime data verification and manual visual/accessibility acceptance. Existing definitions do not need redeployment merely for validation. |
+| Study archive lookup | Mixed escaped/literal path correction saved; exact candidate readback and 69 unrelated parts preserved. | Successful refresh/data evidence, not another source patch absent a new error. |
+| Flow orchestration | Frozen manual-flow builder and paired-field preparation implemented locally; direct CLI persistence already operates. | Native flow deployment/qualification only if the flow-mediated route is selected. No unattended ingestion service is claimed or selected. |
+| Integration | Scoped source and evidence updates are on draft PR90; prior focused checks retained. | Required integration gates, merge and qualified CareOps pin promotion remain with the integrators. |
+
+### Verification state and next action
+
+- The old manual refresh failed with the study path error; the saved fix supersedes
+  that implementation blocker. Do not treat the old failure as current execution.
+- The replacement manual refresh recorded in private
+  `study-folder-fix/manual-verification/receipt.json` was submitted once. Last retained read: **30 October 2026, 23:02 Brisbane**, status **Unknown**,
+  no terminal result/error. This is a historical snapshot, not a fresh status read.
+- Next runtime action, only when requested: check that exact refresh once. If it
+  succeeded, verify study evidence and project/output data with bounded queries.
+  No polling, resubmission, new refresh or schedule is implied.
+- Native DataCite writes remain deferred while the current refresh may consume
+  source assertions. Future execution must qualify the existing schema and preserve
+  current records; source proposal preparation is complete.
+- Manual acceptance is limited to changed report pages. Local checks and saved
+  definitions do not prove rendering, business truth or refreshed data.
+
+### Evidence and ownership
+
+Detailed dated receipts follow below. Private evidence is under
+`private/ops/local-first-outcomes/`: `relationship-persistence/`,
+`project-link-persistence/`, `project-link-report/after-refresh/`,
+`study-folder-fix/`, `datacite-persistence-local/` and `real-intake/`.
+Current source owner: chat `01a188d4-a0fc-79e2-83d3-39eb38459056`, isolated checkout
+`/Users/doughnut/.codex/worktrees/rims-assurance-integration/chhhs-research-publications`,
+branch `codex/rims-local-outcomes`. This lane does not own shared main or CareOps
+pins. Preserve other chats' files, authentication and native operations.
+
+## Historical plans and dated evidence
+
+The remaining sections retain provenance and original requirements. They do not
+override the current status above or authorize new tests, deployments or schedules.
+
+
 ## Selected publications recovery — 24 October 2026
 
 - [x] Recover the unchanged frozen1,341-row baseline and current versioned-reader
@@ -73,56 +125,19 @@ runtime acceptance is inferred from source pins, test success or saved parts.
 - [ ] Task: Deliver the metric dictionary, strategy crosswalk, page contracts, readiness register, outcome-intake instructions and original/restated interpretation in existing documentation. Evaluate preferred SharePoint structured generation for narrative outputs before fallback.
 - [ ] Task: Final verification — confirm all core outcomes have implemented definitions or explicit evidence dependencies, all selected slices have native acceptance, and no pending business judgement is represented as complete. No publication, circulation or schedule activation is implied.
 
-## Next concrete action
+## Superseded October reader and local-first planning
 
-Continue only the remaining selected reader acceptance: dark clipping and correct
-page-specific capture, representative laptop/accessibility/keyboard/detail checks,
-strict load/interaction timing and maintained report-source/scoped restore proof.
-Reuse completed consumer, preserved baseline and fresh1,344-key/11-field/eight-
-metric query reconciliation. Do not poll or resubmit completed consumer operations.
-Current parity and task dispositions (retained authoring reference: `publications-parity-20261024.md`).
-Later capacity/funding/translation slices remain future dependencies; preserve
-native ownership, working reader and frozen baselines. No production promotion,
-sharing, rollout or business adjudication is implied.
-
-## Local-first implementation increment — 30 October 2026
-
-The current increment follows [the CLI recipe](../../../docs/LOCAL_FIRST_OUTCOMES.md).
-It does not reopen accepted slice 1 work or transfer native ownership.
-
-| Group | Current implementation evidence | Next exit |
-|---|---|---|
-| SharePoint persistence | Implemented locally: bounded conditional journal adapter; fictional transport checks. Native verification pending. | Obtain owner-approved existing register/schema and exact binding; qualify server-side ETag transport before native use. |
-| Dataset projections | Implemented locally: outcome journal replay into existing eligibility/redaction and separate facts/bridges. | Bind new facts to the selected native model; C01/C02/F01 projection and relationship revision adapters are local only. Missing evidence remains unavailable. |
-| Flow orchestration | Implemented locally: frozen manual ETag journal-update candidate using the existing standard SharePoint action contract; graph check passes. Dynamic CLI intake and paired-field flow preparation are implemented locally in PR90; native qualification remains pending. | Reuse an accepted standard action contract after register mapping is fixed; preserve existing flows. |
-| Power BI additions | Implemented locally: outcome chart/detail/drillthrough, explicit project bridge measures, funding/capacity tables and currency-cohort chart/detail candidates. Native DAX, bindings and visual acceptance remain unverified. | Exact non-premium target capability and complete model/report preimages required before target-bound candidate preparation. |
-| CLI transport | Existing guarded flow helper retained; legacy Power BI token/browser entrypoints replaced with offline complete-definition/recovery packet preparation. Native executor remains blocked. | User completed same-client Azure CLI renewal; exact report and bound model GETs pass with unchanged account/tenant/selection. Definition-write permission and non-premium eligibility remain unqualified. |
-
-Finish line: one fictional outcome persisted, revised and projected with exact
-readback, followed by its model/page candidate and manual visual handoff. Local
-transport tests do not close native persistence or end-to-end reader acceptance.
-
-### Remaining implementation versus native prerequisites
-
-- Dynamic CLI intake, guarded journal/projection transport, conditional recovery
-  and source-binding preparation are implemented locally in PR90 (`ec9c1f4e`).
-  Native qualification is incomplete; no unattended ingestion service is claimed.
-- Relationship correction/withdrawal adapters cover normalized grant links and
-  retained DataCite Dataset/Software assertions; native persistence and complete
-  cross-domain project linkage are not complete.
-- No authoritative outcome register or approved field mapping has been selected.
-  The list registry does not establish one; a current owner-qualified schema read
-  must precede finalising the migration. Do not infer absence tenant-wide.
-- Power BI authentication renewal, non-premium operation qualification, native
-  DAX/filter checks and manual visual/keyboard acceptance remain separate exits.
-- Source integration and CareOps promotion wait for the scoped packet review and
-  required gates; this lane does not take over another repository's integrator.
-
+The former next-action list and missing-register/model-route table are superseded
+by [current implementation and verification](#current-implementation-and-verification--30-october-2026).
+Retained reader accessibility/performance requirements remain manual/roadmap scope;
+register selection, qualified definition writing and native relationship persistence
+have since been implemented at the specific scopes recorded above. No repeated
+source or native qualification is required for unchanged inputs.
 
 ## Agreed execution plan — 30 October 2026
 
 This section supersedes conflicting cadence and pending-implementation statements
-above for this increment. The current request records the plan only: do not start
+above for this increment. The original request recorded the plan only: do not start
 login, implementation, native mutation or verification from this documentation task.
 
 1. **Login first.** Renew the expired retained M365 Toolkit SharePoint session

@@ -1,10 +1,10 @@
 # Local-first outcomes CLI recipe
 
-Current execution authority and cadence: [agreed Conductor plan](../conductor/tracks/chhhs_outcomes_powerbi_20261021/plan.md#agreed-execution-plan--30-october-2026).
-Finish implementation before one final verification batch; manual-run evidence
-only, no separate replay run, scheduled verification, monitoring or background
-follow-ups. These lane-specific limits supersede older cadence/replay language
-below. The current task records this plan only and does not execute it.
+Current status: [implementation, verification and next action](../conductor/tracks/chhhs_outcomes_powerbi_20261021/plan.md#current-implementation-and-verification--30-october-2026).
+That maintained list supersedes historical blocker/missing statements in this
+chronological recipe. Source and saved-native implementation are distinct from
+runtime, manual visual acceptance and integration. Only necessary changed-behavior
+checks after implementation; no monitoring, automatic refresh or scheduled runs.
 
 This increment reuses the outcomes track and existing relationship builders.
 Canonical source and the sanitized CareOps module remain separate histories.
@@ -180,21 +180,19 @@ Relationship revision handling now wraps the existing grants relationship
 normalizer with immutable corrections, withdrawal and replay checks. Corrections
 retain lineage identity even when evidence changes the normalized key; stale forks
 are refused. This does not replace source-key admission or promote candidates.
-Dataset/software adapters are described below; native relationship persistence
-remains missing.
+Dataset/software adapters are described below; native grant and project/output persistence is now implemented as recorded below.
 
 The relationship revision CLI now also retains existing DataCite Dataset/Software
 assertions, complete source records, manifest hashes and canonical-match counts.
 It refuses promotion flags and cross-family corrections. Upstream source capture
 validation/admission remains required; these checks do not authenticate source
-bytes or create native relationships. Native storage mapping remains unresolved.
+bytes or create native relationships. The DataCite storage mapping is now implemented locally; authenticated application is deferred as recorded below.
 
 `python -m scripts.project_output_links --help` prepares explicit project links
 to publications, awards, datasets and software using complete supplied canonical
 inventories. Candidate/withdrawn links stay in evidence records but not reporting
 bridges; reviewed links are deduplicated at project/output grain. Review assertions
-are caller-supplied, not certified by the tool. Native storage and source-specific
-identity/admission qualification remain required.
+are caller-supplied, not certified by the tool. Native project/output storage is implemented below; real source-specific identity/admission remains unresolved.
 
 User-assisted Azure CLI renewal subsequently completed successfully. Exact report
 and bound-model reads pass with unchanged account, tenant and selection. The
@@ -203,27 +201,15 @@ or proof that a non-premium definition-write route is available. No write,
 refresh or settings change was performed. Authentication expiry is resolved;
 operation-specific authoring/entitlement qualification remains open.
 
-## Current finish line and remaining implementation
+## Current finish line
 
-The exact existing report definition was retrieved through the retained Azure CLI
-client after interactive renewal: the read returned HTTP202, its operation reached
-Succeeded, and the result contains 75 definition parts. The complete private
-preimage is retained under `private/ops/local-first-outcomes/`. This qualifies
-definition retrieval only; it does not qualify update permissions, non-premium
-entitlement, model definition retrieval or report rendering. Do not repeat login
-or the accepted report read unless the account, target or required input changes.
-
-The local builders above are implemented candidates. The dynamic CLI intake and guarded paired-field transport are implemented.
-Storage selection and a fresh exact schema are still needed before binding or
-running them. Relationship persistence and authoritative funding/source adapters
-remain missing. Intake does not create an unattended cloud service or establish
-substantive verification of the supplied evidence.
-
-The end-to-end finish line remains one fictional outcome persisted, projected,
-processed by the flow and displayed by the existing report, with replay and scoped
-recovery evidence. Model source bindings, native runtime checks and manual visual
-acceptance remain open. PR90 is not ready for a native-completion claim or CareOps
-pin promotion.
+Use the maintained Conductor status linked above. Outcome and project/output
+storage, existing-model bindings/report additions, qualified CLI definition saves
+and the study path repair are implemented and have saved-state evidence. They are
+not missing prerequisites. Native DataCite application, selected flow deployment,
+real-source identity/period crosswalks and integration remain separate from the
+runtime/manual verification still outstanding. Earlier discovery and renewal
+receipts retain their original scope only.
 
 ## Bind and package the paired projection
 
