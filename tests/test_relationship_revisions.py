@@ -21,3 +21,11 @@ class RelationshipRevisionTests(unittest.TestCase):
             withdrawn=append(h,record,revision_id='r2',supersedes='r1',state='withdrawn',reason='source correction')
             self.assertEqual(current(withdrawn),[])
             with self.assertRaises(ValueError): append([],dict(record,CanonicalAdmission=True),revision_id='r1',supersedes=None,state='active',reason='invalid promotion')
+
+    def test_rehashed_malformed_history_is_not_accepted(self):
+        from scripts.outcome_persistence import digest
+        r=dict(RelationshipType='candidate_award_match',FromKey='AWARD:FIC:1',ToKey='PUB:FIC',AwardID='FIC-1',EvidenceURL='https://example.org/fictional',Confidence='candidate',ReviewStatus='Needs Review')
+        h=append([],r,revision_id='r1',supersedes=None,state='active',reason='fictional')
+        h[0]['state']='invalid'
+        h[0]['sha256']=digest({k:v for k,v in h[0].items() if k!='sha256'})
+        with self.assertRaises(ValueError):current(h)

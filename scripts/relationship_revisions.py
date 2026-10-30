@@ -33,13 +33,7 @@ def append(history, record, *, revision_id, supersedes, state, reason):
     if state not in {'active','withdrawn'} or not isinstance(reason,str) or not reason.strip(): raise ValueError('Explicit state and reason required')
     normalized=normalize_assertion(record)
     result=copy.deepcopy(history)
-    seen=set();heads={}
-    for entry in result:
-        if entry['revision_id'] in seen or entry['sha256']!=digest({k:v for k,v in entry.items() if k!='sha256'}): raise ValueError('Invalid retained revision history')
-        seen.add(entry['revision_id'])
-        key=entry['identity']
-        if entry['supersedes']!=heads.get(key): raise ValueError('Incomplete or forked history')
-        heads[key]=entry['revision_id']
+    heads = validate_history(result)
     identity=normalized.get('RelationshipKey',normalized.get('EvidenceKey'))
     prior=next((e for e in result if e['revision_id']==supersedes),None)
     if prior:
@@ -59,14 +53,31 @@ def append(history, record, *, revision_id, supersedes, state, reason):
     return result
 
 
-def current(history):
-    heads={}
+def validate_history(history):
+    if not isinstance(history,list): raise ValueError('Complete revision array required')
+    heads={}; seen=set()
+    required={'identity','revision_id','supersedes','state','reason','record','sha256'}
     for entry in history:
+        if not isinstance(entry,dict) or set(entry)!=required: raise ValueError('Incomplete revision envelope')
+        if entry['revision_id'] in seen or not isinstance(entry['revision_id'],str) or not entry['revision_id']:
+            raise ValueError('Duplicate or invalid revision identity')
+        seen.add(entry['revision_id'])
+        if entry['state'] not in {'active','withdrawn'} or not isinstance(entry['reason'],str) or not entry['reason'].strip(): raise ValueError('Invalid revision disposition')
+        if normalize_assertion(entry['record'])!=entry['record']: raise ValueError('History record normalization drift')
         if entry['sha256']!=digest({k:v for k,v in entry.items() if k!='sha256'}): raise ValueError('History hash mismatch')
         previous=heads.get(entry['identity'])
         if entry['supersedes']!=(previous['revision_id'] if previous else None): raise ValueError('Forked history')
+        if previous is None and entry['identity']!=entry['record'].get('RelationshipKey',entry['record'].get('EvidenceKey')):
+            raise ValueError('Initial lineage identity mismatch')
+        if previous and ('RelationshipKind' in previous['record']) != ('RelationshipKind' in entry['record']): raise ValueError('History family drift')
+        if previous and previous['record']['Confidence']!='confirmed' and entry['record']['Confidence']=='confirmed': raise ValueError('Unqualified historical confirmation')
         heads[entry['identity']]=entry
-    return [copy.deepcopy(e['record']) for e in heads.values() if e['state']=='active']
+    return {key:value['revision_id'] for key,value in heads.items()}
+
+
+def current(history):
+    heads=validate_history(history)
+    return [copy.deepcopy(e['record']) for e in history if heads[e['identity']]==e['revision_id'] and e['state']=='active']
 
 
 def main(argv=None):
