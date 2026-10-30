@@ -498,3 +498,16 @@ runtime data and manual visual acceptance remain separate claims.
 The focused additive-builder check passed after implementation, covering preserved
 parts and identities, exact target binding, current-review bridge source, model
 column construction and collision refusal. Existing persistence tests were reused.
+
+**Project/output definitions deployed — 30 October 2026:** the explicitly requested
+single history check established that the prior refresh finished Failed because
+`Study archive folder missing or duplicated`; four attempts were internal to Power BI.
+No new refresh was started. After reconciling fresh complete definitions, the model
+and report additions were each saved once and read back successfully. All 64
+unrelated model parts and 83 unrelated report parts are byte-identical. Changed
+TMDL matches after service formatting/declaration-order normalization; changed
+report JSON matches structurally. The previous deployment blocker is resolved.
+The study-source failure remains a runtime blocker; refreshed data and manual
+rendering are not claimed. Other RIMS completion/integration chats were inactive;
+no overlapping active native writer was found. Evidence and recovery packets are
+under `project-link-report/after-refresh/`; no monitoring or scheduled run was added.

@@ -275,3 +275,32 @@ remain separate scope. No test suite, monitoring, schedule, refresh or flow run.
 - Exact candidates, recovery packets, failed-operation terminal receipt and model
   readback: `private/ops/local-first-outcomes/project-link-report/`. No source data
   writes, model refresh, flow run, schedule change or monitoring occurred.
+
+### Project/output model/report saved — 30 October 2026
+
+The user-authorized single refresh-history check found the existing manual refresh
+terminal Failed (ended 10:40:46 UTC), with `Study archive folder missing or
+duplicated`. Four internal service attempts were recorded; this lane did not submit
+another refresh. The deployment lock has cleared.
+
+Current complete definitions were captured and reconciled before applying the
+model and dependent report once each. Both saves reached Succeeded. Model readback
+preserves 64 unrelated parts byte-for-byte; the six added/changed parts match after
+service TMDL formatting/object-order normalization. Report readback preserves 83
+unrelated parts byte-for-byte; all seven added/changed JSON parts are equal. Current
+binding identities, default report page and stored SharePoint records are preserved.
+
+The model/report saved-definition finish line is met. Data refresh/runtime proof
+and manual visual acceptance remain unverified. The existing study archive source
+error is a separate runtime blocker; no study expression was changed. No new refresh,
+monitoring, scheduled run, test suite or flow invocation was performed.
+
+Coordination: current chat owns only this isolated worktree and additive model/report
+scope. The RIMS completion and integrator chats were inspected and are inactive,
+with completed last turns; no competing active RIMS writer was found. Shared main,
+other checkouts, native journals and authentication ownership remain untouched.
+
+Private evidence: `private/ops/local-first-outcomes/project-link-report/after-refresh/`
+contains ownership, fresh preimages, exact candidates/recovery packets, terminal
+save receipts, model/report readbacks and acceptance.json. The one refresh check is
+in the sibling `refresh-check-once/` directory.
