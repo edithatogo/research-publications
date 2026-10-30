@@ -84,3 +84,20 @@ Current parity and task dispositions (retained authoring reference: `publication
 Later capacity/funding/translation slices remain future dependencies; preserve
 native ownership, working reader and frozen baselines. No production promotion,
 sharing, rollout or business adjudication is implied.
+
+## Local-first implementation increment — 30 October 2026
+
+The current increment follows [the CLI recipe](../../../docs/LOCAL_FIRST_OUTCOMES.md).
+It does not reopen accepted slice 1 work or transfer native ownership.
+
+| Group | Current implementation evidence | Next exit |
+|---|---|---|
+| SharePoint persistence | Implemented locally: bounded conditional journal adapter; fictional transport checks. Native verification pending. | Obtain owner-approved existing register/schema and exact binding; qualify server-side ETag transport before native use. |
+| Dataset projections | Implemented locally: outcome journal replay into existing eligibility/redaction and separate facts/bridges. | Bind new facts to the selected native model; missing evidence remains unavailable. |
+| Flow orchestration | Implementation missing for the new persistence path. | Reuse an accepted standard action contract after register mapping is fixed; preserve existing flows. |
+| Power BI additions | Implemented locally: additive outcome count/detail page and five TMDL fact/bridge/detail tables. Funding pages, quantitative plots, project-filter propagation and drillthrough remain implementation missing. | Exact non-premium target capability and complete model/report preimages required before target-bound candidate preparation. |
+| CLI transport | Existing guarded flow helper retained; legacy Power BI token/browser entrypoints replaced with offline complete-definition/recovery packet preparation. Native executor remains blocked. | Replace authentication dependency using the native owner's qualified same-client route. |
+
+Finish line: one fictional outcome persisted, revised and projected with exact
+readback, followed by its model/page candidate and manual visual handoff. Local
+transport tests do not close native persistence or end-to-end reader acceptance.

@@ -89,12 +89,12 @@ def run_checks(checks, runner=subprocess.run):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('action', choices=['context', 'check', 'doctor'])
-    parser.add_argument('--task', default='grants')
+    parser.add_argument('--task', default='grants', help='Configured task name; use context to read its selected files, or check --task all for integration')
     args = parser.parse_args(argv)
     try:
         config = load_config()
         if args.task not in config['tasks'] and not (args.action == 'check' and args.task == 'all'):
-            raise ValueError('Unknown task; use grants, publications, organisation, platform or check --task all')
+            raise ValueError('Unknown task; use '+', '.join(config['tasks'])+' or check --task all')
         if args.action == 'doctor':
             print('PASS: public context paths and test selections exist; no tenant checks performed')
             return 0

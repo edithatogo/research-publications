@@ -94,3 +94,12 @@ retired experimental Canvas unpack format.
 Do not add blanket pack/check runs to every edit. Pack affected solution releases
 and compare unpacked source; cloud Solution Checker is a separate authorized
 operation. Keep output/replay/recovery evidence separate from all local checks.
+
+## Local-first outcomes increment — 30 October 2026
+
+Follow [the local-first recipe](docs/LOCAL_FIRST_OUTCOMES.md) and the existing
+outcomes track. Prepare and compare locally before native writes. Automation is
+CLI-only, standard-feature-only, without Copilot; unsupported UI steps receive a
+manual handoff. Use focused harness selections during edits and existing full
+gates at integration. Reuse accepted native evidence unless relevant inputs
+change. This lane does not acquire another lane's authentication or native scope.
