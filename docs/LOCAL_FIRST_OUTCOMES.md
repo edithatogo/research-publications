@@ -597,3 +597,36 @@ checks). Private receipt: `private/ops/local-first-outcomes/datacite-persistence
 No live authentication, tenant read/write, refresh check or monitoring occurred.
 Native executor binding/application is deliberately deferred while the refresh may
 consume existing source assertions; local preparation is not native completion.
+
+### Real source intake proposal mapping — 30 October 2026
+
+`scripts/prepare_real_research_intake.py` maps complete retained DoRA activity and
+Award context snapshots to proposed funding_capacity contract records and explicit
+candidate project/output award links. It does not admit them into reporting tables.
+Original source rows, native identities and per-row hashes remain in private output.
+DoRA Project ID is namespaced as a proposed project key; repeated IDs stay ambiguous
+rather than being merged across sites or observations. PI name/email fields produce
+source-supported role assertions with unresolved person identity and participation
+periods; project dates are not substituted for participation dates. Missing finish
+dates are unknown, not evidence of an ongoing project. No institutional leadership,
+currency, Excel serial-date conversion or attribution is inferred. Only an explicit
+unique project_id in award RelatedIdentifiersJSON can propose an award link; titles,
+organisation names and PI names do not establish relationships. Candidate links use
+the existing project_output_links field contract and never acquire reviewed status.
+
+CLI: `.venv/bin/python -m scripts.prepare_real_research_intake --projects PROJECTS_JSON
+--awards AWARDS_JSON --output PRIVATE_NEW_JSON` (one command). Inputs are complete
+native collection envelopes; continuation markers are refused. Output contains
+projects, awards, participation, proposed_links, unmatched and ambiguous records.
+These are proposals with unresolved gaps, not approved canonical inventories or
+inputs ready for metrics. A future canonical-person/source reconciliation is needed
+before admitting participation; duplicated project IDs need explicit resolution.
+
+The bounded native read captured 442 activity records and 2,217 award-context
+records, with no continuation. Private proposals contain 442 project candidates,
+2,217 award candidates, 442 unresolved PI assertions, zero proposed award links,
+2,659 unmatched cases and 92 ambiguous source rows (not 92 distinct projects).
+No exact project association was supplied by the inspected award source contract.
+Evidence: `private/ops/local-first-outcomes/real-intake/{projects,awards,proposals}.json`.
+Two focused source tests passed after implementation. No register write, approval,
+model change, refresh check or monitoring occurred.

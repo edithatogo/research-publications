@@ -341,3 +341,20 @@ in the sibling `refresh-check-once/` directory.
   Next native action requires an authorized continuation after the refresh conflict
   is cleared, with fresh exact schema/identity/preimage qualification. No automatic
   refresh check, deployment, migration or monitoring is selected.
+
+## Real-data intake mapping — 30 October 2026
+
+- Local proposal adapter implemented against existing DoRA/Award context fields;
+  complete read-only captures contain 442 activities and 2,217 award rows.
+- Prepared 442 project and 2,217 award candidates plus 442 unresolved PI role
+  assertions. No person identity or participation dates inferred from names or
+  project periods. 92 source rows with repeated identities remain ambiguous.
+- Explicit unmatched accounting: 2,659 cases; zero proposed project-award links,
+  because the inspected source lacks uniquely resolving explicit project IDs.
+  Title/name matching and automatic review/admission are excluded.
+- Finish line met for source proposal preparation. Next data dependencies are
+  explicit project/award crosswalks, duplicate-project resolution, verified person
+  identities/role periods, and source-qualified award currency/date semantics.
+- Two focused tests passed. Evidence stays private in
+  `private/ops/local-first-outcomes/real-intake/`. No native writes, refresh checks,
+  monitoring or automatic approval; current refresh inputs remain unchanged.
