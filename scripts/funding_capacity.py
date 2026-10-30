@@ -5,7 +5,7 @@ Opportunities and applications are never admitted as awards.
 SPDX-License-Identifier: Apache-2.0
 """
 from datetime import date
-from decimal import Decimal, InvalidOperation
+from decimal import Decimal, InvalidOperation, localcontext
 
 
 def project(projects, awards, participation, *, period_end, complete):
@@ -56,7 +56,11 @@ def project(projects, awards, participation, *, period_end, complete):
         started = date.fromisoformat(start)
         if started > end: continue
         key = (currency, started.year)
-        totals[key] = totals.get(key, Decimal(0)) + value
+        prior = totals.get(key, Decimal(0))
+        # Decimal's default precision silently rounds large exact awards.
+        with localcontext() as context:
+            context.prec = max(len(prior.as_tuple().digits), len(value.as_tuple().digits)) + abs(prior.as_tuple().exponent - value.as_tuple().exponent) + 2
+            totals[key] = prior + value
     return {'period_end': period_end,
             'active_projects': len(active), 'unknown_project_periods': len(unknown),
             'led_projects': sum(r.get('chhhs_led') is True for r in active),

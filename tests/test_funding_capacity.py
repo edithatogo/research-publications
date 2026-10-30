@@ -16,3 +16,8 @@ class FundingCapacityTests(unittest.TestCase):
         with self.assertRaises(ValueError): project([],[],[],period_end='2026-01-01',complete=False)
         with self.assertRaises(ValueError): project([], [{'award_id':'FIC-A','record_kind':'Opportunity'}],[],period_end='2026-01-01',complete=True)
         with self.assertRaises(ValueError): project([{'project_id':'FIC-P'},{'project_id':'FIC-P'}],[],[],period_end='2026-01-01',complete=True)
+
+    def test_large_exact_awards_do_not_round_under_default_decimal_context(self):
+        rows=[dict(award_id='FIC-'+str(i),record_kind='Award',currency='AUD',start_date='2025-01-01',amount=amount) for i,amount in enumerate(['123456789012345678901234567890.12','0.01'])]
+        result=project([],rows,[],period_end='2026-01-01',complete=True)
+        self.assertEqual(result['award_cohorts'][0]['amount'],'123456789012345678901234567890.13')
