@@ -17,7 +17,7 @@ from scripts.prepare_publication_outcome_reader import projection
 
 TABLES = {
     'TranslationEvent': [('event_id', 'string'), ('revision_id', 'string'), ('event_type', 'string')],
-    'OutcomeObservation': [('observation_id', 'string'), ('revision_id', 'string'), ('unit', 'string'), ('population_id', 'string'), ('setting_id', 'string')],
+    'OutcomeObservation': [('observation_id', 'string'), ('revision_id', 'string'), ('unit', 'string'), ('population_id', 'string'), ('setting_id', 'string'), ('indicator_id', 'string'), ('indicator_version', 'string'), ('estimate', 'double'), ('numerator', 'double'), ('denominator', 'double'), ('estimate_state', 'string'), ('numerator_state', 'string'), ('denominator_state', 'string')],
     'EventProject': [('event_id', 'string'), ('project_id', 'string')],
     'ObservationProject': [('observation_id', 'string'), ('project_id', 'string')],
     'OutcomeEvidenceDetail': [('kind', 'string'), ('id', 'string'), ('revision_id', 'string'), ('verification_status', 'string'), ('eligible', 'boolean'), ('selected_as_of_cutoff', 'boolean'), ('source_sha256', 'string')],
@@ -32,6 +32,8 @@ def table_definition(name):
     if name in ('TranslationEvent', 'OutcomeObservation'):
         key = fields[0][0]
         lines.extend([f'\tmeasure \'Eligible records\' = DISTINCTCOUNT({name}[{key}])', '\t\tformatString: 0'])
+    if name == 'OutcomeObservation':
+        lines.extend(["\tmeasure 'Selected observation estimate' = IF(HASONEVALUE(OutcomeObservation[observation_id]), SELECTEDVALUE(OutcomeObservation[estimate]), BLANK())", '\t\tformatString: 0.00'])
     columns = ', '.join(json.dumps(f) for f, _ in fields)
     lines.extend([f'\tpartition {name} = m', '\t\tmode: import', '\t\tsource =',
                   '\t\t\tlet', '\t\t\t    Payload = Json.Document(OutcomeProjection),',
@@ -83,7 +85,8 @@ def prepare(model, report, *, model_sha256, report_sha256, source_expression_sha
     for ordinal, (name, template, roles, rect) in enumerate([
         ('events', card, {'Data': [projection('TranslationEvent', 'Eligible records', measure=True)]}, (16,16,600,120)),
         ('observations', card, {'Data': [projection('OutcomeObservation', 'Eligible records', measure=True)]}, (640,16,600,120)),
-        ('evidence', table, {'Values': [projection('OutcomeEvidenceDetail', field) for field in ('kind','id','revision_id','verification_status','eligible','source_sha256')]}, (16,160,1224,520)),
+        ('evidence', table, {'Values': [projection('OutcomeEvidenceDetail', field) for field in ('kind','id','revision_id','verification_status','eligible','source_sha256')]}, (16,160,1224,240)),
+        ('observation-values', table, {'Values': [projection('OutcomeObservation', field) for field in ('observation_id','indicator_id','indicator_version','unit','population_id','estimate','numerator','denominator')]}, (16,416,1224,280)),
     ]):
         visual = copy.deepcopy(template); visual['name'] = name
         visual['position'] = dict(zip(('x','y','width','height'), rect), z=ordinal, tabOrder=ordinal)
@@ -99,7 +102,7 @@ def prepare(model, report, *, model_sha256, report_sha256, source_expression_sha
     for part in result_report['definition']['parts']:
         if part['path'] == order_path: part['payload'] = base64.b64encode(json.dumps(order).encode()).decode()
     return {'model': result_model, 'report': result_report, 'native_ready': False,
-            'limitations': ['Counts and evidence detail only; no causal impact or pooled effect.',
+            'limitations': ['Counts, individual quantitative observations and evidence detail; no causal impact or pooled effect.',
                            'Project-filter propagation and quantitative outcome plots are not implemented.',
                            'Native query, rendering and source binding remain unverified.']}
 

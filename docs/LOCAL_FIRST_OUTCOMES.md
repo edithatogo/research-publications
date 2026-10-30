@@ -101,3 +101,10 @@ none of these entrypoints submits a request or reads a token file.
 Project-scoped CLI projections now accept repeated `--project-id` values. They filter facts through distinct bridge keys without multiplying records. This does not implement native Power BI filter propagation. Project detail is limited to eligible-linked identities; the complete withdrawal audit remains a separately scoped view.
 
 The retained completion-owner binding was inspected without authentication changes: it pins SharePoint, Graph and ARM resources, not the Fabric/Power BI definition resource. Its absence of an active lock does not transfer ownership or qualify a new resource. Native definition-write qualification remains unresolved; do not broaden this binding.
+
+The quantitative projection now exposes each eligible observation's estimate,
+numerator, denominator, explicit value states, indicator/version, unit and cohort
+identity. The reader candidate includes an individual-observation table and a
+single-observation estimate measure; multiple selected observations produce no
+pooled estimate. This is not the remaining quantitative chart or drillthrough
+implementation and has not been verified in the native model.

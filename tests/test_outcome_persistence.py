@@ -101,3 +101,17 @@ class ProjectSliceTests(unittest.TestCase):
         self.assertEqual(second['OutcomeObservation'], [])
         self.assertFalse(any(d['kind'] == 'OutcomeObservation' for d in second['OutcomeEvidenceDetail']))
         self.assertNotIn('project_filter', tables)
+
+
+class QuantitativeProjectionTests(unittest.TestCase):
+    def test_individual_values_keep_units_versions_and_zero(self):
+        from test_outcome_evidence import value
+        t = Transport(); obs = observation(); obs.update(estimate=value(0), numerator=value(0))
+        for record in (event(), obs): apply_once(prepare(t.read(1), encode(record), references()), t)
+        tables = reporting_tables(t.snapshot['journal'], references(), cutoff_utc='2026-03-01T00:00:00Z', source_snapshot='FIC-SOURCE', model_revision='FIC-MODEL', report_revision='FIC-REPORT')
+        row = tables['OutcomeObservation'][0]
+        self.assertEqual(row['estimate'], 0)
+        self.assertEqual(row['estimate_state'], 'confirmed_zero')
+        self.assertEqual(row['denominator'], 20)
+        self.assertEqual(row['indicator_version'], '1')
+        self.assertEqual(row['unit'], 'proportion')

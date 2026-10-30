@@ -120,9 +120,17 @@ def apply_once(plan, transport):
 def reporting_tables(journal, references, **context):
     """Reuse eligibility and redaction; expose facts/bridges without a fan-out join."""
     result = project(restore(journal), references, **context)
+    observations = copy.deepcopy(result['outcome_aggregates'])
+    for row in observations:
+        row['indicator_id'] = row['indicator']['id']
+        row['indicator_version'] = row['indicator']['version']
+        for name in ('estimate', 'numerator', 'denominator'):
+            component = row['components'][name]
+            row[name] = component['value'] if component['state'] in {'available', 'confirmed_zero'} else None
+            row[name+'_state'] = component['state']
     return {'context': result['context'], 'TranslationEvent': result['translation_events'],
             'EventProject': result['event_project_bridge'],
-            'OutcomeObservation': result['outcome_aggregates'],
+            'OutcomeObservation': observations,
             'ObservationProject': result['observation_project_bridge'],
             'OutcomeEvidenceDetail': result['details'], 'native_persistence_proved': False}
 
