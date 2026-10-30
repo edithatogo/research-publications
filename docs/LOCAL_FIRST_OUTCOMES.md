@@ -1,5 +1,11 @@
 # Local-first outcomes CLI recipe
 
+Current execution authority and cadence: [agreed Conductor plan](../conductor/tracks/chhhs_outcomes_powerbi_20261021/plan.md#agreed-execution-plan--30-october-2026).
+Finish implementation before one final verification batch; manual-run evidence
+only, no separate replay run, scheduled verification, monitoring or background
+follow-ups. These lane-specific limits supersede older cadence/replay language
+below. The current task records this plan only and does not execute it.
+
 This increment reuses the outcomes track and existing relationship builders.
 Canonical source and the sanitized CareOps module remain separate histories.
 The source writer owns only its isolated checkout; native objects, authentication,

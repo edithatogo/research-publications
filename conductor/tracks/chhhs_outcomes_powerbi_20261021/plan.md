@@ -94,7 +94,7 @@ It does not reopen accepted slice 1 work or transfer native ownership.
 |---|---|---|
 | SharePoint persistence | Implemented locally: bounded conditional journal adapter; fictional transport checks. Native verification pending. | Obtain owner-approved existing register/schema and exact binding; qualify server-side ETag transport before native use. |
 | Dataset projections | Implemented locally: outcome journal replay into existing eligibility/redaction and separate facts/bridges. | Bind new facts to the selected native model; C01/C02/F01 projection and relationship revision adapters are local only. Missing evidence remains unavailable. |
-| Flow orchestration | Implemented locally: frozen manual ETag journal-update candidate using the existing standard SharePoint action contract; graph check passes. Dynamic intake remains missing. | Reuse an accepted standard action contract after register mapping is fixed; preserve existing flows. |
+| Flow orchestration | Implemented locally: frozen manual ETag journal-update candidate using the existing standard SharePoint action contract; graph check passes. Dynamic CLI intake and paired-field flow preparation are implemented locally in PR90; native qualification remains pending. | Reuse an accepted standard action contract after register mapping is fixed; preserve existing flows. |
 | Power BI additions | Implemented locally: outcome chart/detail/drillthrough, explicit project bridge measures, funding/capacity tables and currency-cohort chart/detail candidates. Native DAX, bindings and visual acceptance remain unverified. | Exact non-premium target capability and complete model/report preimages required before target-bound candidate preparation. |
 | CLI transport | Existing guarded flow helper retained; legacy Power BI token/browser entrypoints replaced with offline complete-definition/recovery packet preparation. Native executor remains blocked. | User completed same-client Azure CLI renewal; exact report and bound model GETs pass with unchanged account/tenant/selection. Definition-write permission and non-premium eligibility remain unqualified. |
 
@@ -104,8 +104,9 @@ transport tests do not close native persistence or end-to-end reader acceptance.
 
 ### Remaining implementation versus native prerequisites
 
-- Dynamic intake and native journal transport are not implemented. The bounded
-  frozen flow is a pilot candidate, not a replacement for the full service.
+- Dynamic CLI intake, guarded journal/projection transport, conditional recovery
+  and source-binding preparation are implemented locally in PR90 (`ec9c1f4e`).
+  Native qualification is incomplete; no unattended ingestion service is claimed.
 - Relationship correction/withdrawal adapters cover normalized grant links and
   retained DataCite Dataset/Software assertions; native persistence and complete
   cross-domain project linkage are not complete.
@@ -116,3 +117,59 @@ transport tests do not close native persistence or end-to-end reader acceptance.
   DAX/filter checks and manual visual/keyboard acceptance remain separate exits.
 - Source integration and CareOps promotion wait for the scoped packet review and
   required gates; this lane does not take over another repository's integrator.
+
+
+## Agreed execution plan — 30 October 2026
+
+This section supersedes conflicting cadence and pending-implementation statements
+above for this increment. The current request records the plan only: do not start
+login, implementation, native mutation or verification from this documentation task.
+
+1. **Login first.** Renew the expired retained M365 Toolkit SharePoint session
+   through the qualified `form_post` wrapper. Preserve client/account/tenant and
+   authentication ownership. Wait for that attempt to finish, then read the exact
+   resource once. Reuse the working Azure session unless it expires.
+2. **Reconcile registers.** Read the current inventory and relevant schemas on
+   the established RIMS site; compare Studies, DORA activities, Source assertions,
+   Grant Relationships and publication/funding registers with creation receipts.
+   The user confirms all registers were created by them. Do not invent another
+   custodian or infer absence from old inventories. Update the existing register
+   documentation with reuse decisions and correct stale creation statements.
+3. **Create missing storage.** Reuse compatible lists and identities first. If
+   no suitable home exists, create the dedicated RIMS Outcome Evidence list for
+   the bounded adapter, with writable plain journal/projection fields and item
+   versioning. Capture schema/creation receipts and recovery inputs. Do not
+   overwrite existing registers or claim this bounded store is a scalable
+   business-facing register. The user authorizes creation of missing registers;
+   another general permission request is unnecessary.
+4. **Resolve the semantic model.** Reconcile the report connection, dataset ID,
+   owning workspace and retained development-model records before retrying the
+   failed definition route. Reuse the verified existing model, never an unrelated
+   item merely because Fabric lists it. Qualify the exact non-premium write route,
+   preserve complete preimages and consumers, then bind the outcome projection
+   and additive report/model candidate. An unavailable route gets a concrete
+   supported manual handoff; no premium capacity, XMLA-dependent fallback,
+   replacement model, new runtime or automated browser workaround.
+5. **Finish implementation, then verify once.** Complete the target bindings and
+   necessary adapter changes as one batch. Use one final verification batch,
+   reusing accepted evidence. No repeated capability audits, broad test runs,
+   package rebuilds or status-only cycles. If an actual failure occurs, fix it
+   and recheck only that failure. Required integration gates belong in the final
+   batch, not repeated throughout editing.
+6. **Manual run only.** Verify one manually triggered fictional run and its saved
+   outputs, references and terminal state. No separate replay run, scheduled-run
+   verification, monitoring, recurring jobs or background follow-ups. Bounded
+   readback of that same manual run is allowed. Prepare recovery inputs without
+   adding an unsolicited recovery drill. Preserve activation/send gates and
+   other chats' native ownership. Manual readability/keyboard evidence remains
+   a distinct handoff rather than an automated acceptance claim.
+
+Finish line: the selected storage and existing model are correctly bound, the
+changed path has one accepted manual-run receipt, and any genuinely unavailable
+CLI/manual prerequisite is named precisely. Report local implementation, native
+CLI acceptance and remaining human evidence separately. CareOps pin promotion
+remains with its integrator after the required gates; it is not implied here.
+
+Next action when execution is requested: begin the retained Toolkit login renewal.
+Initial inventory/schema reads are implementation prerequisites, not extra test
+cycles. Stop only for a concrete blocker requiring user input or external change.
