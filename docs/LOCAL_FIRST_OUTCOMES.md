@@ -129,3 +129,10 @@ funding/capacity tables and a 1920×1080 detail page against a reviewed existing
 FundingCapacityProjection expression. It preserves existing report parts and
 keeps award currency/start cohorts separate. This implements local detail-page
 preparation, not charts, drillthrough or native source binding/acceptance.
+
+The outcome reader now prepares a bar chart and explicit drillthrough/back
+buttons using the existing repository visual contracts. Estimates are shown per
+observation and suppressed for mixed indicator/version/unit/population/setting
+contexts. The detail page carries the observation ID filter. Local structure
+checks do not prove DAX execution, filter propagation, rendering or keyboard
+behaviour; those native/manual exits remain open.

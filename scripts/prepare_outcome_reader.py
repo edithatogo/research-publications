@@ -13,7 +13,8 @@ import sys
 from pathlib import Path
 if not __package__: sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from scripts.deploy_report_definition import parts, fingerprint
-from scripts.prepare_publication_outcome_reader import projection
+from scripts.prepare_publication_outcome_reader import projection, button, position
+from scripts.prepare_dashboard_overview import SCHEMA
 
 TABLES = {
     'TranslationEvent': [('event_id', 'string'), ('revision_id', 'string'), ('event_type', 'string')],
@@ -98,12 +99,39 @@ def prepare(model, report, *, model_sha256, report_sha256, source_expression_sha
             'query': {'queryState': {role: {'projections': values} for role, values in roles.items()}}}}
         if schema: visual['$schema'] = schema
         emit(result_report, page_prefix+'visuals/'+name+'/visual.json', json.dumps(visual))
+    detail_id = 'OutcomeObservationDetail'
+    detail_prefix = 'definition/pages/'+detail_id+'/'
+    if detail_id in order['pageOrder'] or any(p.startswith(detail_prefix) for p in report_parts):
+        raise ValueError('Existing outcome detail page must be preserved')
+    field = projection('OutcomeObservation', 'observation_id')['field']
+    detail_page = dict(name=detail_id, displayName='Individual outcome evidence', width=1920, height=1080, displayOption='FitToPage')
+    detail_page['pageBinding'] = {'name':'OutcomeObservationEvidence','type':'Drillthrough','acceptsFilterContext':'Default','parameters':[{'name':'Observation','boundFilter':'outcome-observation','asAggregation':False,'fieldExpr':field}]}
+    detail_page['filterConfig'] = {'filters':[{'name':'outcome-observation','type':'Categorical','howCreated':'Drillthrough','field':field}]}
+    emit(result_report, detail_prefix+'page.json', json.dumps(detail_page))
+    detail_visual = {'$schema':SCHEMA,'name':'observation-detail','position':dict(x=24,y=144,width=1872,height=900,z=1,tabOrder=1),'visual':{'visualType':'tableEx','query':{'queryState':{'Values':{'projections':[projection('OutcomeObservation',f) for f,_ in TABLES['OutcomeObservation']]}}}}}
+    emit(result_report, detail_prefix+'visuals/observation-detail/visual.json', json.dumps(detail_visual))
+    back = position(button(SCHEMA,'outcome-back','Back to outcome evidence','Back'),1440,24,456,96,2)
+    emit(result_report, detail_prefix+'visuals/outcome-back/visual.json',json.dumps(back))
+    # Use the existing bar role contract with one observation per category. The
+    # measure returns BLANK for multiple observations, never a pooled effect.
+    chart = {'$schema':SCHEMA,'name':'observation-estimates','position':dict(x=24,y=624,width=1380,height=420,z=4,tabOrder=4),'visual':{'visualType':'barChart','query':{'queryState':{'Category':{'projections':[projection('OutcomeObservation','observation_id')]},'Y':{'projections':[projection('OutcomeObservation','Selected observation estimate',measure=True)]}}}}}
+    # Avoid comparing estimates across incompatible indicators, units or cohorts.
+    measure_part = next(p for p in result_model['definition']['parts'] if p['path']=='definition/tables/OutcomeObservation.tmdl')
+    measure_text = base64.b64decode(measure_part['payload']).decode()
+    measure_text = measure_text.replace('IF(HASONEVALUE(OutcomeObservation[observation_id]),', 'IF(HASONEVALUE(OutcomeObservation[observation_id]) && CALCULATE(DISTINCTCOUNT(OutcomeObservation[indicator_id]), ALLSELECTED(OutcomeObservation)) = 1 && CALCULATE(DISTINCTCOUNT(OutcomeObservation[indicator_version]), ALLSELECTED(OutcomeObservation)) = 1 && CALCULATE(DISTINCTCOUNT(OutcomeObservation[unit]), ALLSELECTED(OutcomeObservation)) = 1 && CALCULATE(DISTINCTCOUNT(OutcomeObservation[population_id]), ALLSELECTED(OutcomeObservation)) = 1 && CALCULATE(DISTINCTCOUNT(OutcomeObservation[setting_id]), ALLSELECTED(OutcomeObservation)) = 1,')
+    measure_part['payload'] = base64.b64encode(measure_text.encode()).decode()
+    # Move the full observation table to drillthrough; keep evidence table above.
+    result_report['definition']['parts'] = [p for p in result_report['definition']['parts'] if p['path'] != page_prefix+'visuals/observation-values/visual.json']
+    emit(result_report,page_prefix+'visuals/observation-estimates/visual.json',json.dumps(chart))
+    drill = position(button(SCHEMA,'outcome-drill','Selected observation details','Drillthrough',detail_id),1440,624,456,96,5)
+    emit(result_report,page_prefix+'visuals/outcome-drill/visual.json',json.dumps(drill))
+    order['pageOrder'].append(detail_id)
     order['pageOrder'].append(page_id)
     for part in result_report['definition']['parts']:
         if part['path'] == order_path: part['payload'] = base64.b64encode(json.dumps(order).encode()).decode()
     return {'model': result_model, 'report': result_report, 'native_ready': False,
             'limitations': ['Counts, individual quantitative observations and evidence detail; no causal impact or pooled effect.',
-                           'Project-filter propagation and quantitative outcome plots are not implemented.',
+                           'Project-filter propagation remains unfinished; chart comparison requires a single indicator/version/unit/population/setting context.',
                            'Native query, rendering and source binding remain unverified.']}
 
 

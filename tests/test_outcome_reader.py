@@ -21,8 +21,13 @@ class OutcomeReaderTests(unittest.TestCase):
         page = json.loads(rp['definition/pages/OutcomeEvidence/page.json'])
         self.assertEqual((page['width'], page['height']), (1920, 1080))
         self.assertEqual(mp['unknown.txt'], b'preserved'); self.assertEqual(rp['definition.pbir'], b'retained binding')
-        self.assertEqual(json.loads(rp['definition/pages/pages.json'])['pageOrder'], ['Existing','OutcomeEvidence'])
+        self.assertEqual(json.loads(rp['definition/pages/pages.json'])['pageOrder'], ['Existing','OutcomeObservationDetail','OutcomeEvidence'])
         self.assertTrue(all('definition/tables/'+name+'.tmdl' in mp for name in TABLES))
+        detail = json.loads(rp['definition/pages/OutcomeObservationDetail/page.json'])
+        self.assertEqual(detail['pageBinding']['type'], 'Drillthrough')
+        measure = mp['definition/tables/OutcomeObservation.tmdl'].decode()
+        self.assertIn('ALLSELECTED(OutcomeObservation)', measure)
+        self.assertIn('HASONEVALUE(OutcomeObservation[observation_id])', measure)
         self.assertEqual(result, self.build()); self.assertFalse(result['native_ready'])
     def test_existing_table_and_missing_source_refused(self):
         self.expression = 'expression Other = "fixture"\n'
