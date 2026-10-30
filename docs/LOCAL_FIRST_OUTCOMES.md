@@ -336,3 +336,20 @@ end-to-end runtime acceptance remain unverified. Earlier next-action wording to
 continue tracking that request is superseded. Resume runtime verification only
 on a new explicit request. No further test suites or package rebuilds are needed
 for this closeout.
+
+## Project-output link revisions
+
+The existing `python -m scripts.project_output_links --input INPUT --output OUTPUT`
+command keeps its legacy snapshot payload. Use `operation: "revise"` with `history`,
+`record`, `inventories`, `complete`, `revision_id`, `supersedes` and `reason` to append
+a revision and emit current bridges. The first revision uses `supersedes: null`;
+later revisions name the current predecessor. Use the existing `status: "withdrawn"`
+record disposition to retain history while removing its reviewed bridge. Reusing
+a revision ID with identical input is a no-op; conflicting reuse and stale forks
+fail. Every revision retains its exact reference inventory and hash.
+
+Use `operation: "project-history"` with `history`, current `inventories` and
+`complete` to rebuild the current view. Missing current canonical identities fail
+explicitly; old evidence is not rewritten. Outputs remain private and exclusively
+created. This implements local revision-aware intake/projection, not native
+relationship storage or independent approval of caller-supplied review assertions.

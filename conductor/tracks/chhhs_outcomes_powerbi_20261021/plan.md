@@ -173,3 +173,23 @@ remains with its integrator after the required gates; it is not implied here.
 Next action when execution is requested: begin the retained Toolkit login renewal.
 Initial inventory/schema reads are implementation prerequisites, not extra test
 cycles. Stop only for a concrete blocker requiring user input or external change.
+
+## Next implemented item: project/output correction history — 30 October 2026
+
+Selected from the T18/G06 cross-domain relationship gap: project links to
+publications, awards, datasets and software previously supported current snapshots
+only. The existing project-output CLI now supports immutable revisions, explicit
+predecessors, corrections and withdrawal. It retains the original evidence and
+canonical inventory for every revision and projects only current reviewed heads.
+A correction can change the linked identity within its output kind, preserving
+lineage; it cannot silently leave the superseded bridge active or cross kinds.
+The legacy snapshot input is unchanged. Caller-supplied review status remains an
+assertion, not independent certification. Native relationship persistence remains
+a separate unimplemented item; no tenant mutation is part of this source increment.
+
+Finish line: executable revision-aware CLI and necessary affected relationship
+checks pass. No refresh readback, monitoring, schedules or native run is selected.
+
+Result: six affected project-output link tests passed; Conductor structure check
+reported zero errors. Local implementation complete. Native persistence remains
+unimplemented and no earlier refresh or scheduled activity was inspected.
