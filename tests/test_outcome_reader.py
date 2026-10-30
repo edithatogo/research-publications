@@ -27,6 +27,8 @@ class OutcomeReaderTests(unittest.TestCase):
         self.assertEqual(detail['pageBinding']['type'], 'Drillthrough')
         measure = mp['definition/tables/OutcomeObservation.tmdl'].decode()
         self.assertIn('ALLSELECTED(OutcomeObservation)', measure)
+        self.assertIn('IF([In selected projects] = 1 && HASONEVALUE', measure)
+        self.assertIn('TREATAS(SelectedProjects, ObservationProject[project_id])', measure)
         self.assertIn('HASONEVALUE(OutcomeObservation[observation_id])', measure)
         self.assertEqual(result, self.build()); self.assertFalse(result['native_ready'])
     def test_existing_table_and_missing_source_refused(self):

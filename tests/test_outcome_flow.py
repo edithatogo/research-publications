@@ -17,3 +17,6 @@ class OutcomeFlowTests(unittest.TestCase):
         self.assertEqual(write['inputs']['parameters']['parameters/headers']['IF-MATCH'],p['etag'])
         self.assertEqual(e['properties']['definition']['actions'],{})
         self.assertFalse(r['native_ready'])
+        from scripts.powerplatform_validation import validate_flow
+        check = validate_flow(r['candidate'])
+        self.assertEqual(check['status'], 'PASS', check)

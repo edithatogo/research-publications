@@ -17,6 +17,7 @@ from scripts.prepare_publication_outcome_reader import projection, button, posit
 from scripts.prepare_dashboard_overview import SCHEMA
 
 TABLES = {
+    'OutcomeProject': [('project_id', 'string')],
     'TranslationEvent': [('event_id', 'string'), ('revision_id', 'string'), ('event_type', 'string')],
     'OutcomeObservation': [('observation_id', 'string'), ('revision_id', 'string'), ('unit', 'string'), ('population_id', 'string'), ('setting_id', 'string'), ('indicator_id', 'string'), ('indicator_version', 'string'), ('estimate', 'double'), ('numerator', 'double'), ('denominator', 'double'), ('estimate_state', 'string'), ('numerator_state', 'string'), ('denominator_state', 'string')],
     'EventProject': [('event_id', 'string'), ('project_id', 'string')],
@@ -32,9 +33,11 @@ def table_definition(name):
         lines.extend([f'\tcolumn {field}', f'\t\tdataType: {kind}', '\t\tsummarizeBy: none', '\t\tsourceColumn: '+field])
     if name in ('TranslationEvent', 'OutcomeObservation'):
         key = fields[0][0]
-        lines.extend([f'\tmeasure \'Eligible records\' = DISTINCTCOUNT({name}[{key}])', '\t\tformatString: 0'])
+        bridge = 'EventProject' if name == 'TranslationEvent' else 'ObservationProject'
+        expression = f'VAR SelectedProjects = VALUES(OutcomeProject[project_id]) VAR LinkedKeys = CALCULATETABLE(VALUES({bridge}[{key}]), TREATAS(SelectedProjects, {bridge}[project_id])) RETURN CALCULATE(DISTINCTCOUNT({name}[{key}]), TREATAS(LinkedKeys, {name}[{key}]))'
+        lines.extend([f'\tmeasure \'Eligible records\' = '+expression, '\t\tformatString: 0'])
     if name == 'OutcomeObservation':
-        lines.extend(["\tmeasure 'Selected observation estimate' = IF(HASONEVALUE(OutcomeObservation[observation_id]), SELECTEDVALUE(OutcomeObservation[estimate]), BLANK())", '\t\tformatString: 0.00'])
+        lines.extend(["\tmeasure 'In selected projects' = VAR SelectedProjects = VALUES(OutcomeProject[project_id]) VAR LinkedKeys = CALCULATETABLE(VALUES(ObservationProject[observation_id]), TREATAS(SelectedProjects, ObservationProject[project_id])) RETURN IF(SELECTEDVALUE(OutcomeObservation[observation_id]) IN LinkedKeys, 1, 0)", "\tmeasure 'Selected observation estimate' = IF([In selected projects] = 1 && HASONEVALUE(OutcomeObservation[observation_id]), SELECTEDVALUE(OutcomeObservation[estimate]), BLANK())", '\t\tformatString: 0.00'])
     columns = ', '.join(json.dumps(f) for f, _ in fields)
     lines.extend([f'\tpartition {name} = m', '\t\tmode: import', '\t\tsource =',
                   '\t\t\tlet', '\t\t\t    Payload = Json.Document(OutcomeProjection),',
@@ -118,20 +121,22 @@ def prepare(model, report, *, model_sha256, report_sha256, source_expression_sha
     # Avoid comparing estimates across incompatible indicators, units or cohorts.
     measure_part = next(p for p in result_model['definition']['parts'] if p['path']=='definition/tables/OutcomeObservation.tmdl')
     measure_text = base64.b64decode(measure_part['payload']).decode()
-    measure_text = measure_text.replace('IF(HASONEVALUE(OutcomeObservation[observation_id]),', 'IF(HASONEVALUE(OutcomeObservation[observation_id]) && CALCULATE(DISTINCTCOUNT(OutcomeObservation[indicator_id]), ALLSELECTED(OutcomeObservation)) = 1 && CALCULATE(DISTINCTCOUNT(OutcomeObservation[indicator_version]), ALLSELECTED(OutcomeObservation)) = 1 && CALCULATE(DISTINCTCOUNT(OutcomeObservation[unit]), ALLSELECTED(OutcomeObservation)) = 1 && CALCULATE(DISTINCTCOUNT(OutcomeObservation[population_id]), ALLSELECTED(OutcomeObservation)) = 1 && CALCULATE(DISTINCTCOUNT(OutcomeObservation[setting_id]), ALLSELECTED(OutcomeObservation)) = 1,')
+    measure_text = measure_text.replace('IF([In selected projects] = 1 && HASONEVALUE(OutcomeObservation[observation_id]),', 'IF([In selected projects] = 1 && HASONEVALUE(OutcomeObservation[observation_id]) && CALCULATE(DISTINCTCOUNT(OutcomeObservation[indicator_id]), ALLSELECTED(OutcomeObservation)) = 1 && CALCULATE(DISTINCTCOUNT(OutcomeObservation[indicator_version]), ALLSELECTED(OutcomeObservation)) = 1 && CALCULATE(DISTINCTCOUNT(OutcomeObservation[unit]), ALLSELECTED(OutcomeObservation)) = 1 && CALCULATE(DISTINCTCOUNT(OutcomeObservation[population_id]), ALLSELECTED(OutcomeObservation)) = 1 && CALCULATE(DISTINCTCOUNT(OutcomeObservation[setting_id]), ALLSELECTED(OutcomeObservation)) = 1,')
     measure_part['payload'] = base64.b64encode(measure_text.encode()).decode()
     # Move the full observation table to drillthrough; keep evidence table above.
     result_report['definition']['parts'] = [p for p in result_report['definition']['parts'] if p['path'] != page_prefix+'visuals/observation-values/visual.json']
     emit(result_report,page_prefix+'visuals/observation-estimates/visual.json',json.dumps(chart))
     drill = position(button(SCHEMA,'outcome-drill','Selected observation details','Drillthrough',detail_id),1440,624,456,96,5)
     emit(result_report,page_prefix+'visuals/outcome-drill/visual.json',json.dumps(drill))
+    selector = {'$schema':SCHEMA,'name':'outcome-project','position':dict(x=1440,y=744,width=456,height=300,z=6,tabOrder=6),'visual':{'visualType':'slicer','query':{'queryState':{'Values':{'projections':[projection('OutcomeProject','project_id')]}}}}}
+    emit(result_report,page_prefix+'visuals/outcome-project/visual.json',json.dumps(selector))
     order['pageOrder'].append(detail_id)
     order['pageOrder'].append(page_id)
     for part in result_report['definition']['parts']:
         if part['path'] == order_path: part['payload'] = base64.b64encode(json.dumps(order).encode()).decode()
     return {'model': result_model, 'report': result_report, 'native_ready': False,
             'limitations': ['Counts, individual quantitative observations and evidence detail; no causal impact or pooled effect.',
-                           'Project-filter propagation remains unfinished; chart comparison requires a single indicator/version/unit/population/setting context.',
+                           'Explicit project bridge measures filter counts and estimates; detail audit filtering remains separate; chart comparison requires a single indicator/version/unit/population/setting context.',
                            'Native query, rendering and source binding remain unverified.']}
 
 

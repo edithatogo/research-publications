@@ -128,7 +128,7 @@ def reporting_tables(journal, references, **context):
             component = row['components'][name]
             row[name] = component['value'] if component['state'] in {'available', 'confirmed_zero'} else None
             row[name+'_state'] = component['state']
-    return {'context': result['context'], 'TranslationEvent': result['translation_events'],
+    return {'context': result['context'], 'OutcomeProject': [{'project_id': p} for p in sorted(references['projects'])], 'TranslationEvent': result['translation_events'],
             'EventProject': result['event_project_bridge'],
             'OutcomeObservation': observations,
             'ObservationProject': result['observation_project_bridge'],

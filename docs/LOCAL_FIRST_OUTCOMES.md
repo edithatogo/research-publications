@@ -151,3 +151,11 @@ HTTP action contract, disables retries, enforces an exact ETag, and reads back
 after success/failure/timeout. Existing nonempty flows are refused rather than
 replaced. This is a bounded pilot candidate, not dynamic untrusted-user intake,
 a deployed persistence service or native recovery proof.
+
+Outcome candidates now carry a project selector and explicit TREATAS bridge
+measures for eligible counts and individual estimates. No bidirectional model
+relationships are added. The evidence audit table remains a separate unfiltered
+revision audit, not a project-scoped security surface. Native DAX/filter behaviour
+must be checked before this candidate is used operationally. The frozen flow
+candidate also passes the existing offline graph validator; connector/runtime
+semantics remain unverified.
