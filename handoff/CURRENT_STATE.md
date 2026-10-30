@@ -1,3 +1,30 @@
+## Accepted schedule adjustment — 31 October 2026
+
+The user authorised changes to the existing schedules effective 1 November,
+Australia/Brisbane: exporter **07:00 on day 1 monthly**, independent monitor
+**07:45 daily**, and the existing one-time verification **07:50 on 1 November**.
+Native owner `01a1876d-55fc-7e42-b806-18589a94e6fa` owns the two exact trigger
+changes, activation restoration and existing app automation. Final receipt is
+`PASS_EXISTING_SCHEDULE_UPDATE`, completion checkout
+`private/ops/schedule-change-20261031/acceptance.json`, SHA256
+`45e29135c8176ff03aa49e3f0aba8e3eaa51a2fc20bca6a7bd98327ba5d0dc29`.
+Both same-identity flows are Started; exact saved/read-back recurrences match the
+approved times. The monitor's `Expected_at` month boundary is also 07:00; other
+actions and connection references are preserved. Before/after run histories are
+unchanged; zero new runs, source refreshes, data writes or emails. Existing
+`verify-rims-scheduled-delivery` remains Active, one occurrence at 07:50;
+no duplicate automation was created. The native owner completed and validated
+the retained Toolkit Flow-resource authentication renewal.
+
+Integrator `01a1874d-b9d7-7e61-b198-943e93ee28ad` owns only this shared
+handoff, Conductor timing and main integration in standard clone
+`/Users/doughnut/.codex/worktrees/rims-source-recovery-20261030`, branch
+`codex/rims-schedule-handoff-20261031`. No native/authentication operations are
+assigned to the integrator. Repository occurrence policy/CLI help now expect 07:00;
+the explicit noon deadline is preserved. A 07:50 read may accept observed evidence,
+but absence before that deadline remains pending, not a proven missed delivery.
+Earlier times below are dated configuration history.
+
 ## Essential closeout accepted — 30 October 2026
 
 All three selected essential exits are complete: source integration (PR88,
@@ -11,13 +38,13 @@ were performed. Native receipt: completion checkout
 `private/ops/native-source-verification-20261030/acceptance.json`.
 Receipt SHA256: `cc37b618ce422ad7b68ef1f43209bdf1e977f40319449c507fb98bdfa79eb186`.
 
-Only the existing read-only follow-up on **1 November 2026 at 12:10 Brisbane**
-remains: establish genuine scheduled origin for the 09:00 exporter and 12:05
+Only the existing read-only follow-up on **1 November 2026 at 07:50 Brisbane**
+remains: establish genuine scheduled origin for the 07:00 exporter and 07:45
 monitor, then verify the October full/month CSV/HTML and completion manifest
 against retained generation keys/counts/all 18 fields. Exclude manual/testFlow runs;
 the monitor does not independently validate canonical membership. Preserve
-source/model state, original recurrence and delivery settings; no new monitor,
-flow invocation or email. Natural recurrence is not proved by manual acceptance.
+source/model state, accepted adjusted recurrence and existing delivery settings;
+no new monitor, flow invocation or email. Natural recurrence is not proved by manual acceptance.
 
 DoRA activity registry SPN10 promotion/runtime, raw23 downstream reader adoption,
 broader discovery/paper acquisition and freshness remain explicit roadmap scope,

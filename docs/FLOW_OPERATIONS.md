@@ -16,6 +16,16 @@ automatically.
 fields and source keys. [Missing outcomes](CURRENT_MISSING_OUTCOMES.md) contains
 the implementation backlog. This page is an observation, not a live dashboard.
 
+## Current schedule adjustment — 31 October 2026
+
+The user authorised changing the two existing recurrences from 1 November:
+monthly register/canonical exporter **07:00 on day 1** and independent delivery
+monitor **07:45 daily**, Australia/Brisbane. The existing one-time app verification
+moves to **07:50 on 1 November**. Final native readback is accepted in the
+[current handoff](../handoff/CURRENT_STATE.md). The 24 October snapshot and old
+times below are preserved as history; they are not the current schedule guide.
+Natural scheduled delivery remains unproved until the eligible occurrence.
+
 ## Coverage and interpretation
 
 Configuration observed at **2026-10-24T05:04:57.790Z** by one read-only FlowAgent

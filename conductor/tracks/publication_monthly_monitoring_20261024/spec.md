@@ -15,7 +15,18 @@ user authority: 24 October 2026, close each item and create a separate follow-up
 monitoring track. E08-F01/F02 are closed by transfer only; neither natural occurrence
 is marked passed. Other E08 work and parallel implementation remain untouched.
 
-## Scope and timing
+## Current timing adjustment — 31 October 2026
+
+User-authorised timings from 1 November, all Australia/Brisbane: the existing
+exporter runs at **07:00 on day 1 monthly**, the independent observer at **07:45
+daily**, and the existing one-time app verification at **07:50 on 1 November**.
+Final native schedule readback is accepted in [CURRENT_STATE](../../../handoff/CURRENT_STATE.md).
+These times supersede the original timing below; the evidence requirements and
+no-run/no-send review boundary remain. Schedule configuration is not proof of a
+natural occurrence. The explicit noon delivery deadline remains unchanged; absence at 07:50 is
+pending, not a proven missed delivery.
+
+## Original scope and timing — historical
 
 - PM-F01 (formerly E08-F01): first natural monthly publication export on
   1 November 2026, scheduled 09:00 Australia/Brisbane, completion deadline noon.
@@ -42,8 +53,8 @@ explicit repo-local Python 3.15.1 environment (or newer qualified 3.15 patch).
 
 Reuse the existing export and independent observer. Do not create/activate a new
 flow, reminder, monitor or schedule, change cadence, resubmit a run, or send email.
-Do not poll before eligibility or disturb parallel writers/authentication. This
-track is a backlog, not an installed monitoring automation.
+Do not poll before eligibility or disturb parallel writers/authentication. The
+existing one-time app verification is the sole follow-up; create no duplicate.
 
 ## Acceptance and failure handling
 

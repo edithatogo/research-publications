@@ -4,8 +4,9 @@
 
 The three selected essential exits and final native retained-source verification
 are accepted. [Current handoff](../handoff/CURRENT_STATE.md#essential-closeout-accepted--30-october-2026)
-records receipts and scope. Only the existing 1 November at 12:10 Brisbane read-only
-natural-schedule verification remains. Deferred roadmap/SPN10/reader-adoption
+records receipts and scope. The authorised schedule adjustment has final native readback in the handoff.
+The existing read-only natural-schedule verification moves to 1 November at
+07:50 Brisbane (07:00 monthly exporter; 07:45 daily monitor). Deferred roadmap/SPN10/reader-adoption
 work is not an essential completion blocker. Earlier milestone status is history.
 
 

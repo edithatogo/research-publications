@@ -15,7 +15,7 @@ occurrence before evaluation; wrong-period records remain UNKNOWN.
 
 No independent scheduler/trigger or deployment of this evaluator is qualified.
 The export's own recurrence cannot monitor its absence, and G07's source-batch
-health evaluator is not a scheduler. The user-selected policy is day1 at09:00
+health evaluator is not a scheduler. The user-selected policy is day1 at07:00
 Brisbane, completion deadline12:00; monthly_occurrence_policy requires the month.
 Evaluation still requires explicit occurrence/deadline/as_of inputs. Other test
 deadlines are fixtures, not operating approval. Existing monthly activation
@@ -33,7 +33,7 @@ from zoneinfo import ZoneInfo
 
 
 def monthly_occurrence_policy(occurrence_month):
-    """User-selected policy, 17 October 2026; no schedule activation implied.
+    """User-selected policy, adjusted 31 October 2026; no activation implied.
 
     The occurrence month is explicit. Observation time is supplied separately;
     neither the current clock nor a fixture grace interval selects policy.
@@ -43,7 +43,7 @@ def monthly_occurrence_policy(occurrence_month):
     year, month = map(int, occurrence_month.split('-'))
     zone = ZoneInfo('Australia/Brisbane')
     return {
-        'expected_at': datetime(year, month, 1, 9, tzinfo=zone),
+        'expected_at': datetime(year, month, 1, 7, tzinfo=zone),
         'deadline': datetime(year, month, 1, 12, tzinfo=zone),
     }
 

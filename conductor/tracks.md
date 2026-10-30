@@ -4,8 +4,9 @@
 
 The three selected essential exits and final native retained-source verification
 are accepted. [Current handoff](../handoff/CURRENT_STATE.md#essential-closeout-accepted--30-october-2026)
-records receipts and scope. Only the existing 1 November at 12:10 Brisbane read-only
-natural-schedule verification remains. Deferred roadmap/SPN10/reader-adoption
+records receipts and scope. The authorised schedule adjustment has final native readback in the handoff.
+The existing read-only natural-schedule verification moves to 1 November at
+07:50 Brisbane (07:00 monthly exporter; 07:45 daily monitor). Deferred roadmap/SPN10/reader-adoption
 work is not an essential completion blocker. Earlier milestone status is history.
 
 
@@ -81,7 +82,7 @@ three lanes. No native, schedule or delivery acceptance follows from these packe
 
 - [~] [E09 collaborative research feed](tracks/collaborative_research_feed_20261022/plan.md) — owner-only/no-send technical receipts retained; broader actor, curation, persistence, solution and adoption dependencies remain explicit.
 - [~] [T18 outcomes and reader journeys](tracks/chhhs_outcomes_powerbi_20261021/plan.md) — optional reader/outcome expansion is roadmap-only; evidence-dependent outcomes stay unavailable. The retained reader ID is currently unresolved; E04 import compatibility also blocks native promotion.
-- [ ] [Monthly export and independent observer](tracks/publication_monthly_monitoring_20261024/plan.md) — combined natural readback only after 1 November 2026, 12:05 Brisbane.
+- [ ] [Monthly export and independent observer](tracks/publication_monthly_monitoring_20261024/plan.md) — combined natural readback at 1 November 2026, 07:50 Brisbane, after the authorised 07:00 exporter and 07:45 observer; final native schedule readback is accepted.
 - [~] [E08 retained operational follow-ups](archive/E08_operational_followups/plan.md) — archived administration is preserved; F03/F04 remain unaccepted and F05/F06 conditional. Reuse accepted ROR and NHMRC/MRFF archive receipts.
 
 [Source-record provenance](../audit/roadmap-record-provenance-20261029.json) binds
