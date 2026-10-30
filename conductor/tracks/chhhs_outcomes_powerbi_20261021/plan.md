@@ -93,11 +93,26 @@ It does not reopen accepted slice 1 work or transfer native ownership.
 | Group | Current implementation evidence | Next exit |
 |---|---|---|
 | SharePoint persistence | Implemented locally: bounded conditional journal adapter; fictional transport checks. Native verification pending. | Obtain owner-approved existing register/schema and exact binding; qualify server-side ETag transport before native use. |
-| Dataset projections | Implemented locally: outcome journal replay into existing eligibility/redaction and separate facts/bridges. | Bind new facts to the selected native model; missing evidence remains unavailable. |
-| Flow orchestration | Implementation missing for the new persistence path. | Reuse an accepted standard action contract after register mapping is fixed; preserve existing flows. |
-| Power BI additions | Implemented locally: additive outcome count/detail page and five TMDL fact/bridge/detail tables. Funding pages, quantitative plots, project-filter propagation and drillthrough remain implementation missing. | Exact non-premium target capability and complete model/report preimages required before target-bound candidate preparation. |
-| CLI transport | Existing guarded flow helper retained; legacy Power BI token/browser entrypoints replaced with offline complete-definition/recovery packet preparation. Native executor remains blocked. | Replace authentication dependency using the native owner's qualified same-client route. |
+| Dataset projections | Implemented locally: outcome journal replay into existing eligibility/redaction and separate facts/bridges. | Bind new facts to the selected native model; C01/C02/F01 projection and relationship revision adapters are local only. Missing evidence remains unavailable. |
+| Flow orchestration | Implemented locally: frozen manual ETag journal-update candidate using the existing standard SharePoint action contract; graph check passes. Dynamic intake remains missing. | Reuse an accepted standard action contract after register mapping is fixed; preserve existing flows. |
+| Power BI additions | Implemented locally: outcome chart/detail/drillthrough, explicit project bridge measures, funding/capacity tables and currency-cohort chart/detail candidates. Native DAX, bindings and visual acceptance remain unverified. | Exact non-premium target capability and complete model/report preimages required before target-bound candidate preparation. |
+| CLI transport | Existing guarded flow helper retained; legacy Power BI token/browser entrypoints replaced with offline complete-definition/recovery packet preparation. Native executor remains blocked. | Exact report GET through the retained Azure CLI route returned AADSTS70043; owner-managed renewal required before fresh capability/entitlement reads. |
 
 Finish line: one fictional outcome persisted, revised and projected with exact
 readback, followed by its model/page candidate and manual visual handoff. Local
 transport tests do not close native persistence or end-to-end reader acceptance.
+
+### Remaining implementation versus native prerequisites
+
+- Dynamic intake and native journal transport are not implemented. The bounded
+  frozen flow is a pilot candidate, not a replacement for the full service.
+- Relationship correction/withdrawal adapters cover normalized grant links and
+  retained DataCite Dataset/Software assertions; native persistence and complete
+  cross-domain project linkage are not complete.
+- No authoritative outcome register or approved field mapping has been selected.
+  The list registry does not establish one; a current owner-qualified schema read
+  must precede finalising the migration. Do not infer absence tenant-wide.
+- Power BI authentication renewal, non-premium operation qualification, native
+  DAX/filter checks and manual visual/keyboard acceptance remain separate exits.
+- Source integration and CareOps promotion wait for the scoped packet review and
+  required gates; this lane does not take over another repository's integrator.
