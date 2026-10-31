@@ -1,3 +1,22 @@
+## Single GrantConnect RSS run — 31 October 2026
+
+User-authorised failure alerts resolved the earlier hold. Completion owner
+`01a1876d-55fc-7e42-b806-18589a94e6fa` ran the existing collector once through
+FlowAgent at 13:24:36 Brisbane. It failed with HTTP403: "The underlying RSS server
+forbids incoming requests." Capture was skipped; no rows were obtained/admitted.
+The flow was stopped again and Stopped read back. No retry, scheduled-history
+query, schedule change, business notification or NIH change occurred. System
+failure-alert delivery was not checked. Private run/action output and checkpoint:
+`private/ops/grantconnect-rss-20261031/`. Unchanged tests/receipts are reused.
+
+The 169-reference native view is complete (PR102). Actual GrantConnect intake,
+register/reader records and source-derived notifications/calendars remain open on
+provider access. Existing downstream code is retained. Resume with a supported
+accessible feed or authorised retained feed capture; no bypass or unchanged probe.
+Primary owns serial source integration on `codex/grantconnect-rss-delivery-20261031`
+in the completion checkout. Existing schedules and 1 November verification are
+untouched; the former integrator stays archived. Earlier holds below are history.
+
 ## Native grant-reference connection accepted — 31 October 2026
 
 The selected 169-edge candidate connection is implemented in the existing native

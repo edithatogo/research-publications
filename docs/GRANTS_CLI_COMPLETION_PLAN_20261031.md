@@ -1,5 +1,14 @@
 # Grants completion: GrantConnect first, no UI authoring or monitoring
 
+The user authorised failure alerts and one actual FlowAgent RSS run. That run
+failed at 13:24 Brisbane on 31 October with provider HTTP403: "The underlying RSS
+server forbids incoming requests." No items were captured; the manual flow is
+stopped again. This resolves the former alert-setting hold but blocks real source
+admission and source-derived outputs. No retry or alternative collector is added.
+The existing tested definition and downstream contracts are retained; native
+GrantConnect delivery is not claimed. Schedules and NIH deferral are unchanged.
+
+
 Execution authorised by the user on 31 October 2026. GrantConnect is the grants intake priority; NIH opportunity
 acquisition, admission and further chain work remain long-term roadmap. Retain
 existing NIH records/configuration and source assertions in the immutable PubMed

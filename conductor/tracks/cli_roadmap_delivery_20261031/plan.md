@@ -1,5 +1,12 @@
 # Sequenced CLI delivery plan
 
+## Native GrantConnect source result — 31 October 2026
+
+One authorised FlowAgent RSS run failed with provider HTTP403; zero records were
+captured and the manual flow is stopped again. Source-to-reader/delivery remains
+incomplete. The alert hold is resolved; the 169-reference view is complete (PR102).
+See CURRENT_STATE for the receipt. Schedules/NIH deferral remain unchanged.
+
 ## Grants intake priority — GrantConnect, 31 October 2026
 
 GrantConnect is the first grants intake priority. Use the existing source

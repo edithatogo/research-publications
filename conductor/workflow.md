@@ -1,6 +1,6 @@
 # Workflow
 
-Current selection: [completion scope](../docs/CURRENT_MISSING_OUTCOMES.md#completion-scope--29-october-2026). Follow its three essential exits and [execution cadence](../docs/SOLO_AGENT_WORKFLOW.md#completion-cadence--29-october-2026). Historical discovery, expansion and fallback instructions below do not reopen accepted work or deferred features.
+Current selection: the user-authorised [GrantConnect-first plan](../docs/GRANTS_CLI_COMPLETION_PLAN_20261031.md), with one test/verification per changed feature, no scheduled checks and NIH expansion deferred. The single RSS run has a provider HTTP403 blocker recorded in CURRENT_STATE. Earlier essential scope remains accepted. Historical selection: [completion scope](../docs/CURRENT_MISSING_OUTCOMES.md#completion-scope--29-october-2026). Follow its three essential exits and [execution cadence](../docs/SOLO_AGENT_WORKFLOW.md#completion-cadence--29-october-2026). Historical discovery, expansion and fallback instructions below do not reopen accepted work or deferred features.
 
 ## Current route precedence — 13 October 2026
 

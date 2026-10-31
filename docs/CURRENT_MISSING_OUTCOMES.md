@@ -21,12 +21,17 @@ Existing native retained-PubMed/DoRA reader code is already wired into the
 canonical query. `native_reader_adoption=false` is an evidence status; it does
 not make that existing reader code an unimplemented feature.
 
+The 169-edge native grant-reference model/report view is complete (PR102): all
+169 references, 67 mapped publications, relationship filtering, rendering and
+saved readback passed with canonical fields preserved. It is removed from the
+unimplemented feature list.
+
 Only these functional extensions remain incomplete; none is an essential
 closeout blocker or a blanket execution authorisation:
 
 | Feature | Incomplete functional scope |
 | --- | --- |
-| New retained grant-reference model view | The 169 candidate PMID-to-grant edges are usable as isolated cloud evidence, but their additive model table/relationship and intended reader view are not deployed. The frozen-preimage model candidate/inverse and additive report-page source bundle are prepared, preserving candidate status and the working model; native integration is not complete. |
+| GrantConnect source-to-reader and delivery | The single authorised standard RSS connector run returned provider HTTP403. No actual GrantConnect rows were captured/admitted; real register/reader data and source-derived notifications/calendar delivery remain incomplete. Existing adapters and backend controls are retained. |
 | Wider relationship and author views | Existing evidence/projection tools do not deliver every cross-source award/output/author identity link in a connected native consumer. Authoritative identifiers, conflicts and protected history remain required; no name-only matching. |
 | Selected freshness and wider coverage | The 12 retained-source packages are complete for their stated generations. GrantConnect is the first grants intake priority, conditional on source/access/reuse/lifecycle support. NIH expansion/admission/chain work is long-term only. The two newer PubMed identities, broader discovery/provider/institutional coverage and wider rights-qualified paper acquisition remain deferred functional expansion. |
 | Real outcomes and usable forecasts | Broader outcome/forecast views require actual decision-specific evidence and adequate retained coverage; unavailable metrics are not zero. Local builders are not a complete real-data outcome service. |
