@@ -1,5 +1,13 @@
 # CHHHS research publications: current Conductor context
 
+## Selected grant-reference connection — 31 October 2026
+
+The completion owner is authorised to execute the existing 169-edge artifact's
+additive model/report connection through qualified CLI routes, with one focused
+test and one consolidated verify. Working-path promotion remains after the
+existing 1 November observation. Optional slices and all accepted schedules
+remain unchanged; shared Conductor/main stays with the integrator.
+
 ## Bounded roadmap execution — 31 October 2026
 
 [CLI roadmap delivery plan](tracks/cli_roadmap_delivery_20261031/index.md)

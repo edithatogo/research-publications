@@ -1,5 +1,20 @@
 # Specification: CLI-first deferred roadmap
 
+## Grant-reference model/report integration selected — 31 October 2026
+
+The user authorises executing the existing 169-edge artifact's additive
+model/report connection through qualified CLI routes, one focused test and one
+consolidated verification episode. This selects no further relationship families
+or optional roadmap slices. Reuse the prepared candidate/inverse and accepted
+capture/cloud evidence; preserve candidate-only semantics and canonical keys.
+
+The completion owner holds exact model/report/native/auth scope. Source and
+non-mutating capability preparation may proceed now. Working-publication-path
+promotion remains after the existing 1 November scheduled observation; this
+selection does not waive that boundary or authorise an early refresh, replacement
+model, new credential scope or change to the exporter/monitor/verification.
+The integrator owns shared Conductor and serial main integration only.
+
 ## Current bounded execution authority — 31 October 2026
 
 The user now authorises **only slice 1 (retained archive consumer adoption), then

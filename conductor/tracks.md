@@ -1,5 +1,12 @@
 # Track register
 
+## Current selected connection — 31 October 2026
+
+The [existing CLI track](tracks/cli_roadmap_delivery_20261031/plan.md#current-selected-operation--grant-reference-modelreport-integration)
+now selects execution of the 169-edge additive grant-reference model/report
+connection. Working-path promotion remains after the existing 1 November
+observation. No other optional slices are commissioned.
+
 ## Bounded CLI roadmap execution — 31 October 2026
 
 - [~] [CLI roadmap delivery](tracks/cli_roadmap_delivery_20261031/plan.md) —
