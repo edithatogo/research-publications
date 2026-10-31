@@ -1,5 +1,14 @@
 # Additive grant-reference reader integration
 
+Native completion accepted on 31 October: 71 model/95 report parts, all 169 edges,
+67 mapped publications, exact 1,344-row/50-field Publication parity and publication
+filter behavior. Existing nine pages, binding and landing page are preserved.
+Live new-page rendering and saved readback passed. The native input reader pins
+complete retained artifact bytes, not just length/keys. Private receipt:
+`private/ops/grant-reference-native-20261031/acceptance.json`. Historical source-only
+results below are retained history. No source refresh or schedule work occurred.
+
+
 The authorised feature connects the existing 169 candidate grant references to
 the existing model/report. The model candidate and exact inverse are in
 [native connection preparation](NATIVE_READER_CONNECTION_PREPARATION_20261031.md).
@@ -29,7 +38,8 @@ unknown files are preserved; only page order changes and one page is appended.
    explicitly selected qualified repository Python 3.15.1 interpreter. Two tests
    pass: additive page/field/filter preservation and fail-closed drift rejection.
    Existing model/archive/consumer checks are reused rather than rerun.
-4. Native promotion remains after the existing 1 November observation. Prepare
+4. The later GrantConnect-first execution authority permits this additive feature
+   without waiting for scheduled observation. Prepare
    complete same-ID update/recovery bodies with `deploy_report_definition.py`.
    Submit each authorised update once through `fab api`, with the appropriate
    skill header; retain each LRO ID and poll that operation rather than resend.

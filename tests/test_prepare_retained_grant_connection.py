@@ -43,6 +43,9 @@ class NativePreparationTests(unittest.TestCase):
         old = {p['path']: p for p in data['model']['definition']['parts']}
         new = {p['path']: p for p in result['modelDefinition']['definition']['parts']}
         self.assertEqual(set(new)-set(old), {TABLE_PATH})
+        source = base64.b64decode(new[TABLE_PATH]['payload']).decode()
+        self.assertIn('Binary.ToText(Bytes, BinaryEncoding.Base64)=ExpectedBytes', source)
+        self.assertIn(base64.b64encode(data['artifact_content'].encode()).decode(), source)
         for path in set(old)-{'definition/model.tmdl', 'definition/relationships.tmdl'}:
             self.assertEqual(old[path], new[path])
         self.assertFalse(result['nativeDeploymentReady'])

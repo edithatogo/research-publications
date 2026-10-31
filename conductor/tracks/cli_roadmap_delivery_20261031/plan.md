@@ -28,22 +28,19 @@ this plan orders their usable CLI slices rather than duplicating their backlog.
 
 ## Current selected operation — grant-reference model/report integration
 
-- [ ] Bind the accepted 169-edge artifact to the exact current model/report and
-  qualified CLI operation, preserving the prepared additive delta/inverse and
-  candidate semantics. Existing captured context is reused; live drift is not
-  assumed absent.
-- [ ] After the existing 1 November observation, promote only the selected
-  additive connection without disrupting the accepted publication/export path.
-  Use one focused changed-behaviour test and one consolidated verification
-  receipt; do not rerun unchanged checks or commission optional work.
-- [ ] Integrate the terminal scoped source/status packet through the existing
-  sole integrator. Source integration alone does not mark native adoption passed.
+- [x] Bind the retained 169-edge artifact to current model/report through the CLI,
+  preserving all unrelated parts, candidate semantics and complete inverse.
+- [x] Save the additive connection, process only the new table and verify all
+  data/provenance, 67 mapped publications, unchanged canonical fields, publication
+  filtering and rendered reader page. No scheduled observation is a prerequisite
+  under the user's subsequent GrantConnect-first execution authority.
+- [x] Deliver the terminal scoped source/status packet for serial main integration
+  in PR102. The primary completion owner owns its merge; the old integrator stays
+  archived. Merge state is recorded by Git/PR rather than a recurring check.
 
-The [additive report source bundle](../../../docs/GRANT_REFERENCE_REPORT_INTEGRATION_20261031.md)
-is prepared and packed from retained captures; the source owner's focused tests
-pass. Native feature completion remains pending on the existing sign-in callback,
-current exact preimages/table-only processing qualification and the preserved
-post-observation promotion boundary. No native verification or write occurred.
+The native acceptance and exact scope are in CURRENT_STATE. GrantConnect-first
+execution follows the approved five-feature plan; historical slice-only wording
+below does not override that later authority. NIH stays long-term deferred.
 
 ## Selected isolated outputs — 31 October 2026
 
