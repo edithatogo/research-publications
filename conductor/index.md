@@ -1,5 +1,13 @@
 # CHHHS research publications: current Conductor context
 
+## Grants priority — 31 October 2026
+
+GrantConnect is first for grants intake: qualify actual CLI source/access, reuse
+and lifecycle support, then integrate only through a supported route. NIH
+expansion/first-time admission/chain work is long-term roadmap only. Preserve
+existing NIH data/configuration/evidence and schedules. The selected PubMed
+candidate grant-reference connection remains separate.
+
 ## Selected grant-reference connection — 31 October 2026
 
 The completion owner is authorised to execute the existing 169-edge artifact's

@@ -1,5 +1,16 @@
 # Current missing outcomes — 24 October 2026
 
+## Current grants priority — 31 October 2026
+
+**GrantConnect is the first grants intake priority**, starting with actual CLI
+source/access/reuse/lifecycle qualification and proceeding to existing-register/
+model integration only if supported. No qualified API, access or new consent is
+assumed. **NIH expansion, first-time admission and further chain work are long-term
+roadmap only**, superseding near-term implications below. Existing NIH data,
+configuration and accepted evidence are retained; no stop/delete/schedule change.
+The selected 169-edge PubMed candidate grant-reference model/report integration
+remains separate. Optional deferrals and 1 November verification are unchanged.
+
 ## Feature-only remaining scope — 31 October 2026
 
 The three selected essential outcomes are accepted, including source integration
@@ -17,7 +28,7 @@ closeout blocker or a blanket execution authorisation:
 | --- | --- |
 | New retained grant-reference model view | The 169 candidate PMID-to-grant edges are usable as isolated cloud evidence, but their additive model table/relationship and intended reader view are not deployed. The frozen-preimage model candidate/inverse and additive report-page source bundle are prepared, preserving candidate status and the working model; native integration is not complete. |
 | Wider relationship and author views | Existing evidence/projection tools do not deliver every cross-source award/output/author identity link in a connected native consumer. Authoritative identifiers, conflicts and protected history remain required; no name-only matching. |
-| Selected freshness and wider coverage | The 12 retained-source packages are complete for their stated generations. The two newer PubMed identities, broader discovery/provider/institutional coverage and wider rights-qualified paper acquisition remain deferred functional expansion. |
+| Selected freshness and wider coverage | The 12 retained-source packages are complete for their stated generations. GrantConnect is the first grants intake priority, conditional on source/access/reuse/lifecycle support. NIH expansion/admission/chain work is long-term only. The two newer PubMed identities, broader discovery/provider/institutional coverage and wider rights-qualified paper acquisition remain deferred functional expansion. |
 | Real outcomes and usable forecasts | Broader outcome/forecast views require actual decision-specific evidence and adequate retained coverage; unavailable metrics are not zero. Local builders are not a complete real-data outcome service. |
 | Multi-user features | Collaboration, cross-user curation/storage and subscriptions beyond the accepted owner-only path remain optional functional extensions, with recipient/identity/access boundaries intact. |
 | Structured document replacement | Optional maintained-template Word/PDF output and migration of existing outputs remain deferred; the working CSV/HTML outputs are retained. |

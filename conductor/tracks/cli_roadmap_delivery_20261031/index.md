@@ -1,5 +1,9 @@
 # CLI roadmap delivery
 
+**Grants intake priority: GrantConnect.** NIH expansion/admission/chain work is
+long-term only. The selected PubMed grant-reference connection remains separate;
+existing NIH data/configuration/evidence and schedules are preserved.
+
 **Only slices 1 and 2 are authorised for bounded execution; remaining slices are
 deferred.** Isolated/offline work may precede 1 November. The accepted essential system and
 its existing 1 November 07:50 Brisbane verification remain unchanged.

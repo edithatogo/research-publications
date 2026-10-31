@@ -1,5 +1,13 @@
 # Track register
 
+## Grants intake selection — 31 October 2026
+
+**GrantConnect first.** G02/G04/G07 source/access/reuse/lifecycle qualification
+precedes supported integration; no API or access is presumed qualified. NIH
+expansion, first-time admission and chain work are long-term only, preserving
+existing NIH data/configuration and accepted evidence. The selected 169 PubMed
+candidate-reference connection remains separate; no schedule/native changes.
+
 ## Current selected connection — 31 October 2026
 
 The [existing CLI track](tracks/cli_roadmap_delivery_20261031/plan.md#current-selected-operation--grant-reference-modelreport-integration)

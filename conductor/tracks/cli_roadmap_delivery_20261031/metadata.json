@@ -34,5 +34,14 @@
   "shared_integrator_native_scope": false,
   "grant_reference_report_source": "offline_additive_bundle_prepared",
   "grant_reference_native_feature_complete": false,
-  "current_native_status": "existing_auth_callback_and_current_preimage_processing_qualification_pending"
+  "current_native_status": "authentication_resolved_current_preimages_captured_no_native_write",
+  "grants_intake_priority": "GrantConnect",
+  "grantconnect_route_qualification": "required_not_established_by_plan",
+  "nih_grants_priority": "long_term_only_no_near_term_expansion_admission_or_chain_work",
+  "current_native_parts": {
+    "model": 70,
+    "report": 90,
+    "rebased_model_candidate": 71,
+    "rebased_report_candidate": 95
+  }
 }
