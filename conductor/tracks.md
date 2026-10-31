@@ -1,5 +1,12 @@
 # Track register
 
+## Native GrantConnect source result — 31 October 2026
+
+One authorised FlowAgent RSS run failed with provider HTTP403; zero records were
+captured and the manual flow is stopped again. Source-to-reader/delivery remains
+incomplete. The alert hold is resolved; the 169-reference view is complete (PR102).
+See CURRENT_STATE for the receipt. Schedules/NIH deferral remain unchanged.
+
 ## Current grants execution — 31 October 2026
 
 The [approved GrantConnect-first plan](../docs/GRANTS_CLI_COMPLETION_PLAN_20261031.md) supersedes older slice-only and
