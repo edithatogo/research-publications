@@ -3,8 +3,18 @@
   "title": "publication platform acceptance",
   "status": "in_progress",
   "scope": "rims_extension",
-  "depends_on": ["S01_publication_stabilisation", "T11_sources_and_reconciliation", "E01_flow_automation", "T14_complete_exports_monthly"],
+  "depends_on": [
+    "S01_publication_stabilisation",
+    "T11_sources_and_reconciliation",
+    "E01_flow_automation",
+    "T14_complete_exports_monthly"
+  ],
   "requires_live_evidence": true,
   "created_at": "2026-09-20T00:00:00Z",
-  "updated_at": "2026-09-20T00:00:00Z"
+  "updated_at": "2026-09-20T00:00:00Z",
+  "reconciled_on": "2026-10-31",
+  "essential_status": "accepted",
+  "essential_acceptance_reference": "handoff/CURRENT_STATE.md#essential-closeout-accepted--30-october-2026",
+  "remaining_scope_note": "Broader cross-user, production and expanded hardening exits are not implicitly closed, but acceptance-only tasks are excluded from the unfinished-feature list.",
+  "acceptance_note": "The selected essential platform path and final retained-source native verification are accepted; reuse the exact retained receipts and PR98 isolated-delivery evidence. Broader cross-user, production and expanded hardening exits are not implicitly closed, but acceptance-only tasks are excluded from the unfinished-feature list."
 }

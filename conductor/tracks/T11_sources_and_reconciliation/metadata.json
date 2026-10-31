@@ -15,5 +15,10 @@
     "private/ops/2026-09-14-powerautomate-query-proof.json"
   ],
   "updated_at": "2026-09-20T00:00:00Z",
-  "acceptance_note": "Reopened during Conductor audit: incomplete native or operational acceptance; prior artefacts retained as historical evidence."
+  "acceptance_note": "Captured-generation source integration and retained raw/typed commit/replay are accepted. Existing retained-reader code/wiring is implemented; raw23 reader-adoption flags describe runtime evidence, not missing reader code. Selected source freshness, broader coverage and optional linked consumers remain deferred; do not reopen accepted captures.",
+  "reconciled_on": "2026-10-31",
+  "essential_status": "accepted",
+  "essential_acceptance_reference": "handoff/CURRENT_STATE.md#essential-closeout-accepted--30-october-2026",
+  "remaining_scope_note": "Selected source freshness, broader coverage and optional linked consumers remain deferred; do not reopen accepted captures.",
+  "historical_acceptance_note": "Reopened during Conductor audit: incomplete native or operational acceptance; prior artefacts retained as historical evidence."
 }

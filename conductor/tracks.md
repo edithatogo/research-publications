@@ -105,7 +105,9 @@ orchestrator assignments; operational/send authority is not expanded.
 
 ## Publication stabilisation before grants implementation
 
-Execution order and boundaries: [detailed handoff](PUBLICATION_STABILISATION.md). Existing T11, T14, T15, E01 and E07 own live acceptance; their execution runbooks refine the existing plans.
+[Reconciled publication handoff](PUBLICATION_STABILISATION.md): T11/T14/T15/E01/E07
+have accepted essential scope. Their broader historical tasks remain scoped;
+natural observation and acceptance administration are not unfinished features.
 
 - [~] [S02_release_versioning: reproducible versions and recovery](tracks/S02_release_versioning/plan.md) — source versioning and isolated native version/batch display are verified; native rollback/version-history remains gated.
 
@@ -119,9 +121,9 @@ Execution order and boundaries: [detailed handoff](PUBLICATION_STABILISATION.md)
 
 ## Current web-first implementation
 
-- [~] [T11_sources_and_reconciliation: Repair and prove PubMed plus DORA ingestion](tracks/T11_sources_and_reconciliation/plan.md) — current-user native list/model/flow readback is evidenced; retained-history, refresh, recurrence, delivery and production acceptance remain open (2026-09-22 audit).
-- [~] [T14_complete_exports_monthly: Export every citation and stage the monthly workflow](tracks/T14_complete_exports_monthly/plan.md) — implementation exists; native/operational acceptance remains open (2026-09-20 audit).
-- [~] [T15_web_acceptance_release: Verify the live web implementation and hand over](tracks/T15_web_acceptance_release/plan.md) — implementation exists; native/operational acceptance remains open (2026-09-20 audit).
+- [~] [T11_sources_and_reconciliation: Repair and prove PubMed plus DORA ingestion](tracks/T11_sources_and_reconciliation/plan.md) — essential captured-generation source/raw-typed commit and replay accepted; retained-reader code is wired. Optional freshness/coverage remains deferred; adoption evidence is separate.
+- [~] [T14_complete_exports_monthly: Export every citation and stage the monthly workflow](tracks/T14_complete_exports_monthly/plan.md) — essential path accepted; dated broad acceptance tasks are historical/scoped, not unfinished essential features.
+- [~] [T15_web_acceptance_release: Verify the live web implementation and hand over](tracks/T15_web_acceptance_release/plan.md) — essential path accepted; dated broad acceptance tasks are historical/scoped, not unfinished essential features.
 - Cancelled: [T16 Windows fallback](tracks/T16_utm_windows_fallback/plan.md) — retained history; excluded from delivery.
 - Cancelled: [T17 Desktop fallback](tracks/T17_desktop_fallback_acceptance/plan.md) — retained history; excluded from delivery.
 
@@ -147,9 +149,9 @@ Execution order and boundaries: [detailed handoff](PUBLICATION_STABILISATION.md)
 - [~] [Phase 4: Research Semantic Model & Visual Dashboards (Power BI)](../docs/PLATFORM_COMPLETION_PLAN.md#phase-4-power-bi-semantic-model--research-dashboards-medium-value) — **Medium Value** (TMDL model, DAX reconciliation query check, research visual suite) — local model/report definitions exist; current deployed Clinical Analytics bindings remain open
 
 ## Canonical evolution tracks
-- [~] [E01_flow_automation: Power Automate Ingestion Canonicalization and Recurrence Scheduling](tracks/E01_flow_automation/plan.md) — implementation exists; native/operational acceptance remains open (2026-09-20 audit).
+- [~] [E01_flow_automation: Power Automate Ingestion Canonicalization and Recurrence Scheduling](tracks/E01_flow_automation/plan.md) — essential path accepted; dated broad acceptance tasks are historical/scoped, not unfinished essential features.
 - [~] [E04_fluent_visual_polish: Microsoft Fluent 2 Visual Polishing and IBCS Standards](tracks/E04_fluent_visual_polish/plan.md) — local geometry/contrast tests pass; six-page native inventory is evidenced, but nine Clinical Analytics field-binding errors and visual acceptance remain open
-- [~] [E07_publication_platform_acceptance: Publication platform hardening and live evidence](tracks/E07_publication_platform_acceptance/plan.md) — local acceptance contract added; tenant readback and end-to-end replay remain gated
+- [~] [E07_publication_platform_acceptance: Publication platform hardening and live evidence](tracks/E07_publication_platform_acceptance/plan.md) — essential platform/native verification accepted; broader hardening/rollout remains scoped, not reopened.
 
 - [~] [E10_python315_migration: Python3.15 migration and qualification](tracks/E10_python315_migration/index.md) — PR9/main implementation accepted; safe attached-helper handover and final full-scope audit pending. Existing unfinished E01 goal preserved; no separate E10 goal armed.
 

@@ -77,6 +77,13 @@ Current RIMS extension: [funding pages, institutional dates and subscriptions](.
 
 [Product](product.md) | [Guidelines](product-guidelines.md) | [Technology](tech-stack.md) | [Power Platform CI/CD](../docs/POWER_PLATFORM_CI_CD.md) | [Workflow](workflow.md) | [Tracks](tracks.md) | [Code standards](code_styleguides/general.md)
 
+## Historical implementation context — superseded by current scope
+
+The following dated status text is preserved history. T11/T14/T15/E01/E07
+essential scope is accepted; use the current handoff and track checkpoints.
+It does not re-enable cancelled Desktop routes, reopen ingestion acceptance or
+require fresh tests/native operations.
+
 Start with [the Power BI plugin handoff](../handoff/POWERBI_PLUGIN_START_HERE.md) and [AGY_HANDOVER.md](../AGY_HANDOVER.md). T08 has established the existing report/model, Antigravity (`agy`) capabilities and the web-first route. T09 supplies local contracts, export helpers and tests. T10–T15 implement and accept the web report. T16/T17 are conditional UTM/Desktop fallback tracks.
 
 The v0.3 source archive was recovered and its release hash verified. Old claims of a working live report or an active replacement PBIX must not be relied on. The source baseline contains the defects in [the findings register](../docs/WEB_FIRST_FINDINGS.md).

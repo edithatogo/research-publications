@@ -1,3 +1,41 @@
+## Feature reconciliation and reader/model preparation — 31 October 2026
+
+The user requests stale Conductor reconciliation followed by bounded native
+reader/model **preparation only** from existing CLI/captures. No deployment,
+refresh, schedule change or new acquisition is selected. Essential
+T11/T14/T15/E01/E07 scope is accepted; their original plans/indices/metadata now
+separate that accepted scope from broader historical work. The
+[feature-only list](../docs/CURRENT_MISSING_OUTCOMES.md#feature-only-remaining-scope--31-october-2026)
+excludes verification and administration.
+
+Frozen native definitions already contain the retained PubMed/DoRA reader wiring
+and canonical query consumption. Raw23's unaccepted runtime-adoption flag is not
+a missing reader-code feature. The new 169 candidate grant-reference edges do
+need additive model table/relationship wiring; the completion owner prepares a
+frozen-preimage candidate/inverse without fabricating producer capability or
+18-field CSV/model parity. PR98 isolated CLI/cloud delivery remains accepted.
+
+The bounded [connection preparer](../docs/NATIVE_READER_CONNECTION_PREPARATION_20261031.md)
+is now prepared from the frozen 61-part model and accepted 169-edge artifact:
+59 parts preserved, two existing parts changed, one table added (62 total), and
+complete exact inverse retained. Source `841e8523`; completion private receipt
+`private/ops/native-reader-preparation-20261031/acceptance.json`, SHA256
+`784ebf61d87ed56ec368c3a42a84324bda5dc64572c585493b51e8fe3f7c5aee`,
+status `PASS_OFFLINE_NATIVE_CONNECTION_PREPARATION`. Two focused source-owner
+tests and one offline delta/inverse comparison passed; unchanged checks reused.
+The candidate is explicitly `prepared_not_deployable`, with no native save,
+refresh or run. Current target/drift, full-byte guard, full model context and M/
+filter execution remain future deployment inputs, not fabricated capabilities.
+
+Completion owner `01a1876d-55fc-7e42-b806-18589a94e6fa` owns bounded preparer
+scripts/tests/leaf and private inputs in its separate completion checkout.
+Integrator `01a1874d-b9d7-7e61-b198-943e93ee28ad` owns shared Conductor/handoff
+reconciliation and serial main integration in standard recovery clone, branch
+`codex/rims-conductor-reader-reconciliation-20261031`. Existing native/auth and
+other checkout owners retain scope. Tomorrow's 1 November 07:50 Brisbane
+verification, 07:00 monthly exporter, 07:45 monitor, noon deadline and optional
+slice 3–6 deferrals are unchanged. Reuse all unchanged test/native evidence.
+
 ## Isolated retained-consumer delivery accepted — 31 October 2026
 
 Source owner committed `a5d1f0c414b7724ae48816e1452e38dddc727f2a`:
