@@ -11,6 +11,9 @@ parsed objects are exact. No provider refresh, mail, schedule change or schedule
 history check occurred. This supersedes older pending/auth/post-observation holds
 for this selected additive feature only; tomorrow's separate verification remains.
 
+Source packet: PR102. The single local integration harness passed under Python
+3.15.1; no additional native checks were added.
+
 Private acceptance: `private/ops/grant-reference-native-20261031/acceptance.json`;
 complete current preimages, inverse, one-send journals and saved readbacks remain
 with completion owner `01a1876d-55fc-7e42-b806-18589a94e6fa` in this checkout.

@@ -34,8 +34,9 @@ this plan orders their usable CLI slices rather than duplicating their backlog.
   data/provenance, 67 mapped publications, unchanged canonical fields, publication
   filtering and rendered reader page. No scheduled observation is a prerequisite
   under the user's subsequent GrantConnect-first execution authority.
-- [ ] Integrate this terminal scoped source/status packet into main; the primary
-  completion owner now owns serial integration and the old integrator stays archived.
+- [x] Deliver the terminal scoped source/status packet for serial main integration
+  in PR102. The primary completion owner owns its merge; the old integrator stays
+  archived. Merge state is recorded by Git/PR rather than a recurring check.
 
 The native acceptance and exact scope are in CURRENT_STATE. GrantConnect-first
 execution follows the approved five-feature plan; historical slice-only wording
