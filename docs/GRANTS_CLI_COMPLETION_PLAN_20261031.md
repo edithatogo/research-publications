@@ -1,9 +1,19 @@
 # Grants completion: GrantConnect first, no UI authoring or monitoring
 
-Planning only. GrantConnect is the grants intake priority; NIH opportunity
+Execution authorised by the user on 31 October 2026. GrantConnect is the grants intake priority; NIH opportunity
 acquisition, admission and further chain work remain long-term roadmap. Retain
 existing NIH records/configuration and source assertions in the immutable PubMed
 reference artifact. Do not restart the archived integration chat.
+
+The user-selected first source is GrantConnect RSS at
+`https://www.grants.gov.au/public_data/rss/rss.xml`. Use the standard RSS
+connector through FlowAgent and retain its complete returned payload before
+filtering. Do not require CSV notifications/export to begin. A direct research
+GET returned403; this is not evidence that the feed is absent or that the
+connector route is denied. Qualify that exact supported route separately.
+Primary completion chat owns this execution/source-integration lane; the former
+integration chat stays archived. Existing native object and authentication owners
+retain their exact scopes.
 
 ## Tool ownership
 
@@ -101,3 +111,22 @@ and CLI-capable model/report processing and preview. On an exact unsupported or
 denied operation, stop that portion and move on; do not add a browser workaround,
 change clients, broaden consent or invent qualification. A human-only provider
 download or login must remain explicitly labelled if unavoidable.
+
+## Execution checkpoint — 31 October 2026
+
+Feature 5 is complete natively: all 169 references/67 publications, unchanged
+canonical fields, relationship filtering, live reader rendering and saved model/
+report readback passed. Preserved all outcomes additions and current report binding.
+
+Feature 1 has a reusable manual RSS definition and complete connector-item
+projector in `scripts/grantconnect_rss.py`. Run `definition --output` to prepare
+its graph, or `project --input --input-sha256 --output` to transform an exact
+retained capture. Outputs are private/create-only. FlowAgent saved its native
+collector Stopped; direct GET403 and the enabled failure-alert subscription mean
+actual RSS capture remains unverified. No CSV prerequisite was introduced.
+Source-derived lifecycle dates/status cannot be claimed before a real capture.
+
+Features 2 and 4 still require real admitted GrantConnect input and selected
+recipient/channel authority. Feature 3 reuses implemented native backend identity,
+version and item-security guards; real multi-user acceptance is not inferred from
+fictional fixtures. These are concrete unfinished outcomes, not scheduled checks.

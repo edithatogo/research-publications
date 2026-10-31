@@ -1,5 +1,18 @@
 # CHHHS research publications: current Conductor context
 
+## Current grants execution — 31 October 2026
+
+The [approved GrantConnect-first plan](../docs/GRANTS_CLI_COMPLETION_PLAN_20261031.md) supersedes older slice-only and
+post-observation restrictions for this selected work. The 169-edge native
+candidate-reference model/report connection is complete: data/filter/render and
+saved readback passed, with publications and existing report content preserved.
+GrantConnect RSS collector/projector source is implemented and the manual flow
+saved Stopped; actual source capture/admission, GrantConnect reader integration
+and real notification/calendar delivery remain open. Reuse the existing watchlist
+backend. NIH expansion stays long-term; schedules and the separate 1 November
+verification remain unchanged. Details and private receipts are in CURRENT_STATE.
+
+
 ## Grants priority — 31 October 2026
 
 GrantConnect is first for grants intake: qualify actual CLI source/access, reuse

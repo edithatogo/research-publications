@@ -73,6 +73,21 @@ def build(files, model_packet, *, expected_report_sha256, expected_model_id):
             visual.pop(k, None)
         if fields:
             visual['query'] = {'queryState': {'Values': {'projections': fields}}}
+        if kind == 'slicer':
+            fields[0]['active'] = True
+            visual['objects'] = {'data': [{'properties': {
+                'mode': {'expr': {'Literal': {'Value': "'Dropdown'"}}}}}]}
+        if kind == 'tableEx':
+            # Keep long publication titles/provenance from hiding grant identifiers.
+            literal = lambda value: {'expr': {'Literal': {'Value': value}}}
+            widths = [380, 100, 200, 140, 130, 130, 180, 160, 180, 200]
+            visual['objects'] = {
+                'columnHeaders': [{'properties': {
+                    'autoSizeColumnWidth': literal('false'),
+                    'columnAdjustment': literal("'fixedWidth'")}}],
+                'columnWidth': [{'selector': {'metadata': field['queryRef']},
+                    'properties': {'value': literal(str(width) + 'D')}}
+                    for field, width in zip(fields, widths)]}
         if words is not None:
             visual['objects'] = {'general': [{'properties': {'paragraphs': [
                 {'textRuns': [{'value': words, 'textStyle': {'fontFamily': 'Segoe UI', 'fontSize': '16pt'}}]}]}}]}

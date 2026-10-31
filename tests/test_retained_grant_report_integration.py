@@ -43,9 +43,12 @@ class GrantReportIntegrationTests(unittest.TestCase):
         selector = json.loads(result[f'definition/pages/{PAGE}/visuals/publication-selector/visual.json'])
         self.assertIn('CanonicalKey',json.dumps(selector))
         self.assertNotIn('stale',json.dumps(selector))
+        self.assertTrue(selector['visual']['query']['queryState']['Values']['projections'][0]['active'])
+        self.assertIn("'Dropdown'",json.dumps(selector))
         evidence = json.loads(result[f'definition/pages/{PAGE}/visuals/grant-reference-evidence/visual.json'])
         self.assertIn('RetainedGrantReferences',json.dumps(evidence))
         self.assertIn('SourcePaths',json.dumps(evidence))
+        self.assertEqual(len(evidence['visual']['objects']['columnWidth']),10)
         self.assertNotIn('SourceRelationshipEvidence',json.dumps(result,default=lambda x:x.decode()))
         self.assertEqual((files,packet),before)
 

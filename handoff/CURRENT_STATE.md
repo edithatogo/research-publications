@@ -1,3 +1,64 @@
+## Native grant-reference connection accepted — 31 October 2026
+
+The selected 169-edge candidate connection is implemented in the existing native
+model/report through the Fabric CLI. One new table/relationship and one reader
+page were saved; only that table was processed. All 169 edges and every retained
+field/provenance match, 67 publications map, the publication-key filter passes,
+and all 1,344 Publication rows/50 fields remain exact. All 68 unrelated model
+parts, 89 existing report parts, nine pages, binding and landing page are preserved.
+Native readback removed only terminal newlines from six changed JSON parts;
+parsed objects are exact. No provider refresh, mail, schedule change or scheduled
+history check occurred. This supersedes older pending/auth/post-observation holds
+for this selected additive feature only; tomorrow's separate verification remains.
+
+Private acceptance: `private/ops/grant-reference-native-20261031/acceptance.json`;
+complete current preimages, inverse, one-send journals and saved readbacks remain
+with completion owner `01a1876d-55fc-7e42-b806-18589a94e6fa` in this checkout.
+The affected preparation test passed; rendered inspection found a blank selector
+and title-dominated columns, fixed with a dropdown and bounded column widths.
+Only the affected test/capture were rerun. CLI validation reports 70 pre-existing
+errors outside the new page and zero on the new page; unrelated content was kept.
+The final live page capture showed rows and a usable selector. Temporary captures
+were removed; the CLI visible preview remains available.
+
+GrantConnect remains the acquisition priority. Its manual RSS collector and
+lossless candidate projector are implemented; FlowAgent saved the collector
+Stopped using an existing connected standard RSS connection. Native source
+execution is not accepted: direct GET403 and the enabled owner failure-alert
+subscription remain recorded. No official RSS records have been admitted.
+Register/reader integration of GrantConnect records and real notifications/live
+calendar delivery remain unfinished. Existing watchlist backend controls are
+reused, not rebuilt; real multi-user proof is not claimed. NIH expansion stays
+long-term. No archived chat is reactivated and no monitoring is added.
+
+## GrantConnect-first execution — 31 October 2026
+
+The user authorises the five-feature CLI/API completion plan, with FlowAgent for
+flows, existing assets/captures, one focused test and one bounded manual
+verification per feature. No scheduled verification or monitoring is selected;
+the existing separate 1 November check and all service schedules remain untouched.
+NIH opportunity acquisition/admission/chain work remains long-term only.
+
+Primary completion chat `01a1876d-55fc-7e42-b806-18589a94e6fa` owns bounded
+implementation and serial source integration in the completion checkout, branch
+`codex/grantconnect-delivery-20261031`. The former integration chat is stopped and
+archived by user direction and must not be reactivated. Existing outcomes/native
+owners and their fields remain protected. Earlier assignments below are history.
+
+Use the user-supplied GrantConnect RSS URL, not a CSV prerequisite. The manual-only
+RSS collector was created Stopped through FlowAgent using an existing connected
+RSS connection; no run or schedule has occurred. Its owner failure-alert setting
+is enabled and FlowAgent exposes no alert-subscription setter, so native execution
+is held rather than risking an unselected email. Exact private checkpoint:
+`private/ops/grantconnect-rss-20261031/execution-checkpoint.json`. Direct research
+GET403 is scoped to that route, not evidence that the RSS feed is absent.
+
+The current watchlist flow already derives its caller server-side and enforces
+ReadSecurity/WriteSecurity2; reuse accepted scoped evidence rather than rebuilding
+it. The independent retained grant-reference feature may proceed on its own
+qualified isolated target without scheduled-run observations. Preserve current
+model/report preimages, exact inverse, native ownership and all unrelated content.
+
 ## GrantConnect priority and current native checkpoint — 31 October 2026
 
 Direct user steering makes **GrantConnect the first grants intake priority**.

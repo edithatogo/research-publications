@@ -81,6 +81,8 @@ def prepare(model, artifact_content, upload, target, *, model_sha256, artifact_s
     field_list = '{' + ','.join(mtext(c) for c in columns) + '}'
     key_list = '{' + ','.join(mtext(k) for k in sorted(keys)) + '}'
     segments = '{' + ','.join(mtext(x) for x in relative.split('/')) + '}'
+    wire = base64.b64encode(raw).decode('ascii')
+    expected_bytes = 'Text.Combine({' + ','.join(mtext(wire[i:i+16384]) for i in range(0, len(wire), 16384)) + '})'
     source = '\n'.join([
         'let',
         '    Root = SharePoint.Contents(' + mtext(site) + ', [ApiVersion=15]),',
@@ -89,7 +91,9 @@ def prepare(model, artifact_content, upload, target, *, model_sha256, artifact_s
         '        in if Table.RowCount(Matches)=1 then Matches{0}[Content] else error "Folder identity drift"),',
         '    Matches = Table.SelectRows(Folder, each [Name]=' + mtext(name) + '),',
         '    Bytes = if Table.RowCount(Matches)=1 then Binary.Buffer(Matches{0}[Content]) else error "Artifact identity drift",',
-        '    Payload = if Binary.Length(Bytes)=' + str(artifact_bytes) + ' then Json.Document(Bytes) else error "Artifact length drift",',
+        '    ExpectedBytes = ' + expected_bytes + ',',
+        '    Payload = if Binary.Length(Bytes)=' + str(artifact_bytes) + ' and Binary.ToText(Bytes, BinaryEncoding.Base64)=ExpectedBytes',
+        '        then Json.Document(Bytes) else error "Artifact byte drift",',
         '    Rows = if Payload[kind]="retained_pubmed_grant_references_v1" and Payload[confirmed_relationship_count]=0',
         '        and Payload[edge_count]=' + str(len(edges)) + ' and Payload[publication_count]=' + str(artifact['publication_count']),
         '        then Payload[edges] else error "Artifact scope drift",',
