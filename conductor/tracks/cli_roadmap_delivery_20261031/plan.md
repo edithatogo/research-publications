@@ -1,5 +1,24 @@
 # Sequenced CLI delivery plan
 
+## Grants intake priority — GrantConnect, 31 October 2026
+
+GrantConnect is the first grants intake priority. Use the existing source
+catalogue, CLI tooling and retained captures first. Qualify the exact permitted
+source/access route, terms, reuse rights and lifecycle handling (new, amended,
+closed/withdrawn opportunities, dates and versions) before integration. Record
+actual API/feed/export availability; none is presumed qualified. Integrate with
+the existing protected register/model only if that supported route is established.
+No new consent, credential scope, access bypass or provider request is implied
+by this documentation update.
+
+NIH expansion, first-time NIH admission and further NIH chain work are removed
+from the near-term plan and retained only on the long-term roadmap. Preserve
+existing NIH data, configurations and accepted chain/recovery evidence; do not
+stop/delete services or change schedules. The selected 169-edge PubMed candidate
+grant-reference model/report connection is separate and remains selected; it is
+not an NIH grants collector or admission task. All other optional deferrals and
+the existing 1 November verification/promotion boundary remain unchanged.
+
 **Status: slices 1 and 2 authorised, in progress; slices 3–6 remain deferred.**
 Unchecked boxes are not accepted outcomes. The user authorises isolated/offline
 work before 1 November, preserving the working publication path and its existing
@@ -127,7 +146,7 @@ evidence export first, then a separately selected typed bridge; avoid redesignin
 the report or building a person-management system.
 
 - [ ] Reuse `prepare_datacite_output_relationships.py`,
-  `prepare_nih_publication_relationships.py`, `source_relationship_evidence.py`,
+  `source_relationship_evidence.py`,
   `prepare_source_relationship_export.py` and `author_registry.py`. Select one
   named use, such as publication-to-award or DOI-to-related-output, with exact
   DOI/PMID/award/ORCID/provider-ID crosswalks. Keep candidate assertions distinct
@@ -252,3 +271,10 @@ building an empty reporting system or manufacturing metrics.
 followed by step 2 for one identifier-backed relationship export. Steps 3–6 are
 conditional selections, not automatic commitments, and have no implementation
 dates until their inputs and operation-specific capabilities are known.
+
+## Long-term roadmap — NIH grants
+
+NIH expansion, first-time admission and additional chain work are deferred;
+there is no near-term NIH task. Existing source helpers, data/configuration and
+accepted evidence remain preserved. Reconsider only on a later explicit selection,
+after the GrantConnect priority; no operation is authorised by this roadmap entry.

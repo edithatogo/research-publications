@@ -1,3 +1,37 @@
+## GrantConnect priority and current native checkpoint — 31 October 2026
+
+Direct user steering makes **GrantConnect the first grants intake priority**.
+Qualify actual CLI source/access, reuse rights and lifecycle handling using
+existing tools/captures, then integrate only if supported. Do not infer an API,
+access qualification or permission for new consent. **NIH expansion, first-time
+admission and further chain work are long-term roadmap only**, not near-term
+execution. Existing NIH data/configuration and accepted evidence remain intact;
+no stop/delete, schedule or native change is assigned by this reprioritisation.
+
+The selected 169-edge PubMed candidate grant-reference model/report integration
+remains separate and selected; it is not an NIH grants collector task. The
+completion owner reports resolved authentication, fresh 70-part model/90-part
+report preimages and rebased 71/95-part candidates preserving the outcome owner's
+additions and exact inverse. Completion checkpoint
+`private/ops/grant-reference-integration-20261031/current-target-checkpoint.json`,
+SHA256 `97391ec4298bc751558d99b487725cd3b4386f439f126684bf61f3b70eaab892`,
+records terminal successful definition captures, 68 unchanged model parts and
+all nine existing report pages/binding preserved. No callback remains pending;
+no native write, refresh or verification occurred. Existing outcomes ownership,
+terminal refresh/current drift and post-observation promotion boundaries remain.
+Immutable NIH labels within PubMed grant-reference evidence are retained; this
+priority changes opportunity acquisition, not source evidence. Promotion stays
+after the existing 1 November observation; exact private preimages/checkpoint
+remain with the native owner. Older authentication holds below are history.
+
+Integrator `01a1874d-b9d7-7e61-b198-943e93ee28ad` owns this docs-only shared
+reprioritisation/main packet in standard recovery clone, branch
+`codex/rims-grantconnect-priority-20261031`. Completion owner
+`01a1876d-55fc-7e42-b806-18589a94e6fa` retains native/auth scope. No feature
+tests, provider calls or native operations are commissioned in this lane.
+Exporter 07:00 monthly, monitor 07:45 daily, existing 1 November 07:50 Brisbane
+verification, noon deadline and all other optional deferrals are unchanged.
+
 ## Additive grant-reference report source delivered — 31 October 2026
 
 Source `e0dce40c` supplies the [additive reader adapter and CLI sequence](../docs/GRANT_REFERENCE_REPORT_INTEGRATION_20261031.md).
@@ -13,10 +47,13 @@ is `PASS_OFFLINE_ADDITIVE_REPORT_BUNDLE`. The source owner's one focused unittes
 invocation passed two tests; previous checks are reused. The bundle is source/
 offline preparation only: **native feature completion remains pending**.
 
-The existing Fabric sign-in callback and human sign-in question remain owned by
-the completion lane. Current exact report/model preimages and table-only
-processing qualification are not established; no native save or verification
-was performed. Preserve that session/journal; no duplicate login or cache transfer.
+Authentication is now resolved in the retained completion-owned session. Fresh
+complete preimages contain 70 model and 90 report parts; the rebased candidates
+contain 71 and 95 parts and preserve the outcome owner's additions. The completion
+owner retains exact captures/inverses in its private checkpoint. No native save,
+refresh or deployment verification occurred; table-only processing remains
+unqualified. Earlier callback/authentication holds are historical. Preserve the
+same native/auth owner and its journals; no duplicate login or cache transfer.
 Working-path promotion stays after the existing 1 November observation. No native
 writes, source/provider requests, flow runs or schedule changes are claimed by
 this packet. Integrator performs source/shared-status integration only.

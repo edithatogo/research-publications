@@ -1,5 +1,24 @@
 # Specification: CLI-first deferred roadmap
 
+## Grants intake priority — GrantConnect, 31 October 2026
+
+GrantConnect is the first grants intake priority. Use the existing source
+catalogue, CLI tooling and retained captures first. Qualify the exact permitted
+source/access route, terms, reuse rights and lifecycle handling (new, amended,
+closed/withdrawn opportunities, dates and versions) before integration. Record
+actual API/feed/export availability; none is presumed qualified. Integrate with
+the existing protected register/model only if that supported route is established.
+No new consent, credential scope, access bypass or provider request is implied
+by this documentation update.
+
+NIH expansion, first-time NIH admission and further NIH chain work are removed
+from the near-term plan and retained only on the long-term roadmap. Preserve
+existing NIH data, configurations and accepted chain/recovery evidence; do not
+stop/delete services or change schedules. The selected 169-edge PubMed candidate
+grant-reference model/report connection is separate and remains selected; it is
+not an NIH grants collector or admission task. All other optional deferrals and
+the existing 1 November verification/promotion boundary remain unchanged.
+
 ## Grant-reference model/report integration selected — 31 October 2026
 
 The user authorises executing the existing 169-edge artifact's additive
