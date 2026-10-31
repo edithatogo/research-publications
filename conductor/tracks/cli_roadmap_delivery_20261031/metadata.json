@@ -28,5 +28,11 @@
   "native_powerbi_reader_adoption": false,
   "native_typed_relationship_model_adoption": false,
   "grant_reference_connection_preparation": "prepared_not_deployable",
-  "retained_reader_code_wiring": "implemented"
+  "retained_reader_code_wiring": "implemented",
+  "selected_operation": "execute_existing_169_edge_grant_reference_model_report_integration",
+  "working_path_promotion_before_november_observation": false,
+  "shared_integrator_native_scope": false,
+  "grant_reference_report_source": "offline_additive_bundle_prepared",
+  "grant_reference_native_feature_complete": false,
+  "current_native_status": "existing_auth_callback_and_current_preimage_processing_qualification_pending"
 }

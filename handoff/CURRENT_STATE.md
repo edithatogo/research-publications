@@ -1,3 +1,49 @@
+## Additive grant-reference report source delivered — 31 October 2026
+
+Source `e0dce40c` supplies the [additive reader adapter and CLI sequence](../docs/GRANT_REFERENCE_REPORT_INTEGRATION_20261031.md).
+The offline 75-part retained report becomes an 80-part candidate: five new page/
+visual parts and only the existing page-order part changed. Existing pages,
+active page, unknown files and model binding are preserved. The reader uses
+CanonicalKey selection, candidate grant labels/identifiers, PMID, review state
+and retained provenance; it does not infer a confirmed award relationship.
+
+Completion receipt `private/ops/grant-reference-integration-20261031/source-acceptance.json`,
+SHA256 `83464ce9a4cf25cb45923beee38f61938f43d21b7df87971f5a7d4c1b366f61e`,
+is `PASS_OFFLINE_ADDITIVE_REPORT_BUNDLE`. The source owner's one focused unittest
+invocation passed two tests; previous checks are reused. The bundle is source/
+offline preparation only: **native feature completion remains pending**.
+
+The existing Fabric sign-in callback and human sign-in question remain owned by
+the completion lane. Current exact report/model preimages and table-only
+processing qualification are not established; no native save or verification
+was performed. Preserve that session/journal; no duplicate login or cache transfer.
+Working-path promotion stays after the existing 1 November observation. No native
+writes, source/provider requests, flow runs or schedule changes are claimed by
+this packet. Integrator performs source/shared-status integration only.
+
+## Grant-reference integration assignment — 31 October 2026
+
+The user authorises execution of the existing 169-edge artifact's additive
+model/report connection, CLI-only with one focused test and one consolidated
+verify. This is the existing relationship slice, not a new feature family/lane.
+Working-publication-path promotion remains after the existing 1 November
+observation; no early refresh or disruptive change to the baseline is authorised.
+
+Completion owner `01a1876d-55fc-7e42-b806-18589a94e6fa` owns exact native model/
+report/auth scope and bounded scripts/tests/leaf in
+`/Users/doughnut/.codex/worktrees/rims-completion-scope/chhhs-research-publications`, current branch `codex/grant-reference-integration-20261031`.
+Its first next operation is a bounded current report/model/CLI capability read;
+old preparation and capture receipts are reused. Integrator
+`01a1874d-b9d7-7e61-b198-943e93ee28ad` owns only shared Conductor/status and
+serial main integration in standard recovery clone, branch
+`codex/rims-grant-reference-integration-20261031`. No integrator native/auth or
+slice test operation. Earlier assignments are retained history.
+
+Preserve the accepted 1,344-record generation, 07:00 monthly exporter, 07:45
+daily monitor, existing 1 November 07:50 Brisbane verification and noon deadline.
+Optional slices 3–6 remain deferred. Native adoption stays unaccepted until the
+selected operation's terminal evidence exists; source integration is separate.
+
 ## Feature reconciliation and reader/model preparation — 31 October 2026
 
 The user requests stale Conductor reconciliation followed by bounded native

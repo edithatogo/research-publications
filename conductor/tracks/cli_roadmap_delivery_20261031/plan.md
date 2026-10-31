@@ -7,6 +7,25 @@ scheduled verification. The current essential closeout remains accepted. Existin
 E02/E03/E05, E04/T18, E09 and recovery tracks retain their detailed requirements;
 this plan orders their usable CLI slices rather than duplicating their backlog.
 
+## Current selected operation — grant-reference model/report integration
+
+- [ ] Bind the accepted 169-edge artifact to the exact current model/report and
+  qualified CLI operation, preserving the prepared additive delta/inverse and
+  candidate semantics. Existing captured context is reused; live drift is not
+  assumed absent.
+- [ ] After the existing 1 November observation, promote only the selected
+  additive connection without disrupting the accepted publication/export path.
+  Use one focused changed-behaviour test and one consolidated verification
+  receipt; do not rerun unchanged checks or commission optional work.
+- [ ] Integrate the terminal scoped source/status packet through the existing
+  sole integrator. Source integration alone does not mark native adoption passed.
+
+The [additive report source bundle](../../../docs/GRANT_REFERENCE_REPORT_INTEGRATION_20261031.md)
+is prepared and packed from retained captures; the source owner's focused tests
+pass. Native feature completion remains pending on the existing sign-in callback,
+current exact preimages/table-only processing qualification and the preserved
+post-observation promotion boundary. No native verification or write occurred.
+
 ## Selected isolated outputs — 31 October 2026
 
 The selected scope for slices 1 and 2 is the isolated CLI consumer and stored

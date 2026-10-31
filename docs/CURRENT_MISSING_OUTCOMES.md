@@ -15,7 +15,7 @@ closeout blocker or a blanket execution authorisation:
 
 | Feature | Incomplete functional scope |
 | --- | --- |
-| New retained grant-reference model view | The 169 candidate PMID-to-grant edges are usable as isolated cloud evidence, but their additive model table/relationship and intended reader view are not deployed. The frozen-preimage candidate and exact inverse are prepared, preserving candidate status and the working model; this is not deployment. |
+| New retained grant-reference model view | The 169 candidate PMID-to-grant edges are usable as isolated cloud evidence, but their additive model table/relationship and intended reader view are not deployed. The frozen-preimage model candidate/inverse and additive report-page source bundle are prepared, preserving candidate status and the working model; native integration is not complete. |
 | Wider relationship and author views | Existing evidence/projection tools do not deliver every cross-source award/output/author identity link in a connected native consumer. Authoritative identifiers, conflicts and protected history remain required; no name-only matching. |
 | Selected freshness and wider coverage | The 12 retained-source packages are complete for their stated generations. The two newer PubMed identities, broader discovery/provider/institutional coverage and wider rights-qualified paper acquisition remain deferred functional expansion. |
 | Real outcomes and usable forecasts | Broader outcome/forecast views require actual decision-specific evidence and adequate retained coverage; unavailable metrics are not zero. Local builders are not a complete real-data outcome service. |
