@@ -19,5 +19,10 @@
     "scripts/export_monthly_docx.py"
   ],
   "updated_at": "2026-09-20T00:00:00Z",
-  "acceptance_note": "Reopened during Conductor audit: incomplete native or operational acceptance; prior artefacts retained as historical evidence."
+  "acceptance_note": "The selected essential operating path and final retained-source native verification are accepted. PR98 adds accepted isolated CLI/cloud outputs without replacing the working model. Historical broad regression, rollout and expanded acceptance tasks do not establish unfinished essential features; retain only their stated wider scope.",
+  "reconciled_on": "2026-10-31",
+  "essential_status": "accepted",
+  "essential_acceptance_reference": "handoff/CURRENT_STATE.md#essential-closeout-accepted--30-october-2026",
+  "remaining_scope_note": "Historical broad regression, rollout and expanded acceptance tasks do not establish unfinished essential features; retain only their stated wider scope.",
+  "historical_acceptance_note": "Reopened during Conductor audit: incomplete native or operational acceptance; prior artefacts retained as historical evidence."
 }

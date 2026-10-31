@@ -16,5 +16,10 @@
     "scripts/export_monthly_docx.py"
   ],
   "updated_at": "2026-09-20T00:00:00Z",
-  "acceptance_note": "Reopened during Conductor audit: incomplete native or operational acceptance; prior artefacts retained as historical evidence."
+  "acceptance_note": "The captured-generation register/canonical CSV and HTML outputs, complete fields, byte readback and unchanged replay are accepted. The existing exporter and monitor are configured on their accepted schedules. Natural scheduled occurrence is verification only. Optional Word/PDF replacement and wider distribution remain separate feature scope.",
+  "reconciled_on": "2026-10-31",
+  "essential_status": "accepted",
+  "essential_acceptance_reference": "handoff/CURRENT_STATE.md#essential-closeout-accepted--30-october-2026",
+  "remaining_scope_note": "Natural scheduled occurrence is verification only. Optional Word/PDF replacement and wider distribution remain separate feature scope.",
+  "historical_acceptance_note": "Reopened during Conductor audit: incomplete native or operational acceptance; prior artefacts retained as historical evidence."
 }

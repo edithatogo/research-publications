@@ -26,5 +26,7 @@
     "slice_2": "accepted_identifier_reference_and_cloud_output"
   },
   "native_powerbi_reader_adoption": false,
-  "native_typed_relationship_model_adoption": false
+  "native_typed_relationship_model_adoption": false,
+  "grant_reference_connection_preparation": "prepared_not_deployable",
+  "retained_reader_code_wiring": "implemented"
 }

@@ -1,5 +1,21 @@
 # Publication stabilisation: execution handoff
 
+## Current disposition — 31 October 2026
+
+The selected essential publication workflow is accepted. T11/T14/T15/E01/E07
+have scoped reconciliation in their original plans/metadata; this September
+execution sequence is preserved history and does not reopen those exits.
+PR98 delivers isolated full retained PubMed and candidate grant-reference cloud
+outputs. Existing native retained-reader code/wiring is implemented; runtime
+adoption proof is distinct from an unfinished feature. See the
+[current handoff](../handoff/CURRENT_STATE.md) and
+[feature-only remaining scope](../docs/CURRENT_MISSING_OUTCOMES.md#feature-only-remaining-scope--31-october-2026).
+Keep the existing 1 November verification and optional deferrals. Use current
+one-test/one-verify cadence; do not execute the historical broad-test commands
+below as new requirements.
+
+## Historical stabilisation handoff
+
 Planning baseline: 2026-09-20. User requested detailed tracks first, suitable for a smaller implementation model. This package plans the work; creation of a plan does not complete its tasks. Grant planning can remain in place; grant implementation follows the accepted publication baseline.
 
 ## Start here

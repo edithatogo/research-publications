@@ -1,5 +1,34 @@
 # Current missing outcomes — 24 October 2026
 
+## Feature-only remaining scope — 31 October 2026
+
+The three selected essential outcomes are accepted, including source integration
+(PR88), canonical exporter/unchanged replay (PR87), final retained-source native
+verification (PR89) and the isolated CLI/cloud consumers (PR98). The older input
+holds and essential T11/T14/T15/E01/E07 acceptance statements below are history.
+Existing native retained-PubMed/DoRA reader code is already wired into the
+canonical query. `native_reader_adoption=false` is an evidence status; it does
+not make that existing reader code an unimplemented feature.
+
+Only these functional extensions remain incomplete; none is an essential
+closeout blocker or a blanket execution authorisation:
+
+| Feature | Incomplete functional scope |
+| --- | --- |
+| New retained grant-reference model view | The 169 candidate PMID-to-grant edges are usable as isolated cloud evidence, but their additive model table/relationship and intended reader view are not deployed. The frozen-preimage candidate and exact inverse are prepared, preserving candidate status and the working model; this is not deployment. |
+| Wider relationship and author views | Existing evidence/projection tools do not deliver every cross-source award/output/author identity link in a connected native consumer. Authoritative identifiers, conflicts and protected history remain required; no name-only matching. |
+| Selected freshness and wider coverage | The 12 retained-source packages are complete for their stated generations. The two newer PubMed identities, broader discovery/provider/institutional coverage and wider rights-qualified paper acquisition remain deferred functional expansion. |
+| Real outcomes and usable forecasts | Broader outcome/forecast views require actual decision-specific evidence and adequate retained coverage; unavailable metrics are not zero. Local builders are not a complete real-data outcome service. |
+| Multi-user features | Collaboration, cross-user curation/storage and subscriptions beyond the accepted owner-only path remain optional functional extensions, with recipient/identity/access boundaries intact. |
+| Structured document replacement | Optional maintained-template Word/PDF output and migration of existing outputs remain deferred; the working CSV/HTML outputs are retained. |
+
+Natural-run observation, repeated acceptance checks, branch cleanup, packaging
+administration and future rollout sign-off are excluded from this feature list.
+The existing 1 November 07:50 Brisbane verification remains unchanged (07:00
+monthly exporter, 07:45 daily monitor; noon deadline). Native reader/model
+preparation does not authorise deployment, refresh or schedule changes. Optional
+roadmap slices 3–6 remain deferred. Reuse accepted tests and native receipts.
+
 ## Completion scope — 29 October 2026
 
 The later user request to simplify and finish supersedes the earlier selection
@@ -33,8 +62,7 @@ CSV/HTML files in the existing SharePoint reporting folder, with exact native
 byte readback and unchanged replay. The completion owner recorded this evidence
 in [cycle closure](PUBLICATION_CYCLE_CLOSURE_20261029.md#captured-generation-cloud-output).
 The user deferred the two newer PubMed identities; freshness and new-source
-admission are outside this completion. Required source integration remains the
-integrator's final gate. The existing Power BI reader is now verified in Viewing with the accepted
+admission are outside this completion. Required source integration was completed in PR88; this earlier gate is closed. The existing Power BI reader is now verified in Viewing with the accepted
 model, counts and filter recovery. The exporter and observer are enabled on
 their existing schedules; genuine unattended acceptance remains pending the
 1 November 2026 occurrence. Prior successful manual runs do not prove recurrence. The older input-gap
@@ -49,7 +77,7 @@ output acceptance.
 | New reader journeys, visual redesign, performance studies and forecast models (E04/T18/Forecast) | Roadmap; fix only defects that prevent the existing reader/output path from working. |
 | Word/PDF replacement, new frameworks, generic tooling and optional portability | Roadmap; keep working outputs and qualified CLI/bootstrap routes. Reconsider for an unmet output requirement. |
 | Historical item-8 investigation, legacy cleanup and expanded disaster exercises (G03/E07) | Preserve evidence and records; later investigation unless a concrete defect affects the selected path. |
-| Natural monthly/source observations (E08/T14) and broader unattended operation | Operational follow-up, not a coding blocker. Retain the existing 1 November after 12:05 Brisbane observation and existing approved services; do not add polling jobs or claim recurrence from a manual run. |
+| Natural monthly/source observations (E08/T14) and broader unattended operation | Operational follow-up, not a coding blocker. Retain the existing 1 November at 07:50 Brisbane observation and existing approved services; do not add polling jobs or claim recurrence from a manual run. |
 | Runtime/source-package work (E10/S02) | Required compatibility and dependency closure for the selected path stay essential; shared-host changes wait for their actual terminal handover. |
 | Windows/Desktop fallback (T16/T17) | Remains cancelled; do not reopen. |
 

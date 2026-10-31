@@ -25,7 +25,9 @@ evidence rows from accepted raw23. The PMID-only relationship export retains
 169 candidate GrantList edges mapped to 67 of the unchanged 1,344 canonical
 publications. No confirmed award relationship or canonical admission follows.
 The malformed unrelated DOI literal is preserved; the full canonical digest is
-retained. Native Power BI reader/model adoption is still unqualified and not
+retained. Existing retained-reader code/wiring is implemented. The additive grant-reference
+model candidate and inverse are [prepared](../../../docs/NATIVE_READER_CONNECTION_PREPARATION_20261031.md),
+not deployed or deployment-ready. Native adoption is still unqualified and not
 marked complete; working-path promotion still requires the 1 November result.
 Remaining detailed boxes below describe broader exits, not failed isolated work.
 Slices 3–6 remain deferred.
