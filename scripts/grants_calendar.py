@@ -224,6 +224,28 @@ def build_native_calendar_export(rows: Iterable[dict[str, Any]], *, generated_ut
     return '\r\n'.join(part for line in lines for part in _fold_content_line(line))+'\r\n'
 
 
+def personal_calendar_rows(rows, registry, rules, *, user_key):
+    """Select deadlines for a previously authenticated user's active calendar rules."""
+    from scripts.grants_live_delivery import current_classification
+
+    if not isinstance(user_key, str) or not user_key.strip():
+        raise ValueError('Authenticated user key required')
+    targets = {(rule['Scope'], rule['TargetKey']) for rule in rules
+               if rule.get('UserKey') == user_key and rule.get('Active') is True
+               and rule.get('SubscriptionState') == 'active' and rule.get('Channel') == 'calendar'
+               and isinstance(rule.get('TargetKey'), str) and rule['TargetKey'].strip()
+               and rule.get('Scope') in ('opportunity', 'category', 'funder')}
+    selected = set()
+    for source in registry:
+        if current_classification(source):
+            key = source['OpportunityKey']
+            scopes = {('opportunity', key), ('funder', source.get('FunderKey'))}
+            scopes.update(('category', category) for category in json.loads(source['CategoryKeysJSON']))
+            if scopes & targets:
+                selected.add(key)
+    return [row for row in rows if row.get('OpportunityKey') in selected]
+
+
 def write_native_calendar_export(out: Path, output: str) -> None:
     """Create a new private snapshot; never replace a prior export or human edit."""
     target = out.absolute()
@@ -247,11 +269,18 @@ def main() -> None:
     parser.add_argument("--native-calendar", action="store_true", help="one-time committed reviewed source-day export; no institutional calculation")
     parser.add_argument("--generated-utc", required=True)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument('--subscription-context', type=Path,
+                        help='private snapshot containing user_key, registry and rules for a personal native export')
     args = parser.parse_args()
+    if args.subscription_context and not args.native_calendar:
+        parser.error('--subscription-context requires --native-calendar')
     rows = json.loads(args.opportunities.read_text())
     if args.native_calendar:
         if args.policy is not None:
             parser.error("native calendar export does not take an institutional policy")
+        if args.subscription_context:
+            context = json.loads(args.subscription_context.read_text())
+            rows = personal_calendar_rows(rows, context['registry'], context['rules'], user_key=context['user_key'])
         output = build_native_calendar_export(rows, generated_utc=args.generated_utc)
     else:
         if args.policy is None:

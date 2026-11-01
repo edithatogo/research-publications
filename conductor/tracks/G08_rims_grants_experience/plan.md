@@ -262,3 +262,15 @@ Preparation against the retained native preimage passed. The historical bulk
 upsert is separate from the personal subscribe/pause/resume/unsubscribe flow.
 Native promotion requires comparing the candidate to the current saved flow
 after FlowAgent sign-in. The two-user entry, isolation and readback remain open.
+
+## Notifications and personal calendar subscriptions — 1 November 2026
+
+The private native calendar export can now consume a subscription-context snapshot
+through the existing grants_calendar CLI. Active calendar preferences select
+reviewed opportunities by opportunity, category or funder. Existing UID,
+revision and cancellation semantics apply. The notification planner now excludes
+malformed classification objects and category lists before matching recipients.
+One focused invocation passed 13 cases. A CLI fixture verification produced one
+matching private event and excluded the unrelated deadline. The export is a
+snapshot. An authenticated revocable feed, native update/cancel delivery and
+a recipient-authorised live notice remain open. No message was sent.

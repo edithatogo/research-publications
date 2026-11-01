@@ -34,10 +34,15 @@ def is_due(rule,now):
 def current_classification(source):
     try:
         evidence=json.loads(source.get('ClassificationEvidenceJSON') or '{}')
+        categories = json.loads(source.get('CategoryKeysJSON') or '[]')
+        if not isinstance(evidence, dict) or not isinstance(categories, list):
+            return False
+        if any(not isinstance(key, str) or not key.strip() for key in categories):
+            return False
         return (source.get('ReviewStatus')=='Reviewed' and bool(source.get('EvidenceHash'))
                 and evidence.get('source_evidence_hash')==source['EvidenceHash']
                 and evidence.get('FunderKey')==source.get('FunderKey')
-                and evidence.get('CategoryKeys')==json.loads(source.get('CategoryKeysJSON') or '[]'))
+                and evidence.get('CategoryKeys')==categories)
     except (TypeError,ValueError):return False
 
 
