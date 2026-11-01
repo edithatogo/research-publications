@@ -150,3 +150,11 @@ harness selects its tests. Five focused tests and one local CLI verification
 passed; these are not live-source acceptance. A direct feed read returned the
 same HTTP403, explicitly CloudFront "Request blocked". The prior native run is
 reused as evidence rather than repeated. Source access remains the live blocker.
+
+## Inactive roadmap — NIH grants
+
+NIH opportunity acquisition, monitoring, first admission, clinical research linkage and expansion are retired from the active grants programme. The catalogue entry is disabled, the NIH-only flow is stopped, and the shared grants monitor no longer selects the NIH observer. Retain historical records, auditable receipts and parser fixtures. Existing PubMed source-reported references remain publication evidence.
+
+## Subsequent historical coverage
+
+The current RSS snapshot covers current opportunities. Retain successive observations to build local history. Backfill closed opportunity records separately from grant awards using GrantConnect's official search/export, preserving GO IDs, round and award identities and source vintage. A closed opportunity does not identify a successful applicant. Internal application state, ethics, DoRA, investigator and publication links require their own reviewed identifiers.

@@ -404,7 +404,7 @@
   },
   {
     "source_id": "us-grants-gov-nih-pa-25-301",
-    "enabled": true,
+    "enabled": false,
     "title": "NIH PA-25-301 — exact Grants.gov opportunity",
     "authority_url": "https://grants.nih.gov/grants/guide/pa-files/PA-25-301.html",
     "api_url": "https://api.grants.gov/v1/api/search2",

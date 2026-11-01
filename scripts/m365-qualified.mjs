@@ -8,7 +8,7 @@ import {execFileSync} from 'node:child_process';
 const fail = message => { throw new Error(message); };
 process.umask(0o077); // SDK response files and receipts remain owner-readable only.
 let [mode, bindingPath, ...args] = process.argv.slice(2);
-if (!['grantconnect-register','read','renew','change-log-read','documentation-sync','ardc-archive-read','outcome-store','relationship-store','source-assertion-store','project-link-schema','register-read','outcome-bootstrap'].includes(mode)) fail('MODE_UNAVAILABLE_BEFORE_AUTH: unsupported mode');
+if (!['grantconnect-calendar','grantconnect-register','read','renew','change-log-read','documentation-sync','ardc-archive-read','outcome-store','relationship-store','source-assertion-store','project-link-schema','register-read','outcome-bootstrap'].includes(mode)) fail('MODE_UNAVAILABLE_BEFORE_AUTH: unsupported mode');
 if (!bindingPath) fail('Private binding required');
 const bindingFile = fs.realpathSync(bindingPath);
 // A reader may use the native owner's retained binding from an isolated source
@@ -108,7 +108,7 @@ if(mode==='renew'){
   assertPrivate(args[1]);
   if(fs.existsSync(args[1])) fail('New renewal receipt directory required');
 }
-if(mode==='grantconnect-register'){
+if(['grantconnect-calendar','grantconnect-register'].includes(mode)){
   if(args.length!==3) fail('Expected capture, cloud receipt and new journal');
   args.forEach(assertPrivate);
 }
@@ -224,6 +224,9 @@ if(mode==='renew'){
 }else if(mode==='project-link-schema'){
   const {runGuarded}=await import('./project_link_schema.mjs');
   await runGuarded({args,auth,request,pin});
+}else if(mode==='grantconnect-calendar'){
+  const {publishClosingDates}=await import('./grantconnect_calendar.mjs');
+  await publishClosingDates({args,pin,auth,request});
 }else if(mode==='grantconnect-register'){
   const {createRegisterRows}=await import('./grantconnect_register.mjs');
   await createRegisterRows({args,pin,auth,request});

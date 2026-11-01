@@ -290,3 +290,12 @@ One focused invocation passed 13 cases. A CLI fixture verification produced one
 matching private event and excluded the unrelated deadline. The export is a
 snapshot. An authenticated revocable feed, native update/cancel delivery and
 a recipient-authorised live notice remain open. No message was sent.
+
+## Confirmed source closing dates — 1 November 2026
+
+All 120 official page identities matched the retained register. SharePoint readback
+matched the 85 UTC closing instants and source-local calendar days. All 35 ongoing
+records have blank deadlines and no calendar item. Reconciliation after interruption
+completed four outstanding writes. The calendar partition accepts committed
+GC-CLOSE entries explicitly marked Source confirmed alongside reviewed records.
+Exact inverse, run handle and parity receipts are in the existing private capture.

@@ -1,6 +1,6 @@
 # CHHHS research publications: current Conductor context
 
-The 1 November GrantConnect snapshot is live in the existing register and funding views: 120 opportunities, zero confirmed closing dates. See [current handoff](../handoff/CURRENT_STATE.md). Unattended connector access remains open.
+The 1 November GrantConnect snapshot is live in the existing register and funding views: 120 opportunities, 85 official closing dates and 35 ongoing grants. See [current handoff](../handoff/CURRENT_STATE.md). Daily acquisition uses the browser automation.
 
 ## Scheduled verification — 1 November 2026
 

@@ -1,3 +1,14 @@
+## GrantConnect browser intake and confirmed calendar — 1 November 2026
+
+Completion owner resumed the interrupted writer from its journal. Four remaining
+writes completed. Live SharePoint reconciliation matched 85 confirmed closing
+instants from official opportunity pages and 35 ongoing records without dates.
+The browser intake is configured daily through the existing completion chat.
+Power Automate's RSS bootstrap remains manual and stopped. The inactive NIH
+acquisition route, historical records and PubMed reference evidence are preserved.
+See [browser intake](../docs/GRANTCONNECT_BROWSER_INTAKE.md) and the G04/G08
+tracks. Private occurrence evidence is under private/ops/grantconnect-browser-20261101/.
+
 ## Live GrantConnect register and funding views — 1 November 2026
 
 The retained public XML produced 120 distinct opportunities. The guarded Toolkit

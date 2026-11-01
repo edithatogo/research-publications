@@ -19,6 +19,10 @@ class NIHAdmissionTests(unittest.TestCase):
             (ROOT / "config/grants-sources.json").read_text())
             if row["source_id"] == "us-grants-gov-nih-pa-25-301")
 
+        self.assertFalse(self.row["enabled"])
+        # Exercise the archived request contract only with a local fixture.
+        self.row = {**self.row, "enabled": True}
+
     def test_selected_scope_has_complete_admission_evidence(self):
         self.assertIsNone(qualification_error(self.row, require_opportunity=True))
         method, body = source_request_contract(self.row)

@@ -105,6 +105,7 @@ def main(argv=None):
     parser.add_argument('operation', choices=['definition', 'project', 'bootstrap-xml'])
     parser.add_argument('--input', type=Path)
     parser.add_argument('--input-sha256')
+    parser.add_argument('--previous-register', type=Path, help='Previous accepted GrantConnect XML register for stable replay')
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args(argv)
     if args.operation != 'definition':
@@ -116,6 +117,19 @@ def main(argv=None):
         if args.input is not None or args.input_sha256:
             parser.error('definition takes no capture input')
         result = definition()
+    if args.previous_register:
+        if args.operation != 'bootstrap-xml':
+            parser.error('--previous-register requires bootstrap-xml')
+        previous = json.loads(args.previous_register.read_bytes())
+        if previous.get('kind') != result['kind'] or previous.get('source_url') != FEED:
+            raise ValueError('Previous GrantConnect register required')
+        old = {row['OpportunityKey']: row for row in previous['rows']}
+        def source_facts(row):
+            return {k: v for k, v in row.items() if k not in ('EvidenceHash', 'RetrievedUTC')}
+        for index, row in enumerate(result['rows']):
+            prior = old.get(row['OpportunityKey'])
+            if prior and source_facts(prior) == source_facts(row):
+                result['rows'][index] = prior
     write_new(args.output, result, [args.input] if args.input else [])
     print('prepared locally; no native execution or admission')
 

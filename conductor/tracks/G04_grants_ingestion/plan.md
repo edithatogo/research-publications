@@ -423,3 +423,15 @@ GUIDs. Rows retain Needs Review. The feed has publication dates and no structure
 closing-date field. Six focused cases passed. The guarded cloud plan stopped on
 expired SharePoint authentication before any write. Cloud register adoption and
 connected native reader/calendar delivery remain open. NIH remains deferred.
+
+## Daily GrantConnect browser intake — 1 November 2026
+
+The active Codex automation grantconnect-daily-browser-intake uses BrowserOS neo
+and the [daily intake procedure](../../../docs/GRANTCONNECT_BROWSER_INTAKE.md).
+Start from the accepted 120-opportunity generation. Archive exact XML and
+capture each official GO page's identity and labelled closing field. The manual
+Power Automate RSS collector is stopped after its provider-side 403. Each
+generation uses fresh private journals. The 120 official pages returned 85
+specific ACT closing instants and 35 explicit Ongoing values. The NIH source
+is disabled, its dedicated flow is stopped and its hourly observer is retired.
+Historical records are preserved on the inactive roadmap.
