@@ -1,3 +1,22 @@
+## Scheduled verification unresolved — 1 November 2026
+
+The existing one-time verification attempted the exporter run-history read through
+its retained guarded Toolkit binding. It stopped before service access with
+`INTERACTIVE_AUTH_BLOCKED` for the management resource: the existing workload
+needs explicit interactive renewal. No run history or October output evidence was
+obtained, so scheduled origin/output parity remains unresolved. This is not an
+observed delivery failure; no missing-output/deadline claim is made. The trigger
+reported 07:50Z (17:50 Brisbane), rather than the intended 07:50 Brisbane.
+
+Private result: `private/ops/scheduled-verification-20261101/acceptance.json` and
+`exporter-read.log` in the completion checkout. No alternate client, source/model
+refresh, flow invocation, native data/schedule change, email or new test was used.
+The final scheduled-verification item remains open. Resume the same bounded reads
+after the existing Toolkit sign-in is renewed; do not run recovery flows. Remove
+the exhausted one-time automation; no replacement monitor is selected. Primary
+completion owner retains serial source integration; the former integrator stays
+archived. Earlier scheduled-verification expectations below remain history.
+
 ## Single GrantConnect RSS run — 31 October 2026
 
 User-authorised failure alerts resolved the earlier hold. Completion owner

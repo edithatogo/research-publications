@@ -1,5 +1,13 @@
 # CHHHS research publications: current Conductor context
 
+## Scheduled verification — 1 November 2026
+
+The one-time read stopped on expired qualified Toolkit authentication before
+service access. Scheduled origin and October output parity remain unresolved;
+no delivery failure is established. CURRENT_STATE retains the exact receipt and
+same-client renewal/resume step. No recovery run or replacement monitor is selected.
+
+
 ## Native GrantConnect source result — 31 October 2026
 
 One authorised FlowAgent RSS run failed with provider HTTP403; zero records were
