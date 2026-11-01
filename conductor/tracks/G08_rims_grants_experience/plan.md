@@ -1,5 +1,21 @@
 # Implementation plan
 
+## Live GrantConnect register and funding views — 1 November 2026
+
+The retained public XML produced 120 distinct opportunities. The guarded Toolkit
+writer created 120 Needs Review items in the existing Grants Registry. Power BI
+processed only that register table. Native readback reconciled all 120 keys,
+source IDs, titles, review states, evidence hashes and blank closing dates.
+The existing report now shows opportunity details and calendar OpportunityKey.
+The calendar relationship uses Funding Calendar.OpportunityKey (many) and
+Grants Registry.OpportunityKey (one). Final live query returned 120 opportunities,
+zero confirmed closing dates and zero GrantConnect calendar rows. Both pages
+rendered in service preview. Publication dates and dates mentioned in descriptions
+were not used as deadlines. This closes the retained snapshot path. Unattended
+RSS acquisition remains open on the connector's provider HTTP403; NIH stays deferred.
+Private receipts, inverses and journals: private/ops/grantconnect-browser-20261101/.
+
+
 > Status reconciliation, 24 October 2026: consult
 > [current missing outcomes](../../../docs/CURRENT_MISSING_OUTCOMES.md) before
 > executing dated next steps or unchecked tasks below. Accepted scoped evidence
