@@ -67,3 +67,17 @@ class NativeCalendarExportTests(unittest.TestCase):
                 self.assertFalse((folder/'missing.ics').exists())
 
 if __name__=='__main__':unittest.main()
+
+class PersonalCalendarTests(unittest.TestCase):
+    def test_private_active_calendar_rules_and_current_classification(self):
+        from scripts.grants_calendar import personal_calendar_rows
+        from tests.test_grants_live_delivery import LiveDeliveryTests
+        source, rule = LiveDeliveryTests().fixture()
+        rule.update(Channel='calendar', Scope='category', TargetKey='cat')
+        row = {**ROW, 'OpportunityKey':source['OpportunityKey']}
+        def select(rules, record=source):
+            return personal_calendar_rows([row], [record], rules, user_key='7')
+        self.assertEqual(select([rule, rule]), [row])
+        for change in [{'Channel':'email'}, {'UserKey':'8'}, {'Active':False}, {'SubscriptionState':'paused'}]:
+            self.assertEqual(select([{**rule, **change}]), [])
+        self.assertEqual(select([rule], {**source, 'ClassificationEvidenceJSON':'[]'}), [])
