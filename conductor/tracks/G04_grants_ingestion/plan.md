@@ -392,3 +392,9 @@ See [final export and documentation reconciliation](../../../docs/GRANTS_SOLUTIO
 ### Recurring NIH qualification increment — 24 October 2026
 
 See [recurring qualification](../../../docs/NIH_RECURRING_QUALIFICATION.md). A disjoint native qualifier has actual recurring acquisition/archival proof, including four complete API JSON representations, the current original attachment ZIP, two attachment-capable successful ticks, injected failure receipts and scheduled recovery. Independently downloaded generations reconcile to source admission and ZIP membership/CRC. The qualifier is Stopped with a disabled daily candidate and faults removed; existing reviewed-import identity/bindings and register/model data are preserved. This is not full G04 or end-to-end acceptance: native projection/version-conditional register commits, durable scoped model refresh authentication, delivered failure alerts and canonical promotion remain open. Default owner failure subscription is not sufficient alert proof.
+
+## Phase: Review Fixes — GrantConnect intake, 1 November 2026
+
+- [x] Apply adapter identity/provenance and harness-selection fixes: `6691d35e`.
+  Five focused tests and one local CLI verification passed; provider HTTP403
+  remains an external native-intake blocker, not a completed source admission.
