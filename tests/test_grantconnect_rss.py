@@ -65,3 +65,18 @@ class GrantConnectRSSBootstrapTests(unittest.TestCase):
         self.assertEqual(result['rows'][0]['ReviewStatus'], 'Needs Review')
         self.assertIsNone(result['rows'][0]['Deadline'])
         self.assertFalse(result['canonical_admission'])
+
+class XMLBootstrapTests(unittest.TestCase):
+    def test_integrity_and_publication_date_is_not_deadline(self):
+        import base64
+        import hashlib
+        from scripts.grantconnect_rss import bootstrap
+        xml = b'<rss><channel><item><guid>g1</guid><title>Example</title><link>https://www.grants.gov.au/Go/1</link><pubDate>Sun, 01 Nov 2026 01:00:00 GMT</pubDate></item></channel></rss>'
+        capture = dict(url=FEED, status=200, utc='2026-11-01T01:00:00Z', size=len(xml),
+                       sha=hashlib.sha256(xml).hexdigest(), base64=base64.b64encode(xml).decode())
+        row = bootstrap(capture)['rows'][0]
+        self.assertEqual(row['SourceID'], 'g1')
+        self.assertFalse(row['DeadlineRaw'])
+        self.assertEqual(row['ReviewStatus'], 'Needs Review')
+        with self.assertRaises(ValueError):
+            bootstrap({**capture, 'size':0})
