@@ -31,7 +31,7 @@ closeout blocker or a blanket execution authorisation:
 
 | Feature | Incomplete functional scope |
 | --- | --- |
-| GrantConnect source-to-reader and delivery | The single authorised standard RSS connector run returned provider HTTP403. No actual GrantConnect rows were captured/admitted; real register/reader data and source-derived notifications/calendar delivery remain incomplete. Existing adapters and backend controls are retained. |
+| GrantConnect delivery and historical coverage | The browser intake is configured daily. The live baseline has 120 opportunities, including 85 official closing dates and 35 ongoing grants. Historical backfill, application lifecycle decisions, reviewed cross-system links and personal notification/calendar subscription delivery remain separate features. |
 | Wider relationship and author views | Existing evidence/projection tools do not deliver every cross-source award/output/author identity link in a connected native consumer. Authoritative identifiers, conflicts and protected history remain required; no name-only matching. |
 | Selected freshness and wider coverage | The 12 retained-source packages are complete for their stated generations. GrantConnect is the first grants intake priority, conditional on source/access/reuse/lifecycle support. NIH expansion/admission/chain work is long-term only. The two newer PubMed identities, broader discovery/provider/institutional coverage and wider rights-qualified paper acquisition remain deferred functional expansion. |
 | Real outcomes and usable forecasts | Broader outcome/forecast views require actual decision-specific evidence and adequate retained coverage; unavailable metrics are not zero. Local builders are not a complete real-data outcome service. |
