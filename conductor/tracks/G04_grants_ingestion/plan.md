@@ -398,3 +398,12 @@ See [recurring qualification](../../../docs/NIH_RECURRING_QUALIFICATION.md). A d
 - [x] Apply adapter identity/provenance and harness-selection fixes: `6691d35e`.
   Five focused tests and one local CLI verification passed; provider HTTP403
   remains an external native-intake blocker, not a completed source admission.
+
+## Verified publisher XML bootstrap — 1 November 2026
+
+The public browser response was HTTP 200 without credentials. The retained XML
+bootstrap command produced 120 unique register keys and reconciled all source
+GUIDs. Rows retain Needs Review. The feed has publication dates and no structured
+closing-date field. Six focused cases passed. The guarded cloud plan stopped on
+expired SharePoint authentication before any write. Cloud register adoption and
+connected native reader/calendar delivery remain open. NIH remains deferred.

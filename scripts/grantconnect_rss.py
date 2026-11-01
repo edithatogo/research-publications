@@ -5,6 +5,7 @@ SPDX-License-Identifier: Apache-2.0
 """
 from __future__ import annotations
 
+import base64
 import copy
 import argparse
 import hashlib
@@ -17,6 +18,7 @@ if not __package__:
 from scripts.build_grants_flow_package import DEFAULT_DEFINITION
 from scripts.consume_retained_pubmed import pinned
 from scripts.reconcile_arc_awards_snapshots import write_new
+from scripts.grants_ingestion import parse_feed
 from scripts.grants_registry import parse_offset_instant, stable_key, valid_official_url
 
 FEED = 'https://www.grants.gov.au/public_data/rss/rss.xml'
@@ -79,17 +81,37 @@ def project(capture):
             'publisher_xml_retained': False}
 
 
+def bootstrap(capture):
+    """Project the complete retained public XML observation into register rows."""
+    if capture.get('url') != FEED or capture.get('status') != 200:
+        raise ValueError('Successful exact feed capture required')
+    raw = base64.b64decode(capture['base64'], validate=True)
+    if len(raw) != capture['size'] or hashlib.sha256(raw).hexdigest() != capture['sha']:
+        raise ValueError('Captured XML integrity mismatch')
+    rows = parse_feed(raw, source='GrantConnectRSS', retrieved_at=capture['utc'],
+                      source_id_path='channel.item[].guid', intake='rss')
+    if len({row['OpportunityKey'] for row in rows}) != len(rows):
+        raise ValueError('Duplicate register key')
+    if any(not valid_official_url(row['URL'], ('www.grants.gov.au', 'grants.gov.au'))
+           or not row['Title'] for row in rows):
+        raise ValueError('Incomplete official opportunity')
+    return {'kind': 'grantconnect_xml_register_v1', 'source_url': FEED,
+            'xml_sha256': capture['sha'], 'observed_utc': capture['utc'],
+            'count': len(rows), 'rows': rows}
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('operation', choices=['definition', 'project'])
+    parser.add_argument('operation', choices=['definition', 'project', 'bootstrap-xml'])
     parser.add_argument('--input', type=Path)
     parser.add_argument('--input-sha256')
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args(argv)
-    if args.operation == 'project':
+    if args.operation != 'definition':
         if args.input is None or not args.input_sha256:
             parser.error('project requires --input and --input-sha256')
-        result = project(pinned(args.input, args.input_sha256))
+        capture = pinned(args.input, args.input_sha256)
+        result = bootstrap(capture) if args.operation == 'bootstrap-xml' else project(capture)
     else:
         if args.input is not None or args.input_sha256:
             parser.error('definition takes no capture input')
