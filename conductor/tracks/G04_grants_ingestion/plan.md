@@ -1,5 +1,27 @@
 # Implementation plan
 
+## GrantConnect intake implementation and review — 1 November 2026
+
+- [x] Reuse register identity/URL/instant validation in the RSS adapter; reject
+  key collisions, invalid observations and unsupported original-XML claims.
+- [x] Preserve every raw item, unknown date/status and human review boundary;
+  source metadata cannot self-admit or assign review. Include the focused RSS
+  tests in the existing grants harness selection.
+- [x] One focused test invocation passed five cases; one local CLI verification
+  passed key parity, immutable-input and failed-provider-output rejection checks.
+- [x] Review fixes applied; [review report](review-20261101.md) records scope/limits.
+- [ ] Actual native GrantConnect intake: both the prior standard connector run
+  and this bounded direct feed read receive HTTP403. The direct response is
+  CloudFront "Request blocked"; no records were obtained. Keep the last-good
+  register and stopped manual collector. No native rerun, schedule change or
+  NIH expansion. Resume only through supported source access or a retained
+  authorised capture; local validation does not close this source dependency.
+
+Primary completion owner retains this branch/source scope and private receipts
+under `private/ops/grantconnect-review-20261101/`. Older planning amendments below
+are history; the current user-selected plan controls this bounded work.
+
+
 ## Grants intake priority — GrantConnect, 31 October 2026
 
 GrantConnect is the first grants intake priority. Use the existing source
@@ -370,3 +392,9 @@ See [final export and documentation reconciliation](../../../docs/GRANTS_SOLUTIO
 ### Recurring NIH qualification increment — 24 October 2026
 
 See [recurring qualification](../../../docs/NIH_RECURRING_QUALIFICATION.md). A disjoint native qualifier has actual recurring acquisition/archival proof, including four complete API JSON representations, the current original attachment ZIP, two attachment-capable successful ticks, injected failure receipts and scheduled recovery. Independently downloaded generations reconcile to source admission and ZIP membership/CRC. The qualifier is Stopped with a disabled daily candidate and faults removed; existing reviewed-import identity/bindings and register/model data are preserved. This is not full G04 or end-to-end acceptance: native projection/version-conditional register commits, durable scoped model refresh authentication, delivered failure alerts and canonical promotion remain open. Default owner failure subscription is not sufficient alert proof.
+
+## Phase: Review Fixes — GrantConnect intake, 1 November 2026
+
+- [x] Apply adapter identity/provenance and harness-selection fixes: `6691d35e`.
+  Five focused tests and one local CLI verification passed; provider HTTP403
+  remains an external native-intake blocker, not a completed source admission.

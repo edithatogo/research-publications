@@ -21,7 +21,8 @@
         "scripts/grants_planning.py"
       ],
       "test_patterns": [
-        "test_grants*.py"
+        "test_grants*.py",
+        "test_grantconnect_rss.py"
       ]
     },
     "publications": {
