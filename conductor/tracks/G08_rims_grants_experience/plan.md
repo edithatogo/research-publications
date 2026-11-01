@@ -252,3 +252,13 @@ A read-only native query found one registry row, one distinct opportunity key,
 zero calendar rows and zero orphan keys. The saved model has no calendar-to-
 opportunity relationship. The source candidate is prepared. Native relationship,
 report promotion and populated cross-filter verification remain open.
+
+## Personal watchlists — 1 November 2026
+
+Restored the retained Invoker lifecycle preparer and its seven focused tests
+to canonical source. Review added SharePoint AuthorId checks before update and
+on saved readback, plus explicit rejection of wildcard update versions.
+Preparation against the retained native preimage passed. The historical bulk
+upsert is separate from the personal subscribe/pause/resume/unsubscribe flow.
+Native promotion requires comparing the candidate to the current saved flow
+after FlowAgent sign-in. The two-user entry, isolation and readback remain open.
