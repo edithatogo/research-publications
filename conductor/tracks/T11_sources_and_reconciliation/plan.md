@@ -298,3 +298,13 @@ Native Power Query successfully executed the actual committed-history reader. Ag
 - [x] Reconcile each of the eleven incomplete export windows. The union of distinct official GA version identifiers matches all eleven published totals (339,719 across those windows). The independently complete 2021 export adds 29,630, giving 369,349 award versions overall.
 - [x] Prepare the 115 additional original workbooks and an incremental ready manifest for 162,925 award versions and 56,959 confirmed GA–GO pairs.
 - [ ] Reconcile the three SharePoint lists after all submitted ready files have finished. Expected membership is 369,349 awards, 1,072 closed or archived opportunities and 144,237 confirmed links.
+
+### Import throughput repair — 1 November 2026
+
+Completed run iterations proved progress at about two minutes per 1,000 rows.
+The history consumer now processes four disjoint files concurrently, with
+100-row SharePoint batches. Runs and live register edits remain serial.
+Cancelled the three old history runs after preserving their input files and
+submitted one consolidated recovery manifest. Existing key/hash pairs are
+reused. One focused generator test passed. Final list reconciliation remains
+open until the recovery run completes.

@@ -47,9 +47,10 @@ def routes(site,library,folder,register,calendar,lists):
     submit['Expected_pairs']=select("@items('History_groups')","@concat(item()['HistoryKey'],'|',item()['EvidenceHash'])",'Saved_pairs')
     submit['Guard_saved_group']=guard("equals(length(intersection(body('Expected_pairs'),body('Saved_pairs'))),length(items('History_groups')))",'Expected_pairs')
     group['Write_missing']=condition("@greater(length(body('Missing_history')),0)",submit,prev='Missing_history')
-    shard['History_groups']=loop("@chunk(body('History_rows'),50)",group,'Guard_shard_count')
+    shard['History_groups']=loop("@chunk(body('History_rows'),100)",group,'Guard_shard_count')
     history['History_targets']=compose(lists,'History_manifest')
     history['History_files']=loop("@outputs('History_manifest')['files']",shard,'History_targets')
+    history['History_files']['runtimeConfiguration']['concurrency']['repetitions']=4
     flow['actions']={'Read':read,'Route':{'type':'Switch','expression':raw+"['kind']",'runAfter':after('Read'),
         'cases':{'Live':{'case':'grantconnect_xml_register_v1','actions':actions},'History':{'case':'grantconnect_history_v1','actions':history}},
         'default':{'actions':{'Unknown_kind':compose("@json('UNKNOWN_READY_KIND')")}}}}
