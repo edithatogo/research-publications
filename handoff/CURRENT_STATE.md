@@ -1,3 +1,14 @@
+## Historical GrantConnect backfill — 1 November 2026
+
+The owner-only cloud reporting folder now has the separate historical award and
+opportunity database, closed-opportunity extract, confirmed links and coverage
+report. Source identity and coverage counts are recorded in the G04 track.
+Keep the live 120-opportunity baseline and NIH inactive scope intact. The official
+portal search/export count mismatches and archived-page HTTP 429 prevent a
+whole-of-population claim. The current browser intake automation remains the
+acquisition route. The recommended Power Automate cutover is a standard SharePoint
+ready-manifest trigger following the browser capture.
+
 ## GrantConnect browser intake and confirmed calendar — 1 November 2026
 
 Completion owner resumed the interrupted writer from its journal. Four remaining

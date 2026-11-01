@@ -435,3 +435,28 @@ generation uses fresh private journals. The 120 official pages returned 85
 specific ACT closing instants and 35 explicit Ongoing values. The NIH source
 is disabled, its dedicated flow is stopped and its hourly observer is retired.
 Historical records are preserved on the inactive roadmap.
+
+## Historical GrantConnect backfill — 1 November 2026
+
+Official award exports cover requested publication windows from January 2018
+through October 2026. Thirteen retained workbooks contain 312,396 observations
+and 206,424 distinct GA version identifiers. Separate opportunity evidence
+contains 690 archived/closed and 24 current pages. Twenty-four GO identities
+also reconcile to the retained 120-key baseline. There are 61,088 distinct,
+non-conflicting award-version/GO links confirmed from both official sources.
+Preserve all unlinked awards. Reconciliation uses exact identifiers and retains
+source workbook, row, period and digest. No matching by title or recipient.
+
+This is a partial historical population. Eleven exports have discrepancies
+between search totals and distinct exported versions. Exact-ID lookups received
+HTTP 429, leaving 1,598 reported GO identities unresolved. The identifier-driven
+opportunity set cannot enumerate all closed opportunities without awards.
+Resume from the archived database's unresolved IDs when supported, or ingest
+an authoritative complete bulk extract. No historical award was added to the
+active funding calendar, and no application/ethics/publication match was inferred.
+
+One focused test and the consolidated real-data reconciliation passed. Four
+private history artifacts were uploaded to the existing reporting folder and
+byte-verified. Receipts and original exports remain under
+private/ops/grantconnect-history-20261101/. See
+[Power Automate options](../../../docs/GRANTCONNECT_POWER_AUTOMATE_OPTIONS.md).
