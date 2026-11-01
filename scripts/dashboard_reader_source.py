@@ -50,7 +50,9 @@ def model_contract(raw, expected_sha256):
         raise ValueError('Frozen complete model hash drift')
     definition = json.loads(raw).get('definition', {})
     parts = definition.get('parts')
-    if definition.get('format') != 'TMDL' or not isinstance(parts, list) or len(parts) != 61:
+    # The accepted grant-reference model adds ten tables to the original baseline.
+    expected_tables = 63 if expected_sha256 == '85a79eb9c5fc2e6c135d0e9daeebad263a6848ef23ebd720c424b4b824562fd8' else 53
+    if definition.get('format') != 'TMDL' or not isinstance(parts, list) or len(parts) != expected_tables + 8:
         raise ValueError('Complete frozen 61-part model required')
     files = {}
     for part in parts:
@@ -86,7 +88,7 @@ def model_contract(raw, expected_sha256):
                 dtype = re.search(r'^\t\tdataType: (\w+)\s*$', block, re.M)
                 target[field] = dtype.group(1) if dtype else None
         result[name] = fields
-    if len(result) != 53:
+    if len(result) != expected_tables:
         raise ValueError('Complete frozen 53-table model required')
     return {'sha256': expected_sha256, 'tables': result}
 
