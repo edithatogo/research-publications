@@ -286,3 +286,9 @@ Native Power Query successfully executed the actual committed-history reader. Ag
 - [x] Task: Reject surrounding whitespace in scalar DoRA datastore `_id` values instead of stripping a padded source identity before uniqueness/hash processing (`681d4db`).
 - [x] Verification: focused DoRA activity tests (16), full local suite, project checks (460), web-first contracts, Conductor validation and diff validation pass locally.
 - [~] Native retained-history reconciliation, refresh, recurrence, delivery and production acceptance remain open.
+
+## GrantConnect historical backfill and ready-file cutover — 1 November 2026
+
+- [x] Archive the 13 original official award workbooks in the private SharePoint reporting library and reconcile their byte hashes.
+- [x] Provision distinct versioned history lists and activate the serial ready-file consumer. An existing register observation was recognised on replay.
+- [~] Import the retained historical award versions, closed opportunities and confirmed links. Close this item after native list membership and outstanding official coverage reconcile.

@@ -8,7 +8,8 @@ import {execFileSync} from 'node:child_process';
 const fail = message => { throw new Error(message); };
 process.umask(0o077); // SDK response files and receipts remain owner-readable only.
 let [mode, bindingPath, ...args] = process.argv.slice(2);
-if (!['grantconnect-calendar','grantconnect-register','read','renew','change-log-read','documentation-sync','ardc-archive-read','outcome-store','relationship-store','source-assertion-store','project-link-schema','register-read','outcome-bootstrap'].includes(mode)) fail('MODE_UNAVAILABLE_BEFORE_AUTH: unsupported mode');
+if (!['grantconnect-history-lists','grantconnect-calendar','grantconnect-register','read','renew','change-log-read','documentation-sync','ardc-archive-read','outcome-store','relationship-store','source-assertion-store','project-link-schema','register-read','outcome-bootstrap'].includes(mode)) fail('MODE_UNAVAILABLE_BEFORE_AUTH: unsupported mode');
+if (['grantconnect-register','grantconnect-calendar'].includes(mode)) fail('Use the GrantConnect ready-file producer. The connected flow owns list writes.');
 if (!bindingPath) fail('Private binding required');
 const bindingFile = fs.realpathSync(bindingPath);
 // A reader may use the native owner's retained binding from an isolated source
@@ -100,6 +101,10 @@ if(mode==='register-read'){
   for(const key of u.searchParams.keys()) if(!['$select','$filter','$top'].includes(key)) fail('Unsupported register query');
   pin.readUrlPrefixes=[...pin.readUrlPrefixes,u.href];
   mode='read';
+}
+if(mode==='grantconnect-history-lists'){
+  if(args.length!==2) fail('Expected exact site and new private receipt directory');
+  assertPrivate(args[1]);
 }
 let rawReadUrl;
 if(mode==='read') rawReadUrl=prepareRead(args,pin,assertPrivate).rawReadUrl;
@@ -224,6 +229,9 @@ if(mode==='renew'){
 }else if(mode==='project-link-schema'){
   const {runGuarded}=await import('./project_link_schema.mjs');
   await runGuarded({args,auth,request,pin});
+}else if(mode==='grantconnect-history-lists'){
+  const {provision}=await import('./grantconnect_history_lists.mjs');
+  await provision({args,pin,auth,request});
 }else if(mode==='grantconnect-calendar'){
   const {publishClosingDates}=await import('./grantconnect_calendar.mjs');
   await publishClosingDates({args,pin,auth,request});
