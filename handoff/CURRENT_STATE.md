@@ -1,3 +1,26 @@
+## GrantConnect historical import recovery — 2 November 2026
+
+All eleven award export discrepancies reconcile to official date-bounded
+exports. The retained population contains 369,349 award versions, 1,072 closed
+or archived opportunities and 144,237 confirmed identifier pairs. All 128
+original award workbooks are saved in the private SharePoint reporting folder
+and their uploaded hashes match.
+
+The existing ready-file flow owns list writes. Its current recovery uses four
+independent files, 100-row batches and a 50-second cooldown after attempted
+writes. Read lookups have four bounded 15-second retries. Writes have no blind
+transport retries. Prior parallel runs encountered HTTP 429, including writes.
+SharePoint counts batched requests individually against resource limits.
+
+The native import remains active. Run identity and exact retained manifests
+are in ignored private/ops/grantconnect-history-throughput/
+recovery-current-checkpoint-20261102.json. After terminal success, compare all
+three lists once with scripts/grantconnect_history_verify.py, then close the
+historical import item. Preserve the originals, live 120-opportunity generation,
+NIH inactive roadmap and existing schedules.
+
+## Earlier historical capture snapshot — 1 November 2026
+
 ## Historical GrantConnect backfill — 1 November 2026
 
 The owner-only cloud reporting folder now has the separate historical award and

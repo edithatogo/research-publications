@@ -308,3 +308,14 @@ Cancelled the three old history runs after preserving their input files and
 submitted one consolidated recovery manifest. Existing key/hash pairs are
 reused. One focused generator test passed. Final list reconciliation remains
 open until the recovery run completes.
+
+### SharePoint service throttling repair — 2 November 2026
+
+- [x] Diagnose HTTP 429 in recorded read and write iterations. Pacing of individual write batches is required because SharePoint evaluates requests within batches individually.
+- [x] Save the additional 115 original workbooks and reconcile all eleven award windows. Retain all 128 originals.
+- [x] Deploy four file workers, 100-row batches, a 50-second write cooldown and bounded read-only retries. Preserve key/hash deduplication and disable automatic write transport retries.
+- [ ] Complete the native import and compare the final three lists once before historical closeout.
+
+Current native recovery and source receipts are retained in ignored
+private/ops/grantconnect-history-throughput/. The earlier unpaced throughput
+attempts above are recovery history.

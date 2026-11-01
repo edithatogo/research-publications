@@ -14,6 +14,8 @@ class ReadyRoutesTest(unittest.TestCase):
         groups = history['actions']['History_groups']
         assert groups['foreach'] == "@chunk(body('History_rows'),100)"
         assert groups['runtimeConfiguration']['concurrency']['repetitions'] == 1
+        assert groups['actions']['Existing_history']['inputs']['retryPolicy'] == {'type': 'fixed', 'count': 4, 'interval': 'PT15S'}
+        assert groups['actions']['Pace_history_group']['actions']['Write_cooldown']['inputs']['interval'] == {'count': 50, 'unit': 'Second'}
         writes = groups['actions']['Write_missing']['actions']
         assert writes['Save_history_group']['inputs']['retryPolicy'] == {'type': 'none'}
         assert writes['Read_saved_group']['runAfter'] == {'Save_history_group': ['Succeeded']}
