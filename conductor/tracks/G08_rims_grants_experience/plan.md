@@ -242,3 +242,13 @@ conditional-format projection required MIN at URL-inclusive row grain; source
 amounts remain text/unknown and are not summed. See
 [reader and lessons](#arc-award-reader). Broader G08 tasks and
 hosting/reader/production gates remain open;R13c immutable,successor pending.
+
+## Connected funding views — 1 November 2026
+
+Review fixed the reader builder's rejection of the accepted 71-part model and
+exposed OpportunityKey alongside DeadlineKey in the calendar table. Four focused
+reader tests passed and the candidate built from the saved 95-part report.
+A read-only native query found one registry row, one distinct opportunity key,
+zero calendar rows and zero orphan keys. The saved model has no calendar-to-
+opportunity relationship. The source candidate is prepared. Native relationship,
+report promotion and populated cross-filter verification remain open.

@@ -170,7 +170,8 @@ class FundingReaderTests(ReaderFixtureTest):
     def test_all_keyed_queries_filters_words_and_opaque_parts_preserved(self):
         receipt = self.build_funding()
         table = f'definition/pages/{OPPORTUNITIES}/visuals/8dda39704411e961cda3/visual.json'
-        changed = [table, f'definition/pages/{OPPORTUNITIES}/page.json', f'definition/pages/{CALENDAR}/page.json']
+        calendar = f'definition/pages/{CALENDAR}/visuals/739383a647a9679c269d/visual.json'
+        changed = [table, calendar, f'definition/pages/{OPPORTUNITIES}/page.json', f'definition/pages/{CALENDAR}/page.json']
         self.assert_preserved('funding', changed)
         old = json.loads(self.original[table]); new = json.loads((self.root/'funding'/table).read_bytes())
         new['position'] = old['position']; self.assertEqual(new, old)

@@ -40,6 +40,12 @@ def funding_candidate(source, output, expected_sha, model_definition, expected_m
     if watch not in files:
         raise ValueError('Expected watchlist identity missing')
     require_table_key(json.loads(files[watch]), 'My Funding Watchlist', 'OpportunityKey', contract)
+    calendar_path = f'definition/pages/{CALENDAR}/visuals/{TABLES[CALENDAR][0]}/visual.json'
+    calendar = json.loads(files[calendar_path])
+    projections = calendar['visual']['query']['queryState']['Values']['projections']
+    if not any(field['queryRef'] == 'Funding Calendar.OpportunityKey' for field in projections):
+        projections.insert(0, direct('Funding Calendar', 'OpportunityKey', label='Opportunity key'))
+        updates[calendar_path] = calendar
     # A watchlist scope/target remains a source record, never a person/publication join.
     require_table_key(json.loads(files[watch]), 'My Funding Watchlist', 'TargetKey', contract)
     require_table_key(json.loads(files[watch]), 'My Funding Watchlist', 'Scope', contract)
