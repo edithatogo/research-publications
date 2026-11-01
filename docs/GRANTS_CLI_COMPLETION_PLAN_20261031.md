@@ -131,11 +131,22 @@ Feature 1 has a reusable manual RSS definition and complete connector-item
 projector in `scripts/grantconnect_rss.py`. Run `definition --output` to prepare
 its graph, or `project --input --input-sha256 --output` to transform an exact
 retained capture. Outputs are private/create-only. FlowAgent saved its native
-collector Stopped; direct GET403 and the enabled failure-alert subscription mean
-actual RSS capture remains unverified. No CSV prerequisite was introduced.
+collector Stopped; the one authorised native run returned provider HTTP403.
+Failure alerts are authorised; actual RSS capture remains unavailable. No CSV prerequisite was introduced.
 Source-derived lifecycle dates/status cannot be claimed before a real capture.
 
 Features 2 and 4 still require real admitted GrantConnect input and selected
 recipient/channel authority. Feature 3 reuses implemented native backend identity,
 version and item-security guards; real multi-user acceptance is not inferred from
 fictional fixtures. These are concrete unfinished outcomes, not scheduled checks.
+
+## Intake review fixes — 1 November 2026
+
+The RSS projector now emits the existing canonical OpportunityKey and rejects
+collisions under that exact key scheme, invalid capture instants, noncanonical
+row URLs and unsupported original-XML retention claims. Raw source metadata stays
+intact but cannot assign internal review/deadline/admission state. The grants
+harness selects its tests. Five focused tests and one local CLI verification
+passed; these are not live-source acceptance. A direct feed read returned the
+same HTTP403, explicitly CloudFront "Request blocked". The prior native run is
+reused as evidence rather than repeated. Source access remains the live blocker.

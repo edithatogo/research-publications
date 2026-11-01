@@ -1,5 +1,27 @@
 # Implementation plan
 
+## GrantConnect intake implementation and review — 1 November 2026
+
+- [x] Reuse register identity/URL/instant validation in the RSS adapter; reject
+  key collisions, invalid observations and unsupported original-XML claims.
+- [x] Preserve every raw item, unknown date/status and human review boundary;
+  source metadata cannot self-admit or assign review. Include the focused RSS
+  tests in the existing grants harness selection.
+- [x] One focused test invocation passed five cases; one local CLI verification
+  passed key parity, immutable-input and failed-provider-output rejection checks.
+- [x] Review fixes applied; [review report](review-20261101.md) records scope/limits.
+- [ ] Actual native GrantConnect intake: both the prior standard connector run
+  and this bounded direct feed read receive HTTP403. The direct response is
+  CloudFront "Request blocked"; no records were obtained. Keep the last-good
+  register and stopped manual collector. No native rerun, schedule change or
+  NIH expansion. Resume only through supported source access or a retained
+  authorised capture; local validation does not close this source dependency.
+
+Primary completion owner retains this branch/source scope and private receipts
+under `private/ops/grantconnect-review-20261101/`. Older planning amendments below
+are history; the current user-selected plan controls this bounded work.
+
+
 ## Grants intake priority — GrantConnect, 31 October 2026
 
 GrantConnect is the first grants intake priority. Use the existing source

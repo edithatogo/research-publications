@@ -1,3 +1,28 @@
+## GrantConnect intake review and Git reconciliation — 1 November 2026
+
+Primary completion owner `01a1876d-55fc-7e42-b806-18589a94e6fa` owns
+`codex/grantconnect-intake-review-20261101` in the completion checkout. Review
+fixes now reuse canonical register keys, URL and timestamp validation, reject
+colliding identities and unsupported XML provenance, and route the RSS tests
+through the grants harness. One five-case test invocation and one local CLI
+verification passed. Source inputs/errors and receipts are retained privately in
+`private/ops/grantconnect-review-20261101/`; no real records were admitted.
+
+The direct public feed read also returned HTTP403, with CloudFront "Request
+blocked". This confirms the existing native RSS failure is not connector-only.
+No native retry, source/model refresh, schedule change, email or NIH work occurred.
+G04 stays in progress on actual source access; the native 169-reference reader
+remains accepted. The separate scheduled-verification auth hold is unchanged.
+
+No open PR backlog was found. All 15 retired local source branches were covered
+by merged PRs/later fixes, with exact tips preserved in a verified private Git
+bundle; 11 merged remote branches were retired with exact-head leases. The old
+unrelated authoring history was preserved, not merged into canonical main.
+The two registered worktrees are intentional: the canonical completion checkout
+and the untouched original native/private checkout. The separate recovery clone's
+47MB private evidence/runtime is retained. No dirty checkout, private journal or
+environment was removed. Earlier branch names/assignments below are history.
+
 ## Scheduled verification unresolved — 1 November 2026
 
 The existing one-time verification attempted the exporter run-history read through

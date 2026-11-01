@@ -8,12 +8,15 @@ no delivery failure is established. CURRENT_STATE retains the exact receipt and
 same-client renewal/resume step. No recovery run or replacement monitor is selected.
 
 
-## Native GrantConnect source result — 31 October 2026
+## GrantConnect intake — 1 November 2026
 
-One authorised FlowAgent RSS run failed with provider HTTP403; zero records were
-captured and the manual flow is stopped again. Source-to-reader/delivery remains
-incomplete. The alert hold is resolved; the 169-reference view is complete (PR102).
-See CURRENT_STATE for the receipt. Schedules/NIH deferral remain unchanged.
+The [G04 review fixes](tracks/G04_grants_ingestion/review-20261101.md) passed five
+focused tests and one local CLI verification. The direct feed and prior native
+RSS run both return HTTP403; CloudFront reports "Request blocked". Actual intake
+and source-derived delivery remain incomplete; no native retry or bypass was used.
+Schedules, NIH deferral and private evidence are preserved. The 169-reference
+native model/report view is complete (PR102).
+
 
 ## Current grants execution — 31 October 2026
 

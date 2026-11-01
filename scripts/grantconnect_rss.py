@@ -11,13 +11,13 @@ import hashlib
 import json
 from pathlib import Path
 import sys
-from urllib.parse import urlsplit
 
 if not __package__:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from scripts.build_grants_flow_package import DEFAULT_DEFINITION
 from scripts.consume_retained_pubmed import pinned
 from scripts.reconcile_arc_awards_snapshots import write_new
+from scripts.grants_registry import parse_offset_instant, stable_key, valid_official_url
 
 FEED = 'https://www.grants.gov.au/public_data/rss/rss.xml'
 NAME = 'CHHHS RIMS - GrantConnect RSS - Manual Bootstrap'
@@ -46,11 +46,14 @@ def definition():
 
 def project(capture):
     """Preserve all returned fields; only explicit feed identity/title/link map."""
-    if (capture.get('kind') != 'grantconnect_rss_connector_capture_v1'
+    if (not isinstance(capture, dict)
+            or capture.get('kind') != 'grantconnect_rss_connector_capture_v1'
             or capture.get('source_url') != FEED or not capture.get('observed_utc')
             or capture.get('coverage') != 'returned_current_feed_only'
+            or capture.get('publisher_xml_retained') is not False
             or not isinstance(capture.get('items'), list)):
         raise ValueError('Complete exact connector capture required')
+    parse_offset_instant(capture['observed_utc'])
     rows, seen = [], set()
     for item in capture['items']:
         if not isinstance(item, dict):
@@ -58,15 +61,14 @@ def project(capture):
         identity, title, link = (item.get(k) for k in ('id', 'title', 'primaryLink'))
         if any(not isinstance(x, str) or not x or x != x.strip() for x in (identity, title, link)):
             raise ValueError('Exact RSS identity, title and link required')
-        parsed = urlsplit(link)
-        if (parsed.scheme not in ('http', 'https') or parsed.hostname not in ('grants.gov.au', 'www.grants.gov.au')
-                or parsed.username or parsed.password or parsed.port not in (None, 80, 443)):
+        if not valid_official_url(link, ('grants.gov.au', 'www.grants.gov.au')):
             raise ValueError('Official GrantConnect record link required')
-        if identity in seen:
-            raise ValueError('Duplicate feed identity; preserve capture before admission')
-        seen.add(identity)
+        key = stable_key({'Source': 'GrantConnectRSS', 'SourceID': identity})
+        if key in seen:
+            raise ValueError('Duplicate registry identity; preserve capture before admission')
+        seen.add(key)
         raw = json.dumps(item, sort_keys=True, ensure_ascii=False, separators=(',', ':'), allow_nan=False)
-        rows.append({'Source': 'GrantConnectRSS', 'SourceID': identity, 'Title': title,
+        rows.append({'OpportunityKey': key, 'Source': 'GrantConnectRSS', 'SourceID': identity, 'Title': title,
                      'URL': link, 'RetrievedUTC': capture['observed_utc'],
                      'PublishedRaw': item.get('publishDate'), 'UpdatedRaw': item.get('updatedOn'),
                      'Deadline': None, 'Status': 'Unknown', 'ReviewStatus': 'Needs Review',
@@ -74,7 +76,7 @@ def project(capture):
     return {'kind': 'grantconnect_rss_candidate_rows_v1', 'source_url': FEED,
             'coverage': capture['coverage'], 'count': len(rows), 'rows': rows,
             'canonical_admission': False, 'absence_means_withdrawn': False,
-            'publisher_xml_retained': capture.get('publisher_xml_retained') is True}
+            'publisher_xml_retained': False}
 
 
 def main(argv=None):
