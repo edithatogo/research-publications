@@ -292,3 +292,9 @@ Native Power Query successfully executed the actual committed-history reader. Ag
 - [x] Archive the 13 original official award workbooks in the private SharePoint reporting library and reconcile their byte hashes.
 - [x] Provision distinct versioned history lists and activate the serial ready-file consumer. An existing register observation was recognised on replay.
 - [~] Import the retained historical award versions, closed opportunities and confirmed links. Close this item after native list membership and outstanding official coverage reconcile.
+
+### Historical award coverage reconciliation — 1 November 2026
+
+- [x] Reconcile each of the eleven incomplete export windows. The union of distinct official GA version identifiers matches all eleven published totals (339,719 across those windows). The independently complete 2021 export adds 29,630, giving 369,349 award versions overall.
+- [x] Prepare the 115 additional original workbooks and an incremental ready manifest for 162,925 award versions and 56,959 confirmed GA–GO pairs.
+- [ ] Reconcile the three SharePoint lists after all submitted ready files have finished. Expected membership is 369,349 awards, 1,072 closed or archived opportunities and 144,237 confirmed links.
