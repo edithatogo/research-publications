@@ -460,3 +460,18 @@ private history artifacts were uploaded to the existing reporting folder and
 byte-verified. Receipts and original exports remain under
 private/ops/grantconnect-history-20261101/. See
 [Power Automate options](../../../docs/GRANTCONNECT_POWER_AUTOMATE_OPTIONS.md).
+
+## Historical award coverage reconciled — 2 November 2026
+
+All eleven incomplete export windows now match their official search totals by
+distinct GA version identifier. Together with the complete 2021 window, the
+archive contains 369,349 award versions. The 115 additional original workbooks
+are saved and hash-verified in SharePoint, giving 128 originals in total.
+
+The retained opportunity evidence supports 1,072 archived or closed records and
+144,237 non-conflicting award/opportunity pairs. This remains an identifier-driven
+opportunity archive. The earlier source snapshot above is preserved as history.
+
+The ready-file flow is importing the missing rows with paced writes after
+HTTP 429 diagnostics. Final native membership verification and import closeout
+remain open. See the T11 recovery checkpoint and current handoff.

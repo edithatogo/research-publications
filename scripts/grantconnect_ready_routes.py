@@ -34,6 +34,7 @@ def routes(site,library,folder,register,calendar,lists):
     group['Existing_history']=operation('GetItems',{'table':"@outputs('Target_list')",'$filter':"@join(body('Key_filter'),' or ')",'$top':100},'Key_filter')
     group['Existing_pairs']=select("@body('Existing_history')['value']","@concat(item()['HistoryKey'],'|',item()['EvidenceHash'])",'Existing_history')
     group['Missing_history']={'type':'Query','runAfter':after('Existing_pairs'),'inputs':{'from':"@items('History_groups')",'where':"@not(contains(body('Existing_pairs'),concat(item()['HistoryKey'],'|',item()['EvidenceHash'])))"}}
+    group['Existing_history']['inputs']['retryPolicy']={'type':'fixed','count':4,'interval':'PT15S'}
     # Build every method, URL and header in the flow. The ready file supplies typed list fields only.
     nl="decodeUriComponent('%0D%0A')"
     wire="@concat('--changeset_gc',N,'Content-Type: application/http',N,'Content-Transfer-Encoding: binary',N,N,'POST "+site+"/_api/web/lists(guid''',outputs('Target_list'),''')/items HTTP/1.1',N,'Content-Type: application/json;odata=nometadata',N,N,string(item()),N)".replace(',N',','+nl)
@@ -43,10 +44,14 @@ def routes(site,library,folder,register,calendar,lists):
     submit['Save_history_group']=operation('HttpRequest',{'parameters/method':'POST','parameters/uri':'_api/$batch','parameters/headers':{'Content-Type':'multipart/mixed; boundary=batch_gc'},'parameters/body':payload},'Parts')
     # SharePoint batch HTTP 200 can contain failed subrequests. Read the unique keys back.
     submit['Read_saved_group']=operation('GetItems',{'table':"@outputs('Target_list')",'$filter':"@join(body('Key_filter'),' or ')",'$top':100},'Save_history_group')
+    submit['Read_saved_group']['inputs']['retryPolicy']={'type':'fixed','count':4,'interval':'PT15S'}
     submit['Saved_pairs']=select("@body('Read_saved_group')['value']","@concat(item()['HistoryKey'],'|',item()['EvidenceHash'])",'Read_saved_group')
     submit['Expected_pairs']=select("@items('History_groups')","@concat(item()['HistoryKey'],'|',item()['EvidenceHash'])",'Saved_pairs')
     submit['Guard_saved_group']=guard("equals(length(intersection(body('Expected_pairs'),body('Saved_pairs'))),length(items('History_groups')))",'Expected_pairs')
     group['Write_missing']=condition("@greater(length(body('Missing_history')),0)",submit,prev='Missing_history')
+    group['Pace_history_group']=condition("@greater(length(coalesce(body('Missing_history'),json('[]'))),0)",
+        {'Write_cooldown':{'type':'Wait','inputs':{'interval':{'count':50,'unit':'Second'}},'runAfter':{}}})
+    group['Pace_history_group']['runAfter']={'Write_missing':['Succeeded','Failed','TimedOut']}
     shard['History_groups']=loop("@chunk(body('History_rows'),100)",group,'Guard_shard_count')
     history['History_targets']=compose(lists,'History_manifest')
     history['History_files']=loop("@outputs('History_manifest')['files']",shard,'History_targets')
