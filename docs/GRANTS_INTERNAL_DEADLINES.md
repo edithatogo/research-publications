@@ -120,3 +120,12 @@ CLI updateDefinition route and process only GrantInternalDeadlines. This
 materializes dated results in the reader and preserves the official calendar.
 Missing policy authority produces a held row with blank internal dates.
 The existing schedules continue independently of this explicit CLI operation.
+
+To apply dates to the funding calendar, use the same CLI inputs with
+`--apply-calendar --context <private-binding>`. Use FlowAgent to update the
+existing manual application flow with that occurrence's prepared definition.
+Its four list version checks cover added, removed and modified rows. Only
+separate INTERNAL keys are eligible for updates. Apply the occurrence once,
+retain its result and recapture the calendar before preparing the reader.
+Publication of an effective date requires the stored calendar revision and
+effective date to agree with the policy calculation and reviewed override.

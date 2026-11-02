@@ -31,3 +31,26 @@ class DeadlineApplicationTests(unittest.TestCase):
         held=application(f.snapshot,**options)[0]
         self.assertIsNone(held['EffectiveDate'])
         self.assertEqual(held['SourceDate'],'2026-12-31')
+
+    def test_calendar_writes_only_separate_internal_identity(self):
+        import base64
+        from scripts.grants_deadline_calendar import prepare
+        f=fixtures.InternalDeadlineTests();f.setUp();self.addCleanup(f.doCleanups)
+        c={k:'00000000-0000-0000-0000-000000000001' for k in ('override_id','policy_id','registry_id','calendar_id')}
+        c.update(site='https://example.invalid',sharepoint_connection='fixture')
+        _,row,options=scenario(f,c)
+        f.snapshot['registry'][0].update(Id=1,**{'odata.etag':'"1"'})
+        f.snapshot['overrides']=[{'Id':1,'odata.etag':'"1"','OverrideKey':row['OverrideKey'],'OverrideJson':json.dumps(row)}]
+        actions=prepare(c,f.snapshot,**options)['definition']['actions']
+        params=actions['Apply0']['inputs']['parameters']
+        payload=json.loads(base64.b64decode(params['parameters/body'].split("'")[1]))
+        self.assertTrue(payload['DeadlineKey'].startswith('INTERNAL:'))
+        self.assertEqual(payload['Calendar_x0020_day'],'2026-12-24')
+        self.assertEqual(actions['Apply0']['runAfter'],{'CurrentDay':['Succeeded']})
+
+    def test_reader_requires_actual_applied_date(self):
+        f=fixtures.InternalDeadlineTests();f.setUp();self.addCleanup(f.doCleanups)
+        f.snapshot['policies']=[f.record()]
+        options=dict(organisation='FIXTURE',as_of='2026-11-02',evidence_files=f.files)
+        with self.assertRaisesRegex(ValueError,'membership'):
+            application(f.snapshot,require_applied=True,**options)

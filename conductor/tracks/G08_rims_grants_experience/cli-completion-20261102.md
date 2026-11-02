@@ -98,3 +98,10 @@ version and snapshot day. Only approved, current inputs can supply an effective
 date. One focused test covers override precedence and the missing-policy hold.
 FlowAgent preflight passed on the standard SharePoint connection. A real override
 write and the first approved institutional date require real reviewed inputs.
+
+The manual application flow is deployed. Its 2 November native run matched all
+four list version inventories and returned 85 held, zero planned writes. It
+uses separate internal keys, conditional updates and explicit withdrawal when
+a previously applied date loses its supporting policy. The reader publication
+guard requires exact stored membership, revision and effective day for applied
+dates. Evidence is retained in private/ops/deadline-application/.

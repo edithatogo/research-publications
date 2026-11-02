@@ -63,8 +63,20 @@ def prepare_override(context, snapshot, row, **options):
         'connectionName':context['sharepoint_connection'],'source':'Embedded'}}}
 
 
-def application(snapshot, **options):
+def application(snapshot, *, require_applied=False, **options):
     result = plan(snapshot, **options)
+    if require_applied:
+        expected = {row['DeadlineKey']: row for row in result['rows'] if row['EffectiveDate']}
+        saved = {row['DeadlineKey']: row for row in snapshot['calendar']
+                 if str(row.get('DeadlineKey', '')).startswith('INTERNAL:') and row.get('Cancelled') is not True}
+        if set(expected) != set(saved):
+            raise ValueError('Reconcile applied calendar membership before publishing internal dates')
+        for key, row in expected.items():
+            actual = saved[key]
+            if (actual.get('Revision') != row['Revision'] or actual.get('RevisionApplied') is not True
+                    or actual.get('OpportunityKey') != row['OpportunityKey']
+                    or actual.get('Calendar_x0020_day') != row['EffectiveDate']):
+                raise ValueError('Reconcile applied calendar version and effective date')
     anchors = {row['DeadlineKey']: row for row in snapshot['calendar']}
     titles = {r['OpportunityKey']:r.get('Title') for r in snapshot['registry']}
     rows = []
@@ -118,6 +130,7 @@ def main():
         parser.add_argument('--'+name,required=True)
     for name in ('override','context','model','report'):
         parser.add_argument('--'+name)
+    parser.add_argument('--apply-calendar',action='store_true')
     args=parser.parse_args()
     root=Path(__file__).resolve().parents[1]/'private/ops'
     def private(value):
@@ -127,10 +140,13 @@ def main():
     def read(value): return json.loads(private(value).read_bytes())
     snapshot=read(args.snapshot)
     options=dict(organisation=args.organisation,as_of=args.as_of,evidence_files=read(args.evidence))
-    if args.override:
+    if args.apply_calendar:
+        from scripts.grants_deadline_calendar import prepare
+        packet=prepare(read(args.context),snapshot,**options)
+    elif args.override:
         packet=prepare_override(read(args.context),snapshot,read(args.override),**options)
     else:
-        rows=application(snapshot,**options)
+        rows=application(snapshot,require_applied=True,**options)
         model,report=reader(read(args.model),read(args.report),rows)
         packet={'rows':rows,'model':model,'report':report}
     with private(args.output).open('x') as handle: json.dump(packet,handle)
