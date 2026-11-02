@@ -1,5 +1,18 @@
 # CHHHS research publications: current Conductor context
 
+## Current grants scope — 2 November 2026
+
+Browser intake and the SharePoint ready-file writer feed the GrantConnect register. The opportunity and calendar views, historical reader, current-operator calendar and notification workers, and broader relationship reader are deployed. The [accepted feature record](tracks/G08_rims_grants_experience/cli-completion-20261102.md) supersedes earlier status summaries below. The historical import run was observed Running. Final three-list comparison is pending. NIH remains inactive.
+
+## Remaining CLI sequence
+
+1. Consume the existing import terminal receipt and compare the three lists once against retained originals. Record acceptance or exact discrepancies in G04/T11 and the handoff.
+2. Bind an approved internal deadline rule, implement the policy and override writer, apply dates and connect the reader. Admit reviewed relationships when authoritative keys and evidence exist.
+3. Use authorised identities and saved preferences for calendar lifecycle, access isolation and a genuine due notification receipt. Keep the separate publication occurrence readback with its existing owner.
+4. Define internal application stages, owners and transitions before implementing that roadmap extension. Use one focused test and one verification for each changed feature.
+
+## Earlier checkpoints
+
 The 1 November GrantConnect snapshot is live in the existing register and funding views: 120 opportunities, 85 official closing dates and 35 ongoing grants. See [current handoff](../handoff/CURRENT_STATE.md). Daily acquisition uses the browser automation.
 
 ## Scheduled verification — 1 November 2026
