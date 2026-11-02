@@ -89,3 +89,12 @@ The existing unique policy key guards concurrent creation. Matching rows replay
 through exact readback and conflicts fail. One focused test passed and FlowAgent
 preflight returned ready using synthetic input. Native create and real policy
 application remain pending. The override writer and date reader remain open.
+
+The deadline application CLI now prepares a revision-specific override append
+with live anchor and policy version guards and exact saved-content comparison.
+It applies the approved policy and reviewed override to a dated model snapshot.
+The internal deadline page exposes the source and internal dates, disposition,
+version and snapshot day. Only approved, current inputs can supply an effective
+date. One focused test covers override precedence and the missing-policy hold.
+FlowAgent preflight passed on the standard SharePoint connection. A real override
+write and the first approved institutional date require real reviewed inputs.

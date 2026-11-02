@@ -96,3 +96,27 @@ Conductor G08-H01 remains open. Private identities, native snapshots and receipt
 are under `private/ops/grants-policy-deadlines-20261102/` in the feature checkout.
 Existing schedules, publication data, live notification/calendar writers and NIH
 deferral are preserved. No source refresh, email or approval-state change occurred.
+
+## Apply a retained generation and prepare a reviewed override
+
+Use `python -m scripts.grants_deadline_application` with the qualified
+repository interpreter. Supply `--snapshot`, `--evidence`, `--organisation`,
+`--as-of` and a new private `--output`. A dated snapshot is the unit of
+application. Rebuild it from the four complete native arrays after a source,
+policy or override change. The report displays the snapshot date beside its
+effective date, source date, policy identity, review disposition and revision.
+
+For an override add `--context` and `--override`. Supply a reviewed history
+record and the existing qualified SharePoint binding. The CLI checks the
+complete revision chain and resolves the applicable authority-bound policy.
+Use FlowAgent to preflight and save the resulting manual definition. It reads
+the live policy and anchor versions before append, creates only a missing
+immutable key, and compares the saved JSON at the end. A new decision requires
+a new revision. Preserve the private receipts for each operation.
+
+For date application add `--model` and `--report` with complete current
+definitions. Apply the returned model and report through the existing Fabric
+CLI updateDefinition route and process only GrantInternalDeadlines. This
+materializes dated results in the reader and preserves the official calendar.
+Missing policy authority produces a held row with blank internal dates.
+The existing schedules continue independently of this explicit CLI operation.
