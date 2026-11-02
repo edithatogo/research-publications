@@ -8,9 +8,10 @@ import json
 import time
 from collections import Counter
 from datetime import UTC, datetime
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from urllib.error import HTTPError
-from urllib.parse import urlencode
+from urllib.parse import quote, urlencode
 from urllib.request import Request, urlopen
 
 from enrich_europe_pmc import clean_doi, clean_pmid
@@ -44,6 +45,27 @@ def matches(identifier, paper):
     return str(ids.get("PubMed", "")) == identifier[5:]
 
 
+def cooldown_seconds(value, fallback):
+    """Never retry before a server-provided interval or HTTP date."""
+    if value:
+        try:
+            return max(float(value), fallback)
+        except ValueError:
+            try:
+                return max(
+                    parsedate_to_datetime(value).timestamp() - time.time(), fallback
+                )
+            except (TypeError, ValueError, OverflowError):
+                pass
+    return fallback
+
+
+def wait_for_cooldown(seconds):
+    deadline = time.monotonic() + seconds
+    while (remaining := deadline - time.monotonic()) > 0:
+        time.sleep(min(remaining, 60))
+
+
 def collect(args):
     args.output.mkdir(parents=True, exist_ok=True)
     canonical = json.loads(args.canonical.read_bytes())
@@ -74,41 +96,102 @@ def collect(args):
     no_matches = set()
     stopped = None
     requests = 0
-    for start in range(0, len(ids), 50):
-        batch = ids[start : start + 50]
-        scope = json.dumps({"ids": batch, "fields": FIELDS}, sort_keys=True).encode()
+    batch_size = 1 if args.transport == "single" else 50
+    next_request = 0
+    for start in range(0, len(ids), batch_size):
+        batch = ids[start : start + batch_size]
+        scope_data = {"ids": batch, "fields": FIELDS}
+        if args.transport == "single":
+            scope_data["transport"] = "single"
+        scope = json.dumps(scope_data, sort_keys=True).encode()
         path = args.output / (hashlib.sha256(scope).hexdigest() + ".json")
         if not path.exists():
             if args.replay_only:
                 continue
-            url = "https://api.semanticscholar.org/graph/v1/paper/batch?" + urlencode(
-                {"fields": FIELDS}
+            endpoint = "batch" if batch_size == 50 else quote(batch[0], safe=":")
+            url = (
+                "https://api.semanticscholar.org/graph/v1/paper/"
+                + endpoint
+                + "?"
+                + urlencode({"fields": FIELDS})
             )
             request = Request(
                 url,
-                data=json.dumps({"ids": batch}).encode(),
+                data=json.dumps({"ids": batch}).encode() if batch_size == 50 else None,
                 headers={
                     "Content-Type": "application/json",
                     "Accept": "application/json",
                     "User-Agent": "RIMS-publication-metadata/1.0",
                 },
-                method="POST",
+                method="POST" if batch_size == 50 else "GET",
             )
-            try:
-                requests += 1
-                with urlopen(request, timeout=45) as response:
-                    raw = response.read()
-            except (HTTPError, OSError) as error:
-                stopped = {
-                    "status": getattr(error, "code", None),
-                    "type": type(error).__name__,
-                    "batchStart": start,
-                }
-                if isinstance(error, HTTPError):
-                    stopped["retryAfter"] = error.headers.get("Retry-After")
-                    stopped["bodyBase64"] = base64.b64encode(error.read()).decode()
-                save(args.output / "stopped.json", stopped)
+            status = 200
+            for attempt in range(args.max_throttle_retries + 1):
+                wait_for_cooldown(max(0, next_request - time.monotonic()))
+                try:
+                    requests += 1
+                    with urlopen(request, timeout=45) as response:
+                        raw = response.read()
+                        status = response.status
+                    stopped = None
+                    break
+                except (HTTPError, OSError) as error:
+                    status = getattr(error, "code", None)
+                    stopped = {
+                        "status": status,
+                        "type": type(error).__name__,
+                        "batchStart": start,
+                    }
+                    if isinstance(error, HTTPError):
+                        raw = error.read()
+                        stopped.update(
+                            retryAfter=error.headers.get("Retry-After"),
+                            bodyBase64=base64.b64encode(raw).decode(),
+                        )
+                        if status == 404 and batch_size == 1:
+                            body = json.loads(raw)
+                            if (
+                                isinstance(body, dict)
+                                and isinstance(body.get("error"), str)
+                                and "not found" in body["error"].lower()
+                            ):
+                                stopped = None
+                                break
+                    save(args.output / "stopped.json", stopped)
+                    if status != 429 or attempt == args.max_throttle_retries:
+                        break
+                    delay = cooldown_seconds(
+                        stopped.get("retryAfter"), 60 * (2**attempt)
+                    )
+                    with (args.output / "throttle-events.jsonl").open("a") as log:
+                        log.write(
+                            json.dumps(
+                                {
+                                    **stopped,
+                                    "delay": delay,
+                                    "observed": datetime.now(UTC).isoformat(),
+                                }
+                            )
+                            + "\n"
+                        )
+                    print(
+                        json.dumps(
+                            {
+                                "throttled": True,
+                                "cooldownSeconds": delay,
+                                "attempt": attempt + 1,
+                            }
+                        ),
+                        flush=True,
+                    )
+                    wait_for_cooldown(delay)
+                finally:
+                    next_request = time.monotonic() + args.interval
+            else:
+                raise RuntimeError("Unexpected request loop termination")
+            if stopped and status != 200:
                 break
+            stopped = None
             save(
                 path,
                 {
@@ -116,9 +199,9 @@ def collect(args):
                     "observed": datetime.now(UTC).isoformat(),
                     "sha256": hashlib.sha256(raw).hexdigest(),
                     "raw": base64.b64encode(raw).decode(),
+                    "httpStatus": status,
                 },
             )
-            time.sleep(2)
         receipt = json.loads(path.read_bytes())
         raw = base64.b64decode(receipt["raw"], validate=True)
         assert (
@@ -126,6 +209,8 @@ def collect(args):
             and hashlib.sha256(raw).hexdigest() == receipt["sha256"]
         )
         papers = json.loads(raw)
+        if batch_size == 1:
+            papers = [None] if receipt.get("httpStatus") == 404 else [papers]
         if not isinstance(papers, list) or len(papers) != len(batch):
             raise ValueError("Incomplete batch response")
         for identifier, paper in zip(batch, papers, strict=True):
@@ -139,6 +224,14 @@ def collect(args):
                 }
             else:
                 raise ValueError("Invalid paper response")
+        if (start + batch_size) % 25 == 0:
+            progress = {
+                "completedLookups": len(observations) + len(no_matches),
+                "requestsThisRun": requests,
+                "totalLookups": len(ids) + bool(args.bootstrap),
+            }
+            save(args.output / "progress.json", progress)
+            print(json.dumps(progress), flush=True)
     manifest = []
     counts = Counter()
     fields = Counter()
@@ -207,9 +300,15 @@ if __name__ == "__main__":
     parser.add_argument("--canonical", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--replay-only", action="store_true")
+    parser.add_argument("--transport", choices=["batch", "single"], default="batch")
+    parser.add_argument("--interval", type=float, default=2)
+    parser.add_argument("--max-throttle-retries", type=int, choices=range(3), default=0)
     parser.add_argument(
         "--bootstrap",
         type=Path,
         help="Previously retained, exact-matched complete paper JSON",
     )
-    collect(parser.parse_args())
+    options = parser.parse_args()
+    if options.interval < 2:
+        parser.error("Use an interval of at least two seconds")
+    collect(options)
