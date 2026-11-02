@@ -1,0 +1,7 @@
+{
+  "id": "internal_grant_applications_20261102",
+  "status": "complete",
+  "archived_on": "2026-11-02",
+  "source_history": "Canonical delivery 3c2dc940; missing archive scaffolding repaired during monthly source integration. Native claims reused from retained plan, not refreshed.",
+  "depends_on": []
+}

@@ -13,10 +13,10 @@ correlated output readback, and an explicit observation as_of. Completion time
 does not identify a scheduled occurrence. Restrict history to the selected
 occurrence before evaluation; wrong-period records remain UNKNOWN.
 
-No independent scheduler/trigger or deployment of this evaluator is qualified.
+This local evaluator is not an independent scheduler/trigger.
 The export's own recurrence cannot monitor its absence, and G07's source-batch
-health evaluator is not a scheduler. The user-selected policy is day1 at07:00
-Brisbane, completion deadline12:00; monthly_occurrence_policy requires the month.
+health evaluator is not a scheduler. The current selected policy is day1 at07:00
+Brisbane, completion deadline10:00; monthly_occurrence_policy requires the month.
 Evaluation still requires explicit occurrence/deadline/as_of inputs. Other test
 deadlines are fixtures, not operating approval. Existing monthly activation
 does not authorise an additional monitor recurrence, notifications or recipients.
@@ -33,7 +33,7 @@ from zoneinfo import ZoneInfo
 
 
 def monthly_occurrence_policy(occurrence_month):
-    """User-selected policy, adjusted 31 October 2026; no activation implied.
+    """Current 07:00 policy, reconciled 2 November; no activation implied.
 
     The occurrence month is explicit. Observation time is supplied separately;
     neither the current clock nor a fixture grace interval selects policy.
@@ -44,7 +44,7 @@ def monthly_occurrence_policy(occurrence_month):
     zone = ZoneInfo('Australia/Brisbane')
     return {
         'expected_at': datetime(year, month, 1, 7, tzinfo=zone),
-        'deadline': datetime(year, month, 1, 12, tzinfo=zone),
+        'deadline': datetime(year, month, 1, 10, tzinfo=zone),
     }
 
 

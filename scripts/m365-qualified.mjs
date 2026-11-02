@@ -8,7 +8,7 @@ import {execFileSync} from 'node:child_process';
 const fail = message => { throw new Error(message); };
 process.umask(0o077); // SDK response files and receipts remain owner-readable only.
 let [mode, bindingPath, ...args] = process.argv.slice(2);
-if (!['grantconnect-history-lists','grantconnect-calendar','grantconnect-register','read','renew','change-log-read','documentation-sync','ardc-archive-read','outcome-store','relationship-store','source-assertion-store','project-link-schema','register-read','outcome-bootstrap'].includes(mode)) fail('MODE_UNAVAILABLE_BEFORE_AUTH: unsupported mode');
+if (!['grantconnect-history-lists','grantconnect-calendar','grantconnect-register','read','renew','change-log-read','documentation-sync','documentation-page','ardc-archive-read','outcome-store','relationship-store','source-assertion-store','project-link-schema','register-read','outcome-bootstrap'].includes(mode)) fail('MODE_UNAVAILABLE_BEFORE_AUTH: unsupported mode');
 if (['grantconnect-register','grantconnect-calendar'].includes(mode)) fail('Use the GrantConnect ready-file producer. The connected flow owns list writes.');
 if (!bindingPath) fail('Private binding required');
 const bindingFile = fs.realpathSync(bindingPath);
@@ -71,6 +71,11 @@ if(mode==='outcome-store'){
   if(fs.existsSync(args[1])) fail('New outcome receipt directory required; never replay a send journal');
   const {validateTarget,validatePlan}=await import('./outcome_store.mjs');
   validateTarget(pin);validatePlan(JSON.parse(fs.readFileSync(args[0],'utf8')));
+}
+if(mode==='documentation-page'){
+  if(args.length!==3 || args[1]!=='monthly-schedule-repair-20261102' || !['6','7'].includes(args[2])) fail('Exact monthly documentation append scope required');
+  assertPrivate(args[0]);
+  if(!pin.documentationTarget || !pin.resources.includes(new URL(pin.documentationTarget.site_url).origin)) fail('Documentation target unpinned');
 }
 if(mode==='documentation-sync'){
   const [operation,manifestPath,baselinePath,directory,libraryId]=args;
@@ -244,6 +249,10 @@ if(mode==='renew'){
 }else if(mode==='outcome-store'){
   const {runGuarded}=await import('./outcome_store.mjs');
   await runGuarded({args,auth,request,pin});
+}else if(mode==='documentation-page'){
+  const {publishCatalogueAppend}=await import('./publish_documentation_catalogue.mjs');
+  try { await publishCatalogueAppend({args,pin,request}); }
+  catch(error) { throw new Error('DOCUMENTATION_PAGE_STOPPED: '+(error.isAxiosError?'native HTTP '+error.response?.status:error.message)); }
 }else if(mode==='documentation-sync'){
   process.env.RIMS_M365_CLI_DIST=path.join(pin.sdkRoot,'dist');
   process.argv=[process.argv[0],process.argv[1],...args];

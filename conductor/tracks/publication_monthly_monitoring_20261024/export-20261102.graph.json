@@ -1,0 +1,1887 @@
+{
+  "schema": 1,
+  "slug": "solution-chhhsrimspublicationsregisterexport",
+  "provenance": {
+    "sha256": "9c5de0ff50f3dc43f294268f68f568dbdb2d7711f07d708503463b6c2642df75",
+    "status": "2 November 2026 native repair: existing monthly day1 07:00 Brisbane, past anchor; controlled recovery succeeded and full1344/October7/18-field outputs independently reconciled. November1 missed; natural-run acceptance pending RMD-05."
+  },
+  "semantics": "Documentary control-dependency abstraction. Not executable: conditions, retries, timeouts, token scheduling and connector effects remain authoritative in the Power Automate definition.",
+  "scopes": [
+    {
+      "path": "root",
+      "triggers": [
+        {
+          "label": "Recurrence",
+          "type": "Recurrence"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "Export_Run",
+          "type": "Scope",
+          "children": [
+            "root/Export_Run/body"
+          ],
+          "run_after": {}
+        },
+        {
+          "id": "n1",
+          "label": "Monitor_Action_statuses",
+          "type": "Select",
+          "children": [],
+          "run_after": {
+            "Export_Run": [
+              "Failed",
+              "TimedOut"
+            ]
+          }
+        },
+        {
+          "id": "n2",
+          "label": "Monitor_Failure_receipt",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Monitor_Action_statuses": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n3",
+          "label": "Monitor_Retain_failed_status",
+          "type": "Terminate",
+          "children": [],
+          "run_after": {
+            "Monitor_Save_failure": [
+              "Succeeded",
+              "Failed",
+              "Skipped",
+              "TimedOut"
+            ],
+            "Export_Run": [
+              "Failed",
+              "TimedOut"
+            ]
+          }
+        },
+        {
+          "id": "n4",
+          "label": "Monitor_Save_failure",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Monitor_Failure_receipt": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n5",
+          "label": "Monitor_Save_success",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Monitor_Success_receipt": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n6",
+          "label": "Monitor_Success_receipt",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Export_Run": [
+              "Succeeded"
+            ]
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": "n0",
+          "target": "n1",
+          "statuses": [
+            "Failed",
+            "TimedOut"
+          ]
+        },
+        {
+          "source": "n1",
+          "target": "n2",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n0",
+          "target": "n3",
+          "statuses": [
+            "Failed",
+            "TimedOut"
+          ]
+        },
+        {
+          "source": "n4",
+          "target": "n3",
+          "statuses": [
+            "Succeeded",
+            "Failed",
+            "Skipped",
+            "TimedOut"
+          ]
+        },
+        {
+          "source": "n2",
+          "target": "n4",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n6",
+          "target": "n5",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n0",
+          "target": "n6",
+          "statuses": [
+            "Succeeded"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "root/Export_Run/body",
+      "triggers": [],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "Canonical_Check_Counts",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Canonical_Query_Counts": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n1",
+          "label": "Canonical_Check_Keys",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Canonical_Query_Keys": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n2",
+          "label": "Canonical_Check_Month_keys",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Canonical_Query_Month_keys": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n3",
+          "label": "Canonical_Check_Rows",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Canonical_Query_Rows": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n4",
+          "label": "Canonical_Full_CSV",
+          "type": "Table",
+          "children": [],
+          "run_after": {
+            "Canonical_Full_safe_cells": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n5",
+          "label": "Canonical_Full_CSV_complete",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Canonical_Full_CSV": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n6",
+          "label": "Canonical_Full_HTML",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Canonical_Full_HTML_rows": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n7",
+          "label": "Canonical_Full_HTML_rows",
+          "type": "Select",
+          "children": [],
+          "run_after": {
+            "Canonical_Full_CSV_complete": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n8",
+          "label": "Canonical_Full_keys",
+          "type": "Select",
+          "children": [],
+          "run_after": {
+            "Canonical_Month": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n9",
+          "label": "Canonical_Full_safe_cells",
+          "type": "Select",
+          "children": [],
+          "run_after": {
+            "Canonical_Verify_keys": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n10",
+          "label": "Canonical_Invalid_keys",
+          "type": "Query",
+          "children": [],
+          "run_after": {
+            "Canonical_Rows": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n11",
+          "label": "Canonical_Invalid_rows",
+          "type": "Query",
+          "children": [],
+          "run_after": {
+            "Canonical_Invalid_keys": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n12",
+          "label": "Canonical_Manifest",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Canonical_Store_Month_html": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n13",
+          "label": "Canonical_Month",
+          "type": "Query",
+          "children": [],
+          "run_after": {
+            "Canonical_Verify_row_invariants": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n14",
+          "label": "Canonical_Month_CSV",
+          "type": "Table",
+          "children": [],
+          "run_after": {
+            "Canonical_Month_safe_cells": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n15",
+          "label": "Canonical_Month_CSV_complete",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Canonical_Month_CSV": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n16",
+          "label": "Canonical_Month_HTML",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Canonical_Month_HTML_rows": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n17",
+          "label": "Canonical_Month_HTML_rows",
+          "type": "Select",
+          "children": [],
+          "run_after": {
+            "Canonical_Month_CSV_complete": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n18",
+          "label": "Canonical_Month_keys",
+          "type": "Select",
+          "children": [],
+          "run_after": {
+            "Canonical_Full_keys": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n19",
+          "label": "Canonical_Month_safe_cells",
+          "type": "Select",
+          "children": [],
+          "run_after": {
+            "Canonical_Store_Full_html": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n20",
+          "label": "Canonical_Parse_rows",
+          "type": "ParseJson",
+          "children": [],
+          "run_after": {
+            "Canonical_Raw_Counts": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n21",
+          "label": "Canonical_Period",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Printable_Verify_manifest": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n22",
+          "label": "Canonical_Query_Counts",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Canonical_Raw_Month_keys": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n23",
+          "label": "Canonical_Query_Keys",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Canonical_Raw_Rows": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n24",
+          "label": "Canonical_Query_Month_keys",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Canonical_Raw_Keys": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n25",
+          "label": "Canonical_Query_Rows",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Canonical_Period": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n26",
+          "label": "Canonical_Raw_Counts",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Canonical_Check_Counts": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n27",
+          "label": "Canonical_Raw_Keys",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Canonical_Check_Keys": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n28",
+          "label": "Canonical_Raw_Month_keys",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Canonical_Check_Month_keys": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n29",
+          "label": "Canonical_Raw_Rows",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Canonical_Check_Rows": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n30",
+          "label": "Canonical_Rows",
+          "type": "Select",
+          "children": [],
+          "run_after": {
+            "Canonical_Parse_rows": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n31",
+          "label": "Canonical_Store_Full_csv",
+          "type": "If",
+          "children": [
+            "root/Export_Run/body/Canonical_Store_Full_csv/body",
+            "root/Export_Run/body/Canonical_Store_Full_csv/else"
+          ],
+          "run_after": {
+            "Canonical_Store_Full_csv_Existing": [
+              "Succeeded",
+              "Failed",
+              "TimedOut"
+            ]
+          }
+        },
+        {
+          "id": "n32",
+          "label": "Canonical_Store_Full_csv_Existing",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Canonical_Full_HTML": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n33",
+          "label": "Canonical_Store_Full_html",
+          "type": "If",
+          "children": [
+            "root/Export_Run/body/Canonical_Store_Full_html/body",
+            "root/Export_Run/body/Canonical_Store_Full_html/else"
+          ],
+          "run_after": {
+            "Canonical_Store_Full_html_Existing": [
+              "Succeeded",
+              "Failed",
+              "TimedOut"
+            ]
+          }
+        },
+        {
+          "id": "n34",
+          "label": "Canonical_Store_Full_html_Existing",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Canonical_Store_Full_csv": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n35",
+          "label": "Canonical_Store_Month_csv",
+          "type": "If",
+          "children": [
+            "root/Export_Run/body/Canonical_Store_Month_csv/body",
+            "root/Export_Run/body/Canonical_Store_Month_csv/else"
+          ],
+          "run_after": {
+            "Canonical_Store_Month_csv_Existing": [
+              "Succeeded",
+              "Failed",
+              "TimedOut"
+            ]
+          }
+        },
+        {
+          "id": "n36",
+          "label": "Canonical_Store_Month_csv_Existing",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Canonical_Month_HTML": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n37",
+          "label": "Canonical_Store_Month_html",
+          "type": "If",
+          "children": [
+            "root/Export_Run/body/Canonical_Store_Month_html/body",
+            "root/Export_Run/body/Canonical_Store_Month_html/else"
+          ],
+          "run_after": {
+            "Canonical_Store_Month_html_Existing": [
+              "Succeeded",
+              "Failed",
+              "TimedOut"
+            ]
+          }
+        },
+        {
+          "id": "n38",
+          "label": "Canonical_Store_Month_html_Existing",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Canonical_Store_Month_csv": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n39",
+          "label": "Canonical_Store_manifest",
+          "type": "If",
+          "children": [
+            "root/Export_Run/body/Canonical_Store_manifest/body",
+            "root/Export_Run/body/Canonical_Store_manifest/else"
+          ],
+          "run_after": {
+            "Canonical_Store_manifest_Existing": [
+              "Succeeded",
+              "Failed",
+              "TimedOut"
+            ]
+          }
+        },
+        {
+          "id": "n40",
+          "label": "Canonical_Store_manifest_Existing",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Canonical_Manifest": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n41",
+          "label": "Canonical_Verify_keys",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Canonical_Month_keys": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n42",
+          "label": "Canonical_Verify_row_invariants",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Canonical_Invalid_rows": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n43",
+          "label": "Export_Registered_Publications_CSV",
+          "type": "Table",
+          "children": [],
+          "run_after": {
+            "Select_Exportable_Register_Fields": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n44",
+          "label": "Get_Reconciled_Publication_Register",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {}
+        },
+        {
+          "id": "n45",
+          "label": "Printable_Completion_manifest",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Printable_Verify_index": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n46",
+          "label": "Printable_HTML_index",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Printable_Join_part_links": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n47",
+          "label": "Printable_Join_part_links",
+          "type": "Join",
+          "children": [],
+          "run_after": {
+            "Printable_Select_part_links": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n48",
+          "label": "Printable_Part_indexes",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Printable_Run_prefix": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n49",
+          "label": "Printable_Parts",
+          "type": "Foreach",
+          "children": [
+            "root/Export_Run/body/Printable_Parts/body"
+          ],
+          "run_after": {
+            "Printable_Part_indexes": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n50",
+          "label": "Printable_Read_CSV",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Save_Registered_Publications_CSV": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n51",
+          "label": "Printable_Read_index",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Printable_Save_index": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n52",
+          "label": "Printable_Read_manifest",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Printable_Save_completion_manifest": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n53",
+          "label": "Printable_Require_bounded_register",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Printable_Verify_CSV": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n54",
+          "label": "Printable_Run_prefix",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Printable_Require_bounded_register": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n55",
+          "label": "Printable_Save_completion_manifest",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Printable_Completion_manifest": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n56",
+          "label": "Printable_Save_index",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Printable_HTML_index": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n57",
+          "label": "Printable_Select_part_links",
+          "type": "Select",
+          "children": [],
+          "run_after": {
+            "Printable_Parts": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n58",
+          "label": "Printable_Verify_CSV",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Printable_Read_CSV": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n59",
+          "label": "Printable_Verify_index",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Printable_Read_index": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n60",
+          "label": "Printable_Verify_manifest",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Printable_Read_manifest": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n61",
+          "label": "Save_Registered_Publications_CSV",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Export_Registered_Publications_CSV": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n62",
+          "label": "Select_Exportable_Register_Fields",
+          "type": "Select",
+          "children": [],
+          "run_after": {
+            "Get_Reconciled_Publication_Register": [
+              "Succeeded"
+            ]
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": "n22",
+          "target": "n0",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n23",
+          "target": "n1",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n24",
+          "target": "n2",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n25",
+          "target": "n3",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n9",
+          "target": "n4",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n4",
+          "target": "n5",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n7",
+          "target": "n6",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n5",
+          "target": "n7",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n13",
+          "target": "n8",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n41",
+          "target": "n9",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n30",
+          "target": "n10",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n10",
+          "target": "n11",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n37",
+          "target": "n12",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n42",
+          "target": "n13",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n19",
+          "target": "n14",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n14",
+          "target": "n15",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n17",
+          "target": "n16",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n15",
+          "target": "n17",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n8",
+          "target": "n18",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n33",
+          "target": "n19",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n26",
+          "target": "n20",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n60",
+          "target": "n21",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n28",
+          "target": "n22",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n29",
+          "target": "n23",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n27",
+          "target": "n24",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n21",
+          "target": "n25",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n0",
+          "target": "n26",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n1",
+          "target": "n27",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n2",
+          "target": "n28",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n3",
+          "target": "n29",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n20",
+          "target": "n30",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n32",
+          "target": "n31",
+          "statuses": [
+            "Succeeded",
+            "Failed",
+            "TimedOut"
+          ]
+        },
+        {
+          "source": "n6",
+          "target": "n32",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n34",
+          "target": "n33",
+          "statuses": [
+            "Succeeded",
+            "Failed",
+            "TimedOut"
+          ]
+        },
+        {
+          "source": "n31",
+          "target": "n34",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n36",
+          "target": "n35",
+          "statuses": [
+            "Succeeded",
+            "Failed",
+            "TimedOut"
+          ]
+        },
+        {
+          "source": "n16",
+          "target": "n36",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n38",
+          "target": "n37",
+          "statuses": [
+            "Succeeded",
+            "Failed",
+            "TimedOut"
+          ]
+        },
+        {
+          "source": "n35",
+          "target": "n38",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n40",
+          "target": "n39",
+          "statuses": [
+            "Succeeded",
+            "Failed",
+            "TimedOut"
+          ]
+        },
+        {
+          "source": "n12",
+          "target": "n40",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n18",
+          "target": "n41",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n11",
+          "target": "n42",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n62",
+          "target": "n43",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n59",
+          "target": "n45",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n47",
+          "target": "n46",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n57",
+          "target": "n47",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n54",
+          "target": "n48",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n48",
+          "target": "n49",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n61",
+          "target": "n50",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n56",
+          "target": "n51",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n55",
+          "target": "n52",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n58",
+          "target": "n53",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n53",
+          "target": "n54",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n45",
+          "target": "n55",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n46",
+          "target": "n56",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n49",
+          "target": "n57",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n50",
+          "target": "n58",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n51",
+          "target": "n59",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n52",
+          "target": "n60",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n43",
+          "target": "n61",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n44",
+          "target": "n62",
+          "statuses": [
+            "Succeeded"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "root/Export_Run/body/Canonical_Store_Full_csv/body",
+      "triggers": [],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "Canonical_Store_Full_csv_Unchanged",
+          "type": "Compose",
+          "children": [],
+          "run_after": {}
+        }
+      ],
+      "edges": []
+    },
+    {
+      "path": "root/Export_Run/body/Canonical_Store_Full_csv/else",
+      "triggers": [],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "Canonical_Store_Full_csv_Create",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Canonical_Store_Full_csv_Require404": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n1",
+          "label": "Canonical_Store_Full_csv_Readback",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Canonical_Store_Full_csv_Create": [
+              "Succeeded",
+              "Failed",
+              "TimedOut"
+            ]
+          }
+        },
+        {
+          "id": "n2",
+          "label": "Canonical_Store_Full_csv_Require404",
+          "type": "Compose",
+          "children": [],
+          "run_after": {}
+        },
+        {
+          "id": "n3",
+          "label": "Canonical_Store_Full_csv_Verified",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Canonical_Store_Full_csv_Readback": [
+              "Succeeded"
+            ]
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": "n2",
+          "target": "n0",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n0",
+          "target": "n1",
+          "statuses": [
+            "Succeeded",
+            "Failed",
+            "TimedOut"
+          ]
+        },
+        {
+          "source": "n1",
+          "target": "n3",
+          "statuses": [
+            "Succeeded"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "root/Export_Run/body/Canonical_Store_Full_html/body",
+      "triggers": [],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "Canonical_Store_Full_html_Unchanged",
+          "type": "Compose",
+          "children": [],
+          "run_after": {}
+        }
+      ],
+      "edges": []
+    },
+    {
+      "path": "root/Export_Run/body/Canonical_Store_Full_html/else",
+      "triggers": [],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "Canonical_Store_Full_html_Create",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Canonical_Store_Full_html_Require404": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n1",
+          "label": "Canonical_Store_Full_html_Readback",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Canonical_Store_Full_html_Create": [
+              "Succeeded",
+              "Failed",
+              "TimedOut"
+            ]
+          }
+        },
+        {
+          "id": "n2",
+          "label": "Canonical_Store_Full_html_Require404",
+          "type": "Compose",
+          "children": [],
+          "run_after": {}
+        },
+        {
+          "id": "n3",
+          "label": "Canonical_Store_Full_html_Verified",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Canonical_Store_Full_html_Readback": [
+              "Succeeded"
+            ]
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": "n2",
+          "target": "n0",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n0",
+          "target": "n1",
+          "statuses": [
+            "Succeeded",
+            "Failed",
+            "TimedOut"
+          ]
+        },
+        {
+          "source": "n1",
+          "target": "n3",
+          "statuses": [
+            "Succeeded"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "root/Export_Run/body/Canonical_Store_Month_csv/body",
+      "triggers": [],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "Canonical_Store_Month_csv_Unchanged",
+          "type": "Compose",
+          "children": [],
+          "run_after": {}
+        }
+      ],
+      "edges": []
+    },
+    {
+      "path": "root/Export_Run/body/Canonical_Store_Month_csv/else",
+      "triggers": [],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "Canonical_Store_Month_csv_Create",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Canonical_Store_Month_csv_Require404": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n1",
+          "label": "Canonical_Store_Month_csv_Readback",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Canonical_Store_Month_csv_Create": [
+              "Succeeded",
+              "Failed",
+              "TimedOut"
+            ]
+          }
+        },
+        {
+          "id": "n2",
+          "label": "Canonical_Store_Month_csv_Require404",
+          "type": "Compose",
+          "children": [],
+          "run_after": {}
+        },
+        {
+          "id": "n3",
+          "label": "Canonical_Store_Month_csv_Verified",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Canonical_Store_Month_csv_Readback": [
+              "Succeeded"
+            ]
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": "n2",
+          "target": "n0",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n0",
+          "target": "n1",
+          "statuses": [
+            "Succeeded",
+            "Failed",
+            "TimedOut"
+          ]
+        },
+        {
+          "source": "n1",
+          "target": "n3",
+          "statuses": [
+            "Succeeded"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "root/Export_Run/body/Canonical_Store_Month_html/body",
+      "triggers": [],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "Canonical_Store_Month_html_Unchanged",
+          "type": "Compose",
+          "children": [],
+          "run_after": {}
+        }
+      ],
+      "edges": []
+    },
+    {
+      "path": "root/Export_Run/body/Canonical_Store_Month_html/else",
+      "triggers": [],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "Canonical_Store_Month_html_Create",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Canonical_Store_Month_html_Require404": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n1",
+          "label": "Canonical_Store_Month_html_Readback",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Canonical_Store_Month_html_Create": [
+              "Succeeded",
+              "Failed",
+              "TimedOut"
+            ]
+          }
+        },
+        {
+          "id": "n2",
+          "label": "Canonical_Store_Month_html_Require404",
+          "type": "Compose",
+          "children": [],
+          "run_after": {}
+        },
+        {
+          "id": "n3",
+          "label": "Canonical_Store_Month_html_Verified",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Canonical_Store_Month_html_Readback": [
+              "Succeeded"
+            ]
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": "n2",
+          "target": "n0",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n0",
+          "target": "n1",
+          "statuses": [
+            "Succeeded",
+            "Failed",
+            "TimedOut"
+          ]
+        },
+        {
+          "source": "n1",
+          "target": "n3",
+          "statuses": [
+            "Succeeded"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "root/Export_Run/body/Canonical_Store_manifest/body",
+      "triggers": [],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "Canonical_Store_manifest_Unchanged",
+          "type": "Compose",
+          "children": [],
+          "run_after": {}
+        }
+      ],
+      "edges": []
+    },
+    {
+      "path": "root/Export_Run/body/Canonical_Store_manifest/else",
+      "triggers": [],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "Canonical_Store_manifest_Create",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Canonical_Store_manifest_Require404": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n1",
+          "label": "Canonical_Store_manifest_Readback",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Canonical_Store_manifest_Create": [
+              "Succeeded",
+              "Failed",
+              "TimedOut"
+            ]
+          }
+        },
+        {
+          "id": "n2",
+          "label": "Canonical_Store_manifest_Require404",
+          "type": "Compose",
+          "children": [],
+          "run_after": {}
+        },
+        {
+          "id": "n3",
+          "label": "Canonical_Store_manifest_Verified",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Canonical_Store_manifest_Readback": [
+              "Succeeded"
+            ]
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": "n2",
+          "target": "n0",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n0",
+          "target": "n1",
+          "statuses": [
+            "Succeeded",
+            "Failed",
+            "TimedOut"
+          ]
+        },
+        {
+          "source": "n1",
+          "target": "n3",
+          "statuses": [
+            "Succeeded"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "root/Export_Run/body/Printable_Parts/body",
+      "triggers": [],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "Printable_HTML_part",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Printable_Require_part_budget": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n1",
+          "label": "Printable_Join_citations",
+          "type": "Join",
+          "children": [],
+          "run_after": {
+            "Printable_Select_citations": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n2",
+          "label": "Printable_Read_part",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Printable_Save_part": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n3",
+          "label": "Printable_Require_part_budget",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Printable_Join_citations": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n4",
+          "label": "Printable_Save_part",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Printable_HTML_part": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n5",
+          "label": "Printable_Select_citations",
+          "type": "Select",
+          "children": [],
+          "run_after": {}
+        },
+        {
+          "id": "n6",
+          "label": "Printable_Verify_part",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Printable_Read_part": [
+              "Succeeded"
+            ]
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": "n3",
+          "target": "n0",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n5",
+          "target": "n1",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n4",
+          "target": "n2",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n1",
+          "target": "n3",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n0",
+          "target": "n4",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n2",
+          "target": "n6",
+          "statuses": [
+            "Succeeded"
+          ]
+        }
+      ]
+    }
+  ]
+}

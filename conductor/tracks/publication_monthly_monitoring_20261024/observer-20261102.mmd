@@ -1,0 +1,111 @@
+flowchart TB
+  subgraph s0["root"]
+    s0t0(["Recurrence / Recurrence"])
+    s0n0["Deadline / Compose"]
+    s0n1["Due / If"]
+    s0n2["Expected_at / Compose"]
+    s0n3["Init_status / InitializeVariable"]
+    s0t0 --> s0n3
+    s0n4["Observation_receipt / Compose"]
+    s0n5["Observed_at / Compose"]
+    s0n6["Read_observation / OpenApiConnection"]
+    s0n7["Retain_non_success / If"]
+    s0n8["Save_observation / OpenApiConnection"]
+    s0n9["Verify_observation / Compose"]
+    s0n2 -->|"Succeeded"| s0n0
+    s0n0 -->|"Succeeded"| s0n1
+    s0n5 -->|"Succeeded"| s0n2
+    s0n1 -->|"Succeeded / Failed / TimedOut / Skipped"| s0n4
+    s0n3 -->|"Succeeded"| s0n5
+    s0n8 -->|"Succeeded"| s0n6
+    s0n9 -->|"Succeeded"| s0n7
+    s0n4 -->|"Succeeded"| s0n8
+    s0n6 -->|"Succeeded"| s0n9
+  end
+  subgraph s1["root/Due/body"]
+    s1n0["Observe_delivery / Scope"]
+  end
+  subgraph s2["root/Due/body/Observe_delivery/body"]
+    s2n0["Failure_receipts / Query"]
+    s2n1["Health_receipts / Query"]
+    s2n2["List_receipts / OpenApiConnection"]
+    s2n3["One_health_receipt / If"]
+    s2n4["Require_complete_listing / Compose"]
+    s2n1 -->|"Succeeded"| s2n0
+    s2n4 -->|"Succeeded"| s2n1
+    s2n0 -->|"Succeeded"| s2n3
+    s2n2 -->|"Succeeded"| s2n4
+  end
+  subgraph s3["root/Due/body/Observe_delivery/body/One_health_receipt/body"]
+    s3n0["Health / Compose"]
+    s3n1["Manifest / Compose"]
+    s3n2["Read_CSV / OpenApiConnection"]
+    s3n3["Read_all_parts / Foreach"]
+    s3n4["Read_health / OpenApiConnection"]
+    s3n5["Read_index / OpenApiConnection"]
+    s3n6["Read_manifest / OpenApiConnection"]
+    s3n7["Require_CSV / Compose"]
+    s3n8["Require_health / Compose"]
+    s3n9["Require_health_time / Compose"]
+    s3n10["Require_index / Compose"]
+    s3n11["Require_manifest / Compose"]
+    s3n12["Set_delivered / SetVariable"]
+    s3n4 -->|"Succeeded"| s3n0
+    s3n6 -->|"Succeeded"| s3n1
+    s3n11 -->|"Succeeded"| s3n2
+    s3n10 -->|"Succeeded"| s3n3
+    s3n7 -->|"Succeeded"| s3n5
+    s3n9 -->|"Succeeded"| s3n6
+    s3n2 -->|"Succeeded"| s3n7
+    s3n0 -->|"Succeeded"| s3n8
+    s3n8 -->|"Succeeded"| s3n9
+    s3n5 -->|"Succeeded"| s3n10
+    s3n1 -->|"Succeeded"| s3n11
+    s3n3 -->|"Succeeded"| s3n12
+  end
+  subgraph s4["root/Due/body/Observe_delivery/body/One_health_receipt/body/Read_all_parts/body"]
+    s4n0["Read_part / OpenApiConnection"]
+    s4n1["Require_part / Compose"]
+    s4n0 -->|"Succeeded"| s4n1
+  end
+  subgraph s5["root/Due/body/Observe_delivery/body/One_health_receipt/else"]
+    s5n0["No_unique_health / If"]
+  end
+  subgraph s6["root/Due/body/Observe_delivery/body/One_health_receipt/else/No_unique_health/body"]
+    s6n0["Ambiguous_delivery / SetVariable"]
+  end
+  subgraph s7["root/Due/body/Observe_delivery/body/One_health_receipt/else/No_unique_health/else"]
+    s7n0["Missing_health / If"]
+  end
+  subgraph s8["root/Due/body/Observe_delivery/body/One_health_receipt/else/No_unique_health/else/Missing_health/body"]
+    s8n0["Export_failure / SetVariable"]
+    s8n1["Failure / Compose"]
+    s8n2["Read_failure / OpenApiConnection"]
+    s8n3["Require_failure / Compose"]
+    s8n3 -->|"Succeeded"| s8n0
+    s8n2 -->|"Succeeded"| s8n1
+    s8n1 -->|"Succeeded"| s8n3
+  end
+  subgraph s9["root/Due/body/Observe_delivery/body/One_health_receipt/else/No_unique_health/else/Missing_health/else"]
+    s9n0["No_completion / SetVariable"]
+  end
+  subgraph s10["root/Due/else"]
+    s10n0["Before_deadline / SetVariable"]
+  end
+  subgraph s11["root/Retain_non_success/body"]
+    s11n0["Incomplete / Terminate"]
+  end
+  subgraph s12["root/Retain_non_success/else"]
+  end
+  s0n1 -. "nested scope" .-> s1
+  s0n1 -. "nested scope" .-> s10
+  s0n7 -. "nested scope" .-> s11
+  s0n7 -. "nested scope" .-> s12
+  s1n0 -. "nested scope" .-> s2
+  s2n3 -. "nested scope" .-> s3
+  s2n3 -. "nested scope" .-> s5
+  s3n3 -. "nested scope" .-> s4
+  s5n0 -. "nested scope" .-> s6
+  s5n0 -. "nested scope" .-> s7
+  s7n0 -. "nested scope" .-> s8
+  s7n0 -. "nested scope" .-> s9

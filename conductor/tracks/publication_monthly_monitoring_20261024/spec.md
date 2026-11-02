@@ -80,3 +80,14 @@ owner and does not authorise a second native writer or duplicate send.
 Parallel source/reconciliation/model/reader/digest/grants implementation; broader
 E08 source histories and longitudinal windows; production/business acceptance;
 new distribution authority; template/output migration or a new document runtime.
+
+## Current repair and documentation — 2 November 2026
+
+The later direct repair instruction supersedes the historical read-only boundary
+for the completed bounded repair. Existing export remains day1 07:00 Brisbane;
+the native three-hour deadline is10:00 and observer now runs daily10:05, with
+past October anchors. The earlier noon recommendation does not describe the
+verified native repair. Both November1 observations were missed; controlled
+recovery is accepted only at its stated scope. See [repair](repair-20261102.md)
+and [native documentation](documentation-20261102.md). RMD-05 remains pending
+until actual natural-run evidence. No new flow, reminder, polling job or send.

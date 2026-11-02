@@ -4,5 +4,49 @@
   "historical_status": "new",
   "reconciled_on": "2026-10-29",
   "depends_on": [],
-  "source_history": "Retained authoring checkout cde439c0; reviewed source hashes in reconciliation manifest; no unrelated-history merge."
+  "source_history": "Retained authoring checkout cde439c0; reviewed source hashes in reconciliation manifest; no unrelated-history merge.",
+  "title": "Publication monthly follow-up and monitoring",
+  "type": "operational_followup",
+  "created_at": "2026-10-24",
+  "updated_at": "2026-11-02",
+  "requires_live_evidence": true,
+  "transferred_from": [
+    "E08-F01",
+    "E08-F02"
+  ],
+  "ownership": "Existing export/observer and authentication owners; no native object transfer",
+  "dependency_note": "Task-level accepted configuration/activation only; no whole E01 completion dependency. No new automation or send authority.",
+  "observation_outcomes": {
+    "PM-F01": "MISSED",
+    "PM-F02": "MISSED_FIRST_OCCURRENCE"
+  },
+  "completion_scope": "Read-only observations reconciled with failure dispositions; unattended monthly delivery is not accepted. Later 2 November natural observer correctly retained missing-delivery evidence.",
+  "operational_delivery_accepted": false,
+  "current_saved_schedules_brisbane": {
+    "export": "07:00 monthly day 1",
+    "observer": "10:05 daily"
+  },
+  "repair_execution_owner": "01a19b8d-d2e7-7c62-b9e5-32b2c308a57c; terminal native verification complete for the bounded repair",
+  "repair_native_verified": true,
+  "repair_verification_scope": "Exact candidate/connection/state readback, one successful controlled exporter run, one correlated observer run correctly reporting late delivery, independent stored-file byte reconciliation. No post-repair natural recurrence claimed.",
+  "repair_record": "repair-20261102.md",
+  "native_documentation_status": "Verified scoped SharePoint assets, catalogue34.0, guide21.0, Loop111.0; two existing components exact on reopen; RMD-05 pending",
+  "remediation_mapping": "remediation-mapping-20261102.md",
+  "remediation_packet_commit": "864bce0ecbd26d027edae19ce272ac9e26396d10",
+  "remediation_status": {
+    "RMD-01": "complete at narrowed-diagnosis exit; observer historical cause unproven",
+    "RMD-02": "complete; newer saved repair policy 07:00/10:00/10:05 retained",
+    "RMD-03": "complete; scoped semantic diff, focused tests and prepared inverse verified",
+    "RMD-04": "bounded save/readback complete; inverse prepared, not executed natively",
+    "RMD-04R": "complete at earlier authorised controlled recovery scope; natural origin false",
+    "RMD-05": "pending natural occurrence evidence",
+    "RMD-06": "outside this lane; active grants import ownership retained",
+    "RMD-07": "outside this lane; relationship ownership retained"
+  },
+  "continuation_native_operations": 0,
+  "readback_record": "reconciliation-20261102.md",
+  "earlier_access_blocker_record": "readback-20261102.md",
+  "documentation_record": "documentation-20261102.md",
+  "source_integration": "Scoped manual transfer onto canonical origin/main; retained source history has no common ancestor",
+  "historical_earliest_monthly_readback_brisbane": "2026-11-01T12:05:00+10:00"
 }
