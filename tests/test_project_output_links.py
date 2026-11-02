@@ -68,3 +68,34 @@ class ProjectLinkRevisionTests(unittest.TestCase):
         projected=process(dict(operation='project-history',history=result['history'],inventories=self.inventory,complete=True))
         self.assertEqual(projected,result)
         self.assertFalse(result['native_acceptance'])
+
+class BroaderRelationshipTests(unittest.TestCase):
+    def test_new_types_review_correction_and_withdrawal_keep_legacy_history_exact(self):
+        import copy
+        from scripts.project_output_links import RELATIONSHIP_KINDS,append_revision,project_history
+        legacy={'project':['PROJECT:1'],**{k:[] for k in KINDS}}
+        legacy['publication']=['DOI:10.0000/example']
+        record=dict(project_id='PROJECT:1',output_kind='publication',output_id=legacy['publication'][0],evidence_id='E:pub',evidence_revision='1',evidence_sha256='a'*64,status='candidate')
+        h=append_revision([],record,legacy,complete=True,revision_id='pub1',reason='Fictional candidate')
+        retained=copy.deepcopy(h)
+        inventories={**legacy,**{k:['EXACT:'+k] for k in RELATIONSHIP_KINDS-KINDS}}
+        for kind in sorted(RELATIONSHIP_KINDS-KINDS):
+            row=dict(record,output_kind=kind,output_id='EXACT:'+kind,evidence_id='E:'+kind)
+            h=append_revision(h,row,inventories,complete=True,revision_id=kind+'1',reason='Fictional candidate')
+            self.assertEqual(project_history(h,inventories,complete=True)['bridges'][kind],[])
+            h=append_revision(h,dict(row,status='reviewed'),inventories,complete=True,revision_id=kind+'2',supersedes=kind+'1',reason='Fictional explicit review')
+            self.assertEqual(project_history(h,inventories,complete=True)['bridges'][kind],[{'project_id':'PROJECT:1','output_id':'EXACT:'+kind}])
+            h=append_revision(h,dict(row,status='withdrawn'),inventories,complete=True,revision_id=kind+'3',supersedes=kind+'2',reason='Fictional withdrawal')
+            self.assertEqual(project_history(h,inventories,complete=True)['bridges'][kind],[])
+        self.assertEqual(h[:1],retained)
+        self.assertEqual(set(project_history(retained,legacy,complete=True)['bridges']),KINDS)
+        self.assertFalse(any(project_history(h,inventories,complete=True)['bridges'].values()))
+
+    def test_typed_inventories_cannot_be_partial_or_resolve_from_another_namespace(self):
+        from scripts.project_output_links import RELATIONSHIP_KINDS
+        inventory={'project':['P'],**{k:[] for k in RELATIONSHIP_KINDS}}
+        inventory['person']=['AUTH:1']
+        r=dict(project_id='P',output_kind='ethics',output_id='AUTH:1',evidence_id='E',evidence_revision='1',evidence_sha256='a'*64,status='reviewed')
+        with self.assertRaisesRegex(ValueError,'Unresolved'):prepare([r],inventory,complete=True)
+        with self.assertRaisesRegex(ValueError,'Complete'):prepare([],{k:v for k,v in inventory.items() if k!='dora'},complete=True)
+        with self.assertRaisesRegex(ValueError,'Complete'):prepare([],{**inventory,'names':['A Person']},complete=True)

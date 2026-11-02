@@ -62,9 +62,22 @@ historical import's active closeout continuation in its original checkout.
   pages. Native append-only writer, date application and reader integration are
   still pending; this is not a deployed deadline feature. See
   [policy review](review-policy-deadlines-20261102.md).
-- [ ] Expand reviewed project/person/ethics/DoRA/publication links from actual
-  identifiers and evidence. Existing 169 publication-reference candidates remain
-  accepted; they are not proof of institutional funding or ethics approval.
+- [x] Implement broader typed project relationships through the existing CLI,
+  append-only journal and native reader. People, ethics, DoRA and opportunities
+  now accompany publications, awards, datasets and software; legacy journal hashes
+  and projections remain valid. Fifteen focused tests pass. The existing reader
+  and page are saved/read back; bridge processing completed. All 1,344 publication
+  rows and 50 fields, 169 reference candidates, 73 other model parts and 102 other
+  report parts are preserved, with no new journal rows or schedules. See
+  [relationship review](review-relationships-20261102.md).
+- [ ] Admit actual reviewed person/ethics/DoRA/grant relationships once exact
+  authoritative inventories and genuine reviewed evidence are available. The
+  inspected native project journal contains one explicitly fictional publication
+  candidate and zero reviewed links. Retained source assertions remain candidates;
+  their filenames or source co-occurrence do not establish review. Existing 169
+  publication-reference candidates remain accepted and unchanged; they are not
+  proof of institutional funding or ethics approval. This data-admission item and
+  G06-H01/H03 remain open; technical reader support does not close them.
 
 No source refresh, import restart, scheduled-run check, schedule change, business
 email, invitation or NIH activation occurred. CLI submission without waiting for

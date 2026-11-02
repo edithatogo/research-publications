@@ -6,11 +6,14 @@ SPDX-License-Identifier: Apache-2.0
 import copy
 from scripts.outcome_persistence import digest
 
+# Preserve the original inventory/projection contract for immutable journals.
 KINDS={'publication','award','dataset','software'}
+RELATIONSHIP_KINDS=KINDS|{'person','ethics','dora','opportunity'}
+INVENTORY_SETS=({'project'}|KINDS, {'project'}|RELATIONSHIP_KINDS)
 
 
 def prepare(records, inventories, *, complete):
-    if complete is not True or set(inventories)!={'project'}|KINDS:
+    if complete is not True or not isinstance(inventories,dict) or set(inventories) not in INVENTORY_SETS:
         raise ValueError('Complete typed canonical inventories required')
     keys={}
     for kind,values in inventories.items():
@@ -22,7 +25,7 @@ def prepare(records, inventories, *, complete):
         if set(record)!={'project_id','output_kind','output_id','evidence_id','evidence_revision','evidence_sha256','status'}:
             raise ValueError('Complete explicit project link required')
         kind=record['output_kind']
-        if kind not in KINDS or record['project_id'] not in keys['project'] or record['output_id'] not in keys[kind]:
+        if kind not in RELATIONSHIP_KINDS or kind not in keys or record['project_id'] not in keys['project'] or record['output_id'] not in keys[kind]:
             raise ValueError('Unresolved typed canonical link')
         if record['status'] not in {'candidate','reviewed','withdrawn'}: raise ValueError('Explicit link disposition required')
         import re
@@ -34,7 +37,7 @@ def prepare(records, inventories, *, complete):
         seen.add(identity);row=copy.deepcopy(record);row['link_id']=identity;result.append(row)
     # Only explicitly reviewed links enter a reporting bridge. Keeping candidates
     # and withdrawals alongside it preserves their evidence without admission.
-    bridges={kind:sorted({(r['project_id'],r['output_id']) for r in result if r['output_kind']==kind and r['status']=='reviewed'}) for kind in sorted(KINDS)}
+    bridges={kind:sorted({(r['project_id'],r['output_id']) for r in result if r['output_kind']==kind and r['status']=='reviewed'}) for kind in sorted(set(inventories)-{'project'})}
     return {'records':result,'bridges':{k:[{'project_id':p,'output_id':o} for p,o in v] for k,v in bridges.items()},'inventory_sha256':digest(inventories),'native_acceptance':False}
 
 
