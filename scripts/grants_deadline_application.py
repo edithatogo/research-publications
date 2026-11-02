@@ -53,10 +53,15 @@ def prepare_override(context, snapshot, row, **options):
         version = item['odata.etag']
         if identity < 1 or not re.fullmatch(r'"[0-9]+"', version):
             raise ValueError('Versioned native item required')
-        uri = "_api/web/lists(guid'" + str(UUID(context[list_id])) + "')/items(" + str(identity) + ")?$select=Id"
+        fields = ('PolicyVersionKey','PolicyJson') if label == 'Policy' else ('DeadlineKey','OpportunityKey','Calendar_x0020_day')
+        uri = "_api/web/lists(guid'" + str(UUID(context[list_id])) + "')/items(" + str(identity) + ")?$select=Id," + ','.join(fields)
         actions[label] = spo(context, 'GET', uri, previous)
         previous = label + 'Matches'
-        actions[previous] = guard("equals(body('" + label + "')?['odata.etag'],'" + version + "')",label)
+        checks = ["equals(body('" + label + "')?['odata.etag'],'" + version + "')"]
+        for field in fields:
+            literal = base64.b64encode(item[field].encode()).decode()
+            checks.append("equals(body('" + label + "')?['" + field + "'],base64ToString('" + literal + "'))")
+        actions[previous] = guard('and('+','.join(checks)+')',label)
     actions['Existing']['runAfter'] = {previous:['Succeeded']}
     return {'definition':envelope(actions,manual()),'connectionReferences':{'shared_sharepointonline':{
         'id':'/providers/Microsoft.PowerApps/apis/shared_sharepointonline',
