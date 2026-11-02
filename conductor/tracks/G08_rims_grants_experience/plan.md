@@ -373,3 +373,31 @@ the feature checkout on `codex/grants-business-notifications`. This lane owns
 the new business worker and GrantConnect business source scope only. Existing
 operational alerts, calendar/import writers, authentication owners and schedules
 remain unchanged. No source refresh, fabricated review or NIH work occurred.
+
+## Policy-backed internal deadlines — 2 November 2026
+
+- [x] Restore the maintained policy/override schemas and implement evidence-bound
+  CLI planning using existing calculation and append-only history logic. Bind
+  organisation, scope, effective intervals, original policy/rule/holiday hashes;
+  reject conflicts and preserve source dates and unresolved overrides.
+- [x] One focused selection: 32 passed, one existing optional capability skipped;
+  two affected review checks passed. One bounded native read qualified the actual
+  versioned policy/override stores and their required unique keys. Its retained
+  snapshot has one policy row, one override row, zero authority-bound approved
+  policies, 85 source dates and 121 registry rows. The planner holds all 85 dates.
+- [x] Search the public CHHHS website and linked QH material as requested. No
+  applicable numerical grant lead-time rule was found in the inspected accessible
+  pages; SSA signature sequences and other institutions' rules are not substituted.
+- [ ] Obtain an applicable authoritative rule and original evidence. This is a
+  real policy-input dependency, not a native permission or stale ownership block.
+- [ ] Complete native append-only policy/override writing, source-version-bound
+  internal-date application and the intended reader connection against that rule.
+  The local planner deliberately cannot submit native writes. No live policy-
+  backed internal deadline is claimed implemented or accepted yet.
+
+See [contract and public-source findings](../../../docs/GRANTS_INTERNAL_DEADLINES.md)
+and [review](review-policy-deadlines-20261102.md). Exact native IDs, snapshots,
+temporary-flow cleanup and bounded CLI output-read receipts remain private under
+`private/ops/grants-policy-deadlines-20261102/` in the feature checkout, branch
+`codex/grants-policy-deadlines`. G08-H01 stays open; existing business/calendar/
+import objects, schedules, source data, authentication and NIH scope are unchanged.

@@ -55,6 +55,13 @@ historical import's active closeout continuation in its original checkout.
 - [ ] Connect institutional deadlines to an authoritative policy. None is
   inferred from the example lead times. Source closing dates remain unchanged;
   calculated dates without approved policy remain provisional.
+  2 November: policy/override schemas restored; evidence-bound CLI preparation
+  and native storage qualification pass. The live snapshot contains no approved
+  authority-bound policy; all 85 anchors are held unchanged. Requested public
+  CHHHS/QH research found no applicable numerical lead-time rule in accessible
+  pages. Native append-only writer, date application and reader integration are
+  still pending; this is not a deployed deadline feature. See
+  [policy review](review-policy-deadlines-20261102.md).
 - [ ] Expand reviewed project/person/ethics/DoRA/publication links from actual
   identifiers and evidence. Existing 169 publication-reference candidates remain
   accepted; they are not proof of institutional funding or ethics approval.
