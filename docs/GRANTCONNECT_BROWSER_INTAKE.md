@@ -1,5 +1,7 @@
 # GrantConnect daily browser intake
 
+The daily browser intake automation was paused on 2 November 2026 at track archival.
+
 Use the public BrowserOS neo session and the previous accepted private generation. The initial register contains 120 opportunities. The SharePoint ready-file flow owns all GrantConnect list writes.
 
 1. Capture the official RSS XML bytes with scripts/grantconnect_browser.js. Retain the final URL, UTC time, size, headers and SHA-256. Use the existing bootstrap-xml CLI with --previous-register. A missing record does not establish withdrawal. Preserve changed observations for reconciliation.
