@@ -9,7 +9,7 @@ Browser intake and the SharePoint ready-file writer feed the GrantConnect regist
 1. Consume the existing import terminal receipt and compare the three lists once against retained originals. Record acceptance or exact discrepancies in G04/T11 and the handoff.
 2. Bind an approved internal deadline rule, implement the policy and override writer, apply dates and connect the reader. Admit reviewed relationships when authoritative keys and evidence exist.
 3. Use authorised identities and saved preferences for calendar lifecycle, access isolation and a genuine due notification receipt. Keep the separate publication occurrence readback with its existing owner.
-4. Define internal application stages, owners and transitions before implementing that roadmap extension. Use one focused test and one verification for each changed feature.
+4. Internal application tracking is deployed and archived. The daily GrantConnect browser intake is paused. See [application tracking](archive/internal_grant_applications_20261102/plan.md). Use one focused test and one verification for each changed feature.
 
 ## Earlier checkpoints
 
