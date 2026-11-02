@@ -11,12 +11,49 @@ from scripts.deploy_report_definition import parts, fingerprint
 from scripts.prepare_outcome_binding import expression
 from scripts.prepare_outcome_reader import emit
 from scripts.prepare_publication_outcome_reader import projection
+from scripts.project_output_links import KINDS, RELATIONSHIP_KINDS
 
 TABLES = {
  'ProjectOutputLink': ['project_id','output_kind','output_id','evidence_id','evidence_revision','evidence_sha256','status','link_id','lineage_id','revision_id'],
  'ProjectOutputBridge': ['project_id','output_kind','output_id'],
  'ProjectLinkProject': ['project_id'],
 }
+
+
+def bridge_source():
+    allowed = '{' + ', '.join(json.dumps(k) for k in sorted(RELATIONSHIP_KINDS)) + '}'
+    legacy = '{' + ', '.join(json.dumps(k) for k in sorted(KINDS)) + '}'
+    # Legacy payloads remain valid; new typed bridges are consumed when supplied.
+    # Unknown kinds fail closed instead of silently disappearing from the reader.
+    return ('let B = Record.Field(Payload, "bridges"), '
+            'Names = Record.FieldNames(B), '
+            'Valid = if List.ContainsAll(Names, ' + legacy + ') and '
+            'List.ContainsAll(' + allowed + ', Names) then Names else error "Unknown or incomplete relationship bridges" '
+            'in List.Combine(List.Transform(Valid, (kind) => List.Transform(Record.Field(B, kind), '
+            'each Record.AddField(_, "output_kind", kind))))')
+
+
+def extend_existing(model, report, *, model_sha256, report_sha256):
+    """Patch the qualified existing reader, preserving every unrelated part/byte."""
+    if fingerprint(model) != model_sha256 or fingerprint(report) != report_sha256:
+        raise ValueError('Exact current preimages required')
+    mp, rp = parts(model), parts(report)
+    path = 'definition/tables/ProjectOutputBridge.tmdl'
+    legacy = 'List.Combine(List.Transform({"publication", "award", "dataset", "software"}, (kind) => List.Transform(Record.Field(Record.Field(Payload, "bridges"), kind), each Record.AddField(_, "output_kind", kind))))'
+    text = mp[path].decode()
+    if text.count(legacy) != 1:
+        raise ValueError('Existing bridge source differs; reconcile before writing')
+    page = 'definition/pages/ProjectOutputRelationships/page.json'
+    body = json.loads(rp[page])
+    if body.get('name') != 'ProjectOutputRelationships':
+        raise ValueError('Unexpected relationship page identity')
+    body['displayName'] = 'Reviewed project relationships and evidence'
+    m, r = copy.deepcopy(model), copy.deepcopy(report)
+    for definition, part_path, content in [(m,path,text.replace(legacy,bridge_source())),
+                                           (r,page,json.dumps(body))]:
+        part = next(p for p in definition['definition']['parts'] if p['path']==part_path)
+        part['payload'] = base64.b64encode(content.encode()).decode()
+    return {'model':m, 'report':r, 'native_runtime_verified':False, 'visual_acceptance':False}
 
 
 def table(name):
@@ -27,7 +64,7 @@ def table(name):
     source={
       'ProjectOutputLink':'Record.Field(Payload, "records")',
       'ProjectLinkProject':'List.Transform(List.Distinct(List.Transform(Record.Field(Payload, "records"), each Record.Field(_, "project_id"))), each [project_id = _])',
-      'ProjectOutputBridge':'List.Combine(List.Transform({"publication", "award", "dataset", "software"}, (kind) => List.Transform(Record.Field(Record.Field(Payload, "bridges"), kind), each Record.AddField(_, "output_kind", kind))))',
+      'ProjectOutputBridge':bridge_source(),
     }[name]
     lines += ['\tpartition '+name+' = m','\t\tmode: import','\t\tsource =','\t\t\tlet','\t\t\t    Payload = Json.Document(ProjectLinkProjection),','\t\t\t    Rows = '+source+',','\t\t\t    Selected = Table.FromRecords(Rows, '+'{'+', '.join(json.dumps(c) for c in columns)+'}'+', MissingField.Error),','\t\t\t    Typed = Table.TransformColumnTypes(Selected, {'+', '.join('{'+json.dumps(c)+', type text}' for c in columns)+'}),','\t\t\t    Result = Table.Distinct(Typed)' if name!='ProjectOutputLink' else '\t\t\t    Result = Typed','\t\t\tin Result']
     return '\n'.join(lines)+'\n'
@@ -81,11 +118,16 @@ def main():
     from scripts.outcome_intake import ROOT, save
     parser=argparse.ArgumentParser(description=__doc__)
     for name in ('model','report','target','model-sha256','report-sha256','output'):parser.add_argument('--'+name,required=True)
+    parser.add_argument('--extend-existing',action='store_true',help='Patch the qualified existing bridge and page only')
     args=parser.parse_args();output=Path(args.output).resolve()
     if not output.is_relative_to(ROOT/'private/ops'):raise ValueError('Private output required')
-    result=prepare(strict(Path(args.model).read_bytes()),strict(Path(args.report).read_bytes()),strict(Path(args.target).read_bytes()),model_sha256=args.model_sha256,report_sha256=args.report_sha256)
+    model,report=strict(Path(args.model).read_bytes()),strict(Path(args.report).read_bytes())
+    target=strict(Path(args.target).read_bytes())
+    if target.get('journalField')!='ProjectLinkJournal' or target.get('projectionField')!='ProjectLinkProjection':
+        raise ValueError('Dedicated project-link target required')
+    result=(extend_existing(model,report,model_sha256=args.model_sha256,report_sha256=args.report_sha256) if args.extend_existing else prepare(model,report,target,model_sha256=args.model_sha256,report_sha256=args.report_sha256))
     save(output,result)
-    print('Prepared additive project-link definitions; no deployment or refresh')
+    print('Prepared scoped project-link definitions; no deployment or refresh')
 
 
 if __name__=='__main__':main()

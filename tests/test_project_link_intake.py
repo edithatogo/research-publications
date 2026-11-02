@@ -39,3 +39,16 @@ class ProjectLinkIntakeTests(unittest.TestCase):
         with self.assertRaises(ValueError):prepare(snapshot,{**r,'complete':False})
         plan=prepare(snapshot,r)
         with self.assertRaises(ValueError):prepare({**snapshot,**plan['after']},{**r,'reason':'Different same revision'})
+
+    def test_broader_intake_upgrades_inventory_without_rewriting_legacy_revision(self):
+        from scripts.project_output_links import RELATIONSHIP_KINDS
+        snapshot,r=self.fixture();first=prepare(snapshot,r)
+        legacy_history=json.loads(first['after']['journal'])['history']
+        for kind in sorted(RELATIONSHIP_KINDS-{'publication','award','dataset','software'}):
+            inventories={**r['inventories'],**{k:[] for k in RELATIONSHIP_KINDS if k not in r['inventories']}}
+            inventories[kind]=['fictional-'+kind]
+            revised={**r,'inventories':inventories,'record':{**r['record'],'output_kind':kind,'output_id':'fictional-'+kind,'evidence_id':'E-'+kind,'status':'reviewed'},'revision_id':'r-'+kind}
+            result=prepare({**snapshot,**first['after']},revised)
+            self.assertEqual(json.loads(result['after']['journal'])['history'][:1],legacy_history)
+            self.assertEqual(len(json.loads(result['after']['projection'])['bridges'][kind]),1)
+            self.assertEqual(prepare({**snapshot,**result['after']},revised)['after'],result['after'])
