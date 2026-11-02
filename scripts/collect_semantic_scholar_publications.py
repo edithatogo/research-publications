@@ -108,12 +108,14 @@ def collect(args):
         if not path.exists():
             if args.replay_only:
                 continue
-            endpoint = "batch" if batch_size == 50 else quote(batch[0], safe=":")
+            # Retain the DOI slash and field commas used by the successful
+            # single-record probe and the provider's documented URL examples.
+            endpoint = "batch" if batch_size == 50 else quote(batch[0], safe=":/")
             url = (
                 "https://api.semanticscholar.org/graph/v1/paper/"
                 + endpoint
                 + "?"
-                + urlencode({"fields": FIELDS})
+                + urlencode({"fields": FIELDS}, safe=",")
             )
             request = Request(
                 url,
@@ -147,6 +149,11 @@ def collect(args):
                         stopped.update(
                             retryAfter=error.headers.get("Retry-After"),
                             bodyBase64=base64.b64encode(raw).decode(),
+                            responseHeaders={
+                                name: error.headers[name]
+                                for name in ["Date", "Age", "X-Cache", "x-amzn-RequestId"]
+                                if name in error.headers
+                            },
                         )
                         if status == 404 and batch_size == 1:
                             body = json.loads(raw)

@@ -64,6 +64,10 @@ class SingleCollectionTests(unittest.TestCase):
             ):
                 collector.collect(options)
                 self.assertEqual(network.call_count, 2)
+                self.assertEqual(
+                    network.call_args.args[0].full_url,
+                    "https://api.semanticscholar.org/graph/v1/paper/DOI:10.1234/abc?fields=" + collector.FIELDS,
+                )
                 self.assertIn(90, [call.args[0] for call in wait.call_args_list])
             result = json.loads((options.output / "coverage.json").read_bytes())
             self.assertEqual(result["counts"], {"matched": 1})
