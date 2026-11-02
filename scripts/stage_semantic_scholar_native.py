@@ -2,7 +2,7 @@
 """Prepare complete cached Semantic Scholar evidence for the existing native readers.
 
 This command performs no network calls and no native writes. Deferred collections
-are rejected before any staging file is written.
+require an explicit quota-limited bootstrap mode and retained HTTP 429 evidence.
 """
 
 import argparse
@@ -44,8 +44,16 @@ def stage(args):
     if len(manifest) != expected or {r["key"] for r in manifest} != keys:
         raise ValueError("Collection key set differs from canonical bibliography")
     counts = Counter(r["status"] for r in manifest)
-    if counts.get("deferred") or any(
-        s not in {"matched", "no match", "missing identifier", "ambiguous"}
+    quota_bootstrap = (
+        getattr(args, "quota_bootstrap", False)
+        and (coverage.get("stopped") or {}).get("status") == 429
+        and counts.get("matched", 0) > 0
+    )
+    allowed = {"matched", "no match", "missing identifier", "ambiguous"}
+    if quota_bootstrap:
+        allowed.add("deferred")
+    if (counts.get("deferred") and not quota_bootstrap) or any(
+        s not in allowed
         for s in counts
     ):
         raise ValueError("Collection incomplete; no native generation admitted")
@@ -98,6 +106,8 @@ def stage(args):
             if "not found" not in json.loads(raw).get("error", "").lower():
                 raise ValueError("No-match response lacks explicit not-found evidence")
             record["requestEvidence"] = receipt
+        elif item["status"] == "deferred" and quota_bootstrap and identifier:
+            record["deferralEvidence"] = {"httpStatus": 429, "reason": "Provider quota stop; identifier not yet resolved"}
         elif item["status"] != "missing identifier" or identifier is not None:
             raise ValueError("Disposition lacks retained evidence")
         staged.append(record)
@@ -131,11 +141,13 @@ def stage(args):
             raise ValueError("Unexpected native reader shape")
         text = text.replace(f"Table.RowCount(Selected)={len(old_files)} ", f"Table.RowCount(Selected)={len(names)} ")
         text = text.replace("=2688 ", f"={expected * 3} ")
+        text = text.replace("Result=Table.FromRecords(Rows),", "Result=Table.FromRecords(Rows, null, MissingField.UseNull),")
         part["payload"] = base64.b64encode(text.encode()).decode()
         changed.add(part["path"].rsplit("/", 1)[-1][:-5])
     if changed != affected:
         raise ValueError("Missing native source reader")
     report = {"canonical": expected, "counts": dict(counts), "field_presence": dict(fields),
+              "coverage": "quota-limited native bootstrap; collection incomplete" if counts.get("deferred") else "complete frozen lookup set",
               "requestedFieldCoverage": {name: {"present": fields[name], "absentFromMatchedResponses": counts["matched"] - fields[name]} for name in FIELDS.split(",")},
               "uniqueSourcePublicationPairs": expected * 3,
               "newFiles": len(files), "allFiles": len(names), "nativeWrites": 0, "providerRequests": 0}
@@ -149,6 +161,7 @@ def stage(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--quota-bootstrap", action="store_true", help="Stage an explicitly incomplete HTTP-429-limited native bootstrap")
     for name in ["canonical", "coverage", "upload-manifest", "definition", "output"]:
         parser.add_argument("--" + name, type=Path, required=True)
     print(json.dumps(stage(parser.parse_args())))
