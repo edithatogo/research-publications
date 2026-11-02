@@ -299,3 +299,23 @@ records have blank deadlines and no calendar item. Reconciliation after interrup
 completed four outstanding writes. The calendar partition accepts committed
 GC-CLOSE entries explicitly marked Source confirmed alongside reviewed records.
 Exact inverse, run handle and parity receipts are in the existing private capture.
+
+## Native historical reader deployed — 2 November 2026
+
+- [x] Save the three additive historical tables and GrantConnect history page in
+  the existing isolated model/report through the existing Fabric CLI.
+- [x] Process only those three tables once. The native request completed on its
+  first attempt. The snapshot contains 220,124 award versions, 1,072 closed or
+  archived opportunities and 100,888 confirmed GA/GO pairs, with nonblank distinct
+  keys and 30 source-field samples matched to retained evidence.
+- [x] Preserve all 1,344 publication rows and 50 fields, the 70 protected model
+  parts, 97 protected report parts, report binding and existing landing page.
+- [x] Apply review fixes for visible partial-snapshot wording and entity headings.
+  One focused test invocation and the consolidated native verification passed.
+
+See [review and retained receipt pointers](review-history-reader-20261102.md).
+The page explicitly identifies last-processed list data as potentially partial.
+The existing historical import and its final SharePoint membership comparison are
+independent and remain open. No source acquisition, import rerun, new schedule,
+business notification or NIH activation occurred. Other G08 features stay open;
+CLI definition/data acceptance does not claim visual rendering acceptance.

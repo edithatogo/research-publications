@@ -76,14 +76,19 @@ def prepare(model, report, *, model_sha256, report_sha256, site, lists):
     heading = {'$schema': SCHEMA, 'name': 'history-heading',
         'position': {'x': 32, 'y': 16, 'z': 0, 'height': 104, 'width': 1856, 'tabOrder': 0},
         'visual': {'visualType': 'textbox', 'objects': {'general': [{'properties': {
-            'paragraphs': [{'textRuns': [{'value': 'GrantConnect history — award versions, closed opportunities and confirmed identifiers. These are source records, not institutional applications or confirmed publication funding. Use the explicit GA/GO identifiers; counts of award versions are not counts of distinct grants.',
+            'paragraphs': [{'textRuns': [{'value': 'GrantConnect history — last processed list snapshot; may be partial while historical import continues. Award versions, closed opportunities and confirmed GA/GO pairs remain separate. These source records do not establish institutional applications or publication funding. Award-version counts are not distinct-grant counts.',
                 'textStyle': {'fontFamily': 'Segoe UI', 'fontSize': '16pt'}}]}]}}]}}}
     emit(result_report, prefix + 'visuals/history-heading/visual.json', json.dumps(heading))
+    titles = {'awards': 'Award versions', 'closed': 'Closed or archived opportunities',
+              'links': 'Confirmed award-version / opportunity identifiers'}
     for index, (entity, table) in enumerate(TABLES.items()):
         visual = {'$schema': SCHEMA, 'name': 'history-' + entity,
             'position': {'x': 32, 'y': 136 + index * 384, 'z': index + 1,
                          'height': 352, 'width': 1856, 'tabOrder': index + 1},
-            'visual': {'visualType': 'tableEx', 'query': {'queryState': {
+            'visual': {'visualType': 'tableEx', 'visualContainerObjects': {
+                'title': [{'properties': {'show': {'expr': {'Literal': {'Value': 'true'}}},
+                    'text': {'expr': {'Literal': {'Value': "'" + titles[entity] + "'"}}}}}]},
+                'query': {'queryState': {
                 'Values': {'projections': [projection(table, f) for f in FIELDS]}}}}}
         emit(result_report, prefix + f'visuals/history-{entity}/visual.json', json.dumps(visual))
     order['pageOrder'].append('GrantConnectHistory')

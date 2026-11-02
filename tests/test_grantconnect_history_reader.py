@@ -34,6 +34,10 @@ class HistoryReader(unittest.TestCase):
         self.assertEqual(order['pageOrder'], ['Original', 'GrantConnectHistory'])
         self.assertEqual(result['process_tables'], list(TABLES.values()))
         self.assertFalse(result['native_verified'])
+        self.assertIn('may be partial', rp['definition/pages/GrantConnectHistory/visuals/history-heading/visual.json'].decode())
+        for entity in TABLES:
+            table = json.loads(rp[f'definition/pages/GrantConnectHistory/visuals/history-{entity}/visual.json'])
+            self.assertTrue(table['visual']['visualContainerObjects']['title'])
         for name in TABLES.values():
             self.assertIn(b'MissingField.Error', mp[f'definition/tables/{name}.tmdl'])
         for delta in ({'site': 'https://other.sharepoint.com/sites/research'},
