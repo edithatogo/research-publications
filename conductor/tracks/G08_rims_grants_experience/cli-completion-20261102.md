@@ -18,8 +18,18 @@ historical import's active closeout continuation in its original checkout.
   checked the saved watchlist graph and prepared the reader against retained real
   model/report captures. Private evidence is in this checkout under
   `private/ops/grants-features-20261102/`.
-- [ ] Save/process the historical reader natively after complete history is
-  available. The builder's output is a candidate, not a populated native reader.
+- [x] Save/process the historical reader natively from committed list rows. The
+  selected 2 November deployment is independent of final import completion and
+  labels the last-processed snapshot as potentially partial. Import membership
+  acceptance stays with the existing import owner. Current deployment evidence:
+  `private/ops/grantconnect-history-native-20261102/` in this checkout.
+  Both native saves and the single three-table processing request succeeded.
+  The processed snapshot has 220,124 award versions, 1,072 closed opportunities
+  and 100,888 confirmed links. Thirty first/last source rows match retained fields;
+  keys are nonblank and distinct. All 1,344 publication rows and 50 fields remain
+  exact. All 70 protected model parts and 97 protected report parts are unchanged.
+  See [deployment review](review-history-reader-20261102.md). Full historical
+  import membership and visual rendering are not claimed by this CLI acceptance.
 - [ ] Complete business notifications and live calendar subscriptions. Existing
   notification/delivery/ICS logic remains reusable; an ICS snapshot does not
   establish an authenticated revocable live subscription. The selected recipient,
