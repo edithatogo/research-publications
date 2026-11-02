@@ -42,6 +42,17 @@ class InternalDeadlineTests(unittest.TestCase):
         return {'Id': 1, 'PolicyVersionKey': key('POLICY:', [p['PolicyKey'], p['Version']]),
                 'PolicyJson': json.dumps(envelope), 'odata.etag': '"1"'}
 
+    def test_policy_append_is_create_only_and_requires_exact_readback(self):
+        from scripts.grants_policy_append import prepare
+        context = {'policy_id':'00000000-0000-0000-0000-000000000001','site':'https://example.invalid','sharepoint_connection':'fixture'}
+        actions = prepare(context,self.record(),'FIXTURE',self.files)['definition']['actions']
+        create = actions['Append']['actions']['Create']['inputs']
+        self.assertEqual(create['parameters']['parameters/method'],'POST')
+        self.assertEqual(create['retryPolicy'],{'type':'none'})
+        self.assertFalse(actions['Append']['else']['actions'])
+        self.assertIn('PolicyJson',str(actions['Exact']))
+        self.assertEqual(prepare(context,{'PolicyJson':'{}'},'FIXTURE',{})['disposition'],'held')
+
     def run_plan(self):
         return plan(self.snapshot, organisation='FIXTURE', as_of='2026-11-02', evidence_files=self.files)
 

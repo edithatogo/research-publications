@@ -82,3 +82,10 @@ historical import's active closeout continuation in its original checkout.
 No source refresh, import restart, scheduled-run check, schedule change, business
 email, invitation or NIH activation occurred. CLI submission without waiting for
 completion cannot establish successful runtime delivery or model processing.
+
+Policy writer increment: `python -m scripts.grants_policy_append` prepares an
+append-only manual FlowAgent definition for one evidence-bound policy version.
+The existing unique policy key guards concurrent creation. Matching rows replay
+through exact readback and conflicts fail. One focused test passed and FlowAgent
+preflight returned ready using synthetic input. Native create and real policy
+application remain pending. The override writer and date reader remain open.
