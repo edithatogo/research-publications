@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:rims:contracts:g08-approved-policy-binding:v1",
+  "title": "Evidence binding for an already approved institutional deadline rule",
+  "description": "Input contract only. A valid object does not grant approval or authorise native application. Originals, digests, scope, effective dates and holiday coverage are verified by the runtime.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["SchemaVersion", "Policy", "Authority", "Scope"],
+  "properties": {
+    "SchemaVersion": {"const": "rims-approved-policy-v1"},
+    "Policy": {
+      "allOf": [
+        {"$ref": "urn:rims:contracts:g08-institutional-date-policy:v1"},
+        {"properties": {"AnchorKind": {"const": "final"}}}
+      ]
+    },
+    "Authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["Status", "DocumentID", "DocumentVersion", "SourceURL", "EvidenceSHA256", "PolicySHA256", "ApprovedBy", "ApprovedAtUTC"],
+      "properties": {
+        "Status": {"enum": ["Draft", "Approved", "Withdrawn"]},
+        "DocumentID": {"type": "string", "minLength": 1},
+        "DocumentVersion": {"type": "string", "minLength": 1},
+        "SourceURL": {"type": "string", "format": "uri", "pattern": "^https://"},
+        "EvidenceSHA256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "PolicySHA256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "ApprovedBy": {"type": "string", "minLength": 1},
+        "ApprovedAtUTC": {"type": "string", "format": "date-time", "pattern": "(?:Z|\\+00:00)$"}
+      }
+    },
+    "Scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["Sources", "OpportunityKeys"],
+      "properties": {
+        "Sources": {"const": ["GrantConnectRSS"]},
+        "OpportunityKeys": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      }
+    }
+  }
+}
