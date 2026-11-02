@@ -30,10 +30,21 @@ historical import's active closeout continuation in its original checkout.
   exact. All 70 protected model parts and 97 protected report parts are unchanged.
   See [deployment review](review-history-reader-20261102.md). Full historical
   import membership and visual rendering are not claimed by this CLI acceptance.
-- [ ] Complete business notifications and live calendar subscriptions. Existing
-  notification/delivery/ICS logic remains reusable; an ICS snapshot does not
-  establish an authenticated revocable live subscription. The selected recipient,
-  cadence and exact calendar destination must be bound before delivery.
+- [x] Implement and deploy current-operator live Outlook calendar synchronisation
+  using existing authenticated preferences, calendar and private delivery ledger.
+  One serial writer and three change-signal adapters are saved Started. Confirmed
+  GrantConnect source days only; no invitations or reminders. Exact-calendar
+  create/read/update/delete qualification passed after an encoding correction
+  reusing the same fixture. A read-only full-worker execution succeeded with no
+  active calendar follows and no provider/source writes. Private receipts:
+  `private/ops/grants-live-calendar-20261102/` in this checkout. See
+  [calendar review](review-live-calendar-20261102.md).
+- [ ] Accept the complete opt-in/change/pause/unsubscribe ledger lifecycle and
+  two-user access scope. The deployed current-operator route and isolated CRUD
+  qualification do not establish these broader outcomes. No real follow was
+  introduced for testing. G08-H05/H06 remain open for unaccepted scope.
+- [ ] Complete business notifications. Existing notification/delivery logic
+  remains reusable; actual recipient-authorised delivery remains separate.
 - [ ] Connect institutional deadlines to an authoritative policy. None is
   inferred from the example lead times. Source closing dates remain unchanged;
   calculated dates without approved policy remain provisional.
