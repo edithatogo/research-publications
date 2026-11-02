@@ -1,5 +1,6 @@
 """Compare the final SharePoint history lists with all retained ready manifests in one pass."""
 import argparse
+import hashlib
 import json
 import subprocess
 from pathlib import Path
@@ -17,7 +18,8 @@ def verify(binding, site, lists, manifests, receipt):
                 raise ValueError('Staged shard count changed')
             keys = expected[shard['entity']]
             for row in records:
-                if keys.setdefault(row['HistoryKey'], row['EvidenceHash']) != row['EvidenceHash']:
+                fields = tuple(row[field] for field in ('Title', 'GAID', 'GOID', 'EvidenceHash'))
+                if keys.setdefault(row['HistoryKey'], fields) != fields:
                     raise ValueError('Conflicting staged evidence')
     def read(root, query, path):
         url = root + '?' + urlencode(query, quote_via=quote, safe='$,')
@@ -39,11 +41,15 @@ def verify(binding, site, lists, manifests, receipt):
         last = count = 0
         while count < total:
             # Bounded indexed ID ranges avoid skipping rows or relying on default sort order.
-            query = {'$select': 'Id,HistoryKey,EvidenceHash', '$filter': f'Id gt {last} and Id le {last + 5000}', '$top': '5000'}
+            query = {'$select': 'Id,Title,HistoryKey,GAID,GOID,EvidenceHash,SourceEvidence', '$filter': f'Id gt {last} and Id le {last + 5000}', '$top': '5000'}
             path = receipt / f'{entity}-{last}.json'
             for row in read(root, query, path):
-                if keys.pop(row['HistoryKey'], None) != row['EvidenceHash']:
+                fields = tuple(row.get(field) or '' for field in ('Title', 'GAID', 'GOID', 'EvidenceHash'))
+                if keys.pop(row['HistoryKey'], None) != fields:
                     raise ValueError(f'Unexpected or changed {entity} record')
+                evidence = row.get('SourceEvidence')
+                if not isinstance(evidence, str) or hashlib.sha256(evidence.encode()).hexdigest() != row['EvidenceHash']:
+                    raise ValueError(f'Changed {entity} source evidence')
                 count += 1
             last += 5000
             if last > 10 * total + 50000 and count < total:
