@@ -1,9 +1,10 @@
 # Policy-backed internal deadlines
 
-Current status: validated CLI preparation and existing native storage qualified;
-live policy application is blocked by the absence of an identified applicable
-approved CHHHS lead-time rule. No internal dates have been applied. This is not
-an accepted end-to-end native policy-to-report deployment.
+The manual date application flow and Power BI reader are deployed. On 2 November
+the flow held 85 anchors and performed zero writes. The processed report table
+returned those same 85 rows with blank internal dates. The override writer is
+prepared per reviewed revision and passed FlowAgent preflight. Its first native
+append requires an applicable approved policy and a real reviewed override.
 
 ## Public policy search — 2 November 2026
 
