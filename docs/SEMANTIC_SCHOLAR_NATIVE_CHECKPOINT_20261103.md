@@ -28,3 +28,32 @@ The native flow definition exceeded size limits when all saved page literals wer
 Private receipts in the original checkout's `private/ops/2026-11-02-semantic-scholar-full` include the upload batches, model definition readback, completed refresh, byte and field reconciliation, final native run, restoration and `completion-receipt.json`. This receipt is **PASS_NATIVE_QUOTA_LIMITED_CHECKPOINT**, not complete collection. Preserve these receipts and preimages. A changed cache requires a new frozen generation; reuse unchanged archive pages and issue no duplicate writes. The original bootstrap receipts remain historical evidence.
 
 Source tests and required repository checks are unchanged from the [bootstrap qualification](SEMANTIC_SCHOLAR_NATIVE_BOOTSTRAP_20261102.md); they were reused. This generation added native data, byte, field, identity and flow proof. Conditional licensed feeds and wider institutional/public-use rights remain outside this no-login pass.
+
+## Requested-field coverage
+
+Counts refer to the 1,266 accepted matches. A present object can contain null subfields; for example, an `openAccessPdf` object does not establish that a PDF URL is available. Nested nonempty values are accounted for separately in the 45-path field report.
+
+| Requested field | Present | Absent from matched responses |
+|---|---:|---:|
+| paperId | 1,266 | 0 |
+| corpusId | 1,266 | 0 |
+| externalIds | 1,266 | 0 |
+| url | 1,266 | 0 |
+| title | 1,266 | 0 |
+| abstract | 846 | 420 |
+| venue | 1,250 | 16 |
+| publicationVenue | 1,185 | 81 |
+| year | 1,266 | 0 |
+| referenceCount | 1,266 | 0 |
+| citationCount | 1,266 | 0 |
+| influentialCitationCount | 1,266 | 0 |
+| isOpenAccess | 1,266 | 0 |
+| openAccessPdf | 1,266 | 0 |
+| fieldsOfStudy | 1,240 | 26 |
+| s2FieldsOfStudy | 1,265 | 1 |
+| publicationTypes | 1,233 | 33 |
+| publicationDate | 1,243 | 23 |
+| journal | 1,266 | 0 |
+| authors | 1,265 | 1 |
+
+At 00:36 Brisbane on 3 November, the retry after a full one-hour cooldown still returned HTTP 429 with no Retry-After header. No new results were obtained. The existing collector retained the 45 deferred lookups and scheduled its next conservative attempt for 01:36 Brisbane. A one-task foreground continuation waits for complete collection, then uses the verified checkpoint preimages, checks native drift, skips unchanged pages, and runs the existing native delivery/reconciliation sequence. It creates no schedule or login and stops on errors without retrying uncertain mutations. Its private status is `private/ops/2026-11-03-semantic-scholar-complete/continuation.log`; `completion-receipt.json` there exists only after final native checks pass. Until then, the accepted result remains the quota-limited checkpoint above.
