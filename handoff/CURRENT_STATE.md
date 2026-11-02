@@ -1319,3 +1319,15 @@ The old divergent development bases are closed. Parent NIH candidate source
 passes12 focused tests; source authority, complete real capture and native
 acceptance remain separate. Source package0.4.0-roadmap.15 at a34dc758 passed
 fresh extraction/full harness (SHA2563723105bd765ef13cf2dd6944a98f408e5c45f70ee4b10de763ef6a3ab9c6329).
+
+## Monthly repair documentation and source integration — 2 November 2026
+
+The existing monthly exporter/observer repair and controlled recovery are verified;
+[scoped native documentation](../conductor/tracks/publication_monthly_monitoring_20261024/documentation-20261102.md)
+now verifies SharePoint catalogue34.0, field guide21.0 and reopened Loop111.0.
+Current timing is07:00 export/10:00 deadline/10:05 observer Brisbane.
+**RMD-05 stays pending actual natural-run evidence.** Controlled recovery is
+not a natural pass. The active grants import and its existing owner, checkout,
+manifest batches, cooldowns and native journals remain preserved. No scope
+transfers to this monthly lane. Source integration owner is the monthly repair
+chat in its named isolated integration worktree; original dirty checkout untouched.

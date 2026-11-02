@@ -1,0 +1,742 @@
+{
+  "schema": 1,
+  "slug": "solution-chhhsrimspublicationsdeliverymonitor",
+  "provenance": {
+    "sha256": "a9fe889782a7da9acd61876a47bf60dad4bd91f7ff716eea5b8f26236b86781c",
+    "status": "2 November 2026 native repair: existing daily10:05 Brisbane, past anchor, after native10:00 deadline. Controlled recovery correctly retained LATE_DELIVERY_TRIGGER_ORIGIN_UNVERIFIED after all content checks succeeded. Natural occurrence unproved; RMD-05 pending."
+  },
+  "semantics": "Documentary control-dependency abstraction. Not executable: conditions, retries, timeouts, token scheduling and connector effects remain authoritative in the Power Automate definition.",
+  "scopes": [
+    {
+      "path": "root",
+      "triggers": [
+        {
+          "label": "Recurrence",
+          "type": "Recurrence"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "Deadline",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Expected_at": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n1",
+          "label": "Due",
+          "type": "If",
+          "children": [
+            "root/Due/body",
+            "root/Due/else"
+          ],
+          "run_after": {
+            "Deadline": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n2",
+          "label": "Expected_at",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Observed_at": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n3",
+          "label": "Init_status",
+          "type": "InitializeVariable",
+          "children": [],
+          "run_after": {}
+        },
+        {
+          "id": "n4",
+          "label": "Observation_receipt",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Due": [
+              "Succeeded",
+              "Failed",
+              "TimedOut",
+              "Skipped"
+            ]
+          }
+        },
+        {
+          "id": "n5",
+          "label": "Observed_at",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Init_status": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n6",
+          "label": "Read_observation",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Save_observation": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n7",
+          "label": "Retain_non_success",
+          "type": "If",
+          "children": [
+            "root/Retain_non_success/body",
+            "root/Retain_non_success/else"
+          ],
+          "run_after": {
+            "Verify_observation": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n8",
+          "label": "Save_observation",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Observation_receipt": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n9",
+          "label": "Verify_observation",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Read_observation": [
+              "Succeeded"
+            ]
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": "n2",
+          "target": "n0",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n0",
+          "target": "n1",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n5",
+          "target": "n2",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n1",
+          "target": "n4",
+          "statuses": [
+            "Succeeded",
+            "Failed",
+            "TimedOut",
+            "Skipped"
+          ]
+        },
+        {
+          "source": "n3",
+          "target": "n5",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n8",
+          "target": "n6",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n9",
+          "target": "n7",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n4",
+          "target": "n8",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n6",
+          "target": "n9",
+          "statuses": [
+            "Succeeded"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "root/Due/body",
+      "triggers": [],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "Observe_delivery",
+          "type": "Scope",
+          "children": [
+            "root/Due/body/Observe_delivery/body"
+          ],
+          "run_after": {}
+        }
+      ],
+      "edges": []
+    },
+    {
+      "path": "root/Due/body/Observe_delivery/body",
+      "triggers": [],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "Failure_receipts",
+          "type": "Query",
+          "children": [],
+          "run_after": {
+            "Health_receipts": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n1",
+          "label": "Health_receipts",
+          "type": "Query",
+          "children": [],
+          "run_after": {
+            "Require_complete_listing": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n2",
+          "label": "List_receipts",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {}
+        },
+        {
+          "id": "n3",
+          "label": "One_health_receipt",
+          "type": "If",
+          "children": [
+            "root/Due/body/Observe_delivery/body/One_health_receipt/body",
+            "root/Due/body/Observe_delivery/body/One_health_receipt/else"
+          ],
+          "run_after": {
+            "Failure_receipts": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n4",
+          "label": "Require_complete_listing",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "List_receipts": [
+              "Succeeded"
+            ]
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": "n1",
+          "target": "n0",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n4",
+          "target": "n1",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n0",
+          "target": "n3",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n2",
+          "target": "n4",
+          "statuses": [
+            "Succeeded"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "root/Due/body/Observe_delivery/body/One_health_receipt/body",
+      "triggers": [],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "Health",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Read_health": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n1",
+          "label": "Manifest",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Read_manifest": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n2",
+          "label": "Read_CSV",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Require_manifest": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n3",
+          "label": "Read_all_parts",
+          "type": "Foreach",
+          "children": [
+            "root/Due/body/Observe_delivery/body/One_health_receipt/body/Read_all_parts/body"
+          ],
+          "run_after": {
+            "Require_index": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n4",
+          "label": "Read_health",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {}
+        },
+        {
+          "id": "n5",
+          "label": "Read_index",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Require_CSV": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n6",
+          "label": "Read_manifest",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {
+            "Require_health_time": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n7",
+          "label": "Require_CSV",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Read_CSV": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n8",
+          "label": "Require_health",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Health": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n9",
+          "label": "Require_health_time",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Require_health": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n10",
+          "label": "Require_index",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Read_index": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n11",
+          "label": "Require_manifest",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Manifest": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n12",
+          "label": "Set_delivered",
+          "type": "SetVariable",
+          "children": [],
+          "run_after": {
+            "Read_all_parts": [
+              "Succeeded"
+            ]
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": "n4",
+          "target": "n0",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n6",
+          "target": "n1",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n11",
+          "target": "n2",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n10",
+          "target": "n3",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n7",
+          "target": "n5",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n9",
+          "target": "n6",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n2",
+          "target": "n7",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n0",
+          "target": "n8",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n8",
+          "target": "n9",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n5",
+          "target": "n10",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n1",
+          "target": "n11",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n3",
+          "target": "n12",
+          "statuses": [
+            "Succeeded"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "root/Due/body/Observe_delivery/body/One_health_receipt/body/Read_all_parts/body",
+      "triggers": [],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "Read_part",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {}
+        },
+        {
+          "id": "n1",
+          "label": "Require_part",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Read_part": [
+              "Succeeded"
+            ]
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": "n0",
+          "target": "n1",
+          "statuses": [
+            "Succeeded"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "root/Due/body/Observe_delivery/body/One_health_receipt/else",
+      "triggers": [],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "No_unique_health",
+          "type": "If",
+          "children": [
+            "root/Due/body/Observe_delivery/body/One_health_receipt/else/No_unique_health/body",
+            "root/Due/body/Observe_delivery/body/One_health_receipt/else/No_unique_health/else"
+          ],
+          "run_after": {}
+        }
+      ],
+      "edges": []
+    },
+    {
+      "path": "root/Due/body/Observe_delivery/body/One_health_receipt/else/No_unique_health/body",
+      "triggers": [],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "Ambiguous_delivery",
+          "type": "SetVariable",
+          "children": [],
+          "run_after": {}
+        }
+      ],
+      "edges": []
+    },
+    {
+      "path": "root/Due/body/Observe_delivery/body/One_health_receipt/else/No_unique_health/else",
+      "triggers": [],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "Missing_health",
+          "type": "If",
+          "children": [
+            "root/Due/body/Observe_delivery/body/One_health_receipt/else/No_unique_health/else/Missing_health/body",
+            "root/Due/body/Observe_delivery/body/One_health_receipt/else/No_unique_health/else/Missing_health/else"
+          ],
+          "run_after": {}
+        }
+      ],
+      "edges": []
+    },
+    {
+      "path": "root/Due/body/Observe_delivery/body/One_health_receipt/else/No_unique_health/else/Missing_health/body",
+      "triggers": [],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "Export_failure",
+          "type": "SetVariable",
+          "children": [],
+          "run_after": {
+            "Require_failure": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n1",
+          "label": "Failure",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Read_failure": [
+              "Succeeded"
+            ]
+          }
+        },
+        {
+          "id": "n2",
+          "label": "Read_failure",
+          "type": "OpenApiConnection",
+          "children": [],
+          "run_after": {}
+        },
+        {
+          "id": "n3",
+          "label": "Require_failure",
+          "type": "Compose",
+          "children": [],
+          "run_after": {
+            "Failure": [
+              "Succeeded"
+            ]
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": "n3",
+          "target": "n0",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n2",
+          "target": "n1",
+          "statuses": [
+            "Succeeded"
+          ]
+        },
+        {
+          "source": "n1",
+          "target": "n3",
+          "statuses": [
+            "Succeeded"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "root/Due/body/Observe_delivery/body/One_health_receipt/else/No_unique_health/else/Missing_health/else",
+      "triggers": [],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "No_completion",
+          "type": "SetVariable",
+          "children": [],
+          "run_after": {}
+        }
+      ],
+      "edges": []
+    },
+    {
+      "path": "root/Due/else",
+      "triggers": [],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "Before_deadline",
+          "type": "SetVariable",
+          "children": [],
+          "run_after": {}
+        }
+      ],
+      "edges": []
+    },
+    {
+      "path": "root/Retain_non_success/body",
+      "triggers": [],
+      "nodes": [
+        {
+          "id": "n0",
+          "label": "Incomplete",
+          "type": "Terminate",
+          "children": [],
+          "run_after": {}
+        }
+      ],
+      "edges": []
+    },
+    {
+      "path": "root/Retain_non_success/else",
+      "triggers": [],
+      "nodes": [],
+      "edges": []
+    }
+  ]
+}
