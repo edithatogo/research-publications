@@ -299,3 +299,105 @@ records have blank deadlines and no calendar item. Reconciliation after interrup
 completed four outstanding writes. The calendar partition accepts committed
 GC-CLOSE entries explicitly marked Source confirmed alongside reviewed records.
 Exact inverse, run handle and parity receipts are in the existing private capture.
+
+## Native historical reader deployed — 2 November 2026
+
+- [x] Save the three additive historical tables and GrantConnect history page in
+  the existing isolated model/report through the existing Fabric CLI.
+- [x] Process only those three tables once. The native request completed on its
+  first attempt. The snapshot contains 220,124 award versions, 1,072 closed or
+  archived opportunities and 100,888 confirmed GA/GO pairs, with nonblank distinct
+  keys and 30 source-field samples matched to retained evidence.
+- [x] Preserve all 1,344 publication rows and 50 fields, the 70 protected model
+  parts, 97 protected report parts, report binding and existing landing page.
+- [x] Apply review fixes for visible partial-snapshot wording and entity headings.
+  One focused test invocation and the consolidated native verification passed.
+
+See [review and retained receipt pointers](review-history-reader-20261102.md).
+The page explicitly identifies last-processed list data as potentially partial.
+The existing historical import and its final SharePoint membership comparison are
+independent and remain open. No source acquisition, import rerun, new schedule,
+business notification or NIH activation occurred. Other G08 features stay open;
+CLI definition/data acceptance does not claim visual rendering acceptance.
+
+## Live calendar implementation — 2 November 2026
+
+- [x] Reuse the current operator's existing Outlook calendar, private watchlist
+  and delivery ledger. Deploy one serial calendar writer with coalesced
+  preference/deadline/classification change signals through FlowAgent.
+- [x] Implement confirmed-day matching, stable managed event identity, in-place
+  updates, explicit withdrawal, unchanged replay suppression, conditional writes,
+  human-edit protection and durable pending-attempt retention. Source or
+  classification uncertainty holds rather than fabricating a date/withdrawal.
+- [x] Seven focused local tests passed; the added classification signal received
+  one affected-test check. The first native qualification failed on unescaped
+  marker braces after creating one event. Its corrective continuation updated
+  and removed the same event; no duplicate create or invitation occurred.
+- [x] Execute the worker's live-reader graph once with an explicit no-opt-in
+  guard. It succeeded without source/provider writes. Restore its file-change
+  trigger and retain saved-definition readback privately.
+- [ ] Full saved-follow/change/ledger/pause/unsubscribe and multi-user acceptance
+  remain open. No real follow was created merely to test the feature. The
+  current-operator deployment does not close all H05/H06 scope.
+
+See [calendar contract](../../../docs/GRANTS_LIVE_CALENDAR.md) and
+[review with applied fixes](review-live-calendar-20261102.md). Native identity,
+qualification and readback receipts are private in the feature checkout. The
+historical-import writer, original evidence, existing business schedules and
+inactive NIH roadmap are unchanged. No scheduled verification was performed.
+
+## Business notification implementation — 2 November 2026
+
+- [x] Bootstrap the retained delivery graph as one fixed-operator unattended
+  GrantConnect business sender: opportunity revisions, reviewed deadline changes,
+  cancellation and source-day reminders with saved immediate/daily/weekly cadence.
+- [x] Preserve source review, current classification and private saved consent.
+  Re-read source/preference/deadline versions before send; use claim-before-send,
+  no transport retries, exact receipt markers and receipt-only ambiguous recovery.
+- [x] Resolve the non-unique ledger-key concurrency risk with explicit source
+  ownership. At an idle checkpoint, promote only the existing legacy dispatch
+  module and exclude GrantConnect business candidates in its private configuration.
+  Preserve the operational worker, schedule, dirty source and earlier journals.
+- [x] Run the focused 13-case selection, correct two test-harness errors with
+  affected reruns, and apply review fixes. The one native no-send qualification
+  succeeded with zero reviewed GrantConnect records and zero due own email rules.
+  Final reviewed Started definition, connections and ownership cutover match.
+- [ ] Accept an actual business-message receipt from genuinely reviewed source
+  evidence and a saved due email preference. Implementation/readback and no-send
+  qualification do not establish that receipt or broader multi-user acceptance.
+
+See [business contract](../../../docs/GRANTS_BUSINESS_NOTIFICATIONS.md) and
+[review](review-business-notifications-20261102.md). Native scope/receipts are
+retained privately in `private/ops/grants-business-notifications-20261102/` in
+the feature checkout on `codex/grants-business-notifications`. This lane owns
+the new business worker and GrantConnect business source scope only. Existing
+operational alerts, calendar/import writers, authentication owners and schedules
+remain unchanged. No source refresh, fabricated review or NIH work occurred.
+
+## Policy-backed internal deadlines — 2 November 2026
+
+- [x] Restore the maintained policy/override schemas and implement evidence-bound
+  CLI planning using existing calculation and append-only history logic. Bind
+  organisation, scope, effective intervals, original policy/rule/holiday hashes;
+  reject conflicts and preserve source dates and unresolved overrides.
+- [x] One focused selection: 32 passed, one existing optional capability skipped;
+  two affected review checks passed. One bounded native read qualified the actual
+  versioned policy/override stores and their required unique keys. Its retained
+  snapshot has one policy row, one override row, zero authority-bound approved
+  policies, 85 source dates and 121 registry rows. The planner holds all 85 dates.
+- [x] Search the public CHHHS website and linked QH material as requested. No
+  applicable numerical grant lead-time rule was found in the inspected accessible
+  pages; SSA signature sequences and other institutions' rules are not substituted.
+- [ ] Obtain an applicable authoritative rule and original evidence. This is a
+  real policy-input dependency, not a native permission or stale ownership block.
+- [ ] Complete native append-only policy/override writing, source-version-bound
+  internal-date application and the intended reader connection against that rule.
+  The local planner deliberately cannot submit native writes. No live policy-
+  backed internal deadline is claimed implemented or accepted yet.
+
+See [contract and public-source findings](../../../docs/GRANTS_INTERNAL_DEADLINES.md)
+and [review](review-policy-deadlines-20261102.md). Exact native IDs, snapshots,
+temporary-flow cleanup and bounded CLI output-read receipts remain private under
+`private/ops/grants-policy-deadlines-20261102/` in the feature checkout, branch
+`codex/grants-policy-deadlines`. G08-H01 stays open; existing business/calendar/
+import objects, schedules, source data, authentication and NIH scope are unchanged.

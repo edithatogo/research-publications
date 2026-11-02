@@ -20,3 +20,22 @@ class ProjectLinkReaderTests(unittest.TestCase):
         for name in TABLES:self.assertIn(b'Table.FromRecords(Rows, {',mp['definition/tables/'+name+'.tmdl'])
         self.assertIn(b'Record.Field(Payload, "bridges")',mp['definition/tables/ProjectOutputBridge.tmdl'])
         with self.assertRaises(ValueError):prepare(r['model'],r['report'],target,model_sha256=fingerprint(r['model']),report_sha256=fingerprint(r['report']))
+
+    def test_existing_reader_patch_preserves_unrelated_bytes_and_refuses_drift(self):
+        from scripts.prepare_project_link_reader import extend_existing,bridge_source
+        model={'definition':{'parts':[]}};report={'definition':{'parts':[]}}
+        legacy='List.Combine(List.Transform({"publication", "award", "dataset", "software"}, (kind) => List.Transform(Record.Field(Record.Field(Payload, "bridges"), kind), each Record.AddField(_, "output_kind", kind))))'
+        path='definition/tables/ProjectOutputBridge.tmdl'
+        page='definition/pages/ProjectOutputRelationships/page.json'
+        emit(model,path,'table ProjectOutputBridge\n    Rows = '+legacy+'\n')
+        emit(model,'definition/relationships.tmdl','one-direction relationships preserved\n')
+        emit(report,page,json.dumps({'name':'ProjectOutputRelationships','displayName':'Existing','width':1920,'height':1080}))
+        emit(report,'definition.pbir','protected report binding')
+        result=extend_existing(model,report,model_sha256=fingerprint(model),report_sha256=fingerprint(report))
+        self.assertEqual(parts(result['model'])['definition/relationships.tmdl'],parts(model)['definition/relationships.tmdl'])
+        self.assertEqual(parts(result['report'])['definition.pbir'],parts(report)['definition.pbir'])
+        text=parts(result['model'])[path].decode()
+        for kind in ['person','ethics','dora','opportunity']:self.assertIn('"'+kind+'"',text)
+        self.assertIn('List.ContainsAll',bridge_source())
+        with self.assertRaisesRegex(ValueError,'preimages'):extend_existing(model,report,model_sha256='stale',report_sha256=fingerprint(report))
+        with self.assertRaisesRegex(ValueError,'differs'):extend_existing(result['model'],result['report'],model_sha256=fingerprint(result['model']),report_sha256=fingerprint(result['report']))

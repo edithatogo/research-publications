@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:rims:contracts:g08-institutional-deadline-override:v1",
+  "title": "RIMS institutional deadline override history row",
+  "description": "A proposed institutional date linked to an official source anchor and policy revision. History completeness, key derivation, currentness and approval are checked by the runtime reconciler and authoritative review process.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "OverrideKey",
+    "OverrideRevision",
+    "AnchorDeadlineKey",
+    "AnchorDate",
+    "AnchorPrecision",
+    "PolicyKey",
+    "PolicyVersion",
+    "CalculatedDate",
+    "OverrideDate",
+    "OverrideReason",
+    "ReviewStatus",
+    "RecordedAtUTC"
+  ],
+  "properties": {
+    "OverrideKey": {"type": "string", "pattern": "^OVERRIDE:[0-9a-f]{24}$"},
+    "OverrideRevision": {"type": "integer", "minimum": 1},
+    "AnchorDeadlineKey": {"type": "string", "minLength": 1, "pattern": "^\\S(?:.*\\S)?$"},
+    "AnchorDate": {"type": "string", "format": "date"},
+    "AnchorPrecision": {"enum": ["day", "month", "quarter", "year", "unknown"]},
+    "PolicyKey": {"type": "string", "minLength": 1, "pattern": "^\\S(?:.*\\S)?$"},
+    "PolicyVersion": {"type": "string", "minLength": 1, "pattern": "^\\S(?:.*\\S)?$"},
+    "CalculatedDate": {"type": "string", "format": "date"},
+    "OverrideDate": {"type": "string", "format": "date"},
+    "OverrideReason": {"type": "string", "minLength": 1, "pattern": "^\\S(?:.*\\S)?$"},
+    "ReviewStatus": {"type": "string", "minLength": 1, "pattern": "^\\S(?:.*\\S)?$"},
+    "RecordedAtUTC": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$", "format": "date-time"}
+  }
+}
