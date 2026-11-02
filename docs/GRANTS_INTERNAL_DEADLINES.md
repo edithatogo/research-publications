@@ -1,9 +1,10 @@
 # Policy-backed internal deadlines
 
-Current status: validated CLI preparation and existing native storage qualified;
-live policy application is blocked by the absence of an identified applicable
-approved CHHHS lead-time rule. No internal dates have been applied. This is not
-an accepted end-to-end native policy-to-report deployment.
+The manual date application flow and Power BI reader are deployed. On 2 November
+the flow held 85 anchors and performed zero writes. The processed report table
+returned those same 85 rows with blank internal dates. The override writer is
+prepared per reviewed revision and passed FlowAgent preflight. Its first native
+append requires an applicable approved policy and a real reviewed override.
 
 ## Public policy search — 2 November 2026
 
@@ -96,3 +97,36 @@ Conductor G08-H01 remains open. Private identities, native snapshots and receipt
 are under `private/ops/grants-policy-deadlines-20261102/` in the feature checkout.
 Existing schedules, publication data, live notification/calendar writers and NIH
 deferral are preserved. No source refresh, email or approval-state change occurred.
+
+## Apply a retained generation and prepare a reviewed override
+
+Use `python -m scripts.grants_deadline_application` with the qualified
+repository interpreter. Supply `--snapshot`, `--evidence`, `--organisation`,
+`--as-of` and a new private `--output`. A dated snapshot is the unit of
+application. Rebuild it from the four complete native arrays after a source,
+policy or override change. The report displays the snapshot date beside its
+effective date, source date, policy identity, review disposition and revision.
+
+For an override add `--context` and `--override`. Supply a reviewed history
+record and the existing qualified SharePoint binding. The CLI checks the
+complete revision chain and resolves the applicable authority-bound policy.
+Use FlowAgent to preflight and save the resulting manual definition. It reads
+the live policy and anchor versions before append, creates only a missing
+immutable key, and compares the saved JSON at the end. A new decision requires
+a new revision. Preserve the private receipts for each operation.
+
+For date application add `--model` and `--report` with complete current
+definitions. Apply the returned model and report through the existing Fabric
+CLI updateDefinition route and process only GrantInternalDeadlines. This
+materializes dated results in the reader and preserves the official calendar.
+Missing policy authority produces a held row with blank internal dates.
+The existing schedules continue independently of this explicit CLI operation.
+
+To apply dates to the funding calendar, use the same CLI inputs with
+`--apply-calendar --context <private-binding>`. Use FlowAgent to update the
+existing manual application flow with that occurrence's prepared definition.
+Its four list version checks cover added, removed and modified rows. Only
+separate INTERNAL keys are eligible for updates. Apply the occurrence once,
+retain its result and recapture the calendar before preparing the reader.
+Publication of an effective date requires the stored calendar revision and
+effective date to agree with the policy calculation and reviewed override.
