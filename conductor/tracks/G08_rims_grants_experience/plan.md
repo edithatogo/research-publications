@@ -319,3 +319,29 @@ The existing historical import and its final SharePoint membership comparison ar
 independent and remain open. No source acquisition, import rerun, new schedule,
 business notification or NIH activation occurred. Other G08 features stay open;
 CLI definition/data acceptance does not claim visual rendering acceptance.
+
+## Live calendar implementation — 2 November 2026
+
+- [x] Reuse the current operator's existing Outlook calendar, private watchlist
+  and delivery ledger. Deploy one serial calendar writer with coalesced
+  preference/deadline/classification change signals through FlowAgent.
+- [x] Implement confirmed-day matching, stable managed event identity, in-place
+  updates, explicit withdrawal, unchanged replay suppression, conditional writes,
+  human-edit protection and durable pending-attempt retention. Source or
+  classification uncertainty holds rather than fabricating a date/withdrawal.
+- [x] Seven focused local tests passed; the added classification signal received
+  one affected-test check. The first native qualification failed on unescaped
+  marker braces after creating one event. Its corrective continuation updated
+  and removed the same event; no duplicate create or invitation occurred.
+- [x] Execute the worker's live-reader graph once with an explicit no-opt-in
+  guard. It succeeded without source/provider writes. Restore its file-change
+  trigger and retain saved-definition readback privately.
+- [ ] Full saved-follow/change/ledger/pause/unsubscribe and multi-user acceptance
+  remain open. No real follow was created merely to test the feature. The
+  current-operator deployment does not close all H05/H06 scope.
+
+See [calendar contract](../../../docs/GRANTS_LIVE_CALENDAR.md) and
+[review with applied fixes](review-live-calendar-20261102.md). Native identity,
+qualification and readback receipts are private in the feature checkout. The
+historical-import writer, original evidence, existing business schedules and
+inactive NIH roadmap are unchanged. No scheduled verification was performed.
