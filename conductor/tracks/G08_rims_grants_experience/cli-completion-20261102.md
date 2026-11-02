@@ -43,8 +43,15 @@ historical import's active closeout continuation in its original checkout.
   two-user access scope. The deployed current-operator route and isolated CRUD
   qualification do not establish these broader outcomes. No real follow was
   introduced for testing. G08-H05/H06 remain open for unaccepted scope.
-- [ ] Complete business notifications. Existing notification/delivery logic
-  remains reusable; actual recipient-authorised delivery remains separate.
+- [x] Implement/deploy fixed-operator GrantConnect business notifications using
+  the retained standard-connector sender, private preferences and delivery ledger.
+  Native no-send qualification passed; reviewed record count and due email rule
+  count were both zero. Final reviewed definition and references match Started
+  readback. The old monitor excludes GrantConnect business candidates and retains
+  its operational alerts/schedule. See [business review](review-business-notifications-20261102.md).
+- [ ] Accept the first actual reviewed business-message receipt when a genuine
+  reviewed GrantConnect record matches a saved due email preference. No source
+  review was fabricated and no unsolicited test message or follow introduced.
 - [ ] Connect institutional deadlines to an authoritative policy. None is
   inferred from the example lead times. Source closing dates remain unchanged;
   calculated dates without approved policy remain provisional.
