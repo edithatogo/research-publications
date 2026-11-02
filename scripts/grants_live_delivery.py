@@ -152,7 +152,10 @@ def dispatch_snapshot(config,rows,read_record,*,now,directory,health):
     """Use the existing monitor's guarded reads and a persistent one-send outbox."""
     state=Path(config['outbox']);state.mkdir(parents=True,exist_ok=True);results=[]
     recipient=config['context']['operator_email'];own=config['operator_user_key']
-    planned=candidates(rows['registry'],rows['calendar'],rows['watchlist'],rows['ledger'],now=now,recipient=recipient,user_key=own) if health['healthy'] else []
+    excluded=config.get('business_excluded_sources',[])
+    if not isinstance(excluded,list) or any(not isinstance(s,str) or not s for s in excluded):raise ValueError('Explicit business source ownership list required')
+    registry=[r for r in rows['registry'] if r.get('Source') not in excluded]
+    planned=candidates(registry,rows['calendar'],rows['watchlist'],rows['ledger'],now=now,recipient=recipient,user_key=own) if health['healthy'] else []
     summary=[{'source':s['source'],'status':s['status'],'reasons':s.get('reasons',[])} for s in health['sources']]
     fingerprint=hashlib.sha256(json.dumps(summary,sort_keys=True).encode()).hexdigest()[:24]
     previous_path=state/'health-observation.json';previous=json.loads(previous_path.read_text()) if previous_path.exists() else None

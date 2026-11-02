@@ -345,3 +345,31 @@ See [calendar contract](../../../docs/GRANTS_LIVE_CALENDAR.md) and
 qualification and readback receipts are private in the feature checkout. The
 historical-import writer, original evidence, existing business schedules and
 inactive NIH roadmap are unchanged. No scheduled verification was performed.
+
+## Business notification implementation — 2 November 2026
+
+- [x] Bootstrap the retained delivery graph as one fixed-operator unattended
+  GrantConnect business sender: opportunity revisions, reviewed deadline changes,
+  cancellation and source-day reminders with saved immediate/daily/weekly cadence.
+- [x] Preserve source review, current classification and private saved consent.
+  Re-read source/preference/deadline versions before send; use claim-before-send,
+  no transport retries, exact receipt markers and receipt-only ambiguous recovery.
+- [x] Resolve the non-unique ledger-key concurrency risk with explicit source
+  ownership. At an idle checkpoint, promote only the existing legacy dispatch
+  module and exclude GrantConnect business candidates in its private configuration.
+  Preserve the operational worker, schedule, dirty source and earlier journals.
+- [x] Run the focused 13-case selection, correct two test-harness errors with
+  affected reruns, and apply review fixes. The one native no-send qualification
+  succeeded with zero reviewed GrantConnect records and zero due own email rules.
+  Final reviewed Started definition, connections and ownership cutover match.
+- [ ] Accept an actual business-message receipt from genuinely reviewed source
+  evidence and a saved due email preference. Implementation/readback and no-send
+  qualification do not establish that receipt or broader multi-user acceptance.
+
+See [business contract](../../../docs/GRANTS_BUSINESS_NOTIFICATIONS.md) and
+[review](review-business-notifications-20261102.md). Native scope/receipts are
+retained privately in `private/ops/grants-business-notifications-20261102/` in
+the feature checkout on `codex/grants-business-notifications`. This lane owns
+the new business worker and GrantConnect business source scope only. Existing
+operational alerts, calendar/import writers, authentication owners and schedules
+remain unchanged. No source refresh, fabricated review or NIH work occurred.
