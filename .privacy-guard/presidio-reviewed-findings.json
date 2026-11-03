@@ -6901,6 +6901,286 @@
       "value_sha256": "e37f0d82d4247388b828567132da4cc1130c774b7d81f4e97e2668ba27e6a835",
       "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
       "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "9b05713e5aa176e6dbb8bbce1b6aaee882df9b6c8c4ad75ca55a1517f78c9c17",
+      "blob_sha256": "09dac7ed419524c4d04f7768d7a89402696a6322e7af8df78ce0cb831b2875cc",
+      "entity_index": 0,
+      "start": 137,
+      "end": 143,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "Inspected selected source: project task identifier, workflow action/status or documentary heading/count, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "9b05713e5aa176e6dbb8bbce1b6aaee882df9b6c8c4ad75ca55a1517f78c9c17",
+      "blob_sha256": "09dac7ed419524c4d04f7768d7a89402696a6322e7af8df78ce0cb831b2875cc",
+      "entity_index": 0,
+      "start": 324,
+      "end": 335,
+      "value_sha256": "15fc65b69327ad3aa11fda024e839fc2eb8f43a4bd9943d0b1f8dafd7720ed98",
+      "reason": "Inspected selected source: project task identifier, workflow action/status or documentary heading/count, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "9b05713e5aa176e6dbb8bbce1b6aaee882df9b6c8c4ad75ca55a1517f78c9c17",
+      "blob_sha256": "09dac7ed419524c4d04f7768d7a89402696a6322e7af8df78ce0cb831b2875cc",
+      "entity_index": 0,
+      "start": 1687,
+      "end": 1710,
+      "value_sha256": "de78bbfffde2d3ad5bcc0066e6bb4d4449ff30433d2d6dfc762528ad2f502d08",
+      "reason": "Inspected selected source: Markdown link fragment naming an existing source document, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "ae8759444d55876e7c93850f1082b12ea7bc8152780fd3adf18df9e097a9014f",
+      "blob_sha256": "b6e0bd73380ca3aa375905e15f877c9808f8853c173fc0d1eaf43c7d03210f55",
+      "entity_index": 0,
+      "start": 1066,
+      "end": 1074,
+      "value_sha256": "6e270eff2709040d84d90e8e3950f0a1af35386d2d5223233964836efecdcc95",
+      "reason": "Inspected selected source: timezone/location label for the export schedule, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "ae8759444d55876e7c93850f1082b12ea7bc8152780fd3adf18df9e097a9014f",
+      "blob_sha256": "b6e0bd73380ca3aa375905e15f877c9808f8853c173fc0d1eaf43c7d03210f55",
+      "entity_index": 0,
+      "start": 2420,
+      "end": 2426,
+      "value_sha256": "031a8f0f659df890dfd53c92e45295b0f14c997185bae46e168831e403b273f7",
+      "reason": "Inspected selected source: project task identifier, workflow action/status or documentary heading/count, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "ae8759444d55876e7c93850f1082b12ea7bc8152780fd3adf18df9e097a9014f",
+      "blob_sha256": "b6e0bd73380ca3aa375905e15f877c9808f8853c173fc0d1eaf43c7d03210f55",
+      "entity_index": 0,
+      "start": 4673,
+      "end": 4701,
+      "value_sha256": "78c05b6da64a96f61fc8b953a46be7345529b09cd76fd2164c9dc7b0ed534562",
+      "reason": "Inspected selected source: Markdown link fragment naming an existing source document, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "ae8759444d55876e7c93850f1082b12ea7bc8152780fd3adf18df9e097a9014f",
+      "blob_sha256": "b6e0bd73380ca3aa375905e15f877c9808f8853c173fc0d1eaf43c7d03210f55",
+      "entity_index": 0,
+      "start": 8087,
+      "end": 8093,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "Inspected selected source: project task identifier, workflow action/status or documentary heading/count, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "ae8759444d55876e7c93850f1082b12ea7bc8152780fd3adf18df9e097a9014f",
+      "blob_sha256": "b6e0bd73380ca3aa375905e15f877c9808f8853c173fc0d1eaf43c7d03210f55",
+      "entity_index": 0,
+      "start": 9468,
+      "end": 9484,
+      "value_sha256": "680997ac4fa003130f888ccb277bf5d0f8b735bad68fa2dff243db7b01ab8767",
+      "reason": "Inspected selected source: project task identifier, workflow action/status or documentary heading/count, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "d729df33ffc5e3d4318baeb12bee5b9508af6cccd626b272acbb6184158fbb52",
+      "blob_sha256": "1d70a8a800c335dde8425ffd660517b1574319a3709b59fa108fb7f709320d80",
+      "entity_index": 0,
+      "start": 2,
+      "end": 8,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "Inspected selected source: project task identifier, workflow action/status or documentary heading/count, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "d729df33ffc5e3d4318baeb12bee5b9508af6cccd626b272acbb6184158fbb52",
+      "blob_sha256": "1d70a8a800c335dde8425ffd660517b1574319a3709b59fa108fb7f709320d80",
+      "entity_index": 0,
+      "start": 837,
+      "end": 843,
+      "value_sha256": "031a8f0f659df890dfd53c92e45295b0f14c997185bae46e168831e403b273f7",
+      "reason": "Inspected selected source: project task identifier, workflow action/status or documentary heading/count, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "d729df33ffc5e3d4318baeb12bee5b9508af6cccd626b272acbb6184158fbb52",
+      "blob_sha256": "1d70a8a800c335dde8425ffd660517b1574319a3709b59fa108fb7f709320d80",
+      "entity_index": 0,
+      "start": 2394,
+      "end": 2399,
+      "value_sha256": "872ad2dd2bbc19a8a65a9e947e3cba266fc979923e8df130831e604f2a6a6f34",
+      "reason": "Inspected selected source: project task identifier, workflow action/status or documentary heading/count, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "d729df33ffc5e3d4318baeb12bee5b9508af6cccd626b272acbb6184158fbb52",
+      "blob_sha256": "1d70a8a800c335dde8425ffd660517b1574319a3709b59fa108fb7f709320d80",
+      "entity_index": 2,
+      "start": 362,
+      "end": 372,
+      "value_sha256": "82870c62d8617d28c9573507e88bea9b89cc1cffc5a5b106ab474dfdce008332",
+      "reason": "Inspected selected source: fractional seconds of an export completion timestamp, not a phone number.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "d318e1ff3c4c731fec2b17e5fcadf3da7353ece0ab608bb191f7dc06f66b91be",
+      "blob_sha256": "5ca92137426c7efcec8ff73def9c40809afb6ac6d08794ac12fc0ab61f00e430",
+      "entity_index": 0,
+      "start": 978,
+      "end": 987,
+      "value_sha256": "7bd06d9812c5e06b91b5556bd1b8dfe0ddda1dde1cfb3ee71a4ab33a017e8100",
+      "reason": "Inspected selected source: project task identifier, workflow action/status or documentary heading/count, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "753863e8d6fdce6626dbda5b33f08f2417bffa80e2166c5c682582afb2bb88de",
+      "blob_sha256": "0518cb07323030c3048956ef24e4b8b5dd2d2732140a82c6a2e526da86627c9b",
+      "entity_index": 0,
+      "start": 2,
+      "end": 9,
+      "value_sha256": "9b11f6b707d2a03e0265465f32520bc1bc213de121de958539662d0ec1453fcb",
+      "reason": "Inspected selected source: project task identifier, workflow action/status or documentary heading/count, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "753863e8d6fdce6626dbda5b33f08f2417bffa80e2166c5c682582afb2bb88de",
+      "blob_sha256": "0518cb07323030c3048956ef24e4b8b5dd2d2732140a82c6a2e526da86627c9b",
+      "entity_index": 0,
+      "start": 89,
+      "end": 96,
+      "value_sha256": "ecbc89cd37a037342e740f9e0e0633a70180a2279b0157c9a823fce729f4bd77",
+      "reason": "Inspected selected source: project task identifier, workflow action/status or documentary heading/count, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "753863e8d6fdce6626dbda5b33f08f2417bffa80e2166c5c682582afb2bb88de",
+      "blob_sha256": "0518cb07323030c3048956ef24e4b8b5dd2d2732140a82c6a2e526da86627c9b",
+      "entity_index": 0,
+      "start": 239,
+      "end": 246,
+      "value_sha256": "ecbc89cd37a037342e740f9e0e0633a70180a2279b0157c9a823fce729f4bd77",
+      "reason": "Inspected selected source: project task identifier, workflow action/status or documentary heading/count, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "753863e8d6fdce6626dbda5b33f08f2417bffa80e2166c5c682582afb2bb88de",
+      "blob_sha256": "0518cb07323030c3048956ef24e4b8b5dd2d2732140a82c6a2e526da86627c9b",
+      "entity_index": 0,
+      "start": 1277,
+      "end": 1283,
+      "value_sha256": "031a8f0f659df890dfd53c92e45295b0f14c997185bae46e168831e403b273f7",
+      "reason": "Inspected selected source: project task identifier, workflow action/status or documentary heading/count, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "753863e8d6fdce6626dbda5b33f08f2417bffa80e2166c5c682582afb2bb88de",
+      "blob_sha256": "0518cb07323030c3048956ef24e4b8b5dd2d2732140a82c6a2e526da86627c9b",
+      "entity_index": 0,
+      "start": 3605,
+      "end": 3611,
+      "value_sha256": "031a8f0f659df890dfd53c92e45295b0f14c997185bae46e168831e403b273f7",
+      "reason": "Inspected selected source: project task identifier, workflow action/status or documentary heading/count, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "753863e8d6fdce6626dbda5b33f08f2417bffa80e2166c5c682582afb2bb88de",
+      "blob_sha256": "0518cb07323030c3048956ef24e4b8b5dd2d2732140a82c6a2e526da86627c9b",
+      "entity_index": 2,
+      "start": 3130,
+      "end": 3140,
+      "value_sha256": "82870c62d8617d28c9573507e88bea9b89cc1cffc5a5b106ab474dfdce008332",
+      "reason": "Inspected selected source: fractional seconds of an export completion timestamp, not a phone number.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "99155688fdce6c779469d4415cdd9b5861315a8eff6ae63508364cfb5388c035",
+      "blob_sha256": "49b6abc55aa2d02a0b50a79f816c1412b111a815c144db21d692ff117c2fd1c7",
+      "entity_index": 0,
+      "start": 1066,
+      "end": 1074,
+      "value_sha256": "6e270eff2709040d84d90e8e3950f0a1af35386d2d5223233964836efecdcc95",
+      "reason": "Inspected selected source: project task identifier, workflow status, Markdown link, timezone or documentary count, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "99155688fdce6c779469d4415cdd9b5861315a8eff6ae63508364cfb5388c035",
+      "blob_sha256": "49b6abc55aa2d02a0b50a79f816c1412b111a815c144db21d692ff117c2fd1c7",
+      "entity_index": 0,
+      "start": 2420,
+      "end": 2426,
+      "value_sha256": "031a8f0f659df890dfd53c92e45295b0f14c997185bae46e168831e403b273f7",
+      "reason": "Inspected selected source: project task identifier, workflow status, Markdown link, timezone or documentary count, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "99155688fdce6c779469d4415cdd9b5861315a8eff6ae63508364cfb5388c035",
+      "blob_sha256": "49b6abc55aa2d02a0b50a79f816c1412b111a815c144db21d692ff117c2fd1c7",
+      "entity_index": 0,
+      "start": 4673,
+      "end": 4701,
+      "value_sha256": "78c05b6da64a96f61fc8b953a46be7345529b09cd76fd2164c9dc7b0ed534562",
+      "reason": "Inspected selected source: project task identifier, workflow status, Markdown link, timezone or documentary count, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "99155688fdce6c779469d4415cdd9b5861315a8eff6ae63508364cfb5388c035",
+      "blob_sha256": "49b6abc55aa2d02a0b50a79f816c1412b111a815c144db21d692ff117c2fd1c7",
+      "entity_index": 0,
+      "start": 8087,
+      "end": 8093,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "Inspected selected source: project task identifier, workflow status, Markdown link, timezone or documentary count, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "99155688fdce6c779469d4415cdd9b5861315a8eff6ae63508364cfb5388c035",
+      "blob_sha256": "49b6abc55aa2d02a0b50a79f816c1412b111a815c144db21d692ff117c2fd1c7",
+      "entity_index": 0,
+      "start": 9417,
+      "end": 9423,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "Inspected selected source: project task identifier, workflow status, Markdown link, timezone or documentary count, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "fdbd7dee7b46bf53a5ec7b48603553a39b8c39a674774ec6734b6db0fc6b26d5",
+      "blob_sha256": "246ec36142edb84130fcdfc5290f7d666b694f769e4535375186d71ec14a5ced",
+      "entity_index": 0,
+      "start": 2,
+      "end": 8,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "Inspected selected source: project task identifier, workflow status, Markdown link, timezone or documentary count, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "fdbd7dee7b46bf53a5ec7b48603553a39b8c39a674774ec6734b6db0fc6b26d5",
+      "blob_sha256": "246ec36142edb84130fcdfc5290f7d666b694f769e4535375186d71ec14a5ced",
+      "entity_index": 0,
+      "start": 837,
+      "end": 843,
+      "value_sha256": "031a8f0f659df890dfd53c92e45295b0f14c997185bae46e168831e403b273f7",
+      "reason": "Inspected selected source: project task identifier, workflow status, Markdown link, timezone or documentary count, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "fdbd7dee7b46bf53a5ec7b48603553a39b8c39a674774ec6734b6db0fc6b26d5",
+      "blob_sha256": "246ec36142edb84130fcdfc5290f7d666b694f769e4535375186d71ec14a5ced",
+      "entity_index": 0,
+      "start": 2394,
+      "end": 2399,
+      "value_sha256": "872ad2dd2bbc19a8a65a9e947e3cba266fc979923e8df130831e604f2a6a6f34",
+      "reason": "Inspected selected source: project task identifier, workflow status, Markdown link, timezone or documentary count, not a personal name.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "fdbd7dee7b46bf53a5ec7b48603553a39b8c39a674774ec6734b6db0fc6b26d5",
+      "blob_sha256": "246ec36142edb84130fcdfc5290f7d666b694f769e4535375186d71ec14a5ced",
+      "entity_index": 2,
+      "start": 362,
+      "end": 372,
+      "value_sha256": "82870c62d8617d28c9573507e88bea9b89cc1cffc5a5b106ab474dfdce008332",
+      "reason": "Inspected selected source: fractional seconds of an export completion timestamp, not a phone number.",
+      "reviewer": "Codex source inspection 2026-11-03"
     }
   ]
 }

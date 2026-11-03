@@ -1,3 +1,7 @@
+Current: [confirmed expected-failure diagnosis](rmd05-diagnosis-20261103.md).
+The November3 receipt matches the November2 late recovery. RMD-05 remains
+pending the December1 natural monthly path; earlier repairs remain closed.
+
 Latest: [verified SharePoint/Loop documentation and integration](documentation-20261102.md).
 
 # Publication monthly follow-up and monitoring
