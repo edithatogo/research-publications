@@ -59,3 +59,8 @@ only. Do not broaden sharing or alter production bindings in this tranche.
  acceptance. See [review](native-review-20261103.md).
 
 Approved immediate repair: [monthly freshness and Clinical Analytics, tasks 02–05](../chhhs_outcomes_powerbi_20261021/plan.md#outcome-contracts-and-three-reporting-outputs).
+
+## Clinical Analytics reconciliation — 4 November 2026
+The September nine-visual binding failure is historical. The November browser inspection found no corresponding error tiles. The subsequent T18 working-report readback preserved the original queries and binding. Native Clinical Analytics showed 36 open of 53 assessed (67.9%) and 53 assessed of 1,344 publications (3.9% coverage). The facility keyboard check reconciled 984 Cairns Hospital publications, four assessed and four open, and reset restored the register. The working page distinguishes retained OA evidence from compliance and makes no FoR crosswalk claim.
+
+The isolated definition, inverse and working readback, keyboard checks, and facility drillthrough receipts satisfy the corresponding Clinical Analytics and publication reader items above. The facility detail and return were verified on Publications Overview. Broader E04 theme, accessibility and performance claims require their own scope-specific evidence. [Merged T18 delivery review](../chhhs_outcomes_powerbi_20261021/review-20261103-delivery.md)
