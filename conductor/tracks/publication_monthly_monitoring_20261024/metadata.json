@@ -8,7 +8,7 @@
   "title": "Publication monthly follow-up and monitoring",
   "type": "operational_followup",
   "created_at": "2026-10-24",
-  "updated_at": "2026-11-02",
+  "updated_at": "2026-11-03",
   "requires_live_evidence": true,
   "transferred_from": [
     "E08-F01",
@@ -39,7 +39,7 @@
     "RMD-03": "complete; scoped semantic diff, focused tests and prepared inverse verified",
     "RMD-04": "bounded save/readback complete; inverse prepared, not executed natively",
     "RMD-04R": "complete at earlier authorised controlled recovery scope; natural origin false",
-    "RMD-05": "pending natural occurrence evidence",
+    "RMD-05": "pending December1 natural exporter and correlated observer; November3 daily inspection reconciled as expected late-recovery failure",
     "RMD-06": "outside this lane; active grants import ownership retained",
     "RMD-07": "outside this lane; relationship ownership retained"
   },
@@ -48,5 +48,18 @@
   "earlier_access_blocker_record": "readback-20261102.md",
   "documentation_record": "documentation-20261102.md",
   "source_integration": "Scoped manual transfer onto canonical origin/main; retained source history has no common ancestor",
-  "historical_earliest_monthly_readback_brisbane": "2026-11-01T12:05:00+10:00"
+  "historical_earliest_monthly_readback_brisbane": "2026-11-01T12:05:00+10:00",
+  "observer_diagnosis": {
+    "record": "rmd05-diagnosis-20261103.md",
+    "classification": "expected late-recovery failure; no new observer defect established",
+    "stored_receipt_correlated": true,
+    "export_origin_proof": "separate native evidence required",
+    "flow_replay": false
+  },
+  "documentation_diagnosis_status": "SharePoint repair guide2.0, catalogue36.0 and field guide23.0 verified; Loop diagnosis pending internal browser availability",
+  "diagnosis_native_documentation": {
+    "sharepoint": "verified; versioned guide and additive pages preserve prior content",
+    "loop": "pending; internal browser unavailable, no edit submitted",
+    "record": "rmd05-diagnosis-20261103.md"
+  }
 }

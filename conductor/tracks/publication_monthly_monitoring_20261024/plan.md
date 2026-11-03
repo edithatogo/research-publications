@@ -120,3 +120,18 @@ automation was installed. See the policy mapping before any later change.
 - [ ] Successful natural monthly exporter and correlated observer qualification
   remains pending the next eligible December 1 occurrence. This natural observer
   failure does not close RMD-05 or undo the accepted controlled repair.
+
+## Expected-failure diagnosis recorded —3November2026
+
+- [x] Correlate the independently downloaded November3 observation to the exact
+  November2 recovery export and saved decision rules. The late/unverified-origin
+  failure is expected; no new observer defect is established. See
+  [diagnosis](rmd05-diagnosis-20261103.md).
+- [ ] RMD-05 remains pending actual1December07:00 exporter,10:00 deadline and
+  10:05 observer evidence. No replay, new monitor or email.
+
+- [x] Record the diagnosis in the versioned SharePoint repair guide and additive
+  field-guide/catalogue notes, preserving accepted content and history.
+- [ ] Add and reopen-verify the same diagnosis in the existing Loop page when
+  the Codex internal browser becomes available. This documentary blocker does
+  not change the pending December1 RMD-05 acceptance gate.

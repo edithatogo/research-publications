@@ -15,3 +15,32 @@ Current six-format graph sources supplement preserved dated PNG/SVG snapshots. T
 Grants import, grants schedules, model/report processing, credentials, sharing and recipients are outside this repair. No email was sent. Keep active imports and human edits intact.
 
 Recovery: preserve immutable output revisions, prior native definitions, rowversions and one-send journals. Any later rollback requires fresh exact-target ownership and ETag comparison. A locally prepared inverse is not a native rollback receipt.
+
+## Confirmed late-recovery diagnosis — 3 November 2026
+
+The independently downloaded 3 November observation references the exact
+2 November recovery export: export-run identity, completion manifest, completion
+time, expected occurrence and deadline all match the retained recovery receipt.
+Completion was 2 November at 20:03:49.6044791 Brisbane, after the original
+1 November 10:00 deadline. The daily observer continues to evaluate the current
+month’s day 1 occurrence; it does not replace that deadline with today’s date.
+
+The saved Set_delivered expression intentionally selects
+`LATE_DELIVERY_TRIGGER_ORIGIN_UNVERIFIED` when export completion exceeds the
+deadline. That status is excluded from the terminal nonfailure allow-list.
+Successful content reads/save/readback therefore correctly end in Failed for
+this late recovery. No new observer defect is established by this result, and
+no replay or schedule/definition repair is indicated.
+
+The origin suffix refers to the exporter, not the observer’s own recurrence.
+The receipt explicitly retains `scheduled_trigger_proved=false`. An on-time
+export would receive `DELIVERED_TRIGGER_ORIGIN_UNVERIFIED`, which the saved
+allow-list permits to succeed. Separately correlated native exporter trigger/run
+evidence remains necessary for natural monthly acceptance; this observer does
+not itself prove scheduler origin.
+
+**RMD-05 remains pending for 1 December 2026**: exporter 07:00, deadline 10:00 and
+observer 10:05 Australia/Brisbane, subject to actual schedules at inspection.
+RMD-01–04R and PR131 remain closed. Preserve the grants import, existing output
+revisions, native definitions, private authentication and journals. No flow
+replay, schedule change or email is part of this diagnosis/documentation update.
