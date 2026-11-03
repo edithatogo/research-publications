@@ -57,3 +57,5 @@ only. Do not broaden sharing or alter production bindings in this tranche.
 - [ ] Reconcile OA compliance denominator/coverage and FoR classification claims,
  then complete isolated native definition parity and full visual/accessibility
  acceptance. See [review](native-review-20261103.md).
+
+Approved immediate repair: [monthly freshness and Clinical Analytics, tasks 02–05](../chhhs_outcomes_powerbi_20261021/plan.md#outcome-contracts-and-three-reporting-outputs).
