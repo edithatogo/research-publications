@@ -33,3 +33,8 @@ Owner of this bounded inspection is chat01a19f3f-5187-7c23-ac14-192cb93a5a26,
 checkout /Volumes/PortableSSD/GitHub/RIMS/dependency-qualification-20261103.
 Native scope is empty. Earlier local review edits are preserved. Changes remain
 local and unstaged under the supplied review skill's explicit commit boundary.
+
+## Isolated Power BI snapshot restoration verified on 4 November 2026
+The T18 receipts establish the isolated report and semantic model restoration that was outstanding at the 3 November review. Both native operations returned Succeeded. Comparing each complete saved definition with its own captured preimage verified identical paths and bytes for all 105 report parts and all 14 model parts. The clock canary differed from the model preimage, and its frozen inverse matched the restored model. The report roundtrip removed the added visuals. These results qualify restoring a retained definition to its isolated target. Service-managed version-history selection and restoration of other platform objects require separate evidence.
+
+The private evidence root is `private/ops/t18-delivery-20261103/`. Compare `isolated-report-preimage.json` with `isolated-report-restored.json` and `bounded-preimage.json` with `bounded-clock-restored-readback.json`. Use the matching rollback/restore terminal statuses and the frozen clock canary packet to distinguish a real reversal from an unchanged save.
