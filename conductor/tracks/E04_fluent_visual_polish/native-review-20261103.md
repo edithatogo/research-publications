@@ -59,3 +59,9 @@ The source fix does not establish that native labels changed.
 
 The user's later explicit commit/integration instruction supersedes the earlier
 review-only commit boundary for this chat's accumulated source packet.
+
+Integration review caught the frozen-runtime gate for the three label edits.
+They are retained as private label-candidate JSON, while active source definitions
+are restored to accepted hashes. No runtime gate is weakened or rewritten.
+A separately reviewed runtime revision and qualified native deployment remain
+required. This supersedes the earlier source-fix-applied wording at that scope.
