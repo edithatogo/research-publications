@@ -1,0 +1,25 @@
+name: GrantConnect transport probe
+on:
+  push:
+    branches: [codex/grantconnect-runner-probe]
+permissions: {}
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Read feed and report transport metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          body=$(mktemp)
+          trap 'rm -f "$body"' EXIT
+          status=$(curl --silent --show-error --max-time 45 --output "$body" --write-out '%{http_code}' https://www.grants.gov.au/public_data/rss/rss.xml)
+          echo "HTTP $status"
+          test "$status" = 200
+          ruby -rrexml/document -rdigest -e '
+            bytes = File.binread(ARGV.fetch(0))
+            xml = REXML::Document.new(bytes)
+            abort "Missing RSS channel" unless xml.elements["rss/channel"]
+            puts "RSS channel present, bytes=#{bytes.bytesize}, sha256=#{Digest::SHA256.hexdigest(bytes)}"
+          ' "$body"
