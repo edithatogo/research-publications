@@ -61,3 +61,15 @@ screenshot, downloaded PDF, byte comparison and reconciliation are held under
 checkout. No identities, raw responses, tokens or publisher PDF are included in
 this source record. The shared grants-import owner and existing journals remain
 unchanged. Main checks for the preceding PR passed on its merge commit.
+
+## Catalogue reconciliation — later 3 November 2026
+
+The catalogue now represents the publisher-linked policy as
+`verified_current_unversioned`, with its evidenced 2025-01-01 effective date
+and null version and timezone. The exact publisher-search observation is
+required for that catalogue state. It does not widen the approved host set for
+institutional facts or make this status an admissible fact-level policy.
+All four institution intakes remain `manual_review`; the earlier paragraph
+about the catalogue's inability to express this provenance is superseded at
+this narrow scope. The retained G03 audit-list HTTP 403 is unchanged, and no
+new audit request was made.

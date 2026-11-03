@@ -9901,6 +9901,366 @@
       "value_sha256": "3c72b39be6968ac5d4f2d13dea8d47eb667aa26dc9abe27a64aee28db075fc18",
       "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
       "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "ac63ca1184261ffcb0ea9d0f34211a95e1a829c8b1aeac7d42ad6c695215a395",
+      "blob_sha256": "6517114dfcd811dff844017f01ce4ce022b0388e7373f9d4c3957b64f95a0143",
+      "entity_index": 0,
+      "start": 0,
+      "end": 6,
+      "value_sha256": "b79606fb3afea5bd1609ed40b622142f1c98125abcfe89a76a661b0e8e343910",
+      "reason": "Repository path component, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "c7c689eccd690d86c57b90cefa03d6d8e4761f46b8b5a7f52657c9e07c65a80e",
+      "blob_sha256": "c054569a3bbc337950b9b55e442a5c9f7c1561b119a1cb9ae81cf999301995b5",
+      "entity_index": 0,
+      "start": 48,
+      "end": 69,
+      "value_sha256": "fa97c1eb47b87660267eb519ad3c2eb221b3cf810ecbbbdaf7485b6f19cd022e",
+      "reason": "Public institutional name, abbreviation, or named institutional research system in catalogue.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "c7c689eccd690d86c57b90cefa03d6d8e4761f46b8b5a7f52657c9e07c65a80e",
+      "blob_sha256": "c054569a3bbc337950b9b55e442a5c9f7c1561b119a1cb9ae81cf999301995b5",
+      "entity_index": 0,
+      "start": 269,
+      "end": 281,
+      "value_sha256": "b8ceb4a6b68da16fda5fe250eb45dddef96f124566deb455e78dd8a41709ba3d",
+      "reason": "Public institutional name, abbreviation, or named institutional research system in catalogue.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "c7c689eccd690d86c57b90cefa03d6d8e4761f46b8b5a7f52657c9e07c65a80e",
+      "blob_sha256": "c054569a3bbc337950b9b55e442a5c9f7c1561b119a1cb9ae81cf999301995b5",
+      "entity_index": 0,
+      "start": 628,
+      "end": 631,
+      "value_sha256": "ac3de248f6ec0d8552e6b0972ed2b51ccb7d8e2367f35d1c54f5d7bceee5e34f",
+      "reason": "Public institutional name, abbreviation, or named institutional research system in catalogue.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "c7c689eccd690d86c57b90cefa03d6d8e4761f46b8b5a7f52657c9e07c65a80e",
+      "blob_sha256": "c054569a3bbc337950b9b55e442a5c9f7c1561b119a1cb9ae81cf999301995b5",
+      "entity_index": 0,
+      "start": 4255,
+      "end": 4276,
+      "value_sha256": "fa97c1eb47b87660267eb519ad3c2eb221b3cf810ecbbbdaf7485b6f19cd022e",
+      "reason": "Public institutional name, abbreviation, or named institutional research system in catalogue.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "c7c689eccd690d86c57b90cefa03d6d8e4761f46b8b5a7f52657c9e07c65a80e",
+      "blob_sha256": "c054569a3bbc337950b9b55e442a5c9f7c1561b119a1cb9ae81cf999301995b5",
+      "entity_index": 0,
+      "start": 6003,
+      "end": 6013,
+      "value_sha256": "94735e01552a95211049a6f2286819d3c85bd0224bc55d9caeb943f9d0a5366d",
+      "reason": "Public institutional name, abbreviation, or named institutional research system in catalogue.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 172,
+      "end": 176,
+      "value_sha256": "62fa5a5b0d3c318835a213e22a4b335c42515443d598741d0413e8c47f9ecf67",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 2131,
+      "end": 2148,
+      "value_sha256": "fed606a9725281b4e21a577b577ee5e3f460a652a2e707e506d3a5746531222f",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 2174,
+      "end": 2184,
+      "value_sha256": "b6276ba72bbc508431b11298180ac724c3eef76599d6862ff5914355b7524739",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 2289,
+      "end": 2302,
+      "value_sha256": "c4fced688fc875f017a22ae01a718d9c1566d2a9e9cf2c0e7e66d1eb9288df20",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 3257,
+      "end": 3267,
+      "value_sha256": "b6276ba72bbc508431b11298180ac724c3eef76599d6862ff5914355b7524739",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 5989,
+      "end": 5999,
+      "value_sha256": "b6276ba72bbc508431b11298180ac724c3eef76599d6862ff5914355b7524739",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 8002,
+      "end": 8008,
+      "value_sha256": "5d5b09f6dcb2d53a5fffc60c4ac0d55fabdf556069d6631545f42aa6e3500f2e",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 8428,
+      "end": 8438,
+      "value_sha256": "b6276ba72bbc508431b11298180ac724c3eef76599d6862ff5914355b7524739",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 11649,
+      "end": 11696,
+      "value_sha256": "386a5b2faf8e34469bdac86e48857a8d8e9d5e2ef5eced96fe24900179079e16",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 13010,
+      "end": 13020,
+      "value_sha256": "b6276ba72bbc508431b11298180ac724c3eef76599d6862ff5914355b7524739",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 13815,
+      "end": 13835,
+      "value_sha256": "90c08030c0b35a17f0542cc60fe434231e78b8a3da09d403433f4fc9ca31d32b",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 14452,
+      "end": 14455,
+      "value_sha256": "f85236faa23cc9aa649bea0e4e5a8924d7121166a414b15f70339135a4a53eff",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 14614,
+      "end": 14638,
+      "value_sha256": "cc6549d30482ac5ccbf5948e46dcacd7f94456c4f2eed73d550128813d1b49e0",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 15615,
+      "end": 15625,
+      "value_sha256": "b6276ba72bbc508431b11298180ac724c3eef76599d6862ff5914355b7524739",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 16558,
+      "end": 16579,
+      "value_sha256": "734562cc35230d6d172b09e64907d3b53e23493c5b48d6ab14246f8c0f0b9d13",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 16841,
+      "end": 16851,
+      "value_sha256": "8309df2402c0d702e3f8e2d9ceb16bc75cc10163733256f80c79f1b68ee6280e",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 16988,
+      "end": 16991,
+      "value_sha256": "f85236faa23cc9aa649bea0e4e5a8924d7121166a414b15f70339135a4a53eff",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 18397,
+      "end": 18418,
+      "value_sha256": "734562cc35230d6d172b09e64907d3b53e23493c5b48d6ab14246f8c0f0b9d13",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 19484,
+      "end": 19492,
+      "value_sha256": "088042582fcec8dc7b963cd4ad92a12173b6f4ce46d86919d901bfd79cc72a8f",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 20103,
+      "end": 20111,
+      "value_sha256": "088042582fcec8dc7b963cd4ad92a12173b6f4ce46d86919d901bfd79cc72a8f",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 20639,
+      "end": 20652,
+      "value_sha256": "8bc59461f40b14cb10762d218555eee0f3a72d3028d213d57ccdbd9b6f47443c",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 22943,
+      "end": 22962,
+      "value_sha256": "fbeb0f41a38ddd55c9f627e7572992dce1cb124aa5074f7b68cba1964e73efd4",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 23146,
+      "end": 23165,
+      "value_sha256": "fbeb0f41a38ddd55c9f627e7572992dce1cb124aa5074f7b68cba1964e73efd4",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 23593,
+      "end": 23612,
+      "value_sha256": "fbeb0f41a38ddd55c9f627e7572992dce1cb124aa5074f7b68cba1964e73efd4",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 25279,
+      "end": 25289,
+      "value_sha256": "b6276ba72bbc508431b11298180ac724c3eef76599d6862ff5914355b7524739",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 26487,
+      "end": 26490,
+      "value_sha256": "f85236faa23cc9aa649bea0e4e5a8924d7121166a414b15f70339135a4a53eff",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "555734620c5541a2b3ec61a6c7b94faccd4d04d1d9e95fe9dfeb3550dee96870",
+      "blob_sha256": "57fe429777a816b8ef74a616fb100f32c82df733b9a8a99212a5a33e71821b7d",
+      "entity_index": 0,
+      "start": 33510,
+      "end": 33527,
+      "value_sha256": "75cd450d1aa719cfdb36cfe43b5e70ef5f83219d4583e4d1ceac90f15eac6608",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "4c0dc327d4fefe7de5cd6bdf6ce9477cd060e5616b2b14714eefc96f27fd5a47",
+      "blob_sha256": "c26323797ac5267381dcc0855ef0060776131e7ad9661979229aa9bdea7f0354",
+      "entity_index": 0,
+      "start": 175,
+      "end": 183,
+      "value_sha256": "59be71333c960fd08e7e4fe9862206d9355f0a9884121a5b50ef8b36efdfe4cf",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "4c0dc327d4fefe7de5cd6bdf6ce9477cd060e5616b2b14714eefc96f27fd5a47",
+      "blob_sha256": "c26323797ac5267381dcc0855ef0060776131e7ad9661979229aa9bdea7f0354",
+      "entity_index": 0,
+      "start": 20141,
+      "end": 20151,
+      "value_sha256": "8309df2402c0d702e3f8e2d9ceb16bc75cc10163733256f80c79f1b68ee6280e",
+      "reason": "Programming syntax, standard exception, technical constant or format label in source code.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "4c0dc327d4fefe7de5cd6bdf6ce9477cd060e5616b2b14714eefc96f27fd5a47",
+      "blob_sha256": "c26323797ac5267381dcc0855ef0060776131e7ad9661979229aa9bdea7f0354",
+      "entity_index": 0,
+      "start": 23047,
+      "end": 23062,
+      "value_sha256": "e389e964494f382d8092c11de14c1378e65846bfffb9bdc892496d449efcfc87",
+      "reason": "Synthetic test fixture identifier in local test source.",
+      "reviewer": "Codex source inspection 2026-11-03"
     }
   ]
 }

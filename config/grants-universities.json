@@ -235,7 +235,7 @@
     "intake": "manual_review",
     "eligibility_scope": "Griffith researcher, coversheet and internal-grant rules; does not establish CHHHS eligibility",
     "internal_lead_time": null,
-    "policy_note": "No universal internal lead-time rule or current versioned general policy metadata was verified. On 2026-10-23, the public grants-support page still directed Griffith researchers to Research Funding support marked internal access only, with no documented RSS/Atom/API or permitted export route. The stale-open discrepancy recorded on 2026-10-07 is resolved: the Griffith WUN page now states the 2026 WUN Research Development Fund call is closed, consistent with the elapsed Griffith internal EOI (2026-08-23) and pitch (2026-09-03) deadlines and the WUN call's stated external close of 2026-10-15 21:00 UK. The same page advertises a separate WUN Knowledge Exchange Program round 1 for Griffith staff (applications open 2026-11-02, close 2026-11-23, up to $10,000 travel assistance); that is a staff development and travel program, not a research funding feed, and no opportunity rows were admitted from it. The page's apply links target a Griffith-authenticated SharePoint site and were not opened. None of this establishes CHHHS eligibility, entitlement or a machine route.",
+    "policy_note": "The publisher policy-library search links the current external research funding policy, effective 2025-01-01; the document does not declare a formal version. No universal internal lead-time rule was verified. On 2026-10-23, the public grants-support page still directed Griffith researchers to Research Funding support marked internal access only, with no documented RSS/Atom/API or permitted export route. The stale-open discrepancy recorded on 2026-10-07 is resolved: the Griffith WUN page now states the 2026 WUN Research Development Fund call is closed, consistent with the elapsed Griffith internal EOI (2026-08-23) and pitch (2026-09-03) deadlines and the WUN call's stated external close of 2026-10-15 21:00 UK. The same page advertises a separate WUN Knowledge Exchange Program round 1 for Griffith staff (applications open 2026-11-02, close 2026-11-23, up to $10,000 travel assistance); that is a staff development and travel program, not a research funding feed, and no opportunity rows were admitted from it. The page's apply links target a Griffith-authenticated SharePoint site and were not opened. None of this establishes CHHHS eligibility, entitlement or a machine route.",
     "source_evidence": [
       {
         "claim": "scheme_specific_2026_call_and_expired_internal_deadline",
@@ -278,15 +278,22 @@
         "format": "html",
         "observed_on": "2026-10-23",
         "version": null
+      },
+      {
+        "claim": "publisher_current_policy_search",
+        "url": "https://policies.griffith.edu.au/?collection=griff~sp-policy-library&form=custom&profile=_default&query=External+Research+Funding+Management",
+        "format": "html",
+        "observed_on": "2026-11-03",
+        "version": null
       }
     ],
     "policy_provenance": {
-      "status": "unverified",
+      "status": "verified_current_unversioned",
       "version": null,
-      "effective_from": null,
+      "effective_from": "2025-01-01",
       "timezone": null
     },
-    "last_verified": "2026-10-23",
+    "last_verified": "2026-11-03",
     "organisation_identity": {
       "scheme": "ROR",
       "id": "https://ror.org/02sc3r913",
