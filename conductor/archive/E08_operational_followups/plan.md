@@ -114,3 +114,15 @@ are unchanged. No schedule, collector or delivery mutation or new monitor.
 - [ ] F03/F04's other natural-source/output and selected seven-day requirements
   remain unaccepted. F05/F06 remain conditional/ineligible; monthly observations
   retain their existing separate1November track. No new activation authority.
+
+## Source operating window, 28 October to 3 November 2026
+
+| Source | Scheduled Brisbane slots | Observed result |
+| --- | --- | --- |
+| PubMed publications | Daily at 01:30, seven runs | Six runs verified their manifests. On 31 October two of 13 XML saves returned HTTP 429. Eleven saves succeeded and the manifest was skipped. All 13 saves and manifest verification succeeded on 1 November. |
+| DoRA publications | Daily at 04:30, seven runs | Six runs verified their manifests. On 31 October the collection read timed out. The completeness check failed on the failure marker and manifest verification was skipped. |
+| DataCite | Thursday at 05:00, one run | The 29 October run verified the query, page, DOI source, completion and saved manifest. |
+
+The successful PubMed writes on 31 October and 1 November returned 24 different nonempty files. The two runs shared no file IDs, list item IDs, paths or locators. The retained publication model requires committed history. Downstream consumption of records in a later generation and independent freshness checks remain separate. The two daily sources each ended this window with three consecutive successful slots. F04 remains open.
+
+Private run and action readbacks are under `private/ops/e08-window-20261104/` in the dependency-qualification checkout.
