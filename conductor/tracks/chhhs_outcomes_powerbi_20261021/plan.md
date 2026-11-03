@@ -76,7 +76,7 @@ override the current status above or authorize new tests, deployments or schedul
   September native output; verify current/baseline keyboard and facility/reset.
 - [x] Prepare a dark theme that retains accepted typography/spacing and palette
   roles, with focused preservation tests. Native dark adoption is not claimed.
-- [ ] Finish dark rendering/capture, exact laptop/accessibility/performance and
+- Historical proposal: Finish dark rendering/capture, exact laptop/accessibility/performance and
   maintained-source/report save/restore acceptance. Later slices remain deferred.
 
 Evidence and remaining gates (retained authoring reference: `../E04_fluent_visual_polish/publications-reader-recovery-20261024.md`).
@@ -105,34 +105,34 @@ operation should be resubmitted. See the fresh source/detail/plot parity disposi
 runtime acceptance is inferred from source pins, test success or saved parts.
 
 - [x] Task: Read the current owner's exact model/report manifest, preserve stable IDs/isolated rollback and map K01, K02 and existing-source D01 to canonical fields and the existing overview page.
-- [ ] Task: Confirm readiness categories, metric definitions/date roles, page decision contracts and existing consumers; bound missing data independently from technical defects.
+- Historical proposal: Task: Confirm readiness categories, metric definitions/date roles, page decision contracts and existing consumers; bound missing data independently from technical defects.
 - [x] Task: Implement the smallest required reusable DAX/TMDL changes, known/unknown OA measures, formats and field parameters; preserve existing count/export semantics. Resolve trial-count terminology without widening this slice into trial acquisition.
-- [ ] Task: Implement cutoff/source-snapshot/metric-version provenance for this slice; distinguish original and restated results and unavailable historical reconstruction. Document the measure replacement/deprecation path.
-- [ ] Task: Qualify native PBIR/theme properties, implement the themed plot-first overview and accessible detail/drillthrough, preserving monthly/bibliographic outputs. Record exact unsupported-property fallbacks.
-- [ ] Task: Verify affected native DAX/key sets/denominators, complete periods, missingness, security and export parity; inspect native light/dark rendering and theme cascade.
-- [ ] Task: Measure laptop readability, keyboard/data alternatives and specified load/interaction budgets; repair only observed failures and record host/context and timings.
-- [ ] Task: Slice verification and handover under workflow.md — one complete permitted source-to-plot-to-detail journey, native readback, preserved edits, replay and targeted rollback evidence. Deliver this usable slice before expanding.
+- Historical proposal: Task: Implement cutoff/source-snapshot/metric-version provenance for this slice; distinguish original and restated results and unavailable historical reconstruction. Document the measure replacement/deprecation path.
+- Historical proposal: Task: Qualify native PBIR/theme properties, implement the themed plot-first overview and accessible detail/drillthrough, preserving monthly/bibliographic outputs. Record exact unsupported-property fallbacks.
+- Historical proposal: Task: Verify affected native DAX/key sets/denominators, complete periods, missingness, security and export parity; inspect native light/dark rendering and theme cascade.
+- Historical proposal: Task: Measure laptop readability, keyboard/data alternatives and specified load/interaction budgets; repair only observed failures and record host/context and timings.
+- Historical proposal: Task: Slice verification and handover under workflow.md — one complete permitted source-to-plot-to-detail journey, native readback, preserved edits, replay and targeted rollback evidence. Deliver this usable slice before expanding.
 
 ## Slice 2 — Projects, capacity and funding
-- [ ] Task: Qualify C01/F01 and available P01/C02 fields against canonical project, award and participation sources; keep opportunities, applications and awards distinct. Update readiness and unresolved custodian/source entries.
-- [ ] Task: Implement only required conformed dimensions/bridges and explicit measures; verify effective dates, full/fractional attribution, currency/share and non-additive totals without multiplying joins.
-- [ ] Task: Apply original/restated provenance and shared-measure/deprecation contracts to new metrics; preserve existing downstream consumer parity.
-- [ ] Task: Deliver capacity/funding plots and evidence-backed priority/partnership views with decision-specific comparisons and accessible details. Leave workforce/application measures unavailable until denominators exist.
-- [ ] Task: Slice verification and handover — affected native calculation/filter/security checks and one complete reader journey, export/replay preservation and the same readability/performance criteria; reuse unchanged slice 1 evidence.
+- Historical proposal: Task: Qualify C01/F01 and available P01/C02 fields against canonical project, award and participation sources; keep opportunities, applications and awards distinct. Update readiness and unresolved custodian/source entries.
+- Historical proposal: Task: Implement only required conformed dimensions/bridges and explicit measures; verify effective dates, full/fractional attribution, currency/share and non-additive totals without multiplying joins.
+- Historical proposal: Task: Apply original/restated provenance and shared-measure/deprecation contracts to new metrics; preserve existing downstream consumer parity.
+- Historical proposal: Task: Deliver capacity/funding plots and evidence-backed priority/partnership views with decision-specific comparisons and accessible details. Leave workforce/application measures unavailable until denominators exist.
+- Historical proposal: Task: Slice verification and handover — affected native calculation/filter/security checks and one complete reader journey, export/replay preservation and the same readability/performance criteria; reuse unchanged slice 1 evidence.
 
 ## Slice 3 — Translation and measured outcomes
-- [ ] Task: Identify the authoritative existing register and custodian for TranslationEvent/OutcomeObservation; map minimum fields and revision/verification rules from spec.md. Use a new supported structure only if reuse fails and authority covers it.
-- [ ] Task: Configure evidence intake, canonical references, contributor/verification fields and retained revisions. Prove save/readback, duplicate prevention, edit preservation, supersession and withdrawal with a bounded technical example; do not perform substantive impact judgement.
-- [ ] Task: Map T01/H01/E01/S01 and governed Q01 subindicators to available authorised evidence; define eligibility, comparator, follow-up horizon, missingness and verified contribution. Keep absent outcomes explicitly unavailable.
-- [ ] Task: Implement semantic observation/event facts and evidence-status filters, original/restated views and cohort-aware measures; prevent multi-project double counting and disclosure through details/exports.
-- [ ] Task: Deliver translation/equity/outcome plots and evidence drillthrough with uncertainty and interpretation boundaries; extend D01 to outcome-evidence coverage.
-- [ ] Task: Slice verification and handover — trace one permitted or labelled fictional observation from retained source to measure/plot/detail, including revision and withdrawn-evidence handling. Separate technical setup from actual observed impact and later business acceptance.
+- Historical proposal: Task: Identify the authoritative existing register and custodian for TranslationEvent/OutcomeObservation; map minimum fields and revision/verification rules from spec.md. Use a new supported structure only if reuse fails and authority covers it.
+- Historical proposal: Task: Configure evidence intake, canonical references, contributor/verification fields and retained revisions. Prove save/readback, duplicate prevention, edit preservation, supersession and withdrawal with a bounded technical example; do not perform substantive impact judgement.
+- Historical proposal: Task: Map T01/H01/E01/S01 and governed Q01 subindicators to available authorised evidence; define eligibility, comparator, follow-up horizon, missingness and verified contribution. Keep absent outcomes explicitly unavailable.
+- Historical proposal: Task: Implement semantic observation/event facts and evidence-status filters, original/restated views and cohort-aware measures; prevent multi-project double counting and disclosure through details/exports.
+- Historical proposal: Task: Deliver translation/equity/outcome plots and evidence drillthrough with uncertainty and interpretation boundaries; extend D01 to outcome-evidence coverage.
+- Historical proposal: Task: Slice verification and handover — trace one permitted or labelled fictional observation from retained source to measure/plot/detail, including revision and withdrawn-evidence handling. Separate technical setup from actual observed impact and later business acceptance.
 
 ## Integration and closeout
-- [ ] Task: Run affected structural/model/report checks per slice and the required full harness at the integration milestone; do not repeat unchanged checks merely for handover.
-- [ ] Task: Reconcile source/model/theme/report/metric/dependency versions in existing S02 manifests; promote within existing release authority only after drift/parity/rollback checks. Preserve the working report until replacement qualifies.
-- [ ] Task: Deliver the metric dictionary, strategy crosswalk, page contracts, readiness register, outcome-intake instructions and original/restated interpretation in existing documentation. Evaluate preferred SharePoint structured generation for narrative outputs before fallback.
-- [ ] Task: Final verification — confirm all core outcomes have implemented definitions or explicit evidence dependencies, all selected slices have native acceptance, and no pending business judgement is represented as complete. No publication, circulation or schedule activation is implied.
+- Historical proposal: Task: Run affected structural/model/report checks per slice and the required full harness at the integration milestone; do not repeat unchanged checks merely for handover.
+- Historical proposal: Task: Reconcile source/model/theme/report/metric/dependency versions in existing S02 manifests; promote within existing release authority only after drift/parity/rollback checks. Preserve the working report until replacement qualifies.
+- Historical proposal: Task: Deliver the metric dictionary, strategy crosswalk, page contracts, readiness register, outcome-intake instructions and original/restated interpretation in existing documentation. Evaluate preferred SharePoint structured generation for narrative outputs before fallback.
+- Historical proposal: Task: Final verification — confirm all core outcomes have implemented definitions or explicit evidence dependencies, all selected slices have native acceptance, and no pending business judgement is represented as complete. No publication, circulation or schedule activation is implied.
 
 ## Superseded October reader and local-first planning
 
