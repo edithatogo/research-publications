@@ -56,10 +56,10 @@
     "export_origin_proof": "separate native evidence required",
     "flow_replay": false
   },
-  "documentation_diagnosis_status": "SharePoint repair guide2.0, catalogue36.0 and field guide23.0 verified; Loop diagnosis pending internal browser availability",
+  "documentation_diagnosis_status": "SharePoint repair guide2.0, catalogue36.0, field guide23.0 and reopened Loop114.0 verified at scoped preservation boundary",
   "diagnosis_native_documentation": {
     "sharepoint": "verified; versioned guide and additive pages preserve prior content",
-    "loop": "pending; internal browser unavailable, no edit submitted",
+    "loop": "verified version114.0; additive text, all121 prior records/45 code identities retained",
     "record": "rmd05-diagnosis-20261103.md"
   }
 }

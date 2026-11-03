@@ -132,6 +132,6 @@ automation was installed. See the policy mapping before any later change.
 
 - [x] Record the diagnosis in the versioned SharePoint repair guide and additive
   field-guide/catalogue notes, preserving accepted content and history.
-- [ ] Add and reopen-verify the same diagnosis in the existing Loop page when
-  the Codex internal browser becomes available. This documentary blocker does
-  not change the pending December1 RMD-05 acceptance gate.
+- [x] Add and reopen-verify the same diagnosis in the existing Loop page; prior
+  text and component identities remain preserved. RMD-05 stays pending for
+  the actual December1 natural monthly path.

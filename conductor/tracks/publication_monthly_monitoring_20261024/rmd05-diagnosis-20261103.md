@@ -44,14 +44,14 @@ preserves all5 prior controls. Each page adds the same scoped diagnosis and
 links to the maintained guide. Current free-source and grants guidance remain
 exact. No graph source/component was changed.
 
-**Loop diagnosis update is pending.** After an interruption, the Codex internal
-browser became unavailable and its inventory returned no browsers. The app
-queued the existing Loop link for this chat. Native app control was rejected
-by the tool; no workaround or external browser was used. Prepared text remains
-private; no Loop edit or new Loop acceptance is claimed. Resume only when this
-chat’s internal browser is available, preserving current human text/components
-and verifying the added paragraph after reopen. Prior Loop acceptance remains
-historical at its original scope.
+**Loop diagnosis is verified after reopen**, native version114.0.
+All121 prior record identities and45 code-component identities remain.
+Of66 previously populated human-text records,65 are exact and one retains its
+complete original text after the added diagnosis. No Mermaid/code component was
+edited, and no full hash audit of unrelated diagrams is claimed. The new guide
+link is complete and space-encoded. Native version history remains available.
+The earlier internal-browser blocker was resolved when the user brought this
+chat into view; no external browser or authentication change was used.
 
 Current source owner is chat01a19b8d-d2e7-7c62-b9e5-32b2c308a57c, branch
 `codex/rmd05-diagnosis-documentation-20261103`, actual managed worktree
@@ -59,9 +59,9 @@ Current source owner is chat01a19b8d-d2e7-7c62-b9e5-32b2c308a57c, branch
 Owned source paths are this monthly track and
 `docs/PUBLICATION_MONTHLY_REPAIR_20261102.md`. Native scope is the existing
 repair-guide file and additive diagnosis controls on the two existing pages;
-Loop paragraph pending. Grants/native-flow/authentication ownership stays with
-the recorded existing lanes. Next operation is the bounded Loop paragraph edit
-and exact reopen readback when the internal browser returns.
+Loop additive paragraph verified after reopen. Grants/native-flow/authentication ownership stays with
+the recorded existing lanes. Next operation is guarded source integration; RMD-05 remains pending the actual
+December1 natural monthly path.
 
 Validation: the unchanged repair/runtime receipts were reused. Repo-local
 Python3.15.1 integration harness passed2485tests with19 capability skips,
