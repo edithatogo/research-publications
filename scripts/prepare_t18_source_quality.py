@@ -28,24 +28,50 @@ def prepare(before, *, expected_sha256):
     table = json.loads(files[table_path])
     if table['position']['y'] != 552 or table['position']['height'] != 352:
         raise ValueError('Source detail layout drift')
-    table['position'].update(y=760, height=144)
+    table['position'].update(y=712, height=192)
     bindings = []
     for suffix in DISPOSITIONS:
         measure = 'T18 Source ' + suffix + ' pairs'
         bindings.append({'field': {'Measure': {'Expression': {'SourceRef': {'Entity': TABLE}},
                                              'Property': measure}},
-                         'queryRef': TABLE + '.' + measure})
+                         'queryRef': TABLE + '.' + measure,
+                         'displayName': suffix.capitalize()})
     decoded = {k: v.decode('utf-8-sig') for k, v in files.items() if k.endswith('.json')}
-    chart = visual(decoded, 't18-provider-dispositions', 'barChart', (32, 552, 1856, 192),
+    chart = visual(decoded, 't18-provider-dispositions', 'tableEx', (32, 504, 1856, 192),
                    'Retained work/provider pairs by disposition; not publication totals',
-                   roles={'Category': [direct('PublicationSourceEvidence', 'Source')], 'Y': bindings})
+                   roles={'Values': [direct('PublicationSourceEvidence', 'Source')] + bindings})
     chart['position'].update(z=850, tabOrder=8500)
     containers = chart['visual']['visualContainerObjects']
     containers['title'][0]['properties'].pop('fontSize', None)
     containers.pop('padding', None)
-    # Theme-derived colours and native data labels; provider and series names
-    # carry meaning independently of colour. Native readability is still required.
+    containers['subTitle'] = [{'properties': {'show': {'expr': {'Literal': {'Value': 'false'}}}}}]
+    containers['padding'] = [{'properties': {
+        side: {'expr': {'Literal': {'Value': str(value) + 'D'}}}
+        for side, value in [('top', 4), ('bottom', 4), ('left', 8), ('right', 8)]}}]
+    containers['spacing'] = [{'properties': {
+        key: {'expr': {'Literal': {'Value': value}}} for key, value in [
+            ('customizeSpacing', 'true'), ('spaceAbovePlotArea', '0D'),
+            ('spaceBelowSubTitle', '0D'), ('spaceAboveDivider', '0D'), ('verticalSpacing', '0D')]}}]
+    chart['visual']['objects'] = {
+        'columnHeaders': [{'properties': {
+            'fontSize': {'expr': {'Literal': {'Value': '14D'}}},
+            'autoSizeColumnWidth': {'expr': {'Literal': {'Value': 'true'}}},
+            'columnAdjustment': {'expr': {'Literal': {'Value': "'growToFit'"}}}}}],
+        'values': [{'properties': {'fontSize': {'expr': {'Literal': {'Value': '16D'}}}}}],
+        'grid': [{'properties': {'rowPadding': {'expr': {'Literal': {'Value': '0D'}}}}}],
+        'total': [{'properties': {'show': {'expr': {'Literal': {'Value': 'false'}}}}}],
+    }
+    # A native table exposes all three providers and exact counts without relying
+    # on colour or a category scrollbar. Native readability is still required.
     updates = {table_path: table, target: chart}
+    for name in ['source-overlap', 'dedup-method', 'facility-contributions']:
+        path = PAGE + 'visuals/' + name + '/visual.json'
+        if path in files:
+            doc = json.loads(files[path])
+            if doc['position'].get('y') != 224 or doc['position'].get('height') != 312:
+                raise ValueError('Source overview layout drift: ' + name)
+            doc['position']['height'] = 264
+            updates[path] = doc
     result = copy.deepcopy(before)
     indexed = {p['path']: p for p in result['definition']['parts']}
     for path, doc in updates.items():

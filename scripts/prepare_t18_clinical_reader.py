@@ -67,7 +67,7 @@ def prepare(before, *, expected_sha256):
             if position.get('y') == 960 and position.get('height') == 40:
                 position['height'] = 56
         updates[path] = doc
-    cards = ['oa-rate', 'oa-papers', 'trials-count', 'funded-papers', 'oa-assessed', 'oa-coverage']
+    cards = ['oa-rate', 'oa-papers', 'oa-assessed', 'oa-coverage', 'trials-count', 'funded-papers']
     template = json.loads(source[PAGE + 'visuals/oa-rate/visual.json'])
     for name, label, measure in [
         ('oa-assessed', 'OA-assessed publications', 'K02 OA assessed publications'),
@@ -91,8 +91,36 @@ def prepare(before, *, expected_sha256):
         updates[path] = doc
     for index, name in enumerate(cards):
         path = PAGE + 'visuals/' + name + '/visual.json'
-        updates[path]['position'].update(x=32 + index * 312, width=296)
+        updates[path]['position'].update(x=32 + index * 312,
+                                         y=112, width=296, height=128,
+                                         tabOrder=2000 + index * 1000)
+        updates[path]['visual']['visualContainerObjects']['title'][0]['properties']['fontSize'] = {
+            'expr': {'Literal': {'Value': '14D'}}}
+    # Retain the native activity detail and all slicers on the specified 1080 canvas.
+    # The table remains a scrollable, keyboard-addressable native table.
+    if page.get('height') == 1296 and page.get('width') == 1920:
+        page['height'] = 1080
+        updates[PAGE + 'page.json'] = page
+        for name in ['facility-filter', 'year-filter', 'oa-filter', 'study-filter']:
+            path = PAGE + 'visuals/' + name + '/visual.json'
+            doc = json.loads(source[path])
+            doc['position'].update(y=256, height=96)
+            updates[path] = doc
+        for name, y, height in [('specialty-distribution', 368, 224), ('for-division', 368, 224),
+                                ('oa-distribution', 608, 208), ('study-design-breakdown', 608, 208)]:
+            path = PAGE + 'visuals/' + name + '/visual.json'
+            updates[path]['position'].update(y=y, height=height)
+            updates[path]['visual']['visualContainerObjects']['subTitle'] = [
+                {'properties': {'show': {'expr': {'Literal': {'Value': 'false'}}}}}]
+        path = PAGE + 'visuals/49abdc3e306c680aa070/visual.json'
+        doc = json.loads(source[path])
+        doc['position'].update(y=832, height=160, tabOrder=14000)
+        updates[path] = doc
+        updates[PAGE + 'visuals/footer/visual.json']['position'].update(y=1008, height=56,
+                                                                     tabOrder=15000)
     for path, doc in updates.items():
+        if 'visual' not in doc:
+            continue
         containers = doc['visual'].setdefault('visualContainerObjects', {})
         titles = containers.get('title', [])
         value = titles[0]['properties']['text']['expr']['Literal']['Value'] if titles else "''"

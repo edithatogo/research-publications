@@ -1,6 +1,6 @@
 {
   "version": "T18-scorecard-20261103.1",
-  "delivery_state": "local connection specification; no native scorecard created",
+  "delivery_state": "Native four-domain scorecard and 23 indicator rows saved; three connected values and refresh histories qualified. Complete reader/keyboard acceptance remains separate.",
   "native_controls": "Power BI Goals; leave unsupported Fluent tokens to native controls",
   "groups": [
     {
@@ -19,8 +19,9 @@
           "target": null,
           "owner": null,
           "status_rules": null,
-          "state": "connection-candidate",
-          "reason": "Native freshness and accepted export key parity required"
+          "state": "native-connected-value-qualified",
+          "reason": "Default October and explicit September/full key parity verified against the accepted generation",
+          "acceptance_receipt": "private/ops/t18-delivery-20261103/scorecard-connected-acceptance.json"
         },
         {
           "indicator_id": "K02.rate",
@@ -29,18 +30,17 @@
             "page_id": "ReportSection4",
             "visual_id": "oa-rate",
             "table": "Publication",
-            "measure": "K02 OA rate among assessed"
+            "measure": "Open Access Rate",
+            "canonical_measure": "K02 OA rate among assessed"
           },
-          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "period": "Whole retained publication register; all publication dates; accepted model revision",
           "target": null,
           "owner": null,
           "status_rules": null,
-          "state": "connection-candidate",
-          "reason": "No assessed works; not policy compliance",
-          "required_filter_context": {
-            "Date.YearMonth": "same explicit complete month as paginated parameter"
-          },
-          "connection_gate": "Task15 must provide a qualified month selection for this Clinical Analytics visual; its unfiltered 36/53 baseline is a whole-register cohort, not a monthly value"
+          "state": "native-connected-value-qualified",
+          "reason": "Rate is blank when no works are assessed; this is not policy compliance",
+          "connection_gate": "Connect the unfiltered Clinical Analytics visual and verify full-register numerator, denominator and unknown count; this is not a monthly OA value",
+          "acceptance_receipt": "private/ops/t18-delivery-20261103/scorecard-connected-acceptance.json"
         },
         {
           "indicator_id": "K02.coverage",
@@ -51,16 +51,14 @@
             "table": "Publication",
             "measure": "K02 OA assessment coverage"
           },
-          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "period": "Whole retained publication register; all publication dates; accepted model revision",
           "target": null,
           "owner": null,
           "status_rules": null,
-          "state": "connection-candidate",
-          "reason": "No included works",
-          "required_filter_context": {
-            "Date.YearMonth": "same explicit complete month as paginated parameter"
-          },
-          "connection_gate": "Task15 must provide a qualified month selection for this Clinical Analytics visual; its unfiltered 36/53 baseline is a whole-register cohort, not a monthly value"
+          "state": "native-connected-value-qualified",
+          "reason": "Coverage is blank when no works are included",
+          "connection_gate": "Connect the unfiltered Clinical Analytics visual and verify full-register numerator, denominator and unknown count; this is not a monthly OA value",
+          "acceptance_receipt": "private/ops/t18-delivery-20261103/scorecard-connected-acceptance.json"
         },
         {
           "indicator_id": "K03",

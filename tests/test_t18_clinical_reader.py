@@ -51,7 +51,7 @@ class RepairTests(unittest.TestCase):
             self.assertEqual(d['visual']['query']['field']['Measure']['Property'], measure)
             self.assertEqual(d['visual']['query']['queryRef'], 'Publication.' + measure)
         rects = [json.loads(after[PAGE + 'visuals/' + n + '/visual.json'])['position']
-                 for n in ['oa-rate', 'oa-papers', 'trials-count', 'funded-papers', 'oa-assessed', 'oa-coverage']]
+                 for n in ['oa-rate', 'oa-papers', 'oa-assessed', 'oa-coverage', 'trials-count', 'funded-papers']]
         self.assertTrue(all(a['x'] + a['width'] + 16 == b['x'] for a, b in zip(rects, rects[1:])))
         self.assertEqual(rects[-1]['x'] + rects[-1]['width'], 1888)
 
@@ -62,6 +62,34 @@ class RepairTests(unittest.TestCase):
         after = prepare(before, expected_sha256=fingerprint(before))
         with self.assertRaisesRegex(ValueError, 'title preimage drift'):
             prepare(after, expected_sha256=fingerprint(after))
+
+    def test_native_height_repair_keeps_controls_and_detail_inside_canvas(self):
+        before = fixture()
+        docs = {p: json.loads(v) for p, v in parts(before).items()}
+        docs[PAGE + 'page.json'].update(width=1920, height=1296)
+        for name, x, width in [('facility-filter', 32, 608), ('year-filter', 656, 304),
+                               ('oa-filter', 976, 440), ('study-filter', 1432, 456),
+                               ('49abdc3e306c680aa070', 32, 1856)]:
+            docs[PAGE + 'visuals/' + name + '/visual.json'] = {
+                'name': name, 'position': {'x': x, 'width': width, 'y': 212, 'height': 96},
+                'visual': {'query': {'retained': name}}}
+        for name, x in [('specialty-distribution', 32), ('for-division', 960),
+                        ('oa-distribution', 32), ('study-design-breakdown', 960)]:
+            docs[PAGE + 'visuals/' + name + '/visual.json']['position'].update(x=x, width=912)
+        docs[PAGE + 'visuals/footer/visual.json']['position'] = {
+            'x': 32, 'y': 960, 'width': 1856, 'height': 40}
+        before['definition']['parts'] = [{'path': p, 'payloadType': 'InlineBase64',
+            'payload': base64.b64encode(json.dumps(v).encode()).decode()} for p, v in docs.items()]
+        after = {p: json.loads(v) for p, v in parts(prepare(before, expected_sha256=fingerprint(before))).items()}
+        self.assertEqual(after[PAGE + 'page.json']['height'], 1080)
+        rects = [v['position'] for p, v in after.items() if p.startswith(PAGE + 'visuals/') and 'position' in v]
+        self.assertTrue(all(r['x'] + r['width'] <= 1920 and r['y'] + r['height'] <= 1080 for r in rects))
+        for i, a in enumerate(rects):
+            for b in rects[i + 1:]:
+                self.assertTrue(a['x'] + a['width'] <= b['x'] or b['x'] + b['width'] <= a['x']
+                                or a['y'] + a['height'] <= b['y'] or b['y'] + b['height'] <= a['y'])
+        for name in ['facility-filter', 'year-filter', 'oa-filter', 'study-filter']:
+            self.assertEqual(after[PAGE + 'visuals/' + name + '/visual.json']['position']['height'], 96)
 
 
 if __name__ == '__main__':

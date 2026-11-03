@@ -37,8 +37,12 @@ class SourceQualityTests(unittest.TestCase):
         before = fixture()
         result = parts(prepare(before, expected_sha256=fingerprint(before)))
         doc = json.loads(result[PAGE + 'visuals/t18-provider-dispositions/visual.json'])
-        self.assertEqual(len(doc['visual']['query']['queryState']['Y']['projections']), len(DISPOSITIONS))
-        self.assertEqual(doc['position']['y'] + doc['position']['height'] + 16, 760)
+        self.assertEqual(doc['visual']['visualType'], 'tableEx')
+        projections = doc['visual']['query']['queryState']['Values']['projections']
+        self.assertEqual(len(projections), len(DISPOSITIONS) + 1)
+        self.assertEqual(doc['position']['y'] + doc['position']['height'] + 16, 712)
+        self.assertEqual([p['displayName'] for p in projections[1:]],
+                         [name.capitalize() for name in DISPOSITIONS])
 
     def test_refuses_layout_or_preimage_drift(self):
         before = fixture()

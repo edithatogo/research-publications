@@ -1,4 +1,60 @@
-## T18 implementation ownership — 3 November 2026
+## T18 native delivery checkpoint — 4 November 2026
+
+Chat `01a1a0d8-8a40-7f51-b3c8-d1a7d1b04a5e` owns the approved T18 increment in
+`/Volumes/PortableSSD/GitHub/RIMS/dependency-qualification-20261103`, branch
+`codex/t18-outcome-delivery-20261103`. Source baseline is commit `1cc65be9`;
+this increment owns the T18 contracts/preparers/RDL/tests, selected track and this
+scoped handoff. Native scope: the existing reporting-window/Date processing,
+additive indicator dictionary and source-pair measures, existing report reader
+pages, and newly owned qualification copies, scorecard and paginated items.
+Imports, funding/calendar objects, flows, schedules and shared authentication
+retain their earlier scopes. No sharing, schedule, capacity or VM change occurred.
+
+Working-model processing completed. Exact physical keys reconcile to the accepted
+export: all 1,344, default October 7 and explicit September 14. The 23 dictionary rows
+and six saved provider-disposition calculations reconcile, including facility and
+empty cohorts. Seventy-eight unrelated model parts remain byte-identical; the
+service's root-reference reorder is semantically unchanged. The complete working
+report save/readback preserves every original visual identity/query and binding,
+with 85 unrelated parts byte-identical. Clinical Analytics is 1920×1080, with readable
+KPI values, retained controls/detail and source-qualified wording. The source-quality
+increment uses a native three-provider disposition table; all three rows and exact
+counts pass native render/independent comparison. Retained provider pairs
+are not publication totals or current-provider availability claims.
+
+The native scorecard has four domain headings and 23 indicators. K01 and the two
+K02 goals have saved report connections, stored values 7,36/53 and53/1,344, and
+successful connected refresh histories. All outcome owners/targets/rules remain
+unassigned; mixed-domain headings and unavailable indicators have no numeric
+check-ins. Other indicators remain explicitly unavailable in the Goal consumer;
+the PDF separately exposes qualified study/reviewed-link snapshots. The existing
+qualification workspace has dedicated capacity and one member: the selected
+workload user as Admin. Its audience was verified; no permission was changed.
+
+Native Reporting Services produced tagged six-page A4 PDFs for October 7,
+September 14 and the empty 1900-01 cohort 0. All 23 indicators, repeated headers/footer,
+margins, OA numerator/denominator/unknown counts and grayscale were checked.
+A parameter-free native render defaults to October; an invalid month fails without
+a PDF. The last punctuation/heading-only RDL revision follows the new heading rule;
+its native default render/readback and standalone labels are verified. The generic tracked RDL retains
+private binding placeholders. A My-workspace trial RDL remains an unaccepted copy
+because API rendering there lacks dedicated capacity; the qualified RDL is in the
+existing owner-only dedicated workspace. No capacity purchase was made.
+
+Remaining acceptance is bounded to complete reader/keyboard/drillthrough checks,
+including an explicit September UI selection and final screenshots. The internal
+browser was repeatedly lost during tool interruptions after two successful user
+foreground recoveries; no external browser was used. Recheck only after browser
+availability changes. Do not replay native saves: consume each durable operation
+or readback first. Qualification copies are owned here; the copied reader was
+rebound only to the working model for matching-page native PDF rendering.
+
+Review: [T18 delivery evidence](../conductor/tracks/chhhs_outcomes_powerbi_20261021/review-20261103-delivery.md).
+Private bindings, preimages, one-send journals and acceptance receipts remain under
+`private/ops/t18-delivery-20261103/`. Scheduled delivery/RMD-05, later provider
+acquisition and genuine outcome evidence are separate gates.
+
+## Earlier T18 qualification checkpoint — 3 November 2026
 
 Chat `01a1a0d8-8a40-7f51-b3c8-d1a7d1b04a5e` owns the approved tasks02–18 in
 `/Volumes/PortableSSD/GitHub/RIMS/dependency-qualification-20261103`, branch
