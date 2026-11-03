@@ -149,8 +149,9 @@ class GrantsUniversityTests(unittest.TestCase):
         rows = load_universities(path)
         by_id = {row["institution_id"]: row for row in rows}
         self.assertEqual(by_id["jcu"]["last_verified"], "2026-10-23")
-        for institution_id in ("uq", "qut", "griffith"):
+        for institution_id in ("uq", "qut"):
             self.assertEqual(by_id[institution_id]["last_verified"], "2026-10-23")
+        self.assertEqual(by_id["griffith"]["last_verified"], "2026-11-03")
         # A failed fetch must not silently refresh the evidence date.
         jcu_evidence = by_id["jcu"]["source_evidence"]
         self.assertEqual([item["observed_on"] for item in jcu_evidence
@@ -244,6 +245,46 @@ class GrantsUniversityTests(unittest.TestCase):
         self.assertEqual(by_id["qut"]["policy_provenance"], {
             "status": "verified_versioned", "version": "4",
             "effective_from": "2025-11-07", "timezone": None})
+        self.assertEqual(by_id["griffith"]["policy_provenance"], {
+            "status": "verified_current_unversioned", "version": None,
+            "effective_from": "2025-01-01", "timezone": None})
+        self.assertEqual(by_id["griffith"]["intake"], "manual_review")
+
+    def test_current_unversioned_catalogue_policy_requires_exact_current_evidence(self):
+        source = Path(__file__).parents[1] / "config/grants-universities.json"
+        for mutation in ("missing", "wrong_url", "stale", "invented_version", "wrong_effective", "future_effective"):
+            rows = json.loads(source.read_text(encoding="utf-8"))
+            row = next(item for item in rows if item["institution_id"] == "griffith")
+            item = next(item for item in row["source_evidence"] if item["claim"] == "publisher_current_policy_search")
+            if mutation == "missing":
+                row["source_evidence"].remove(item)
+            elif mutation == "wrong_url":
+                item["url"] = "https://www.griffith.edu.au/"
+            elif mutation == "stale":
+                item["observed_on"] = "2026-10-30"
+            elif mutation == "invented_version":
+                row["policy_provenance"]["version"] = "2024/0001156"
+            elif mutation == "wrong_effective":
+                row["policy_provenance"]["effective_from"] = "2024-01-01"
+            else:
+                row["policy_provenance"]["effective_from"] = "2027-01-01"
+            with self.subTest(mutation=mutation), tempfile.TemporaryDirectory() as directory:
+                candidate = Path(directory) / "universities.json"
+                candidate.write_text(json.dumps(rows), encoding="utf-8")
+                with self.assertRaises(ValueError):
+                    load_universities(candidate)
+
+    def test_current_unversioned_catalogue_status_does_not_admit_facts(self):
+        catalogue, opportunities, fact = self.synthetic_inputs()
+        row = fact("uq")
+        row["policy_provenance"] = {"status": "verified_current_unversioned", "version": None,
+                                    "effective_from": "2025-01-01", "timezone": None}
+        with self.assertRaises(ValueError):
+            reconcile_institution_facts(opportunities, [row], catalogue)
+        row = fact("griffith")
+        row["evidence_url"] = "https://policies.griffith.edu.au/"
+        with self.assertRaises(ValueError):
+            reconcile_institution_facts(opportunities, [row], catalogue)
 
     def test_internal_deadline_preserves_local_time_and_unknown_timezone(self):
         catalogue, opportunities, fact = self.synthetic_inputs()

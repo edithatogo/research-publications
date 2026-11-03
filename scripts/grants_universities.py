@@ -23,6 +23,10 @@ INSTITUTION_SOURCE_HOSTS = {
     "qut": {"mopp.qut.edu.au", "www.mopp.qut.edu.au"},
     "griffith": {"www.griffith.edu.au"},
 }
+# This publisher-search evidence is catalogue-only; it does not add a host to
+# the allowed institutional fact or automated intake sources.
+CURRENT_POLICY_SEARCH = "https://policies.griffith.edu.au/?collection=griff~sp-policy-library&form=custom&profile=_default&query=External+Research+Funding+Management"
+CURRENT_POLICY_EFFECTIVE = "2025-01-01"
 RFC3339_INSTANT = re.compile(
     r"^\d{4}-\d{2}-\d{2}T(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d"
     r"(?:\.\d+)?(?:Z|[+-](?:[01]\d|2[0-3]):[0-5]\d)$"
@@ -246,10 +250,19 @@ def load_universities(path):
         if not isinstance(provenance, dict) or set(provenance) != {"status", "version", "effective_from", "timezone"}:
             raise ValueError(f"institution {key!r} needs explicit policy provenance and unknown fields")
         if (not isinstance(provenance["status"], str)
-                or provenance["status"] not in {"public_summary_unversioned", "verified_versioned", "unverified"}):
+                or provenance["status"] not in {"public_summary_unversioned", "verified_versioned", "verified_current_unversioned", "unverified"}):
             raise ValueError(f"institution {key!r} has unsupported policy provenance status")
-        if provenance["status"] != "verified_versioned" and any(provenance[field] is not None for field in ("version", "effective_from", "timezone")):
+        if provenance["status"] in {"public_summary_unversioned", "unverified"} and any(provenance[field] is not None for field in ("version", "effective_from", "timezone")):
             raise ValueError(f"institution {key!r} must not invent policy version, effective date or timezone")
+        if provenance["status"] == "verified_current_unversioned":
+            if key != "griffith" or provenance["version"] is not None or provenance["timezone"] is not None:
+                raise ValueError(f"institution {key!r} unversioned current policy must retain null version and timezone")
+            try:
+                effective = _full_iso_date(provenance["effective_from"])
+            except (TypeError, ValueError) as exc:
+                raise ValueError(f"institution {key!r} current policy needs a valid effective date") from exc
+            if provenance["effective_from"] != CURRENT_POLICY_EFFECTIVE or effective > last_verified:
+                raise ValueError(f"institution {key!r} current policy effective date differs from evidence")
         if provenance["status"] == "verified_versioned":
             if (not isinstance(provenance["version"], str)
                     or not provenance["version"].strip()
@@ -273,7 +286,9 @@ def load_universities(path):
                 raise ValueError(f"institution {key!r} has malformed source evidence")
             if not isinstance(item["claim"], str) or not item["claim"].strip():
                 raise ValueError(f"institution {key!r} source evidence needs a claim")
-            if item["format"] != "html" or not valid_official_url(item["url"], INSTITUTION_SOURCE_HOSTS[key]):
+            current_policy_evidence = (key == "griffith" and item["claim"] == "publisher_current_policy_search"
+                                       and item["url"] == CURRENT_POLICY_SEARCH and item["version"] is None)
+            if item["format"] != "html" or not (current_policy_evidence or valid_official_url(item["url"], INSTITUTION_SOURCE_HOSTS[key])):
                 raise ValueError(f"institution {key!r} source evidence must use an official HTTPS HTML page")
             try:
                 observed_on = _full_iso_date(item["observed_on"])
@@ -291,6 +306,11 @@ def load_universities(path):
             raise ValueError(f"institution {key!r} lead times need matching source evidence")
         if provenance["status"] == "verified_versioned" and not any(item["version"] == provenance["version"] for item in evidence):
             raise ValueError(f"institution {key!r} versioned policy lacks matching source evidence")
+        if provenance["status"] == "verified_current_unversioned" and not any(
+            item["claim"] == "publisher_current_policy_search" and item["url"] == CURRENT_POLICY_SEARCH
+            and item["version"] is None and item["observed_on"] == row["last_verified"] for item in evidence
+        ):
+            raise ValueError(f"institution {key!r} current policy needs exact publisher-search evidence")
         lead_time = row.get("internal_lead_time")
         _validate_lead_time(key, lead_time)
     missing = REQUIRED_INSTITUTIONS - seen
