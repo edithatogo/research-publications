@@ -10441,6 +10441,96 @@
       "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
       "reason": "Inspected roadmap context: public provider or place name, technical label or ordinary prose.",
       "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "0c150bc4469e9e5ac9578255a6d2b7ace59a86b86c397baedb3695ba5f6b4e10",
+      "blob_sha256": "bc315967568e5b2b93377f84df83346cd5479400cce618261fab60e761e071b9",
+      "entity_index": 0,
+      "start": 922,
+      "end": 940,
+      "value_sha256": "386e637d09152a9941b4398ce0ca1b5b39ab8e63494bf943795c1db5ed48fa43",
+      "reason": "Inspected exact roadmap span: public provider, university, newsletter name or technical prose.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "0c150bc4469e9e5ac9578255a6d2b7ace59a86b86c397baedb3695ba5f6b4e10",
+      "blob_sha256": "bc315967568e5b2b93377f84df83346cd5479400cce618261fab60e761e071b9",
+      "entity_index": 0,
+      "start": 3380,
+      "end": 3394,
+      "value_sha256": "f5939956b93be55f1f4c7d942e548bffd9d554af00153a2d24edb89ccf3e193b",
+      "reason": "Inspected exact roadmap span: public provider, university, newsletter name or technical prose.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "0c150bc4469e9e5ac9578255a6d2b7ace59a86b86c397baedb3695ba5f6b4e10",
+      "blob_sha256": "bc315967568e5b2b93377f84df83346cd5479400cce618261fab60e761e071b9",
+      "entity_index": 0,
+      "start": 3410,
+      "end": 3428,
+      "value_sha256": "1bceeae3d7b2931889d8adaa9fba8bc7beb654936446194717862836efda4960",
+      "reason": "Inspected exact roadmap span: public provider, university, newsletter name or technical prose.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "0c150bc4469e9e5ac9578255a6d2b7ace59a86b86c397baedb3695ba5f6b4e10",
+      "blob_sha256": "bc315967568e5b2b93377f84df83346cd5479400cce618261fab60e761e071b9",
+      "entity_index": 0,
+      "start": 3450,
+      "end": 3461,
+      "value_sha256": "54f0f480a40afe73417f4ddf8f044cb3151c92387c1fe5284d59e765f2c809d9",
+      "reason": "Inspected exact roadmap span: public provider, university, newsletter name or technical prose.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "0c150bc4469e9e5ac9578255a6d2b7ace59a86b86c397baedb3695ba5f6b4e10",
+      "blob_sha256": "bc315967568e5b2b93377f84df83346cd5479400cce618261fab60e761e071b9",
+      "entity_index": 0,
+      "start": 3552,
+      "end": 3559,
+      "value_sha256": "81033ad744f4b7d48440664f79c1f15cbcaac0f5b5c5177fb1a69fa6316f81f1",
+      "reason": "Inspected exact roadmap span: public provider, university, newsletter name or technical prose.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "0c150bc4469e9e5ac9578255a6d2b7ace59a86b86c397baedb3695ba5f6b4e10",
+      "blob_sha256": "bc315967568e5b2b93377f84df83346cd5479400cce618261fab60e761e071b9",
+      "entity_index": 0,
+      "start": 5482,
+      "end": 5490,
+      "value_sha256": "c247ce1bbcd8f6119a696314da4f8fd933b071ae795c6ca17c7e18f77726df3f",
+      "reason": "Inspected exact roadmap span: public provider, university, newsletter name or technical prose.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "0c150bc4469e9e5ac9578255a6d2b7ace59a86b86c397baedb3695ba5f6b4e10",
+      "blob_sha256": "bc315967568e5b2b93377f84df83346cd5479400cce618261fab60e761e071b9",
+      "entity_index": 0,
+      "start": 5675,
+      "end": 5683,
+      "value_sha256": "c247ce1bbcd8f6119a696314da4f8fd933b071ae795c6ca17c7e18f77726df3f",
+      "reason": "Inspected exact roadmap span: public provider, university, newsletter name or technical prose.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "0c150bc4469e9e5ac9578255a6d2b7ace59a86b86c397baedb3695ba5f6b4e10",
+      "blob_sha256": "bc315967568e5b2b93377f84df83346cd5479400cce618261fab60e761e071b9",
+      "entity_index": 0,
+      "start": 6208,
+      "end": 6219,
+      "value_sha256": "3ab48db52b17526dcc24e57950c5e0df68043cde673c8f8be6495fa1298d5006",
+      "reason": "Inspected exact roadmap span: public provider, university, newsletter name or technical prose.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "0c150bc4469e9e5ac9578255a6d2b7ace59a86b86c397baedb3695ba5f6b4e10",
+      "blob_sha256": "bc315967568e5b2b93377f84df83346cd5479400cce618261fab60e761e071b9",
+      "entity_index": 0,
+      "start": 7616,
+      "end": 7622,
+      "value_sha256": "6ca845e797a219dfa1cdd6fe024e95e89d0449e5fb2bebf1b82c666f52c5c2f8",
+      "reason": "Inspected exact roadmap span: public provider, university, newsletter name or technical prose.",
+      "reviewer": "Codex source inspection 2026-11-03"
     }
   ]
 }
