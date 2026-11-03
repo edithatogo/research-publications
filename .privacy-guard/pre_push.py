@@ -97,8 +97,8 @@ def push_rows(payload: bytes) -> list[tuple[str, str]]:
 
 
 def review_control_number(item: dict, finding: dict, policy: dict) -> bool:
-    """Only typed offset/rank tokens in the exact review control path, never free text."""
-    if policy["entities"][finding["entity_index"]] != "PHONE_NUMBER":
+    """Only schema-validated control tokens in the exact review path, never free text."""
+    if policy["entities"][finding["entity_index"]] not in {"PHONE_NUMBER", "PERSON"}:
         return False
     raw = item["text"].encode()
     oid = hashlib.sha1(
@@ -164,6 +164,11 @@ def review_control_number(item: dict, finding: dict, policy: dict) -> bool:
                 return False
         for token in re.finditer(
             r'(?<!\\)"(?:start|end|entity_index)"\s*:\s*(0|[1-9][0-9]*)', item["text"]
+        ):
+            if token.start(1) == finding["start"] and token.end(1) == finding["end"]:
+                return True
+        for token in re.finditer(
+            r'(?<!\\)"(?:identity|blob_sha256|value_sha256|policy_sha256)"\s*:\s*"([a-f0-9]{64})"', item["text"]
         ):
             if token.start(1) == finding["start"] and token.end(1) == finding["end"]:
                 return True
