@@ -1,3 +1,7 @@
+## Current publication-source lane — 3 November 2026
+
+[Publication completion tasks](tracks/publication_source_completion_20261103/index.md) reconcile the accepted native quota checkpoint with remaining collection, changed-page delivery and end-to-end acceptance. Forty-five lookups remain provider-deferred; tracked native tasks stay incomplete until actual final receipts exist. Existing broader source and grants acceptance/ownership remains unchanged. See the [track register](tracks.md) for this selected lane.
+
 # CHHHS research publications: current Conductor context
 
 ## Current grants scope — 2 November 2026

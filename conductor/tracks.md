@@ -1,3 +1,7 @@
+## Selected publication-source completion — 3 November 2026
+
+- [~] **Track: Complete selected free-API publication enrichment and native delivery** — [Executable tasks and evidence](tracks/publication_source_completion_20261103/index.md). Existing Europe PMC/OpenAlex/Semantic Scholar saved checkpoint is accepted. Forty-five anonymous lookups remain rate-limited; own stale process locks recovered,14 identifier exceptions reviewed and CLI collection/native continuation resumed. This selected leaf preserves broader T11/E01 and conditional-provider scope. Source packet is local to the publication-source worktree; no main integration is implied.
+
 # Track register
 
 ## Current grants scope — 2 November 2026

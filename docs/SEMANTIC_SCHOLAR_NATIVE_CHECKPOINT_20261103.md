@@ -29,6 +29,10 @@ Private receipts in the original checkout's `private/ops/2026-11-02-semantic-sch
 
 Source tests and required repository checks are unchanged from the [bootstrap qualification](SEMANTIC_SCHOLAR_NATIVE_BOOTSTRAP_20261102.md); they were reused. This generation added native data, byte, field, identity and flow proof. Conditional licensed feeds and wider institutional/public-use rights remain outside this no-login pass.
 
+## Recovery and executable continuation — 3 November
+
+The prior collector and continuation exited, leaving stale locks. Their PIDs were verified absent and both lock directories preserved before recovery. One new cache-resuming attempt at12:44 Brisbane still returnedHTTP429; no new source or native data was written. The collector and single continuation were restarted and verified live, with the next conservative request permitted at13:46 Brisbane. The14 missing/ambiguous cases were reviewed against retained evidence and preserved with explicit decisions, including one invalid DOI cell containing a title. The [granular Conductor plan](../conductor/tracks/publication_source_completion_20261103/index.md) now owns the remaining execution and distinguishes the accepted quota checkpoint from incomplete final promotion. Check actual live handles before asserting later activity.
+
 ## Requested-field coverage
 
 Counts refer to the 1,266 accepted matches. A present object can contain null subfields; for example, an `openAccessPdf` object does not establish that a PDF URL is available. Nested nonempty values are accounted for separately in the 45-path field report.

@@ -1,0 +1,18 @@
+{
+  "id": "publication_source_completion_20261103",
+  "title": "Complete selected free-API publication enrichment and native delivery",
+  "type": "feature",
+  "status": "in_progress",
+  "scope": "selected_no_login_publication_source_lane",
+  "created_at_utc": "2026-11-03T02:48:48.791447+00:00",
+  "related_tracks": [
+    "T11_sources_and_reconciliation",
+    "E01_flow_automation"
+  ],
+  "native_checkpoint": "accepted_quota_limited",
+  "collection_complete": false,
+  "remaining_provider_lookups": 45,
+  "source_worktree": "/Volumes/PortableSSD/GitHub/RIMS/publication-source-coverage",
+  "owner_chat_id": "01a19ab0-4739-71b1-8990-3ac1a3221769",
+  "final_native_receipt_required": "private/ops/2026-11-03-semantic-scholar-complete/completion-receipt.json"
+}
