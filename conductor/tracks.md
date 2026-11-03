@@ -8,7 +8,7 @@
 
 ## Selected publication-source completion — 3 November 2026
 
-- [~] **Track: Complete selected free-API publication enrichment and native delivery** — [Executable tasks and evidence](tracks/publication_source_completion_20261103/index.md). Existing Europe PMC/OpenAlex/Semantic Scholar saved checkpoint is accepted. Forty-five anonymous lookups remain rate-limited; own stale process locks recovered,14 identifier exceptions reviewed and CLI collection/native continuation resumed. This selected leaf preserves broader T11/E01 and conditional-provider scope. PR132/133 integrated the accepted source/documentation packet into main. The deferred collection and future native generation remain incomplete.
+- [~] **Track: Complete selected free-API publication enrichment and native delivery** — [Executable tasks and evidence](tracks/publication_source_completion_20261103/index.md). Existing Europe PMC/OpenAlex/Semantic Scholar saved checkpoint is accepted. Forty-five anonymous lookups remain rate-limited; 14 identifier exceptions reviewed; earlier stale-lock recovery/resumption is retained as history. Later3November inspection found no live collector/continuation process, so safe resumption remains pending. This selected leaf preserves broader T11/E01 and conditional-provider scope. PR132/133 integrated the accepted source/documentation packet into main. The deferred collection and future native generation remain incomplete.
 
 # Track register
 
