@@ -1,3 +1,9 @@
+## Delivered-work reconciliation — 3 November 2026
+
+PR116/117/119/120 are merged. Final dependency-integration main cc3f55f1 passed source validation, Python3.15.1 locked-dependency and security checks; the four updated pins match the qualified lockfile. E10.6 shared helper handover and E10.7 full-scope audit remain open. Reuse accepted candidate qualification and avoid another dependency rebuild.
+
+See [the cross-track mapping](../../backlog-reconciliation-20261103.md) for remaining exits and CLI prerequisites. Historical requirements below remain evidence at their original scope.
+
 # E10 numbered implementation plan
 
 > Status reconciliation, 24 October 2026: consult

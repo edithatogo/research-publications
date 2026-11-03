@@ -1,3 +1,9 @@
+## Delivered-work reconciliation — 3 November 2026
+
+The selected first two isolated outputs and PR102 candidate-reference model/report connection are accepted. The earlier prepared/not-deployed and post-November-1 restrictions are superseded for that selected connection by its later acceptance. The five-feature grants increments are delivered at their scoped receipts; first real authority-bound dates, reviewed relationships and due business-event acceptance remain open. Later slices remain conditional/deferred.
+
+See [the cross-track mapping](../../backlog-reconciliation-20261103.md) for remaining exits and CLI prerequisites. Historical requirements below remain evidence at their original scope.
+
 # Sequenced CLI delivery plan
 
 ## Native GrantConnect source result — 31 October 2026

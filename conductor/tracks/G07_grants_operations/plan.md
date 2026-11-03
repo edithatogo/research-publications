@@ -1,3 +1,9 @@
+## Delivered-work reconciliation — 3 November 2026
+
+PR124/125 delivered current-operator live calendar and consent-bound notification workers. Saved definitions and no-send qualification are accepted. Actual lifecycle/access-isolation receipts and a genuinely due reviewed business-message receipt remain open; deployed workers alone do not close operational maturity.
+
+See [the cross-track mapping](../../backlog-reconciliation-20261103.md) for remaining exits and CLI prerequisites. Historical requirements below remain evidence at their original scope.
+
 # Implementation plan
 
 ## Grants intake priority — GrantConnect, 31 October 2026
