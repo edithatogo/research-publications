@@ -1,3 +1,7 @@
+## Current collector runtime qualification —3November2026
+
+[Three-collector changed-path qualification](tracks/collector_runtime_qualification_20261103/index.md) is complete for the selected bounded native retry/checkpoint/continuation/failure cases; accepted acquisition and real later runs were reused. Original source schedules and last-good archives remain protected. Controlled qualification inputs are not live provider-outage or complete-corpus claims.
+
 ## Free-only publication handoff —3November2026
 
 The [consolidated source handoff](../docs/PUBLICATION_FREE_API_HANDOFF_20261103.md) distinguishes existing Crossref/OpenCitations integration from the newer evidence-table scope. Non-free providers are removed from active planning. [Native documentation](../docs/PUBLICATION_FREE_API_NATIVE_DOCUMENTATION_20261103.md) is accepted: field guide22.0, catalogue35.0 and reopened Loop113. Source packet integration proceeds through the existing main/PR route;45 Semantic Scholar lookups remain a separate incomplete dependency.
