@@ -2,14 +2,14 @@
 
 ## Summary
 
-The model/monthly repair, scoped report promotion, three connected goals and native paginated report are delivered; complete reader/keyboard/drillthrough acceptance remains open after internal-browser interruptions.
+The model/monthly repair, scoped report promotion, three connected goals and native paginated report are delivered; the keyboard month selection/reset and facility drillthrough/return passed in the internal browser. T18 is closed.
 
 ## Verification Checks
 
-- [x] **Plan Compliance**: Partial — tasks 02–14 have their selected source/native evidence; task 16 has four domains,23 indicator rows and three qualified connected values; task 17 has native default/override/empty/invalid-period and PDF proof. Tasks 15/18 retain their complete reader acceptance gate.
+- [x] **Plan Compliance**: Passed — tasks 02–14 have their selected source/native evidence; task 16 has four domains,23 indicator rows and three qualified connected values; task 17 has native default/override/empty/invalid-period and PDF proof. Tasks 15 and 18 passed the final reader checks.
 - [x] **Style Compliance**: Pass — repo-local Python 3.15.1, Apache-2.0, native Fluent 2 controls, fingerprinted preimages, exact deltas and private native bindings/receipts. The printable summary uses standalone domain labels under the latest heading instruction.
 - [x] **New Tests**: Yes — dictionary/source-pair preservation, Clinical layout/control geometry and safe paginated scalar-month handling are covered by focused tests.
-- [x] **Test Coverage**: Partial — source/native calculations, save/inverse/readback, key parity and native PDFs are verified. Complete interactive keyboard/drillthrough proof remains distinct.
+- [x] **Test Coverage**: Partial — source/native calculations, save/inverse/readback, key parity and native PDFs are verified. The final interactive checks are recorded below.
 - [x] **Test Results**: Passed — 2,497 tests, 19 existing skips, 446 project checks and web-first contracts. The final focused set contains 12 passing tests; the last native table-spacing change also passed its three affected tests. Exact logs remain private.
 
 ## Applied review corrections
@@ -51,8 +51,16 @@ The qualified paginated item was imported through the [documented Power BI RDL A
 
 The final heading/punctuation-only RDL revision follows the new standalone-heading instruction and has a successful native default-render/readback receipt, with all four summary labels verified on their own lines. Earlier cohort query/parameter evidence remains applicable to the unchanged command and model. The print report is an indicator/evidence report, not a replacement full bibliography or institutional census.
 
-## Remaining acceptance
+## Earlier acceptance checkpoint
 
 Tasks 15/18 remain open for complete reader checks: explicit September UI selection, all slicer/keyboard paths, drillthrough/back controls, final 1366×768 screenshots and the complete changed-page acceptance receipt. Static layout/rendering and native query/save proof do not replace those interactions. Internal browser access repeatedly disappeared or lost debugger synchronization during tool interruptions after successful user foreground recoveries. No external browser, private-app-state edit or alternative authentication client was used. Resume only after that browser state changes; do not replay completed writes.
 
 Native Fluent 2 base `Fluent 2-CY26SU08` (service-labelled Preview) and native controls are preserved. Print uses equivalent Segoe UI spacing rather than claiming PBIR theme tokens apply to RDL. Sharing, schedules, provider acquisition, RMD-05 natural delivery and real governed clinical/economic/community outcome evidence retain their separate boundaries.
+
+## Keyboard and facility drillthrough check, 4 November 2026
+The live Monthly Publications slicer accepted keyboard navigation to 2026-09 and Space to select it. The selected-month card showed 14. A second Space cleared the selection. The slicer showed All, the reporting month showed October 2026 and the card showed 7.
+
+At the keyboard checkpoint, facility drillthrough remained open. The working Publications Overview rendered without a Selected facility evidence button. The saved working and qualification report definitions contain the separate outcome-drill visual on OutcomeEvidence, but neither contains t18-drill or the PublicationOutcomeDetails destination from the publication outcome reader candidate. No facility drillthrough or return was accepted.
+
+## Facility repair and final acceptance
+The qualification copy passed first. Selecting the Cairns Hospital bar enabled Selected facility evidence. The destination displayed Cairns Hospital, 984 publications and publication titles and canonical keys. Back to publications returned to Publications Overview. The same seven-part repair then passed complete definition readback and the same browser journey on the working report at 1366 × 768. The existing footer was narrowed to accommodate the button. Private preimages, write journals, complete readbacks and working detail/return screenshots are retained in the evidence root. Tasks 15 and 18 and the approved T18 increment are closed.

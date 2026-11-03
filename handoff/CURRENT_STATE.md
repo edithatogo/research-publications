@@ -41,13 +41,7 @@ private binding placeholders. A My-workspace trial RDL remains an unaccepted cop
 because API rendering there lacks dedicated capacity; the qualified RDL is in the
 existing owner-only dedicated workspace. No capacity purchase was made.
 
-Remaining acceptance is bounded to complete reader/keyboard/drillthrough checks,
-including an explicit September UI selection and final screenshots. The internal
-browser was repeatedly lost during tool interruptions after two successful user
-foreground recoveries; no external browser was used. Recheck only after browser
-availability changes. Do not replay native saves: consume each durable operation
-or readback first. Qualification copies are owned here; the copied reader was
-rebound only to the working model for matching-page native PDF rendering.
+T18 closed after keyboard selection showed September 14 and clearing restored October 7. The Cairns Hospital drillthrough and return passed first on the qualification copy and then on the working report. Both destinations showed 984 publications with title and canonical-key evidence.
 
 Review: [T18 delivery evidence](../conductor/tracks/chhhs_outcomes_powerbi_20261021/review-20261103-delivery.md).
 Private bindings, preimages, one-send journals and acceptance receipts remain under
