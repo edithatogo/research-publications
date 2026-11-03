@@ -1,5 +1,9 @@
 # Implementation Plan: E01 Power Automate Ingestion Canonicalization and Recurrence Scheduling
 
+## Selected collector/writer reconciliation — 3 November 2026
+
+[Current flow-group dispositions](../../flow-backlog-reconciliation-20261103.md) supersede stale remaining-work labels only at their stated scope. PR136 completes the PubMed/DataCite/ClinicalTrials changed-path qualification; reuse accepted acquisition and marker preservation. E01-H03 selected concurrency/key acceptance and the recent enrichment/deduplication remain closed. E01-H04 uncovered failure/commit-boundary cases, DoRA continuation/source-health and current weekly-email delivery remain open. Current digest documentation is complete; a Compose no-send run does not prove the restored Outlook send action. No broader E01 or unattended-service closure is implied.
+
 ## Current scoped reconciliation — 31 October 2026
 
 The selected working automation, retained archive commit/replay and canonical exporter path are accepted. Same flow identities and accepted schedules are preserved.

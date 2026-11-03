@@ -1,3 +1,7 @@
+## Selected flow backlog — reconciled 3 November 2026
+
+The [ten-group flow reconciliation](flow-backlog-reconciliation-20261103.md) closes the three-collector changed-path assignment and distinguishes the nine remaining acceptance/disposition groups. It corrects stale H03, digest-documentation, WHO count and Semantic Scholar liveness wording. The natural daily observer is accepted with its failed-delivery disposition; timely monthly delivery remains pending.
+
 ## Current collector runtime qualification —3November2026
 
 [Three-collector changed-path qualification](tracks/collector_runtime_qualification_20261103/index.md) is complete for the selected bounded native retry/checkpoint/continuation/failure cases; accepted acquisition and real later runs were reused. Original source schedules and last-good archives remain protected. Controlled qualification inputs are not live provider-outage or complete-corpus claims.

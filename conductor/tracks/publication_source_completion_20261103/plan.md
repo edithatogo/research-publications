@@ -17,9 +17,9 @@ Legend: `[x]` accepted evidence, `[~]` active implementation/wait with a live pr
 - [x] **P06 — Reconcile own stale locks.** Verify recorded collector/continuation PIDs absent; preserve both lock directories and owners before clearing. Evidence: `private/ops/2026-11-03-semantic-scholar-recovery/lock-recovery-receipt.json` in original checkout. No authentication/native locks touched.
 - [x] **P07 — Execute one cache-resuming collection attempt.** Existing collector command below; one provider request returned429 on3November. Retain complete response/header/stop receipt and all previously completed cache responses.
 - [x] **P08 — Review the14 identifier exceptions without API calls.** Compare frozen rows with retained Europe PMC/OpenAlex and Semantic Scholar evidence. Preserve12 missing/invalid identifier records (including one title in the DOI cell) and2 DOI/PMID conflicts; no safe automatic correction is supported. Evidence: private `identifier-review.json`. Do not treat these as45 deferred lookups.
-- [~] **P09 — Resume the collector after conservative backoff.** Existing `private/no-login-sources/resume-single-controller.py`, session85856 at recovery; verify PID/handle before any restart. Three-second pacing, cache-first, one-hour repeated429 backoff, longer provider delay honoured. Status must be refreshed from live process and cache, not this dated session alone.
+- [ ] **P09 — Resume the collector after conservative backoff.** Existing `private/no-login-sources/resume-single-controller.py`, session85856 at recovery; verify PID/handle before any restart. Three-second pacing, cache-first, one-hour repeated429 backoff, longer provider delay honoured. Status must be refreshed from live process and cache, not this dated session alone.
 - [ ] **P10 — Finish45 deferred exact-identifier lookups.** Dependency P09/provider availability. Done only when cache coverage has zero deferred, with retained200/verified404 receipts or another evidence-backed terminal disposition. Never infer a no-match from429.
-- [~] **P11 — Retain one native continuation waiting on P10.** Existing `private/ops/2026-11-03-semantic-scholar-complete/continue-after-collection.py`, recovery session44465. Preserve one owner; verify actual process before restart. Waiting is not native completion.
+- [ ] **P11 — Retain one native continuation waiting on P10.** Existing `private/ops/2026-11-03-semantic-scholar-complete/continue-after-collection.py`, recovery session44465. Preserve one owner; verify actual process before restart. Waiting is not native completion.
 
 ## C. Promote the changed generation once
 
@@ -74,3 +74,7 @@ P27 terminal evidence: [PR132](https://github.com/edithatogo/research-publicatio
 - [ ] P10–P21 remain incomplete. Latest inspected attempt13 returned429 at
   14:46 Brisbane, with next permitted request15:46 and45 deferred. Existing
   controller and native continuation retain sole execution ownership.
+
+## Later 3 November status reconciliation — no restart
+
+The [selected flow reconciliation](../../flow-backlog-reconciliation-20261103.md) consumes the later cache and local process read. Coverage still has45deferred and the saved attempt returned429. Recorded collector/continuation owner PIDs are absent and no matching live script was found. P09/P11 are therefore pending rather than live/in-progress. Their locks, logs, saved cooldown and journals are preserved; prior live receipts are historical, not current liveness. No lock was cleared, provider request sent, worker restarted or native effect performed. P10–P21 remain incomplete. Inspect the exact preserved owners/intents before resumption; a saved cooldown alone is not an active worker.

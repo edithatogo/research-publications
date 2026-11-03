@@ -1,10 +1,14 @@
+## Selected flow backlog — reconciled 3 November 2026
+
+[Current ten-group disposition and exact remaining exits](flow-backlog-reconciliation-20261103.md). This is a scoped reconciliation of existing tracks, not ten new tracks. Accepted collector qualification and H03 cases remain closed; nine groups retain acceptance/disposition gates, with NIH deferred.
+
 ## Selected collector runtime qualification —3November2026
 
 - [x] **Track: PubMed, DataCite and ClinicalTrials changed-path native qualification** — [Executable cases](tracks/collector_runtime_qualification_20261103/index.md). Changed-path native cases completed; accepted acquisition, original definitions/schedules and last-good marker bytes preserved. The exact observed retry count is not exposed by the API.
 
 ## Selected publication-source completion — 3 November 2026
 
-- [~] **Track: Complete selected free-API publication enrichment and native delivery** — [Executable tasks and evidence](tracks/publication_source_completion_20261103/index.md). Existing Europe PMC/OpenAlex/Semantic Scholar saved checkpoint is accepted. Forty-five anonymous lookups remain rate-limited; own stale process locks recovered,14 identifier exceptions reviewed and CLI collection/native continuation resumed. This selected leaf preserves broader T11/E01 and conditional-provider scope. PR132/133 integrated the accepted source/documentation packet into main. The deferred collection and future native generation remain incomplete.
+- [~] **Track: Complete selected free-API publication enrichment and native delivery** — [Executable tasks and evidence](tracks/publication_source_completion_20261103/index.md). Existing Europe PMC/OpenAlex/Semantic Scholar saved checkpoint is accepted. Forty-five anonymous lookups remain rate-limited; 14 identifier exceptions reviewed; earlier stale-lock recovery/resumption is retained as history. Later3November inspection found no live collector/continuation process, so safe resumption remains pending. This selected leaf preserves broader T11/E01 and conditional-provider scope. PR132/133 integrated the accepted source/documentation packet into main. The deferred collection and future native generation remain incomplete.
 
 # Track register
 
