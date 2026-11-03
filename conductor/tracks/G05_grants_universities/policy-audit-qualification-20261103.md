@@ -42,6 +42,17 @@ set by inventing one from the document number or date. G05 remains partial for
 institutional source and native-intake acceptance; no opportunities were
 admitted and no source, flow or model was changed.
 
+## UQ public-table reuse boundary
+
+The [public funding table](https://research-support.uq.edu.au/node/4696)
+links in its footer to the university's [website terms](https://uq.edu.au/legal/copyright-privacy-disclaimer/).
+Those terms prohibit systematic downloading, retrieval or storage of site
+content and restrict reproduction or transmission. This is a concrete reason
+not to treat public visibility of that table as permission for an automated
+collector; a separately permitted source or applicable reuse authority remains
+necessary. No collector, subscription or new access was created. This records
+the linked terms rather than making a legal ruling about other source material.
+
 ## Retained evidence
 
 The exact pinned-read and identity-validation receipts, publisher-search
