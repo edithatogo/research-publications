@@ -1,5 +1,28 @@
 # Implementation plan
 
+## Current source priorities — 3 November 2026
+
+GrantConnect remains the active source for Commonwealth opportunities. Use its existing
+intake and canonical opportunity keys. Evaluate the following candidates before adding
+a collector, checking coverage, reuse terms, source identifiers and overlap with GrantConnect.
+
+| Active assessment | Intended use |
+| --- | --- |
+| [Commonwealth grants and programs finder](https://business.gov.au/grants-and-programs) and [Queensland innovation grants](https://www.business.qld.gov.au/running-business/growing-business/becoming-innovative/grants) | Discover business and innovation programs. Follow the issuing agency's listing to confirm the round, eligibility and closing date. |
+| [Queensland open data](https://www.data.qld.gov.au/) and [Commonwealth open data](https://data.gov.au/) | Use CKAN catalogue searches to locate grant datasets. Check each resource's licence, update date and whether its records describe open calls or past awards. |
+| [ARC grants portal](https://dataportal.arc.gov.au/NCGP/Web/Grant/Help), [ARDC Research Activities API](https://documentation.ardc.edu.au/rda/research-activities-api) and [OpenAlex Awards](https://help.openalex.org/data/awards/) | Assess award and project data for funding history and links to research outputs. Keep award identifiers separate from open-call identifiers. |
+| [PollenOne](https://pollenone.com/search) | Assess as a discovery aid. The publisher describes free access during its beta. RIMS API access and reuse terms still need verification. |
+| [The Grants Hub](https://www.thegrantshub.com.au/pricing) | Assessed as a subscription directory with a 14-day trial and restrictions on reuse in searchable grant tools. Exclude from active automated intake. |
+
+## Future institutional integrations
+
+Defer Pivot-RP, GrantForward, Streamlyne FundFit, Academic Analytics, Atom Grants,
+Research Professional, Instrumentl, Candid (Foundation Directory Online) and GrantWatch.
+Revisit each provider when the institution has a supported API key and licence terms
+cover RIMS use. Verify the provider offers the required API and data before scheduling
+implementation. The catalogue retains university access notes for reference. Obtaining
+a Pivot-RP account, export or calendar subscription is outside the active work plan.
+
 **Access scope:** current-user permitted source inspection and reviewed/manual
 institution intake only. No cross-user directory or unattended portal access
 is assumed.
@@ -7,7 +30,7 @@ is assumed.
 - [x] Record scope and acceptance requirements.
 - [x] Inspect current inputs, dependencies and relevant platform objects. University research-office pages and access boundaries were checked; no institutional login or portal export was used.
 - [x] Implement: Record JCU, UQ, QUT and Griffith authority pages, formats, access, eligibility scope and only source-backed internal lead-time facts.
-- [~] Verify: Public-page evidence is recorded; permitted feed/export routes and internal portal access remain unverified, with unknown lead times retained as null.
+- [~] Verify public sources and retain unknown lead times as null. Subscription portal access moves to the future institutional integrations above.
 - [x] Record local and live evidence separately before closure.
 
 ## University source freshness recheck — 2026-09-22

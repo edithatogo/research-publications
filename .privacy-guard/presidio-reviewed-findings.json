@@ -10301,6 +10301,146 @@
       "value_sha256": "c247ce1bbcd8f6119a696314da4f8fd933b071ae795c6ca17c7e18f77726df3f",
       "reason": "Public university name, not a person.",
       "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "effa9d0e0da647da67b69817cc256f7eb9d598d9fe6d0d2c66dd9257400bb68d",
+      "blob_sha256": "2ba8256136c0e781198331a828083d9a5305761edfd96b322f67ac21a155e1db",
+      "entity_index": 0,
+      "start": 0,
+      "end": 17,
+      "value_sha256": "aacb2d5c2c0579255c0fb59b5e3f37bb549a62fc17f22840e33e8de48c3c2fbe",
+      "reason": "Inspected roadmap context: public provider or place name, technical label or ordinary prose.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "31408e2ee757040e9856857148df60485a8f14dad6c089566029e1eb98e2f3da",
+      "blob_sha256": "d38afdae785688049bb2046425c46275aa304c2857100cab9c65bf84883c8e8d",
+      "entity_index": 0,
+      "start": 1156,
+      "end": 1164,
+      "value_sha256": "6e270eff2709040d84d90e8e3950f0a1af35386d2d5223233964836efecdcc95",
+      "reason": "Inspected roadmap context: public provider or place name, technical label or ordinary prose.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "a73ec815bba6b091c6a22697bd2d89610a616024a3c49ff02d1d682cb9d44ab1",
+      "blob_sha256": "d3bd8a9ef6aaaaa60c3e2c332f8253b1a0f5ae885248e2a0f2dedd4009e7067b",
+      "entity_index": 0,
+      "start": 1824,
+      "end": 1838,
+      "value_sha256": "f5939956b93be55f1f4c7d942e548bffd9d554af00153a2d24edb89ccf3e193b",
+      "reason": "Inspected roadmap context: public provider or place name, technical label or ordinary prose.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "a73ec815bba6b091c6a22697bd2d89610a616024a3c49ff02d1d682cb9d44ab1",
+      "blob_sha256": "d3bd8a9ef6aaaaa60c3e2c332f8253b1a0f5ae885248e2a0f2dedd4009e7067b",
+      "entity_index": 0,
+      "start": 1854,
+      "end": 1872,
+      "value_sha256": "1bceeae3d7b2931889d8adaa9fba8bc7beb654936446194717862836efda4960",
+      "reason": "Inspected roadmap context: public provider or place name, technical label or ordinary prose.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "a73ec815bba6b091c6a22697bd2d89610a616024a3c49ff02d1d682cb9d44ab1",
+      "blob_sha256": "d3bd8a9ef6aaaaa60c3e2c332f8253b1a0f5ae885248e2a0f2dedd4009e7067b",
+      "entity_index": 0,
+      "start": 1894,
+      "end": 1905,
+      "value_sha256": "54f0f480a40afe73417f4ddf8f044cb3151c92387c1fe5284d59e765f2c809d9",
+      "reason": "Inspected roadmap context: public provider or place name, technical label or ordinary prose.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "a73ec815bba6b091c6a22697bd2d89610a616024a3c49ff02d1d682cb9d44ab1",
+      "blob_sha256": "d3bd8a9ef6aaaaa60c3e2c332f8253b1a0f5ae885248e2a0f2dedd4009e7067b",
+      "entity_index": 0,
+      "start": 1996,
+      "end": 2003,
+      "value_sha256": "81033ad744f4b7d48440664f79c1f15cbcaac0f5b5c5177fb1a69fa6316f81f1",
+      "reason": "Inspected roadmap context: public provider or place name, technical label or ordinary prose.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "a73ec815bba6b091c6a22697bd2d89610a616024a3c49ff02d1d682cb9d44ab1",
+      "blob_sha256": "d3bd8a9ef6aaaaa60c3e2c332f8253b1a0f5ae885248e2a0f2dedd4009e7067b",
+      "entity_index": 0,
+      "start": 3926,
+      "end": 3934,
+      "value_sha256": "c247ce1bbcd8f6119a696314da4f8fd933b071ae795c6ca17c7e18f77726df3f",
+      "reason": "Inspected roadmap context: public provider or place name, technical label or ordinary prose.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "a73ec815bba6b091c6a22697bd2d89610a616024a3c49ff02d1d682cb9d44ab1",
+      "blob_sha256": "d3bd8a9ef6aaaaa60c3e2c332f8253b1a0f5ae885248e2a0f2dedd4009e7067b",
+      "entity_index": 0,
+      "start": 4119,
+      "end": 4127,
+      "value_sha256": "c247ce1bbcd8f6119a696314da4f8fd933b071ae795c6ca17c7e18f77726df3f",
+      "reason": "Inspected roadmap context: public provider or place name, technical label or ordinary prose.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "a73ec815bba6b091c6a22697bd2d89610a616024a3c49ff02d1d682cb9d44ab1",
+      "blob_sha256": "d3bd8a9ef6aaaaa60c3e2c332f8253b1a0f5ae885248e2a0f2dedd4009e7067b",
+      "entity_index": 0,
+      "start": 4652,
+      "end": 4663,
+      "value_sha256": "3ab48db52b17526dcc24e57950c5e0df68043cde673c8f8be6495fa1298d5006",
+      "reason": "Inspected roadmap context: public provider or place name, technical label or ordinary prose.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "a73ec815bba6b091c6a22697bd2d89610a616024a3c49ff02d1d682cb9d44ab1",
+      "blob_sha256": "d3bd8a9ef6aaaaa60c3e2c332f8253b1a0f5ae885248e2a0f2dedd4009e7067b",
+      "entity_index": 0,
+      "start": 6060,
+      "end": 6066,
+      "value_sha256": "6ca845e797a219dfa1cdd6fe024e95e89d0449e5fb2bebf1b82c666f52c5c2f8",
+      "reason": "Inspected roadmap context: public provider or place name, technical label or ordinary prose.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "6be3d879dcb31e72581413120793e09802563cbb4d22f32b2a10db1e042ca2cd",
+      "blob_sha256": "2248b2337310c9a8665d256e236d3615ca3917667e1b0abfe5c21c701a7a76bc",
+      "entity_index": 0,
+      "start": 2393,
+      "end": 2412,
+      "value_sha256": "3f486c5c05ba48114dcf5836fb8c8fb44da90df23c0b941b9ba134477059fedb",
+      "reason": "Inspected roadmap context: public provider or place name, technical label or ordinary prose.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "6be3d879dcb31e72581413120793e09802563cbb4d22f32b2a10db1e042ca2cd",
+      "blob_sha256": "2248b2337310c9a8665d256e236d3615ca3917667e1b0abfe5c21c701a7a76bc",
+      "entity_index": 0,
+      "start": 2980,
+      "end": 2988,
+      "value_sha256": "0740f4bade2a0a5b3c5d4f09aac7cc9aca2eba6907e144e2c02a226b70e4bfa7",
+      "reason": "Inspected roadmap context: public provider or place name, technical label or ordinary prose.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "6be3d879dcb31e72581413120793e09802563cbb4d22f32b2a10db1e042ca2cd",
+      "blob_sha256": "2248b2337310c9a8665d256e236d3615ca3917667e1b0abfe5c21c701a7a76bc",
+      "entity_index": 0,
+      "start": 4684,
+      "end": 4706,
+      "value_sha256": "78051d6c246b11fc24794afc1c8cf743530c04eed9344509636494ec873045d6",
+      "reason": "Inspected roadmap context: public provider or place name, technical label or ordinary prose.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "6be3d879dcb31e72581413120793e09802563cbb4d22f32b2a10db1e042ca2cd",
+      "blob_sha256": "2248b2337310c9a8665d256e236d3615ca3917667e1b0abfe5c21c701a7a76bc",
+      "entity_index": 0,
+      "start": 9205,
+      "end": 9212,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected roadmap context: public provider or place name, technical label or ordinary prose.",
+      "reviewer": "Codex source inspection 2026-11-03"
     }
   ]
 }

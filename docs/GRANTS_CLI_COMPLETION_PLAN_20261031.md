@@ -1,5 +1,7 @@
 # Grants completion: GrantConnect first, no UI authoring or monitoring
 
+Current source selection follows the [active and future grants roadmap](../conductor/tracks/G05_grants_universities/plan.md#current-source-priorities--3-november-2026).
+
 The user authorised failure alerts and one actual FlowAgent RSS run. That run
 failed at 13:24 Brisbane on 31 October with provider HTTP403: "The underlying RSS
 server forbids incoming requests." No items were captured; the manual flow is
