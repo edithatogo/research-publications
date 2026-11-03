@@ -15641,6 +15641,216 @@
       "value_sha256": "1e7f34ee8f771657a4c8350d8589f8b2405544de0e756fecb4247e307d673bfc",
       "reason": "Inspected E04 plan prose and report path terminology.",
       "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "dbff4c90f36a773783defeea6ab4e0d73f332f26a32ffefc766f7052b4cc606e",
+      "blob_sha256": "82f330215c942a4a376b5bbe45fd49535d1bf1f6b3d5805ee5ea74cb9b5d25ee",
+      "entity_index": 0,
+      "start": 2,
+      "end": 14,
+      "value_sha256": "c7ddbaee048b31079228966a3fbda17bdc98d19860bc541dcab41bbd48136ac6",
+      "reason": "Inspected release plan text and commit title: field name, platform terminology or task verb.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "936a962275f976734d2f8a5c31a0c8af662c3b4de3a1f670dd25045cfc6010ee",
+      "blob_sha256": "466ef166ef6e05485a802e0a8ddfec1cf88e2f268d17481956b7ca6831d6f470",
+      "entity_index": 0,
+      "start": 2,
+      "end": 14,
+      "value_sha256": "c7ddbaee048b31079228966a3fbda17bdc98d19860bc541dcab41bbd48136ac6",
+      "reason": "Inspected release plan text and commit title: field name, platform terminology or task verb.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "dbff4c90f36a773783defeea6ab4e0d73f332f26a32ffefc766f7052b4cc606e",
+      "blob_sha256": "82f330215c942a4a376b5bbe45fd49535d1bf1f6b3d5805ee5ea74cb9b5d25ee",
+      "entity_index": 0,
+      "start": 965,
+      "end": 968,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Inspected release plan text and commit title: field name, platform terminology or task verb.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "936a962275f976734d2f8a5c31a0c8af662c3b4de3a1f670dd25045cfc6010ee",
+      "blob_sha256": "466ef166ef6e05485a802e0a8ddfec1cf88e2f268d17481956b7ca6831d6f470",
+      "entity_index": 0,
+      "start": 965,
+      "end": 968,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Inspected release plan text and commit title: field name, platform terminology or task verb.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "dbff4c90f36a773783defeea6ab4e0d73f332f26a32ffefc766f7052b4cc606e",
+      "blob_sha256": "82f330215c942a4a376b5bbe45fd49535d1bf1f6b3d5805ee5ea74cb9b5d25ee",
+      "entity_index": 0,
+      "start": 1375,
+      "end": 1390,
+      "value_sha256": "a04046ad5ee3072c894094c768c24aa591864c41523859944baa2dbf7f373ed4",
+      "reason": "Inspected release plan text and commit title: field name, platform terminology or task verb.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "936a962275f976734d2f8a5c31a0c8af662c3b4de3a1f670dd25045cfc6010ee",
+      "blob_sha256": "466ef166ef6e05485a802e0a8ddfec1cf88e2f268d17481956b7ca6831d6f470",
+      "entity_index": 0,
+      "start": 1375,
+      "end": 1390,
+      "value_sha256": "a04046ad5ee3072c894094c768c24aa591864c41523859944baa2dbf7f373ed4",
+      "reason": "Inspected release plan text and commit title: field name, platform terminology or task verb.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "dbff4c90f36a773783defeea6ab4e0d73f332f26a32ffefc766f7052b4cc606e",
+      "blob_sha256": "82f330215c942a4a376b5bbe45fd49535d1bf1f6b3d5805ee5ea74cb9b5d25ee",
+      "entity_index": 0,
+      "start": 1460,
+      "end": 1470,
+      "value_sha256": "ee325afd9b4e907b3c521293ce4c841c990f124a10192bcba8ec7cc6bf005090",
+      "reason": "Inspected release plan text and commit title: field name, platform terminology or task verb.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "dbff4c90f36a773783defeea6ab4e0d73f332f26a32ffefc766f7052b4cc606e",
+      "blob_sha256": "82f330215c942a4a376b5bbe45fd49535d1bf1f6b3d5805ee5ea74cb9b5d25ee",
+      "entity_index": 0,
+      "start": 3073,
+      "end": 3083,
+      "value_sha256": "ee325afd9b4e907b3c521293ce4c841c990f124a10192bcba8ec7cc6bf005090",
+      "reason": "Inspected release plan text and commit title: field name, platform terminology or task verb.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "dbff4c90f36a773783defeea6ab4e0d73f332f26a32ffefc766f7052b4cc606e",
+      "blob_sha256": "82f330215c942a4a376b5bbe45fd49535d1bf1f6b3d5805ee5ea74cb9b5d25ee",
+      "entity_index": 0,
+      "start": 5156,
+      "end": 5166,
+      "value_sha256": "ee325afd9b4e907b3c521293ce4c841c990f124a10192bcba8ec7cc6bf005090",
+      "reason": "Inspected release plan text and commit title: field name, platform terminology or task verb.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "936a962275f976734d2f8a5c31a0c8af662c3b4de3a1f670dd25045cfc6010ee",
+      "blob_sha256": "466ef166ef6e05485a802e0a8ddfec1cf88e2f268d17481956b7ca6831d6f470",
+      "entity_index": 0,
+      "start": 1460,
+      "end": 1470,
+      "value_sha256": "ee325afd9b4e907b3c521293ce4c841c990f124a10192bcba8ec7cc6bf005090",
+      "reason": "Inspected release plan text and commit title: field name, platform terminology or task verb.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "936a962275f976734d2f8a5c31a0c8af662c3b4de3a1f670dd25045cfc6010ee",
+      "blob_sha256": "466ef166ef6e05485a802e0a8ddfec1cf88e2f268d17481956b7ca6831d6f470",
+      "entity_index": 0,
+      "start": 3073,
+      "end": 3083,
+      "value_sha256": "ee325afd9b4e907b3c521293ce4c841c990f124a10192bcba8ec7cc6bf005090",
+      "reason": "Inspected release plan text and commit title: field name, platform terminology or task verb.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "936a962275f976734d2f8a5c31a0c8af662c3b4de3a1f670dd25045cfc6010ee",
+      "blob_sha256": "466ef166ef6e05485a802e0a8ddfec1cf88e2f268d17481956b7ca6831d6f470",
+      "entity_index": 0,
+      "start": 5156,
+      "end": 5166,
+      "value_sha256": "ee325afd9b4e907b3c521293ce4c841c990f124a10192bcba8ec7cc6bf005090",
+      "reason": "Inspected release plan text and commit title: field name, platform terminology or task verb.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "dbff4c90f36a773783defeea6ab4e0d73f332f26a32ffefc766f7052b4cc606e",
+      "blob_sha256": "82f330215c942a4a376b5bbe45fd49535d1bf1f6b3d5805ee5ea74cb9b5d25ee",
+      "entity_index": 0,
+      "start": 3377,
+      "end": 3393,
+      "value_sha256": "24ac1365f70861918e40c581348239cfe3786efca9b6aa1515f44ded61b9ba24",
+      "reason": "Inspected release plan text and commit title: field name, platform terminology or task verb.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "936a962275f976734d2f8a5c31a0c8af662c3b4de3a1f670dd25045cfc6010ee",
+      "blob_sha256": "466ef166ef6e05485a802e0a8ddfec1cf88e2f268d17481956b7ca6831d6f470",
+      "entity_index": 0,
+      "start": 3377,
+      "end": 3393,
+      "value_sha256": "24ac1365f70861918e40c581348239cfe3786efca9b6aa1515f44ded61b9ba24",
+      "reason": "Inspected release plan text and commit title: field name, platform terminology or task verb.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "dbff4c90f36a773783defeea6ab4e0d73f332f26a32ffefc766f7052b4cc606e",
+      "blob_sha256": "82f330215c942a4a376b5bbe45fd49535d1bf1f6b3d5805ee5ea74cb9b5d25ee",
+      "entity_index": 0,
+      "start": 3419,
+      "end": 3428,
+      "value_sha256": "63d835cc480a989ceecbfb01dec5b8871f233935ac46fc0305a10f2492cecf8d",
+      "reason": "Inspected release plan text and commit title: field name, platform terminology or task verb.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "dbff4c90f36a773783defeea6ab4e0d73f332f26a32ffefc766f7052b4cc606e",
+      "blob_sha256": "82f330215c942a4a376b5bbe45fd49535d1bf1f6b3d5805ee5ea74cb9b5d25ee",
+      "entity_index": 0,
+      "start": 3916,
+      "end": 3925,
+      "value_sha256": "63d835cc480a989ceecbfb01dec5b8871f233935ac46fc0305a10f2492cecf8d",
+      "reason": "Inspected release plan text and commit title: field name, platform terminology or task verb.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "936a962275f976734d2f8a5c31a0c8af662c3b4de3a1f670dd25045cfc6010ee",
+      "blob_sha256": "466ef166ef6e05485a802e0a8ddfec1cf88e2f268d17481956b7ca6831d6f470",
+      "entity_index": 0,
+      "start": 3419,
+      "end": 3428,
+      "value_sha256": "63d835cc480a989ceecbfb01dec5b8871f233935ac46fc0305a10f2492cecf8d",
+      "reason": "Inspected release plan text and commit title: field name, platform terminology or task verb.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "936a962275f976734d2f8a5c31a0c8af662c3b4de3a1f670dd25045cfc6010ee",
+      "blob_sha256": "466ef166ef6e05485a802e0a8ddfec1cf88e2f268d17481956b7ca6831d6f470",
+      "entity_index": 0,
+      "start": 3916,
+      "end": 3925,
+      "value_sha256": "63d835cc480a989ceecbfb01dec5b8871f233935ac46fc0305a10f2492cecf8d",
+      "reason": "Inspected release plan text and commit title: field name, platform terminology or task verb.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "2f570484db96091a63508495949c3af2810cc43f6a5fbc150db3b64b91215635",
+      "blob_sha256": "78d6fc9bc33090f51f162c53cb087e8e0486a8dec16274693ff667c7c08c1b14",
+      "entity_index": 0,
+      "start": 944,
+      "end": 951,
+      "value_sha256": "c93d34f3176d65652d6265daef9c7f30b5d2f743da06b0aea83d708278e27e6d",
+      "reason": "Inspected release plan text and commit title: field name, platform terminology or task verb.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "4321653e3cce642ecacc82d33473b166b8092387b24850d8ba093a83cf9d39c9",
+      "blob_sha256": "b5a3e499b50544f210178ff3d8d7f6e40ac796a8f4e1cde4f0b88588c99d7e16",
+      "entity_index": 0,
+      "start": 944,
+      "end": 951,
+      "value_sha256": "c93d34f3176d65652d6265daef9c7f30b5d2f743da06b0aea83d708278e27e6d",
+      "reason": "Inspected release plan text and commit title: field name, platform terminology or task verb.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "eed1c78bf8aa14c8df82bced5631ce540fe048308875d8ff59b8655b6551d157",
+      "blob_sha256": "1e6abbe4f419244bfdec7a7b5488023993ac244d9a57754482b847a3eb2102ea",
+      "entity_index": 0,
+      "start": 0,
+      "end": 10,
+      "value_sha256": "0ce59cbb482086da6a25f5c0266a1729ea657dd594d9696e0f95e9e269dd36fb",
+      "reason": "Inspected release plan text and commit title: field name, platform terminology or task verb.",
+      "reviewer": "Codex integration review 2026-11-04"
     }
   ]
 }
