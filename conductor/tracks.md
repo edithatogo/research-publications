@@ -1,3 +1,7 @@
+## DoRA activity-register acceptance — 3 November 2026
+
+[Current accepted-scope reconciliation](dora-activity-acceptance-20261103.md) corrects the stale activity-writer backlog. The27October explicit SP-N10 closure covers the listed cases at diagnostic/behavioural scope; current original graph and Stopped state match. Unobserved original races/raw connector types remain accepted limitations. No new run or mutation was needed.
+
 ## DoRA recovery acceptance — 3 November 2026
 
 [Native failure and safe fresh-restart acceptance](dora-runtime-acceptance-20261103.md) closes the selected DoRA continuation/source-health gap using existing real runs and independent stored-byte proof. Prior offset reuse remains unsupported; no new crawl or native change was required.
