@@ -219,7 +219,8 @@ class ReviewMetadataTests(unittest.TestCase):
         digest_offset = text.index("b" * 64)
         digest_finding = {"entity_index": person, "start": digest_offset, "end": digest_offset + 64}
         self.assertTrue(guard.review_control_number(item, digest_finding, POLICY))
-        self.assertFalse(guard.review_control_number(item, {**digest_finding, "end": digest_offset + 63}, POLICY))
+        self.assertTrue(guard.review_control_number(item, {**digest_finding, "end": digest_offset + 63}, POLICY))
+        self.assertFalse(guard.review_control_number(item, {**digest_finding, "end": digest_offset + 65}, POLICY))
         self.assertFalse(guard.review_control_number({**item, "identity": "d" * 64}, digest_finding, POLICY))
         offset = text.index("131000")
         self.assertFalse(

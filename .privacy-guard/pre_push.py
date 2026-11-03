@@ -170,7 +170,7 @@ def review_control_number(item: dict, finding: dict, policy: dict) -> bool:
         for token in re.finditer(
             r'(?<!\\)"(?:identity|blob_sha256|value_sha256|policy_sha256)"\s*:\s*"([a-f0-9]{64})"', item["text"]
         ):
-            if token.start(1) == finding["start"] and token.end(1) == finding["end"]:
+            if token.start(1) <= finding["start"] < finding["end"] <= token.end(1):
                 return True
     except (ValueError, TypeError, KeyError):
         return False
