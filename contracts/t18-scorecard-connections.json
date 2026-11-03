@@ -1,0 +1,313 @@
+{
+  "version": "T18-scorecard-20261103.1",
+  "delivery_state": "local connection specification; no native scorecard created",
+  "native_controls": "Power BI Goals; leave unsupported Fluent tokens to native controls",
+  "groups": [
+    {
+      "name": "Knowledge and reach",
+      "children": [
+        {
+          "indicator_id": "K01",
+          "name": "Canonical publication outputs",
+          "report_visual": {
+            "page_id": "ReportSection2",
+            "visual_id": "monthly-papers",
+            "table": "Publication",
+            "measure": "Selected Month Publications"
+          },
+          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "target": null,
+          "owner": null,
+          "status_rules": null,
+          "state": "connection-candidate",
+          "reason": "Native freshness and accepted export key parity required"
+        },
+        {
+          "indicator_id": "K02.rate",
+          "name": "Open access among assessed publications",
+          "report_visual": {
+            "page_id": "ReportSection4",
+            "visual_id": "oa-rate",
+            "table": "Publication",
+            "measure": "K02 OA rate among assessed"
+          },
+          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "target": null,
+          "owner": null,
+          "status_rules": null,
+          "state": "connection-candidate",
+          "reason": "No assessed works; not policy compliance",
+          "required_filter_context": {
+            "Date.YearMonth": "same explicit complete month as paginated parameter"
+          },
+          "connection_gate": "Task15 must provide a qualified month selection for this Clinical Analytics visual; its unfiltered 36/53 baseline is a whole-register cohort, not a monthly value"
+        },
+        {
+          "indicator_id": "K02.coverage",
+          "name": "OA assessment coverage",
+          "report_visual": {
+            "page_id": "ReportSection4",
+            "visual_id": "oa-coverage",
+            "table": "Publication",
+            "measure": "K02 OA assessment coverage"
+          },
+          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "target": null,
+          "owner": null,
+          "status_rules": null,
+          "state": "connection-candidate",
+          "reason": "No included works",
+          "required_filter_context": {
+            "Date.YearMonth": "same explicit complete month as paginated parameter"
+          },
+          "connection_gate": "Task15 must provide a qualified month selection for this Clinical Analytics visual; its unfiltered 36/53 baseline is a whole-register cohort, not a monthly value"
+        },
+        {
+          "indicator_id": "K03",
+          "name": "Comparable citation reach",
+          "report_visual": null,
+          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "target": null,
+          "owner": null,
+          "status_rules": null,
+          "state": "unavailable-until-qualified-visual-and-data",
+          "reason": "Qualified comparator population, aligned observation windows and normalisation unavailable"
+        }
+      ]
+    },
+    {
+      "name": "Capacity and partnerships",
+      "children": [
+        {
+          "indicator_id": "C01.study",
+          "name": "Source-qualified study records",
+          "report_visual": null,
+          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "target": null,
+          "owner": null,
+          "status_rules": null,
+          "state": "unavailable-until-qualified-visual-and-data",
+          "reason": "Source dates remain structured; no inferred ongoing state"
+        },
+        {
+          "indicator_id": "C01.projects",
+          "name": "Active and led projects",
+          "report_visual": null,
+          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "target": null,
+          "owner": null,
+          "status_rules": null,
+          "state": "unavailable-until-qualified-visual-and-data",
+          "reason": "Repeated project identities, missing end-date semantics and unqualified leadership"
+        },
+        {
+          "indicator_id": "C02",
+          "name": "Participation and protected research time",
+          "report_visual": null,
+          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "target": null,
+          "owner": null,
+          "status_rules": null,
+          "state": "unavailable-until-qualified-visual-and-data",
+          "reason": "Authoritative person-project roles, workforce denominator and training records unavailable"
+        },
+        {
+          "indicator_id": "P01.links",
+          "name": "Reviewed project output relationships",
+          "report_visual": null,
+          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "target": null,
+          "owner": null,
+          "status_rules": null,
+          "state": "unavailable-until-qualified-visual-and-data",
+          "reason": "No reviewed bridge rows does not establish no partnerships"
+        },
+        {
+          "indicator_id": "P01.partnership",
+          "name": "Assessed external partnership coverage",
+          "report_visual": null,
+          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "target": null,
+          "owner": null,
+          "status_rules": null,
+          "state": "unavailable-until-qualified-visual-and-data",
+          "reason": "Assessed project denominator and effective-dated organisation roles unavailable"
+        }
+      ]
+    },
+    {
+      "name": "Translation and community benefit",
+      "children": [
+        {
+          "indicator_id": "T01",
+          "name": "Verified adoption and follow-up coverage",
+          "report_visual": null,
+          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "target": null,
+          "owner": null,
+          "status_rules": null,
+          "state": "unavailable-until-qualified-visual-and-data",
+          "reason": "Real governed adoption evidence and eligible follow-up population not established"
+        },
+        {
+          "indicator_id": "H01",
+          "name": "Aggregate health/service outcomes",
+          "report_visual": null,
+          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "target": null,
+          "owner": null,
+          "status_rules": null,
+          "state": "unavailable-until-qualified-visual-and-data",
+          "reason": "Existing technical intake is not accepted real aggregate evaluation evidence"
+        },
+        {
+          "indicator_id": "E01",
+          "name": "Qualified economic evaluation",
+          "report_visual": null,
+          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "target": null,
+          "owner": null,
+          "status_rules": null,
+          "state": "unavailable-until-qualified-visual-and-data",
+          "reason": "No accepted qualified economic evaluations or comparator costing available"
+        },
+        {
+          "indicator_id": "S01",
+          "name": "Community co-design and benefit",
+          "report_visual": null,
+          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "target": null,
+          "owner": null,
+          "status_rules": null,
+          "state": "unavailable-until-qualified-visual-and-data",
+          "reason": "Governed evidence, assessed coverage and eligible populations unavailable"
+        },
+        {
+          "indicator_id": "Q01.priority",
+          "name": "Sourced priority mapping",
+          "report_visual": null,
+          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "target": null,
+          "owner": null,
+          "status_rules": null,
+          "state": "unavailable-until-qualified-visual-and-data",
+          "reason": "Authoritative versioned priority crosswalk not qualified"
+        },
+        {
+          "indicator_id": "Q01.equity",
+          "name": "Governed leadership and equity benefit",
+          "report_visual": null,
+          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "target": null,
+          "owner": null,
+          "status_rules": null,
+          "state": "unavailable-until-qualified-visual-and-data",
+          "reason": "Governed community/identity/population evidence and disclosure rules unavailable"
+        }
+      ]
+    },
+    {
+      "name": "Stewardship and reliability",
+      "children": [
+        {
+          "indicator_id": "F01.opportunities",
+          "name": "Funding opportunities and confirmed closings",
+          "report_visual": null,
+          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "target": null,
+          "owner": null,
+          "status_rules": null,
+          "state": "unavailable-until-qualified-visual-and-data",
+          "reason": "Current opportunity-cohort measure and source semantics need exact qualification"
+        },
+        {
+          "indicator_id": "F01.deadlines",
+          "name": "Internal deadlines and held cases",
+          "report_visual": null,
+          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "target": null,
+          "owner": null,
+          "status_rules": null,
+          "state": "unavailable-until-qualified-visual-and-data",
+          "reason": "Authority-bound policy application and as-of coverage must be explicit"
+        },
+        {
+          "indicator_id": "F01.history",
+          "name": "Historical grant coverage",
+          "report_visual": null,
+          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "target": null,
+          "owner": null,
+          "status_rules": null,
+          "state": "unavailable-until-qualified-visual-and-data",
+          "reason": "Import terminal receipt and final three-list reconciliation pending"
+        },
+        {
+          "indicator_id": "F01.amount",
+          "name": "Award amount and CHHHS share",
+          "report_visual": null,
+          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "target": null,
+          "owner": null,
+          "status_rules": null,
+          "state": "unavailable-until-qualified-visual-and-data",
+          "reason": "Currency, amount meaning, start-date precision and institutional share qualification incomplete"
+        },
+        {
+          "indicator_id": "F02",
+          "name": "Application success",
+          "report_visual": null,
+          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "target": null,
+          "owner": null,
+          "status_rules": null,
+          "state": "unavailable-until-qualified-visual-and-data",
+          "reason": "Complete source-qualified final-decision cohort unavailable"
+        },
+        {
+          "indicator_id": "D01.sources",
+          "name": "Three-provider evidence dispositions",
+          "report_visual": null,
+          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "target": null,
+          "owner": null,
+          "status_rules": null,
+          "state": "unavailable-until-qualified-visual-and-data",
+          "reason": "Native source/key/coverage queries and current capture receipts required"
+        },
+        {
+          "indicator_id": "D01.freshness",
+          "name": "Table-specific freshness and identity exceptions",
+          "report_visual": null,
+          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "target": null,
+          "owner": null,
+          "status_rules": null,
+          "state": "unavailable-until-qualified-visual-and-data",
+          "reason": "Expected cadence and per-table runtime receipts required; unknown cadence stays unavailable"
+        },
+        {
+          "indicator_id": "D01.delivery",
+          "name": "Expected monthly occurrence delivery",
+          "report_visual": null,
+          "period": "previous complete Brisbane publication month; snapshot metrics retain their own period",
+          "target": null,
+          "owner": null,
+          "status_rules": null,
+          "state": "unavailable-until-qualified-visual-and-data",
+          "reason": "Natural monthly acceptance pending; retain observed observer failure and specific next eligible occurrence"
+        }
+      ]
+    }
+  ],
+  "audience": "Existing approved owner scope only; verify actual workspace audience before creation",
+  "qualification": [
+    "Accepted model/report revisions and 05/14/15 gates",
+    "Exact connected visual/value/month/filter parity",
+    "Documented authority for targets, owners, thresholds",
+    "No person-level or sensitive values; no new sharing or notifications",
+    "Native readback and inverse for newly owned scorecard and its generated report/model"
+  ],
+  "capability_receipt": "private/ops/t18-delivery-20261103/scorecards-capability-read.json",
+  "public_documentation": "https://learn.microsoft.com/en-us/power-bi/create-reports/service-goals-create"
+}

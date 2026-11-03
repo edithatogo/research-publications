@@ -1,0 +1,674 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
+  <Description>T18 A4 candidate; native import, populated/empty PDF and cross-consumer parity unverified.</Description>
+  <DataSources>
+    <DataSource Name="AcceptedRIMSModel">
+      <ConnectionProperties>
+        <DataProvider>PBIDATASET</DataProvider>
+        <ConnectString>Data Source=pbiazure://api.powerbi.com/;Initial Catalog=sobe_wowvirtualserver-__ACCEPTED_MODEL_ID__;Integrated Security=ClaimsToken</ConnectString>
+      </ConnectionProperties>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="Indicators">
+      <Query>
+        <DataSourceName>AcceptedRIMSModel</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@ReportMonth">
+            <Value>=Parameters!ReportMonth.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>DEFINE
+VAR PeriodStart = DATE(VALUE(LEFT(@ReportMonth, 4)), VALUE(RIGHT(@ReportMonth, 2)), 1)
+VAR PeriodEnd = EDATE(PeriodStart, 1)
+VAR GuardedStart = IF(FORMAT(PeriodStart, "yyyy-MM") = @ReportMonth
+    &amp;&amp; PeriodEnd &lt;= MAX(ReportingWindow[ReportMonthEndExclusive]), PeriodStart,
+    ERROR("Select a complete yyyy-MM publication month within the accepted reporting window"))
+VAR PeriodDates = DATESBETWEEN('Date'[Date], GuardedStart, PeriodEnd - 1)
+EVALUATE UNION(
+ROW("Order", 0, "GroupName", "Knowledge and reach", "MetricID", "K01", "Label", "Canonical publication outputs", "Value", CALCULATE([Selected Month Publications], REMOVEFILTERS('Date'), PeriodDates, TREATAS({@ReportMonth}, 'Date'[YearMonth])), "Unit", "count", "Evidence", "Retained publication cohort; Previous complete Brisbane month by default; explicit complete-month override; preserve unknown dates and all keys", "Period", @ReportMonth, "Numerator", BLANK(), "Denominator", BLANK(), "UnknownCount", BLANK()),
+ROW("Order", 1, "GroupName", "Knowledge and reach", "MetricID", "K02.rate", "Label", "Open access among assessed publications", "Value", CALCULATE('Publication'[K02 OA rate among assessed], REMOVEFILTERS('Date'), PeriodDates, KEEPFILTERS(Publication[PublicationDatePrecision] IN {"day", "month"})), "Unit", "ratio", "Evidence", "Retained publication cohort; Exactly one recognised dated retained status per work; contradictory/undated/unsupported remains unknown", "Period", @ReportMonth, "Numerator", CALCULATE([K02 Known open publications], REMOVEFILTERS('Date'), PeriodDates, KEEPFILTERS(Publication[PublicationDatePrecision] IN {"day", "month"})), "Denominator", CALCULATE([K02 OA assessed publications], REMOVEFILTERS('Date'), PeriodDates, KEEPFILTERS(Publication[PublicationDatePrecision] IN {"day", "month"})), "UnknownCount", CALCULATE([K02 Unknown OA publications], REMOVEFILTERS('Date'), PeriodDates, KEEPFILTERS(Publication[PublicationDatePrecision] IN {"day", "month"}))),
+ROW("Order", 2, "GroupName", "Knowledge and reach", "MetricID", "K02.coverage", "Label", "OA assessment coverage", "Value", CALCULATE('Publication'[K02 OA assessment coverage], REMOVEFILTERS('Date'), PeriodDates, KEEPFILTERS(Publication[PublicationDatePrecision] IN {"day", "month"})), "Unit", "ratio", "Evidence", "Retained publication cohort; Expose K02 Unknown OA publications and assessed/open/closed counts together", "Period", @ReportMonth, "Numerator", CALCULATE([K02 OA assessed publications], REMOVEFILTERS('Date'), PeriodDates, KEEPFILTERS(Publication[PublicationDatePrecision] IN {"day", "month"})), "Denominator", CALCULATE([Publications], REMOVEFILTERS('Date'), PeriodDates, KEEPFILTERS(Publication[PublicationDatePrecision] IN {"day", "month"})), "UnknownCount", CALCULATE([K02 Unknown OA publications], REMOVEFILTERS('Date'), PeriodDates, KEEPFILTERS(Publication[PublicationDatePrecision] IN {"day", "month"}))),
+ROW("Order", 3, "GroupName", "Knowledge and reach", "MetricID", "K03", "Label", "Comparable citation reach", "Value", BLANK(), "Unit", "count", "Evidence", "Qualified comparator population, aligned observation windows and normalisation unavailable", "Period", @ReportMonth, "Numerator", BLANK(), "Denominator", BLANK(), "UnknownCount", BLANK()),
+ROW("Order", 4, "GroupName", "Capacity and partnerships", "MetricID", "C01.study", "Label", "Source-qualified study records", "Value", 'Study register'[Registered study records], "Unit", "count", "Evidence", "Source snapshot count; not a monthly active-project or leadership measure. OverallStatus and StudyType are source assertions; registered studies are not active or CHHHS-led projects", "Period", @ReportMonth, "Numerator", BLANK(), "Denominator", BLANK(), "UnknownCount", BLANK()),
+ROW("Order", 5, "GroupName", "Capacity and partnerships", "MetricID", "C01.projects", "Label", "Active and led projects", "Value", BLANK(), "Unit", "count", "Evidence", "Repeated project identities, missing end-date semantics and unqualified leadership", "Period", @ReportMonth, "Numerator", BLANK(), "Denominator", BLANK(), "UnknownCount", BLANK()),
+ROW("Order", 6, "GroupName", "Capacity and partnerships", "MetricID", "C02", "Label", "Participation and protected research time", "Value", BLANK(), "Unit", "count", "Evidence", "Authoritative person-project roles, workforce denominator and training records unavailable", "Period", @ReportMonth, "Numerator", BLANK(), "Denominator", BLANK(), "UnknownCount", BLANK()),
+ROW("Order", 7, "GroupName", "Stewardship and reliability", "MetricID", "F01.opportunities", "Label", "Funding opportunities and confirmed closings", "Value", BLANK(), "Unit", "count", "Evidence", "Current opportunity-cohort measure and source semantics need exact qualification", "Period", @ReportMonth, "Numerator", BLANK(), "Denominator", BLANK(), "UnknownCount", BLANK()),
+ROW("Order", 8, "GroupName", "Stewardship and reliability", "MetricID", "F01.deadlines", "Label", "Internal deadlines and held cases", "Value", BLANK(), "Unit", "count", "Evidence", "Authority-bound policy application and as-of coverage must be explicit", "Period", @ReportMonth, "Numerator", BLANK(), "Denominator", BLANK(), "UnknownCount", BLANK()),
+ROW("Order", 9, "GroupName", "Stewardship and reliability", "MetricID", "F01.history", "Label", "Historical grant coverage", "Value", BLANK(), "Unit", "count", "Evidence", "Import terminal receipt and final three-list reconciliation pending", "Period", @ReportMonth, "Numerator", BLANK(), "Denominator", BLANK(), "UnknownCount", BLANK()),
+ROW("Order", 10, "GroupName", "Stewardship and reliability", "MetricID", "F01.amount", "Label", "Award amount and CHHHS share", "Value", BLANK(), "Unit", "currency at stated cohort", "Evidence", "Currency, amount meaning, start-date precision and institutional share qualification incomplete", "Period", @ReportMonth, "Numerator", BLANK(), "Denominator", BLANK(), "UnknownCount", BLANK()),
+ROW("Order", 11, "GroupName", "Stewardship and reliability", "MetricID", "F02", "Label", "Application success", "Value", BLANK(), "Unit", "ratio", "Evidence", "Complete source-qualified final-decision cohort unavailable", "Period", @ReportMonth, "Numerator", BLANK(), "Denominator", BLANK(), "UnknownCount", BLANK()),
+ROW("Order", 12, "GroupName", "Capacity and partnerships", "MetricID", "P01.links", "Label", "Reviewed project output relationships", "Value", 'ProjectOutputBridge'[Reviewed project output links], "Unit", "count", "Evidence", "Current reviewed-link snapshot; not a monthly partnership rate. Candidate, reviewed and withdrawn links remain distinct; do not equate output links with partnerships", "Period", @ReportMonth, "Numerator", BLANK(), "Denominator", BLANK(), "UnknownCount", BLANK()),
+ROW("Order", 13, "GroupName", "Capacity and partnerships", "MetricID", "P01.partnership", "Label", "Assessed external partnership coverage", "Value", BLANK(), "Unit", "ratio", "Evidence", "Assessed project denominator and effective-dated organisation roles unavailable", "Period", @ReportMonth, "Numerator", BLANK(), "Denominator", BLANK(), "UnknownCount", BLANK()),
+ROW("Order", 14, "GroupName", "Translation and community benefit", "MetricID", "T01", "Label", "Verified adoption and follow-up coverage", "Value", BLANK(), "Unit", "count", "Evidence", "Real governed adoption evidence and eligible follow-up population not established", "Period", @ReportMonth, "Numerator", BLANK(), "Denominator", BLANK(), "UnknownCount", BLANK()),
+ROW("Order", 15, "GroupName", "Translation and community benefit", "MetricID", "H01", "Label", "Aggregate health/service outcomes", "Value", BLANK(), "Unit", "indicator-specific", "Evidence", "Existing technical intake is not accepted real aggregate evaluation evidence", "Period", @ReportMonth, "Numerator", BLANK(), "Denominator", BLANK(), "UnknownCount", BLANK()),
+ROW("Order", 16, "GroupName", "Translation and community benefit", "MetricID", "E01", "Label", "Qualified economic evaluation", "Value", BLANK(), "Unit", "evaluation-specific", "Evidence", "No accepted qualified economic evaluations or comparator costing available", "Period", @ReportMonth, "Numerator", BLANK(), "Denominator", BLANK(), "UnknownCount", BLANK()),
+ROW("Order", 17, "GroupName", "Translation and community benefit", "MetricID", "S01", "Label", "Community co-design and benefit", "Value", BLANK(), "Unit", "ratio", "Evidence", "Governed evidence, assessed coverage and eligible populations unavailable", "Period", @ReportMonth, "Numerator", BLANK(), "Denominator", BLANK(), "UnknownCount", BLANK()),
+ROW("Order", 18, "GroupName", "Translation and community benefit", "MetricID", "Q01.priority", "Label", "Sourced priority mapping", "Value", BLANK(), "Unit", "count", "Evidence", "Authoritative versioned priority crosswalk not qualified", "Period", @ReportMonth, "Numerator", BLANK(), "Denominator", BLANK(), "UnknownCount", BLANK()),
+ROW("Order", 19, "GroupName", "Translation and community benefit", "MetricID", "Q01.equity", "Label", "Governed leadership and equity benefit", "Value", BLANK(), "Unit", "count", "Evidence", "Governed community/identity/population evidence and disclosure rules unavailable", "Period", @ReportMonth, "Numerator", BLANK(), "Denominator", BLANK(), "UnknownCount", BLANK()),
+ROW("Order", 20, "GroupName", "Stewardship and reliability", "MetricID", "D01.sources", "Label", "Three-provider evidence dispositions", "Value", BLANK(), "Unit", "count", "Evidence", "Native source/key/coverage queries and current capture receipts required", "Period", @ReportMonth, "Numerator", BLANK(), "Denominator", BLANK(), "UnknownCount", BLANK()),
+ROW("Order", 21, "GroupName", "Stewardship and reliability", "MetricID", "D01.freshness", "Label", "Table-specific freshness and identity exceptions", "Value", BLANK(), "Unit", "count", "Evidence", "Expected cadence and per-table runtime receipts required; unknown cadence stays unavailable", "Period", @ReportMonth, "Numerator", BLANK(), "Denominator", BLANK(), "UnknownCount", BLANK()),
+ROW("Order", 22, "GroupName", "Stewardship and reliability", "MetricID", "D01.delivery", "Label", "Expected monthly occurrence delivery", "Value", BLANK(), "Unit", "ratio", "Evidence", "Natural monthly acceptance pending; retain observed observer failure and specific next eligible occurrence", "Period", @ReportMonth, "Numerator", BLANK(), "Denominator", BLANK(), "UnknownCount", BLANK()))
+ORDER BY [Order]</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Order">
+          <DataField>[Order]</DataField>
+        </Field>
+        <Field Name="GroupName">
+          <DataField>[GroupName]</DataField>
+        </Field>
+        <Field Name="MetricID">
+          <DataField>[MetricID]</DataField>
+        </Field>
+        <Field Name="Label">
+          <DataField>[Label]</DataField>
+        </Field>
+        <Field Name="Value">
+          <DataField>[Value]</DataField>
+        </Field>
+        <Field Name="Unit">
+          <DataField>[Unit]</DataField>
+        </Field>
+        <Field Name="Evidence">
+          <DataField>[Evidence]</DataField>
+        </Field>
+        <Field Name="Period">
+          <DataField>[Period]</DataField>
+        </Field>
+        <Field Name="Numerator">
+          <DataField>[Numerator]</DataField>
+        </Field>
+        <Field Name="Denominator">
+          <DataField>[Denominator]</DataField>
+        </Field>
+        <Field Name="UnknownCount">
+          <DataField>[UnknownCount]</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="ReportMonth">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>=Format(DateAdd("m", -1, DateSerial(Year(DateAdd("h", 10, DateTime.UtcNow)), Month(DateAdd("h", 10, DateTime.UtcNow)), 1)), "yyyy-MM")</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Complete publication month (yyyy-MM); other domains retain their source snapshot period</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="AcceptedModelRevision">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>__UNACCEPTED_MODEL_REVISION__</Value>
+        </Values>
+      </DefaultValue>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+  </ReportParameters>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Rectangle Name="SummaryPage">
+            <ReportItems>
+              <Textbox Name="Title">
+                <CanGrow>true</CanGrow>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>CHHHS research outcomes and evidence</Value>
+                        <Style>
+                          <FontFamily>Segoe UI</FontFamily>
+                          <FontSize>20pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                  </Paragraph>
+                </Paragraphs>
+                <Top>0cm</Top>
+                <Left>0cm</Left>
+                <Height>1cm</Height>
+                <Width>18cm</Width>
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Period">
+                <CanGrow>true</CanGrow>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>= "Publication month: " &amp; Parameters!ReportMonth.Value</Value>
+                        <Style>
+                          <FontFamily>Segoe UI</FontFamily>
+                          <FontSize>10pt</FontSize>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                  </Paragraph>
+                </Paragraphs>
+                <Top>1.1cm</Top>
+                <Left>0cm</Left>
+                <Height>0.7cm</Height>
+                <Width>18cm</Width>
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Limits">
+                <CanGrow>true</CanGrow>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Retained evidence, not a complete institutional census. Unavailable is not zero impact. Snapshot counts and monthly publication cohorts are identified separately. No targets or owners are inferred.</Value>
+                        <Style>
+                          <FontFamily>Segoe UI</FontFamily>
+                          <FontSize>10pt</FontSize>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                  </Paragraph>
+                </Paragraphs>
+                <Top>1.9cm</Top>
+                <Left>0cm</Left>
+                <Height>1.5cm</Height>
+                <Width>18cm</Width>
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="PublicationSummary">
+                <CanGrow>true</CanGrow>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>= "Publication outputs: " &amp; Format(Lookup("K01", Fields!MetricID.Value, Fields!Value.Value, "Indicators"), "#,0")</Value>
+                        <Style>
+                          <FontFamily>Segoe UI</FontFamily>
+                          <FontSize>16pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                  </Paragraph>
+                </Paragraphs>
+                <Top>3.8cm</Top>
+                <Left>0cm</Left>
+                <Height>1cm</Height>
+                <Width>18cm</Width>
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="OASummary">
+                <CanGrow>true</CanGrow>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>= "OA among assessed: " &amp; IIF(IsNothing(Lookup("K02.rate", Fields!MetricID.Value, Fields!Value.Value, "Indicators")), "Unavailable", Format(Lookup("K02.rate", Fields!MetricID.Value, Fields!Value.Value, "Indicators"), "0.0%")) &amp; " | Assessment coverage: " &amp; IIF(IsNothing(Lookup("K02.coverage", Fields!MetricID.Value, Fields!Value.Value, "Indicators")), "Unavailable", Format(Lookup("K02.coverage", Fields!MetricID.Value, Fields!Value.Value, "Indicators"), "0.0%"))</Value>
+                        <Style>
+                          <FontFamily>Segoe UI</FontFamily>
+                          <FontSize>10pt</FontSize>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                  </Paragraph>
+                </Paragraphs>
+                <Top>5cm</Top>
+                <Left>0cm</Left>
+                <Height>1.2cm</Height>
+                <Width>18cm</Width>
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="KnowledgeSummary">
+                <CanGrow>true</CanGrow>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>KNOWLEDGE AND REACH | Counts describe retained publication outputs. OA numerator, eligible denominator and unknown work counts appear in the evidence appendix. Citation comparisons require compatible field, year, type and observation windows.</Value>
+                        <Style>
+                          <FontFamily>Segoe UI</FontFamily>
+                          <FontSize>10pt</FontSize>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                  </Paragraph>
+                </Paragraphs>
+                <Top>6.5cm</Top>
+                <Left>0cm</Left>
+                <Height>2.1cm</Height>
+                <Width>18cm</Width>
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="CapacitySummary">
+                <CanGrow>true</CanGrow>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>= "CAPACITY AND PARTNERSHIPS | Source-qualified study snapshot records: " &amp; Format(Lookup("C01.study", Fields!MetricID.Value, Fields!Value.Value, "Indicators"), "#,0") &amp; ". Study records are not active or led projects. Workforce time and partnership rates require qualified identities, roles, dates and eligible denominators."</Value>
+                        <Style>
+                          <FontFamily>Segoe UI</FontFamily>
+                          <FontSize>10pt</FontSize>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                  </Paragraph>
+                </Paragraphs>
+                <Top>9cm</Top>
+                <Left>0cm</Left>
+                <Height>2.1cm</Height>
+                <Width>18cm</Width>
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="TranslationSummary">
+                <CanGrow>true</CanGrow>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>TRANSLATION AND COMMUNITY BENEFIT | No real governed adoption, aggregate health, economic or community-benefit result is inferred from publication activity or technical intake fixtures. Unavailable domains retain their specific evidence dependencies.</Value>
+                        <Style>
+                          <FontFamily>Segoe UI</FontFamily>
+                          <FontSize>10pt</FontSize>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                  </Paragraph>
+                </Paragraphs>
+                <Top>11.5cm</Top>
+                <Left>0cm</Left>
+                <Height>2.1cm</Height>
+                <Width>18cm</Width>
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="StewardshipSummary">
+                <CanGrow>true</CanGrow>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>STEWARDSHIP AND RELIABILITY | Opportunities, confirmed closings, held deadlines and historical coverage are separate. Award amounts need currency/cohort meaning. Source observation, acquisition, model processing and scheduled delivery are separate events.</Value>
+                        <Style>
+                          <FontFamily>Segoe UI</FontFamily>
+                          <FontSize>10pt</FontSize>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                  </Paragraph>
+                </Paragraphs>
+                <Top>14cm</Top>
+                <Left>0cm</Left>
+                <Height>2.1cm</Height>
+                <Width>18cm</Width>
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="ModelRevision">
+                <CanGrow>true</CanGrow>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>= "Model revision: " &amp; Parameters!AcceptedModelRevision.Value</Value>
+                        <Style>
+                          <FontFamily>Segoe UI</FontFamily>
+                          <FontSize>9pt</FontSize>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                  </Paragraph>
+                </Paragraphs>
+                <Top>17cm</Top>
+                <Left>0cm</Left>
+                <Height>1.2cm</Height>
+                <Width>18cm</Width>
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="AppendixNotice">
+                <CanGrow>true</CanGrow>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Vertical indicator sections and evidence appendix follow. Values retain their defined cohort or snapshot period, measure identity, coverage and unavailable reason. This report does not assign performance ratings.</Value>
+                        <Style>
+                          <FontFamily>Segoe UI</FontFamily>
+                          <FontSize>10pt</FontSize>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                  </Paragraph>
+                </Paragraphs>
+                <Top>19cm</Top>
+                <Left>0cm</Left>
+                <Height>2.1cm</Height>
+                <Width>18cm</Width>
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+            </ReportItems>
+            <PageBreak>
+              <BreakLocation>End</BreakLocation>
+            </PageBreak>
+            <KeepTogether>true</KeepTogether>
+            <Top>0cm</Top>
+            <Left>0cm</Left>
+            <Height>24cm</Height>
+            <Width>18cm</Width>
+          </Rectangle>
+          <Tablix Name="IndicatorEvidence">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>18cm</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>4cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Rectangle Name="EvidenceBlock">
+                          <ReportItems>
+                            <Textbox Name="GroupLabel">
+                              <CanGrow>true</CanGrow>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!GroupName.Value &amp; " | " &amp; Fields!MetricID.Value</Value>
+                                      <Style>
+                                        <FontFamily>Segoe UI</FontFamily>
+                                        <FontSize>10pt</FontSize>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                </Paragraph>
+                              </Paragraphs>
+                              <Top>0cm</Top>
+                              <Left>0cm</Left>
+                              <Height>0.7cm</Height>
+                              <Width>18cm</Width>
+                              <Style>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="MetricLabel">
+                              <CanGrow>true</CanGrow>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!Label.Value</Value>
+                                      <Style>
+                                        <FontFamily>Segoe UI</FontFamily>
+                                        <FontSize>10pt</FontSize>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                </Paragraph>
+                              </Paragraphs>
+                              <Top>0.7cm</Top>
+                              <Left>0cm</Left>
+                              <Height>0.7cm</Height>
+                              <Width>18cm</Width>
+                              <Style>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="MetricValue">
+                              <CanGrow>true</CanGrow>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=IIF(IsNothing(Fields!Value.Value), "Unavailable", Format(Fields!Value.Value, IIF(Fields!Unit.Value = "ratio", "0.0%", "#,0"))) &amp; " | " &amp; Fields!Unit.Value</Value>
+                                      <Style>
+                                        <FontFamily>Segoe UI</FontFamily>
+                                        <FontSize>10pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                </Paragraph>
+                              </Paragraphs>
+                              <Top>1.4cm</Top>
+                              <Left>0cm</Left>
+                              <Height>0.7cm</Height>
+                              <Width>18cm</Width>
+                              <Style>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="MetricContext">
+                              <CanGrow>true</CanGrow>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=IIF(IsNothing(Fields!Denominator.Value), "Source/snapshot eligibility is stated below", "Numerator: " &amp; Fields!Numerator.Value &amp; " | Eligible denominator: " &amp; Fields!Denominator.Value &amp; " | Unknown OA works: " &amp; Fields!UnknownCount.Value)</Value>
+                                      <Style>
+                                        <FontFamily>Segoe UI</FontFamily>
+                                        <FontSize>9pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                </Paragraph>
+                              </Paragraphs>
+                              <Top>2.1cm</Top>
+                              <Left>0cm</Left>
+                              <Height>0.7cm</Height>
+                              <Width>18cm</Width>
+                              <Style>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="EvidenceReason">
+                              <CanGrow>true</CanGrow>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!Evidence.Value</Value>
+                                      <Style>
+                                        <FontFamily>Segoe UI</FontFamily>
+                                        <FontSize>9pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                </Paragraph>
+                              </Paragraphs>
+                              <Top>2.8cm</Top>
+                              <Left>0cm</Left>
+                              <Height>1.2cm</Height>
+                              <Width>18cm</Width>
+                              <Style>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </ReportItems>
+                          <KeepTogether>true</KeepTogether>
+                        </Rectangle>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="Details" />
+                  <KeepTogether>true</KeepTogether>
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>Indicators</DataSetName>
+            <Top>24cm</Top>
+            <Left>0cm</Left>
+            <Height>4cm</Height>
+            <Width>18cm</Width>
+            <NoRowsMessage>No source-qualified indicators for this selection; no zero-impact inference.</NoRowsMessage>
+          </Tablix>
+        </ReportItems>
+        <Height>28cm</Height>
+      </Body>
+      <Width>18cm</Width>
+      <Page>
+        <PageHeader>
+          <Height>1.2cm</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="RepeatingTitle">
+              <CanGrow>true</CanGrow>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>= "CHHHS research outcomes | " &amp; Parameters!ReportMonth.Value</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>10pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                </Paragraph>
+              </Paragraphs>
+              <Top>0cm</Top>
+              <Left>0cm</Left>
+              <Height>0.7cm</Height>
+              <Width>18cm</Width>
+              <Style>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+        </PageHeader>
+        <PageFooter>
+          <Height>0.8cm</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="PageNumber">
+              <CanGrow>true</CanGrow>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>= "T18-outcomes-20261103.1 | " &amp; Parameters!ReportMonth.Value &amp; " | Page " &amp; Globals!PageNumber &amp; " of " &amp; Globals!TotalPages</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                </Paragraph>
+              </Paragraphs>
+              <Top>0cm</Top>
+              <Left>0cm</Left>
+              <Height>0.7cm</Height>
+              <Width>18cm</Width>
+              <Style>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+        </PageFooter>
+        <PageHeight>29.7cm</PageHeight>
+        <PageWidth>21cm</PageWidth>
+        <LeftMargin>1.5cm</LeftMargin>
+        <RightMargin>1.5cm</RightMargin>
+        <TopMargin>1.5cm</TopMargin>
+        <BottomMargin>1.5cm</BottomMargin>
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Language>en-AU</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+</Report>

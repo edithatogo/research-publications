@@ -1,3 +1,32 @@
+## T18 implementation ownership — 3 November 2026
+
+Chat `01a1a0d8-8a40-7f51-b3c8-d1a7d1b04a5e` owns the approved tasks02–18 in
+`/Volumes/PortableSSD/GitHub/RIMS/dependency-qualification-20261103`, branch
+`codex/t18-outcome-delivery-20261103`, starting at plan commit `2c4528a8`.
+This supersedes the documentary checkout assignment below; preserve it as history.
+Scope: T18 source/contracts, monthly freshness, Clinical Analytics and three reporting
+outputs. Native model/report writes require current exact-object ownership,
+isolated targets and qualified inverse; import, flows, schedules and authentication
+renewal retain their existing owners. No active matching local native operation
+was observed at initial process inspection; this does not itself transfer scope.
+Current checkpoint: 79 model/105 report parts match the retained review; full1,344
+and October7 keys match the accepted export. The isolated report save and exact
+inverse are accepted, including95 unrelated parts byte-identical. A broad copied-
+model bootstrap was cancelled by this owner after identifying acquisition scope;
+its terminal state is Cancelled. The replacement bounded model uses actual retained
+native rows and exact Date/ReportingWindow definitions: default October7, explicit
+September14, all1,344 keys, OA36/53 and unknown1,291 reconcile. Clock/inverse
+qualification is in progress. No working report/model write has occurred.
+
+Tasks06–13 analytical contracts and the reader/model/Goal/RDL source candidates
+are prepared. Required local gates passed2,494 tests (19 existing skips),446
+checks and web-first contracts; native source-pair calculations and paginated
+positive/empty cohort queries have separate receipts. Next: finish the bounded
+clock round trip, then reconcile current definitions immediately before the scoped
+publication-window/model-dictionary and report writes. Existing funding/calendar,
+flows, imports, authentication and schedules remain with their existing scopes.
+Private journals and precise target bindings: `private/ops/t18-delivery-20261103/`.
+
 ## Updated backlog reconciliation — later 3 November 2026
 
 See [updated delivery table](../conductor/backlog-reconciliation-20261103.md).
