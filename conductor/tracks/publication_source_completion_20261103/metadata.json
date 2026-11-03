@@ -15,11 +15,11 @@
   "source_worktree": "/Volumes/PortableSSD/GitHub/RIMS/publication-source-coverage",
   "owner_chat_id": "01a19ab0-4739-71b1-8990-3ac1a3221769",
   "final_native_receipt_required": "private/ops/2026-11-03-semantic-scholar-complete/completion-receipt.json",
-  "execution_state": "blocked_provider_rate_limit",
+  "execution_state": "blocked_provider_rate_limit_and_resume_pending",
   "blocker_scope": "45 anonymous Semantic Scholar lookups; downstream final native generation",
-  "unblock_condition": "Existing anonymous single-record route accepts requests after the retained cooldown",
+  "unblock_condition": "Reconcile preserved existing owners/locks/intents before one authorised resume; existing anonymous route must then accept terminal responses after backoff.",
   "last_verified_wait_utc": "2026-11-03T02:56:38.418396+00:00",
-  "background_operations": "Existing collector and one native continuation confirmed live; neither restarted",
+  "background_operations": "Later3November inspection: recorded collector and continuation PIDs absent; no matching live script found. Locks/intents preserved; neither restarted.",
   "selected_closeout": {
     "free_only_plan": "complete",
     "consolidated_handoff": "complete",
@@ -30,5 +30,13 @@
     "native_documentation_status": "PASS_SCOPED_NATIVE_DOCUMENTATION",
     "completed_at_utc": "2026-11-03T03:41:39.806376+00:00"
   },
-  "native_documentation_reference": "docs/PUBLICATION_FREE_API_NATIVE_DOCUMENTATION_20261103.md"
+  "native_documentation_reference": "docs/PUBLICATION_FREE_API_NATIVE_DOCUMENTATION_20261103.md",
+  "execution_history": [
+    {
+      "execution_state": "blocked_provider_rate_limit",
+      "background_operations": "Existing collector and one native continuation confirmed live; neither restarted",
+      "last_verified_wait_utc": "2026-11-03T02:56:38.418396+00:00"
+    }
+  ],
+  "latest_reconciliation": "conductor/flow-backlog-reconciliation-20261103.md"
 }

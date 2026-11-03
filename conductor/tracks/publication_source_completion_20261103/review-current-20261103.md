@@ -1,7 +1,11 @@
 # Review Report: Semantic Scholar deferred lookups and native reconciliation
 
-## Summary
-Existing collector and native continuation are live; provider rate limiting still prevents complete collection and dependent native reconciliation.
+## Later inspection precedence
+
+The [selected flow reconciliation](../../flow-backlog-reconciliation-20261103.md) records a later cache/process observation:45lookups remain deferred, but the recorded collector and continuation PIDs are absent and no matching live script was found. Locks/intents were preserved and no restart occurred. The live finding below is historical at its stated inspection time.
+
+## Summary of the earlier inspection
+Existing collector and native continuation were live at that inspection; provider rate limiting prevented complete collection and dependent native reconciliation.
 
 ## Verification Checks
 - [x] **Plan Compliance** Partial. Existing single owner and conservative cooldown preserved.

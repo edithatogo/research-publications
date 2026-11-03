@@ -33,6 +33,10 @@ component closes only its recorded scope, including cases where a broader task
 still has unchecked requirements. Process liveness and tenant state are not
 requalified by this document.
 
+## Selected flow-table reconciliation — later 3 November inspection
+
+The [ten-group flow table](flow-backlog-reconciliation-20261103.md) is the current scoped precedence for the user-selected flows. It incorporates PR136/137 and the later Semantic Scholar cache/process read; older “live” wording below describes its earlier inspection. No full tenant inventory or new run was performed.
+
 ## Delivered work mapped to remaining exits
 
 | Track | Delivered evidence | Remaining exit | CLI readiness now |
