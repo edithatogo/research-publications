@@ -38,8 +38,8 @@ These commands run automatically in order through P11; use them manually only af
 
 ## D. Close out without repeating accepted checks
 
-- [ ] **P22 — Write the final coverage/report.** Include source dispositions, all20 requested-field counts, field paths, identifier decisions, provider receipts and exact remaining dependencies. Update the dated source handoff; preserve old bootstrap/quota reports as history.
-- [ ] **P23 — Reconcile this plan, metadata and register.** Close only evidence-backed tasks. Keep native documentation publication explicit as pending unless versioned SharePoint/Loop save/readback actually occurs; no login or wider publication is implied. Preserve existing broader T11/E01 acceptance limits.
+- [x] **P22 — Write the selected-delivery consolidated coverage/report.** Include source dispositions, all20 requested-field counts, field paths, identifier decisions, provider receipts and exact remaining dependencies. Update the dated source handoff; preserve old bootstrap/quota reports as history.
+- [x] **P23 — Reconcile this plan, metadata and register for the accepted checkpoint and selected closeout.** Close only evidence-backed tasks. Keep native documentation publication explicit as pending unless versioned SharePoint/Loop save/readback actually occurs; no login or wider publication is implied. Preserve existing broader T11/E01 acceptance limits.
 - [x] **P24 — Run relevant structural checks and commit this owned source packet.** Conductor links/metadata/status checks for documentation; reuse accepted source unit/project/web-first receipts because no collector/source behavior changed. If source code changes later, run its focused test before native use. This packet passed the24-task/link/metadata check and446 project checks; unchanged source/unit/web-first receipts were reused. Required broad integration checks remain at their actual release milestone. Final generation edits need their own affected checks.
 
 ## Exact collection command
@@ -55,3 +55,11 @@ From the source worktree, the existing controller invokes:
 ```
 
 Do not run a second copy while P09 owns the cache. The controller state records the next allowedUTC request time; ignored files are not shipped with source commits. First inspect current handles/locks/receipts after an interruption, then resume the uncompleted operation only.
+
+## E. Selected free-only closeout — later user direction,3November
+
+- [x] **P25 — Remove non-free implementation options and correct source status.** Active plans contain only the five selected free API sources. Historical exclusion records are retained. Crossref's dated1,286-DOI incremental acceptance and OpenCitations'48-DOI/344-OCI consumer scopes are documented distinctly from the three newer model evidence sources.
+- [x] **P26 — Publish and verify consolidated native documentation.** Two versioned files, exact byte readback/history, existing field guide22.0/catalogue35.0 with all prior controls preserved, Loop113 reopened and rendered. [Native documentation acceptance](../../../docs/PUBLICATION_FREE_API_NATIVE_DOCUMENTATION_20261103.md). No new login, schedule or sharing change.
+- [~] **P27 — Integrate the source packet through existing GitHub main.** Merge latest origin/main into the owned lane, run the required integration checks once, perform the exact packet preflight, push with normal hooks, create the bounded PR, consume required checks, merge and verify main contains the exact accepted source. Preserve the original dirty checkout and other worktrees. Do not declare this complete from a local commit or PR creation.
+
+P10–P21 remain incomplete where they depend on Semantic Scholar's45 deferred lookups. Moving on to this selected closeout does not certify that collection or its future native generation.

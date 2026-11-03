@@ -1,0 +1,13 @@
+# Free-API publication documentation: native acceptance
+
+The consolidated handoff and complete source-field coverage are saved in the existing versioned SharePoint documentation library. Two files were added with server-side create-only protection and independent byte/hash readback. The handoff was then updated under its original file identity to include the accepted dated Crossref incremental coverage; its previous bytes/version were retrieved and verified. The field-coverage file remained unchanged.
+
+The existing dataset field-guide page is version22.0, preserving all four prior controls, title, description, layout and identity. The existing diagram catalogue is version35.0, preserving all95 prior controls and corresponding page properties. Exactly one scoped text control was appended to each. Their links point to the saved handoff and complete field-coverageJSON. The field-guide section and links were rendered in the Codex internal browser.
+
+The existing Research Loop advanced from version112 to113 under the same file identity. A binary preimage was retained. The new guidance was added through native UI input and verified after reopening; the preceding monthly paragraph remains exact. Historical diagram blocks were not edited or recertified. CLI remains the primary route; Loop editing used the internal browser because the available CLI/connector routes expose no qualified Loop content-authoring operation. No new login was needed.
+
+Current native documentation explains the separate accepted Crossref/OpenCitations consumer scopes, Europe PMC/OpenAlex's complete selected saved-generation delivery, and the quota-limited Semantic Scholar checkpoint. Paid and institutionally licensed provider options are removed from active planning. Historical exclusions, retained data and source agreements remain preserved. No source/model/flow definition, schedule, sharing setting, recipient or provider credential was changed by this documentation increment.
+
+Private evidence: `private/ops/2026-11-03-publication-handoff/acceptance.json` in the original checkout, with create/update byte receipts, prior handoff-version verification, exact page-control comparisons, Loop metadata/preimage/reopened text and rendered screenshots. This accepts native documentation, not the45 deferred Semantic Scholar lookups or their future native generation.
+
+Checks at this source integration milestone:2,482 Python unittest cases passed with19 existing skips;446 project checks passed; web-first contracts returned no errors at local-only scope; focused documentation guard tests and affected Python lint passed. Private native receipts, not those tests, establish native publication.

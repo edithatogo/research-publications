@@ -1,3 +1,7 @@
+## Free-only publication handoff —3November2026
+
+The [consolidated source handoff](../docs/PUBLICATION_FREE_API_HANDOFF_20261103.md) distinguishes existing Crossref/OpenCitations integration from the newer evidence-table scope. Non-free providers are removed from active planning. [Native documentation](../docs/PUBLICATION_FREE_API_NATIVE_DOCUMENTATION_20261103.md) is accepted: field guide22.0, catalogue35.0 and reopened Loop113. Source packet integration proceeds through the existing main/PR route;45 Semantic Scholar lookups remain a separate incomplete dependency.
+
 ## Current publication-source lane — 3 November 2026
 
 [Publication completion tasks](tracks/publication_source_completion_20261103/index.md) reconcile the accepted native quota checkpoint with remaining collection, changed-page delivery and end-to-end acceptance. Forty-five lookups remain provider-deferred; tracked native tasks stay incomplete until actual final receipts exist. Existing broader source and grants acceptance/ownership remains unchanged. See the [track register](tracks.md) for this selected lane.

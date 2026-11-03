@@ -19,5 +19,12 @@
   "blocker_scope": "45 anonymous Semantic Scholar lookups; downstream final native generation",
   "unblock_condition": "Existing anonymous single-record route accepts requests after the retained cooldown",
   "last_verified_wait_utc": "2026-11-03T02:56:38.418396+00:00",
-  "background_operations": "Existing collector and one native continuation confirmed live; neither restarted"
+  "background_operations": "Existing collector and one native continuation confirmed live; neither restarted",
+  "selected_closeout": {
+    "free_only_plan": "complete",
+    "consolidated_handoff": "complete",
+    "native_documentation": "accepted",
+    "source_integration": "in_progress"
+  },
+  "native_documentation_reference": "docs/PUBLICATION_FREE_API_NATIVE_DOCUMENTATION_20261103.md"
 }

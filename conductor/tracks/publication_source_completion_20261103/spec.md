@@ -20,4 +20,8 @@ The existing quota checkpoint is accepted, but does not complete the 45 deferred
 
 ## Exclusions and gates
 
-No Scopus, Web of Science, Lens or Dimensions onboarding; no standalone Semantic Scholar draft activation; no new agreements, login, schedules, sharing, report layout or capacity changes. Broader grants, author and canonical-data repair lanes remain with their owners. Existing accepted source tests and required milestone receipts are reused; documentation-only changes receive link/structure checks, and changed source behavior receives only its focused test. If a genuine provider/authentication limit persists, keep dependent tasks incomplete and retain the exact resume point.
+Paid and unqualified institutional feeds are removed from active implementation options; historical exclusion records are preserved; no standalone Semantic Scholar draft activation; no new agreements, login, schedules, sharing, report layout or capacity changes. Broader grants, author and canonical-data repair lanes remain with their owners. Existing accepted source tests and required milestone receipts are reused; documentation-only changes receive link/structure checks, and changed source behavior receives only its focused test. If a genuine provider/authentication limit persists, keep dependent tasks incomplete and retain the exact resume point.
+
+## Later user direction —3November
+
+Move on from the Semantic Scholar dependency for this delivery: finish the consolidated free-source handoff, publish native documentation and integrate the source packet. Explain Crossref/OpenCitations accepted scopes accurately; do not reopen closed recovery or imply their existing integrations are absent. This does not certify the45 deferred lookups as complete.
