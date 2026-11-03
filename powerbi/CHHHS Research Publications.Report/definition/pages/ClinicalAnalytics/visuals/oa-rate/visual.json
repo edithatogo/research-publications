@@ -49,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Open access compliance rate'"
+                  "Value": "'Open access share'"
                 }
               }
             },

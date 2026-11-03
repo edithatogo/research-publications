@@ -1,3 +1,14 @@
+## Updated backlog reconciliation — later 3 November 2026
+
+See [updated delivery table](../conductor/backlog-reconciliation-20261103.md).
+PR136 collector changed-path qualification is merged. This chat's local source
+hardening and reviews are verified but uncommitted. E10 source audit is complete
+at its local scope; shared host handover remains open. RMD-05 has an observed
+natural observer failure, while full monthly qualification awaits December1.
+Current lane is documentary/source review in dependency-qualification-20261103,
+branch codex/e10-final-audit-20261103, owner01a19f3f-5187-7c23-ac14-192cb93a5a26.
+Earlier assignments and exact native/private scope remain retained below.
+
 ## Documentary backlog reconciliation — 3 November 2026
 
 [Delivered-work mapping and remaining CLI readiness](../conductor/backlog-reconciliation-20261103.md)
@@ -1347,3 +1358,13 @@ not a natural pass. The active grants import and its existing owner, checkout,
 manifest batches, cooldowns and native journals remain preserved. No scope
 transfers to this monthly lane. Source integration owner is the monthly repair
 chat in its named isolated integration worktree; original dirty checkout untouched.
+
+## Accumulated source integration — 3 November 2026
+
+The user explicitly authorised commit/integration of this chat's local fixes.
+Includes source verifier completeness guards, malformed archive-evidence guards,
+regression tests, restoration wording, E10 scoped-launcher guidance and bounded
+track reviews. CLI E04 model definition and DAX readback confirm the assessed-only
+OA denominator; local report label/footer fixes remove unsupported compliance
+and ANZSRC claims. Native report deployment remains pending its qualified
+isolated preimage/save/readback. Private evidence stays ignored.

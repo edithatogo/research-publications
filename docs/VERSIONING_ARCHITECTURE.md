@@ -29,7 +29,7 @@ Set-PnPList -Identity "Publication Registry" -EnableVersioning $true -MajorVersi
    - Modified date/time (UTC).
    - Modified by (Service Principal or User Account).
    - Exact delta: previous value vs. new value for every modified column.
-3. **Restoration:** Any previous version can be inspected and restored with one click from the SharePoint List context menu (`Item -> Version History -> Restore`).
+3. **Restoration qualification.** Inspect the exact item history, available restore operation and applicable policy constraints. Accept restoration only after an isolated native restore and field/history readback have succeeded. Retained history alone does not establish restore availability for every item.
 
 ---
 
@@ -40,7 +40,7 @@ Power Automate may expose version history for a cloud flow, but this repository
 does not assume that capability, solution-awareness, or rollback semantics until
 the exact flow/environment is inspected and a native readback is recorded:
 - Navigate to flow details: `Flow Details -> Version History`.
-- Shows timestamp, author, save comments, and allows instant rollback to any previously saved revision.
+- Record the exact available history fields and restore operation. Accept rollback only after isolated native execution and readback, including preserved connection identity and runtime state.
 
 ### Git-Controlled Declarative Definitions
 To ensure engineering rigor and compliance:

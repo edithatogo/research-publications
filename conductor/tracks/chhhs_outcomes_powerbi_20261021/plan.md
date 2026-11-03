@@ -445,3 +445,12 @@ This result supersedes the local-only deployment status above.
 - Owner: existing assurance lane, branch `codex/rims-study-json-format-fix`.
   Next action: integrate this source candidate, then reconcile current definition
   before any separately selected deployment. No native calls or refreshes occurred.
+
+## E04/T18 current read-only inspection — 3 November 2026
+
+The existing dashboard loads through the internal browser and exposes12 pages,
+including outcome and relationship pages. Clinical Analytics renders its current
+bindings. Full T18 reader, runtime data, dark/accessibility/performance acceptance
+remain open. [Current E04 review](../E04_fluent_visual_polish/native-review-20261103.md)
+records an OA compliance/coverage and classification interpretation issue requiring
+current isolated model evidence before promotion.

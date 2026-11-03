@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
-from scripts.grants_source_health import evaluate
+from scripts.grants_source_health import evaluate, verify_archive
 
 FID = '12345678-1234-1234-1234-123456789abc'
 RID = 'run-one'
@@ -75,6 +75,10 @@ class GrantsSourceHealthTests(unittest.TestCase):
             evidence=[{'source':'nhmrc','run':RID,'manifest_exact_run':True,'files':files}]
             self.assertEqual(self.check(generations=evidence,archive_root=root)['status'],'VERIFIED_SAVED_OCCURRENCE')
             self.assertFalse(self.check(generations=evidence,archive_root=root)['native_acceptance'])
+            for invalid_hash in (None, 123, [], {}):
+                malformed = copy.deepcopy(evidence)
+                malformed[0]['files'][0]['sha256'] = invalid_hash
+                self.assertEqual(self.check(generations=malformed, archive_root=root)['status'], 'UNKNOWN')
             _, h = fixture();h[0]['properties'].pop('endTime')
             self.assertEqual(self.check(history=h,generations=evidence,archive_root=root)['status'],'UNKNOWN')
             self.assertEqual(self.check(generations=[None],archive_root=root)['status'],'UNKNOWN')
@@ -88,3 +92,13 @@ class GrantsSourceHealthTests(unittest.TestCase):
         result=self.check(history=h,due_by='2026-10-26T08:00:00+10:00')
         self.assertEqual(result['status'],'UNKNOWN')
         self.assertIn('later_recurrence_origin_needs_slot_reconciliation',result['reasons'])
+
+    def test_malformed_archive_inputs_are_unverified(self):
+        for source, run_id, generations in [
+            ('nhmrc', None, []), ('nhmrc', 12, []),
+            ('nhmrc', 'run-one', None), ('nhmrc', 'run-one', {}),
+            (None, 'run-one', []), ([], 'run-one', []),
+            ('unqualified', 'run-one', []),
+        ]:
+            with self.subTest(source=source, run_id=run_id, generations=generations):
+                self.assertFalse(verify_archive(source, run_id, generations, None))

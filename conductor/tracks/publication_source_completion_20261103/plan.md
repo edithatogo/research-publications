@@ -65,3 +65,12 @@ Do not run a second copy while P09 owns the cache. The controller state records 
 P10–P21 remain incomplete where they depend on Semantic Scholar's45 deferred lookups. Moving on to this selected closeout does not certify that collection or its future native generation.
 
 P27 terminal evidence: [PR132](https://github.com/edithatogo/research-publications/pull/132) merged as `cbbb31afdd6f12e6e4f6f7046358f58f224ca140`; all23 accepted packet paths match main exactly. Source-only validation, Python3.15.1 locked artifact dependencies, source security and the existing automated review all passed. Original dirty checkout and other worktrees were preserved.
+
+## Current bounded review — 3 November 2026
+
+- [x] Verify live collector/continuation handles, retained coverage and cooldown;
+  execute selected single-lookup/native-stage tests. See
+  [review](review-current-20261103.md).
+- [ ] P10–P21 remain incomplete. Latest inspected attempt13 returned429 at
+  14:46 Brisbane, with next permitted request15:46 and45 deferred. Existing
+  controller and native continuation retain sole execution ownership.

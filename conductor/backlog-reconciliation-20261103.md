@@ -1,3 +1,30 @@
+## Updated delivery reconciliation — later 3 November 2026
+
+Compared with merged main d1e0aa7a and this chat's local review packet. This
+section supersedes earlier next-action wording below at the mapped scope.
+
+| Scope | Delivered or verified | Remaining work | CLI action available now |
+| --- | --- | --- | --- |
+| Collector runtime qualification | PR136 merged changed-path native PubMed/DataCite/ClinicalTrials qualification. | Exact retry count remains unexposed; broader natural-cycle acceptance stays separate. | Reuse accepted qualification; no repeat needed. |
+| Dependency/source hardening | Four dependency updates merged. Local verifier rejects empty/paged inputs; source health rejects malformed metadata;2485 tests/19 skips and446 checks pass. | Local code/reviews still require source promotion. | Review/package the exact local packet for integration subject to the existing explicit commit boundary. |
+| E10 | Source audit and prepared3.15.1 launcher startup verified; per-invocation Codex configuration selection qualified locally. | Existing shared3.14.8 host terminal handover and actual next-host verification. | Supported new CLI-session selection is available. Desktop host migration requires its terminal boundary. |
+| Historical import | Comparator exists and local integrity guards are fixed. Partial reader remains accepted. | Original terminal receipt/manifests/shards absent at documented original-checkout location; final native comparison unperformed. | Recover exact retained inputs from original custody, then use guarded comparator. Do not derive expected population from native lists. |
+| Monthly RMD-05 | November3 Recurrence observer verified; evidence reads/save succeeded, terminal outcome late/unverified-origin failure. | Natural monthly exporter and correlated observer acceptance on next eligible December1 cycle. | Review existing receipts; no further pre-due check closes this gate. |
+| Semantic Scholar |1266 matches accepted; latest retained attempt13 still429 with45 deferred. | Complete collection and subsequent native reconciliation. | Existing controller owns provider attempts. Current process liveness must be checked before recovery, not inferred from retained state. |
+| Internal deadlines | Writer/application/reader deployed; retained-input reassessment holds85 anchors. | Genuine authority-bound approved policy and reviewed override. | Validate a genuine new packet when available; no ready qualifying packet established. |
+| Relationships | Typed reader deployed;56 focused checks pass; retained evidence has no reviewed packet. | Authoritative typed inventories and actual reviewed admission. | Validate new reviewed evidence when available. Candidate promotion is not a code fix. |
+| Calendar/notifications | Current-operator workers deployed; CRUD/no-send receipts and24 focused checks pass. | Real lifecycle, permitted identity/access isolation and genuine due business receipt. | Bounded current event/ledger read when relevant inputs change; do not manufacture opt-ins. |
+| S02 | Source packaging/version evidence accepted; local unconditional-restore wording corrected;70 checks pass. | Qualified isolated native restoration packet and actual readback. | Establish exact target/preimage/operation evidence before any restore. |
+| E04/T18 | CLI reads exact report and12 pages. Internal-browser Clinical Analytics renders without historical error tiles;10 local checks pass. | OA denominator/classification semantics, isolated model parity and complete reader/accessibility/performance acceptance. | Current model/measure readback and isolated repair preparation through existing CLI/API route can proceed. Visual acceptance needs UI. |
+| E09 | Owner-only/no-send implementation retained;134 tests/4 skips pass. | Native actor provenance, cross-user access, curator persistence, PMID/DoRA and adoption receipts. | Exact-target capability/metadata reads and adapter preparation; real permitted identities and target authority remain prerequisites. |
+| Other grants/source operations | Catalogue, selected writer/source receipts and local health fixes retained. | Per-source access/reuse/lifecycle, university portal/feed, historical recovery and actual operating events. | Select exact eligible source/receipt reads; no blanket whole-track completion. |
+
+Local reviews assess their documented retained scope unless explicitly marked as
+fresh native reads. No local source fix, prepared definition or successful unit
+test closes native delivery, privacy, restoration or substantive review gates.
+The other remaining blocker register supplies exact prerequisites. Existing
+original checkouts, owner operations and pending source edits remain preserved.
+
 # Delivered-work and remaining-backlog reconciliation — 3 November 2026
 
 This reconciliation uses merged main at `62333632` and the existing scoped receipts.

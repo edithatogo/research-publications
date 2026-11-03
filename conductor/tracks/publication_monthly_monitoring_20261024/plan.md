@@ -110,3 +110,13 @@ The canonical31October plan retained a noon delivery recommendation and a07:50
 app follow-up. Those are preserved historical planning assumptions. The newer
 native repair retains its actual three-hour10:00 deadline; no new follow-up
 automation was installed. See the policy mapping before any later change.
+
+## RMD-05 eligible natural observer read — 3 November 2026
+
+- [x] Inspect the first eligible natural observer occurrence using the guarded CLI.
+  Recurrence succeeded about 10:05 Brisbane; run failed with
+  LATE_DELIVERY_TRIGGER_ORIGIN_UNVERIFIED. Evidence reads and observation save/
+  verification succeeded. See [review](rmd05-review-20261103.md).
+- [ ] Successful natural monthly exporter and correlated observer qualification
+  remains pending the next eligible December 1 occurrence. This natural observer
+  failure does not close RMD-05 or undo the accepted controlled repair.

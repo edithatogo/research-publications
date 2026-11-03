@@ -21,12 +21,18 @@ def verify(binding, site, lists, manifests, receipt):
                 fields = tuple(row[field] for field in ('Title', 'GAID', 'GOID', 'EvidenceHash'))
                 if keys.setdefault(row['HistoryKey'], fields) != fields:
                     raise ValueError('Conflicting staged evidence')
+    if any(not rows for rows in expected.values()):
+        raise ValueError('Complete nonempty awards, closed and links manifests required')
+
     def read(root, query, path):
         url = root + '?' + urlencode(query, quote_via=quote, safe='$,')
         subprocess.run(['node', 'scripts/m365-qualified.mjs', 'register-read', str(binding), 'request',
                         '--url', url, '--method', 'get', '--output', 'json', '--accept',
                         'application/json;odata=minimalmetadata', '--filePath', str(path)], check=True)
-        return json.loads(path.read_bytes())['value']
+        response = json.loads(path.read_bytes())
+        if any(response.get(key) for key in ('@odata.nextLink', 'odata.nextLink', '__next')):
+            raise ValueError('Incomplete paged native response; no acceptance permitted')
+        return response['value']
 
     inventory = read(site + '/_api/web/lists', {'$select': 'Id,ItemCount',
                      '$filter': ' or '.join("Id eq guid'" + str(UUID(lists[k])) + "'" for k in expected)},

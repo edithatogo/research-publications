@@ -392,3 +392,14 @@ regressions cover both boundaries. Native items were not written, and flow state
 recurrence and permissions remain unchanged. G04-H03 real intake/replay/refresh
 and nonempty last-good preservation, plus G02-H03 coverage acceptance, remain open.
 This increment does not mark the complete G02 track or Australian-source gaps done.
+
+## Other source/operational limitations — 3 November 2026
+
+- [x] Reproduce and fix malformed saved-evidence inputs crashing archive health
+ diagnostics. Invalid source/run/generation containers now remain unverified.
+- [x] Six focused source-health tests pass, including seven malformed cases.
+- [ ] Source access/reuse/lifecycle, university portal/feed, storage recovery and
+ genuine operational-event acceptance remain open at their recorded scopes.
+ See [review and prerequisites](operational-review-20261103.md).
+- [x] Full discovery passes2485 tests with19 existing skips;446 project checks,
+ web-first contracts and Conductor validation pass.

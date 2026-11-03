@@ -86,7 +86,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'ANZSRC 2020 Field of Research (FoR) division'"
+                  "Value": "'Source field-of-research classification'"
                 }
               }
             },
