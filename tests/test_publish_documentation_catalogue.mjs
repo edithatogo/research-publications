@@ -90,3 +90,5 @@ test('publication conditional update remains a scoped append, not a process-coun
 });
 
 test('monthly repair append preserves every earlier control and requires exact marker',()=>{const scope='monthly-schedule-repair-20261102',control={...added,id:'monthly',innerHTML:scope};assert.doesNotThrow(()=>assertAppend(before,[...controls,control],scope));assert.throws(()=>assertAppend(before,[{...controls[0],innerHTML:'changed'},control],scope),/Unselected/);assert.throws(()=>assertAppend(before,[...controls,added],scope),/separate/);});
+
+test('free API handoff appends one scoped control without losing human content',()=>{const scope='publication-free-api-handoff-20261103';const control={...added,id:'free-api',innerHTML:scope+' Accepted source coverage and explicit deferrals'};assert.doesNotThrow(()=>assertAppend(before,[...controls,control],scope));assert.throws(()=>assertAppend(before,[{...controls[0],innerHTML:'lost human edit'},control],scope),/Unselected/);assert.throws(()=>assertAppend(before,[...controls,{...control,id:'human'}],scope),/separate/);assert.throws(()=>assertAppend(before,[...controls,added],scope),/separate/);});

@@ -73,7 +73,7 @@ if(mode==='outcome-store'){
   validateTarget(pin);validatePlan(JSON.parse(fs.readFileSync(args[0],'utf8')));
 }
 if(mode==='documentation-page'){
-  if(args.length!==3 || args[1]!=='monthly-schedule-repair-20261102' || !['6','7'].includes(args[2])) fail('Exact monthly documentation append scope required');
+  if(args.length!==3 || !['monthly-schedule-repair-20261102','publication-free-api-handoff-20261103'].includes(args[1]) || !['6','7'].includes(args[2])) fail('Exact monthly documentation append scope required');
   assertPrivate(args[0]);
   if(!pin.documentationTarget || !pin.resources.includes(new URL(pin.documentationTarget.site_url).origin)) fail('Documentation target unpinned');
 }

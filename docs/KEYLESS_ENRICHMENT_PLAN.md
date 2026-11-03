@@ -1,5 +1,9 @@
 # Free API Enrichment Plan: CHHHS Research Publications
 
+## Active selection — 3 November 2026
+
+Use only Europe PMC, OpenAlex, Crossref, OpenCitations and the anonymous Semantic Scholar route within their verified free allowance. Paid/institutional-only provider onboarding and paid-tier fallbacks are removed from the active publication plan. Historical exclusion records below remain for audit. Current delivery and source-specific limits are recorded in the [consolidated handoff](PUBLICATION_FREE_API_HANDOFF_20261103.md).
+
 ## Current free-credential policy and failure handling — 13 October 2026
 
 The user has authorised the recommendations and supplied OpenAlex, OpenCitations
