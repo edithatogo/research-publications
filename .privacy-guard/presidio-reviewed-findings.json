@@ -15851,6 +15851,46 @@
       "value_sha256": "0ce59cbb482086da6a25f5c0266a1729ea657dd594d9696e0f95e9e269dd36fb",
       "reason": "Inspected release plan text and commit title: field name, platform terminology or task verb.",
       "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "44cbd2f5cf3eca2cc5a79daf05b1c5052b4814d7d4b7f0b7dd8acf718d73769c",
+      "blob_sha256": "ac31ffb372f6f6e52dc486b2f1428d05c47277a1b4fb8f9d86497286d4d5ae23",
+      "entity_index": 0,
+      "start": 296,
+      "end": 303,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected existing register field name and workflow status labels in the E01 recovery record.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "44cbd2f5cf3eca2cc5a79daf05b1c5052b4814d7d4b7f0b7dd8acf718d73769c",
+      "blob_sha256": "ac31ffb372f6f6e52dc486b2f1428d05c47277a1b4fb8f9d86497286d4d5ae23",
+      "entity_index": 0,
+      "start": 1600,
+      "end": 1607,
+      "value_sha256": "12698ce1ea5cd4ab13ff4b7e6b1239908c41a4b2dfa0c2661cfb53fc2aa71bd0",
+      "reason": "Inspected existing register field name and workflow status labels in the E01 recovery record.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "44cbd2f5cf3eca2cc5a79daf05b1c5052b4814d7d4b7f0b7dd8acf718d73769c",
+      "blob_sha256": "ac31ffb372f6f6e52dc486b2f1428d05c47277a1b4fb8f9d86497286d4d5ae23",
+      "entity_index": 0,
+      "start": 1754,
+      "end": 1769,
+      "value_sha256": "6d658e1fd4a174a93e499a1b30b91d2e3824518f41d43b65a37f0a56c894e870",
+      "reason": "Inspected existing register field name and workflow status labels in the E01 recovery record.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "44cbd2f5cf3eca2cc5a79daf05b1c5052b4814d7d4b7f0b7dd8acf718d73769c",
+      "blob_sha256": "ac31ffb372f6f6e52dc486b2f1428d05c47277a1b4fb8f9d86497286d4d5ae23",
+      "entity_index": 0,
+      "start": 2375,
+      "end": 2390,
+      "value_sha256": "6d658e1fd4a174a93e499a1b30b91d2e3824518f41d43b65a37f0a56c894e870",
+      "reason": "Inspected existing register field name and workflow status labels in the E01 recovery record.",
+      "reviewer": "Codex integration review 2026-11-04"
     }
   ]
 }
