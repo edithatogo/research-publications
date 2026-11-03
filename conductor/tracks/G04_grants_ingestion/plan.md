@@ -1,3 +1,9 @@
+## Delivered-work reconciliation — 3 November 2026
+
+PR121 implemented final actual-field/source-evidence comparison. The live retained GrantConnect snapshot is accepted in G08. Historical import final three-list acceptance still requires its owner’s terminal receipt and comparator output. The potentially partial deployed history reader does not close import membership. The old G04-H03 statement that no official source batch exists is superseded for the accepted retained GrantConnect snapshot only; broader unattended/replay/failure requirements remain open.
+
+See [the cross-track mapping](../../backlog-reconciliation-20261103.md) for remaining exits and CLI prerequisites. Historical requirements below remain evidence at their original scope.
+
 # Implementation plan
 
 ## Live GrantConnect register and funding views — 1 November 2026

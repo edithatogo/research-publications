@@ -1,19 +1,31 @@
 ## Selected publication-source completion — 3 November 2026
 
-- [~] **Track: Complete selected free-API publication enrichment and native delivery** — [Executable tasks and evidence](tracks/publication_source_completion_20261103/index.md). Existing Europe PMC/OpenAlex/Semantic Scholar saved checkpoint is accepted. Forty-five anonymous lookups remain rate-limited; own stale process locks recovered,14 identifier exceptions reviewed and CLI collection/native continuation resumed. This selected leaf preserves broader T11/E01 and conditional-provider scope. Source packet is local to the publication-source worktree; no main integration is implied.
+- [~] **Track: Complete selected free-API publication enrichment and native delivery** — [Executable tasks and evidence](tracks/publication_source_completion_20261103/index.md). Existing Europe PMC/OpenAlex/Semantic Scholar saved checkpoint is accepted. Forty-five anonymous lookups remain rate-limited; own stale process locks recovered,14 identifier exceptions reviewed and CLI collection/native continuation resumed. This selected leaf preserves broader T11/E01 and conditional-provider scope. PR132/133 integrated the accepted source/documentation packet into main. The deferred collection and future native generation remain incomplete.
 
 # Track register
 
-## Current grants scope — 2 November 2026
+## Current grants scope — reconciled 3 November 2026
 
-Browser intake and the SharePoint ready-file writer feed the GrantConnect register. The opportunity and calendar views, historical reader, current-operator calendar and notification workers, and broader relationship reader are deployed. The [accepted feature record](tracks/G08_rims_grants_experience/cli-completion-20261102.md) supersedes earlier status summaries below. The historical import run was observed Running. Final three-list comparison is pending. NIH remains inactive.
+The [delivered-work mapping and remaining exits](backlog-reconciliation-20261103.md)
+supersede the earlier implementation sequence. Policy/override preparation,
+deadline application and reader deployment are delivered by PR126/128/129;
+first authority-bound policy/override application remains open. Typed relationships,
+current-operator calendar and business-notification workers are deployed; genuine
+reviewed data/event and access/lifecycle acceptance remain open. Internal application
+tracking is delivered and archived by PR130. Historical import completion still
+needs its owner's terminal receipt and final three-list comparison; the deployed
+history reader is explicitly a potentially partial snapshot. NIH stays deferred.
 
 ## Remaining CLI sequence
 
-1. Consume the existing import terminal receipt and compare the three lists once against retained originals. Record acceptance or exact discrepancies in G04/T11 and the handoff.
-2. Bind an approved internal deadline rule, implement the policy and override writer, apply dates and connect the reader. Admit reviewed relationships when authoritative keys and evidence exist.
-3. Use authorised identities and saved preferences for calendar lifecycle, access isolation and a genuine due notification receipt. Keep the separate publication occurrence readback with its existing owner.
-4. Internal application tracking is deployed and archived. The daily GrantConnect browser intake is paused. See [application tracking](archive/internal_grant_applications_20261102/plan.md). Use one focused test and one verification for each changed feature.
+1. Existing import owner consumes the terminal receipt, then compares actual
+   list membership/fields and source evidence once using the implemented comparator.
+2. Validate and admit real approved policies/overrides or reviewed relationship
+   packets only when authoritative inputs exist. Reuse deployed tooling/readers.
+3. Existing owners inspect genuine calendar/notification and daily observer
+   receipts as eligible. Natural monthly acceptance remains RMD-05.
+4. E10 source audit can proceed; shared helper activation requires its supported
+   terminal handover. Later roadmap slices remain conditional.
 
 ## Earlier checkpoints
 

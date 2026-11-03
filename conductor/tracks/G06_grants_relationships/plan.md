@@ -1,3 +1,9 @@
+## Delivered-work reconciliation — 3 November 2026
+
+PR127 delivered broader typed relationship support and the saved/processed native reader. The 169 reference candidates retain candidate semantics. Real reviewed relationship admission remains open because authoritative reviewed rows are not evidenced. Do not rebuild the reader from historical unchecked preparation tasks.
+
+See [the cross-track mapping](../../backlog-reconciliation-20261103.md) for remaining exits and CLI prerequisites. Historical requirements below remain evidence at their original scope.
+
 # Implementation plan
 
 ## Execution choice and fallback — planning amendment, 23 October 2026
