@@ -1,6 +1,10 @@
+## DoRA recovery acceptance — 3 November 2026
+
+[Native failure and safe fresh-restart acceptance](dora-runtime-acceptance-20261103.md) closes the selected DoRA continuation/source-health gap using existing real runs and independent stored-byte proof. Prior offset reuse remains unsupported; no new crawl or native change was required.
+
 ## Selected flow backlog — reconciled 3 November 2026
 
-[Current ten-group disposition and exact remaining exits](flow-backlog-reconciliation-20261103.md). This is a scoped reconciliation of existing tracks, not ten new tracks. Accepted collector qualification and H03 cases remain closed; nine groups retain acceptance/disposition gates, with NIH deferred.
+[Current ten-group disposition and exact remaining exits](flow-backlog-reconciliation-20261103.md). This is a scoped reconciliation of existing tracks, not ten new tracks. Accepted collector qualification and H03 cases remain closed; eight groups retain acceptance/disposition gates after the later DoRA acceptance, with NIH deferred.
 
 ## Selected collector runtime qualification —3November2026
 
