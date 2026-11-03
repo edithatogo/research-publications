@@ -14,5 +14,10 @@
   "remaining_provider_lookups": 45,
   "source_worktree": "/Volumes/PortableSSD/GitHub/RIMS/publication-source-coverage",
   "owner_chat_id": "01a19ab0-4739-71b1-8990-3ac1a3221769",
-  "final_native_receipt_required": "private/ops/2026-11-03-semantic-scholar-complete/completion-receipt.json"
+  "final_native_receipt_required": "private/ops/2026-11-03-semantic-scholar-complete/completion-receipt.json",
+  "execution_state": "blocked_provider_rate_limit",
+  "blocker_scope": "45 anonymous Semantic Scholar lookups; downstream final native generation",
+  "unblock_condition": "Existing anonymous single-record route accepts requests after the retained cooldown",
+  "last_verified_wait_utc": "2026-11-03T02:56:38.418396+00:00",
+  "background_operations": "Existing collector and one native continuation confirmed live; neither restarted"
 }

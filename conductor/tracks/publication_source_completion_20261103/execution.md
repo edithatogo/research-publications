@@ -23,3 +23,7 @@ The source packet is on `codex/publication-source-coverage`, not a main merge. C
 ## Source packet checks
 
 The24-task/metadata/link check passed, with final native acceptance explicitly incomplete. Project validation passed446 checks with zero failures. No collector, model-reader or flow-definition source code changed in this packet; accepted focused source tests, full milestone and web-first receipts were reused. No broad unittest rerun was needed for Conductor/documentation edits. Only the selected Conductor leaf, its index/register pointers and owned coverage report are committed; no original-checkout files are staged.
+
+## Goal blocked audit — 3 November,12:56 Brisbane
+
+The same provider-rate-limit dependency persists across three consecutive goal turns. The latest actual API response remains the12:44 HTTP429; no new request was sent during the cooldown. Both original recovered tool sessions85856 and44465 were polled and remain live. No final completion receipt exists. All dependency-ready documentation, lock recovery and retained-identifier review work is done; P10 and final native promotion require provider availability. The goal is marked blocked on that external state, not complete. Existing authorised collector/continuation processes remain waiting for the13:46 retry; no new job, retry loop, login or native mutation was created by this audit. Reconcile any resulting receipt before changing final Conductor acceptance.
