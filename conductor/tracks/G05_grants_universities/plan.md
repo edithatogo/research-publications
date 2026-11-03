@@ -8,11 +8,32 @@ a collector, checking coverage, reuse terms, source identifiers and overlap with
 
 | Active assessment | Intended use |
 | --- | --- |
-| [Commonwealth grants and programs finder](https://business.gov.au/grants-and-programs) and [Queensland innovation grants](https://www.business.qld.gov.au/running-business/growing-business/becoming-innovative/grants) | Discover business and innovation programs. Follow the issuing agency's listing to confirm the round, eligibility and closing date. |
-| [Queensland open data](https://www.data.qld.gov.au/) and [Commonwealth open data](https://data.gov.au/) | Use CKAN catalogue searches to locate grant datasets. Check each resource's licence, update date and whether its records describe open calls or past awards. |
+| [business.gov.au finder](https://business.gov.au/grants-and-programs) | Search by open status, location and R&D objective. The finder links to [business news updates](https://business.gov.au/contact-us/subscribe-to-our-news-updates). Treat that newsletter as a broad lead source. Emailing a saved shortlist is a one-time action. |
+| [Business Queensland innovation grants](https://www.business.qld.gov.au/running-business/growing-business/becoming-innovative/grants) | Use the page to identify issuers. Prioritise the [monthly Advance Queensland newsletter](https://innovation.qld.gov.au/contact-us), which explicitly covers new grants, and [CSIRO SME Connect updates](https://www.csiro.au/en/work-with-us/funding-programs/SME/Subscribe) for research collaboration opportunities. |
 | [ARC grants portal](https://dataportal.arc.gov.au/NCGP/Web/Grant/Help), [ARDC Research Activities API](https://documentation.ardc.edu.au/rda/research-activities-api) and [OpenAlex Awards](https://help.openalex.org/data/awards/) | Assess award and project data for funding history and links to research outputs. Keep award identifiers separate from open-call identifiers. |
 | [PollenOne](https://pollenone.com/search) | Assess as a discovery aid. The publisher describes free access during its beta. RIMS API access and reuse terms still need verification. |
 | [The Grants Hub](https://www.thegrantshub.com.au/pricing) | Assessed as a subscription directory with a 14-day trial and restrictions on reuse in searchable grant tools. Exclude from active automated intake. |
+
+## Recurring intake qualification — 3 November 2026
+
+Queensland and Commonwealth CKAN assessment is closed for grants intake. Retain the
+[catalogue findings](ckan-qualification-20261103.md) for issuer discovery. No recurring
+open-round feed qualified from the resources examined. GrantConnect continues separately.
+
+Both business pages returned HTML on bounded public reads. Neither advertised an RSS
+or Atom alternate link, and no supported public API for either grants listing was
+identified. The published email subscriptions above are recurring channels. Coverage,
+delivery to RIMS and automated extraction still need an actual edition. For the first
+permitted message, check the sender and message ID, extract the issuer links, verify
+round status at the issuer and deduplicate against GrantConnect and prior editions.
+Test a repeated message before enabling ongoing intake.
+
+For example, the Queensland page links to the state-funded
+[Regional University Industry Collaboration program](https://www.csiro.au/en/work-with-us/funding-programs/sme/ruic).
+CSIRO confirms year-round applications for eligible Queensland SMEs and up to $50,000
+in matched funding for R&D with a regional university. Keep the closing date unset.
+This verifies an issuer lead. It establishes neither newsletter delivery nor a new
+register entry. Subscription forms were inspected without enrolling an address.
 
 ## Future institutional integrations
 
