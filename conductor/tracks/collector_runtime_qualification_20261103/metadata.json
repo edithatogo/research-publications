@@ -1,0 +1,16 @@
+{
+  "id": "collector_runtime_qualification_20261103",
+  "title": "Qualify changed collector retry, recovery and failure paths",
+  "status": "completed",
+  "owner_chat_id": "01a19ab0-4739-71b1-8990-3ac1a3221769",
+  "branch": "codex/collector-runtime-qualification",
+  "related_tracks": [
+    "E01_flow_automation",
+    "T11_sources_and_reconciliation"
+  ],
+  "created_at_utc": "2026-11-03T04:21:37.806400+00:00",
+  "live_collector_mutations": false,
+  "native_runtime_accepted": true,
+  "native_acceptance_scope": "changed-path qualification only; accepted acquisition retained; exact observed retry count not exposed",
+  "temporary_flows": "stopped-retained-for-review"
+}
