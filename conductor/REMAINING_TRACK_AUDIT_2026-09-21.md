@@ -50,8 +50,8 @@ and contract work remains synchronised and CI-green.
 
 The read-only `playwright-cli` check found that neither the `chrome` nor
 `login` browser session is open. PAC still reports the unrelated NSW profile
-(`Dylan.Mordaunt@health.nsw.gov.au`), and Azure still reports the unrelated
-Flinders tenant/account (`mord0015@flinders.edu.au`). No login, tenant switch,
+(`<operator-account-redacted>`), and Azure still reports the unrelated
+Flinders tenant/account (`<operator-account-redacted>`). No login, tenant switch,
 deployment, or write was attempted. The native gates listed above therefore
 remain open; this is evidence of unchanged external state, not a completion
 receipt.
@@ -359,8 +359,8 @@ operation.
 
 ### VUW CLI route check — 2026-09-22
 
-- PAC authentication was present for the `vuw-dylan` profile
-  (`mordaudy@staff.vuw.ac.nz`) in
+- PAC authentication was present for the `<retained-unrelated-profile>` profile
+  (`<operator-account-redacted>`) in
   `https://orgd747e711.crm6.dynamics.com/`, but
   `pac power-automate list-cloud-flows` returned an empty inventory.
 - No VUW cloud-flow package was therefore available to export. The QLD
@@ -404,7 +404,7 @@ operation.
 - The authenticated QLD Health Power Automate details page read back the sole
   canonical flow `CHHHS DoRA Activity Registry - Reviewed Upsert`
   (`dd508644-c6d0-40be-aa1e-9b1f4d7c936c`). It is Off, Instant, owned by
-  Dylan Mordaunt, uses the QLD Health SharePoint connection, and has no
+  <retained-operator>, uses the QLD Health SharePoint connection, and has no
   run-only users.
 - Flow Checker read 0 errors and 1 warning, with the warning being the
   intentional inactive-flow state. Two visible 28-day runs were Succeeded.
@@ -427,7 +427,7 @@ operation.
   no cloud-flow inventory. The QLD Health null-date repair therefore remains
   unsaved, the canonical flow remains Off, and no track is archivable on this
   evidence alone.
-- A read-only PAC profile audit found only `nsw-dylan` and `vuw-dylan`; no
+- A read-only PAC profile audit found only `nsw-dylan` and `<retained-unrelated-profile>`; no
   QLD Health PAC profile or QLD Health environment is available locally. The
   active VUW environment is the VUW STAFF default environment, not the QLD
   Health tenant. No profile was changed and no cross-tenant import was
@@ -439,7 +439,7 @@ operation.
   Automate flows URL and resolved to the Microsoft organisational sign-in
   page. No authenticated flow list or import wizard was available in this
   session.
-- PAC 2.12.2 remained authenticated as `mordaudy@staff.vuw.ac.nz`. Read-only
+- PAC 2.12.2 remained authenticated as `<operator-account-redacted>`. Read-only
   `pac power-automate list-cloud-flows` checks against the VUW STAFF default
   environment and the other visible VUW environment identifiers returned no
   exportable cloud-flow inventory (or no matching environment for the
