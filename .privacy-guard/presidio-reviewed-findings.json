@@ -16851,6 +16851,86 @@
       "value_sha256": "5281025d590220f488d6ae6731e0c7f7e663a34712ce662165421b230fa861d6",
       "reason": "Inspected technical workflow labels, historical receipt filenames, schedule wording and source references in the recovery plan.",
       "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "dfd94c4d9d59d6d86c8b008a530f2fad102d31bc7d3cdb44778a2d30c53f91e3",
+      "blob_sha256": "b2219e591206b3ff977eaef15711d79c60ad06d76e6efe844c9438e2a2c7c97e",
+      "entity_index": 0,
+      "start": 539,
+      "end": 542,
+      "value_sha256": "d6f62ec0a4c3dd6e440e3ad08fa826f1066925d57e690a77d6241ef8dd1a06a2",
+      "reason": "Inspected workflow identifiers, plan wording and diagnostic filename in E08 operating window record.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "dfd94c4d9d59d6d86c8b008a530f2fad102d31bc7d3cdb44778a2d30c53f91e3",
+      "blob_sha256": "b2219e591206b3ff977eaef15711d79c60ad06d76e6efe844c9438e2a2c7c97e",
+      "entity_index": 0,
+      "start": 1499,
+      "end": 1502,
+      "value_sha256": "9b8eccfa533ccd5e46ae41655e1beef4d98c6e44d784ba1c4020971a62feae20",
+      "reason": "Inspected workflow identifiers, plan wording and diagnostic filename in E08 operating window record.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "dfd94c4d9d59d6d86c8b008a530f2fad102d31bc7d3cdb44778a2d30c53f91e3",
+      "blob_sha256": "b2219e591206b3ff977eaef15711d79c60ad06d76e6efe844c9438e2a2c7c97e",
+      "entity_index": 0,
+      "start": 2960,
+      "end": 2972,
+      "value_sha256": "b90cfa50dabee35143043c52b13f29e48996595f1b2624650ffbe95d567db419",
+      "reason": "Inspected workflow identifiers, plan wording and diagnostic filename in E08 operating window record.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "dfd94c4d9d59d6d86c8b008a530f2fad102d31bc7d3cdb44778a2d30c53f91e3",
+      "blob_sha256": "b2219e591206b3ff977eaef15711d79c60ad06d76e6efe844c9438e2a2c7c97e",
+      "entity_index": 0,
+      "start": 3093,
+      "end": 3096,
+      "value_sha256": "d91c209026795b8053af226ef4e420d19d2530b27159653ae27a23327a37eaa5",
+      "reason": "Inspected workflow identifiers, plan wording and diagnostic filename in E08 operating window record.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "dfd94c4d9d59d6d86c8b008a530f2fad102d31bc7d3cdb44778a2d30c53f91e3",
+      "blob_sha256": "b2219e591206b3ff977eaef15711d79c60ad06d76e6efe844c9438e2a2c7c97e",
+      "entity_index": 0,
+      "start": 3678,
+      "end": 3687,
+      "value_sha256": "76a35d0a8bf39cd52b1a2e45b9a56e5bf74f57a8289306e4eca2308df121e7db",
+      "reason": "Inspected workflow identifiers, plan wording and diagnostic filename in E08 operating window record.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "dfd94c4d9d59d6d86c8b008a530f2fad102d31bc7d3cdb44778a2d30c53f91e3",
+      "blob_sha256": "b2219e591206b3ff977eaef15711d79c60ad06d76e6efe844c9438e2a2c7c97e",
+      "entity_index": 0,
+      "start": 5016,
+      "end": 5065,
+      "value_sha256": "3ff1b703c52ec5f525ca76e954cc241fc11dcf076383e520a4afbd43628c7fd2",
+      "reason": "Inspected workflow identifiers, plan wording and diagnostic filename in E08 operating window record.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "dfd94c4d9d59d6d86c8b008a530f2fad102d31bc7d3cdb44778a2d30c53f91e3",
+      "blob_sha256": "b2219e591206b3ff977eaef15711d79c60ad06d76e6efe844c9438e2a2c7c97e",
+      "entity_index": 0,
+      "start": 5403,
+      "end": 5420,
+      "value_sha256": "74c3c69578824299d1df4bd22d9601022bcddd94f3c1271346fb2d3977652a5c",
+      "reason": "Inspected workflow identifiers, plan wording and diagnostic filename in E08 operating window record.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "dfd94c4d9d59d6d86c8b008a530f2fad102d31bc7d3cdb44778a2d30c53f91e3",
+      "blob_sha256": "b2219e591206b3ff977eaef15711d79c60ad06d76e6efe844c9438e2a2c7c97e",
+      "entity_index": 0,
+      "start": 7800,
+      "end": 7806,
+      "value_sha256": "5a4c3e350f6e5f66e2c964998fa356d5c5bb89dd0a63cbc292a0a1a3518b9aaf",
+      "reason": "Inspected workflow identifiers, plan wording and diagnostic filename in E08 operating window record.",
+      "reviewer": "Codex integration review 2026-11-04"
     }
   ]
 }
