@@ -52,3 +52,8 @@ or unattended operation. Later natural occurrences remain E08. The retained
 Crossref generation and original raw-source archive integration remain separate
 E01 technical work. The final normal writer graph is unchanged, so temporary
 qualification graphs do not require a new production documentation release.
+
+## Failure after register writes and before export — 12 October run, reconciled 4 November
+The publication loop completed and the downstream register read succeeded. CSV projection then failed because the mapping treated a URL string as an object. The file-write action was never reached. The post-failure register read returned 1,648 items, including 1,345 keyed rows, with no duplicate source or canonical keys. The corrected projection was saved and the full flow was resubmitted successfully. The persisted CSV matched all 1,345 keyed register items by ID, source key, canonical key, review status and review notes. The 303 blank-key rows were outside the configured export.
+
+This covers recovery from the observed post-loop projection failure. It does not establish which rows the failed run changed, preservation of the preceding export's bytes, or recovery from a stop partway through the register loop. Keep those H04 cases open. The original private receipts share the prefix `2026-10-12-e01-` and include `manual-register-export-run-failure`, `register-postfailure-readback`, `export-url-type-fix-native-save-readback`, `manual-register-export-retry-success` and `register-export-csv-readback`.
