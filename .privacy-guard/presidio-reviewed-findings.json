@@ -15381,6 +15381,246 @@
       "value_sha256": "129369660603f3f2ab143d05b9f83bb8b397a246d04d1ec7b34f4a4b69016e51",
       "reason": "Inspected T18 integration source: report terminology, program syntax, public place or project reference in the selected source.",
       "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 539,
+      "end": 542,
+      "value_sha256": "3c72b39be6968ac5d4f2d13dea8d47eb667aa26dc9abe27a64aee28db075fc18",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 1268,
+      "end": 1282,
+      "value_sha256": "e67ce75b224d9dc5bd754b2bb1b3ae3516148d0a2ad6eebb83d873ecf18918fd",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 2904,
+      "end": 2909,
+      "value_sha256": "f340b6d6edeff46213083fda3e3496b6262a67fc349fe3fd577c55e196841c3f",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 3114,
+      "end": 3120,
+      "value_sha256": "8fdac69c6fe9cdbc7838eb4a48aa6f6bcfc35088370847233061054f30f25b34",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 3925,
+      "end": 3929,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 4319,
+      "end": 4323,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 4400,
+      "end": 4404,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 7383,
+      "end": 7388,
+      "value_sha256": "4828e60247c1636f57b7446a314e7f599c12b53d40061cc851a1442004354fed",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 11132,
+      "end": 11150,
+      "value_sha256": "6441767d51a0a8e69e663ef59003403c205c6f4b9222ac3b397bf437ce8ec42f",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 16308,
+      "end": 16327,
+      "value_sha256": "b7e96ec9c019c5c91ed38f2fcb08f90d18ae1d019d368eb69288ec4255be1b00",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 20771,
+      "end": 20790,
+      "value_sha256": "b7e96ec9c019c5c91ed38f2fcb08f90d18ae1d019d368eb69288ec4255be1b00",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 22744,
+      "end": 22763,
+      "value_sha256": "b7e96ec9c019c5c91ed38f2fcb08f90d18ae1d019d368eb69288ec4255be1b00",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 20839,
+      "end": 20842,
+      "value_sha256": "afb05982fcc9a31c52200a68130a37466969466ca05e8f6e48e279ae4f7e459c",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 22206,
+      "end": 22222,
+      "value_sha256": "6030583f928eceeb71ae58e8f44c8a3e8a1f12b3ed5afd5c36726abfe26bbb4f",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 22695,
+      "end": 22711,
+      "value_sha256": "2c3daa759c5fd70eb87241bdfdcd56f5ea1c6e90523a9321f168bacbeb3c588d",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 23063,
+      "end": 23067,
+      "value_sha256": "329b67df439a016cb65169b0fa6308b2dbb5dfa9ea8186972aba189cbd241396",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 24307,
+      "end": 24328,
+      "value_sha256": "858fe7df8accb140e3f4f367efe7a054bac47e497ad0ffeee8cd48657522ca6a",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 26473,
+      "end": 26479,
+      "value_sha256": "031a8f0f659df890dfd53c92e45295b0f14c997185bae46e168831e403b273f7",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 28388,
+      "end": 28392,
+      "value_sha256": "dcd1d5223f73b3a965c07e3ff5dbee3eedcfedb806686a05b9b3868a2c3d6d50",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 34822,
+      "end": 34826,
+      "value_sha256": "89364b2a930cd2ff5bff91ed50be2b4c7e5aa966ba455d935c0653a3cd8e05a8",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 36462,
+      "end": 36470,
+      "value_sha256": "4f8ded2fba8802fe7579187e094381aed9c45959231cb26494cc8049e682adb9",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 39312,
+      "end": 39319,
+      "value_sha256": "c93d34f3176d65652d6265daef9c7f30b5d2f743da06b0aea83d708278e27e6d",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 39539,
+      "end": 39546,
+      "value_sha256": "c93d34f3176d65652d6265daef9c7f30b5d2f743da06b0aea83d708278e27e6d",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "abb4823877b5fff8239cf10833452275a580429a9412d9839ecd18971a15b4ad",
+      "blob_sha256": "d82f81ec9278edc640f8ca7152696fe7a699114ff7d715ef8c68770f48188d68",
+      "entity_index": 0,
+      "start": 41487,
+      "end": 41490,
+      "value_sha256": "82b1ecda91e10e67ee7db050892322f109ca097a37dfa12e6a57c7f10b92b235",
+      "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
     }
   ]
 }
