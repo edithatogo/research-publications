@@ -65,4 +65,4 @@ Status: in_progress. Source packaging and isolated native version/batch display 
 
 ## Isolated Power BI restore acceptance — 4 November 2026
 - [x] Restore captured report and semantic model definitions on isolated targets and verify complete native readback against each preimage. [Recovery evidence](recovery-review-20261103.md#isolated-power-bi-snapshot-restoration-verified-on-4-november-2026)
-- [ ] Verify service-managed version-history selection on a supported target. The accepted Power BI recovery path uses retained definition snapshots.
+- [x] Open service-managed version history on the isolated semantic model and select the retained version menu. Editing mode exposed the dated current version and its Restore action. The executed report and model restores used retained definition snapshots.
