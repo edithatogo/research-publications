@@ -252,3 +252,5 @@ Python3.15.1 harness passes2,041 tests with19 capability skips,58 Node tests and
 deployable WDL; native writer/journal/immutable-read qualifications remain open.
 All lanes will converge to the same verified main before the next implementation
 round; current read-only recommendations must account for sibling work on main.
+
+- [~] [T18 outcome contracts and three reporting outputs](tracks/chhhs_outcomes_powerbi_20261021/plan.md#outcome-contracts-and-three-reporting-outputs) — approved delivery increment with E04 repairs first.

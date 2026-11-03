@@ -180,3 +180,7 @@ source, edit/history and output behavior qualify.
 
 Reference: [Generate structured documents in a SharePoint document library —
 Microsoft Learn](https://learn.microsoft.com/en-us/sharepoint/copilot-in-sharepoint-structured-document-generation).
+
+## Contract acceptance for the November increment
+
+For each existing indicator ID, specify the reader decision, grain, inclusion and exclusions, numerator/denominator, date basis, source fields and evidence custodian, filters, missingness, cadence and destination. Record targets and direction separately from baselines. Outcomes require an evidence standard, follow-up interval and comparator where relevant. Record one disposition per subindicator: available, partial with quantified coverage, or awaiting a named input. Exclude fictional qualification rows. Implement the verticals in [tasks 06–13](plan.md#outcome-contracts-and-three-reporting-outputs).
