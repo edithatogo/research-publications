@@ -5471,6 +5471,1436 @@
       "value_sha256": "41e32284df1a73272655a26bfe6d4919ed6504972cc47461330a26e90cd9ddc3",
       "reason": "reviewed technical source and synthetic test token; no personal detail",
       "reviewer": "repository source review"
+    },
+    {
+      "identity": "b3dfb6dc13daabb7d90ce4fb4679969939007290bb0ef2ea33fbd820335c08d3",
+      "blob_sha256": "9025d8720248c7899161b11c122f47841464bd366180fab591407d45a8d9d3d8",
+      "entity_index": 0,
+      "start": 848,
+      "end": 856,
+      "value_sha256": "143b270a32602d412babf2724ec0640dda0d5a43485e5a7520b05b53fa94b303",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b3dfb6dc13daabb7d90ce4fb4679969939007290bb0ef2ea33fbd820335c08d3",
+      "blob_sha256": "9025d8720248c7899161b11c122f47841464bd366180fab591407d45a8d9d3d8",
+      "entity_index": 0,
+      "start": 4264,
+      "end": 4271,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b3dfb6dc13daabb7d90ce4fb4679969939007290bb0ef2ea33fbd820335c08d3",
+      "blob_sha256": "9025d8720248c7899161b11c122f47841464bd366180fab591407d45a8d9d3d8",
+      "entity_index": 0,
+      "start": 7085,
+      "end": 7089,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b3dfb6dc13daabb7d90ce4fb4679969939007290bb0ef2ea33fbd820335c08d3",
+      "blob_sha256": "9025d8720248c7899161b11c122f47841464bd366180fab591407d45a8d9d3d8",
+      "entity_index": 0,
+      "start": 7482,
+      "end": 7486,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b3dfb6dc13daabb7d90ce4fb4679969939007290bb0ef2ea33fbd820335c08d3",
+      "blob_sha256": "9025d8720248c7899161b11c122f47841464bd366180fab591407d45a8d9d3d8",
+      "entity_index": 0,
+      "start": 7878,
+      "end": 7882,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b3dfb6dc13daabb7d90ce4fb4679969939007290bb0ef2ea33fbd820335c08d3",
+      "blob_sha256": "9025d8720248c7899161b11c122f47841464bd366180fab591407d45a8d9d3d8",
+      "entity_index": 0,
+      "start": 9888,
+      "end": 9892,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b3dfb6dc13daabb7d90ce4fb4679969939007290bb0ef2ea33fbd820335c08d3",
+      "blob_sha256": "9025d8720248c7899161b11c122f47841464bd366180fab591407d45a8d9d3d8",
+      "entity_index": 0,
+      "start": 10958,
+      "end": 10969,
+      "value_sha256": "abb4690a42eafd776f9d549e33c5e839309f841a6e405091da40bd383a26a650",
+      "reason": "Inspected exact source span: repository link or retained receipt filename, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b3dfb6dc13daabb7d90ce4fb4679969939007290bb0ef2ea33fbd820335c08d3",
+      "blob_sha256": "9025d8720248c7899161b11c122f47841464bd366180fab591407d45a8d9d3d8",
+      "entity_index": 0,
+      "start": 11037,
+      "end": 11049,
+      "value_sha256": "b8ad85e60fb9da08f6f7edabb48cdd2a227e6049b078863d4642d30234e2a7b8",
+      "reason": "Inspected exact source span: repository link or retained receipt filename, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b3dfb6dc13daabb7d90ce4fb4679969939007290bb0ef2ea33fbd820335c08d3",
+      "blob_sha256": "9025d8720248c7899161b11c122f47841464bd366180fab591407d45a8d9d3d8",
+      "entity_index": 0,
+      "start": 11057,
+      "end": 11103,
+      "value_sha256": "6c320980f62587596d600581bfdd9b43eeee2a5bc1619970969c40a2de8aa585",
+      "reason": "Inspected exact source span: repository link or retained receipt filename, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b3dfb6dc13daabb7d90ce4fb4679969939007290bb0ef2ea33fbd820335c08d3",
+      "blob_sha256": "9025d8720248c7899161b11c122f47841464bd366180fab591407d45a8d9d3d8",
+      "entity_index": 0,
+      "start": 11168,
+      "end": 11172,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b3dfb6dc13daabb7d90ce4fb4679969939007290bb0ef2ea33fbd820335c08d3",
+      "blob_sha256": "9025d8720248c7899161b11c122f47841464bd366180fab591407d45a8d9d3d8",
+      "entity_index": 0,
+      "start": 12333,
+      "end": 12339,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b3dfb6dc13daabb7d90ce4fb4679969939007290bb0ef2ea33fbd820335c08d3",
+      "blob_sha256": "9025d8720248c7899161b11c122f47841464bd366180fab591407d45a8d9d3d8",
+      "entity_index": 0,
+      "start": 12641,
+      "end": 12644,
+      "value_sha256": "9b8eccfa533ccd5e46ae41655e1beef4d98c6e44d784ba1c4020971a62feae20",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b3dfb6dc13daabb7d90ce4fb4679969939007290bb0ef2ea33fbd820335c08d3",
+      "blob_sha256": "9025d8720248c7899161b11c122f47841464bd366180fab591407d45a8d9d3d8",
+      "entity_index": 0,
+      "start": 13157,
+      "end": 13194,
+      "value_sha256": "7047f4fe005a58187e5b80d90f5b04eafdd63fdd23b28f4a899ab219a1e1d156",
+      "reason": "Inspected exact source span: repository link or retained receipt filename, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b3dfb6dc13daabb7d90ce4fb4679969939007290bb0ef2ea33fbd820335c08d3",
+      "blob_sha256": "9025d8720248c7899161b11c122f47841464bd366180fab591407d45a8d9d3d8",
+      "entity_index": 0,
+      "start": 20020,
+      "end": 20024,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "486ae3cc0acdd6c1f91abf0cbd74586465e1185d5984812279185ca80b94eba3",
+      "blob_sha256": "c86680809f85d9b65bffa40bf0d6832a18ca1c0cdfebfa3c99078f86d59a1925",
+      "entity_index": 0,
+      "start": 1264,
+      "end": 1274,
+      "value_sha256": "9a348d5eb747a9fa97ca2589aeb75cdd58502c57b59dc53a364d132168448fb9",
+      "reason": "Inspected exact source span: ordinary instruction or technical heading in the retained plan, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "486ae3cc0acdd6c1f91abf0cbd74586465e1185d5984812279185ca80b94eba3",
+      "blob_sha256": "c86680809f85d9b65bffa40bf0d6832a18ca1c0cdfebfa3c99078f86d59a1925",
+      "entity_index": 0,
+      "start": 2028,
+      "end": 2036,
+      "value_sha256": "143b270a32602d412babf2724ec0640dda0d5a43485e5a7520b05b53fa94b303",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "486ae3cc0acdd6c1f91abf0cbd74586465e1185d5984812279185ca80b94eba3",
+      "blob_sha256": "c86680809f85d9b65bffa40bf0d6832a18ca1c0cdfebfa3c99078f86d59a1925",
+      "entity_index": 0,
+      "start": 2313,
+      "end": 2320,
+      "value_sha256": "db01f2bdba946cd6c542ad738c3ee3c5b5cf86dded486ce720af850f180bfc81",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "486ae3cc0acdd6c1f91abf0cbd74586465e1185d5984812279185ca80b94eba3",
+      "blob_sha256": "c86680809f85d9b65bffa40bf0d6832a18ca1c0cdfebfa3c99078f86d59a1925",
+      "entity_index": 0,
+      "start": 2748,
+      "end": 2756,
+      "value_sha256": "d5d0a30b517e3beab07609d7e54c378db5e15066f22280af453f587f7eec7474",
+      "reason": "Inspected exact source span: ordinary instruction or technical heading in the retained plan, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "486ae3cc0acdd6c1f91abf0cbd74586465e1185d5984812279185ca80b94eba3",
+      "blob_sha256": "c86680809f85d9b65bffa40bf0d6832a18ca1c0cdfebfa3c99078f86d59a1925",
+      "entity_index": 0,
+      "start": 6333,
+      "end": 6341,
+      "value_sha256": "55c3413444673218db896bb39caa3eb0191f0398dffb33ab779bef2326018480",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "486ae3cc0acdd6c1f91abf0cbd74586465e1185d5984812279185ca80b94eba3",
+      "blob_sha256": "c86680809f85d9b65bffa40bf0d6832a18ca1c0cdfebfa3c99078f86d59a1925",
+      "entity_index": 0,
+      "start": 6874,
+      "end": 6881,
+      "value_sha256": "6b615cfb6c3e6ff425d395ef09a247eeb014ac3ff1d4ae11e1657200b5a8d43f",
+      "reason": "Inspected exact source span: ordinary instruction or technical heading in the retained plan, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "486ae3cc0acdd6c1f91abf0cbd74586465e1185d5984812279185ca80b94eba3",
+      "blob_sha256": "c86680809f85d9b65bffa40bf0d6832a18ca1c0cdfebfa3c99078f86d59a1925",
+      "entity_index": 0,
+      "start": 7344,
+      "end": 7351,
+      "value_sha256": "71ef53929575897ba4dd000853053e9543cbc705dcd4d95a11f60d0c7eef0c0d",
+      "reason": "Inspected exact source span: ordinary instruction or technical heading in the retained plan, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "486ae3cc0acdd6c1f91abf0cbd74586465e1185d5984812279185ca80b94eba3",
+      "blob_sha256": "c86680809f85d9b65bffa40bf0d6832a18ca1c0cdfebfa3c99078f86d59a1925",
+      "entity_index": 0,
+      "start": 7461,
+      "end": 7464,
+      "value_sha256": "afb05982fcc9a31c52200a68130a37466969466ca05e8f6e48e279ae4f7e459c",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "486ae3cc0acdd6c1f91abf0cbd74586465e1185d5984812279185ca80b94eba3",
+      "blob_sha256": "c86680809f85d9b65bffa40bf0d6832a18ca1c0cdfebfa3c99078f86d59a1925",
+      "entity_index": 0,
+      "start": 7481,
+      "end": 7486,
+      "value_sha256": "055ab8d2b2b2d31ca5b38a68c6ac4caec1f4090909e7caa5902a5c237be25438",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "486ae3cc0acdd6c1f91abf0cbd74586465e1185d5984812279185ca80b94eba3",
+      "blob_sha256": "c86680809f85d9b65bffa40bf0d6832a18ca1c0cdfebfa3c99078f86d59a1925",
+      "entity_index": 0,
+      "start": 8193,
+      "end": 8200,
+      "value_sha256": "8771c070330cc57299ebd1ac1fc081208bd899d92fd31fdf751ed7e2c0f1448e",
+      "reason": "Inspected exact source span: ordinary instruction or technical heading in the retained plan, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "486ae3cc0acdd6c1f91abf0cbd74586465e1185d5984812279185ca80b94eba3",
+      "blob_sha256": "c86680809f85d9b65bffa40bf0d6832a18ca1c0cdfebfa3c99078f86d59a1925",
+      "entity_index": 0,
+      "start": 8628,
+      "end": 8643,
+      "value_sha256": "ec159f68d46416ae8c3fdb4184bbf9d9757e23895560fd6f2905c9f0a6695ac9",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "f9fdeabc2fe34c1aa0eb85f799fa237924d5be0fd51d0b049030e88c0f0e4769",
+      "blob_sha256": "88347f818e6d5648ca20c726fdd971dfa3d2119408447f5c1c079ebd9571ad27",
+      "entity_index": 0,
+      "start": 3335,
+      "end": 3341,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "f9fdeabc2fe34c1aa0eb85f799fa237924d5be0fd51d0b049030e88c0f0e4769",
+      "blob_sha256": "88347f818e6d5648ca20c726fdd971dfa3d2119408447f5c1c079ebd9571ad27",
+      "entity_index": 0,
+      "start": 6226,
+      "end": 6233,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "f9fdeabc2fe34c1aa0eb85f799fa237924d5be0fd51d0b049030e88c0f0e4769",
+      "blob_sha256": "88347f818e6d5648ca20c726fdd971dfa3d2119408447f5c1c079ebd9571ad27",
+      "entity_index": 0,
+      "start": 7355,
+      "end": 7362,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "ec2bf69486a28335e5e859e267bd458401e8f2ea556fc1e3df99346a953f7f06",
+      "blob_sha256": "563cefcfa3f84ac94dbb0b9590508891efebd818014ebc8fea438ecca00190ba",
+      "entity_index": 0,
+      "start": 1237,
+      "end": 1290,
+      "value_sha256": "429d551a1466a8e7465834ec49ad674a903304b55f0db061a95a88c437b2d94a",
+      "reason": "Inspected exact source span: repository link or retained receipt filename, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "ec2bf69486a28335e5e859e267bd458401e8f2ea556fc1e3df99346a953f7f06",
+      "blob_sha256": "563cefcfa3f84ac94dbb0b9590508891efebd818014ebc8fea438ecca00190ba",
+      "entity_index": 0,
+      "start": 4149,
+      "end": 4161,
+      "value_sha256": "9dc2055a4bb869238616e71d209f4ec891cd655d89ef17396f9f97eeac936fe7",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "ec2bf69486a28335e5e859e267bd458401e8f2ea556fc1e3df99346a953f7f06",
+      "blob_sha256": "563cefcfa3f84ac94dbb0b9590508891efebd818014ebc8fea438ecca00190ba",
+      "entity_index": 0,
+      "start": 5125,
+      "end": 5132,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "ec2bf69486a28335e5e859e267bd458401e8f2ea556fc1e3df99346a953f7f06",
+      "blob_sha256": "563cefcfa3f84ac94dbb0b9590508891efebd818014ebc8fea438ecca00190ba",
+      "entity_index": 0,
+      "start": 8418,
+      "end": 8423,
+      "value_sha256": "b6dfe42069f32da1e58a7ce5c146e5b9a68bbcbc32775f593e12ca41818debb3",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "ec2bf69486a28335e5e859e267bd458401e8f2ea556fc1e3df99346a953f7f06",
+      "blob_sha256": "563cefcfa3f84ac94dbb0b9590508891efebd818014ebc8fea438ecca00190ba",
+      "entity_index": 0,
+      "start": 11131,
+      "end": 11137,
+      "value_sha256": "d640c7421da066618a39daf4266da5f61f66a9b1afcd626481b831a17064965d",
+      "reason": "Inspected exact source span: ordinary instruction or technical heading in the retained plan, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "ec2bf69486a28335e5e859e267bd458401e8f2ea556fc1e3df99346a953f7f06",
+      "blob_sha256": "563cefcfa3f84ac94dbb0b9590508891efebd818014ebc8fea438ecca00190ba",
+      "entity_index": 0,
+      "start": 13601,
+      "end": 13636,
+      "value_sha256": "c3c5bebebffbdf156e4a1fb7b3623b23b7d16f9a9b1de99e84125b137f48b23a",
+      "reason": "Inspected exact source span: repository link or retained receipt filename, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "ec2bf69486a28335e5e859e267bd458401e8f2ea556fc1e3df99346a953f7f06",
+      "blob_sha256": "563cefcfa3f84ac94dbb0b9590508891efebd818014ebc8fea438ecca00190ba",
+      "entity_index": 0,
+      "start": 16623,
+      "end": 16633,
+      "value_sha256": "273a39b09219e67f0c302704ffb99c89bb6c2887a28f5ec0c95b63587499212a",
+      "reason": "Inspected exact source span: repository link or retained receipt filename, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "ec2bf69486a28335e5e859e267bd458401e8f2ea556fc1e3df99346a953f7f06",
+      "blob_sha256": "563cefcfa3f84ac94dbb0b9590508891efebd818014ebc8fea438ecca00190ba",
+      "entity_index": 0,
+      "start": 16945,
+      "end": 16979,
+      "value_sha256": "e527347b819a1945b5774f08540a55f0cc5bdf0ec80153de8dcf41d261f15b06",
+      "reason": "Inspected exact source span: repository link or retained receipt filename, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "ec2bf69486a28335e5e859e267bd458401e8f2ea556fc1e3df99346a953f7f06",
+      "blob_sha256": "563cefcfa3f84ac94dbb0b9590508891efebd818014ebc8fea438ecca00190ba",
+      "entity_index": 0,
+      "start": 17448,
+      "end": 17468,
+      "value_sha256": "257e8a889fcd7c211cba90ff9db9bb28842beb4ef504f1e10b37d3e4deb3d509",
+      "reason": "Inspected exact source span: repository link or retained receipt filename, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "120a1f80d23ffac55f726da160e8e869ecca7e94aebaa361988f9a2a84f6b3b6",
+      "blob_sha256": "a82b5a393f9c7e0e138fc3184508d5cc56371eb76448802409b4bd684ccb1e99",
+      "entity_index": 0,
+      "start": 848,
+      "end": 856,
+      "value_sha256": "143b270a32602d412babf2724ec0640dda0d5a43485e5a7520b05b53fa94b303",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "120a1f80d23ffac55f726da160e8e869ecca7e94aebaa361988f9a2a84f6b3b6",
+      "blob_sha256": "a82b5a393f9c7e0e138fc3184508d5cc56371eb76448802409b4bd684ccb1e99",
+      "entity_index": 0,
+      "start": 4174,
+      "end": 4181,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "120a1f80d23ffac55f726da160e8e869ecca7e94aebaa361988f9a2a84f6b3b6",
+      "blob_sha256": "a82b5a393f9c7e0e138fc3184508d5cc56371eb76448802409b4bd684ccb1e99",
+      "entity_index": 0,
+      "start": 6995,
+      "end": 6999,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "120a1f80d23ffac55f726da160e8e869ecca7e94aebaa361988f9a2a84f6b3b6",
+      "blob_sha256": "a82b5a393f9c7e0e138fc3184508d5cc56371eb76448802409b4bd684ccb1e99",
+      "entity_index": 0,
+      "start": 7392,
+      "end": 7396,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "120a1f80d23ffac55f726da160e8e869ecca7e94aebaa361988f9a2a84f6b3b6",
+      "blob_sha256": "a82b5a393f9c7e0e138fc3184508d5cc56371eb76448802409b4bd684ccb1e99",
+      "entity_index": 0,
+      "start": 7788,
+      "end": 7792,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "120a1f80d23ffac55f726da160e8e869ecca7e94aebaa361988f9a2a84f6b3b6",
+      "blob_sha256": "a82b5a393f9c7e0e138fc3184508d5cc56371eb76448802409b4bd684ccb1e99",
+      "entity_index": 0,
+      "start": 9798,
+      "end": 9802,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "120a1f80d23ffac55f726da160e8e869ecca7e94aebaa361988f9a2a84f6b3b6",
+      "blob_sha256": "a82b5a393f9c7e0e138fc3184508d5cc56371eb76448802409b4bd684ccb1e99",
+      "entity_index": 0,
+      "start": 10868,
+      "end": 10879,
+      "value_sha256": "abb4690a42eafd776f9d549e33c5e839309f841a6e405091da40bd383a26a650",
+      "reason": "Inspected exact source span: repository link or retained receipt filename, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "120a1f80d23ffac55f726da160e8e869ecca7e94aebaa361988f9a2a84f6b3b6",
+      "blob_sha256": "a82b5a393f9c7e0e138fc3184508d5cc56371eb76448802409b4bd684ccb1e99",
+      "entity_index": 0,
+      "start": 10947,
+      "end": 10959,
+      "value_sha256": "b8ad85e60fb9da08f6f7edabb48cdd2a227e6049b078863d4642d30234e2a7b8",
+      "reason": "Inspected exact source span: repository link or retained receipt filename, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "120a1f80d23ffac55f726da160e8e869ecca7e94aebaa361988f9a2a84f6b3b6",
+      "blob_sha256": "a82b5a393f9c7e0e138fc3184508d5cc56371eb76448802409b4bd684ccb1e99",
+      "entity_index": 0,
+      "start": 10967,
+      "end": 11013,
+      "value_sha256": "6c320980f62587596d600581bfdd9b43eeee2a5bc1619970969c40a2de8aa585",
+      "reason": "Inspected exact source span: repository link or retained receipt filename, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "120a1f80d23ffac55f726da160e8e869ecca7e94aebaa361988f9a2a84f6b3b6",
+      "blob_sha256": "a82b5a393f9c7e0e138fc3184508d5cc56371eb76448802409b4bd684ccb1e99",
+      "entity_index": 0,
+      "start": 11078,
+      "end": 11082,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "120a1f80d23ffac55f726da160e8e869ecca7e94aebaa361988f9a2a84f6b3b6",
+      "blob_sha256": "a82b5a393f9c7e0e138fc3184508d5cc56371eb76448802409b4bd684ccb1e99",
+      "entity_index": 0,
+      "start": 12243,
+      "end": 12249,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "120a1f80d23ffac55f726da160e8e869ecca7e94aebaa361988f9a2a84f6b3b6",
+      "blob_sha256": "a82b5a393f9c7e0e138fc3184508d5cc56371eb76448802409b4bd684ccb1e99",
+      "entity_index": 0,
+      "start": 12551,
+      "end": 12554,
+      "value_sha256": "9b8eccfa533ccd5e46ae41655e1beef4d98c6e44d784ba1c4020971a62feae20",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "120a1f80d23ffac55f726da160e8e869ecca7e94aebaa361988f9a2a84f6b3b6",
+      "blob_sha256": "a82b5a393f9c7e0e138fc3184508d5cc56371eb76448802409b4bd684ccb1e99",
+      "entity_index": 0,
+      "start": 13067,
+      "end": 13104,
+      "value_sha256": "7047f4fe005a58187e5b80d90f5b04eafdd63fdd23b28f4a899ab219a1e1d156",
+      "reason": "Inspected exact source span: repository link or retained receipt filename, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "120a1f80d23ffac55f726da160e8e869ecca7e94aebaa361988f9a2a84f6b3b6",
+      "blob_sha256": "a82b5a393f9c7e0e138fc3184508d5cc56371eb76448802409b4bd684ccb1e99",
+      "entity_index": 0,
+      "start": 19930,
+      "end": 19934,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 756,
+      "end": 763,
+      "value_sha256": "709be924400857c9537a1f1377b05e038633bc91e391591dfef5a32c0bb1dada",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 4458,
+      "end": 4466,
+      "value_sha256": "030a16e9e6c5829f555f260e882cdf53d86c82af3dd86f7ce25fccd6236fb7c0",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 10463,
+      "end": 10473,
+      "value_sha256": "2ae7debe36e3d0450d687b59f0187f99f70deeaa5d21988291f1623b4860ede3",
+      "reason": "Inspected exact source span: repository link or retained receipt filename, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 10782,
+      "end": 10790,
+      "value_sha256": "030a16e9e6c5829f555f260e882cdf53d86c82af3dd86f7ce25fccd6236fb7c0",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 12220,
+      "end": 12227,
+      "value_sha256": "c93d34f3176d65652d6265daef9c7f30b5d2f743da06b0aea83d708278e27e6d",
+      "reason": "Inspected exact source span: ordinary instruction or technical heading in the retained plan, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 13153,
+      "end": 13161,
+      "value_sha256": "030a16e9e6c5829f555f260e882cdf53d86c82af3dd86f7ce25fccd6236fb7c0",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 18031,
+      "end": 18038,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 18147,
+      "end": 18155,
+      "value_sha256": "a3fe6193e2a81169eba425f83f3936ef959ff2004e6404a81fc63239d090fa4e",
+      "reason": "Inspected exact source span: ordinary instruction or technical heading in the retained plan, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 18474,
+      "end": 18477,
+      "value_sha256": "a03d0c932fa9be249515262d493096fea983d9688ae9b4d7034b5f4f2fa70387",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 19656,
+      "end": 19659,
+      "value_sha256": "9926b4b686fcbb9008218a64694e00c8694f4739fedd97150175770c80c7b012",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 20322,
+      "end": 20325,
+      "value_sha256": "a03d0c932fa9be249515262d493096fea983d9688ae9b4d7034b5f4f2fa70387",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 22091,
+      "end": 22099,
+      "value_sha256": "13083100a7d339528af9b9523ef21a43d90431d61c67596a6db795afe596200f",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 22756,
+      "end": 22759,
+      "value_sha256": "9b8eccfa533ccd5e46ae41655e1beef4d98c6e44d784ba1c4020971a62feae20",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 25883,
+      "end": 25897,
+      "value_sha256": "d876f6c82bcd3c01929b87415b8174313c9097a34a70a0a9bf21a6d8550a8fe7",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 29993,
+      "end": 30000,
+      "value_sha256": "709be924400857c9537a1f1377b05e038633bc91e391591dfef5a32c0bb1dada",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 30949,
+      "end": 30956,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 32462,
+      "end": 32469,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 35371,
+      "end": 35378,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 35545,
+      "end": 35554,
+      "value_sha256": "63d835cc480a989ceecbfb01dec5b8871f233935ac46fc0305a10f2492cecf8d",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 36096,
+      "end": 36103,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 42045,
+      "end": 42053,
+      "value_sha256": "143b270a32602d412babf2724ec0640dda0d5a43485e5a7520b05b53fa94b303",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 43225,
+      "end": 43232,
+      "value_sha256": "f4ccae29e1bb0c20a124570a1b43f4347ea94bba9f84ffdfddd9c7445b126128",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 44268,
+      "end": 44283,
+      "value_sha256": "8c54027e91d176d9499981bcf859f93b8e5e41403e88b09bc9a31b42d6244b9b",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 44285,
+      "end": 44290,
+      "value_sha256": "7a8063a6bf957edafdb6611eb05924efd0dbd4a4b66bd63168589ec66b4def99",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 50080,
+      "end": 50084,
+      "value_sha256": "329b67df439a016cb65169b0fa6308b2dbb5dfa9ea8186972aba189cbd241396",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 50113,
+      "end": 50117,
+      "value_sha256": "329b67df439a016cb65169b0fa6308b2dbb5dfa9ea8186972aba189cbd241396",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 52168,
+      "end": 52176,
+      "value_sha256": "143b270a32602d412babf2724ec0640dda0d5a43485e5a7520b05b53fa94b303",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 53102,
+      "end": 53115,
+      "value_sha256": "da74173eaadfc8c8f4343a3518974955e153dd33161ea502cb9daaf01be395f3",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 53122,
+      "end": 53136,
+      "value_sha256": "73f93876f0ecc6a0e18daf82c307a082fe6efcfb961c3e4d7f232ace9c7be88b",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 53785,
+      "end": 53850,
+      "value_sha256": "64a83c6564f610fe4f4abdd59a5eea15263c529cbdd22f649e4d4681e17a897b",
+      "reason": "Inspected exact source span: repository link or retained receipt filename, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 59559,
+      "end": 59576,
+      "value_sha256": "45a0a384923145c8644d789f92a80ca010510f2e41e814f99d7d76e947582781",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 60617,
+      "end": 60626,
+      "value_sha256": "d2cebbe531edc5774e4ff66a6b8939b2a3ff6c30d8dd69efc806b950ef0e683d",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 60933,
+      "end": 60942,
+      "value_sha256": "5b54a8dfc293373bf907f00295869e59426f981e95fbc6d5956cf19012ac6ec5",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 61085,
+      "end": 61094,
+      "value_sha256": "d2cebbe531edc5774e4ff66a6b8939b2a3ff6c30d8dd69efc806b950ef0e683d",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 64846,
+      "end": 64859,
+      "value_sha256": "1ab11ef214bf26f0ab5a5e70b3be1d283db78a1700c263cfa3f8fed162bf12b5",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 65177,
+      "end": 65214,
+      "value_sha256": "0679cae57613fe19822ef58d30aa94481cbd0117bf725beb8575f0f06fd26783",
+      "reason": "Inspected exact source span: repository link or retained receipt filename, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 70301,
+      "end": 70308,
+      "value_sha256": "9a8e315a54da42159a8dbd657cedf3e20559bd43d1e61dca1cc017f9af568b6d",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 71731,
+      "end": 71739,
+      "value_sha256": "45447b7afbd5e544f7d0f1df0fccd26014d9850130abd3f020b89ff96b82079f",
+      "reason": "Inspected exact source span: ordinary instruction or technical heading in the retained plan, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 73128,
+      "end": 73140,
+      "value_sha256": "815d220d7284f41fb74f734f5cf415a119deb752059df17ab7c157947e67ae81",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 74325,
+      "end": 74329,
+      "value_sha256": "f8e772465499a50b3949725fffd82a2690bac705ebad084bcfb8000376914bb6",
+      "reason": "Inspected exact source span: ordinary instruction or technical heading in the retained plan, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 74732,
+      "end": 74736,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 81441,
+      "end": 81457,
+      "value_sha256": "2cacf8cf565750db28c7adb60969fc59de55c470a1c53aeb988fa92282c6644f",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 86832,
+      "end": 86847,
+      "value_sha256": "6d658e1fd4a174a93e499a1b30b91d2e3824518f41d43b65a37f0a56c894e870",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 86924,
+      "end": 86931,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 88302,
+      "end": 88317,
+      "value_sha256": "6d658e1fd4a174a93e499a1b30b91d2e3824518f41d43b65a37f0a56c894e870",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 89478,
+      "end": 89491,
+      "value_sha256": "d755268331b609c11069907c09e1c0e67ac9d96dc2c460a6c1f809c01036e2d9",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 92058,
+      "end": 92074,
+      "value_sha256": "170bfffa49718981a1f6ba1f7c92df7daf781c83f18eefcdac3d00f6b313eba1",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 95530,
+      "end": 95564,
+      "value_sha256": "e527347b819a1945b5774f08540a55f0cc5bdf0ec80153de8dcf41d261f15b06",
+      "reason": "Inspected exact source span: repository link or retained receipt filename, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 95676,
+      "end": 95689,
+      "value_sha256": "aab3ed697a38ae9c40f73c18a0d6ebb025b4a5d20bc47637f181cbe73320506f",
+      "reason": "Inspected exact source span: ordinary instruction or technical heading in the retained plan, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 105406,
+      "end": 105409,
+      "value_sha256": "99e3940e063f5ff23cab92e052a9bae9947ea204349427280a2849f969ee5609",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 107577,
+      "end": 107584,
+      "value_sha256": "8a6da1d0c985ed7f76d269b246a65d072ccc00c42f6dc62cea3132f70288770e",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 108494,
+      "end": 108503,
+      "value_sha256": "2b52f5b376c29e15eac1ea93e737ed8b775f357f783472bc7f115d93f673b174",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 109408,
+      "end": 109420,
+      "value_sha256": "aeea8adc8d37224bc73678996f213d6fda02ebc734d9959eb4aadb91d42b2c62",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 111424,
+      "end": 111432,
+      "value_sha256": "45447b7afbd5e544f7d0f1df0fccd26014d9850130abd3f020b89ff96b82079f",
+      "reason": "Inspected exact source span: ordinary instruction or technical heading in the retained plan, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 112595,
+      "end": 112598,
+      "value_sha256": "a03d0c932fa9be249515262d493096fea983d9688ae9b4d7034b5f4f2fa70387",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 116558,
+      "end": 116565,
+      "value_sha256": "ec36d82c215a28476be742a1f6c131204c01a55c14b977659b432562146d9345",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 120197,
+      "end": 120205,
+      "value_sha256": "cc4bbe856f0ce9b9b6da90d0699fd2d9f5b0936133db34c6e9435c6b0065273c",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 120313,
+      "end": 120317,
+      "value_sha256": "cdf4e79a95e14a003a4daa5e32acae81548accff60d9f2589ba209c22a6b515c",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 123183,
+      "end": 123213,
+      "value_sha256": "3341a73fa717ef11ddb948e438de969c4884d8d7cd38383bf22b93d9603b1bd8",
+      "reason": "Inspected exact source span: ordinary instruction or technical heading in the retained plan, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 123861,
+      "end": 123876,
+      "value_sha256": "e3e43202daff69ff02f273a2b377c936a5ae3f57589021fd7af5c38ca75870c7",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 125408,
+      "end": 125420,
+      "value_sha256": "1702e9ebc115e852fee9764a7461036f4baf3e7da079964ccafc22d1e963b2f3",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 126189,
+      "end": 126193,
+      "value_sha256": "f1273dc72c95d57e92eb520dac8ef22abb27634f46dcda121dab711eb04f66ec",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 126198,
+      "end": 126207,
+      "value_sha256": "63d835cc480a989ceecbfb01dec5b8871f233935ac46fc0305a10f2492cecf8d",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 129241,
+      "end": 129254,
+      "value_sha256": "aab3ed697a38ae9c40f73c18a0d6ebb025b4a5d20bc47637f181cbe73320506f",
+      "reason": "Inspected exact source span: ordinary instruction or technical heading in the retained plan, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 129798,
+      "end": 129815,
+      "value_sha256": "9da523cd25ce734f747bdcc55a7cfc234388eaea348784e35a48909f1c2c960d",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 130075,
+      "end": 130084,
+      "value_sha256": "63d835cc480a989ceecbfb01dec5b8871f233935ac46fc0305a10f2492cecf8d",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 138694,
+      "end": 138701,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 140193,
+      "end": 140200,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 141139,
+      "end": 141152,
+      "value_sha256": "0e6185f578a89e99ced7ff2742c46508682597b40f0a53fcd27c9d240b921b85",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 142652,
+      "end": 142656,
+      "value_sha256": "329b67df439a016cb65169b0fa6308b2dbb5dfa9ea8186972aba189cbd241396",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 143021,
+      "end": 143028,
+      "value_sha256": "bbd07c4fc02c99b97124febf42c7b63b5011c0df28d409fbb486b5a9d2e615ea",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 143610,
+      "end": 143617,
+      "value_sha256": "ecbc89cd37a037342e740f9e0e0633a70180a2279b0157c9a823fce729f4bd77",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 144425,
+      "end": 144429,
+      "value_sha256": "dcd1d5223f73b3a965c07e3ff5dbee3eedcfedb806686a05b9b3868a2c3d6d50",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 144510,
+      "end": 144514,
+      "value_sha256": "329b67df439a016cb65169b0fa6308b2dbb5dfa9ea8186972aba189cbd241396",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 145841,
+      "end": 145848,
+      "value_sha256": "ecbc89cd37a037342e740f9e0e0633a70180a2279b0157c9a823fce729f4bd77",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 146509,
+      "end": 146512,
+      "value_sha256": "00d60e31a4e6b8344d4201f25a6a7dee770713107f6d097abb01559d32b17f26",
+      "reason": "Inspected exact source span: ordinary instruction or technical heading in the retained plan, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 146572,
+      "end": 146576,
+      "value_sha256": "329b67df439a016cb65169b0fa6308b2dbb5dfa9ea8186972aba189cbd241396",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 148385,
+      "end": 148393,
+      "value_sha256": "1b15586d2ed3b45af6c83e6ceabd417105d2a15238458fa27a4de986b16bed1b",
+      "reason": "Inspected exact source span: ordinary instruction or technical heading in the retained plan, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 150203,
+      "end": 150207,
+      "value_sha256": "329b67df439a016cb65169b0fa6308b2dbb5dfa9ea8186972aba189cbd241396",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 150700,
+      "end": 150704,
+      "value_sha256": "329b67df439a016cb65169b0fa6308b2dbb5dfa9ea8186972aba189cbd241396",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 151088,
+      "end": 151092,
+      "value_sha256": "329b67df439a016cb65169b0fa6308b2dbb5dfa9ea8186972aba189cbd241396",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 151806,
+      "end": 151812,
+      "value_sha256": "c4ef2ec214f90032f39dddfbfe51add7ef2c79da14fb2ccf14cb4c9ad15e5c9a",
+      "reason": "Inspected exact source span: software, provider or source label in technical instructions, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 151917,
+      "end": 151920,
+      "value_sha256": "00d60e31a4e6b8344d4201f25a6a7dee770713107f6d097abb01559d32b17f26",
+      "reason": "Inspected exact source span: ordinary instruction or technical heading in the retained plan, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 152738,
+      "end": 152804,
+      "value_sha256": "af175063fa989323895a367da10073f5dbde174d59c674b774bf723c0278d1e8",
+      "reason": "Inspected exact source span: repository link or retained receipt filename, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 152811,
+      "end": 152815,
+      "value_sha256": "329b67df439a016cb65169b0fa6308b2dbb5dfa9ea8186972aba189cbd241396",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "752b31eafd43db6ac29d1f9aefa0f106107579fd67a9e1be40586a6b91dc1c40",
+      "blob_sha256": "0a44102b4691daf3677df4e8ae7821967e08ab7b21a15bfe3ed9fd9b4195718b",
+      "entity_index": 0,
+      "start": 156700,
+      "end": 156756,
+      "value_sha256": "56e179ba0954e99266a1a33a46a8a12b6ab1fb23481ae53172e42470f0147214",
+      "reason": "Inspected exact source span: repository link or retained receipt filename, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "d3f87903cdd5ab23f1ed75d735c8fa55b71bd99cb99278c1c74c2c1ebb6ee426",
+      "blob_sha256": "250076dd90579dd77f7deb354f77e104b9cf5ed1e33e7e09243cf88b7fa32d2e",
+      "entity_index": 0,
+      "start": 2,
+      "end": 12,
+      "value_sha256": "72cd8a64e591c9ee6a255b4e50df6b77f25d97783271add5811f754766af5961",
+      "reason": "Inspected exact source span: ordinary instruction or technical heading in the retained plan, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "d3f87903cdd5ab23f1ed75d735c8fa55b71bd99cb99278c1c74c2c1ebb6ee426",
+      "blob_sha256": "250076dd90579dd77f7deb354f77e104b9cf5ed1e33e7e09243cf88b7fa32d2e",
+      "entity_index": 0,
+      "start": 600,
+      "end": 609,
+      "value_sha256": "f501d3b0afd332cd1115bcec4ff3644ea6b153e7ae28983524145a84606e3ade",
+      "reason": "Inspected exact source span: ordinary instruction or technical heading in the retained plan, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "d3f87903cdd5ab23f1ed75d735c8fa55b71bd99cb99278c1c74c2c1ebb6ee426",
+      "blob_sha256": "250076dd90579dd77f7deb354f77e104b9cf5ed1e33e7e09243cf88b7fa32d2e",
+      "entity_index": 0,
+      "start": 1785,
+      "end": 1792,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: flow state, completion label or schedule time, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "d3f87903cdd5ab23f1ed75d735c8fa55b71bd99cb99278c1c74c2c1ebb6ee426",
+      "blob_sha256": "250076dd90579dd77f7deb354f77e104b9cf5ed1e33e7e09243cf88b7fa32d2e",
+      "entity_index": 0,
+      "start": 2933,
+      "end": 2945,
+      "value_sha256": "f1e01539f03e24c4a7d8c3d5811db27c7ad853f900482c3834ffcbea8cf9e36d",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "d3f87903cdd5ab23f1ed75d735c8fa55b71bd99cb99278c1c74c2c1ebb6ee426",
+      "blob_sha256": "250076dd90579dd77f7deb354f77e104b9cf5ed1e33e7e09243cf88b7fa32d2e",
+      "entity_index": 0,
+      "start": 9624,
+      "end": 9677,
+      "value_sha256": "429d551a1466a8e7465834ec49ad674a903304b55f0db061a95a88c437b2d94a",
+      "reason": "Inspected exact source span: repository link or retained receipt filename, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "0eb10ea2ee6ffb14bfc9e7b0e89f93af28927f15f6192ea722e1cdd064cfb547",
+      "blob_sha256": "8d5520f42136909c6f884137f7bcbdb5ca9de05d66693183b58f7febe898a5c1",
+      "entity_index": 0,
+      "start": 1330,
+      "end": 1338,
+      "value_sha256": "e37f0d82d4247388b828567132da4cc1130c774b7d81f4e97e2668ba27e6a835",
+      "reason": "Inspected exact source span: plan, code, count, process or protocol identifier, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
     }
   ]
 }
