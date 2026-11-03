@@ -1,6 +1,10 @@
+## DoRA recovery acceptance — 3 November 2026
+
+[Native failure and safe fresh-restart acceptance](dora-runtime-acceptance-20261103.md) closes the selected DoRA continuation/source-health gap using existing real runs and independent stored-byte proof. Prior offset reuse remains unsupported; no new crawl or native change was required.
+
 ## Selected flow backlog — reconciled 3 November 2026
 
-The [ten-group flow reconciliation](flow-backlog-reconciliation-20261103.md) closes the three-collector changed-path assignment and distinguishes the nine remaining acceptance/disposition groups. It corrects stale H03, digest-documentation, WHO count and Semantic Scholar liveness wording. The natural daily observer is accepted with its failed-delivery disposition; timely monthly delivery remains pending.
+The [ten-group flow reconciliation](flow-backlog-reconciliation-20261103.md) closes the three-collector changed-path assignment and records eight remaining acceptance/disposition groups after the later DoRA acceptance. It corrects stale H03, digest-documentation, WHO count and Semantic Scholar liveness wording. The natural daily observer is accepted with its failed-delivery disposition; timely monthly delivery remains pending.
 
 ## Current collector runtime qualification —3November2026
 
