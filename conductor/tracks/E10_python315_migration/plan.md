@@ -97,3 +97,26 @@ handover above, change native operations, or contact another owner.
 - Current working runtime/main proof: `private/ops/2026-10-23-runtime-upgrade/completion.json`.
 - Registration/goal state: `private/ops/2026-10-23-runtime-upgrade/track-registration.json`.
 - No separate goal is armed; E01 remains unfinished and must not be overwritten.
+
+## Implementation and review — 3 November 2026
+
+- [x] Audit numbered requirements against current source, actual interpreter and
+  configured helper launcher. See [audit](audit-20261103.md).
+- [x] Review the explicit repo-local Fabric launcher and CI environment selector;
+  preserve existing qualified candidate and merged dependency evidence.
+- [x] Correct current runtime evidence to external Python3.14.8. Multiple attached
+  shared hosts remain present; dated3.14.6 prose is historical.
+- [ ] E10.6 terminal activation remains blocked on verified affected host/native
+  termination and supported ownership-scoped next-session launcher selection.
+- [ ] E10.7 full-scope completion and canonical audit promotion remain incomplete
+  while the shared helper continues to use Python3.14.8.
+
+## Blocker remediation — 3 November 2026
+
+- [x] Qualify installed Codex per-invocation fabric command/args overrides through
+ exact configuration read, preserving PATH and global profile.
+- [x] Start retained repo-local3.15.1 candidate with existing launcher; package
+ version0.8.7 returned with exit0. Reuse prior native-read qualification.
+- [x] Document next-CLI-session selection in FABRIC_MCP_RUNTIME.md.
+- [ ] Existing attached desktop/shared hosts still need supported terminal
+ handover. New-session configuration does not migrate current processes.

@@ -86,3 +86,19 @@ prevents requesting a release from G02 or another owner. Record an unresolved
 terminal/ownership boundary and continue independent work, without outreach.
 Private candidate, process inventory, exact commands and receipts are under
 `private/ops/2026-10-24-fabric-mcp315/`.
+
+## Scoped next-session selection — 3 November 2026
+
+Installed Codex CLI supports per-invocation dotted TOML overrides. An exact
+codex mcp get fabric --json read verified replacement command /bin/bash and
+args containing the absolute start_fabric_mcp.sh path, preserving configured PATH.
+Set mcp_servers.fabric.env.RIMS_FABRIC_MCP_ENV to the existing qualified candidate
+under the original repository at private/ops/2026-10-24-fabric-mcp315/venv.
+Pass each override using Codex's supported -c key=value option for the intended
+new CLI invocation. No global profile change is needed. The explicit candidate
+started through the existing version-checking launcher and reported package0.8.7,
+exit0. Existing native-read qualification is retained without repeated tenant calls.
+
+This selects a new CLI session only. Desktop-attached hosts still require their
+supported terminal handover. Their current external runtime is3.14.8, superseding
+dated3.14.6 observations. Preserve PATH and existing identity/resource pins.

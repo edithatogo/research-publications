@@ -247,3 +247,12 @@ Track closure requires all applicable acceptance tasks above, the shared complet
 ## Post-MVP relationship refinement (planning only)
 
 After both MVPs' native and operational acceptance, R1.5/R1.6 and R5.6 in [the existing sequence](#post-mvp-sequence) refine G06-H01–H03: separate local/external IDs; typed project/person/organisation/publication/funding links; dated roles, author order/name variants where relevant; candidate/confirmed evidence and persistent corrections. Opportunities/applications/awards remain distinct. Begin with one existing relationship type, and require no false merge, orphan/duplicate link, multiplied counts/amounts or change to accepted publication outputs. No new bridge/backlog or native implementation is authorised by this roadmap refinement.
+
+## Actual reviewed admission — 3 November 2026
+
+- [x] Review retained inspection, intake guards and immutable revision path;
+ 56 focused tests pass on repo-local Python3.15.1.
+- [ ] Admit actual reviewed relationships after authoritative typed endpoint
+ inventories and genuine reviewed evidence are established. The inspected
+ retained occurrence contains no such packet. This review is not a new tenant
+ inventory. See [admission review](admission-review-20261103.md).

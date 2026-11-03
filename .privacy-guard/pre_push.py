@@ -97,8 +97,8 @@ def push_rows(payload: bytes) -> list[tuple[str, str]]:
 
 
 def review_control_number(item: dict, finding: dict, policy: dict) -> bool:
-    """Only typed offset/rank tokens in the exact review control path, never free text."""
-    if policy["entities"][finding["entity_index"]] != "PHONE_NUMBER":
+    """Only schema-validated control tokens in the exact review path, never free text."""
+    if policy["entities"][finding["entity_index"]] not in {"PHONE_NUMBER", "PERSON"}:
         return False
     raw = item["text"].encode()
     oid = hashlib.sha1(
@@ -107,6 +107,8 @@ def review_control_number(item: dict, finding: dict, policy: dict) -> bool:
     expected = hashlib.sha256(
         (".privacy-guard/presidio-reviewed-findings.json:" + oid).encode()
     ).hexdigest()
+    # PERSON may misclassify numeric/hash metadata. Clearance is restricted to
+    # this exact review-file blob and its validated schema, never arbitrary text.
     if item["identity"] != expected:
         return False
 
@@ -166,6 +168,11 @@ def review_control_number(item: dict, finding: dict, policy: dict) -> bool:
             r'(?<!\\)"(?:start|end|entity_index)"\s*:\s*(0|[1-9][0-9]*)', item["text"]
         ):
             if token.start(1) == finding["start"] and token.end(1) == finding["end"]:
+                return True
+        for token in re.finditer(
+            r'(?<!\\)"(?:identity|blob_sha256|value_sha256)"\s*:\s*"([a-f0-9]{64})"', item["text"]
+        ):
+            if token.start(1) <= finding["start"] < finding["end"] <= token.end(1):
                 return True
     except (ValueError, TypeError, KeyError):
         return False

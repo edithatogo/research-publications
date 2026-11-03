@@ -407,3 +407,21 @@ temporary-flow cleanup and bounded CLI output-read receipts remain private under
 `private/ops/grants-policy-deadlines-20261102/` in the feature checkout, branch
 `codex/grants-policy-deadlines`. G08-H01 stays open; existing business/calendar/
 import objects, schedules, source data, authentication and NIH scope are unchanged.
+
+## First approved policy/override review — 3 November 2026
+
+- [x] Reassess retained input using existing evidence-bound preparation for
+  3November. Zero effective rows,85 held anchors;11 focused tests pass.
+- [ ] First real approved policy/override application remains blocked on
+  authority-bound original policy and applicable reviewed override evidence.
+  See [review](deadline-review-20261103.md). This is retained-snapshot evidence,
+  not current tenant inventory or native application acceptance.
+
+## Calendar and business delivery review — 3 November 2026
+
+- [x] Inspect retained native acceptance and current owner/consent/revision
+ guards;24 focused tests pass.
+- [ ] Complete genuine saved-follow/source-change/pause/unsubscribe lifecycle,
+ permitted multi-user access-isolation checks and first genuinely due reviewed
+ business delivery. Existing retained receipts do not satisfy these exits.
+ See [review](calendar-notification-review-20261103.md).

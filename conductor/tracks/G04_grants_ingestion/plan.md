@@ -481,3 +481,26 @@ opportunity archive. The earlier source snapshot above is preserved as history.
 The ready-file flow is importing the missing rows with paced writes after
 HTTP 429 diagnostics. Final native membership verification and import closeout
 remain open. See the T11 recovery checkpoint and current handoff.
+
+## Historical final comparison — 3 November 2026 review
+
+- [x] Inspect existing comparator and documented local evidence locations.
+- [x] Run focused history builder/reader tests on repo-local Python3.15.1.
+- [ ] Execute final three-list comparison after recovering the import terminal
+  receipt and complete retained manifests/shards. The documented throughput
+  directory/checkpoint is absent in the original checkout. The separate partial
+  reader receipt cannot substitute for full import evidence.
+  See [review and exact blocker](history-closeout-review-20261103.md).
+
+## Broader source integrity hardening — 3 November 2026
+
+- [x] Reject empty expected historical populations before native reads.
+- [x] Reject native response continuation metadata rather than advancing past a
+ partial response. Three continuation spellings have regression coverage.
+- [x] Four focused verifier/builder/reader tests pass. No native mutation.
+ See [review](source-hardening-review-20261103.md).
+- [ ] Actual historical reconciliation still needs original terminal evidence,
+ manifests/shards and complete native readback. Broader freshness, recovery and
+ consecutive-cycle platform gates remain distinct.
+- [x] Full integration discovery passes2484 tests with19 existing skips;
+ 446 project checks, web-first contracts and Conductor validation pass.

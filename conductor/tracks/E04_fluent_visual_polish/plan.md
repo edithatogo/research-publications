@@ -47,3 +47,13 @@ only. Do not broaden sharing or alter production bindings in this tranche.
   forced retry did not open a repair mapping dialog. No Save occurred; the
   report was returned to read mode. Receipt:
   `private/ops/2026-09-22-powerbi-e04-edit-repair-attempt.json`.
+
+## Current native visual inspection — 3 November 2026
+
+- [x] Internal-browser read shows12 current dashboard pages and Clinical Analytics
+ cards/charts/slicers/table rendering without the historical nine binding-error
+ tiles in this inspection. Dated observations above remain historical.
+- [x] Local bindings/geometry/contrast validation and10 visual/theme/reader tests pass.
+- [ ] Reconcile OA compliance denominator/coverage and FoR classification claims,
+ then complete isolated native definition parity and full visual/accessibility
+ acceptance. See [review](native-review-20261103.md).

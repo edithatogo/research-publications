@@ -537,3 +537,12 @@ The no-send local increment was committed as `e47fac18`; this is the historical
 Expanded native adoption was not completed. Retain the precise existing access/target/qualified-AI boundaries
 above; do not turn previews into persisted records or interpret this session's
 closure as delivery/activation authority. See the session disposition (retained authoring reference: `../../../handoff/SESSION_CLOSEOUT_20261024.md`).
+
+## Actor/privacy/persistence adoption review — 3 November 2026
+
+- [x] Review trusted-argument boundary and existing storage/identity handoffs;
+ E09-focused discovery passes134 tests with4 existing skips.
+- [ ] Native trusted actor/access enforcement, cross-user privacy, authorised
+ curator persistence, PMID/DoRA adoption and same-ID solution/documentation
+ qualification remain open. Local no-send previews do not satisfy those gates.
+ See [review](adoption-review-20261103.md).

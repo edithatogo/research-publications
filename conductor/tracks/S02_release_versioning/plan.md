@@ -53,3 +53,12 @@ Status: in_progress. Source packaging and isolated native version/batch display 
 - [x] S02.4.1: Add a canonical source-only GitHub Actions workflow for the required local quality gates and read-only Power Platform preflight; no tenant deployment is implied.
 - [x] Review fix: exclude Python and test-tool caches from the non-Git source-path fallback and cover the temporary-tree route (`f77d3ec`).
 - [x] Checkpoint: write commands/results, changed paths and remaining blockers in review.md; update CURRENT_STATE. Stop dependent work on failure.
+
+## Native restoration review — 3 November 2026
+
+- [x] Inspect retained isolated version checkpoint and existing recovery tools.
+- [x] Correct unconditional restore claims in VERSIONING_ARCHITECTURE.md.
+- [x] Run packaging/display and offline recovery checks; all selected tests pass.
+- [ ] Native restoration proof remains open pending a qualified isolated target,
+ current preimage, authoritative snapshot and supported operation/permission.
+ No native denial is inferred. See [review](recovery-review-20261103.md).

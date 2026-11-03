@@ -29,7 +29,10 @@ def instant(value):
 
 def verify_archive(source, run_id, generations, archive_root):
     """Hash actual saved bytes and bind the native manifest to this exact run."""
-    if (not re.fullmatch(r'[A-Za-z0-9_-]{1,128}', run_id)
+    if (not isinstance(source, str) or source not in SOURCES
+            or not isinstance(run_id, str)
+            or not isinstance(generations, list)
+            or not re.fullmatch(r'[A-Za-z0-9_-]{1,128}', run_id)
             or any(not isinstance(g, dict) for g in generations)):
         return False
     matches = [g for g in generations if g.get('source') == source and g.get('run') == run_id]
@@ -53,7 +56,8 @@ def verify_archive(source, run_id, generations, archive_root):
         for f in files:
             target = (folder / f['name']).resolve()
             if (not target.is_relative_to(folder) or type(f.get('bytes')) is not int
-                    or f['bytes'] < 1 or not re.fullmatch(r'[a-f0-9]{64}', f.get('sha256', ''))):
+                    or f['bytes'] < 1 or not isinstance(f.get('sha256'), str)
+                    or not re.fullmatch(r'[a-f0-9]{64}', f.get('sha256', ''))):
                 return False
             raw = target.read_bytes()
             if len(raw) != f['bytes'] or hashlib.sha256(raw).hexdigest() != f['sha256']:
