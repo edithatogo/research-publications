@@ -10261,6 +10261,46 @@
       "value_sha256": "e389e964494f382d8092c11de14c1378e65846bfffb9bdc892496d449efcfc87",
       "reason": "Synthetic test fixture identifier in local test source.",
       "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "94d6f7336885855a6fee2556360488e0d7b75da7ff6543766d8b27aa09aa1830",
+      "blob_sha256": "cdd147d17dc06ed82b215e094fa5f2728812d0f230727625047088859f4cc878",
+      "entity_index": 0,
+      "start": 248,
+      "end": 258,
+      "value_sha256": "8f6b6523b8e6875b9328394765a11a9f4c07f71817d5b33b6785a38a3b0e3333",
+      "reason": "Public university website path component, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "94d6f7336885855a6fee2556360488e0d7b75da7ff6543766d8b27aa09aa1830",
+      "blob_sha256": "cdd147d17dc06ed82b215e094fa5f2728812d0f230727625047088859f4cc878",
+      "entity_index": 0,
+      "start": 691,
+      "end": 723,
+      "value_sha256": "34d8f7e95292f4bf598756a3e3397aebca3dc756a104cd66a1dc13bc335fffed",
+      "reason": "Markdown link text and public institution domain, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "94d6f7336885855a6fee2556360488e0d7b75da7ff6543766d8b27aa09aa1830",
+      "blob_sha256": "cdd147d17dc06ed82b215e094fa5f2728812d0f230727625047088859f4cc878",
+      "entity_index": 0,
+      "start": 821,
+      "end": 824,
+      "value_sha256": "ac3de248f6ec0d8552e6b0972ed2b51ccb7d8e2367f35d1c54f5d7bceee5e34f",
+      "reason": "Public institution abbreviation, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "94d6f7336885855a6fee2556360488e0d7b75da7ff6543766d8b27aa09aa1830",
+      "blob_sha256": "cdd147d17dc06ed82b215e094fa5f2728812d0f230727625047088859f4cc878",
+      "entity_index": 0,
+      "start": 1178,
+      "end": 1186,
+      "value_sha256": "c247ce1bbcd8f6119a696314da4f8fd933b071ae795c6ca17c7e18f77726df3f",
+      "reason": "Public university name, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
     }
   ]
 }
