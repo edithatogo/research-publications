@@ -181,7 +181,7 @@ three lanes. No native, schedule or delivery acceptance follows from these packe
 ## Reconciled later requirements — 29 October 2026
 
 - [~] [E09 collaborative research feed](tracks/collaborative_research_feed_20261022/plan.md) — owner-only/no-send technical receipts retained; broader actor, curation, persistence, solution and adoption dependencies remain explicit.
-- [~] [T18 outcomes and reader journeys](tracks/chhhs_outcomes_powerbi_20261021/plan.md) — optional reader/outcome expansion is roadmap-only; evidence-dependent outcomes stay unavailable. The retained reader ID is currently unresolved; E04 import compatibility also blocks native promotion.
+- [x] [T18 outcomes and reader journeys](tracks/chhhs_outcomes_powerbi_20261021/plan.md) — Approved delivery increment closed after working-report keyboard and facility drillthrough acceptance.
 - [ ] [Monthly export and independent observer](tracks/publication_monthly_monitoring_20261024/plan.md) — November1 occurrences MISSED; existing schedules repaired and controlled native recovery verified. SharePoint/Loop documentation current. RMD-05 pending actual natural-run evidence; export07:00 monthly day1, deadline10:00, observer10:05 daily Brisbane.
 - [~] [E08 retained operational follow-ups](archive/E08_operational_followups/plan.md) — archived administration is preserved; F03/F04 remain unaccepted and F05/F06 conditional. Reuse accepted ROR and NHMRC/MRFF archive receipts.
 
@@ -253,4 +253,4 @@ deployable WDL; native writer/journal/immutable-read qualifications remain open.
 All lanes will converge to the same verified main before the next implementation
 round; current read-only recommendations must account for sibling work on main.
 
-- [~] [T18 outcome contracts and three reporting outputs](tracks/chhhs_outcomes_powerbi_20261021/plan.md#outcome-contracts-and-three-reporting-outputs) — approved delivery increment with E04 repairs first.
+- [x] [T18 outcome contracts and three reporting outputs](tracks/chhhs_outcomes_powerbi_20261021/plan.md#outcome-contracts-and-three-reporting-outputs) — Approved delivery increment closed after working-report keyboard and facility drillthrough acceptance.

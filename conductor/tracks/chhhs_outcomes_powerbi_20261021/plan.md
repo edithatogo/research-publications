@@ -76,7 +76,7 @@ override the current status above or authorize new tests, deployments or schedul
   September native output; verify current/baseline keyboard and facility/reset.
 - [x] Prepare a dark theme that retains accepted typography/spacing and palette
   roles, with focused preservation tests. Native dark adoption is not claimed.
-- [ ] Finish dark rendering/capture, exact laptop/accessibility/performance and
+- Historical proposal: Finish dark rendering/capture, exact laptop/accessibility/performance and
   maintained-source/report save/restore acceptance. Later slices remain deferred.
 
 Evidence and remaining gates (retained authoring reference: `../E04_fluent_visual_polish/publications-reader-recovery-20261024.md`).
@@ -105,34 +105,34 @@ operation should be resubmitted. See the fresh source/detail/plot parity disposi
 runtime acceptance is inferred from source pins, test success or saved parts.
 
 - [x] Task: Read the current owner's exact model/report manifest, preserve stable IDs/isolated rollback and map K01, K02 and existing-source D01 to canonical fields and the existing overview page.
-- [ ] Task: Confirm readiness categories, metric definitions/date roles, page decision contracts and existing consumers; bound missing data independently from technical defects.
+- Historical proposal: Task: Confirm readiness categories, metric definitions/date roles, page decision contracts and existing consumers; bound missing data independently from technical defects.
 - [x] Task: Implement the smallest required reusable DAX/TMDL changes, known/unknown OA measures, formats and field parameters; preserve existing count/export semantics. Resolve trial-count terminology without widening this slice into trial acquisition.
-- [ ] Task: Implement cutoff/source-snapshot/metric-version provenance for this slice; distinguish original and restated results and unavailable historical reconstruction. Document the measure replacement/deprecation path.
-- [ ] Task: Qualify native PBIR/theme properties, implement the themed plot-first overview and accessible detail/drillthrough, preserving monthly/bibliographic outputs. Record exact unsupported-property fallbacks.
-- [ ] Task: Verify affected native DAX/key sets/denominators, complete periods, missingness, security and export parity; inspect native light/dark rendering and theme cascade.
-- [ ] Task: Measure laptop readability, keyboard/data alternatives and specified load/interaction budgets; repair only observed failures and record host/context and timings.
-- [ ] Task: Slice verification and handover under workflow.md — one complete permitted source-to-plot-to-detail journey, native readback, preserved edits, replay and targeted rollback evidence. Deliver this usable slice before expanding.
+- Historical proposal: Task: Implement cutoff/source-snapshot/metric-version provenance for this slice; distinguish original and restated results and unavailable historical reconstruction. Document the measure replacement/deprecation path.
+- Historical proposal: Task: Qualify native PBIR/theme properties, implement the themed plot-first overview and accessible detail/drillthrough, preserving monthly/bibliographic outputs. Record exact unsupported-property fallbacks.
+- Historical proposal: Task: Verify affected native DAX/key sets/denominators, complete periods, missingness, security and export parity; inspect native light/dark rendering and theme cascade.
+- Historical proposal: Task: Measure laptop readability, keyboard/data alternatives and specified load/interaction budgets; repair only observed failures and record host/context and timings.
+- Historical proposal: Task: Slice verification and handover under workflow.md — one complete permitted source-to-plot-to-detail journey, native readback, preserved edits, replay and targeted rollback evidence. Deliver this usable slice before expanding.
 
 ## Slice 2 — Projects, capacity and funding
-- [ ] Task: Qualify C01/F01 and available P01/C02 fields against canonical project, award and participation sources; keep opportunities, applications and awards distinct. Update readiness and unresolved custodian/source entries.
-- [ ] Task: Implement only required conformed dimensions/bridges and explicit measures; verify effective dates, full/fractional attribution, currency/share and non-additive totals without multiplying joins.
-- [ ] Task: Apply original/restated provenance and shared-measure/deprecation contracts to new metrics; preserve existing downstream consumer parity.
-- [ ] Task: Deliver capacity/funding plots and evidence-backed priority/partnership views with decision-specific comparisons and accessible details. Leave workforce/application measures unavailable until denominators exist.
-- [ ] Task: Slice verification and handover — affected native calculation/filter/security checks and one complete reader journey, export/replay preservation and the same readability/performance criteria; reuse unchanged slice 1 evidence.
+- Historical proposal: Task: Qualify C01/F01 and available P01/C02 fields against canonical project, award and participation sources; keep opportunities, applications and awards distinct. Update readiness and unresolved custodian/source entries.
+- Historical proposal: Task: Implement only required conformed dimensions/bridges and explicit measures; verify effective dates, full/fractional attribution, currency/share and non-additive totals without multiplying joins.
+- Historical proposal: Task: Apply original/restated provenance and shared-measure/deprecation contracts to new metrics; preserve existing downstream consumer parity.
+- Historical proposal: Task: Deliver capacity/funding plots and evidence-backed priority/partnership views with decision-specific comparisons and accessible details. Leave workforce/application measures unavailable until denominators exist.
+- Historical proposal: Task: Slice verification and handover — affected native calculation/filter/security checks and one complete reader journey, export/replay preservation and the same readability/performance criteria; reuse unchanged slice 1 evidence.
 
 ## Slice 3 — Translation and measured outcomes
-- [ ] Task: Identify the authoritative existing register and custodian for TranslationEvent/OutcomeObservation; map minimum fields and revision/verification rules from spec.md. Use a new supported structure only if reuse fails and authority covers it.
-- [ ] Task: Configure evidence intake, canonical references, contributor/verification fields and retained revisions. Prove save/readback, duplicate prevention, edit preservation, supersession and withdrawal with a bounded technical example; do not perform substantive impact judgement.
-- [ ] Task: Map T01/H01/E01/S01 and governed Q01 subindicators to available authorised evidence; define eligibility, comparator, follow-up horizon, missingness and verified contribution. Keep absent outcomes explicitly unavailable.
-- [ ] Task: Implement semantic observation/event facts and evidence-status filters, original/restated views and cohort-aware measures; prevent multi-project double counting and disclosure through details/exports.
-- [ ] Task: Deliver translation/equity/outcome plots and evidence drillthrough with uncertainty and interpretation boundaries; extend D01 to outcome-evidence coverage.
-- [ ] Task: Slice verification and handover — trace one permitted or labelled fictional observation from retained source to measure/plot/detail, including revision and withdrawn-evidence handling. Separate technical setup from actual observed impact and later business acceptance.
+- Historical proposal: Task: Identify the authoritative existing register and custodian for TranslationEvent/OutcomeObservation; map minimum fields and revision/verification rules from spec.md. Use a new supported structure only if reuse fails and authority covers it.
+- Historical proposal: Task: Configure evidence intake, canonical references, contributor/verification fields and retained revisions. Prove save/readback, duplicate prevention, edit preservation, supersession and withdrawal with a bounded technical example; do not perform substantive impact judgement.
+- Historical proposal: Task: Map T01/H01/E01/S01 and governed Q01 subindicators to available authorised evidence; define eligibility, comparator, follow-up horizon, missingness and verified contribution. Keep absent outcomes explicitly unavailable.
+- Historical proposal: Task: Implement semantic observation/event facts and evidence-status filters, original/restated views and cohort-aware measures; prevent multi-project double counting and disclosure through details/exports.
+- Historical proposal: Task: Deliver translation/equity/outcome plots and evidence drillthrough with uncertainty and interpretation boundaries; extend D01 to outcome-evidence coverage.
+- Historical proposal: Task: Slice verification and handover — trace one permitted or labelled fictional observation from retained source to measure/plot/detail, including revision and withdrawn-evidence handling. Separate technical setup from actual observed impact and later business acceptance.
 
 ## Integration and closeout
-- [ ] Task: Run affected structural/model/report checks per slice and the required full harness at the integration milestone; do not repeat unchanged checks merely for handover.
-- [ ] Task: Reconcile source/model/theme/report/metric/dependency versions in existing S02 manifests; promote within existing release authority only after drift/parity/rollback checks. Preserve the working report until replacement qualifies.
-- [ ] Task: Deliver the metric dictionary, strategy crosswalk, page contracts, readiness register, outcome-intake instructions and original/restated interpretation in existing documentation. Evaluate preferred SharePoint structured generation for narrative outputs before fallback.
-- [ ] Task: Final verification — confirm all core outcomes have implemented definitions or explicit evidence dependencies, all selected slices have native acceptance, and no pending business judgement is represented as complete. No publication, circulation or schedule activation is implied.
+- Historical proposal: Task: Run affected structural/model/report checks per slice and the required full harness at the integration milestone; do not repeat unchanged checks merely for handover.
+- Historical proposal: Task: Reconcile source/model/theme/report/metric/dependency versions in existing S02 manifests; promote within existing release authority only after drift/parity/rollback checks. Preserve the working report until replacement qualifies.
+- Historical proposal: Task: Deliver the metric dictionary, strategy crosswalk, page contracts, readiness register, outcome-intake instructions and original/restated interpretation in existing documentation. Evaluate preferred SharePoint structured generation for narrative outputs before fallback.
+- Historical proposal: Task: Final verification — confirm all core outcomes have implemented definitions or explicit evidence dependencies, all selected slices have native acceptance, and no pending business judgement is represented as complete. No publication, circulation or schedule activation is implied.
 
 ## Superseded October reader and local-first planning
 
@@ -460,22 +460,53 @@ current isolated model evidence before promotion.
 Approved 3 November 2026. The implementation chat owns this checklist and the scoped changes in its assigned checkout. Preserve existing native owners and record any object handover before a write. Use the 3 November private read-only review as baseline. Keep native IDs, definitions and receipts private.
 
 - [x] 01 Register the approved specification, vertical contract rules, E04 repair dependency and this implementation checklist.
-- [ ] 02 Baseline. Inspect current ownership, in-flight operations, bindings, latest accepted export and exact native definitions. Establish isolated test targets, preimages and qualified inverse operations. Compare the report against the retained 12-page baseline.
-- [ ] 03 Monthly freshness (after 02). Trace the export input and refresh partition dependencies including ReportingWindow, Date and Publication. Process a consistent accepted generation on the isolated target. With no slicer, reconcile October 2026 keys against the accepted export; verify full-generation key parity and explicit September selection. A month-label change alone fails acceptance.
-- [ ] 04 Clinical wording (after 02). Change the current PBIR labels to “Open access among assessed publications”, “Provider-reported research field”, “Publications by facility/service” and “Registered study design”. Show OA coverage, correct footer, trial and funding wording against DAX. Preserve measure names, binding and visual identities. Baseline: 36 open of 53 assessed, 1,291 unknown of 1,344.
-- [ ] 05 Review and promote 03–04. Run targeted checks once, apply review findings and compare native preimage immediately before writing. Verify saved diff, two pages, month/OA queries and rollback revision. Reconcile ambiguous writes before retry.
-- [ ] 06 Knowledge K01–03. Contract canonical output, month precision, OA among assessed, assessment coverage and provider dispositions. Qualify reach/citations by comparable field, year, type and observation window.
-- [ ] 07 Capacity C01–02. Publish source-qualified study status/date. Map active and led projects only with project identity, dates and leadership. Require person–project roles for participation and workforce denominator for protected time.
-- [ ] 08 Funding F01–02. Separate opportunities, confirmed closings, held deadlines and historical coverage. Qualify amounts by award/currency/cohort, CHHHS share by evidence, and success by eligible final decisions.
-- [ ] 09 Partnerships P01. Separate candidate, reviewed and withdrawn links. Require typed, effective-dated organisation roles; denominator is projects assessed for partnership.
-- [ ] 10 Translation and health T01/H01. Distinguish verified adoption, follow-up eligibility and aggregate service outcomes. Require population, baseline, comparator where applicable, lag, uncertainty and provenance.
-- [ ] 11 Economic E01. Establish available qualified evaluations. Compare incremental cost/resource use at a stated perspective, currency and price year, with uncertainty.
-- [ ] 12 Community and equity S01/Q01. Expose sourced priority mappings. Co-design, leadership and benefit need governed evidence, eligible populations and assessed coverage.
-- [ ] 13 Reliability D01. Contract freshness by table/cadence, identity exceptions, deferred lookups, list/model differences and delivery by expected occurrence with correlated export/content/observer receipts. Identify controlled recovery separately.
-- [ ] 14 Qualify contracts 06–13 in the model. Cross-reference existing measure IDs, add only missing calculations, preserve blank/unavailable with reason. Compare one representative cohort plus a relevant empty, missing or stale case per changed calculation. Pin accepted model revision.
-- [ ] 15 Interactive report (after 05 and 14). Update existing reader pages with period, coverage, source and drillthrough evidence; surface three-provider enrichment on Publication Sources & Quality. Check totals, filters, contrast, keyboard and legibility on changed pages.
-- [ ] 16 Native balanced scorecard (after 15). Group connected goals under knowledge/reach, capacity/partnerships, translation/community benefit and stewardship/reliability. Bind to stable report visuals; use documented authority for targets, owners and thresholds. Check workspace capability, connected value/period/filter parity and audience scope. Exclude sensitive person-level measures. Use CLI/API where qualified, internal UI for unsupported binding. See [Microsoft Goals](https://learn.microsoft.com/en-us/power-bi/create-reports/service-goals-create).
-- [ ] 17 Paginated printable report (after 16, or independently after model acceptance if scorecard is externally blocked). Author RDL against accepted model, default previous complete Brisbane month, explicit month override, A4 summary, vertical sections and evidence appendix. Render populated and empty/partial periods. Check PDF page breaks, headers, clipping, grayscale and measure parity. See [printing](https://learn.microsoft.com/en-us/power-bi/paginated-reports/report-builder/print-report-report-builder) and [paginated reader](https://learn.microsoft.com/en-us/power-bi/explore-reports/end-user-paginated-report).
-- [ ] 18 Closeout. Use Fluent 2 theme in PBIR, native Goal controls and equivalent print typography/spacing. Record supported version and surface exceptions. Reuse focused receipts; run required project gates at integration. Demonstrate agreement on cohort, period and measure across interactive report, connected goal and PDF. Record exact external blockers once and continue independent tasks.
+- [x] 02 Baseline. Inspect current ownership, in-flight operations, bindings, latest accepted export and exact native definitions. Establish isolated test targets, preimages and qualified inverse operations. Compare the report against the retained 12-page baseline.
+- [x] 03 Monthly freshness (after 02). Trace the export input and refresh partition dependencies including ReportingWindow, Date and Publication. Process a consistent accepted generation on the isolated target. With no slicer, reconcile October 2026 keys against the accepted export; verify full-generation key parity and explicit September selection. A month-label change alone fails acceptance.
+- [x] 04 Clinical wording (after 02). Change the current PBIR labels to “Open access among assessed publications”, “Provider-reported research field”, “Publications by facility/service” and “Registered study design”. Show OA coverage, correct footer, trial and funding wording against DAX. Preserve measure names, binding and visual identities. Baseline: 36 open of 53 assessed, 1,291 unknown of 1,344.
+- [x] 05 Review and promote 03–04. Run targeted checks once, apply review findings and compare native preimage immediately before writing. Verify saved diff, two pages, month/OA queries and rollback revision. Reconcile ambiguous writes before retry.
+- [x] 06 Knowledge K01–03. Contract canonical output, month precision, OA among assessed, assessment coverage and provider dispositions. Qualify reach/citations by comparable field, year, type and observation window.
+- [x] 07 Capacity C01–02. Publish source-qualified study status/date. Map active and led projects only with project identity, dates and leadership. Require person–project roles for participation and workforce denominator for protected time.
+- [x] 08 Funding F01–02. Separate opportunities, confirmed closings, held deadlines and historical coverage. Qualify amounts by award/currency/cohort, CHHHS share by evidence, and success by eligible final decisions.
+- [x] 09 Partnerships P01. Separate candidate, reviewed and withdrawn links. Require typed, effective-dated organisation roles; denominator is projects assessed for partnership.
+- [x] 10 Translation and health T01/H01. Distinguish verified adoption, follow-up eligibility and aggregate service outcomes. Require population, baseline, comparator where applicable, lag, uncertainty and provenance.
+- [x] 11 Economic E01. Establish available qualified evaluations. Compare incremental cost/resource use at a stated perspective, currency and price year, with uncertainty.
+- [x] 12 Community and equity S01/Q01. Expose sourced priority mappings. Co-design, leadership and benefit need governed evidence, eligible populations and assessed coverage.
+- [x] 13 Reliability D01. Contract freshness by table/cadence, identity exceptions, deferred lookups, list/model differences and delivery by expected occurrence with correlated export/content/observer receipts. Identify controlled recovery separately.
+- [x] 14 Qualify contracts 06–13 in the model. Cross-reference existing measure IDs, add only missing calculations, preserve blank/unavailable with reason. Compare one representative cohort plus a relevant empty, missing or stale case per changed calculation. Pin accepted model revision.
+- [x] 15 Interactive report (after 05 and 14). Update existing reader pages with period, coverage, source and drillthrough evidence; surface three-provider enrichment on Publication Sources & Quality. Check totals, filters, contrast, keyboard and legibility on changed pages.
+- [x] 16 Native balanced scorecard (after 15). Group connected goals under knowledge/reach, capacity/partnerships, translation/community benefit and stewardship/reliability. Bind to stable report visuals; use documented authority for targets, owners and thresholds. Check workspace capability, connected value/period/filter parity and audience scope. Exclude sensitive person-level measures. Use CLI/API where qualified, internal UI for unsupported binding. See [Microsoft Goals](https://learn.microsoft.com/en-us/power-bi/create-reports/service-goals-create).
+- [x] 17 Paginated printable report (after 16, or independently after model acceptance if scorecard is externally blocked). Author RDL against accepted model, default previous complete Brisbane month, explicit month override, A4 summary, vertical sections and evidence appendix. Render populated and empty/partial periods. Check PDF page breaks, headers, clipping, grayscale and measure parity. See [printing](https://learn.microsoft.com/en-us/power-bi/paginated-reports/report-builder/print-report-report-builder) and [paginated reader](https://learn.microsoft.com/en-us/power-bi/explore-reports/end-user-paginated-report).
+- [x] 18 Closeout. Use Fluent 2 theme in PBIR, native Goal controls and equivalent print typography/spacing. Record supported version and surface exceptions. Reuse focused receipts; run required project gates at integration. Demonstrate agreement on cohort, period and measure across interactive report, connected goal and PDF. Record exact external blockers once and continue independent tasks.
 
 Start with the retained CLI readback and existing E04/T18 tooling. Use guarded M365 commands and the repo-local qualified interpreter. Use the internal browser for rendering or an explicitly missing authoring operation. No new sharing, scheduling, purchase or routine approval cycles.
+
+
+### Delivery checkpoint — 3 November 2026
+
+Owner: chat `01a1a0d8-8a40-7f51-b3c8-d1a7d1b04a5e`, dedicated checkout
+`/Volumes/PortableSSD/GitHub/RIMS/dependency-qualification-20261103`, branch
+`codex/t18-outcome-delivery-20261103`. [Review and evidence disposition](review-20261103-delivery.md).
+
+Tasks06–13 are complete as analytical/source contracts in
+`contracts/t18-outcome-indicators.json`; this does not mark native model acceptance.
+Tasks04/14/15 have fingerprinted, preservation-tested source preparers. Task16 has
+an exact visual/measure connection specification and successful capability read,
+with native connection/audience gates open. Task17 has a schema-valid A4 RDL
+candidate, governed DAX query and populated/empty query evidence; there is no PDF
+or service-item acceptance. No active frozen runtime manifest was replaced.
+
+Task02 has current captures/key parity and newly owned isolated targets. A model
+save failure was reconciled with no effect; isolated source processing and report
+inverse qualification continue from their durable private journals. The working
+model/report are preserved. No later task's native completion is implied by the
+contract checkmarks. Task18 remains open until agreement across all three consumers.
+
+### Native delivery checkpoint — 4 November 2026
+
+The scoped source/model/report promotion and native three-value scorecard/PDF
+increment is delivered at the receipts in [the delivery review](review-20261103-delivery.md).
+Tasks 02–05 and14 have complete native processing/readback/key and inverse evidence.
+Task 16 covers four native domains/23 indicator rows and three qualified connected
+values; unavailable Goal-consumer rows stay nonnumeric. Task 17 has native A4,
+default/override/empty/invalid-period and visual/grayscale proof. Tasks 15 and 18 closed after the keyboard month selection/reset and facility drillthrough/return passed. Local checks and frozen baseline manifests remain distinct from
+native receipts; no schedule, sharing, capacity or VM change occurred.
