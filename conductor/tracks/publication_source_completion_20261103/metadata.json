@@ -24,7 +24,11 @@
     "free_only_plan": "complete",
     "consolidated_handoff": "complete",
     "native_documentation": "accepted",
-    "source_integration": "in_progress"
+    "source_integration": "merged",
+    "source_pr": "https://github.com/edithatogo/research-publications/pull/132",
+    "source_merge_commit": "cbbb31afdd6f12e6e4f6f7046358f58f224ca140",
+    "native_documentation_status": "PASS_SCOPED_NATIVE_DOCUMENTATION",
+    "completed_at_utc": "2026-11-03T03:41:39.806376+00:00"
   },
   "native_documentation_reference": "docs/PUBLICATION_FREE_API_NATIVE_DOCUMENTATION_20261103.md"
 }
