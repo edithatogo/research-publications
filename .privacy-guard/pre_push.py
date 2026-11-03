@@ -107,6 +107,8 @@ def review_control_number(item: dict, finding: dict, policy: dict) -> bool:
     expected = hashlib.sha256(
         (".privacy-guard/presidio-reviewed-findings.json:" + oid).encode()
     ).hexdigest()
+    # PERSON may misclassify numeric/hash metadata. Clearance is restricted to
+    # this exact review-file blob and its validated schema, never arbitrary text.
     if item["identity"] != expected:
         return False
 
@@ -168,7 +170,7 @@ def review_control_number(item: dict, finding: dict, policy: dict) -> bool:
             if token.start(1) == finding["start"] and token.end(1) == finding["end"]:
                 return True
         for token in re.finditer(
-            r'(?<!\\)"(?:identity|blob_sha256|value_sha256|policy_sha256)"\s*:\s*"([a-f0-9]{64})"', item["text"]
+            r'(?<!\\)"(?:identity|blob_sha256|value_sha256)"\s*:\s*"([a-f0-9]{64})"', item["text"]
         ):
             if token.start(1) <= finding["start"] < finding["end"] <= token.end(1):
                 return True

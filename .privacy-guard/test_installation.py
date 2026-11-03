@@ -216,6 +216,8 @@ class ReviewMetadataTests(unittest.TestCase):
         )
         person = POLICY["entities"].index("PERSON")
         self.assertTrue(guard.review_control_number(item, {**candidate, "entity_index": person}, POLICY))
+        policy_offset = text.index(manifest["policy_sha256"])
+        self.assertFalse(guard.review_control_number(item, {"entity_index": person, "start": policy_offset, "end": policy_offset + 64}, POLICY))
         digest_offset = text.index("b" * 64)
         digest_finding = {"entity_index": person, "start": digest_offset, "end": digest_offset + 64}
         self.assertTrue(guard.review_control_number(item, digest_finding, POLICY))
