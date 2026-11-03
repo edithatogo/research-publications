@@ -1,0 +1,55 @@
+{
+  "scope": "Existing two-flow definition changes only; native identity and inverse plans remain private",
+  "normalization": "Existing qualified connector-annotation and host-key normalization; duplicate evaluatedRecurrence removed only when identical. Read-only injected description was excluded before save.",
+  "flows": {
+    "export": {
+      "before_semantic_sha256": "f5fbf75c77bce9a9916e4490173b57ccc6b722f3a081d415f048080605ac5761",
+      "candidate_semantic_sha256": "30347347d7a4847f07ca7631f892d6065e46d253761f543a0692287cc0c208a6",
+      "changes": [
+        {
+          "path": "/triggers/Recurrence/recurrence/startTime",
+          "before": "2026-11-01T07:00:00",
+          "after": "2026-10-01T07:00:00"
+        }
+      ],
+      "inverse_roundtrip_exact": true,
+      "inverse_executed": false
+    },
+    "observer": {
+      "before_semantic_sha256": "c981fb771ce2d04e2c6b2dfc1f9fe480368b7330b88cfb3852a7137b5964c751",
+      "candidate_semantic_sha256": "b6627dfc33def84ea4b22f0733b12375445fdd5dc556e444673dbc4f531b4941",
+      "changes": [
+        {
+          "path": "/actions/Due/expression",
+          "before": "@and(greaterOrEquals(ticks(outputs('Observed_at')),ticks('2026-10-31T23:00:00Z')),greaterOrEquals(ticks(outputs('Observed_at')),ticks(outputs('Deadline'))))",
+          "after": "@greaterOrEquals(ticks(outputs('Observed_at')),ticks(outputs('Deadline')))"
+        },
+        {
+          "path": "/triggers/Recurrence/recurrence/schedule/hours",
+          "before": [
+            7
+          ],
+          "after": [
+            10
+          ]
+        },
+        {
+          "path": "/triggers/Recurrence/recurrence/schedule/minutes",
+          "before": [
+            45
+          ],
+          "after": [
+            5
+          ]
+        },
+        {
+          "path": "/triggers/Recurrence/recurrence/startTime",
+          "before": "2026-11-01T07:45:00",
+          "after": "2026-10-01T10:05:00"
+        }
+      ],
+      "inverse_roundtrip_exact": true,
+      "inverse_executed": false
+    }
+  }
+}

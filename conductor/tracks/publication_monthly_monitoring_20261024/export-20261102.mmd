@@ -1,0 +1,233 @@
+flowchart TB
+  subgraph s0["root"]
+    s0t0(["Recurrence / Recurrence"])
+    s0n0["Export_Run / Scope"]
+    s0t0 --> s0n0
+    s0n1["Monitor_Action_statuses / Select"]
+    s0n2["Monitor_Failure_receipt / Compose"]
+    s0n3["Monitor_Retain_failed_status / Terminate"]
+    s0n4["Monitor_Save_failure / OpenApiConnection"]
+    s0n5["Monitor_Save_success / OpenApiConnection"]
+    s0n6["Monitor_Success_receipt / Compose"]
+    s0n0 -->|"Failed / TimedOut"| s0n1
+    s0n1 -->|"Succeeded"| s0n2
+    s0n0 -->|"Failed / TimedOut"| s0n3
+    s0n4 -->|"Succeeded / Failed / Skipped / TimedOut"| s0n3
+    s0n2 -->|"Succeeded"| s0n4
+    s0n6 -->|"Succeeded"| s0n5
+    s0n0 -->|"Succeeded"| s0n6
+  end
+  subgraph s1["root/Export_Run/body"]
+    s1n0["Canonical_Check_Counts / Compose"]
+    s1n1["Canonical_Check_Keys / Compose"]
+    s1n2["Canonical_Check_Month_keys / Compose"]
+    s1n3["Canonical_Check_Rows / Compose"]
+    s1n4["Canonical_Full_CSV / Table"]
+    s1n5["Canonical_Full_CSV_complete / Compose"]
+    s1n6["Canonical_Full_HTML / Compose"]
+    s1n7["Canonical_Full_HTML_rows / Select"]
+    s1n8["Canonical_Full_keys / Select"]
+    s1n9["Canonical_Full_safe_cells / Select"]
+    s1n10["Canonical_Invalid_keys / Query"]
+    s1n11["Canonical_Invalid_rows / Query"]
+    s1n12["Canonical_Manifest / Compose"]
+    s1n13["Canonical_Month / Query"]
+    s1n14["Canonical_Month_CSV / Table"]
+    s1n15["Canonical_Month_CSV_complete / Compose"]
+    s1n16["Canonical_Month_HTML / Compose"]
+    s1n17["Canonical_Month_HTML_rows / Select"]
+    s1n18["Canonical_Month_keys / Select"]
+    s1n19["Canonical_Month_safe_cells / Select"]
+    s1n20["Canonical_Parse_rows / ParseJson"]
+    s1n21["Canonical_Period / Compose"]
+    s1n22["Canonical_Query_Counts / OpenApiConnection"]
+    s1n23["Canonical_Query_Keys / OpenApiConnection"]
+    s1n24["Canonical_Query_Month_keys / OpenApiConnection"]
+    s1n25["Canonical_Query_Rows / OpenApiConnection"]
+    s1n26["Canonical_Raw_Counts / Compose"]
+    s1n27["Canonical_Raw_Keys / Compose"]
+    s1n28["Canonical_Raw_Month_keys / Compose"]
+    s1n29["Canonical_Raw_Rows / Compose"]
+    s1n30["Canonical_Rows / Select"]
+    s1n31["Canonical_Store_Full_csv / If"]
+    s1n32["Canonical_Store_Full_csv_Existing / OpenApiConnection"]
+    s1n33["Canonical_Store_Full_html / If"]
+    s1n34["Canonical_Store_Full_html_Existing / OpenApiConnection"]
+    s1n35["Canonical_Store_Month_csv / If"]
+    s1n36["Canonical_Store_Month_csv_Existing / OpenApiConnection"]
+    s1n37["Canonical_Store_Month_html / If"]
+    s1n38["Canonical_Store_Month_html_Existing / OpenApiConnection"]
+    s1n39["Canonical_Store_manifest / If"]
+    s1n40["Canonical_Store_manifest_Existing / OpenApiConnection"]
+    s1n41["Canonical_Verify_keys / Compose"]
+    s1n42["Canonical_Verify_row_invariants / Compose"]
+    s1n43["Export_Registered_Publications_CSV / Table"]
+    s1n44["Get_Reconciled_Publication_Register / OpenApiConnection"]
+    s1n45["Printable_Completion_manifest / Compose"]
+    s1n46["Printable_HTML_index / Compose"]
+    s1n47["Printable_Join_part_links / Join"]
+    s1n48["Printable_Part_indexes / Compose"]
+    s1n49["Printable_Parts / Foreach"]
+    s1n50["Printable_Read_CSV / OpenApiConnection"]
+    s1n51["Printable_Read_index / OpenApiConnection"]
+    s1n52["Printable_Read_manifest / OpenApiConnection"]
+    s1n53["Printable_Require_bounded_register / Compose"]
+    s1n54["Printable_Run_prefix / Compose"]
+    s1n55["Printable_Save_completion_manifest / OpenApiConnection"]
+    s1n56["Printable_Save_index / OpenApiConnection"]
+    s1n57["Printable_Select_part_links / Select"]
+    s1n58["Printable_Verify_CSV / Compose"]
+    s1n59["Printable_Verify_index / Compose"]
+    s1n60["Printable_Verify_manifest / Compose"]
+    s1n61["Save_Registered_Publications_CSV / OpenApiConnection"]
+    s1n62["Select_Exportable_Register_Fields / Select"]
+    s1n22 -->|"Succeeded"| s1n0
+    s1n23 -->|"Succeeded"| s1n1
+    s1n24 -->|"Succeeded"| s1n2
+    s1n25 -->|"Succeeded"| s1n3
+    s1n9 -->|"Succeeded"| s1n4
+    s1n4 -->|"Succeeded"| s1n5
+    s1n7 -->|"Succeeded"| s1n6
+    s1n5 -->|"Succeeded"| s1n7
+    s1n13 -->|"Succeeded"| s1n8
+    s1n41 -->|"Succeeded"| s1n9
+    s1n30 -->|"Succeeded"| s1n10
+    s1n10 -->|"Succeeded"| s1n11
+    s1n37 -->|"Succeeded"| s1n12
+    s1n42 -->|"Succeeded"| s1n13
+    s1n19 -->|"Succeeded"| s1n14
+    s1n14 -->|"Succeeded"| s1n15
+    s1n17 -->|"Succeeded"| s1n16
+    s1n15 -->|"Succeeded"| s1n17
+    s1n8 -->|"Succeeded"| s1n18
+    s1n33 -->|"Succeeded"| s1n19
+    s1n26 -->|"Succeeded"| s1n20
+    s1n60 -->|"Succeeded"| s1n21
+    s1n28 -->|"Succeeded"| s1n22
+    s1n29 -->|"Succeeded"| s1n23
+    s1n27 -->|"Succeeded"| s1n24
+    s1n21 -->|"Succeeded"| s1n25
+    s1n0 -->|"Succeeded"| s1n26
+    s1n1 -->|"Succeeded"| s1n27
+    s1n2 -->|"Succeeded"| s1n28
+    s1n3 -->|"Succeeded"| s1n29
+    s1n20 -->|"Succeeded"| s1n30
+    s1n32 -->|"Succeeded / Failed / TimedOut"| s1n31
+    s1n6 -->|"Succeeded"| s1n32
+    s1n34 -->|"Succeeded / Failed / TimedOut"| s1n33
+    s1n31 -->|"Succeeded"| s1n34
+    s1n36 -->|"Succeeded / Failed / TimedOut"| s1n35
+    s1n16 -->|"Succeeded"| s1n36
+    s1n38 -->|"Succeeded / Failed / TimedOut"| s1n37
+    s1n35 -->|"Succeeded"| s1n38
+    s1n40 -->|"Succeeded / Failed / TimedOut"| s1n39
+    s1n12 -->|"Succeeded"| s1n40
+    s1n18 -->|"Succeeded"| s1n41
+    s1n11 -->|"Succeeded"| s1n42
+    s1n62 -->|"Succeeded"| s1n43
+    s1n59 -->|"Succeeded"| s1n45
+    s1n47 -->|"Succeeded"| s1n46
+    s1n57 -->|"Succeeded"| s1n47
+    s1n54 -->|"Succeeded"| s1n48
+    s1n48 -->|"Succeeded"| s1n49
+    s1n61 -->|"Succeeded"| s1n50
+    s1n56 -->|"Succeeded"| s1n51
+    s1n55 -->|"Succeeded"| s1n52
+    s1n58 -->|"Succeeded"| s1n53
+    s1n53 -->|"Succeeded"| s1n54
+    s1n45 -->|"Succeeded"| s1n55
+    s1n46 -->|"Succeeded"| s1n56
+    s1n49 -->|"Succeeded"| s1n57
+    s1n50 -->|"Succeeded"| s1n58
+    s1n51 -->|"Succeeded"| s1n59
+    s1n52 -->|"Succeeded"| s1n60
+    s1n43 -->|"Succeeded"| s1n61
+    s1n44 -->|"Succeeded"| s1n62
+  end
+  subgraph s2["root/Export_Run/body/Canonical_Store_Full_csv/body"]
+    s2n0["Canonical_Store_Full_csv_Unchanged / Compose"]
+  end
+  subgraph s3["root/Export_Run/body/Canonical_Store_Full_csv/else"]
+    s3n0["Canonical_Store_Full_csv_Create / OpenApiConnection"]
+    s3n1["Canonical_Store_Full_csv_Readback / OpenApiConnection"]
+    s3n2["Canonical_Store_Full_csv_Require404 / Compose"]
+    s3n3["Canonical_Store_Full_csv_Verified / Compose"]
+    s3n2 -->|"Succeeded"| s3n0
+    s3n0 -->|"Succeeded / Failed / TimedOut"| s3n1
+    s3n1 -->|"Succeeded"| s3n3
+  end
+  subgraph s4["root/Export_Run/body/Canonical_Store_Full_html/body"]
+    s4n0["Canonical_Store_Full_html_Unchanged / Compose"]
+  end
+  subgraph s5["root/Export_Run/body/Canonical_Store_Full_html/else"]
+    s5n0["Canonical_Store_Full_html_Create / OpenApiConnection"]
+    s5n1["Canonical_Store_Full_html_Readback / OpenApiConnection"]
+    s5n2["Canonical_Store_Full_html_Require404 / Compose"]
+    s5n3["Canonical_Store_Full_html_Verified / Compose"]
+    s5n2 -->|"Succeeded"| s5n0
+    s5n0 -->|"Succeeded / Failed / TimedOut"| s5n1
+    s5n1 -->|"Succeeded"| s5n3
+  end
+  subgraph s6["root/Export_Run/body/Canonical_Store_Month_csv/body"]
+    s6n0["Canonical_Store_Month_csv_Unchanged / Compose"]
+  end
+  subgraph s7["root/Export_Run/body/Canonical_Store_Month_csv/else"]
+    s7n0["Canonical_Store_Month_csv_Create / OpenApiConnection"]
+    s7n1["Canonical_Store_Month_csv_Readback / OpenApiConnection"]
+    s7n2["Canonical_Store_Month_csv_Require404 / Compose"]
+    s7n3["Canonical_Store_Month_csv_Verified / Compose"]
+    s7n2 -->|"Succeeded"| s7n0
+    s7n0 -->|"Succeeded / Failed / TimedOut"| s7n1
+    s7n1 -->|"Succeeded"| s7n3
+  end
+  subgraph s8["root/Export_Run/body/Canonical_Store_Month_html/body"]
+    s8n0["Canonical_Store_Month_html_Unchanged / Compose"]
+  end
+  subgraph s9["root/Export_Run/body/Canonical_Store_Month_html/else"]
+    s9n0["Canonical_Store_Month_html_Create / OpenApiConnection"]
+    s9n1["Canonical_Store_Month_html_Readback / OpenApiConnection"]
+    s9n2["Canonical_Store_Month_html_Require404 / Compose"]
+    s9n3["Canonical_Store_Month_html_Verified / Compose"]
+    s9n2 -->|"Succeeded"| s9n0
+    s9n0 -->|"Succeeded / Failed / TimedOut"| s9n1
+    s9n1 -->|"Succeeded"| s9n3
+  end
+  subgraph s10["root/Export_Run/body/Canonical_Store_manifest/body"]
+    s10n0["Canonical_Store_manifest_Unchanged / Compose"]
+  end
+  subgraph s11["root/Export_Run/body/Canonical_Store_manifest/else"]
+    s11n0["Canonical_Store_manifest_Create / OpenApiConnection"]
+    s11n1["Canonical_Store_manifest_Readback / OpenApiConnection"]
+    s11n2["Canonical_Store_manifest_Require404 / Compose"]
+    s11n3["Canonical_Store_manifest_Verified / Compose"]
+    s11n2 -->|"Succeeded"| s11n0
+    s11n0 -->|"Succeeded / Failed / TimedOut"| s11n1
+    s11n1 -->|"Succeeded"| s11n3
+  end
+  subgraph s12["root/Export_Run/body/Printable_Parts/body"]
+    s12n0["Printable_HTML_part / Compose"]
+    s12n1["Printable_Join_citations / Join"]
+    s12n2["Printable_Read_part / OpenApiConnection"]
+    s12n3["Printable_Require_part_budget / Compose"]
+    s12n4["Printable_Save_part / OpenApiConnection"]
+    s12n5["Printable_Select_citations / Select"]
+    s12n6["Printable_Verify_part / Compose"]
+    s12n3 -->|"Succeeded"| s12n0
+    s12n5 -->|"Succeeded"| s12n1
+    s12n4 -->|"Succeeded"| s12n2
+    s12n1 -->|"Succeeded"| s12n3
+    s12n0 -->|"Succeeded"| s12n4
+    s12n2 -->|"Succeeded"| s12n6
+  end
+  s0n0 -. "nested scope" .-> s1
+  s1n31 -. "nested scope" .-> s2
+  s1n31 -. "nested scope" .-> s3
+  s1n33 -. "nested scope" .-> s4
+  s1n33 -. "nested scope" .-> s5
+  s1n35 -. "nested scope" .-> s6
+  s1n35 -. "nested scope" .-> s7
+  s1n37 -. "nested scope" .-> s8
+  s1n37 -. "nested scope" .-> s9
+  s1n39 -. "nested scope" .-> s10
+  s1n39 -. "nested scope" .-> s11
+  s1n49 -. "nested scope" .-> s12

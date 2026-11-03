@@ -13,7 +13,7 @@ Browser intake and the SharePoint ready-file writer feed the GrantConnect regist
 1. Consume the existing import terminal receipt and compare the three lists once against retained originals. Record acceptance or exact discrepancies in G04/T11 and the handoff.
 2. Bind an approved internal deadline rule, implement the policy and override writer, apply dates and connect the reader. Admit reviewed relationships when authoritative keys and evidence exist.
 3. Use authorised identities and saved preferences for calendar lifecycle, access isolation and a genuine due notification receipt. Keep the separate publication occurrence readback with its existing owner.
-4. Define internal application stages, owners and transitions before implementing that roadmap extension. Use one focused test and one verification for each changed feature.
+4. Internal application tracking is deployed and archived. The daily GrantConnect browser intake is paused. See [application tracking](archive/internal_grant_applications_20261102/plan.md). Use one focused test and one verification for each changed feature.
 
 ## Earlier checkpoints
 
@@ -154,7 +154,7 @@ three lanes. No native, schedule or delivery acceptance follows from these packe
 
 - [~] [E09 collaborative research feed](tracks/collaborative_research_feed_20261022/plan.md) — owner-only/no-send technical receipts retained; broader actor, curation, persistence, solution and adoption dependencies remain explicit.
 - [~] [T18 outcomes and reader journeys](tracks/chhhs_outcomes_powerbi_20261021/plan.md) — optional reader/outcome expansion is roadmap-only; evidence-dependent outcomes stay unavailable. The retained reader ID is currently unresolved; E04 import compatibility also blocks native promotion.
-- [ ] [Monthly export and independent observer](tracks/publication_monthly_monitoring_20261024/plan.md) — combined natural readback at 1 November 2026, 07:50 Brisbane, after the authorised 07:00 exporter and 07:45 observer; final native schedule readback is accepted.
+- [ ] [Monthly export and independent observer](tracks/publication_monthly_monitoring_20261024/plan.md) — November1 occurrences MISSED; existing schedules repaired and controlled native recovery verified. SharePoint/Loop documentation current. RMD-05 pending actual natural-run evidence; export07:00 monthly day1, deadline10:00, observer10:05 daily Brisbane.
 - [~] [E08 retained operational follow-ups](archive/E08_operational_followups/plan.md) — archived administration is preserved; F03/F04 remain unaccepted and F05/F06 conditional. Reuse accepted ROR and NHMRC/MRFF archive receipts.
 
 [Source-record provenance](../audit/roadmap-record-provenance-20261029.json) binds

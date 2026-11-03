@@ -11,7 +11,7 @@ class MonthlyPolicyTests(unittest.TestCase):
     def test_user_selected_policy_is_explicit_month_and_brisbane_time(self):
         p = monthly_occurrence_policy('2026-11')
         self.assertEqual(p['expected_at'].isoformat(), '2026-11-01T07:00:00+10:00')
-        self.assertEqual(p['deadline'].isoformat(), '2026-11-01T12:00:00+10:00')
+        self.assertEqual(p['deadline'].isoformat(), '2026-11-01T10:00:00+10:00')
         self.assertNotIn('as_of', p)
 
     def test_missing_or_ambiguous_month_is_rejected(self):

@@ -77,7 +77,7 @@ test('isolated reader uses the original private binding and original lock locati
   }finally{f.close();}
 });
 test('unavailable modes and invalid exact targets fail before SDK restore or lock',()=>{
-  for(const mode of ['funding-apply','page-draft','documentation-page','isolated-recovery','grants-downstream','grants-promotion','grants-preference-activation','unknown']){
+  for(const mode of ['funding-apply','page-draft','isolated-recovery','grants-downstream','grants-promotion','grants-preference-activation','unknown']){
     const f=fixture();try{const r=f.run(mode);assert.notEqual(r.status,0);assert.match(r.stderr,/MODE_UNAVAILABLE_BEFORE_AUTH/);assert.deepEqual(f.events(),[]);assert.ok(!fs.existsSync(path.join(f.root,'.m365-qualified.lock')));}finally{f.close();}
   }
   const f=fixture();try{const args=f.args();args[2]=url+'-other';const r=f.run('read',args);assert.notEqual(r.status,0);assert.match(r.stderr,/Unpinned native read target/);assert.deepEqual(f.events(),[]);}finally{f.close();}
@@ -166,3 +166,5 @@ test('change-log mode keeps its fixed read-only POST dependency closed',()=>{
 test('a binding outside the disposable ignore policy fails before SDK restore',()=>{
   const f=fixture();try{fs.writeFileSync(path.join(f.root,'.gitignore'),'');const r=f.run('read',f.args());assert.notEqual(r.status,0);assert.deepEqual(f.events(),[]);}finally{f.close();}
 });
+
+test('monthly documentation rejects incomplete page or unrelated scope before authentication',()=>{for(const args of [[],['private/receipt','other','7'],['private/receipt','monthly-schedule-repair-20261102','8']]){const f=fixture();try{const r=f.run('documentation-page',args);assert.notEqual(r.status,0);assert.match(r.stderr,/Exact monthly documentation/);assert.deepEqual(f.events(),[]);}finally{f.close();}}});
