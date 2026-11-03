@@ -1,8 +1,8 @@
 {
   "id": "chhhs_outcomes_powerbi_20261021",
-  "status": "in_progress",
+  "status": "completed",
   "historical_status": "in_progress",
-  "reconciled_on": "2026-10-30",
+  "reconciled_on": "2026-11-04",
   "depends_on": [],
   "source_history": "Retained authoring checkout cde439c0; reviewed source hashes in reconciliation manifest; no unrelated-history merge."
 }
