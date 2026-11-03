@@ -18,3 +18,8 @@ data/bronze/
 data/registry/
 data/papers/
 /.flowagent/
+
+# Local privacy tooling and restricted receipts
+/.local/
+/.venv-privacy-hooks/
+/.venv-privacy-presidio/

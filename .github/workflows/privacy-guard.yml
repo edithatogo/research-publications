@@ -1,0 +1,65 @@
+name: Offline privacy guard
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      base_sha:
+        description: Explicit existing base commit for the outgoing source scan
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: offline-privacy-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  privacy:
+    name: Outgoing source privacy
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          submodules: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        id: python
+        with:
+          python-version: '3.15.1'
+      - name: Create verified isolated privacy environments
+        env:
+          SELECTED_PYTHON: ${{ steps.python.outputs.python-path }}
+        run: |
+          test ! -e .venv-privacy-hooks
+          test ! -e .venv-privacy-presidio
+          "$SELECTED_PYTHON" -I -m venv .venv-privacy-hooks
+          "$SELECTED_PYTHON" -I -m venv .venv-privacy-presidio
+          .venv-privacy-hooks/bin/python -I -c 'import pathlib,sys; assert sys.version_info[:3] == (3,15,1); assert pathlib.Path(sys.prefix).resolve() == pathlib.Path(".venv-privacy-hooks").resolve()'
+          .venv-privacy-presidio/bin/python -m pip install --require-hashes -r .privacy-guard/requirements-presidio.lock > "$RUNNER_TEMP/privacy-install.log" 2>&1 || { echo 'Privacy model installation failed; diagnostics withheld.'; exit 1; }
+      - name: Install verified secret scanner
+        env:
+          GITLEAKS_SHA256: 551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb
+        run: |
+          curl --fail --silent --show-error --location https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz -o "$RUNNER_TEMP/privacy-gitleaks.tar.gz"
+          echo "$GITLEAKS_SHA256  $RUNNER_TEMP/privacy-gitleaks.tar.gz" | sha256sum --check
+          tar -xzf "$RUNNER_TEMP/privacy-gitleaks.tar.gz" -C "$RUNNER_TEMP" gitleaks
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+      - name: Verify isolated guard behavior and offline model
+        run: |
+          .venv-privacy-hooks/bin/python -I -m unittest discover -s .privacy-guard -p 'test_*.py'
+          .venv-privacy-presidio/bin/python -I .privacy-guard/qualify_presidio.py
+      - name: Scan exact outgoing text, secrets and documents before acceptance
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASE_REVISION: ${{ github.event.inputs.base_sha || github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          if [[ "$BASE_REVISION" =~ ^[a-f0-9]{40}$ ]] && [[ "$BASE_REVISION" != 0000000000000000000000000000000000000000 ]]; then
+            base=$(git merge-base HEAD "$BASE_REVISION")
+          else
+            echo 'Explicit source base required.'
+            exit 1
+          fi
+          .venv-privacy-hooks/bin/python -I .privacy-guard/pre_push.py --ci-base "$base" --ci-tip "$(git rev-parse HEAD)"

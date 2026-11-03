@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "repository": "edithatogo/research-publications",
+  "host": "github.com",
+  "requiredVisibility": "PUBLIC",
+  "python": "3.15.1",
+  "packages": {
+    "presidio-analyzer": "2.2.359",
+    "spacy": "3.8.18",
+    "preshed": "3.0.15",
+    "numpy": "2.5.4",
+    "en-core-web-sm": "3.8.0"
+  },
+  "model": "en_core_web_sm",
+  "language": "en",
+  "threshold": 0.35,
+  "entities": [
+    "PERSON",
+    "EMAIL_ADDRESS",
+    "PHONE_NUMBER",
+    "CREDIT_CARD",
+    "IBAN_CODE",
+    "AU_TFN",
+    "AU_MEDICARE",
+    "UK_NHS",
+    "US_SSN",
+    "DATE_OF_BIRTH"
+  ],
+  "maxBlobBytes": 5242880,
+  "maxTotalBytes": 20971520,
+  "maxCommits": 2000,
+  "maxBlobs": 2000,
+  "chunkCharacters": 30000,
+  "overlapCharacters": 512,
+  "modelFingerprint": "8e12e3a14b354aa52c1d047adb1a96277484c2a66282dc225e46e8015d5439ba"
+}
