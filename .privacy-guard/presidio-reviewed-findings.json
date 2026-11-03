@@ -8661,6 +8661,1246 @@
       "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
       "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
       "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "783d17237643abc608ba0cd2e4cbc5c1bf957a15242406ecd92317f744df096d",
+      "blob_sha256": "7467162d03383ea9fb6d87b031ef5b455b7faf5352e6aefb51ba2c8ddff23229",
+      "entity_index": 0,
+      "start": 0,
+      "end": 12,
+      "value_sha256": "26a6f6b85b9f89313a090670dc17f26d8f778db1b798831c3d21b3ad8e37ddcf",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "f90e6b689398bc5ca09f30dd835ef63dc51bc2b2f13a4d7000469db29c3f63f5",
+      "blob_sha256": "3e8d3c77924ca3bf3e9d695c20d8410cccd64a0116ae5204fa38ed8d0efd9cf5",
+      "entity_index": 0,
+      "start": 299,
+      "end": 306,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "f90e6b689398bc5ca09f30dd835ef63dc51bc2b2f13a4d7000469db29c3f63f5",
+      "blob_sha256": "3e8d3c77924ca3bf3e9d695c20d8410cccd64a0116ae5204fa38ed8d0efd9cf5",
+      "entity_index": 0,
+      "start": 434,
+      "end": 438,
+      "value_sha256": "cdf4e79a95e14a003a4daa5e32acae81548accff60d9f2589ba209c22a6b515c",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "f90e6b689398bc5ca09f30dd835ef63dc51bc2b2f13a4d7000469db29c3f63f5",
+      "blob_sha256": "3e8d3c77924ca3bf3e9d695c20d8410cccd64a0116ae5204fa38ed8d0efd9cf5",
+      "entity_index": 0,
+      "start": 1648,
+      "end": 1656,
+      "value_sha256": "143b270a32602d412babf2724ec0640dda0d5a43485e5a7520b05b53fa94b303",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "f90e6b689398bc5ca09f30dd835ef63dc51bc2b2f13a4d7000469db29c3f63f5",
+      "blob_sha256": "3e8d3c77924ca3bf3e9d695c20d8410cccd64a0116ae5204fa38ed8d0efd9cf5",
+      "entity_index": 0,
+      "start": 5064,
+      "end": 5071,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "f90e6b689398bc5ca09f30dd835ef63dc51bc2b2f13a4d7000469db29c3f63f5",
+      "blob_sha256": "3e8d3c77924ca3bf3e9d695c20d8410cccd64a0116ae5204fa38ed8d0efd9cf5",
+      "entity_index": 0,
+      "start": 7885,
+      "end": 7889,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "f90e6b689398bc5ca09f30dd835ef63dc51bc2b2f13a4d7000469db29c3f63f5",
+      "blob_sha256": "3e8d3c77924ca3bf3e9d695c20d8410cccd64a0116ae5204fa38ed8d0efd9cf5",
+      "entity_index": 0,
+      "start": 8282,
+      "end": 8286,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "f90e6b689398bc5ca09f30dd835ef63dc51bc2b2f13a4d7000469db29c3f63f5",
+      "blob_sha256": "3e8d3c77924ca3bf3e9d695c20d8410cccd64a0116ae5204fa38ed8d0efd9cf5",
+      "entity_index": 0,
+      "start": 8678,
+      "end": 8682,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "f90e6b689398bc5ca09f30dd835ef63dc51bc2b2f13a4d7000469db29c3f63f5",
+      "blob_sha256": "3e8d3c77924ca3bf3e9d695c20d8410cccd64a0116ae5204fa38ed8d0efd9cf5",
+      "entity_index": 0,
+      "start": 10688,
+      "end": 10692,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "f90e6b689398bc5ca09f30dd835ef63dc51bc2b2f13a4d7000469db29c3f63f5",
+      "blob_sha256": "3e8d3c77924ca3bf3e9d695c20d8410cccd64a0116ae5204fa38ed8d0efd9cf5",
+      "entity_index": 0,
+      "start": 11758,
+      "end": 11769,
+      "value_sha256": "abb4690a42eafd776f9d549e33c5e839309f841a6e405091da40bd383a26a650",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "f90e6b689398bc5ca09f30dd835ef63dc51bc2b2f13a4d7000469db29c3f63f5",
+      "blob_sha256": "3e8d3c77924ca3bf3e9d695c20d8410cccd64a0116ae5204fa38ed8d0efd9cf5",
+      "entity_index": 0,
+      "start": 11837,
+      "end": 11849,
+      "value_sha256": "b8ad85e60fb9da08f6f7edabb48cdd2a227e6049b078863d4642d30234e2a7b8",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "f90e6b689398bc5ca09f30dd835ef63dc51bc2b2f13a4d7000469db29c3f63f5",
+      "blob_sha256": "3e8d3c77924ca3bf3e9d695c20d8410cccd64a0116ae5204fa38ed8d0efd9cf5",
+      "entity_index": 0,
+      "start": 11857,
+      "end": 11903,
+      "value_sha256": "6c320980f62587596d600581bfdd9b43eeee2a5bc1619970969c40a2de8aa585",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "f90e6b689398bc5ca09f30dd835ef63dc51bc2b2f13a4d7000469db29c3f63f5",
+      "blob_sha256": "3e8d3c77924ca3bf3e9d695c20d8410cccd64a0116ae5204fa38ed8d0efd9cf5",
+      "entity_index": 0,
+      "start": 11968,
+      "end": 11972,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "f90e6b689398bc5ca09f30dd835ef63dc51bc2b2f13a4d7000469db29c3f63f5",
+      "blob_sha256": "3e8d3c77924ca3bf3e9d695c20d8410cccd64a0116ae5204fa38ed8d0efd9cf5",
+      "entity_index": 0,
+      "start": 13133,
+      "end": 13139,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "f90e6b689398bc5ca09f30dd835ef63dc51bc2b2f13a4d7000469db29c3f63f5",
+      "blob_sha256": "3e8d3c77924ca3bf3e9d695c20d8410cccd64a0116ae5204fa38ed8d0efd9cf5",
+      "entity_index": 0,
+      "start": 13441,
+      "end": 13444,
+      "value_sha256": "9b8eccfa533ccd5e46ae41655e1beef4d98c6e44d784ba1c4020971a62feae20",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "f90e6b689398bc5ca09f30dd835ef63dc51bc2b2f13a4d7000469db29c3f63f5",
+      "blob_sha256": "3e8d3c77924ca3bf3e9d695c20d8410cccd64a0116ae5204fa38ed8d0efd9cf5",
+      "entity_index": 0,
+      "start": 13957,
+      "end": 13994,
+      "value_sha256": "7047f4fe005a58187e5b80d90f5b04eafdd63fdd23b28f4a899ab219a1e1d156",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "f90e6b689398bc5ca09f30dd835ef63dc51bc2b2f13a4d7000469db29c3f63f5",
+      "blob_sha256": "3e8d3c77924ca3bf3e9d695c20d8410cccd64a0116ae5204fa38ed8d0efd9cf5",
+      "entity_index": 0,
+      "start": 20820,
+      "end": 20824,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "0d35f47096de697bb662fa8d86e48963a4e001e618223e107b8ef47751fd86be",
+      "blob_sha256": "5b7eac65468cfff3a25276a99da9e56f4f44151538c6f2664c63bbdf58d892e6",
+      "entity_index": 0,
+      "start": 664,
+      "end": 671,
+      "value_sha256": "a5faf0b46a33f76598b4f1011867093afdfbe55975ffe50253a96a6d7831fcd0",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "0d35f47096de697bb662fa8d86e48963a4e001e618223e107b8ef47751fd86be",
+      "blob_sha256": "5b7eac65468cfff3a25276a99da9e56f4f44151538c6f2664c63bbdf58d892e6",
+      "entity_index": 0,
+      "start": 2289,
+      "end": 2295,
+      "value_sha256": "1e7f34ee8f771657a4c8350d8589f8b2405544de0e756fecb4247e307d673bfc",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "908c72309508e3c7b24ff81cad2053a2ab0b65ff47a59e3b3ecd22cd5017c9be",
+      "blob_sha256": "9e60c68cbd868912263baca8a9b5b358cdc23da6ce562a85c02dbe77c355af5a",
+      "entity_index": 0,
+      "start": 539,
+      "end": 543,
+      "value_sha256": "70ea1983c983deacc1b61805aea3d43648afd932f346fb2e5d9b15facd4035c2",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "908c72309508e3c7b24ff81cad2053a2ab0b65ff47a59e3b3ecd22cd5017c9be",
+      "blob_sha256": "9e60c68cbd868912263baca8a9b5b358cdc23da6ce562a85c02dbe77c355af5a",
+      "entity_index": 0,
+      "start": 1251,
+      "end": 1260,
+      "value_sha256": "dcb3e1c00e79236dc91f5fd8b7b37dcc44364a8c2b61f05d04063a26588e77fe",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "908c72309508e3c7b24ff81cad2053a2ab0b65ff47a59e3b3ecd22cd5017c9be",
+      "blob_sha256": "9e60c68cbd868912263baca8a9b5b358cdc23da6ce562a85c02dbe77c355af5a",
+      "entity_index": 0,
+      "start": 1646,
+      "end": 1655,
+      "value_sha256": "dcb3e1c00e79236dc91f5fd8b7b37dcc44364a8c2b61f05d04063a26588e77fe",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "908c72309508e3c7b24ff81cad2053a2ab0b65ff47a59e3b3ecd22cd5017c9be",
+      "blob_sha256": "9e60c68cbd868912263baca8a9b5b358cdc23da6ce562a85c02dbe77c355af5a",
+      "entity_index": 0,
+      "start": 1920,
+      "end": 1929,
+      "value_sha256": "dcb3e1c00e79236dc91f5fd8b7b37dcc44364a8c2b61f05d04063a26588e77fe",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "908c72309508e3c7b24ff81cad2053a2ab0b65ff47a59e3b3ecd22cd5017c9be",
+      "blob_sha256": "9e60c68cbd868912263baca8a9b5b358cdc23da6ce562a85c02dbe77c355af5a",
+      "entity_index": 0,
+      "start": 2623,
+      "end": 2629,
+      "value_sha256": "3a727530791838c210a2596a974e328d68b676716e9e6c6c7173929bd463f612",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "908c72309508e3c7b24ff81cad2053a2ab0b65ff47a59e3b3ecd22cd5017c9be",
+      "blob_sha256": "9e60c68cbd868912263baca8a9b5b358cdc23da6ce562a85c02dbe77c355af5a",
+      "entity_index": 0,
+      "start": 2739,
+      "end": 2744,
+      "value_sha256": "857cb84b487c70fbc1805def19851cb2f62e68fed4481045277aa4f974840ded",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "908c72309508e3c7b24ff81cad2053a2ab0b65ff47a59e3b3ecd22cd5017c9be",
+      "blob_sha256": "9e60c68cbd868912263baca8a9b5b358cdc23da6ce562a85c02dbe77c355af5a",
+      "entity_index": 0,
+      "start": 8432,
+      "end": 8437,
+      "value_sha256": "857cb84b487c70fbc1805def19851cb2f62e68fed4481045277aa4f974840ded",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "908c72309508e3c7b24ff81cad2053a2ab0b65ff47a59e3b3ecd22cd5017c9be",
+      "blob_sha256": "9e60c68cbd868912263baca8a9b5b358cdc23da6ce562a85c02dbe77c355af5a",
+      "entity_index": 0,
+      "start": 9216,
+      "end": 9219,
+      "value_sha256": "be176b0015c424b78e9f343f8bc3014a7a701cc2eb9000b6acbc04d67dbecb8f",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "908c72309508e3c7b24ff81cad2053a2ab0b65ff47a59e3b3ecd22cd5017c9be",
+      "blob_sha256": "9e60c68cbd868912263baca8a9b5b358cdc23da6ce562a85c02dbe77c355af5a",
+      "entity_index": 0,
+      "start": 11806,
+      "end": 11821,
+      "value_sha256": "831684d892e2735d550983a48ca9dea69b08bf6eb7532ce42ef1ec40d544cf43",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "908c72309508e3c7b24ff81cad2053a2ab0b65ff47a59e3b3ecd22cd5017c9be",
+      "blob_sha256": "9e60c68cbd868912263baca8a9b5b358cdc23da6ce562a85c02dbe77c355af5a",
+      "entity_index": 0,
+      "start": 12638,
+      "end": 12642,
+      "value_sha256": "0a30a815d67d7dd2018fe18f4e995a26f3b753369cd4327e9b6034b50a2cd153",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "908c72309508e3c7b24ff81cad2053a2ab0b65ff47a59e3b3ecd22cd5017c9be",
+      "blob_sha256": "9e60c68cbd868912263baca8a9b5b358cdc23da6ce562a85c02dbe77c355af5a",
+      "entity_index": 0,
+      "start": 15018,
+      "end": 15023,
+      "value_sha256": "7e61847d61d65d9e3ac15c6281f7bfe0d80b8d79d3b53125e9fc2bfc25bb81e8",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "908c72309508e3c7b24ff81cad2053a2ab0b65ff47a59e3b3ecd22cd5017c9be",
+      "blob_sha256": "9e60c68cbd868912263baca8a9b5b358cdc23da6ce562a85c02dbe77c355af5a",
+      "entity_index": 0,
+      "start": 20428,
+      "end": 20436,
+      "value_sha256": "49e49bb4401e67bd54ffe1e9ab6c2af87ddad0cdc8ca1c84ba1b4e94234438ba",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 539,
+      "end": 542,
+      "value_sha256": "3c72b39be6968ac5d4f2d13dea8d47eb667aa26dc9abe27a64aee28db075fc18",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 1268,
+      "end": 1282,
+      "value_sha256": "e67ce75b224d9dc5bd754b2bb1b3ae3516148d0a2ad6eebb83d873ecf18918fd",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 2904,
+      "end": 2909,
+      "value_sha256": "f340b6d6edeff46213083fda3e3496b6262a67fc349fe3fd577c55e196841c3f",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 3114,
+      "end": 3120,
+      "value_sha256": "8fdac69c6fe9cdbc7838eb4a48aa6f6bcfc35088370847233061054f30f25b34",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 3925,
+      "end": 3929,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 4319,
+      "end": 4323,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 4400,
+      "end": 4404,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 7366,
+      "end": 7371,
+      "value_sha256": "4828e60247c1636f57b7446a314e7f599c12b53d40061cc851a1442004354fed",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 11013,
+      "end": 11031,
+      "value_sha256": "6441767d51a0a8e69e663ef59003403c205c6f4b9222ac3b397bf437ce8ec42f",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 15934,
+      "end": 15953,
+      "value_sha256": "b7e96ec9c019c5c91ed38f2fcb08f90d18ae1d019d368eb69288ec4255be1b00",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 20397,
+      "end": 20416,
+      "value_sha256": "b7e96ec9c019c5c91ed38f2fcb08f90d18ae1d019d368eb69288ec4255be1b00",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 20465,
+      "end": 20468,
+      "value_sha256": "afb05982fcc9a31c52200a68130a37466969466ca05e8f6e48e279ae4f7e459c",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 21832,
+      "end": 21848,
+      "value_sha256": "6030583f928eceeb71ae58e8f44c8a3e8a1f12b3ed5afd5c36726abfe26bbb4f",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 22321,
+      "end": 22337,
+      "value_sha256": "2c3daa759c5fd70eb87241bdfdcd56f5ea1c6e90523a9321f168bacbeb3c588d",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 22370,
+      "end": 22389,
+      "value_sha256": "b7e96ec9c019c5c91ed38f2fcb08f90d18ae1d019d368eb69288ec4255be1b00",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 22689,
+      "end": 22693,
+      "value_sha256": "329b67df439a016cb65169b0fa6308b2dbb5dfa9ea8186972aba189cbd241396",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 23933,
+      "end": 23954,
+      "value_sha256": "858fe7df8accb140e3f4f367efe7a054bac47e497ad0ffeee8cd48657522ca6a",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 26099,
+      "end": 26105,
+      "value_sha256": "031a8f0f659df890dfd53c92e45295b0f14c997185bae46e168831e403b273f7",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 28014,
+      "end": 28018,
+      "value_sha256": "dcd1d5223f73b3a965c07e3ff5dbee3eedcfedb806686a05b9b3868a2c3d6d50",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 34448,
+      "end": 34452,
+      "value_sha256": "89364b2a930cd2ff5bff91ed50be2b4c7e5aa966ba455d935c0653a3cd8e05a8",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 36088,
+      "end": 36096,
+      "value_sha256": "4f8ded2fba8802fe7579187e094381aed9c45959231cb26494cc8049e682adb9",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 38938,
+      "end": 38945,
+      "value_sha256": "c93d34f3176d65652d6265daef9c7f30b5d2f743da06b0aea83d708278e27e6d",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 39165,
+      "end": 39172,
+      "value_sha256": "c93d34f3176d65652d6265daef9c7f30b5d2f743da06b0aea83d708278e27e6d",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "18b9ade1ad134799edcd53531ed0f0156fa1bedfd6183adbdc7601d2fa67d932",
+      "blob_sha256": "a319aaca45c539e4373caf0190c9edd04e509ede52c20ee5b4bc9b94ba66e0f7",
+      "entity_index": 0,
+      "start": 41113,
+      "end": 41116,
+      "value_sha256": "82b1ecda91e10e67ee7db050892322f109ca097a37dfa12e6a57c7f10b92b235",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "a762453a4c6189b02d82437b4e29a43350b6615d64f7c9b9426a42622dc3462a",
+      "blob_sha256": "274dfed6d76d2911aeafc87226965d68330b3f7417f36d160debeeeca3009252",
+      "entity_index": 0,
+      "start": 1346,
+      "end": 1349,
+      "value_sha256": "be176b0015c424b78e9f343f8bc3014a7a701cc2eb9000b6acbc04d67dbecb8f",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "a762453a4c6189b02d82437b4e29a43350b6615d64f7c9b9426a42622dc3462a",
+      "blob_sha256": "274dfed6d76d2911aeafc87226965d68330b3f7417f36d160debeeeca3009252",
+      "entity_index": 0,
+      "start": 2981,
+      "end": 2986,
+      "value_sha256": "857cb84b487c70fbc1805def19851cb2f62e68fed4481045277aa4f974840ded",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "a762453a4c6189b02d82437b4e29a43350b6615d64f7c9b9426a42622dc3462a",
+      "blob_sha256": "274dfed6d76d2911aeafc87226965d68330b3f7417f36d160debeeeca3009252",
+      "entity_index": 0,
+      "start": 7149,
+      "end": 7160,
+      "value_sha256": "3de9ceeff372042d73de12f4ae11789a6055c28a913d648207e3334c3a05b8af",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "a762453a4c6189b02d82437b4e29a43350b6615d64f7c9b9426a42622dc3462a",
+      "blob_sha256": "274dfed6d76d2911aeafc87226965d68330b3f7417f36d160debeeeca3009252",
+      "entity_index": 0,
+      "start": 8101,
+      "end": 8112,
+      "value_sha256": "aec6e6d27c228773236128d9c97bd152c6b4bc9daeb89cabef13d89c706caf3e",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "a762453a4c6189b02d82437b4e29a43350b6615d64f7c9b9426a42622dc3462a",
+      "blob_sha256": "274dfed6d76d2911aeafc87226965d68330b3f7417f36d160debeeeca3009252",
+      "entity_index": 0,
+      "start": 8879,
+      "end": 8883,
+      "value_sha256": "0a30a815d67d7dd2018fe18f4e995a26f3b753369cd4327e9b6034b50a2cd153",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "a762453a4c6189b02d82437b4e29a43350b6615d64f7c9b9426a42622dc3462a",
+      "blob_sha256": "274dfed6d76d2911aeafc87226965d68330b3f7417f36d160debeeeca3009252",
+      "entity_index": 0,
+      "start": 8931,
+      "end": 8937,
+      "value_sha256": "fb5f27d5457c464102286366ef3827b11923e7f3aa1faa7eea95249e36a39abf",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "a762453a4c6189b02d82437b4e29a43350b6615d64f7c9b9426a42622dc3462a",
+      "blob_sha256": "274dfed6d76d2911aeafc87226965d68330b3f7417f36d160debeeeca3009252",
+      "entity_index": 0,
+      "start": 9226,
+      "end": 9235,
+      "value_sha256": "dcb3e1c00e79236dc91f5fd8b7b37dcc44364a8c2b61f05d04063a26588e77fe",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "a762453a4c6189b02d82437b4e29a43350b6615d64f7c9b9426a42622dc3462a",
+      "blob_sha256": "274dfed6d76d2911aeafc87226965d68330b3f7417f36d160debeeeca3009252",
+      "entity_index": 0,
+      "start": 15945,
+      "end": 15951,
+      "value_sha256": "fb5f27d5457c464102286366ef3827b11923e7f3aa1faa7eea95249e36a39abf",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "a762453a4c6189b02d82437b4e29a43350b6615d64f7c9b9426a42622dc3462a",
+      "blob_sha256": "274dfed6d76d2911aeafc87226965d68330b3f7417f36d160debeeeca3009252",
+      "entity_index": 0,
+      "start": 16854,
+      "end": 16858,
+      "value_sha256": "0a30a815d67d7dd2018fe18f4e995a26f3b753369cd4327e9b6034b50a2cd153",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "a762453a4c6189b02d82437b4e29a43350b6615d64f7c9b9426a42622dc3462a",
+      "blob_sha256": "274dfed6d76d2911aeafc87226965d68330b3f7417f36d160debeeeca3009252",
+      "entity_index": 0,
+      "start": 17103,
+      "end": 17111,
+      "value_sha256": "143b270a32602d412babf2724ec0640dda0d5a43485e5a7520b05b53fa94b303",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "a762453a4c6189b02d82437b4e29a43350b6615d64f7c9b9426a42622dc3462a",
+      "blob_sha256": "274dfed6d76d2911aeafc87226965d68330b3f7417f36d160debeeeca3009252",
+      "entity_index": 0,
+      "start": 17780,
+      "end": 17791,
+      "value_sha256": "e2641093476bbd11c799f3294ee8715631f539643136ee8e9183f870504f7dbb",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "a762453a4c6189b02d82437b4e29a43350b6615d64f7c9b9426a42622dc3462a",
+      "blob_sha256": "274dfed6d76d2911aeafc87226965d68330b3f7417f36d160debeeeca3009252",
+      "entity_index": 0,
+      "start": 18043,
+      "end": 18051,
+      "value_sha256": "4786cd5110a4a25d7f290ecdc62053c3e521475e725dcee6df863e0e86fd9c60",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 353,
+      "end": 359,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 693,
+      "end": 704,
+      "value_sha256": "43f1fc2390a440781ffc1359e14ecb8389bfaaf8319bbe09f291a3872ea49bb9",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 4863,
+      "end": 4879,
+      "value_sha256": "02885ff75396a2684a7e266620f87e8947da7eed24def61ed0bd862e32237acb",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 5434,
+      "end": 5437,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 6561,
+      "end": 6564,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 8696,
+      "end": 8703,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 9305,
+      "end": 9312,
+      "value_sha256": "efe10c80ec8a9f38624cbb47103010a8cf32488a503e4b4bfe4f92307a9cefa7",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 10165,
+      "end": 10169,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 12899,
+      "end": 12906,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 16512,
+      "end": 16524,
+      "value_sha256": "c5584f4f4e260a12712313d6aa44e78902e8db685af7ccf602467d401194c746",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 19881,
+      "end": 19887,
+      "value_sha256": "8fdac69c6fe9cdbc7838eb4a48aa6f6bcfc35088370847233061054f30f25b34",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 19995,
+      "end": 20000,
+      "value_sha256": "754cbbda89c915ea9feb958980081942eb2c8b3ecc3d76905476f8230fbd8582",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 22129,
+      "end": 22142,
+      "value_sha256": "aab3ed697a38ae9c40f73c18a0d6ebb025b4a5d20bc47637f181cbe73320506f",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 30945,
+      "end": 30948,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 31948,
+      "end": 31951,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 38830,
+      "end": 38864,
+      "value_sha256": "41422c7861864ba88ee9f24e36bb677571aa308901d7b72d35da90d6abf8ed6b",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 39742,
+      "end": 39748,
+      "value_sha256": "d8554253f56d58e88bc82df1e41507c325e2a6ceb27cf7c33838c05f1325c3cc",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 40094,
+      "end": 40101,
+      "value_sha256": "ecbc89cd37a037342e740f9e0e0633a70180a2279b0157c9a823fce729f4bd77",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 42948,
+      "end": 42955,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 45001,
+      "end": 45004,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 46589,
+      "end": 46595,
+      "value_sha256": "3a727530791838c210a2596a974e328d68b676716e9e6c6c7173929bd463f612",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 47378,
+      "end": 47381,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 47569,
+      "end": 47572,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 49330,
+      "end": 49342,
+      "value_sha256": "af729f251460d7cab9adfdba1bb85c52f8a9f1e182ab1d0f5aa800052fba499a",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 51014,
+      "end": 51017,
+      "value_sha256": "afb05982fcc9a31c52200a68130a37466969466ca05e8f6e48e279ae4f7e459c",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 51573,
+      "end": 51581,
+      "value_sha256": "4627e6130567360ab25e445d484c82f8d755161e28878d883a43dbdd17a76bbe",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 52749,
+      "end": 52752,
+      "value_sha256": "afb05982fcc9a31c52200a68130a37466969466ca05e8f6e48e279ae4f7e459c",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 55593,
+      "end": 55615,
+      "value_sha256": "a535725cf4e72a36d365bd242c407e1ff1148eb2ab01f90f95c28de3b654cb0c",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 58235,
+      "end": 58242,
+      "value_sha256": "92375f997ffe65ab7f04eeda8cb2d7f69ebea949a06132afd53c83fff276ef54",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 58745,
+      "end": 58749,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 60342,
+      "end": 60350,
+      "value_sha256": "ef6691545d2c5523efed00424407cb261aeb0037d165ca5792f7f8bac3381362",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 62621,
+      "end": 62625,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 62746,
+      "end": 62750,
+      "value_sha256": "e2f53cffb77729b4523708329407d0b26fa6902bc7d203abf5daece81c55208f",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 66887,
+      "end": 66891,
+      "value_sha256": "e2f53cffb77729b4523708329407d0b26fa6902bc7d203abf5daece81c55208f",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 67048,
+      "end": 67052,
+      "value_sha256": "e2f53cffb77729b4523708329407d0b26fa6902bc7d203abf5daece81c55208f",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 67543,
+      "end": 67547,
+      "value_sha256": "e2f53cffb77729b4523708329407d0b26fa6902bc7d203abf5daece81c55208f",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 69996,
+      "end": 70005,
+      "value_sha256": "e29f12edb80b2bd270d1799e96a885034c1bc17d1eeb98666c6ca3ff8082fad1",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 70790,
+      "end": 70794,
+      "value_sha256": "123f70be0b1011812f206e837398dde5399717c15dab2af3fe645888c28db0fb",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 70867,
+      "end": 70870,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 72900,
+      "end": 72904,
+      "value_sha256": "123f70be0b1011812f206e837398dde5399717c15dab2af3fe645888c28db0fb",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 73305,
+      "end": 73309,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 73411,
+      "end": 73415,
+      "value_sha256": "e2f53cffb77729b4523708329407d0b26fa6902bc7d203abf5daece81c55208f",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 74012,
+      "end": 74020,
+      "value_sha256": "0740f4bade2a0a5b3c5d4f09aac7cc9aca2eba6907e144e2c02a226b70e4bfa7",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 75045,
+      "end": 75049,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 75270,
+      "end": 75274,
+      "value_sha256": "123f70be0b1011812f206e837398dde5399717c15dab2af3fe645888c28db0fb",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 78857,
+      "end": 78860,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 80358,
+      "end": 80362,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 80991,
+      "end": 81013,
+      "value_sha256": "9820afc3ef36219a055904b4d6b22adc28e4175a71cc1ff2b0ef3cd8a17f6974",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 82430,
+      "end": 82434,
+      "value_sha256": "123f70be0b1011812f206e837398dde5399717c15dab2af3fe645888c28db0fb",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 83572,
+      "end": 83576,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 84064,
+      "end": 84068,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 85984,
+      "end": 85987,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 88938,
+      "end": 88942,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 92669,
+      "end": 92672,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 92984,
+      "end": 92988,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 93292,
+      "end": 93296,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
+    },
+    {
+      "identity": "8efcfcfac3d09b97d591663d785c3398441bda0c07ae75afda699c1703db9659",
+      "blob_sha256": "8bcb9abff8c65375150e4797338da2e2b2d5f5c5b66ab73ef3b0873ca9e7a181",
+      "entity_index": 0,
+      "start": 98904,
+      "end": 98907,
+      "value_sha256": "3c72b39be6968ac5d4f2d13dea8d47eb667aa26dc9abe27a64aee28db075fc18",
+      "reason": "Inspected exact plan and handoff text: the span is a technical label, workflow status, plan identifier, repository reference or instruction.",
+      "reviewer": "Codex integration review 2026-11-03"
     }
   ]
 }
