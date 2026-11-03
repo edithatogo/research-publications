@@ -15621,6 +15621,26 @@
       "value_sha256": "82b1ecda91e10e67ee7db050892322f109ca097a37dfa12e6a57c7f10b92b235",
       "reason": "Reviewed historical T18 plan wording: project and technical terminology.",
       "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "e5140f7d065dbd6ed84af680969a4188968c4f58b141aaab42823a2d82fa9f04",
+      "blob_sha256": "123929ad9339d6f54af1ca6e4c6002c5aa3956cc428ec200db27ede130f14f10",
+      "entity_index": 0,
+      "start": 664,
+      "end": 671,
+      "value_sha256": "a5faf0b46a33f76598b4f1011867093afdfbe55975ffe50253a96a6d7831fcd0",
+      "reason": "Inspected E04 plan prose and report path terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "e5140f7d065dbd6ed84af680969a4188968c4f58b141aaab42823a2d82fa9f04",
+      "blob_sha256": "123929ad9339d6f54af1ca6e4c6002c5aa3956cc428ec200db27ede130f14f10",
+      "entity_index": 0,
+      "start": 2289,
+      "end": 2295,
+      "value_sha256": "1e7f34ee8f771657a4c8350d8589f8b2405544de0e756fecb4247e307d673bfc",
+      "reason": "Inspected E04 plan prose and report path terminology.",
+      "reviewer": "Codex integration review 2026-11-04"
     }
   ]
 }
