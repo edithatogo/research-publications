@@ -1,3 +1,9 @@
+## Delivered-work reconciliation — 3 November 2026
+
+PR126/128/129 delivered policy/override preparation, manual deadline application and the saved/processed deadline reader. The native comparison covers 85 held anchors, zero applied dates and zero planned writes. First real approved policy/override and effective-day reconciliation remain open. PR124/125/127 calendar, notification and relationship implementation is delivered at the scopes in cli-completion-20261102.md. Historical unchecked builder/deployment instructions are superseded only for these accepted components.
+
+See [the cross-track mapping](../../backlog-reconciliation-20261103.md) for remaining exits and CLI prerequisites. Historical requirements below remain evidence at their original scope.
+
 # Implementation plan
 
 ## Live GrantConnect register and funding views — 1 November 2026

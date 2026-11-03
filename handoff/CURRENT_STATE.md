@@ -1,3 +1,19 @@
+## Documentary backlog reconciliation — 3 November 2026
+
+[Delivered-work mapping and remaining CLI readiness](../conductor/backlog-reconciliation-20261103.md)
+supersedes stale implementation-next wording below at the explicitly mapped scope.
+PR126/128/129 already delivered deadline tooling/application/reader; first approved
+policy application remains open. PR124/125/127 delivered calendar/notification and
+relationship readers at their recorded scopes. PR130 application tracking is archived.
+PR132/133 integrated the accepted free-source handoff/documentation. Historical import
+terminal acceptance, RMD-05 and 45 provider-deferred lookups remain unresolved.
+
+Documentary owner is chat `01a19f3f-5187-7c23-ac14-192cb93a5a26` in
+`/Volumes/PortableSSD/GitHub/RIMS/dependency-qualification-20261103`, branch
+`codex/conductor-backlog-reconciliation-20261103`; native scope empty. Existing
+import, monthly and source owners retain their assignments and private operations.
+Earlier checkpoints and assignments below remain historical evidence.
+
 ## GrantConnect historical import recovery — 2 November 2026
 
 All eleven award export discrepancies reconcile to official date-bounded
