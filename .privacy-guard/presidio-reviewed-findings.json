@@ -8341,6 +8341,326 @@
       "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
       "reason": "Inspected exact source span: technical status, source or software label, repository link, plan reference, code identifier or ordinary instruction text, not a person.",
       "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "0a44d8defaf630b365366aceac919c8e72daee7b8b43edf5470fc67a5c67d453",
+      "blob_sha256": "329c638aaa5a5e97674f1cebedb36eb5b42d3ae618a1db1d0de91c21dc677979",
+      "entity_index": 0,
+      "start": 1729,
+      "end": 1733,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "0a44d8defaf630b365366aceac919c8e72daee7b8b43edf5470fc67a5c67d453",
+      "blob_sha256": "329c638aaa5a5e97674f1cebedb36eb5b42d3ae618a1db1d0de91c21dc677979",
+      "entity_index": 0,
+      "start": 2836,
+      "end": 2843,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "7640c00ed6bbaa014cad43bab8abf1d75d19212e8efc9410f2aca72e48dd86a8",
+      "blob_sha256": "4835ccc579bb5cf02c244712d9d7e659271845653a9298394dae8a817aafc748",
+      "entity_index": 0,
+      "start": 3420,
+      "end": 3426,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "7640c00ed6bbaa014cad43bab8abf1d75d19212e8efc9410f2aca72e48dd86a8",
+      "blob_sha256": "4835ccc579bb5cf02c244712d9d7e659271845653a9298394dae8a817aafc748",
+      "entity_index": 0,
+      "start": 6501,
+      "end": 6508,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "7640c00ed6bbaa014cad43bab8abf1d75d19212e8efc9410f2aca72e48dd86a8",
+      "blob_sha256": "4835ccc579bb5cf02c244712d9d7e659271845653a9298394dae8a817aafc748",
+      "entity_index": 0,
+      "start": 7630,
+      "end": 7637,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b6c806fceb4628f06a5332f4c380ed6c0270a0a34348b1fa983f38bf3a330da7",
+      "blob_sha256": "ab603a09c00df02c2bb0cea94cec127296d630c68c1238223e644127b3c033b6",
+      "entity_index": 0,
+      "start": 299,
+      "end": 306,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b6c806fceb4628f06a5332f4c380ed6c0270a0a34348b1fa983f38bf3a330da7",
+      "blob_sha256": "ab603a09c00df02c2bb0cea94cec127296d630c68c1238223e644127b3c033b6",
+      "entity_index": 0,
+      "start": 434,
+      "end": 438,
+      "value_sha256": "cdf4e79a95e14a003a4daa5e32acae81548accff60d9f2589ba209c22a6b515c",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b6c806fceb4628f06a5332f4c380ed6c0270a0a34348b1fa983f38bf3a330da7",
+      "blob_sha256": "ab603a09c00df02c2bb0cea94cec127296d630c68c1238223e644127b3c033b6",
+      "entity_index": 0,
+      "start": 2027,
+      "end": 2080,
+      "value_sha256": "429d551a1466a8e7465834ec49ad674a903304b55f0db061a95a88c437b2d94a",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b6c806fceb4628f06a5332f4c380ed6c0270a0a34348b1fa983f38bf3a330da7",
+      "blob_sha256": "ab603a09c00df02c2bb0cea94cec127296d630c68c1238223e644127b3c033b6",
+      "entity_index": 0,
+      "start": 4939,
+      "end": 4951,
+      "value_sha256": "9dc2055a4bb869238616e71d209f4ec891cd655d89ef17396f9f97eeac936fe7",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b6c806fceb4628f06a5332f4c380ed6c0270a0a34348b1fa983f38bf3a330da7",
+      "blob_sha256": "ab603a09c00df02c2bb0cea94cec127296d630c68c1238223e644127b3c033b6",
+      "entity_index": 0,
+      "start": 5915,
+      "end": 5922,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b6c806fceb4628f06a5332f4c380ed6c0270a0a34348b1fa983f38bf3a330da7",
+      "blob_sha256": "ab603a09c00df02c2bb0cea94cec127296d630c68c1238223e644127b3c033b6",
+      "entity_index": 0,
+      "start": 9208,
+      "end": 9213,
+      "value_sha256": "b6dfe42069f32da1e58a7ce5c146e5b9a68bbcbc32775f593e12ca41818debb3",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b6c806fceb4628f06a5332f4c380ed6c0270a0a34348b1fa983f38bf3a330da7",
+      "blob_sha256": "ab603a09c00df02c2bb0cea94cec127296d630c68c1238223e644127b3c033b6",
+      "entity_index": 0,
+      "start": 11921,
+      "end": 11927,
+      "value_sha256": "d640c7421da066618a39daf4266da5f61f66a9b1afcd626481b831a17064965d",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b6c806fceb4628f06a5332f4c380ed6c0270a0a34348b1fa983f38bf3a330da7",
+      "blob_sha256": "ab603a09c00df02c2bb0cea94cec127296d630c68c1238223e644127b3c033b6",
+      "entity_index": 0,
+      "start": 14391,
+      "end": 14426,
+      "value_sha256": "c3c5bebebffbdf156e4a1fb7b3623b23b7d16f9a9b1de99e84125b137f48b23a",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b6c806fceb4628f06a5332f4c380ed6c0270a0a34348b1fa983f38bf3a330da7",
+      "blob_sha256": "ab603a09c00df02c2bb0cea94cec127296d630c68c1238223e644127b3c033b6",
+      "entity_index": 0,
+      "start": 17413,
+      "end": 17423,
+      "value_sha256": "273a39b09219e67f0c302704ffb99c89bb6c2887a28f5ec0c95b63587499212a",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b6c806fceb4628f06a5332f4c380ed6c0270a0a34348b1fa983f38bf3a330da7",
+      "blob_sha256": "ab603a09c00df02c2bb0cea94cec127296d630c68c1238223e644127b3c033b6",
+      "entity_index": 0,
+      "start": 17735,
+      "end": 17769,
+      "value_sha256": "e527347b819a1945b5774f08540a55f0cc5bdf0ec80153de8dcf41d261f15b06",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "b6c806fceb4628f06a5332f4c380ed6c0270a0a34348b1fa983f38bf3a330da7",
+      "blob_sha256": "ab603a09c00df02c2bb0cea94cec127296d630c68c1238223e644127b3c033b6",
+      "entity_index": 0,
+      "start": 18238,
+      "end": 18258,
+      "value_sha256": "257e8a889fcd7c211cba90ff9db9bb28842beb4ef504f1e10b37d3e4deb3d509",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "cd82275c57ac3d6a93bb9b529a55f220c3e5a864d102eee54f8b863613c2e4b5",
+      "blob_sha256": "738df185630463f05741aa93b7a40412b9232bd449a681a370d6900c4cc12e79",
+      "entity_index": 0,
+      "start": 299,
+      "end": 306,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "cd82275c57ac3d6a93bb9b529a55f220c3e5a864d102eee54f8b863613c2e4b5",
+      "blob_sha256": "738df185630463f05741aa93b7a40412b9232bd449a681a370d6900c4cc12e79",
+      "entity_index": 0,
+      "start": 434,
+      "end": 438,
+      "value_sha256": "cdf4e79a95e14a003a4daa5e32acae81548accff60d9f2589ba209c22a6b515c",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "cd82275c57ac3d6a93bb9b529a55f220c3e5a864d102eee54f8b863613c2e4b5",
+      "blob_sha256": "738df185630463f05741aa93b7a40412b9232bd449a681a370d6900c4cc12e79",
+      "entity_index": 0,
+      "start": 1648,
+      "end": 1656,
+      "value_sha256": "143b270a32602d412babf2724ec0640dda0d5a43485e5a7520b05b53fa94b303",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "cd82275c57ac3d6a93bb9b529a55f220c3e5a864d102eee54f8b863613c2e4b5",
+      "blob_sha256": "738df185630463f05741aa93b7a40412b9232bd449a681a370d6900c4cc12e79",
+      "entity_index": 0,
+      "start": 5064,
+      "end": 5071,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "cd82275c57ac3d6a93bb9b529a55f220c3e5a864d102eee54f8b863613c2e4b5",
+      "blob_sha256": "738df185630463f05741aa93b7a40412b9232bd449a681a370d6900c4cc12e79",
+      "entity_index": 0,
+      "start": 7885,
+      "end": 7889,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "cd82275c57ac3d6a93bb9b529a55f220c3e5a864d102eee54f8b863613c2e4b5",
+      "blob_sha256": "738df185630463f05741aa93b7a40412b9232bd449a681a370d6900c4cc12e79",
+      "entity_index": 0,
+      "start": 8282,
+      "end": 8286,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "cd82275c57ac3d6a93bb9b529a55f220c3e5a864d102eee54f8b863613c2e4b5",
+      "blob_sha256": "738df185630463f05741aa93b7a40412b9232bd449a681a370d6900c4cc12e79",
+      "entity_index": 0,
+      "start": 8678,
+      "end": 8682,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "cd82275c57ac3d6a93bb9b529a55f220c3e5a864d102eee54f8b863613c2e4b5",
+      "blob_sha256": "738df185630463f05741aa93b7a40412b9232bd449a681a370d6900c4cc12e79",
+      "entity_index": 0,
+      "start": 10688,
+      "end": 10692,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "cd82275c57ac3d6a93bb9b529a55f220c3e5a864d102eee54f8b863613c2e4b5",
+      "blob_sha256": "738df185630463f05741aa93b7a40412b9232bd449a681a370d6900c4cc12e79",
+      "entity_index": 0,
+      "start": 11758,
+      "end": 11769,
+      "value_sha256": "abb4690a42eafd776f9d549e33c5e839309f841a6e405091da40bd383a26a650",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "cd82275c57ac3d6a93bb9b529a55f220c3e5a864d102eee54f8b863613c2e4b5",
+      "blob_sha256": "738df185630463f05741aa93b7a40412b9232bd449a681a370d6900c4cc12e79",
+      "entity_index": 0,
+      "start": 11837,
+      "end": 11849,
+      "value_sha256": "b8ad85e60fb9da08f6f7edabb48cdd2a227e6049b078863d4642d30234e2a7b8",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "cd82275c57ac3d6a93bb9b529a55f220c3e5a864d102eee54f8b863613c2e4b5",
+      "blob_sha256": "738df185630463f05741aa93b7a40412b9232bd449a681a370d6900c4cc12e79",
+      "entity_index": 0,
+      "start": 11857,
+      "end": 11903,
+      "value_sha256": "6c320980f62587596d600581bfdd9b43eeee2a5bc1619970969c40a2de8aa585",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "cd82275c57ac3d6a93bb9b529a55f220c3e5a864d102eee54f8b863613c2e4b5",
+      "blob_sha256": "738df185630463f05741aa93b7a40412b9232bd449a681a370d6900c4cc12e79",
+      "entity_index": 0,
+      "start": 11968,
+      "end": 11972,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "cd82275c57ac3d6a93bb9b529a55f220c3e5a864d102eee54f8b863613c2e4b5",
+      "blob_sha256": "738df185630463f05741aa93b7a40412b9232bd449a681a370d6900c4cc12e79",
+      "entity_index": 0,
+      "start": 13133,
+      "end": 13139,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "cd82275c57ac3d6a93bb9b529a55f220c3e5a864d102eee54f8b863613c2e4b5",
+      "blob_sha256": "738df185630463f05741aa93b7a40412b9232bd449a681a370d6900c4cc12e79",
+      "entity_index": 0,
+      "start": 13441,
+      "end": 13444,
+      "value_sha256": "9b8eccfa533ccd5e46ae41655e1beef4d98c6e44d784ba1c4020971a62feae20",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "cd82275c57ac3d6a93bb9b529a55f220c3e5a864d102eee54f8b863613c2e4b5",
+      "blob_sha256": "738df185630463f05741aa93b7a40412b9232bd449a681a370d6900c4cc12e79",
+      "entity_index": 0,
+      "start": 13957,
+      "end": 13994,
+      "value_sha256": "7047f4fe005a58187e5b80d90f5b04eafdd63fdd23b28f4a899ab219a1e1d156",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
+    },
+    {
+      "identity": "cd82275c57ac3d6a93bb9b529a55f220c3e5a864d102eee54f8b863613c2e4b5",
+      "blob_sha256": "738df185630463f05741aa93b7a40412b9232bd449a681a370d6900c4cc12e79",
+      "entity_index": 0,
+      "start": 20820,
+      "end": 20824,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact source span: technical status, provider or software label, repository link, plan reference or ordinary instruction text, not a person.",
+      "reviewer": "Codex source inspection 2026-11-03"
     }
   ]
 }
