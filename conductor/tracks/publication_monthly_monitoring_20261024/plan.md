@@ -135,3 +135,11 @@ automation was installed. See the policy mapping before any later change.
 - [x] Add and reopen-verify the same diagnosis in the existing Loop page; prior
   text and component identities remain preserved. RMD-05 stays pending for
   the actual December1 natural monthly path.
+
+## Read-only continuation — 4 November 2026
+
+[Fresh guarded readback](readback-20261104.md) preserves PM-F01/PM-F02's missed
+first-occurrence dispositions. Complete histories still contain no 1 November
+run. Today's stored observer result matches the previously diagnosed late
+2 November recovery. RMD-05 remains pending 1 December; no resubmission or
+native mutation occurred. Existing native ownership is retained.
