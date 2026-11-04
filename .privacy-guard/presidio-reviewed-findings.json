@@ -16931,6 +16931,266 @@
       "value_sha256": "5a4c3e350f6e5f66e2c964998fa356d5c5bb89dd0a63cbc292a0a1a3518b9aaf",
       "reason": "Inspected workflow identifiers, plan wording and diagnostic filename in E08 operating window record.",
       "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "77284be744a31407885c47acfb38015aa54773384c5261f6e080080ff9b75f2e",
+      "blob_sha256": "13546b05167a7eed35985074108556c67f46f5d974d7cb29b7aa75f7654b259c",
+      "entity_index": 0,
+      "start": 1653,
+      "end": 1656,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "77284be744a31407885c47acfb38015aa54773384c5261f6e080080ff9b75f2e",
+      "blob_sha256": "13546b05167a7eed35985074108556c67f46f5d974d7cb29b7aa75f7654b259c",
+      "entity_index": 0,
+      "start": 2547,
+      "end": 2553,
+      "value_sha256": "18885f27b5af9012df19e496460f9294d5ab76128824c6f993787004f6d9a7db",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "77284be744a31407885c47acfb38015aa54773384c5261f6e080080ff9b75f2e",
+      "blob_sha256": "13546b05167a7eed35985074108556c67f46f5d974d7cb29b7aa75f7654b259c",
+      "entity_index": 0,
+      "start": 4491,
+      "end": 4494,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "77284be744a31407885c47acfb38015aa54773384c5261f6e080080ff9b75f2e",
+      "blob_sha256": "13546b05167a7eed35985074108556c67f46f5d974d7cb29b7aa75f7654b259c",
+      "entity_index": 0,
+      "start": 6398,
+      "end": 6412,
+      "value_sha256": "cd3f48e6708df1437c26ca23a9f8dd032e140ba27e0e0aab4506387179896ba8",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "77284be744a31407885c47acfb38015aa54773384c5261f6e080080ff9b75f2e",
+      "blob_sha256": "13546b05167a7eed35985074108556c67f46f5d974d7cb29b7aa75f7654b259c",
+      "entity_index": 0,
+      "start": 6573,
+      "end": 6577,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "77284be744a31407885c47acfb38015aa54773384c5261f6e080080ff9b75f2e",
+      "blob_sha256": "13546b05167a7eed35985074108556c67f46f5d974d7cb29b7aa75f7654b259c",
+      "entity_index": 0,
+      "start": 6918,
+      "end": 6930,
+      "value_sha256": "1189677a72378a342aa96062e640f1176f67f112fdbede887f7934a82fba1db4",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "77284be744a31407885c47acfb38015aa54773384c5261f6e080080ff9b75f2e",
+      "blob_sha256": "13546b05167a7eed35985074108556c67f46f5d974d7cb29b7aa75f7654b259c",
+      "entity_index": 0,
+      "start": 8038,
+      "end": 8054,
+      "value_sha256": "2609e3d4a41a2ad9465d24e7728a5e236de6d39332ec9aa8ad9b4f5114a6210f",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "9be4cd0f7647bc11c74c3bc7e62d1b8596deef7354cd0d2f2ac6357e81213a58",
+      "blob_sha256": "c96c3982555cfd8c4f81e9ea891dcffe3817aa53b813a15991e96e24ca9c0ad5",
+      "entity_index": 0,
+      "start": 2,
+      "end": 6,
+      "value_sha256": "a6db480094950db2d05e772472f669cdee70c7fe22fe107a3cb97891424bbd19",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "9be4cd0f7647bc11c74c3bc7e62d1b8596deef7354cd0d2f2ac6357e81213a58",
+      "blob_sha256": "c96c3982555cfd8c4f81e9ea891dcffe3817aa53b813a15991e96e24ca9c0ad5",
+      "entity_index": 0,
+      "start": 3097,
+      "end": 3100,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "9be4cd0f7647bc11c74c3bc7e62d1b8596deef7354cd0d2f2ac6357e81213a58",
+      "blob_sha256": "c96c3982555cfd8c4f81e9ea891dcffe3817aa53b813a15991e96e24ca9c0ad5",
+      "entity_index": 0,
+      "start": 3343,
+      "end": 3354,
+      "value_sha256": "2f36130ebccc5c754f9c67d800a2b199cb14840a7894623ec33f66de36953e1c",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "9be4cd0f7647bc11c74c3bc7e62d1b8596deef7354cd0d2f2ac6357e81213a58",
+      "blob_sha256": "c96c3982555cfd8c4f81e9ea891dcffe3817aa53b813a15991e96e24ca9c0ad5",
+      "entity_index": 0,
+      "start": 3715,
+      "end": 3773,
+      "value_sha256": "8c19d235a3f4f413018a053ffcfbf174adf16a610ab245319ddb9a0dfc34330f",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "9be4cd0f7647bc11c74c3bc7e62d1b8596deef7354cd0d2f2ac6357e81213a58",
+      "blob_sha256": "c96c3982555cfd8c4f81e9ea891dcffe3817aa53b813a15991e96e24ca9c0ad5",
+      "entity_index": 0,
+      "start": 6510,
+      "end": 6522,
+      "value_sha256": "8dbbf329582f4a56e4602d18608f334ab1d5eee781d519b94f8ff96626c7e973",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "9be4cd0f7647bc11c74c3bc7e62d1b8596deef7354cd0d2f2ac6357e81213a58",
+      "blob_sha256": "c96c3982555cfd8c4f81e9ea891dcffe3817aa53b813a15991e96e24ca9c0ad5",
+      "entity_index": 0,
+      "start": 7256,
+      "end": 7264,
+      "value_sha256": "1eb1eb2ce7e9a36b428e4b0b5a5579974c4f3fb96fd76a44daacebb3c3ae2074",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "4cab6a2bcac2c7db52d5816d9d0c3b6f9f8af8b547037653c93951cbbf46502f",
+      "blob_sha256": "88035e1b8abb368a43fd8ce38e4526c994b5d74501c2578bcd4a5d46e1c02d70",
+      "entity_index": 0,
+      "start": 1383,
+      "end": 1387,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "4cab6a2bcac2c7db52d5816d9d0c3b6f9f8af8b547037653c93951cbbf46502f",
+      "blob_sha256": "88035e1b8abb368a43fd8ce38e4526c994b5d74501c2578bcd4a5d46e1c02d70",
+      "entity_index": 0,
+      "start": 1929,
+      "end": 1936,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "4cab6a2bcac2c7db52d5816d9d0c3b6f9f8af8b547037653c93951cbbf46502f",
+      "blob_sha256": "88035e1b8abb368a43fd8ce38e4526c994b5d74501c2578bcd4a5d46e1c02d70",
+      "entity_index": 0,
+      "start": 5058,
+      "end": 5065,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "4cab6a2bcac2c7db52d5816d9d0c3b6f9f8af8b547037653c93951cbbf46502f",
+      "blob_sha256": "88035e1b8abb368a43fd8ce38e4526c994b5d74501c2578bcd4a5d46e1c02d70",
+      "entity_index": 0,
+      "start": 6340,
+      "end": 6344,
+      "value_sha256": "329b67df439a016cb65169b0fa6308b2dbb5dfa9ea8186972aba189cbd241396",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "1aa45c5a299e945fdd2293743f8f0a25aef83d4b654344cefa4188ca16dfdece",
+      "blob_sha256": "53786a3c43c3c0a71a0c76f59251754cb53d9c0e3ec7530b907bed7b4c20a2b8",
+      "entity_index": 0,
+      "start": 965,
+      "end": 970,
+      "value_sha256": "b80a37564fbb3c0753202a1f92d5da8ccfb906b244f2842bba2232cea9883abd",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "1aa45c5a299e945fdd2293743f8f0a25aef83d4b654344cefa4188ca16dfdece",
+      "blob_sha256": "53786a3c43c3c0a71a0c76f59251754cb53d9c0e3ec7530b907bed7b4c20a2b8",
+      "entity_index": 0,
+      "start": 1395,
+      "end": 1400,
+      "value_sha256": "b80a37564fbb3c0753202a1f92d5da8ccfb906b244f2842bba2232cea9883abd",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "1aa45c5a299e945fdd2293743f8f0a25aef83d4b654344cefa4188ca16dfdece",
+      "blob_sha256": "53786a3c43c3c0a71a0c76f59251754cb53d9c0e3ec7530b907bed7b4c20a2b8",
+      "entity_index": 0,
+      "start": 1987,
+      "end": 1992,
+      "value_sha256": "b80a37564fbb3c0753202a1f92d5da8ccfb906b244f2842bba2232cea9883abd",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "1aa45c5a299e945fdd2293743f8f0a25aef83d4b654344cefa4188ca16dfdece",
+      "blob_sha256": "53786a3c43c3c0a71a0c76f59251754cb53d9c0e3ec7530b907bed7b4c20a2b8",
+      "entity_index": 0,
+      "start": 2777,
+      "end": 2802,
+      "value_sha256": "33d14b060c1dd9daf4ad799752844f831abf271b6a85400bcc84ecdbca3d2b67",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "1aa45c5a299e945fdd2293743f8f0a25aef83d4b654344cefa4188ca16dfdece",
+      "blob_sha256": "53786a3c43c3c0a71a0c76f59251754cb53d9c0e3ec7530b907bed7b4c20a2b8",
+      "entity_index": 0,
+      "start": 4358,
+      "end": 4363,
+      "value_sha256": "7c975f73751622c709ca95e4cce946a70167c4b04d8c8d8418e2619d9af498ee",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "1aa45c5a299e945fdd2293743f8f0a25aef83d4b654344cefa4188ca16dfdece",
+      "blob_sha256": "53786a3c43c3c0a71a0c76f59251754cb53d9c0e3ec7530b907bed7b4c20a2b8",
+      "entity_index": 0,
+      "start": 4806,
+      "end": 4818,
+      "value_sha256": "a5d712856d6bbec638835da86ea16d98d9ad01b1b74a07ffd2779e77d74bccc3",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "1aa45c5a299e945fdd2293743f8f0a25aef83d4b654344cefa4188ca16dfdece",
+      "blob_sha256": "53786a3c43c3c0a71a0c76f59251754cb53d9c0e3ec7530b907bed7b4c20a2b8",
+      "entity_index": 0,
+      "start": 5086,
+      "end": 5096,
+      "value_sha256": "88616b45d230f7c7c7c0dd94527527adf174b055154795038bd3d8daa2574180",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "1aa45c5a299e945fdd2293743f8f0a25aef83d4b654344cefa4188ca16dfdece",
+      "blob_sha256": "53786a3c43c3c0a71a0c76f59251754cb53d9c0e3ec7530b907bed7b4c20a2b8",
+      "entity_index": 0,
+      "start": 6465,
+      "end": 6475,
+      "value_sha256": "88616b45d230f7c7c7c0dd94527527adf174b055154795038bd3d8daa2574180",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
+    },
+    {
+      "identity": "e45159c3c6acf609547f5095a5d099af8b1380286bfc5cfeab52117ef70ea229",
+      "blob_sha256": "96cb695f91235b38ca5d17f950de3b13c99d0c7329f08d0f9668fa65c45692b2",
+      "entity_index": 0,
+      "start": 3679,
+      "end": 3684,
+      "value_sha256": "fc2b737d854489622d7138e5364e3cd0d9c538f509a5b684bd4ada8e43ace8da",
+      "reason": "Inspected exact technical source span: software name, workflow state, Markdown link or Python/WDL identifier/expression; it is not a person or personal identifier. Original two packet commits retained unchanged.",
+      "reviewer": "Codex Crossref integration content review 2026-11-04"
     }
   ]
 }
