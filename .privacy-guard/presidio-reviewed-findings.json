@@ -20961,6 +20961,66 @@
       "value_sha256": "3c72b39be6968ac5d4f2d13dea8d47eb667aa26dc9abe27a64aee28db075fc18",
       "reason": "inspected exact handoff span: technical product, role, workflow state, file, task or source revision label; no person or personal identifier is represented",
       "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "b20f376ec8ddd29fd36ac7658c121670df795904d6085726d8923a69e41d7144",
+      "blob_sha256": "927c1e5a820cbf70f1901c876a5ebd512bdccc2d766ad403f750e7a9efeb2cc0",
+      "entity_index": 0,
+      "start": 1066,
+      "end": 1074,
+      "value_sha256": "6e270eff2709040d84d90e8e3950f0a1af35386d2d5223233964836efecdcc95",
+      "reason": "Brisbane is the explicit schedule timezone location.",
+      "reviewer": "Codex exact source inspection 2026-11-05"
+    },
+    {
+      "identity": "b20f376ec8ddd29fd36ac7658c121670df795904d6085726d8923a69e41d7144",
+      "blob_sha256": "927c1e5a820cbf70f1901c876a5ebd512bdccc2d766ad403f750e7a9efeb2cc0",
+      "entity_index": 0,
+      "start": 2420,
+      "end": 2426,
+      "value_sha256": "031a8f0f659df890dfd53c92e45295b0f14c997185bae46e168831e403b273f7",
+      "reason": "Failed is a native flow terminal-status label.",
+      "reviewer": "Codex exact source inspection 2026-11-05"
+    },
+    {
+      "identity": "b20f376ec8ddd29fd36ac7658c121670df795904d6085726d8923a69e41d7144",
+      "blob_sha256": "927c1e5a820cbf70f1901c876a5ebd512bdccc2d766ad403f750e7a9efeb2cc0",
+      "entity_index": 0,
+      "start": 4673,
+      "end": 4701,
+      "value_sha256": "78c05b6da64a96f61fc8b953a46be7345529b09cd76fd2164c9dc7b0ed534562",
+      "reason": "This span is the Markdown repair-evidence link target.",
+      "reviewer": "Codex exact source inspection 2026-11-05"
+    },
+    {
+      "identity": "b20f376ec8ddd29fd36ac7658c121670df795904d6085726d8923a69e41d7144",
+      "blob_sha256": "927c1e5a820cbf70f1901c876a5ebd512bdccc2d766ad403f750e7a9efeb2cc0",
+      "entity_index": 0,
+      "start": 8087,
+      "end": 8093,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "RMD-05 is the retained Conductor task identifier.",
+      "reviewer": "Codex exact source inspection 2026-11-05"
+    },
+    {
+      "identity": "b20f376ec8ddd29fd36ac7658c121670df795904d6085726d8923a69e41d7144",
+      "blob_sha256": "927c1e5a820cbf70f1901c876a5ebd512bdccc2d766ad403f750e7a9efeb2cc0",
+      "entity_index": 0,
+      "start": 9417,
+      "end": 9423,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "RMD-05 is the retained Conductor task identifier.",
+      "reviewer": "Codex exact source inspection 2026-11-05"
+    },
+    {
+      "identity": "b20f376ec8ddd29fd36ac7658c121670df795904d6085726d8923a69e41d7144",
+      "blob_sha256": "927c1e5a820cbf70f1901c876a5ebd512bdccc2d766ad403f750e7a9efeb2cc0",
+      "entity_index": 0,
+      "start": 9786,
+      "end": 9792,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "RMD-05 is the retained Conductor task identifier.",
+      "reviewer": "Codex exact source inspection 2026-11-05"
     }
   ]
 }
