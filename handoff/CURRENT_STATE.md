@@ -1,3 +1,26 @@
+## Crossref natural collection-to-list follow-up — pending, 4 November 2026
+
+The 5 November 2026 03:30 Australia/Brisbane occurrence has not happened as of
+4 November 15:05 Brisbane. Its result is **pending, not verified**. PR157 merged
+the commissioned repair and workflow lessons; accepted 4 November commissioning,
+list readback and zero-change replay are reused and do not prove this future run.
+
+Native owner `01a1a0d8-8a40-7f51-b3c8-d1a7d1b04a5e` retains the exact collector,
+read-only history/list scope, authentication and private evidence. The existing
+single follow-up `verify-crossref-natural-run-once` is queued for 5 November
+03:45 Brisbane in that chat. It will establish scheduled origin, actual terminal
+collection/list-stage status and correlated receipt/values. Record its actual
+eligible batch and updates, including a valid zero-update result; do not assume
+72 updates or fresh coverage of every publication. If absent, running or
+inaccessible at the bounded read, retain the exact pending gap without polling.
+
+Integrator `01a1874d-b9d7-7e61-b198-943e93ee28ad` owns this shared handoff and
+will consume the native owner's terminal receipt. No new run, replay, provider
+request, model refresh, monitoring or schedule change is authorised. Reuse the
+existing one-time follow-up; do not create another. Native commissioning evidence:
+`docs/CROSSREF_AUTOMATIC_LIST_ACCEPTANCE_20261104.md` and native-owner checkout
+`private/ops/crossref-natural-20261104/completion.json`.
+
 ## T18 native delivery checkpoint — 4 November 2026
 
 Chat `01a1a0d8-8a40-7f51-b3c8-d1a7d1b04a5e` owns the approved T18 increment in
