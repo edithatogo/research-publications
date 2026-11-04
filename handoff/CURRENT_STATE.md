@@ -1498,3 +1498,19 @@ isolated preimage/save/readback. Private evidence stays ignored.
 ## T18 outcome reporting handoff, 3 November 2026
 
 Planning chat 01a19f3f-5187-7c23-ac14-192cb93a5a26 hands the dedicated dependency-qualification-20261103 checkout on codex/t18-outcome-delivery-20261103 to the new outcomes reporting implementation chat. Scope and next operation: [T18 tasks 02–18](../conductor/tracks/chhhs_outcomes_powerbi_20261021/plan.md#outcome-contracts-and-three-reporting-outputs). Baseline is private/ops/rims-readonly-review-20261103 in this checkout. This handoff makes no native writes or transfer of another operator’s journal. Incoming chat records its ID before implementation.
+
+
+## Later integration disposition — 4 November 2026
+
+The sole integrator has now selected the accepted publication acquisition repair
+and source-status packet for main integration on the isolated
+codex/integrate-pubmed-status-20261104 branch. Originals e2d08c85, e27a6e2b and
+07dd1798 are retained in ancestry; all six delivered files match exactly.
+The source reconciliation document preserves its earlier absent-from-main
+observations as dated history; this disposition supersedes them after PR merge.
+The accepted acquisition/register results are reused without a native rerun.
+Natural scheduled execution remains unobserved. Offline consumer work at c5821eec
+is excluded. Exporter, schedules, authentication and native objects are unchanged.
+Full offline integration passed 2,496 tests with capability skips, 446 project
+checks, contracts, Conductor/tooling and 31 Node checks. Hosted acceptance and
+actual merge identity must be read back before declaring main integration closed.

@@ -25,6 +25,13 @@ def trace_failure(actions, stage, status):
 
 
 class PubMedAcquisitionTests(unittest.TestCase):
+    def test_folder_body_evaluates_after_connector_string_coercion(self):
+        body = self.fixture()['properties']['definition']['actions']['Create_folder']['inputs']['parameters']['parameters/body']
+        self.assertIsInstance(body, str)
+        self.assertTrue(body.startswith('@string(setProperty('))
+        self.assertIn("concat('/sites/dev',outputs('Run_folder'))", body)
+        self.assertFalse(body.startswith('{'))
+
     def test_failed_or_timed_out_http_routes_preserve_outputs_and_block_success(self):
         a = self.fixture()["properties"]["definition"]["actions"]
         cases = [
