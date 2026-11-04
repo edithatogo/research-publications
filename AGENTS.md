@@ -4,6 +4,16 @@ Project-owned code uses Apache-2.0; retain the complete LICENSE and NOTICE in
 source packages. Preserve upstream terms and attribution. The code licence grants
 no redistribution rights over external documents, datasets or private evidence.
 
+## FlowAgent delivery and episodic improvement — 4 November 2026
+
+For flowagent-cli work, follow the [existing execution and learning heuristic](docs/SOLO_AGENT_WORKFLOW.md#flowagent-execution-and-episodic-learning--4-november-2026).
+Trace the actual downstream write before treating collection success as delivery.
+Keep saved configuration, commissioning, list readback, replay and natural
+scheduled execution as separate acceptance claims. Reuse unchanged receipts.
+After a useful delivery or recovered failure, fold a small evidenced improvement
+into the relevant existing runbook/skill within current edit authority; preserve
+ownership and avoid a new tracking framework or speculative universal rule.
+
 ## Serial integration — 29 October 2026
 
 Read the current integration assignment at the top of `handoff/CURRENT_STATE.md`
