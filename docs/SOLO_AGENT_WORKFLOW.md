@@ -1,5 +1,15 @@
 # Solo context and harness workflow
 
+## Browser access and authentication — 5 November 2026
+
+Use only the Codex internal browser for sign-in, reauthentication, page access,
+native UI and browser QA unless the user explicitly instructs otherwise.
+Qualified CLI/API work remains CLI-first; prevent automatic external-browser
+launches during login. Report a specific internal-browser limitation instead
+of substituting another browser. The harness baseline includes the maintained
+[repository routing skill](../.agents/skills/internal-browser-routing/SKILL.md);
+AGENTS.md preserves workload identity, guards and existing authority boundaries.
+
 ## Completion cadence — 29 October 2026
 
 Use the three exits in [current missing outcomes](CURRENT_MISSING_OUTCOMES.md#completion-scope--29-october-2026).

@@ -1,5 +1,23 @@
 # Agent instructions
 
+## Internal browser only — 5 November 2026
+
+Use the Codex internal browser for every browser-based step unless the user
+explicitly instructs otherwise. This includes tool sign-in, authentication
+renewal, consent pages, opening links, loading pages, browsing, native UI and
+browser-based QA. Do not launch or control an external browser or let a CLI
+automatically open the system browser. If the internal browser is unavailable
+or cannot complete a required step, report the exact limitation; do not silently
+substitute another browser.
+
+Preserve qualified CLI/API-first routes for non-browser operations. Browser
+authentication must retain the existing client, tenant, account, resource,
+callback, guard and single recovery owner. This rule does not grant consent,
+change credentials, bypass controls or authorise sends, schedules, pushes,
+merges or deployment. Older Chrome/BrowserOS examples are historical where they
+conflict with this direction. Read the repository skill
+[Internal browser routing](.agents/skills/internal-browser-routing/SKILL.md).
+
 Project-owned code uses Apache-2.0; retain the complete LICENSE and NOTICE in
 source packages. Preserve upstream terms and attribution. The code licence grants
 no redistribution rights over external documents, datasets or private evidence.
