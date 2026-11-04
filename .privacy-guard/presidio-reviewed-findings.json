@@ -17831,6 +17831,286 @@
       "value_sha256": "3c72b39be6968ac5d4f2d13dea8d47eb667aa26dc9abe27a64aee28db075fc18",
       "reason": "inspected exact handoff span: technical product, role, workflow state, file, task or source revision label; no person or personal identifier is represented",
       "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "8ecd0f367af673765b564ff54187ce10a489ab5433662fa1b175be6d98667d36",
+      "blob_sha256": "d682b78c22fd7334959f4d4946d05c6576e770a75a033feed4806f9ed7c42169",
+      "entity_index": 0,
+      "start": 2,
+      "end": 6,
+      "value_sha256": "cdf4e79a95e14a003a4daa5e32acae81548accff60d9f2589ba209c22a6b515c",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "8ecd0f367af673765b564ff54187ce10a489ab5433662fa1b175be6d98667d36",
+      "blob_sha256": "d682b78c22fd7334959f4d4946d05c6576e770a75a033feed4806f9ed7c42169",
+      "entity_index": 0,
+      "start": 1018,
+      "end": 1023,
+      "value_sha256": "7e8cd2056da73a7fefb6cd91f4e5d199d08d9058c517b9a2476b1b520324d674",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "8ecd0f367af673765b564ff54187ce10a489ab5433662fa1b175be6d98667d36",
+      "blob_sha256": "d682b78c22fd7334959f4d4946d05c6576e770a75a033feed4806f9ed7c42169",
+      "entity_index": 0,
+      "start": 1125,
+      "end": 1143,
+      "value_sha256": "76bf5af932efe627857d073f2169b981954de645b6b1ed87ac792e4f20be7556",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "8ecd0f367af673765b564ff54187ce10a489ab5433662fa1b175be6d98667d36",
+      "blob_sha256": "d682b78c22fd7334959f4d4946d05c6576e770a75a033feed4806f9ed7c42169",
+      "entity_index": 0,
+      "start": 1837,
+      "end": 1841,
+      "value_sha256": "329b67df439a016cb65169b0fa6308b2dbb5dfa9ea8186972aba189cbd241396",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "8ecd0f367af673765b564ff54187ce10a489ab5433662fa1b175be6d98667d36",
+      "blob_sha256": "d682b78c22fd7334959f4d4946d05c6576e770a75a033feed4806f9ed7c42169",
+      "entity_index": 0,
+      "start": 3624,
+      "end": 3632,
+      "value_sha256": "e8ce5dcaf408935ff76747226d2e8bee4319a2f593c1d7a838115e56183d1f37",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "8ecd0f367af673765b564ff54187ce10a489ab5433662fa1b175be6d98667d36",
+      "blob_sha256": "d682b78c22fd7334959f4d4946d05c6576e770a75a033feed4806f9ed7c42169",
+      "entity_index": 0,
+      "start": 3961,
+      "end": 3969,
+      "value_sha256": "f4830a1dae2980447c716bd4b5779b7013575ef09f70ef4731457218792487b3",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "8ecd0f367af673765b564ff54187ce10a489ab5433662fa1b175be6d98667d36",
+      "blob_sha256": "d682b78c22fd7334959f4d4946d05c6576e770a75a033feed4806f9ed7c42169",
+      "entity_index": 0,
+      "start": 4211,
+      "end": 4218,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "87281442ec4bb75ad0cef72006029f8cf2ce38a011db90d5c27aca8433fc1c12",
+      "blob_sha256": "36790ba84c934a07fc3470812fec29cd5efa993f5f383c67c2e4f55ab9b1ae2f",
+      "entity_index": 0,
+      "start": 1015,
+      "end": 1020,
+      "value_sha256": "b80a37564fbb3c0753202a1f92d5da8ccfb906b244f2842bba2232cea9883abd",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "87281442ec4bb75ad0cef72006029f8cf2ce38a011db90d5c27aca8433fc1c12",
+      "blob_sha256": "36790ba84c934a07fc3470812fec29cd5efa993f5f383c67c2e4f55ab9b1ae2f",
+      "entity_index": 0,
+      "start": 1468,
+      "end": 1486,
+      "value_sha256": "4a72b8b4a79098fd81c55832ca6a43b634745bcf0d38bd55ff3f427927c06ac5",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "87281442ec4bb75ad0cef72006029f8cf2ce38a011db90d5c27aca8433fc1c12",
+      "blob_sha256": "36790ba84c934a07fc3470812fec29cd5efa993f5f383c67c2e4f55ab9b1ae2f",
+      "entity_index": 0,
+      "start": 1499,
+      "end": 1504,
+      "value_sha256": "b80a37564fbb3c0753202a1f92d5da8ccfb906b244f2842bba2232cea9883abd",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "87281442ec4bb75ad0cef72006029f8cf2ce38a011db90d5c27aca8433fc1c12",
+      "blob_sha256": "36790ba84c934a07fc3470812fec29cd5efa993f5f383c67c2e4f55ab9b1ae2f",
+      "entity_index": 0,
+      "start": 1851,
+      "end": 1869,
+      "value_sha256": "4a72b8b4a79098fd81c55832ca6a43b634745bcf0d38bd55ff3f427927c06ac5",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "87281442ec4bb75ad0cef72006029f8cf2ce38a011db90d5c27aca8433fc1c12",
+      "blob_sha256": "36790ba84c934a07fc3470812fec29cd5efa993f5f383c67c2e4f55ab9b1ae2f",
+      "entity_index": 0,
+      "start": 1878,
+      "end": 1883,
+      "value_sha256": "7c975f73751622c709ca95e4cce946a70167c4b04d8c8d8418e2619d9af498ee",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "87281442ec4bb75ad0cef72006029f8cf2ce38a011db90d5c27aca8433fc1c12",
+      "blob_sha256": "36790ba84c934a07fc3470812fec29cd5efa993f5f383c67c2e4f55ab9b1ae2f",
+      "entity_index": 0,
+      "start": 2684,
+      "end": 2691,
+      "value_sha256": "8a43b9ea9c8178490ddec7b2bfc656b527b4f977a265bd049e21b430b9d5d33c",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "87281442ec4bb75ad0cef72006029f8cf2ce38a011db90d5c27aca8433fc1c12",
+      "blob_sha256": "36790ba84c934a07fc3470812fec29cd5efa993f5f383c67c2e4f55ab9b1ae2f",
+      "entity_index": 0,
+      "start": 5126,
+      "end": 5140,
+      "value_sha256": "a18dc312dfcf72cb6ca1ddd874644053cc024876821b9fed7cdc83e7f5839983",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "87281442ec4bb75ad0cef72006029f8cf2ce38a011db90d5c27aca8433fc1c12",
+      "blob_sha256": "36790ba84c934a07fc3470812fec29cd5efa993f5f383c67c2e4f55ab9b1ae2f",
+      "entity_index": 0,
+      "start": 5298,
+      "end": 5306,
+      "value_sha256": "7fb96b315200e0f550172c8affb5c4daab77d6608f663c33d1c10b4421587b36",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "87281442ec4bb75ad0cef72006029f8cf2ce38a011db90d5c27aca8433fc1c12",
+      "blob_sha256": "36790ba84c934a07fc3470812fec29cd5efa993f5f383c67c2e4f55ab9b1ae2f",
+      "entity_index": 0,
+      "start": 5314,
+      "end": 5317,
+      "value_sha256": "cb85e44ee6086499c9fc7c012778d6d0ed8cea9256d1a1410fc7cea051488843",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "87281442ec4bb75ad0cef72006029f8cf2ce38a011db90d5c27aca8433fc1c12",
+      "blob_sha256": "36790ba84c934a07fc3470812fec29cd5efa993f5f383c67c2e4f55ab9b1ae2f",
+      "entity_index": 0,
+      "start": 5541,
+      "end": 5550,
+      "value_sha256": "b55bb2e630023c686e02344d967b978904782e6823515d31683b9aad936c4cf0",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "bfebf7677ca85bd926cd5ca894aa26faee73b1847d0169b118f77909455192cb",
+      "blob_sha256": "1af895de5652e5074b9e9a93ef4910b227f9726ab5fbdc4270cc4933244aec97",
+      "entity_index": 0,
+      "start": 2059,
+      "end": 2132,
+      "value_sha256": "5dce5d5fb1ff33d8250459247ca4142b0e94446bea47bf9a9606e3f0c5ef5c1b",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "7e9e5693f574a30ec23ad876cc613c5fa81fa11fa8cebf5450c39543ff18d6b9",
+      "blob_sha256": "8a3ad94563e1b644fcc34d7c7cc624114bc4fc625cbe54d884a7a28cf6b55e2d",
+      "entity_index": 0,
+      "start": 2284,
+      "end": 2292,
+      "value_sha256": "143b270a32602d412babf2724ec0640dda0d5a43485e5a7520b05b53fa94b303",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "7e9e5693f574a30ec23ad876cc613c5fa81fa11fa8cebf5450c39543ff18d6b9",
+      "blob_sha256": "8a3ad94563e1b644fcc34d7c7cc624114bc4fc625cbe54d884a7a28cf6b55e2d",
+      "entity_index": 0,
+      "start": 2837,
+      "end": 2844,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "0de6ef93cfc83ea20dbe180a8eb8d25a3cedf3d28e1c6fcb3558d647a9b67fc4",
+      "blob_sha256": "e6a4c4753e871311037038068200e09b9c0b87beac89134dea0e3810e8a06e0b",
+      "entity_index": 0,
+      "start": 1495,
+      "end": 1636,
+      "value_sha256": "7055e64a79a22724421f1aedae8fb0a55ba6d11f88b3bb7536893a97457a0298",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "0de6ef93cfc83ea20dbe180a8eb8d25a3cedf3d28e1c6fcb3558d647a9b67fc4",
+      "blob_sha256": "e6a4c4753e871311037038068200e09b9c0b87beac89134dea0e3810e8a06e0b",
+      "entity_index": 0,
+      "start": 1804,
+      "end": 1836,
+      "value_sha256": "3648b7fa65089690ec7cbc34d060664887c377d3ce2d086e545ff9ebfa3c1f8c",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "0de6ef93cfc83ea20dbe180a8eb8d25a3cedf3d28e1c6fcb3558d647a9b67fc4",
+      "blob_sha256": "e6a4c4753e871311037038068200e09b9c0b87beac89134dea0e3810e8a06e0b",
+      "entity_index": 0,
+      "start": 1853,
+      "end": 1895,
+      "value_sha256": "3b8bb53ef01626dfda0d8f0c7ef534ced9aff028abffd1cc8ea367fec13587b7",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "0de6ef93cfc83ea20dbe180a8eb8d25a3cedf3d28e1c6fcb3558d647a9b67fc4",
+      "blob_sha256": "e6a4c4753e871311037038068200e09b9c0b87beac89134dea0e3810e8a06e0b",
+      "entity_index": 0,
+      "start": 1976,
+      "end": 1981,
+      "value_sha256": "b80a37564fbb3c0753202a1f92d5da8ccfb906b244f2842bba2232cea9883abd",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "0de6ef93cfc83ea20dbe180a8eb8d25a3cedf3d28e1c6fcb3558d647a9b67fc4",
+      "blob_sha256": "e6a4c4753e871311037038068200e09b9c0b87beac89134dea0e3810e8a06e0b",
+      "entity_index": 0,
+      "start": 4137,
+      "end": 4151,
+      "value_sha256": "0d1b0c2ffa184db20bd47121f212f29b6105e0aae40f8e57cf1220bb21e97b00",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "0de6ef93cfc83ea20dbe180a8eb8d25a3cedf3d28e1c6fcb3558d647a9b67fc4",
+      "blob_sha256": "e6a4c4753e871311037038068200e09b9c0b87beac89134dea0e3810e8a06e0b",
+      "entity_index": 0,
+      "start": 5549,
+      "end": 5590,
+      "value_sha256": "2559888c403a3918d9f3f6201f600ef24c79f574eb3292727fd90c4626e93540",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "0de6ef93cfc83ea20dbe180a8eb8d25a3cedf3d28e1c6fcb3558d647a9b67fc4",
+      "blob_sha256": "e6a4c4753e871311037038068200e09b9c0b87beac89134dea0e3810e8a06e0b",
+      "entity_index": 0,
+      "start": 8556,
+      "end": 8561,
+      "value_sha256": "b80a37564fbb3c0753202a1f92d5da8ccfb906b244f2842bba2232cea9883abd",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
+    },
+    {
+      "identity": "55e575a5e2ba3768cbebffdc77741f1663bdfdeec4d5708a983706338d47ed52",
+      "blob_sha256": "1bfd3e818534c21d639033dc63da32023dd004e92d1cc71ef1f2cdf150709cee",
+      "entity_index": 0,
+      "start": 2857,
+      "end": 2864,
+      "value_sha256": "ddfab433dcbe2c0bb4434eeffdcc1e4134634ba842daa25ace89f942136b61a3",
+      "reason": "Inspected exact span: source code symbol, technical workflow state, metadata field or documentation label; no personal identifier.",
+      "reviewer": "Codex integration review 2026-11-04"
     }
   ]
 }
