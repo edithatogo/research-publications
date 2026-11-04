@@ -17,6 +17,11 @@ directory. Project, contract, Conductor/tooling and 31 Node checks passed. Retai
 the first failure log under private/ops/dora-integration-20261104/checks.log.
 DataCite batch work stays on its separate offline branch; NIH remains deferred.
 
+DoRA integration CLOSED: PR159 merge `2736af39` retains both original source
+commits. Exact-main checks passed: quality 41780957557, security 41780957498,
+privacy 41780957556. Native acceptance is reused; future natural execution
+remains unobserved. No additional native action or schedule/exporter change.
+
 ## Crossref natural collection-to-list follow-up — pending, 4 November 2026
 
 The 5 November 2026 03:30 Australia/Brisbane occurrence has not happened as of
