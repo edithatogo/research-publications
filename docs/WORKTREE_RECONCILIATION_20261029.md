@@ -283,3 +283,10 @@ as a separate SSD artifact; RMD-05 remains pending 1 December. Native scope is
 empty. Existing native objects, private evidence and authentication owners retain
 their assignments. Next operation: scoped documentation/harness validation and
 local handoff only; no push, merge or deployment is authorised by this update.
+
+Browser-policy clarification in the same owned lane: generic CLI-first guidance
+creates no exception for the covered sign-in/page/web/QA operations. Exceptions
+require an explicit operation-specific user instruction or higher-priority
+requirement; genuine conflicts must be reported. Local build/test/file work is
+separate. Existing native/shared-document owners and the no-push/no-merge boundary
+remain unchanged.

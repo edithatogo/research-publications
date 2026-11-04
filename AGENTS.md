@@ -10,8 +10,13 @@ automatically open the system browser. If the internal browser is unavailable
 or cannot complete a required step, report the exact limitation; do not silently
 substitute another browser.
 
-Preserve qualified CLI/API-first routes for non-browser operations. Browser
-authentication must retain the existing client, tenant, account, resource,
+Local build, test and file operations are separate from the covered browser
+operations. A generic CLI-first preference is not an exception for sign-in,
+reauthentication, opening/loading pages, web interactions or browser QA. Any
+exception requires an explicit user instruction actually covering that operation
+or a higher-priority requirement. Report genuine instruction conflicts instead
+of silently broadening an exception. Authentication must retain the existing
+client, tenant, account, resource,
 callback, guard and single recovery owner. This rule does not grant consent,
 change credentials, bypass controls or authorise sends, schedules, pushes,
 merges or deployment. Older Chrome/BrowserOS examples are historical where they
