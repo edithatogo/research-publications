@@ -1,3 +1,22 @@
+## DoRA admission and metadata source integration — 4 November 2026
+
+Integrator owns `codex/integrate-dora-repairs-20261104` in the existing accumulated
+integration checkout. Exact accepted source commits `7e75d020` (admission) and
+`3ef121d3` (changed metadata) are preserved in ancestry, with their six scoped
+files unchanged. Native owner acceptance is reused from the two DoRA acceptance
+records. Four metadata rows changed; all protected fields and 1,654 other rows
+were preserved, and replay preserved all 1,658 rows including versions/ETags.
+Collector deployment retained its daily 04:30 Brisbane schedule; temporary
+qualification was restored and Stopped. Future natural full-chain occurrence is
+not yet observed. Exporter/schedules unchanged; no native runs were repeated.
+
+Ten affected tests passed. Full offline harness ran 2,491 tests with 22 capability
+skips; five path-boundary cases failed because the initial SSD temporary directory
+was inside private/ops. All five passed with an external-to-repository SSD temporary
+directory. Project, contract, Conductor/tooling and 31 Node checks passed. Retain
+the first failure log under private/ops/dora-integration-20261104/checks.log.
+DataCite batch work stays on its separate offline branch; NIH remains deferred.
+
 ## Crossref natural collection-to-list follow-up — pending, 4 November 2026
 
 The 5 November 2026 03:30 Australia/Brisbane occurrence has not happened as of
