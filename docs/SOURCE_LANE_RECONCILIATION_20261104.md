@@ -48,3 +48,24 @@ slot remains subject to the actual saved schedule, currently documented as
 This document is a scoped source reconciliation packet. Shared track/index and
 handoff promotion remain with the existing sole integrator; this lane does not
 rewrite another writer's checkout or native state.
+
+## Later offline-consumer checkpoint
+
+The separate consumer branch now reaches c5821eec. It adds complete supplied
+inventory binding and direct captured-inventory consumption to the existing
+persistence adapter, with an existing FlowAgent input-capture handoff. These are
+offline capabilities; the complete current native inventory remains missing.
+Its recorded guarded Toolkit read stopped on expired authentication, which is
+not a permission denial or an empty-inventory result. No new recovery or native
+capture was performed for this reconciliation.
+
+The retained input packet accounts for 122 DataCite revisions, 36 QGIP grant
+candidates and 73,731 ARDC reconciled identities. Target binding, protected
+inventories, provenance and selected review/admission remain the consumer lane's
+next gates. The detailed instructions remain in that owner's
+handoff/FLOWAGENT_SOURCE_ASSERTIONS_CAPTURE.md; do not create a competing capture.
+
+Current reconciliation verification fetched main, confirmed all three workflows
+on closeout main d790ace3 succeeded, verified PubMed e2d08c85 is outside main,
+and passed 446 local project checks. This document remains a scoped committed
+packet outside main until the sole integrator promotes it.
