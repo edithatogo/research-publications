@@ -22,6 +22,41 @@ next independent essential outcome. Deferred roadmap work is not the default
 substitute for a blocked essential. Finish with one scoped commit/handoff; do not
 add a tracking framework, recurring coordinator or extra acceptance document.
 
+## FlowAgent execution and episodic learning — 4 November 2026
+
+Default sequence: **trace → compare → qualify changed records → write once →
+read back → replay → state the exact acceptance boundary**. Adapt this heuristic
+to the requested outcome; do not repeat unchanged qualification just to follow
+all steps. Use the existing `microsoft-cli-operations` skill's FlowAgent guidance
+when available, including its session, transport and response-size constraints.
+
+Start with the retained receipt and actual collector/consumer definitions.
+Identify the source generation, real list-write action and field scope before
+repairing anything. Counts, archive completion, exported fields and a Started
+schedule do not establish downstream updates. Decide which evidence the user
+requires: commissioning is not natural scheduled execution; a zero-change replay
+is valid only for a demonstrated complete candidate set. Missing-only admission
+does not prove changed-metadata freshness.
+
+Prefer the accepted archive and changed/missing records over a new provider sweep.
+Retain completed downloads and immutable receipts through interruptions; resume
+only unverified inputs. Verify affected fields and protected preimages, then a
+bounded replay. Report source coverage, actual changes and remaining natural-run
+or freshness gates separately. No new recurring monitor is implied.
+
+At a meaningful delivery, recovered failure or repeated friction, take a brief
+episodic learning pass: **what happened → what the evidence supports → what small
+change would improve the next attempt**. Reuse that task's receipt and Git diff;
+do not create a separate learning ledger. Distinguish observed behavior from a
+hypothesis, record version/target limits where relevant, and fold a useful lesson
+into the existing runbook or relevant skill within current edit authority.
+Consolidate or replace obsolete advice rather than accumulating rules. If there
+is no reusable lesson, make no documentation change. Check the heuristic against
+the next relevant episode and revise it if evidence contradicts it. Learning does
+not expand native permissions, bypass required checks or authorize memory edits.
+
+Observed episode: [Crossref collection-to-list acceptance](CROSSREF_AUTOMATIC_LIST_ACCEPTANCE_20261104.md).
+
 ## Separate-chat execution — 13 October 2026
 
 Use the [parallel delivery assignments](PLATFORM_COMPLETION_PLAN.md#parallel-delivery-assignments--13-october-2026).
