@@ -126,11 +126,11 @@ def build(site, archive_parent, reference, collector, policy):
                 "Accept": "application/json;odata=nometadata",
                 "Content-Type": "application/json;odata=nometadata",
             },
-            "parameters/body": {
-                "ServerRelativeUrl": "@concat('"
+            "parameters/body": (
+                "@string(setProperty(json('{}'),'ServerRelativeUrl',concat('"
                 + urlsplit(site).path
-                + "',outputs('Run_folder'))"
-            },
+                + "',outputs('Run_folder'))))"
+            ),
         },
         "Run_folder",
     )
