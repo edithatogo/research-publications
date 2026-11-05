@@ -306,3 +306,17 @@ change or archive write occurred; last good evidence remains retained privately.
 Next operation is source integration after required checks. Native documentation
 and post-save runtime limits are retained in the MRFF record, without transferring
 other objects or authentication ownership. RMD-05 remains pending 1 December.
+
+## MRFF supported-access continuation — later 5 November 2026
+
+The definition-guard source lane closed through PR164. The later direct source
+access assignment is owned by the same chat in the same standard worktree,
+branch `codex/mrff-supported-browser-access-20261105`. Source scope is the
+existing MRFF downloader's offline browser-retention option, its focused tests,
+the existing MRFF record and these scoped Conductor/ownership updates. Browser
+scope is the official MRFF page, its three normal Excel downloads, copyright
+page and one bounded official-catalogue search. Native write scope is empty.
+The real original files and observations stay ignored; no accepted archive,
+selector, flow, schedule, authentication profile or other owner's work changed.
+Next operation is source qualification/integration; unattended cloud access
+and native consumer promotion remain separate, explicitly unaccepted exits.

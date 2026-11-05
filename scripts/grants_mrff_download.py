@@ -4,6 +4,9 @@ The command discovers the three current Excel resources from the Department's
 public dataset page, validates the official host and XLSX payloads, and stores
 the originals with private source and copyright evidence. It does not admit
 award rows or funded-rate summaries to opportunity intake.
+
+Use --from-browser to seal already downloaded internal-browser originals without
+making a machine request, transferring cookies or changing native flow state.
 """
 from __future__ import annotations
 
@@ -166,17 +169,107 @@ def acquire(destination: Path) -> dict[str, object]:
     return receipt
 
 
+def retain_browser_capture(observation_path: Path, destination: Path) -> dict[str, object]:
+    """Validate and retain an observed browser download; never fetch or admit data.
+
+    The observation is supporting operator evidence, not a cryptographic proof
+    of browser origin or authority for unattended/native admission.
+    """
+    from scripts.capture_official_workbooks import discover, verify_workbook
+
+    destination = destination.resolve()
+    if not destination.is_relative_to(PRIVATE_OPS.resolve()) or destination.exists():
+        raise ValueError('A new private/ops destination is required')
+    observation_path = observation_path.resolve()
+    observation = json.loads(observation_path.read_text(encoding='utf-8'))
+    if (observation.get('sourcePage') != SOURCE_PAGE
+            or observation.get('rightsPage') != COPYRIGHT_PAGE
+            or observation.get('sourceStatus') != 200
+            or observation.get('rightsStatus') != 200
+            or observation.get('internalUnalteredUseObserved') is not True
+            or not str(observation.get('route', '')).startswith('Codex internal browser')):
+        raise ValueError('Exact successful internal-browser source/copyright evidence required')
+    observed = dt.datetime.fromisoformat(observation['observedAt'].replace('Z', '+00:00'))
+    if observed.utcoffset() is None:
+        raise ValueError('Timezone-aware browser observation required')
+    page = (observation_path.parent / 'source-page.html').read_bytes()
+    copyright_body = (observation_path.parent / 'copyright-page.html').read_bytes()
+    if max(len(page), len(copyright_body)) > MAX_PAGE_BYTES:
+        raise ValueError('Browser page exceeds source byte cap')
+    urls = discover(page, SOURCE_PAGE)
+    downloads = observation.get('downloads', [])
+    if (len(urls) != 3 or len(downloads) != 3
+            or sorted(item['url'] for item in downloads) != urls
+            or sorted(item['href'] for item in observation['linksBefore']) != urls
+            or sorted(observation['linksAfter']) != urls):
+        raise ValueError('Complete stable browser workbook inventory required')
+    text = _Text(); text.feed(page.decode('utf-8'))
+    page_text = ' '.join(' '.join(text.parts).split())
+    as_of = re.search(r'correct as at\s+(\d{1,2}\s+[A-Za-z]+\s+\d{4})', page_text, re.I)
+    published = re.search(r'Publication date:\s*(\d{1,2}\s+[A-Za-z]+\s+\d{4})', page_text, re.I)
+    rights = _Text(); rights.feed(copyright_body.decode('utf-8'))
+    rights_text = ' '.join(' '.join(rights.parts).split()).casefold()
+    if (not as_of or not published or 'unaltered form' not in rights_text
+            or 'internal use within your organisation' not in rights_text):
+        raise ValueError('Publisher dates and unaltered internal-use evidence required')
+    resources, payloads = [], []
+    for item in sorted(downloads, key=lambda row: row['url']):
+        path = Path(item['path'])
+        if path.is_symlink() or not path.is_file() or not 0 < path.stat().st_size <= MAX_WORKBOOK_BYTES:
+            raise ValueError('Complete bounded browser download required')
+        before = path.stat()
+        raw = path.read_bytes()
+        after = path.stat()
+        if (before.st_size, before.st_mtime_ns) != (after.st_size, after.st_mtime_ns):
+            raise ValueError('Download changed during verification')
+        proof = verify_workbook(raw)
+        name = _filename(item['url'])
+        payloads.append((name, raw))
+        resources.append({'resource_kind': _resource_kind('', item['url']),
+                          'url': item['url'], 'path': name, **proof,
+                          'response_headers_observed': False})
+    if {row['resource_kind'] for row in resources} != {
+            'awarded_grant_recipients', 'awarded_grants_summary', 'opportunity_funded_rates_summary'}:
+        raise ValueError('Exactly three distinct official resource roles required')
+    receipt = {'status': 'verified_internal_browser_capture', 'complete': True,
+               'observed_at': observation['observedAt'], 'source_page': SOURCE_PAGE,
+               'source_page_sha256': hashlib.sha256(page).hexdigest(),
+               'source_page_representation': observation.get('sourceRepresentation'),
+               'copyright_page_sha256': hashlib.sha256(copyright_body).hexdigest(),
+               'data_correct_as_at': as_of.group(1), 'publication_date': published.group(1),
+               'resources': resources, 'manual_browser_only': True,
+               'machine_source_requests': 0, 'flow_invocations': 0,
+               'native_admission': False, 'opportunity_admission': False,
+               'external_redistribution': False,
+               'copyright_basis': 'Publisher notice retained; unaltered internal use only',
+               'origin_limit': 'Retained browser/session evidence required; JSON alone is not origin proof',
+               'cloud_http_access_verified': False, 'last_good_selector_changed': False}
+    destination.mkdir(parents=True, mode=0o700)
+    for name, raw in [('source-page.html', page), ('copyright-page.html', copyright_body),
+                      ('browser-observation.json', observation_path.read_bytes()), *payloads]:
+        with (destination / name).open('xb') as stream:
+            stream.write(raw)
+        (destination / name).chmod(0o600)
+        if (destination / name).read_bytes() != raw:
+            raise ValueError('Retained browser bytes differ')
+    with (destination / 'receipt.json').open('x', encoding='utf-8') as stream:
+        json.dump(receipt, stream, indent=2)
+        stream.write('\n')
+    (destination / 'receipt.json').chmod(0o600)
+    return receipt
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--fetch", action="store_true", help="explicitly fetch the official MRFF Excel resources")
+    transport = parser.add_mutually_exclusive_group(required=True)
+    transport.add_argument("--fetch", action="store_true", help="legacy explicit HTTP route; not browser access proof")
+    transport.add_argument("--from-browser", type=Path, help="seal existing internal-browser observation/downloads without fetching")
     parser.add_argument("--out", type=Path, help="new directory under ignored private/ops/ for raw files and receipt")
     args = parser.parse_args()
-    if not args.fetch:
-        parser.error("live downloads require explicit --fetch")
     if args.out is None:
         parser.error("--out is required for private evidence retention")
     try:
-        receipt = acquire(args.out)
+        receipt = retain_browser_capture(args.from_browser, args.out) if args.from_browser else acquire(args.out)
     except (OSError, ValueError, urllib.error.URLError, zipfile.BadZipFile, KeyError):
         parser.error("MRFF acquisition failed; inspect the official page, host, licence, and workbook response")
     print(json.dumps({

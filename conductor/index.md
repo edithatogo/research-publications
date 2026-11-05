@@ -1,3 +1,11 @@
+## MRFF supported browser access — later 5 November 2026
+
+[Manual browser capture and operator route](../docs/MRFF_SOURCE_ACCESS_GUARD_20261105.md#supported-browser-source-access--later-5-november-2026)
+verify all three official originals, 1,442,747 bytes, in a separate private
+generation. The existing tool can seal browser evidence without fetching.
+Cloud HTTP access/native promotion remain unqualified; no flow or schedule
+changed and the prior archive remains intact. RMD-05 remains pending 1 December.
+
 ## MRFF source-access classification — 5 November 2026
 
 [Saved repair and remaining access boundary](../docs/MRFF_SOURCE_ACCESS_GUARD_20261105.md)
