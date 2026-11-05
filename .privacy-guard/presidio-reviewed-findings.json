@@ -21021,6 +21021,596 @@
       "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
       "reason": "RMD-05 is the retained Conductor task identifier.",
       "reviewer": "Codex exact source inspection 2026-11-05"
+    },
+    {
+      "identity": "c96aa98f4dde26304ad72758d49fb08af78c6e87f78702921cddb411da666351",
+      "blob_sha256": "237988853fd1cc6508b03856efa34b86e720f9be287a0abd3b6edda2b6abb7da",
+      "entity_index": 0,
+      "start": 0,
+      "end": 12,
+      "value_sha256": "b47abfdad4a3408c9b6e74893459d6c3de562a4f5f19c96a43eb44817eb58b9a",
+      "reason": "Conventional commit subject scope for the browser documentation change.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "3f03b3e3c5d96223f34a2c5930d015027d8bf1eac3723cb04cc299db63a26741",
+      "blob_sha256": "b97bcf8bb332428444f0e74ad75e5bf1b8ed3f4096ba9756aab11b2e2a799c1d",
+      "entity_index": 0,
+      "start": 634,
+      "end": 651,
+      "value_sha256": "51d617fbce79c3ae164a244db6855d235bbe6cecb5d4b63556f8d0cc506da330",
+      "reason": "Instruction phrase describing a command-line preference, not a person.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "3f03b3e3c5d96223f34a2c5930d015027d8bf1eac3723cb04cc299db63a26741",
+      "blob_sha256": "b97bcf8bb332428444f0e74ad75e5bf1b8ed3f4096ba9756aab11b2e2a799c1d",
+      "entity_index": 0,
+      "start": 1377,
+      "end": 1385,
+      "value_sha256": "e7cf3ef4f17c3999a94f2c6f612e8a888e5b1026878e4e19398b23bd38ec221a",
+      "reason": "Authentication challenge category in the browser-routing instructions.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "71f75d572f58b3fc58e367b748b9ec09da85b5643b7f1f52d670f69ca4e15c6c",
+      "blob_sha256": "2a92b44616648734ff6c6dfdb5991fb5b867b1a368604d29ed983e5ab206e278",
+      "entity_index": 0,
+      "start": 1234,
+      "end": 1246,
+      "value_sha256": "f04818fe8990a9231afcfd2fc146029e463eeb6d6ca75b8544a9303800f42887",
+      "reason": "Historical browser product reference in the routing policy.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "71f75d572f58b3fc58e367b748b9ec09da85b5643b7f1f52d670f69ca4e15c6c",
+      "blob_sha256": "2a92b44616648734ff6c6dfdb5991fb5b867b1a368604d29ed983e5ab206e278",
+      "entity_index": 0,
+      "start": 3058,
+      "end": 3061,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Source-control product name in repository instructions.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "71f75d572f58b3fc58e367b748b9ec09da85b5643b7f1f52d670f69ca4e15c6c",
+      "blob_sha256": "2a92b44616648734ff6c6dfdb5991fb5b867b1a368604d29ed983e5ab206e278",
+      "entity_index": 0,
+      "start": 3952,
+      "end": 3958,
+      "value_sha256": "18885f27b5af9012df19e496460f9294d5ab76128824c6f993787004f6d9a7db",
+      "reason": "Programming language/runtime name in repository instructions.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "71f75d572f58b3fc58e367b748b9ec09da85b5643b7f1f52d670f69ca4e15c6c",
+      "blob_sha256": "2a92b44616648734ff6c6dfdb5991fb5b867b1a368604d29ed983e5ab206e278",
+      "entity_index": 0,
+      "start": 5896,
+      "end": 5899,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Source-control product name in repository instructions.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "71f75d572f58b3fc58e367b748b9ec09da85b5643b7f1f52d670f69ca4e15c6c",
+      "blob_sha256": "2a92b44616648734ff6c6dfdb5991fb5b867b1a368604d29ed983e5ab206e278",
+      "entity_index": 0,
+      "start": 7803,
+      "end": 7817,
+      "value_sha256": "cd3f48e6708df1437c26ca23a9f8dd032e140ba27e0e0aab4506387179896ba8",
+      "reason": "Microsoft product/platform name.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "71f75d572f58b3fc58e367b748b9ec09da85b5643b7f1f52d670f69ca4e15c6c",
+      "blob_sha256": "2a92b44616648734ff6c6dfdb5991fb5b867b1a368604d29ed983e5ab206e278",
+      "entity_index": 0,
+      "start": 7978,
+      "end": 7982,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Data serialization format name.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "71f75d572f58b3fc58e367b748b9ec09da85b5643b7f1f52d670f69ca4e15c6c",
+      "blob_sha256": "2a92b44616648734ff6c6dfdb5991fb5b867b1a368604d29ed983e5ab206e278",
+      "entity_index": 0,
+      "start": 8323,
+      "end": 8335,
+      "value_sha256": "1189677a72378a342aa96062e640f1176f67f112fdbede887f7934a82fba1db4",
+      "reason": "Tool/platform protocol label in existing instructions.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "71f75d572f58b3fc58e367b748b9ec09da85b5643b7f1f52d670f69ca4e15c6c",
+      "blob_sha256": "2a92b44616648734ff6c6dfdb5991fb5b867b1a368604d29ed983e5ab206e278",
+      "entity_index": 0,
+      "start": 9443,
+      "end": 9459,
+      "value_sha256": "2609e3d4a41a2ad9465d24e7728a5e236de6d39332ec9aa8ad9b4f5114a6210f",
+      "reason": "Named platform validation tool.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "4528ce9f0e5b081cf3ba0063b26b2c10675e946cb4de796cbbc505405863db0f",
+      "blob_sha256": "2d1b739cfff11fdd28dde76b67d449a92d991326e825ec8ce79bbf24c05d3510",
+      "entity_index": 0,
+      "start": 2,
+      "end": 6,
+      "value_sha256": "a6db480094950db2d05e772472f669cdee70c7fe22fe107a3cb97891424bbd19",
+      "reason": "Workflow document title adjective.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "4528ce9f0e5b081cf3ba0063b26b2c10675e946cb4de796cbbc505405863db0f",
+      "blob_sha256": "2d1b739cfff11fdd28dde76b67d449a92d991326e825ec8ce79bbf24c05d3510",
+      "entity_index": 0,
+      "start": 293,
+      "end": 310,
+      "value_sha256": "51d617fbce79c3ae164a244db6855d235bbe6cecb5d4b63556f8d0cc506da330",
+      "reason": "Instruction phrase describing a command-line preference, not a person.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "4528ce9f0e5b081cf3ba0063b26b2c10675e946cb4de796cbbc505405863db0f",
+      "blob_sha256": "2d1b739cfff11fdd28dde76b67d449a92d991326e825ec8ce79bbf24c05d3510",
+      "entity_index": 0,
+      "start": 3942,
+      "end": 3945,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Source-control product name in repository instructions.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "4528ce9f0e5b081cf3ba0063b26b2c10675e946cb4de796cbbc505405863db0f",
+      "blob_sha256": "2d1b739cfff11fdd28dde76b67d449a92d991326e825ec8ce79bbf24c05d3510",
+      "entity_index": 0,
+      "start": 4188,
+      "end": 4199,
+      "value_sha256": "2f36130ebccc5c754f9c67d800a2b199cb14840a7894623ec33f66de36953e1c",
+      "reason": "Imperative verb in existing workflow instructions.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "4528ce9f0e5b081cf3ba0063b26b2c10675e946cb4de796cbbc505405863db0f",
+      "blob_sha256": "2d1b739cfff11fdd28dde76b67d449a92d991326e825ec8ce79bbf24c05d3510",
+      "entity_index": 0,
+      "start": 4560,
+      "end": 4618,
+      "value_sha256": "8c19d235a3f4f413018a053ffcfbf174adf16a610ab245319ddb9a0dfc34330f",
+      "reason": "Markdown link label and technical acceptance-document filename.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "4528ce9f0e5b081cf3ba0063b26b2c10675e946cb4de796cbbc505405863db0f",
+      "blob_sha256": "2d1b739cfff11fdd28dde76b67d449a92d991326e825ec8ce79bbf24c05d3510",
+      "entity_index": 0,
+      "start": 7355,
+      "end": 7367,
+      "value_sha256": "8dbbf329582f4a56e4602d18608f334ab1d5eee781d519b94f8ff96626c7e973",
+      "reason": "Source-control operation description.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "4528ce9f0e5b081cf3ba0063b26b2c10675e946cb4de796cbbc505405863db0f",
+      "blob_sha256": "2d1b739cfff11fdd28dde76b67d449a92d991326e825ec8ce79bbf24c05d3510",
+      "entity_index": 0,
+      "start": 8101,
+      "end": 8109,
+      "value_sha256": "1eb1eb2ce7e9a36b428e4b0b5a5579974c4f3fb96fd76a44daacebb3c3ae2074",
+      "reason": "Runtime command-line tool label.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "373c91406129eeff4060d8ce03d6c0598ec5ae9e65151e12e25fa1663c92e558",
+      "blob_sha256": "ca20581aebd544976d65bd8fed83c9406b9e70eece2d56eb49eacf521bfdd003",
+      "entity_index": 0,
+      "start": 2,
+      "end": 10,
+      "value_sha256": "c893ba3003855aabfee294479c03266349e97e1675ade569b480e56ce4c2bde3",
+      "reason": "Git checkout/worktree term in document heading.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "373c91406129eeff4060d8ce03d6c0598ec5ae9e65151e12e25fa1663c92e558",
+      "blob_sha256": "ca20581aebd544976d65bd8fed83c9406b9e70eece2d56eb49eacf521bfdd003",
+      "entity_index": 0,
+      "start": 1553,
+      "end": 1556,
+      "value_sha256": "3c72b39be6968ac5d4f2d13dea8d47eb667aa26dc9abe27a64aee28db075fc18",
+      "reason": "Conductor track identifier.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "373c91406129eeff4060d8ce03d6c0598ec5ae9e65151e12e25fa1663c92e558",
+      "blob_sha256": "ca20581aebd544976d65bd8fed83c9406b9e70eece2d56eb49eacf521bfdd003",
+      "entity_index": 0,
+      "start": 7703,
+      "end": 7707,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "JavaScript runtime name.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "373c91406129eeff4060d8ce03d6c0598ec5ae9e65151e12e25fa1663c92e558",
+      "blob_sha256": "ca20581aebd544976d65bd8fed83c9406b9e70eece2d56eb49eacf521bfdd003",
+      "entity_index": 0,
+      "start": 8537,
+      "end": 8549,
+      "value_sha256": "0e426b787b369c23b17ae4dc5ba599691ae87a70f99fa8a5ccf8aed579a6c08d",
+      "reason": "Source-control verification phrase.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "373c91406129eeff4060d8ce03d6c0598ec5ae9e65151e12e25fa1663c92e558",
+      "blob_sha256": "ca20581aebd544976d65bd8fed83c9406b9e70eece2d56eb49eacf521bfdd003",
+      "entity_index": 0,
+      "start": 14185,
+      "end": 14194,
+      "value_sha256": "ef6a2b3e1b43d345199efa061eea5ff5815ac1aa25efa9efc3f82d716d818111",
+      "reason": "Imperative verb in existing work-disposition rows.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "373c91406129eeff4060d8ce03d6c0598ec5ae9e65151e12e25fa1663c92e558",
+      "blob_sha256": "ca20581aebd544976d65bd8fed83c9406b9e70eece2d56eb49eacf521bfdd003",
+      "entity_index": 0,
+      "start": 14765,
+      "end": 14774,
+      "value_sha256": "ef6a2b3e1b43d345199efa061eea5ff5815ac1aa25efa9efc3f82d716d818111",
+      "reason": "Imperative verb in existing work-disposition rows.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "373c91406129eeff4060d8ce03d6c0598ec5ae9e65151e12e25fa1663c92e558",
+      "blob_sha256": "ca20581aebd544976d65bd8fed83c9406b9e70eece2d56eb49eacf521bfdd003",
+      "entity_index": 0,
+      "start": 15345,
+      "end": 15354,
+      "value_sha256": "ef6a2b3e1b43d345199efa061eea5ff5815ac1aa25efa9efc3f82d716d818111",
+      "reason": "Imperative verb in existing work-disposition rows.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "373c91406129eeff4060d8ce03d6c0598ec5ae9e65151e12e25fa1663c92e558",
+      "blob_sha256": "ca20581aebd544976d65bd8fed83c9406b9e70eece2d56eb49eacf521bfdd003",
+      "entity_index": 0,
+      "start": 15767,
+      "end": 15776,
+      "value_sha256": "ef6a2b3e1b43d345199efa061eea5ff5815ac1aa25efa9efc3f82d716d818111",
+      "reason": "Imperative verb in existing work-disposition rows.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "373c91406129eeff4060d8ce03d6c0598ec5ae9e65151e12e25fa1663c92e558",
+      "blob_sha256": "ca20581aebd544976d65bd8fed83c9406b9e70eece2d56eb49eacf521bfdd003",
+      "entity_index": 0,
+      "start": 16130,
+      "end": 16138,
+      "value_sha256": "143b270a32602d412babf2724ec0640dda0d5a43485e5a7520b05b53fa94b303",
+      "reason": "Task-status/imperative word in existing work-disposition text.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "373c91406129eeff4060d8ce03d6c0598ec5ae9e65151e12e25fa1663c92e558",
+      "blob_sha256": "ca20581aebd544976d65bd8fed83c9406b9e70eece2d56eb49eacf521bfdd003",
+      "entity_index": 0,
+      "start": 17344,
+      "end": 17359,
+      "value_sha256": "80d9b9db271e3aaab45db874dba5534b54444bfdc25f7275ec79aa22d8eda5c8",
+      "reason": "Data schema terminology.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "373c91406129eeff4060d8ce03d6c0598ec5ae9e65151e12e25fa1663c92e558",
+      "blob_sha256": "ca20581aebd544976d65bd8fed83c9406b9e70eece2d56eb49eacf521bfdd003",
+      "entity_index": 0,
+      "start": 19542,
+      "end": 19549,
+      "value_sha256": "c693279643b8cd5d248172d9c22cb7cf4ed163a3c98c8a3f69c2717edd3eacb7",
+      "reason": "Repository licence filename.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "373c91406129eeff4060d8ce03d6c0598ec5ae9e65151e12e25fa1663c92e558",
+      "blob_sha256": "ca20581aebd544976d65bd8fed83c9406b9e70eece2d56eb49eacf521bfdd003",
+      "entity_index": 0,
+      "start": 20406,
+      "end": 20415,
+      "value_sha256": "cea912710ef8f4dbd26224c6d9ef44974abc5c106bc2a0c137afc0c87b7a1a4a",
+      "reason": "Recorded source-path count in historical integration evidence.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "373c91406129eeff4060d8ce03d6c0598ec5ae9e65151e12e25fa1663c92e558",
+      "blob_sha256": "ca20581aebd544976d65bd8fed83c9406b9e70eece2d56eb49eacf521bfdd003",
+      "entity_index": 0,
+      "start": 21181,
+      "end": 21186,
+      "value_sha256": "5fcc7923b5b6d2dc15623e2693f80f3b800dfc4b10203a7952d864b5ebb18bae",
+      "reason": "Pull-request identifier for the completed monthly documentation integration.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "b015b951290ed06770e05ea8615f069111f3f85a76d15828299534b5cc2cdc43",
+      "blob_sha256": "bfc149d4838085f94f29e52e5a106a8fbf5c7d9b7afcfb1ae2731f813e470f67",
+      "entity_index": 0,
+      "start": 559,
+      "end": 567,
+      "value_sha256": "25dfadc00885f419e6eac7acd03a12962b2796bcfacd7988929bf890c48b7c38",
+      "reason": "Imperative verb in the browser-policy preservation instruction.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "b015b951290ed06770e05ea8615f069111f3f85a76d15828299534b5cc2cdc43",
+      "blob_sha256": "bfc149d4838085f94f29e52e5a106a8fbf5c7d9b7afcfb1ae2731f813e470f67",
+      "entity_index": 0,
+      "start": 884,
+      "end": 896,
+      "value_sha256": "f04818fe8990a9231afcfd2fc146029e463eeb6d6ca75b8544a9303800f42887",
+      "reason": "Historical browser product reference in the routing policy.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "b015b951290ed06770e05ea8615f069111f3f85a76d15828299534b5cc2cdc43",
+      "blob_sha256": "bfc149d4838085f94f29e52e5a106a8fbf5c7d9b7afcfb1ae2731f813e470f67",
+      "entity_index": 0,
+      "start": 2708,
+      "end": 2711,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Source-control product name in repository instructions.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "b015b951290ed06770e05ea8615f069111f3f85a76d15828299534b5cc2cdc43",
+      "blob_sha256": "bfc149d4838085f94f29e52e5a106a8fbf5c7d9b7afcfb1ae2731f813e470f67",
+      "entity_index": 0,
+      "start": 3602,
+      "end": 3608,
+      "value_sha256": "18885f27b5af9012df19e496460f9294d5ab76128824c6f993787004f6d9a7db",
+      "reason": "Programming language/runtime name in repository instructions.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "b015b951290ed06770e05ea8615f069111f3f85a76d15828299534b5cc2cdc43",
+      "blob_sha256": "bfc149d4838085f94f29e52e5a106a8fbf5c7d9b7afcfb1ae2731f813e470f67",
+      "entity_index": 0,
+      "start": 5546,
+      "end": 5549,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Source-control product name in repository instructions.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "b015b951290ed06770e05ea8615f069111f3f85a76d15828299534b5cc2cdc43",
+      "blob_sha256": "bfc149d4838085f94f29e52e5a106a8fbf5c7d9b7afcfb1ae2731f813e470f67",
+      "entity_index": 0,
+      "start": 7453,
+      "end": 7467,
+      "value_sha256": "cd3f48e6708df1437c26ca23a9f8dd032e140ba27e0e0aab4506387179896ba8",
+      "reason": "Microsoft product/platform name.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "b015b951290ed06770e05ea8615f069111f3f85a76d15828299534b5cc2cdc43",
+      "blob_sha256": "bfc149d4838085f94f29e52e5a106a8fbf5c7d9b7afcfb1ae2731f813e470f67",
+      "entity_index": 0,
+      "start": 7628,
+      "end": 7632,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Data serialization format name.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "b015b951290ed06770e05ea8615f069111f3f85a76d15828299534b5cc2cdc43",
+      "blob_sha256": "bfc149d4838085f94f29e52e5a106a8fbf5c7d9b7afcfb1ae2731f813e470f67",
+      "entity_index": 0,
+      "start": 7973,
+      "end": 7985,
+      "value_sha256": "1189677a72378a342aa96062e640f1176f67f112fdbede887f7934a82fba1db4",
+      "reason": "Tool/platform protocol label in existing instructions.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "b015b951290ed06770e05ea8615f069111f3f85a76d15828299534b5cc2cdc43",
+      "blob_sha256": "bfc149d4838085f94f29e52e5a106a8fbf5c7d9b7afcfb1ae2731f813e470f67",
+      "entity_index": 0,
+      "start": 9093,
+      "end": 9109,
+      "value_sha256": "2609e3d4a41a2ad9465d24e7728a5e236de6d39332ec9aa8ad9b4f5114a6210f",
+      "reason": "Named platform validation tool.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "80b95e57a7446e29a7113184a7d63869745a808a8f61023ee25db1f1e4cc4ff6",
+      "blob_sha256": "912757e534105922a094b4359daa8929e380163eab16c556a554a395e2aefe34",
+      "entity_index": 0,
+      "start": 2,
+      "end": 6,
+      "value_sha256": "a6db480094950db2d05e772472f669cdee70c7fe22fe107a3cb97891424bbd19",
+      "reason": "Workflow document title adjective.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "80b95e57a7446e29a7113184a7d63869745a808a8f61023ee25db1f1e4cc4ff6",
+      "blob_sha256": "912757e534105922a094b4359daa8929e380163eab16c556a554a395e2aefe34",
+      "entity_index": 0,
+      "start": 3701,
+      "end": 3704,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Source-control product name in repository instructions.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "80b95e57a7446e29a7113184a7d63869745a808a8f61023ee25db1f1e4cc4ff6",
+      "blob_sha256": "912757e534105922a094b4359daa8929e380163eab16c556a554a395e2aefe34",
+      "entity_index": 0,
+      "start": 3947,
+      "end": 3958,
+      "value_sha256": "2f36130ebccc5c754f9c67d800a2b199cb14840a7894623ec33f66de36953e1c",
+      "reason": "Imperative verb in existing workflow instructions.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "80b95e57a7446e29a7113184a7d63869745a808a8f61023ee25db1f1e4cc4ff6",
+      "blob_sha256": "912757e534105922a094b4359daa8929e380163eab16c556a554a395e2aefe34",
+      "entity_index": 0,
+      "start": 4319,
+      "end": 4377,
+      "value_sha256": "8c19d235a3f4f413018a053ffcfbf174adf16a610ab245319ddb9a0dfc34330f",
+      "reason": "Markdown link label and technical acceptance-document filename.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "80b95e57a7446e29a7113184a7d63869745a808a8f61023ee25db1f1e4cc4ff6",
+      "blob_sha256": "912757e534105922a094b4359daa8929e380163eab16c556a554a395e2aefe34",
+      "entity_index": 0,
+      "start": 7114,
+      "end": 7126,
+      "value_sha256": "8dbbf329582f4a56e4602d18608f334ab1d5eee781d519b94f8ff96626c7e973",
+      "reason": "Source-control operation description.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "80b95e57a7446e29a7113184a7d63869745a808a8f61023ee25db1f1e4cc4ff6",
+      "blob_sha256": "912757e534105922a094b4359daa8929e380163eab16c556a554a395e2aefe34",
+      "entity_index": 0,
+      "start": 7860,
+      "end": 7868,
+      "value_sha256": "1eb1eb2ce7e9a36b428e4b0b5a5579974c4f3fb96fd76a44daacebb3c3ae2074",
+      "reason": "Runtime command-line tool label.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "301e4cd1103249ac77c1f5a5d8305d58c918abbd2f127d277cb35aab31188920",
+      "blob_sha256": "7e133fd6a27cf91cf24d8110fb326ed4bc6dc6721e9fb37dd0f9782ec3b11052",
+      "entity_index": 0,
+      "start": 2,
+      "end": 10,
+      "value_sha256": "c893ba3003855aabfee294479c03266349e97e1675ade569b480e56ce4c2bde3",
+      "reason": "Git checkout/worktree term in document heading.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "301e4cd1103249ac77c1f5a5d8305d58c918abbd2f127d277cb35aab31188920",
+      "blob_sha256": "7e133fd6a27cf91cf24d8110fb326ed4bc6dc6721e9fb37dd0f9782ec3b11052",
+      "entity_index": 0,
+      "start": 1553,
+      "end": 1556,
+      "value_sha256": "3c72b39be6968ac5d4f2d13dea8d47eb667aa26dc9abe27a64aee28db075fc18",
+      "reason": "Conductor track identifier.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "301e4cd1103249ac77c1f5a5d8305d58c918abbd2f127d277cb35aab31188920",
+      "blob_sha256": "7e133fd6a27cf91cf24d8110fb326ed4bc6dc6721e9fb37dd0f9782ec3b11052",
+      "entity_index": 0,
+      "start": 7703,
+      "end": 7707,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "JavaScript runtime name.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "301e4cd1103249ac77c1f5a5d8305d58c918abbd2f127d277cb35aab31188920",
+      "blob_sha256": "7e133fd6a27cf91cf24d8110fb326ed4bc6dc6721e9fb37dd0f9782ec3b11052",
+      "entity_index": 0,
+      "start": 8537,
+      "end": 8549,
+      "value_sha256": "0e426b787b369c23b17ae4dc5ba599691ae87a70f99fa8a5ccf8aed579a6c08d",
+      "reason": "Source-control verification phrase.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "301e4cd1103249ac77c1f5a5d8305d58c918abbd2f127d277cb35aab31188920",
+      "blob_sha256": "7e133fd6a27cf91cf24d8110fb326ed4bc6dc6721e9fb37dd0f9782ec3b11052",
+      "entity_index": 0,
+      "start": 14185,
+      "end": 14194,
+      "value_sha256": "ef6a2b3e1b43d345199efa061eea5ff5815ac1aa25efa9efc3f82d716d818111",
+      "reason": "Imperative verb in existing work-disposition rows.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "301e4cd1103249ac77c1f5a5d8305d58c918abbd2f127d277cb35aab31188920",
+      "blob_sha256": "7e133fd6a27cf91cf24d8110fb326ed4bc6dc6721e9fb37dd0f9782ec3b11052",
+      "entity_index": 0,
+      "start": 14765,
+      "end": 14774,
+      "value_sha256": "ef6a2b3e1b43d345199efa061eea5ff5815ac1aa25efa9efc3f82d716d818111",
+      "reason": "Imperative verb in existing work-disposition rows.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "301e4cd1103249ac77c1f5a5d8305d58c918abbd2f127d277cb35aab31188920",
+      "blob_sha256": "7e133fd6a27cf91cf24d8110fb326ed4bc6dc6721e9fb37dd0f9782ec3b11052",
+      "entity_index": 0,
+      "start": 15345,
+      "end": 15354,
+      "value_sha256": "ef6a2b3e1b43d345199efa061eea5ff5815ac1aa25efa9efc3f82d716d818111",
+      "reason": "Imperative verb in existing work-disposition rows.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "301e4cd1103249ac77c1f5a5d8305d58c918abbd2f127d277cb35aab31188920",
+      "blob_sha256": "7e133fd6a27cf91cf24d8110fb326ed4bc6dc6721e9fb37dd0f9782ec3b11052",
+      "entity_index": 0,
+      "start": 15767,
+      "end": 15776,
+      "value_sha256": "ef6a2b3e1b43d345199efa061eea5ff5815ac1aa25efa9efc3f82d716d818111",
+      "reason": "Imperative verb in existing work-disposition rows.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "301e4cd1103249ac77c1f5a5d8305d58c918abbd2f127d277cb35aab31188920",
+      "blob_sha256": "7e133fd6a27cf91cf24d8110fb326ed4bc6dc6721e9fb37dd0f9782ec3b11052",
+      "entity_index": 0,
+      "start": 16130,
+      "end": 16138,
+      "value_sha256": "143b270a32602d412babf2724ec0640dda0d5a43485e5a7520b05b53fa94b303",
+      "reason": "Task-status/imperative word in existing work-disposition text.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "301e4cd1103249ac77c1f5a5d8305d58c918abbd2f127d277cb35aab31188920",
+      "blob_sha256": "7e133fd6a27cf91cf24d8110fb326ed4bc6dc6721e9fb37dd0f9782ec3b11052",
+      "entity_index": 0,
+      "start": 17344,
+      "end": 17359,
+      "value_sha256": "80d9b9db271e3aaab45db874dba5534b54444bfdc25f7275ec79aa22d8eda5c8",
+      "reason": "Data schema terminology.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "301e4cd1103249ac77c1f5a5d8305d58c918abbd2f127d277cb35aab31188920",
+      "blob_sha256": "7e133fd6a27cf91cf24d8110fb326ed4bc6dc6721e9fb37dd0f9782ec3b11052",
+      "entity_index": 0,
+      "start": 19542,
+      "end": 19549,
+      "value_sha256": "c693279643b8cd5d248172d9c22cb7cf4ed163a3c98c8a3f69c2717edd3eacb7",
+      "reason": "Repository licence filename.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "301e4cd1103249ac77c1f5a5d8305d58c918abbd2f127d277cb35aab31188920",
+      "blob_sha256": "7e133fd6a27cf91cf24d8110fb326ed4bc6dc6721e9fb37dd0f9782ec3b11052",
+      "entity_index": 0,
+      "start": 20406,
+      "end": 20415,
+      "value_sha256": "cea912710ef8f4dbd26224c6d9ef44974abc5c106bc2a0c137afc0c87b7a1a4a",
+      "reason": "Recorded source-path count in historical integration evidence.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "301e4cd1103249ac77c1f5a5d8305d58c918abbd2f127d277cb35aab31188920",
+      "blob_sha256": "7e133fd6a27cf91cf24d8110fb326ed4bc6dc6721e9fb37dd0f9782ec3b11052",
+      "entity_index": 0,
+      "start": 21181,
+      "end": 21186,
+      "value_sha256": "5fcc7923b5b6d2dc15623e2693f80f3b800dfc4b10203a7952d864b5ebb18bae",
+      "reason": "Pull-request identifier for the completed monthly documentation integration.",
+      "reviewer": "Codex exact technical span inspection 2026-11-05"
     }
   ]
 }
