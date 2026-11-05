@@ -270,3 +270,23 @@ provider/workbook source/test paths:435 exact,219 reviewed amendments,136 scoped
 dependencies,127 private evidence,55 archives,11 tooling,59 requirement documents
 and1,344 further-review paths. Four new feed/protocol source/test paths are new
 implementation, not original-inventory dispositions. Hosted PR69 gates remain next.
+
+## Internal-browser instruction persistence — 5 November 2026
+
+Chat 01a1a569-bccc-7181-93bf-010e7dfdadde owns only AGENTS.md, the harness
+baseline configuration, the repository internal-browser-routing skill, the
+solo-workflow browser paragraph and this additive ownership entry on branch
+codex/internal-browser-policy-20261105 in standard Git worktree
+/Volumes/PortableSSD/GitHub/RIMS/integrate-pmf-readback-20261105. The earlier
+monthly integration is closed on main through PR162. The flow audit is complete
+as a separate SSD artifact; RMD-05 remains pending 1 December. Native scope is
+empty. Existing native objects, private evidence and authentication owners retain
+their assignments. Next operation: scoped documentation/harness validation and
+local handoff only; no push, merge or deployment is authorised by this update.
+
+Browser-policy clarification in the same owned lane: generic CLI-first guidance
+creates no exception for the covered sign-in/page/web/QA operations. Exceptions
+require an explicit operation-specific user instruction or higher-priority
+requirement; genuine conflicts must be reported. Local build/test/file work is
+separate. Existing native/shared-document owners and the no-push/no-merge boundary
+remain unchanged.

@@ -2,6 +2,7 @@
   "schema_version": 1,
   "baseline": [
     "AGENTS.md",
+    ".agents/skills/internal-browser-routing/SKILL.md",
     "conductor/index.md",
     "handoff/POWERBI_PLUGIN_START_HERE.md",
     "handoff/CURRENT_STATE.md",
