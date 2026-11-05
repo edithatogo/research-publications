@@ -50,6 +50,13 @@ all 446 project checks and web-first contract validation pass. The earlier
 interrupted invocation produced no terminal suite result; the resumed complete
 invocation supplies this evidence.
 
+The non-executing flow preflight passes on an authoring view and reports the
+existing connection Connected. Direct validation of service readback initially
+rejects its engine-injected authentication fields. The validation-only view
+omits those 11 unchanged generated parameter references, also present in the
+preimage; persisted definition/authentication fields were not changed. This
+normalization is not a second save, runtime test or permission grant.
+
 **Post-save runtime and successful unattended source access remain unverified.**
 No native execution was submitted. A future unchanged natural occurrence can
 establish actual runtime behavior. If the provider again serves a challenge,

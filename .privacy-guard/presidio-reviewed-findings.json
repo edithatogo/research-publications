@@ -21611,6 +21611,376 @@
       "value_sha256": "5fcc7923b5b6d2dc15623e2693f80f3b800dfc4b10203a7952d864b5ebb18bae",
       "reason": "Pull-request identifier for the completed monthly documentation integration.",
       "reviewer": "Codex exact technical span inspection 2026-11-05"
+    },
+    {
+      "identity": "09a614b3a8462b28b8303b8caa1b6784b401685fc628a25f3e36e5d6d7828d3e",
+      "blob_sha256": "570ac8cc2652eecd55f7846d4faedc990a571f1617d72886abd1fbafe2d66c3b",
+      "entity_index": 0,
+      "start": 3591,
+      "end": 3597,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "Conductor monthly qualification task identifier, not a person.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "09a614b3a8462b28b8303b8caa1b6784b401685fc628a25f3e36e5d6d7828d3e",
+      "blob_sha256": "570ac8cc2652eecd55f7846d4faedc990a571f1617d72886abd1fbafe2d66c3b",
+      "entity_index": 0,
+      "start": 6672,
+      "end": 6679,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Native flow-state label in existing acceptance records.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "09a614b3a8462b28b8303b8caa1b6784b401685fc628a25f3e36e5d6d7828d3e",
+      "blob_sha256": "570ac8cc2652eecd55f7846d4faedc990a571f1617d72886abd1fbafe2d66c3b",
+      "entity_index": 0,
+      "start": 7801,
+      "end": 7808,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Native flow-state label in existing acceptance records.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "935edd133eeb357131b98d7622dab5997f97971c29c21100a870b8c8a4c95aaa",
+      "blob_sha256": "015ac002d5cb1b6d4f728f0b7a04ee47bd4c861a1307240dc7dd1c7ccb93bfee",
+      "entity_index": 0,
+      "start": 773,
+      "end": 780,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Native flow-state label in existing acceptance records.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "935edd133eeb357131b98d7622dab5997f97971c29c21100a870b8c8a4c95aaa",
+      "blob_sha256": "015ac002d5cb1b6d4f728f0b7a04ee47bd4c861a1307240dc7dd1c7ccb93bfee",
+      "entity_index": 0,
+      "start": 908,
+      "end": 912,
+      "value_sha256": "cdf4e79a95e14a003a4daa5e32acae81548accff60d9f2589ba209c22a6b515c",
+      "reason": "Research repository/source name.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "935edd133eeb357131b98d7622dab5997f97971c29c21100a870b8c8a4c95aaa",
+      "blob_sha256": "015ac002d5cb1b6d4f728f0b7a04ee47bd4c861a1307240dc7dd1c7ccb93bfee",
+      "entity_index": 0,
+      "start": 2501,
+      "end": 2554,
+      "value_sha256": "429d551a1466a8e7465834ec49ad674a903304b55f0db061a95a88c437b2d94a",
+      "reason": "Technical documentation filename in a Markdown link.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "935edd133eeb357131b98d7622dab5997f97971c29c21100a870b8c8a4c95aaa",
+      "blob_sha256": "015ac002d5cb1b6d4f728f0b7a04ee47bd4c861a1307240dc7dd1c7ccb93bfee",
+      "entity_index": 0,
+      "start": 5413,
+      "end": 5425,
+      "value_sha256": "9dc2055a4bb869238616e71d209f4ec891cd655d89ef17396f9f97eeac936fe7",
+      "reason": "Australian Government grants service name.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "935edd133eeb357131b98d7622dab5997f97971c29c21100a870b8c8a4c95aaa",
+      "blob_sha256": "015ac002d5cb1b6d4f728f0b7a04ee47bd4c861a1307240dc7dd1c7ccb93bfee",
+      "entity_index": 0,
+      "start": 6389,
+      "end": 6396,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Native flow-state label in existing acceptance records.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "935edd133eeb357131b98d7622dab5997f97971c29c21100a870b8c8a4c95aaa",
+      "blob_sha256": "015ac002d5cb1b6d4f728f0b7a04ee47bd4c861a1307240dc7dd1c7ccb93bfee",
+      "entity_index": 0,
+      "start": 9682,
+      "end": 9687,
+      "value_sha256": "b6dfe42069f32da1e58a7ce5c146e5b9a68bbcbc32775f593e12ca41818debb3",
+      "reason": "Recorded count of native flow actions in historical acceptance text.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "935edd133eeb357131b98d7622dab5997f97971c29c21100a870b8c8a4c95aaa",
+      "blob_sha256": "015ac002d5cb1b6d4f728f0b7a04ee47bd4c861a1307240dc7dd1c7ccb93bfee",
+      "entity_index": 0,
+      "start": 12395,
+      "end": 12401,
+      "value_sha256": "d640c7421da066618a39daf4266da5f61f66a9b1afcd626481b831a17064965d",
+      "reason": "Imperative verb describing workflow continuation.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "935edd133eeb357131b98d7622dab5997f97971c29c21100a870b8c8a4c95aaa",
+      "blob_sha256": "015ac002d5cb1b6d4f728f0b7a04ee47bd4c861a1307240dc7dd1c7ccb93bfee",
+      "entity_index": 0,
+      "start": 14865,
+      "end": 14900,
+      "value_sha256": "c3c5bebebffbdf156e4a1fb7b3623b23b7d16f9a9b1de99e84125b137f48b23a",
+      "reason": "Technical documentation filename.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "935edd133eeb357131b98d7622dab5997f97971c29c21100a870b8c8a4c95aaa",
+      "blob_sha256": "015ac002d5cb1b6d4f728f0b7a04ee47bd4c861a1307240dc7dd1c7ccb93bfee",
+      "entity_index": 0,
+      "start": 17887,
+      "end": 17897,
+      "value_sha256": "273a39b09219e67f0c302704ffb99c89bb6c2887a28f5ec0c95b63587499212a",
+      "reason": "Markdown link syntax and label fragment.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "935edd133eeb357131b98d7622dab5997f97971c29c21100a870b8c8a4c95aaa",
+      "blob_sha256": "015ac002d5cb1b6d4f728f0b7a04ee47bd4c861a1307240dc7dd1c7ccb93bfee",
+      "entity_index": 0,
+      "start": 18209,
+      "end": 18243,
+      "value_sha256": "e527347b819a1945b5774f08540a55f0cc5bdf0ec80153de8dcf41d261f15b06",
+      "reason": "Technical acceptance-document filename.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "935edd133eeb357131b98d7622dab5997f97971c29c21100a870b8c8a4c95aaa",
+      "blob_sha256": "015ac002d5cb1b6d4f728f0b7a04ee47bd4c861a1307240dc7dd1c7ccb93bfee",
+      "entity_index": 0,
+      "start": 18712,
+      "end": 18732,
+      "value_sha256": "257e8a889fcd7c211cba90ff9db9bb28842beb4ef504f1e10b37d3e4deb3d509",
+      "reason": "Markdown track-registry link.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "9374e8f1849e4c10aedd590c5f9cd1d44ea1d27c9472a6674819f5bb3feb9fb4",
+      "blob_sha256": "334ca001df4dd84c7f7ae4559c2cdf3e999831db3d3c96afc5454f6c631954c5",
+      "entity_index": 0,
+      "start": 2,
+      "end": 10,
+      "value_sha256": "c893ba3003855aabfee294479c03266349e97e1675ade569b480e56ce4c2bde3",
+      "reason": "Git worktree terminology in a document heading.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "9374e8f1849e4c10aedd590c5f9cd1d44ea1d27c9472a6674819f5bb3feb9fb4",
+      "blob_sha256": "334ca001df4dd84c7f7ae4559c2cdf3e999831db3d3c96afc5454f6c631954c5",
+      "entity_index": 0,
+      "start": 1553,
+      "end": 1556,
+      "value_sha256": "3c72b39be6968ac5d4f2d13dea8d47eb667aa26dc9abe27a64aee28db075fc18",
+      "reason": "Conductor track identifier.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "9374e8f1849e4c10aedd590c5f9cd1d44ea1d27c9472a6674819f5bb3feb9fb4",
+      "blob_sha256": "334ca001df4dd84c7f7ae4559c2cdf3e999831db3d3c96afc5454f6c631954c5",
+      "entity_index": 0,
+      "start": 7703,
+      "end": 7707,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "JavaScript runtime name.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "9374e8f1849e4c10aedd590c5f9cd1d44ea1d27c9472a6674819f5bb3feb9fb4",
+      "blob_sha256": "334ca001df4dd84c7f7ae4559c2cdf3e999831db3d3c96afc5454f6c631954c5",
+      "entity_index": 0,
+      "start": 8537,
+      "end": 8549,
+      "value_sha256": "0e426b787b369c23b17ae4dc5ba599691ae87a70f99fa8a5ccf8aed579a6c08d",
+      "reason": "Source-control verification phrase.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "9374e8f1849e4c10aedd590c5f9cd1d44ea1d27c9472a6674819f5bb3feb9fb4",
+      "blob_sha256": "334ca001df4dd84c7f7ae4559c2cdf3e999831db3d3c96afc5454f6c631954c5",
+      "entity_index": 0,
+      "start": 14185,
+      "end": 14194,
+      "value_sha256": "ef6a2b3e1b43d345199efa061eea5ff5815ac1aa25efa9efc3f82d716d818111",
+      "reason": "Imperative verb in integration dispositions.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "9374e8f1849e4c10aedd590c5f9cd1d44ea1d27c9472a6674819f5bb3feb9fb4",
+      "blob_sha256": "334ca001df4dd84c7f7ae4559c2cdf3e999831db3d3c96afc5454f6c631954c5",
+      "entity_index": 0,
+      "start": 14765,
+      "end": 14774,
+      "value_sha256": "ef6a2b3e1b43d345199efa061eea5ff5815ac1aa25efa9efc3f82d716d818111",
+      "reason": "Imperative verb in integration dispositions.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "9374e8f1849e4c10aedd590c5f9cd1d44ea1d27c9472a6674819f5bb3feb9fb4",
+      "blob_sha256": "334ca001df4dd84c7f7ae4559c2cdf3e999831db3d3c96afc5454f6c631954c5",
+      "entity_index": 0,
+      "start": 15345,
+      "end": 15354,
+      "value_sha256": "ef6a2b3e1b43d345199efa061eea5ff5815ac1aa25efa9efc3f82d716d818111",
+      "reason": "Imperative verb in integration dispositions.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "9374e8f1849e4c10aedd590c5f9cd1d44ea1d27c9472a6674819f5bb3feb9fb4",
+      "blob_sha256": "334ca001df4dd84c7f7ae4559c2cdf3e999831db3d3c96afc5454f6c631954c5",
+      "entity_index": 0,
+      "start": 15767,
+      "end": 15776,
+      "value_sha256": "ef6a2b3e1b43d345199efa061eea5ff5815ac1aa25efa9efc3f82d716d818111",
+      "reason": "Imperative verb in integration dispositions.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "9374e8f1849e4c10aedd590c5f9cd1d44ea1d27c9472a6674819f5bb3feb9fb4",
+      "blob_sha256": "334ca001df4dd84c7f7ae4559c2cdf3e999831db3d3c96afc5454f6c631954c5",
+      "entity_index": 0,
+      "start": 16130,
+      "end": 16138,
+      "value_sha256": "143b270a32602d412babf2724ec0640dda0d5a43485e5a7520b05b53fa94b303",
+      "reason": "Task-status word or fictional fixture text.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "9374e8f1849e4c10aedd590c5f9cd1d44ea1d27c9472a6674819f5bb3feb9fb4",
+      "blob_sha256": "334ca001df4dd84c7f7ae4559c2cdf3e999831db3d3c96afc5454f6c631954c5",
+      "entity_index": 0,
+      "start": 17344,
+      "end": 17359,
+      "value_sha256": "80d9b9db271e3aaab45db874dba5534b54444bfdc25f7275ec79aa22d8eda5c8",
+      "reason": "Schema terminology.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "9374e8f1849e4c10aedd590c5f9cd1d44ea1d27c9472a6674819f5bb3feb9fb4",
+      "blob_sha256": "334ca001df4dd84c7f7ae4559c2cdf3e999831db3d3c96afc5454f6c631954c5",
+      "entity_index": 0,
+      "start": 19542,
+      "end": 19549,
+      "value_sha256": "c693279643b8cd5d248172d9c22cb7cf4ed163a3c98c8a3f69c2717edd3eacb7",
+      "reason": "Repository licence filename.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "9374e8f1849e4c10aedd590c5f9cd1d44ea1d27c9472a6674819f5bb3feb9fb4",
+      "blob_sha256": "334ca001df4dd84c7f7ae4559c2cdf3e999831db3d3c96afc5454f6c631954c5",
+      "entity_index": 0,
+      "start": 20406,
+      "end": 20415,
+      "value_sha256": "cea912710ef8f4dbd26224c6d9ef44974abc5c106bc2a0c137afc0c87b7a1a4a",
+      "reason": "Recorded source-path count.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "9374e8f1849e4c10aedd590c5f9cd1d44ea1d27c9472a6674819f5bb3feb9fb4",
+      "blob_sha256": "334ca001df4dd84c7f7ae4559c2cdf3e999831db3d3c96afc5454f6c631954c5",
+      "entity_index": 0,
+      "start": 21181,
+      "end": 21186,
+      "value_sha256": "5fcc7923b5b6d2dc15623e2693f80f3b800dfc4b10203a7952d864b5ebb18bae",
+      "reason": "Pull-request identifier for earlier monthly integration.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "9374e8f1849e4c10aedd590c5f9cd1d44ea1d27c9472a6674819f5bb3feb9fb4",
+      "blob_sha256": "334ca001df4dd84c7f7ae4559c2cdf3e999831db3d3c96afc5454f6c631954c5",
+      "entity_index": 0,
+      "start": 22952,
+      "end": 22958,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "Conductor monthly qualification task identifier, not a person.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "c7f0de11c0bb52581415754eece3d97b411e6640a1b32715af4a57cdc5314a21",
+      "blob_sha256": "6a645e0d91d8e50fbf01c52c5d77a76d8fa178e69cee9d68b4768183a34b035a",
+      "entity_index": 0,
+      "start": 75,
+      "end": 82,
+      "value_sha256": "0641ea12c310504ce5907d790776e5733ce065649f5cc7ea52f5d025ecc9d012",
+      "reason": "Verb in a capture-module docstring.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "c7f0de11c0bb52581415754eece3d97b411e6640a1b32715af4a57cdc5314a21",
+      "blob_sha256": "6a645e0d91d8e50fbf01c52c5d77a76d8fa178e69cee9d68b4768183a34b035a",
+      "entity_index": 0,
+      "start": 1636,
+      "end": 1652,
+      "value_sha256": "9b2a1a3930403773c923f283213e0158378f339e54f9edcfc80528757bd19594",
+      "reason": "Python class and superclass names.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "c7f0de11c0bb52581415754eece3d97b411e6640a1b32715af4a57cdc5314a21",
+      "blob_sha256": "6a645e0d91d8e50fbf01c52c5d77a76d8fa178e69cee9d68b4768183a34b035a",
+      "entity_index": 0,
+      "start": 3308,
+      "end": 3336,
+      "value_sha256": "f30e97561697b10629e6011c5f4a640ef30319f81c070f51564e6b5e8662b192",
+      "reason": "Python path-validation expression.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "c7f0de11c0bb52581415754eece3d97b411e6640a1b32715af4a57cdc5314a21",
+      "blob_sha256": "6a645e0d91d8e50fbf01c52c5d77a76d8fa178e69cee9d68b4768183a34b035a",
+      "entity_index": 0,
+      "start": 6164,
+      "end": 6173,
+      "value_sha256": "b4fe3d529dee467ddcf2b21faec5869a5a0e45a7b30670dbbc23da077ca58e8a",
+      "reason": "Python built-in exception type.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "c7f0de11c0bb52581415754eece3d97b411e6640a1b32715af4a57cdc5314a21",
+      "blob_sha256": "6a645e0d91d8e50fbf01c52c5d77a76d8fa178e69cee9d68b4768183a34b035a",
+      "entity_index": 0,
+      "start": 6722,
+      "end": 6739,
+      "value_sha256": "75cd450d1aa719cfdb36cfe43b5e70ef5f83219d4583e4d1ceac90f15eac6608",
+      "reason": "Python argument-parser method.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "09c37d42a747668d0936b53a15b1ba9713d6ae280cf9191ae3fa889e021761e1",
+      "blob_sha256": "dc4125b7d6c41662c3ce27b0c68c24e1dd05e9c3add691786b0ffee7def8f24b",
+      "entity_index": 0,
+      "start": 378,
+      "end": 385,
+      "value_sha256": "8a4f463a950ed183d2969142ab7c18d5da7e6ff6f915c78291b67bf2c99e7c40",
+      "reason": "Python in-memory binary stream type.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "09c37d42a747668d0936b53a15b1ba9713d6ae280cf9191ae3fa889e021761e1",
+      "blob_sha256": "dc4125b7d6c41662c3ce27b0c68c24e1dd05e9c3add691786b0ffee7def8f24b",
+      "entity_index": 0,
+      "start": 1990,
+      "end": 1994,
+      "value_sha256": "16318be88dcd7fa865e33d8212be6c877a0d2da54ddc0a95e1c2a36d8fdaa49c",
+      "reason": "Python bytes literal containing a synthetic HTML anchor.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "09c37d42a747668d0936b53a15b1ba9713d6ae280cf9191ae3fa889e021761e1",
+      "blob_sha256": "dc4125b7d6c41662c3ce27b0c68c24e1dd05e9c3add691786b0ffee7def8f24b",
+      "entity_index": 0,
+      "start": 2080,
+      "end": 2084,
+      "value_sha256": "16318be88dcd7fa865e33d8212be6c877a0d2da54ddc0a95e1c2a36d8fdaa49c",
+      "reason": "Python bytes literal containing a synthetic HTML anchor.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "09c37d42a747668d0936b53a15b1ba9713d6ae280cf9191ae3fa889e021761e1",
+      "blob_sha256": "dc4125b7d6c41662c3ce27b0c68c24e1dd05e9c3add691786b0ffee7def8f24b",
+      "entity_index": 0,
+      "start": 5318,
+      "end": 5326,
+      "value_sha256": "143b270a32602d412babf2724ec0640dda0d5a43485e5a7520b05b53fa94b303",
+      "reason": "Task-status word or fictional fixture text.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
     }
   ]
 }
