@@ -49,3 +49,11 @@ This is native saved-definition and offline response-classification proof, not
 successful post-repair collection. Provider-supported unattended access and
 native guide/diagram publication remain open. The prior ten-group reconciliation
 is unchanged at its selected scope; RMD-05 stays pending for 1 December.
+
+The later [supported browser access](../docs/MRFF_SOURCE_ACCESS_GUARD_20261105.md#supported-browser-source-access--later-5-november-2026)
+captures all three original workbooks through ordinary internal-browser links,
+retains source/copyright evidence and verifies a separate create-only local
+generation. The offline MRFF retainer is implemented and exercised against the
+real capture. This closes manual browser retrieval only. It does not certify
+the existing cloud HTTP route, native archive promotion or unattended operation.
+Last-good selection, flows and schedules are unchanged; RMD-05 remains pending.
