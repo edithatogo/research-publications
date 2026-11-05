@@ -22741,6 +22741,156 @@
       "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
       "reason": "Conductor task identifier for the pending December observation.",
       "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "d1e768fe2f429109c818decdb1fc58e83c034eb58f1f33d49024de912c8be1f0",
+      "blob_sha256": "87155d1f787f1dc8ac084496814b2d0258ecdffef8e89a7c23544c2585e42bf1",
+      "entity_index": 0,
+      "start": 1584,
+      "end": 1602,
+      "value_sha256": "ce64a2ab17fda6c9f5f633e28919f5507164fb5187a40b3e98831cb320971ba0",
+      "reason": "inspected exact handoff span: technical product, role, workflow state, file, task or source revision label; no person or personal identifier is represented",
+      "reviewer": "Codex integration review 2026-11-05"
+    },
+    {
+      "identity": "d1e768fe2f429109c818decdb1fc58e83c034eb58f1f33d49024de912c8be1f0",
+      "blob_sha256": "87155d1f787f1dc8ac084496814b2d0258ecdffef8e89a7c23544c2585e42bf1",
+      "entity_index": 0,
+      "start": 2040,
+      "end": 2044,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "inspected exact handoff span: technical product, role, workflow state, file, task or source revision label; no person or personal identifier is represented",
+      "reviewer": "Codex integration review 2026-11-05"
+    },
+    {
+      "identity": "d1e768fe2f429109c818decdb1fc58e83c034eb58f1f33d49024de912c8be1f0",
+      "blob_sha256": "87155d1f787f1dc8ac084496814b2d0258ecdffef8e89a7c23544c2585e42bf1",
+      "entity_index": 0,
+      "start": 2549,
+      "end": 2557,
+      "value_sha256": "9eddf573cb509f1f62df633e25c052ac1b2a0ff9241e70223c77c73e834c0045",
+      "reason": "inspected exact handoff span: technical product, role, workflow state, file, task or source revision label; no person or personal identifier is represented",
+      "reviewer": "Codex integration review 2026-11-05"
+    },
+    {
+      "identity": "db42ecdd87c8dffdcd95b1665aeb246fc0ef3cb85bc47ae05202e0c7e4a45ce6",
+      "blob_sha256": "0ce452c8285159b140406a950734c576ae30ffe7e70c6cc5b2b4ee4120411856",
+      "entity_index": 0,
+      "start": 0,
+      "end": 26,
+      "value_sha256": "4e4f7ff778994b14c5589fc1ee69dd86f7e7ccd766d928b35380087c11f9270c",
+      "reason": "inspected exact handoff span: technical product, role, workflow state, file, task or source revision label; no person or personal identifier is represented",
+      "reviewer": "Codex integration review 2026-11-05"
+    },
+    {
+      "identity": "db42ecdd87c8dffdcd95b1665aeb246fc0ef3cb85bc47ae05202e0c7e4a45ce6",
+      "blob_sha256": "0ce452c8285159b140406a950734c576ae30ffe7e70c6cc5b2b4ee4120411856",
+      "entity_index": 0,
+      "start": 615,
+      "end": 629,
+      "value_sha256": "6d44c8fdcd6059bbd9b1c5fdb798c8a10b27d8a41129bd7c4a70831b500a78f9",
+      "reason": "inspected exact handoff span: technical product, role, workflow state, file, task or source revision label; no person or personal identifier is represented",
+      "reviewer": "Codex integration review 2026-11-05"
+    },
+    {
+      "identity": "db42ecdd87c8dffdcd95b1665aeb246fc0ef3cb85bc47ae05202e0c7e4a45ce6",
+      "blob_sha256": "0ce452c8285159b140406a950734c576ae30ffe7e70c6cc5b2b4ee4120411856",
+      "entity_index": 0,
+      "start": 1154,
+      "end": 1192,
+      "value_sha256": "884510aec3cdbd989e9828f28ca9b974b8b0bb2c976b33e13452094dde997289",
+      "reason": "inspected exact handoff span: technical product, role, workflow state, file, task or source revision label; no person or personal identifier is represented",
+      "reviewer": "Codex integration review 2026-11-05"
+    },
+    {
+      "identity": "db42ecdd87c8dffdcd95b1665aeb246fc0ef3cb85bc47ae05202e0c7e4a45ce6",
+      "blob_sha256": "0ce452c8285159b140406a950734c576ae30ffe7e70c6cc5b2b4ee4120411856",
+      "entity_index": 0,
+      "start": 2336,
+      "end": 2345,
+      "value_sha256": "18e3609d67a68457dd060d4e680f4b1775d858f9e50c1864e2edb3d52784032a",
+      "reason": "inspected exact handoff span: technical product, role, workflow state, file, task or source revision label; no person or personal identifier is represented",
+      "reviewer": "Codex integration review 2026-11-05"
+    },
+    {
+      "identity": "db42ecdd87c8dffdcd95b1665aeb246fc0ef3cb85bc47ae05202e0c7e4a45ce6",
+      "blob_sha256": "0ce452c8285159b140406a950734c576ae30ffe7e70c6cc5b2b4ee4120411856",
+      "entity_index": 0,
+      "start": 3593,
+      "end": 3597,
+      "value_sha256": "329b67df439a016cb65169b0fa6308b2dbb5dfa9ea8186972aba189cbd241396",
+      "reason": "inspected exact handoff span: technical product, role, workflow state, file, task or source revision label; no person or personal identifier is represented",
+      "reviewer": "Codex integration review 2026-11-05"
+    },
+    {
+      "identity": "db42ecdd87c8dffdcd95b1665aeb246fc0ef3cb85bc47ae05202e0c7e4a45ce6",
+      "blob_sha256": "0ce452c8285159b140406a950734c576ae30ffe7e70c6cc5b2b4ee4120411856",
+      "entity_index": 0,
+      "start": 5317,
+      "end": 5346,
+      "value_sha256": "6236a5d5e6080a18058f7979e09566eddaf9b1e7371d3ca79c0c28822d1d1edf",
+      "reason": "inspected exact handoff span: technical product, role, workflow state, file, task or source revision label; no person or personal identifier is represented",
+      "reviewer": "Codex integration review 2026-11-05"
+    },
+    {
+      "identity": "7db3505e877f6c1139ab42a71fb1914de5a794e481f68ddbeab0d25f40690f3b",
+      "blob_sha256": "3f9264f7416f9d9af8853025406dbe26d473d68758517c4569918c10a15641b1",
+      "entity_index": 0,
+      "start": 0,
+      "end": 26,
+      "value_sha256": "4e4f7ff778994b14c5589fc1ee69dd86f7e7ccd766d928b35380087c11f9270c",
+      "reason": "inspected exact handoff span: technical product, role, workflow state, file, task or source revision label; no person or personal identifier is represented",
+      "reviewer": "Codex integration review 2026-11-05"
+    },
+    {
+      "identity": "7db3505e877f6c1139ab42a71fb1914de5a794e481f68ddbeab0d25f40690f3b",
+      "blob_sha256": "3f9264f7416f9d9af8853025406dbe26d473d68758517c4569918c10a15641b1",
+      "entity_index": 0,
+      "start": 610,
+      "end": 675,
+      "value_sha256": "6064100173c125b9e49023445f4713a0c1ceff5fd3dd2e259574727ba1a7cad7",
+      "reason": "inspected exact handoff span: technical product, role, workflow state, file, task or source revision label; no person or personal identifier is represented",
+      "reviewer": "Codex integration review 2026-11-05"
+    },
+    {
+      "identity": "7db3505e877f6c1139ab42a71fb1914de5a794e481f68ddbeab0d25f40690f3b",
+      "blob_sha256": "3f9264f7416f9d9af8853025406dbe26d473d68758517c4569918c10a15641b1",
+      "entity_index": 0,
+      "start": 1002,
+      "end": 1014,
+      "value_sha256": "71a1dba0d01d443315db2df6c2428dba7898338aa41e915015b5649e0e88dd6c",
+      "reason": "inspected exact handoff span: technical product, role, workflow state, file, task or source revision label; no person or personal identifier is represented",
+      "reviewer": "Codex integration review 2026-11-05"
+    },
+    {
+      "identity": "7db3505e877f6c1139ab42a71fb1914de5a794e481f68ddbeab0d25f40690f3b",
+      "blob_sha256": "3f9264f7416f9d9af8853025406dbe26d473d68758517c4569918c10a15641b1",
+      "entity_index": 0,
+      "start": 1171,
+      "end": 1257,
+      "value_sha256": "8286666030b44da7c6895b2e96a96499055511570f77fce439a0a51c62a47ef2",
+      "reason": "inspected exact handoff span: technical product, role, workflow state, file, task or source revision label; no person or personal identifier is represented",
+      "reviewer": "Codex integration review 2026-11-05"
+    },
+    {
+      "identity": "7db3505e877f6c1139ab42a71fb1914de5a794e481f68ddbeab0d25f40690f3b",
+      "blob_sha256": "3f9264f7416f9d9af8853025406dbe26d473d68758517c4569918c10a15641b1",
+      "entity_index": 0,
+      "start": 4457,
+      "end": 4478,
+      "value_sha256": "ec9e52fa8bf19c4ec9cd0328622ae8791cb8087f910944c11c1cbd0bdc7ecf54",
+      "reason": "inspected exact handoff span: technical product, role, workflow state, file, task or source revision label; no person or personal identifier is represented",
+      "reviewer": "Codex integration review 2026-11-05"
+    },
+    {
+      "identity": "7db3505e877f6c1139ab42a71fb1914de5a794e481f68ddbeab0d25f40690f3b",
+      "blob_sha256": "3f9264f7416f9d9af8853025406dbe26d473d68758517c4569918c10a15641b1",
+      "entity_index": 0,
+      "start": 4479,
+      "end": 4551,
+      "value_sha256": "f46f584093a95f55157825c5684ca3c5bc52c536013ed0d2a17e8b8a103a2078",
+      "reason": "inspected exact handoff span: technical product, role, workflow state, file, task or source revision label; no person or personal identifier is represented",
+      "reviewer": "Codex integration review 2026-11-05"
     }
   ]
 }
