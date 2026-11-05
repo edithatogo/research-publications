@@ -34,6 +34,14 @@ SOURCES = {
 }
 MAX_FILES = 100
 MAX_TOTAL_BYTES = 256_000_000
+SOURCE_CHALLENGE_MARKERS = ('/_sec/verify?provider=interstitial', 'triggerinterstitialchallenge')
+
+
+def reject_source_challenge(text):
+    """An HTTP-200 verification interstitial is not a publication inventory."""
+    if any(marker in text.lower() for marker in SOURCE_CHALLENGE_MARKERS):
+        raise ValueError('SOURCE_ACCESS_BLOCKED: official source returned a browser verification page; '
+                         'preserve the last good archive and use an authorised access route')
 
 
 class Links(HTMLParser):
@@ -47,8 +55,10 @@ class Links(HTMLParser):
 
 
 def discover(raw, page_url):
+    text = raw.decode('utf-8-sig')
+    reject_source_challenge(text)
     parser = Links()
-    parser.feed(raw.decode('utf-8-sig'))
+    parser.feed(text)
     parser.close()
     selected = set()
     for link in parser.links:

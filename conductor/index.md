@@ -1,3 +1,11 @@
+## MRFF source-access classification — 5 November 2026
+
+[Saved repair and remaining access boundary](../docs/MRFF_SOURCE_ACCESS_GUARD_20261105.md)
+distinguish the HTTP-200 verification page from an empty workbook inventory.
+Two scoped native guards and exact definition/state/trigger readback are verified;
+no collector run or schedule change occurred. Successful unattended acquisition
+and native documentation parity remain unverified. RMD-05 remains pending 1 December.
+
 ## DoRA activity-register acceptance — 3 November 2026
 
 [Current accepted-scope reconciliation](dora-activity-acceptance-20261103.md) corrects the stale activity-writer backlog. The27October explicit SP-N10 closure covers the listed cases at diagnostic/behavioural scope; current original graph and Stopped state match. Unobserved original races/raw connector types remain accepted limitations. No new run or mutation was needed.
