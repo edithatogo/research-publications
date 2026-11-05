@@ -236,3 +236,11 @@ Current acceptance boundary: [publication platform acceptance](../docs/PUBLICATI
 runtime objective, reusing PR9/current-main evidence. Attached helper-host terminal
 handover and final audit remain explicit. Existing unfinished E01 goal is preserved;
 no separate E10 goal is armed. [Registry](tracks.md).
+
+## MRFF unattended access — 5 November 2026
+
+[Current source-access blocker](../docs/MRFF_SOURCE_ACCESS_GUARD_20261105.md#unattended-source-access-investigation--5-november-2026)
+is confirmed by one ordinary machine request and unchanged native readback.
+No complete supported unattended replacement is qualified. An unsent publisher
+request records the required access/interface evidence. Prior archives and
+schedules remain intact; RMD-05 stays pending for 1 December.
