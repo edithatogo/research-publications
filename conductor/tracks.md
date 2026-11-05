@@ -254,3 +254,7 @@ All lanes will converge to the same verified main before the next implementation
 round; current read-only recommendations must account for sibling work on main.
 
 - [x] [T18 outcome contracts and three reporting outputs](tracks/chhhs_outcomes_powerbi_20261021/plan.md#outcome-contracts-and-three-reporting-outputs) — Approved delivery increment closed after working-report keyboard and facility drillthrough acceptance.
+
+## Five-area roadmap amendment — 6 November 2026
+
+Use [the five-area delivery amendment](five-area-plan-20261106.md) and its linked roadmap/contract for the latest subject naming, CHHHS study registry, trial discovery, CERIF and restricted-API planning. Existing task IDs, evidence, owners and accepted work persist. This amendment does not authorise native dashboard changes or new source integrations.

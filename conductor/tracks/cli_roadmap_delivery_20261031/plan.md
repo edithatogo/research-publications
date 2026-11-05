@@ -288,3 +288,7 @@ NIH expansion, first-time admission and additional chain work are deferred;
 there is no near-term NIH task. Existing source helpers, data/configuration and
 accepted evidence remain preserved. Reconsider only on a later explicit selection,
 after the GrantConnect priority; no operation is authorised by this roadmap entry.
+
+## Five-area amendment — 6 November 2026
+
+The [current delivery amendment](../../five-area-plan-20261106.md) organises remaining work into Research Outputs, People & Collaborations, Projects & Studies, Funding, and Organisations & Affiliations. Reuse delivered slices and existing source/register identities. F03–F08 add scoped planning for CERIF mapping/conformance, a CHHHS study-register view, trial discovery, PPG evidence links and restricted-API access assessment. Implementation breadth awaits user answers; native dashboard work remains separate under F09/E04/T15. No archived scope or deferred NIH work is reactivated.

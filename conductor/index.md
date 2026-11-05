@@ -244,3 +244,7 @@ is confirmed by one ordinary machine request and unchanged native readback.
 No complete supported unattended replacement is qualified. An unsent publisher
 request records the required access/interface evidence. Prior archives and
 schedules remain intact; RMD-05 stays pending for 1 December.
+
+## Five-area roadmap amendment — 6 November 2026
+
+Use [the five-area delivery amendment](five-area-plan-20261106.md) and its linked roadmap/contract for the latest subject naming, CHHHS study registry, trial discovery, CERIF and restricted-API planning. Existing task IDs, evidence, owners and accepted work persist. This amendment does not authorise native dashboard changes or new source integrations.

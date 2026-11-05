@@ -1,0 +1,29 @@
+# Five-area delivery amendment — 6 November 2026
+
+Owner: chat 01a1ae13-4661-7103-9481-d07a93ce1710. Source-only writing lane: codex/rims-five-area-roadmap-20261106, managed worktree /Users/doughnut/.codex/worktrees/rims-five-area-roadmap/chhhs-research-publications. Scope: roadmap, crosswalk/contract and bounded planning additions. No native object ownership transferred. Original dirty checkout and other writers preserved. Earlier dashboard inventory answer is superseded by the later 3 November 12-page receipt; no fresh page inventory claimed.
+
+Authoritative user-facing scope: [five-area roadmap](../docs/RIMS_FIVE_AREA_ROADMAP.md). Detailed existing backlog/receipts remain authoritative for completion. These tasks are amendments to existing homes, not five new tracks.
+
+- [x] F01: Organise Research Outputs, People & Collaborations, Projects & Studies, Funding, Organisations & Affiliations; retain prior task IDs and acceptance.
+- [x] F02: Record logical medallion/current storage boundaries and draft CERIF crosswalk/conformance contract.
+- [ ] F03 (R1.5/T11): Pin CERIF specification/vocabulary and map included fields and typed relationships; produce machine-readable contract, tests and scoped conformance evidence. Download is not conformance.
+- [ ] F04 (T11-H03/H04/R5.5): Confirm CHHHS study scope, review existing DoRA/Studies view suitability and deliver one complete bounded study-register view with provenance and explicit coverage.
+- [ ] F05 (T11/R5.5): Confirm explorer users/search scope and deliver trial discovery using existing registry data first; keep candidate discovery separate from confirmed local participation.
+- [ ] F06 (R1.5/R5.5, PPG owner): Register CERIF as a technical external reference using existing PPG publication/edition/capture contracts, then map NCTGF requirements/version and evidence links; no compliance inference.
+- [ ] F07 (G02/G05/R5.7): Extend existing source catalogues with exact-operation cost/agreement/rights/renewal assessments and free alternatives. Draft requests only if selected; no sends/purchases/contracts.
+- [ ] F08 (R1.5/R1.6/G06): Use existing people/organisation collections for qualified identifier and dated affiliation crosswalks required by F04–F06.
+- [ ] F09 (E04/T15): After data contracts/selected admissions, implement native navigation/names/views in an isolated reviewed increment, with fresh recovery/rendering evidence. This lane performs no native changes.
+
+Next operation: incorporate user boundary answers; complete source capture and prepare PPG registration packet against current schema. Existing PPG owner retains native register/authentication scope. No cross-chat instruction or native mutation has been sent. Pending decisions do not block source-only roadmap drafting.
+
+Checkpoint: managed worktree based on origin/main 85a960c3. CERIF HTML timed out; exact-commit official entity XML captured privately with SHA-256 manifest and draft PPG publication/edition/capture candidate. Candidate is not business-validated, issuer-onboarded or native-registered. PPG native registration remains blocked on the current owner's qualified route; no PPG files or objects changed. Required project validation:446 checks pass; web-first contract passes. Full unittest result recorded separately after completion.
+
+Final local verification: repo-local Python3.15.1 confirmed; unittest discovery passes2504 tests with22 capability skips, project validation446/446, web-first validation and changed-document link/XML/whitespace checks pass. First run's missing private/ops directory was created in the isolated worktree and the extra overview heading moved below its fixed module-heading level; final run is authoritative. This is source/documentation evidence only. Boundary answers remain pending; changes are prepared locally, not merged or natively published.
+
+## Confirmed boundary and local delivery — 6 November 2026
+
+User selects dependency-ready local code, all clinical studies with trials as a subset, both external discovery and CHHHS-associated views, RIMS identities linked to PPG-held evidence/standards, and assessment plus unsent API-access drafts. This supersedes pending-question wording above. Current owned paths additionally include scripts/study_explorer.py, tests/test_study_explorer.py, docs/STUDY_EXPLORER.md, docs/RESTRICTED_API_REQUESTS_UNSENT.md, the existing FUTURE_SOURCE_ENRICHMENT assessment section and contracts/cerif-profile.json. No native/authentication scope acquired.
+
+F05 local retained-record explorer is implemented using existing CT projection and ZIP validation; online discovery, other registry/DoRA adapters and live reader acceptance remain open. F07 assessment and unsent drafts are prepared; entitlement/price/permission responses and provider-specific adoption remain open. F03 has a machine-readable entity crosswalk draft; field/relationship schema, semantic and exchange qualification remain open. F04 CHHHS register is still incomplete: caller-supplied reviewed associations are supported, but no real DoRA source slice has been admitted by this tool. F06 PPG registration remains with its existing owner. Next: review this scoped commit, consume genuine authorised study/association input, and qualify the existing DoRA projection adapter without copying contact or clinical evidence into RIMS.
+
+Local implementation verification:18 affected explorer/source/archive tests pass,446 project checks pass, web-first validation passes, CERIF target IDs reconcile against the pinned original XML, and changed-file whitespace/local links pass. The existing full2504-test baseline from the preceding documentation checkpoint is retained; this source increment uses focused tests. No live inputs, native changes, new dependencies or external requests were introduced by the explorer. Native and clinical acceptance remain pending.

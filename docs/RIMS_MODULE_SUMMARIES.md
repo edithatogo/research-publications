@@ -241,3 +241,7 @@ The current remote branch is source-only. Current-user native
 report/model/list/flow acceptance and manual readback remain separate gates and
 must be recorded in ignored private receipts. Schedule activation, sharing and
 outbound delivery are future extensions.
+
+### Five-area naming — 6 November 2026
+
+The [current roadmap](RIMS_FIVE_AREA_ROADMAP.md) organises the product as Research Outputs, People & Collaborations, Projects & Studies, Funding, and Organisations & Affiliations. Earlier four-area descriptions above are historical. Logical bronze/silver/gold uses existing storage; no physical lakehouse or platinum tier is established. Native presentation changes remain separate.
