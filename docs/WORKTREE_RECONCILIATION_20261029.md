@@ -290,3 +290,19 @@ require an explicit operation-specific user instruction or higher-priority
 requirement; genuine conflicts must be reported. Local build/test/file work is
 separate. Existing native/shared-document owners and the no-push/no-merge boundary
 remain unchanged.
+
+## MRFF source-access repair ownership — 5 November 2026
+
+The browser-policy lane closed through PR163. Under the later direct repair
+assignment, chat `01a1a569-bccc-7181-93bf-010e7dfdadde` now owns the MRFF
+capture-helper classification, pure candidate builder, their focused tests,
+the dated MRFF repair record and scoped Conductor links on branch
+`codex/mrff-discovery-repair-20261105` in standard worktree
+`/Volumes/PortableSSD/GitHub/RIMS/integrate-pmf-readback-20261105`.
+One preview-bound save changed only the existing collector's two page guards
+and two parser dependencies. Independent definition/connection/state/trigger
+readback and unchanged recent history pass. No flow invocation, replay, schedule
+change or archive write occurred; last good evidence remains retained privately.
+Next operation is source integration after required checks. Native documentation
+and post-save runtime limits are retained in the MRFF record, without transferring
+other objects or authentication ownership. RMD-05 remains pending 1 December.

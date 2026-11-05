@@ -71,6 +71,33 @@ class WorkbookCaptureTests(unittest.TestCase):
             opener.assert_not_called()
             self.assertFalse(output.exists())
 
+    def test_http_200_challenge_is_not_an_empty_or_valid_inventory(self):
+        for marker in source.SOURCE_CHALLENGE_MARKERS:
+            for links in (b'', self.page()):
+                with self.subTest(marker=marker, links=bool(links)):
+                    raw = b'<script>' + marker.upper().encode() + b'</script>' + links
+                    with self.assertRaisesRegex(ValueError, 'SOURCE_ACCESS_BLOCKED'):
+                        source.discover(raw, source.SOURCES['mrff'][0])
+
+    def test_challenge_capture_retains_failure_and_prior_archive(self):
+        with tempfile.TemporaryDirectory(dir=PRIVATE_ROOT) as directory:
+            prior = Path(directory) / 'last-good.bin'
+            prior.write_bytes(b'Prior accepted archive')
+            output = Path(directory) / 'capture'
+            opener = Mock(return_value=Response(b'<script>triggerInterstitialChallenge()</script>'))
+            with self.assertRaisesRegex(ValueError, 'SOURCE_ACCESS_BLOCKED'):
+                source.capture('mrff', output, opener=opener, sleep=lambda _: None)
+            self.assertEqual(opener.call_count, 1)
+            self.assertFalse((output / 'manifest.json').exists())
+            self.assertTrue((output / 'failed-generation.json').exists())
+            self.assertEqual(prior.read_bytes(), b'Prior accepted archive')
+
+    def test_ordinary_verification_word_and_empty_page_keep_existing_semantics(self):
+        page = b'<p>Dataset verification</p>' + self.page()
+        self.assertEqual(len(source.discover(page, source.SOURCES['mrff'][0])), 2)
+        with self.assertRaisesRegex(ValueError, 'Complete nonempty'):
+            source.discover(b'<p>No workbook</p>', source.SOURCES['mrff'][0])
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -36,3 +36,16 @@ The original evidence checkout is `/Volumes/PortableSSD/GitHub/RIMS/chhhs-resear
 Documentary owner: chat`01a19ab0-4739-71b1-8990-3ac1a3221769`, actual checkout`/Volumes/PortableSSD/GitHub/RIMS/publication-source-coverage`, branch`codex/flow-backlog-reconciliation-20261103`. Owned scope is this selected reconciliation, its index/register links, E01 precedence and the stale Semantic Scholar execution labels. Native scope is empty. Prior collector, monthly, grants, model and documentation ownership is preserved as history and retains its existing objects. No cross-chat direction is sent.
 
 The next dependency-ready implementation candidates are a bounded DoRA continuation/failure qualification or an uncovered writer recovery case through its existing owner and retained preimage. Draft disposition is read-only CLI work before choosing any mutation. Digest delivery needs the exact send/recipient authority; grants need genuine eligible inputs; monthly needs its actual operating date; Semantic Scholar needs safe resumption and provider responses. These are separate follow-on tasks, not background work commissioned by this status request.
+
+## Later MRFF repair assignment — 5 November 2026
+
+The user separately authorised the MRFF discovery repair and integration without
+flow replays or schedule changes. [The bounded repair](../docs/MRFF_SOURCE_ACCESS_GUARD_20261105.md)
+identifies an HTTP-200 verification interstitial in the real failed response;
+the real successful page still yields the same three workbook links. Explicit
+blocked-source guards are saved/read back on both page reads, with all source
+fetch, completeness, archive, connection, state and recurrence behavior preserved.
+This is native saved-definition and offline response-classification proof, not
+successful post-repair collection. Provider-supported unattended access and
+native guide/diagram publication remain open. The prior ten-group reconciliation
+is unchanged at its selected scope; RMD-05 stays pending for 1 December.
