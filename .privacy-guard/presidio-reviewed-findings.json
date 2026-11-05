@@ -22391,6 +22391,356 @@
       "value_sha256": "75cd450d1aa719cfdb36cfe43b5e70ef5f83219d4583e4d1ceac90f15eac6608",
       "reason": "Python argument parser method.",
       "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "f9dccf83c3a1d251cba0b6eee344c3f0ef0f901110da67a046e5c4c2e4dca7a0",
+      "blob_sha256": "f3b35b185fe7341df6e0111228b9dccd47740354f0ca905e4eda966bf35b9457",
+      "entity_index": 0,
+      "start": 3591,
+      "end": 3597,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "Conductor task identifier for the pending December observation.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "f9dccf83c3a1d251cba0b6eee344c3f0ef0f901110da67a046e5c4c2e4dca7a0",
+      "blob_sha256": "f3b35b185fe7341df6e0111228b9dccd47740354f0ca905e4eda966bf35b9457",
+      "entity_index": 0,
+      "start": 6672,
+      "end": 6679,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Native flow state label.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "f9dccf83c3a1d251cba0b6eee344c3f0ef0f901110da67a046e5c4c2e4dca7a0",
+      "blob_sha256": "f3b35b185fe7341df6e0111228b9dccd47740354f0ca905e4eda966bf35b9457",
+      "entity_index": 0,
+      "start": 7801,
+      "end": 7808,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Native flow state label.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "dc9eff33ad598601c241cf28756db87497f879a59382c47afdba620114b673e7",
+      "blob_sha256": "0db67306a4dc16764edc5331648cc426b6347b14518211d2d97520fe0fe975fb",
+      "entity_index": 0,
+      "start": 474,
+      "end": 480,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "Conductor task identifier for the pending December observation.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "dc9eff33ad598601c241cf28756db87497f879a59382c47afdba620114b673e7",
+      "blob_sha256": "0db67306a4dc16764edc5331648cc426b6347b14518211d2d97520fe0fe975fb",
+      "entity_index": 0,
+      "start": 1283,
+      "end": 1290,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Native flow state label.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "dc9eff33ad598601c241cf28756db87497f879a59382c47afdba620114b673e7",
+      "blob_sha256": "0db67306a4dc16764edc5331648cc426b6347b14518211d2d97520fe0fe975fb",
+      "entity_index": 0,
+      "start": 1418,
+      "end": 1422,
+      "value_sha256": "cdf4e79a95e14a003a4daa5e32acae81548accff60d9f2589ba209c22a6b515c",
+      "reason": "Name of the public research repository integration.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "dc9eff33ad598601c241cf28756db87497f879a59382c47afdba620114b673e7",
+      "blob_sha256": "0db67306a4dc16764edc5331648cc426b6347b14518211d2d97520fe0fe975fb",
+      "entity_index": 0,
+      "start": 3011,
+      "end": 3064,
+      "value_sha256": "429d551a1466a8e7465834ec49ad674a903304b55f0db061a95a88c437b2d94a",
+      "reason": "Repository documentation filename.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "dc9eff33ad598601c241cf28756db87497f879a59382c47afdba620114b673e7",
+      "blob_sha256": "0db67306a4dc16764edc5331648cc426b6347b14518211d2d97520fe0fe975fb",
+      "entity_index": 0,
+      "start": 5923,
+      "end": 5935,
+      "value_sha256": "9dc2055a4bb869238616e71d209f4ec891cd655d89ef17396f9f97eeac936fe7",
+      "reason": "Name of the Australian government grants service.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "dc9eff33ad598601c241cf28756db87497f879a59382c47afdba620114b673e7",
+      "blob_sha256": "0db67306a4dc16764edc5331648cc426b6347b14518211d2d97520fe0fe975fb",
+      "entity_index": 0,
+      "start": 6899,
+      "end": 6906,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Native flow state label.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "dc9eff33ad598601c241cf28756db87497f879a59382c47afdba620114b673e7",
+      "blob_sha256": "0db67306a4dc16764edc5331648cc426b6347b14518211d2d97520fe0fe975fb",
+      "entity_index": 0,
+      "start": 10192,
+      "end": 10197,
+      "value_sha256": "b6dfe42069f32da1e58a7ce5c146e5b9a68bbcbc32775f593e12ca41818debb3",
+      "reason": "Count of observed flows in repository documentation.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "dc9eff33ad598601c241cf28756db87497f879a59382c47afdba620114b673e7",
+      "blob_sha256": "0db67306a4dc16764edc5331648cc426b6347b14518211d2d97520fe0fe975fb",
+      "entity_index": 0,
+      "start": 12905,
+      "end": 12911,
+      "value_sha256": "d640c7421da066618a39daf4266da5f61f66a9b1afcd626481b831a17064965d",
+      "reason": "Documentation navigation action.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "dc9eff33ad598601c241cf28756db87497f879a59382c47afdba620114b673e7",
+      "blob_sha256": "0db67306a4dc16764edc5331648cc426b6347b14518211d2d97520fe0fe975fb",
+      "entity_index": 0,
+      "start": 15375,
+      "end": 15410,
+      "value_sha256": "c3c5bebebffbdf156e4a1fb7b3623b23b7d16f9a9b1de99e84125b137f48b23a",
+      "reason": "Repository documentation filename.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "dc9eff33ad598601c241cf28756db87497f879a59382c47afdba620114b673e7",
+      "blob_sha256": "0db67306a4dc16764edc5331648cc426b6347b14518211d2d97520fe0fe975fb",
+      "entity_index": 0,
+      "start": 18397,
+      "end": 18407,
+      "value_sha256": "273a39b09219e67f0c302704ffb99c89bb6c2887a28f5ec0c95b63587499212a",
+      "reason": "Markdown link label fragment.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "dc9eff33ad598601c241cf28756db87497f879a59382c47afdba620114b673e7",
+      "blob_sha256": "0db67306a4dc16764edc5331648cc426b6347b14518211d2d97520fe0fe975fb",
+      "entity_index": 0,
+      "start": 18719,
+      "end": 18753,
+      "value_sha256": "e527347b819a1945b5774f08540a55f0cc5bdf0ec80153de8dcf41d261f15b06",
+      "reason": "Repository documentation filename.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "dc9eff33ad598601c241cf28756db87497f879a59382c47afdba620114b673e7",
+      "blob_sha256": "0db67306a4dc16764edc5331648cc426b6347b14518211d2d97520fe0fe975fb",
+      "entity_index": 0,
+      "start": 19222,
+      "end": 19242,
+      "value_sha256": "257e8a889fcd7c211cba90ff9db9bb28842beb4ef504f1e10b37d3e4deb3d509",
+      "reason": "Markdown link to the track registry.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "529215259d3b33de9d8a0c23da36bdd7efe005b4c443cc39027d3ab158eaca9d",
+      "blob_sha256": "aa9d4d72f6ea3c2a7a5ca953a94c99992b67d107c2e46583b6a1d7bfce1db65e",
+      "entity_index": 0,
+      "start": 6721,
+      "end": 6725,
+      "value_sha256": "b338f6776fab63ae3977da32af4634aff5444e81731a20e52333f3774e7cf13c",
+      "reason": "Excel workbook format.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "529215259d3b33de9d8a0c23da36bdd7efe005b4c443cc39027d3ab158eaca9d",
+      "blob_sha256": "aa9d4d72f6ea3c2a7a5ca953a94c99992b67d107c2e46583b6a1d7bfce1db65e",
+      "entity_index": 0,
+      "start": 8348,
+      "end": 8352,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Data serialization format.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "529215259d3b33de9d8a0c23da36bdd7efe005b4c443cc39027d3ab158eaca9d",
+      "blob_sha256": "aa9d4d72f6ea3c2a7a5ca953a94c99992b67d107c2e46583b6a1d7bfce1db65e",
+      "entity_index": 0,
+      "start": 9841,
+      "end": 9847,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "Conductor task identifier for the pending December observation.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "529215259d3b33de9d8a0c23da36bdd7efe005b4c443cc39027d3ab158eaca9d",
+      "blob_sha256": "aa9d4d72f6ea3c2a7a5ca953a94c99992b67d107c2e46583b6a1d7bfce1db65e",
+      "entity_index": 0,
+      "start": 9884,
+      "end": 9894,
+      "value_sha256": "18675f2c1453c9270e087e3987f1657e133742079a2977b85f4957767c86b0ba",
+      "reason": "Heading describing a collector operating mode.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "529215259d3b33de9d8a0c23da36bdd7efe005b4c443cc39027d3ab158eaca9d",
+      "blob_sha256": "aa9d4d72f6ea3c2a7a5ca953a94c99992b67d107c2e46583b6a1d7bfce1db65e",
+      "entity_index": 0,
+      "start": 12484,
+      "end": 12490,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "Conductor task identifier for the pending December observation.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "f19fe4b675a13c3f0e7d0487288ff559392f27a38b97cda4907cfd2f6ea10526",
+      "blob_sha256": "68c7310529268af3689ed76a3c7877a9881da602d57510d1491ce08b05562676",
+      "entity_index": 0,
+      "start": 2,
+      "end": 10,
+      "value_sha256": "c893ba3003855aabfee294479c03266349e97e1675ade569b480e56ce4c2bde3",
+      "reason": "Git checkout heading.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "f19fe4b675a13c3f0e7d0487288ff559392f27a38b97cda4907cfd2f6ea10526",
+      "blob_sha256": "68c7310529268af3689ed76a3c7877a9881da602d57510d1491ce08b05562676",
+      "entity_index": 0,
+      "start": 1553,
+      "end": 1556,
+      "value_sha256": "3c72b39be6968ac5d4f2d13dea8d47eb667aa26dc9abe27a64aee28db075fc18",
+      "reason": "Conductor track identifier.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "f19fe4b675a13c3f0e7d0487288ff559392f27a38b97cda4907cfd2f6ea10526",
+      "blob_sha256": "68c7310529268af3689ed76a3c7877a9881da602d57510d1491ce08b05562676",
+      "entity_index": 0,
+      "start": 7703,
+      "end": 7707,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "JavaScript runtime name.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "f19fe4b675a13c3f0e7d0487288ff559392f27a38b97cda4907cfd2f6ea10526",
+      "blob_sha256": "68c7310529268af3689ed76a3c7877a9881da602d57510d1491ce08b05562676",
+      "entity_index": 0,
+      "start": 8537,
+      "end": 8549,
+      "value_sha256": "0e426b787b369c23b17ae4dc5ba599691ae87a70f99fa8a5ccf8aed579a6c08d",
+      "reason": "Technical heading describing repository verification.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "f19fe4b675a13c3f0e7d0487288ff559392f27a38b97cda4907cfd2f6ea10526",
+      "blob_sha256": "68c7310529268af3689ed76a3c7877a9881da602d57510d1491ce08b05562676",
+      "entity_index": 0,
+      "start": 14185,
+      "end": 14194,
+      "value_sha256": "ef6a2b3e1b43d345199efa061eea5ff5815ac1aa25efa9efc3f82d716d818111",
+      "reason": "Task action verb in the worktree reconciliation table.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "f19fe4b675a13c3f0e7d0487288ff559392f27a38b97cda4907cfd2f6ea10526",
+      "blob_sha256": "68c7310529268af3689ed76a3c7877a9881da602d57510d1491ce08b05562676",
+      "entity_index": 0,
+      "start": 14765,
+      "end": 14774,
+      "value_sha256": "ef6a2b3e1b43d345199efa061eea5ff5815ac1aa25efa9efc3f82d716d818111",
+      "reason": "Task action verb in the worktree reconciliation table.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "f19fe4b675a13c3f0e7d0487288ff559392f27a38b97cda4907cfd2f6ea10526",
+      "blob_sha256": "68c7310529268af3689ed76a3c7877a9881da602d57510d1491ce08b05562676",
+      "entity_index": 0,
+      "start": 15345,
+      "end": 15354,
+      "value_sha256": "ef6a2b3e1b43d345199efa061eea5ff5815ac1aa25efa9efc3f82d716d818111",
+      "reason": "Task action verb in the worktree reconciliation table.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "f19fe4b675a13c3f0e7d0487288ff559392f27a38b97cda4907cfd2f6ea10526",
+      "blob_sha256": "68c7310529268af3689ed76a3c7877a9881da602d57510d1491ce08b05562676",
+      "entity_index": 0,
+      "start": 15767,
+      "end": 15776,
+      "value_sha256": "ef6a2b3e1b43d345199efa061eea5ff5815ac1aa25efa9efc3f82d716d818111",
+      "reason": "Task action verb in the worktree reconciliation table.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "f19fe4b675a13c3f0e7d0487288ff559392f27a38b97cda4907cfd2f6ea10526",
+      "blob_sha256": "68c7310529268af3689ed76a3c7877a9881da602d57510d1491ce08b05562676",
+      "entity_index": 0,
+      "start": 16130,
+      "end": 16138,
+      "value_sha256": "143b270a32602d412babf2724ec0640dda0d5a43485e5a7520b05b53fa94b303",
+      "reason": "Task completion verb in the retained worktree action table.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "f19fe4b675a13c3f0e7d0487288ff559392f27a38b97cda4907cfd2f6ea10526",
+      "blob_sha256": "68c7310529268af3689ed76a3c7877a9881da602d57510d1491ce08b05562676",
+      "entity_index": 0,
+      "start": 17344,
+      "end": 17359,
+      "value_sha256": "80d9b9db271e3aaab45db874dba5534b54444bfdc25f7275ec79aa22d8eda5c8",
+      "reason": "Schema field description.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "f19fe4b675a13c3f0e7d0487288ff559392f27a38b97cda4907cfd2f6ea10526",
+      "blob_sha256": "68c7310529268af3689ed76a3c7877a9881da602d57510d1491ce08b05562676",
+      "entity_index": 0,
+      "start": 19542,
+      "end": 19549,
+      "value_sha256": "c693279643b8cd5d248172d9c22cb7cf4ed163a3c98c8a3f69c2717edd3eacb7",
+      "reason": "Repository licence filename.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "f19fe4b675a13c3f0e7d0487288ff559392f27a38b97cda4907cfd2f6ea10526",
+      "blob_sha256": "68c7310529268af3689ed76a3c7877a9881da602d57510d1491ce08b05562676",
+      "entity_index": 0,
+      "start": 20406,
+      "end": 20415,
+      "value_sha256": "cea912710ef8f4dbd26224c6d9ef44974abc5c106bc2a0c137afc0c87b7a1a4a",
+      "reason": "Historical count of reviewed source paths.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "f19fe4b675a13c3f0e7d0487288ff559392f27a38b97cda4907cfd2f6ea10526",
+      "blob_sha256": "68c7310529268af3689ed76a3c7877a9881da602d57510d1491ce08b05562676",
+      "entity_index": 0,
+      "start": 21181,
+      "end": 21186,
+      "value_sha256": "5fcc7923b5b6d2dc15623e2693f80f3b800dfc4b10203a7952d864b5ebb18bae",
+      "reason": "Repository pull request identifier.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "f19fe4b675a13c3f0e7d0487288ff559392f27a38b97cda4907cfd2f6ea10526",
+      "blob_sha256": "68c7310529268af3689ed76a3c7877a9881da602d57510d1491ce08b05562676",
+      "entity_index": 0,
+      "start": 22952,
+      "end": 22958,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "Conductor task identifier for the pending December observation.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
+    },
+    {
+      "identity": "f19fe4b675a13c3f0e7d0487288ff559392f27a38b97cda4907cfd2f6ea10526",
+      "blob_sha256": "68c7310529268af3689ed76a3c7877a9881da602d57510d1491ce08b05562676",
+      "entity_index": 0,
+      "start": 24621,
+      "end": 24627,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "Conductor task identifier for the pending December observation.",
+      "reviewer": "Codex exact technical source inspection 2026-11-05"
     }
   ]
 }

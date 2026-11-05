@@ -320,3 +320,17 @@ The real original files and observations stay ignored; no accepted archive,
 selector, flow, schedule, authentication profile or other owner's work changed.
 Next operation is source qualification/integration; unattended cloud access
 and native consumer promotion remain separate, explicitly unaccepted exits.
+
+## MRFF unattended access investigation — 5 November 2026
+
+The manual capture lane closed through PR165. The later direct unattended-access
+assignment remains with chat 01a1a569-bccc-7181-93bf-010e7dfdadde in standard
+worktree /Volumes/PortableSSD/GitHub/RIMS/integrate-pmf-readback-20261105, branch
+codex/mrff-unattended-access-20261105. Owned source scope is the existing MRFF
+access record and scoped Conductor/ownership updates; native scope is read-only
+inspection of the existing MRFF collector and retained evidence. One bounded
+ordinary machine acquisition may qualify source access without a flow run.
+No other writer or authentication scope transfers. Preserve accepted archives,
+selectors and all schedules; RMD-05 stays pending for 1 December. Next operation:
+qualify a documented complete machine route, or record its exact unresolved
+source-access condition without substituting manual access for automation.

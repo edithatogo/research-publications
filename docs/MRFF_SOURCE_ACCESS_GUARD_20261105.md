@@ -168,3 +168,51 @@ collector/guard, old accepted archive and all schedules are unchanged. No flow
 was invoked, replayed, cancelled or created. No source rows were analysed or
 admitted, no external redistribution is authorised, and no automatic browser
 job or new reminder was created. RMD-05 remains pending for 1 December.
+
+## Unattended source-access investigation — 5 November 2026
+
+**Still blocked at source access; no unattended replacement is qualified.** A
+single ordinary request through the existing capture helper at 12:10:51 Brisbane
+returned HTTP 200 with a 2,491-byte verification interstitial. The helper stopped
+with `SOURCE_ACCESS_BLOCKED`, completed zero workbooks and wrote only an isolated
+failed-generation receipt. It made no retry, native admission or accepted-selector
+write. This is current machine-access evidence, separate from the manual capture
+accepted through PR165.
+
+The [official programme page](https://www.health.gov.au/our-work/mrff)
+still directs comprehensive awarded-grant data to the existing spreadsheet
+publication. Its dashboard and GrantConnect opportunity links do not establish
+a supported equivalent API for the complete three-workbook inventory. The
+[exact-phrase catalogue search](https://data.gov.au/data/dataset/?q=%22Medical+Research+Future+Fund%22)
+returned only an unrelated university annual report. These bounded checks do
+not establish that no other publisher interface exists.
+
+[GovCMS protection guidance](https://www.govcms.gov.au/support/security/govcms-web-protection-services)
+describes its WAF and automated-bot management. This corroborates the access
+classification; it does not grant an exemption or identify the rule matching
+this client. A local parser change cannot grant source-side machine access.
+The publisher's [website guidance](https://www.health.gov.au/using-our-websites/about-our-website)
+provides the feedback/general-enquiry route. An unsent request has been prepared
+privately; no form, email, support ticket, subscription or external message was
+submitted.
+
+Unblock with either a documented publisher machine interface providing the
+complete current inventory, update identity, originals and applicable terms,
+or publisher-authorised access for the existing cloud client. Qualify the exact
+approved route without browser credentials or client impersonation. Native
+definition/readback and a later unchanged natural occurrence remain separate
+from a local source test. No guessed API routes, alternate origins, proxy,
+challenge solver or new browser job were introduced.
+
+Read-only native comparison still matches the previously accepted definition,
+connections, Started state and recurrence exactly. The latest recorded run is
+the failed 2 November occurrence; the recent history contains no new invocation.
+The last good archive and the separately retained manual capture are preserved.
+No flow was replayed or invoked and no schedule changed. RMD-05 stays unchecked
+for 1 December.
+
+Evidence is retained under this owned worktree's ignored
+`private/ops/2026-11-05-mrff-unattended-access/`: isolated failed capture,
+native current/history readbacks, reconciliation and the unsent source-access
+request. This source-access blocker is recorded once; recheck after a relevant
+publisher/access input changes or an explicit user direction.

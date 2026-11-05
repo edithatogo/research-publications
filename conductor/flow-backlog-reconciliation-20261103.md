@@ -57,3 +57,10 @@ generation. The offline MRFF retainer is implemented and exercised against the
 real capture. This closes manual browser retrieval only. It does not certify
 the existing cloud HTTP route, native archive promotion or unattended operation.
 Last-good selection, flows and schedules are unchanged; RMD-05 remains pending.
+
+The later [unattended-access investigation](../docs/MRFF_SOURCE_ACCESS_GUARD_20261105.md#unattended-source-access-investigation--5-november-2026)
+remains blocked: one current machine request receives the verification page.
+An unsent publisher access request is prepared. A complete documented machine
+interface or publisher-authorised access for the existing client is still
+required. Native definition/history are unchanged; archive preserved, no replay
+or schedule changes, RMD-05 pending 1 December. Manual access is not automation.
