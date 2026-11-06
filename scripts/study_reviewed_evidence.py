@@ -19,13 +19,79 @@ def load_review(raw, expected_sha256):
     packet = strict_json(raw)
     fields = {'schema_version', 'capture_sha256', 'review_id', 'scope', 'associations',
               'association_evidence', 'registry_decisions'}
-    if not isinstance(packet, dict) or set(packet) != fields or type(packet['schema_version']) is not int or packet['schema_version'] != 1:
+    if not isinstance(packet, dict) or type(packet.get('schema_version')) is not int or packet['schema_version'] not in {1, 2}:
+        raise ValueError('Reviewed evidence contract mismatch')
+    if packet['schema_version'] == 2:
+        fields |= {'ppg_references', 'refresh_lineage'}
+    if set(packet) != fields:
         raise ValueError('Reviewed evidence contract mismatch')
     if not re.fullmatch('[a-f0-9]{64}', packet['capture_sha256']):
         raise ValueError('Reviewed capture hash required')
     if any(not isinstance(packet[k], str) or not packet[k].strip() for k in ('review_id', 'scope')):
         raise ValueError('Review identity and scope required')
     return packet
+
+
+def validate_receipt_binding(packet, receipt_sha256):
+    if not isinstance(receipt_sha256, str) or not re.fullmatch('[a-f0-9]{64}', receipt_sha256):
+        raise ValueError('An independently pinned DoRA receipt hash is required')
+    if any(proof['source_receipt_sha256'] != receipt_sha256
+                                 for proof in packet['association_evidence'].values()):
+        raise ValueError('Reviewed evidence refers to a different DoRA receipt')
+
+
+def validate_ppg_references(packet, source_keys):
+    """Retain PPG citation identities, not evidence content or authority decisions."""
+    from scripts.study_explorer import _url
+    from scripts.export_dora_activity import _required_timestamp
+    links = packet.get('ppg_references', [])
+    if not isinstance(links, list):
+        raise ValueError('PPG references must be an array')
+    seen = set()
+    for link in links:
+        fields = {'source_key', 'frameworkKey', 'requirementKey', 'relationshipScope', 'receipt'}
+        if not isinstance(link, dict) or set(link) != fields or link['source_key'] not in source_keys:
+            raise ValueError('PPG reference must identify a captured study and requirement')
+        for field in ('frameworkKey', 'requirementKey'):
+            if not isinstance(link[field], str) or not link[field].strip():
+                raise ValueError('PPG framework and requirement identities required')
+        if link['relationshipScope'] not in {'study', 'service'}:
+            raise ValueError('PPG evidence scope must distinguish study and service')
+        receipt = link['receipt']
+        required = {'sourceId', 'canonicalUrl', 'retrievedAtUtc', 'nativeUniqueId',
+                    'nativeVersionRef', 'sha256', 'authorityLabel', 'status'}
+        if not isinstance(receipt, dict) or set(receipt) != required or receipt['status'] != 'retrieved':
+            raise ValueError('Only a retrieved PPG source receipt can supply reference metadata')
+        for field in ('sourceId', 'nativeUniqueId', 'nativeVersionRef'):
+            if not isinstance(receipt[field], str) or not receipt[field].strip():
+                raise ValueError('PPG source identity and native version required')
+        if receipt['authorityLabel'] not in {'captured-reference-unconfirmed', 'draft-unapproved', 'authority-recorded-not-independently-verified'}:
+            raise ValueError('PPG source authority label required; no compliance assertion')
+        _url(receipt['canonicalUrl'])
+        _required_timestamp(receipt['retrievedAtUtc'])
+        if not isinstance(receipt['sha256'], str) or not re.fullmatch('[a-f0-9]{64}', receipt['sha256']):
+            raise ValueError('PPG extracted-text hash required')
+        identity = (link['source_key'], link['frameworkKey'], link['requirementKey'],
+                    link['relationshipScope'], receipt['sourceId'], receipt['nativeVersionRef'])
+        if identity in seen:
+            raise ValueError('Duplicate PPG requirement/evidence reference')
+        seen.add(identity)
+    lineage = packet.get('refresh_lineage')
+    if lineage is not None:
+        required = {'policy', 'previous_capture_sha256', 'previous_review_sha256',
+                    'previous_review_id', 'previous_observed_at', 'carried_source_keys'}
+        if not isinstance(lineage, dict) or set(lineage) != required or lineage['policy'] != 'unchanged_same_resource_only':
+            raise ValueError('Explicit refresh lineage required')
+        for field in ('previous_capture_sha256', 'previous_review_sha256'):
+            if not isinstance(lineage[field], str) or not re.fullmatch('[a-f0-9]{64}', lineage[field]):
+                raise ValueError('Pinned previous generation/review required')
+        if not isinstance(lineage['previous_review_id'], str) or not lineage['previous_review_id'].strip():
+            raise ValueError('Previous review identity required')
+        _required_timestamp(lineage['previous_observed_at'])
+        carried = lineage['carried_source_keys']
+        if not isinstance(carried, list) or any(not isinstance(key, str) for key in carried) or len(carried) != len(set(carried)) or set(carried) - source_keys:
+            raise ValueError('Refresh carry keys must be unique captured identities')
+    return links
 
 
 def apply_review(result, packet, source_rows):
@@ -36,6 +102,7 @@ def apply_review(result, packet, source_rows):
     associations = validate_associations(packet['associations'])
     source_by_key = {row['SourceKey']: row for row in source_rows}
     source_keys = set(source_by_key)
+    ppg_references = validate_ppg_references(packet, source_keys)
     evidence = packet['association_evidence']
     if not isinstance(evidence, dict) or set(evidence) != set(associations):
         raise ValueError('Every reviewed association requires source evidence')
@@ -128,6 +195,10 @@ def apply_review(result, packet, source_rows):
                     raise ValueError('Reviewed source site differs from captured value')
                 row['CHHHSAssociationEvidence'] = copy.deepcopy(evidence[key])
             row['RegistryLinks'] = sorted(by_key.get(key, []), key=lambda item: item['registry_key'])
+            row['PPGEvidenceReferences'] = [copy.deepcopy(link) for link in ppg_references if link['source_key'] == key]
     result['review_id'] = packet['review_id']
     result['review_scope'] = packet['scope']
+    result['refresh_lineage'] = copy.deepcopy(packet.get('refresh_lineage'))
+    result['ppg_packet_reference_count'] = len(ppg_references)
+    result['ppg_reference_count'] = sum(len(row.get('PPGEvidenceReferences', [])) for rows in result['views'].values() for row in rows)
     return result

@@ -296,3 +296,7 @@ The [current delivery amendment](../../five-area-plan-20261106.md) organises rem
 ## Selected local study-view delivery — 6 November 2026
 
 F04/F05 now consume the existing reviewed private evidence packet:11 source-reported CHHHS associations, one reviewed trial identity and one explicitly unconfirmed registry candidate in the retained442-row DoRA view. Source differences, observation times, original field values and all other431 rows remain preserved. The [five-area checkpoint](../../five-area-plan-20261106.md) records private input/output locations and verification. This closes the selected local reader integration only; native storage/model/dashboard work and current clinical/operational acceptance remain separate. No collector, API, flow or schedule is added.
+
+## DoRA study maintenance — 6 November 2026
+
+The selected F04/F05 local registry now has refresh/reconciliation over pinned old/new DoRA captures, safe unchanged-row review reuse, and retained changed/missing/resource-replacement review queues. PPG reference metadata follows the existing retrieved-source/version/authority contract with explicit study/service scope; current real links remain pending verified receipts. See [maintenance checkpoint](../../five-area-plan-20261106.md) and [operator route](../../../docs/STUDY_EXPLORER.md#maintain-the-registry-from-dora). Native acquisition/runtime, PPG mutations, dashboard/model changes and clinical/operational acceptance remain separate; no recurring job is added.

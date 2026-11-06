@@ -62,3 +62,7 @@ Sources: https://github.com/EuroCRIS/CERIF-Vocabularies ; https://guidelines.ope
 ## Selected Projects & Studies view delivered — 6 November 2026
 
 The local reader now consumes reviewed evidence for11 source-reported CHHHS studies in the retained442-row DoRA capture, with one reviewed trial identity link and one unconfirmed candidate. The [reader contract](STUDY_EXPLORER.md#reviewed-evidence-in-the-study-view) binds the review to source hashes and keeps registry/site differences visible. All source rows remain intact. This is a bounded historical local view, not a current clinical-study census, native list admission or dashboard change. Existing Conductor F04/F05 retain the remaining native/operational boundaries.
+
+## Projects & Studies maintenance — 6 November 2026
+
+The [local maintenance route](STUDY_EXPLORER.md#maintain-the-registry-from-dora) reconciles new DoRA observations, reuses only unchanged same-resource reviews and preserves changed/missing/replacement-resource evidence for review. A fresh6November observation retains442 identical source records and11 reviewed local associations. Versioned links to PPG-held evidence are supported with study/service requirement scope, while actual study receipts/action keys remain pending. DoRA refresh does not renew registry/PPG evidence or prove current clinical status. Native dashboard and tenant changes remain separate.
