@@ -141,6 +141,11 @@ class StudyReviewedEvidenceTests(unittest.TestCase):
         result = json.loads((output/'study-explorer.json').read_text())
         self.assertEqual(result['reviewed_evidence_sha256'], digest(raw))
         self.assertEqual(result['views']['chhhs_associated'][0]['RegistryLinks'][0]['decision'], 'confirmed')
+        unsupported = command.copy()
+        unsupported[unsupported.index('--dora-directory')] = '--dora-capture'
+        rejected = subprocess.run(unsupported, capture_output=True, text=True)
+        self.assertNotEqual(rejected.returncode, 0)
+        self.assertIn('requires --dora-directory', rejected.stderr)
         (self.root/'review.json').write_text('{}')
         command[-1] = str(self.root/'stale-output')
         self.assertNotEqual(subprocess.run(command, capture_output=True).returncode, 0)

@@ -48,7 +48,7 @@ For an existing capture directory, `--dora-directory private/ops/<capture>` dire
 
 ## Reviewed evidence in the study view
 
-`--reviewed-evidence <private-packet.json>` and `--reviewed-evidence-sha256 <independent-hash>` integrate a reviewed association/registry packet into DoRA views. This replaces `--associations` for that invocation; it currently applies only to the qualified DoRA route. Real packets and populated outputs remain private, not source fixtures or public datasets.
+`--reviewed-evidence <private-packet.json>` and `--reviewed-evidence-sha256 <independent-hash>` integrate a reviewed association/registry packet into DoRA views. This replaces `--associations` for that invocation and requires `--dora-directory`, so the original receipt bytes are independently pinned. Reviewed evidence with `--dora-capture` is refused; the older envelope-only route remains available without reviewed evidence. Real packets and populated outputs remain private, not source fixtures or public datasets.
 
 The packet contains schema_version1, the exact combined capture_sha256, review_id/scope, existing associations, association_evidence keyed by source key, and registry_decisions. Site evidence retains the original field/value/time, receipt and facility-contract hashes and matched facility keys. Each registry decision has a qualified key/URL, confirmed or candidate disposition, review basis/scope, corroboration, source differences, and a pinned local registry payload/locator/snapshot/update assertion. The reader verifies the payload bytes, registry identity and source update metadata; it does not re-adjudicate the review or infer identity from titles.
 

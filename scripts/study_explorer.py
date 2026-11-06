@@ -201,8 +201,8 @@ def main():
         parser.error('--reviewed-evidence and --reviewed-evidence-sha256 must be supplied together')
     reviewed = None
     if args.reviewed_evidence:
-        if not (args.dora_capture or args.dora_directory):
-            parser.error('Reviewed evidence is currently qualified for DoRA input only')
+        if not args.dora_directory:
+            parser.error('Reviewed evidence requires --dora-directory with a pinned receipt and records')
         from scripts.study_reviewed_evidence import load_review
         reviewed = load_review(args.reviewed_evidence.read_bytes(), args.reviewed_evidence_sha256)
     associations = reviewed['associations'] if reviewed else strict_json(args.associations.read_bytes()) if args.associations else []
@@ -242,7 +242,7 @@ def main():
     result['archive_sha256'] = archive_hash
     result['dora_receipt_sha256'] = dora_receipt_sha256
     if reviewed is not None:
-        if dora_receipt_sha256 and any(proof['source_receipt_sha256'] != dora_receipt_sha256 for proof in reviewed['association_evidence'].values()):
+        if not dora_receipt_sha256 or any(proof['source_receipt_sha256'] != dora_receipt_sha256 for proof in reviewed['association_evidence'].values()):
             raise ValueError('Reviewed evidence refers to a different DoRA receipt')
         result['reviewed_evidence_sha256'] = args.reviewed_evidence_sha256
     destination = create_output(args.output)
