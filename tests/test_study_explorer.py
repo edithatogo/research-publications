@@ -103,3 +103,17 @@ class StudyExplorerTests(unittest.TestCase):
             before = (output/'study-explorer.html').read_bytes()
             self.assertNotEqual(subprocess.run(command, capture_output=True).returncode, 0)
             self.assertEqual((output/'study-explorer.html').read_bytes(), before)
+
+    def test_malformed_identity_is_structured_and_counts_distinguish_selection(self):
+        with self.assertRaisesRegex(ValueError, 'Trial identification'):
+            self.run_query({'studies': [{}]}, associations=[])
+        result = self.run_query(study_type='INTERVENTIONAL')
+        self.assertEqual(result['capture_records'], 2)
+        self.assertEqual(result['selected_records'], 1)
+
+    def test_association_order_does_not_change_semantic_digest(self):
+        first = copy.deepcopy(self.link)
+        first['source_key'] = 'clinicaltrials.gov:NCT00000001'
+        left = self.run_query(associations=[first, self.link])
+        right = self.run_query(associations=[self.link, first])
+        self.assertEqual(left['associations_sha256'], right['associations_sha256'])

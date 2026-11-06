@@ -30,6 +30,8 @@ def validate_associations(associations):
         required = {'source_key', 'review_status', 'involvement', 'evidence_url', 'ppg_evidence_urls'}
         if not isinstance(link, dict) or set(link) != required:
             raise ValueError('Association fields differ from contract')
+        if not isinstance(link['source_key'], str) or not link['source_key'].strip():
+            raise ValueError('Association source key must be nonempty text')
         if link['source_key'] in by_key or link['review_status'] != 'Reviewed':
             raise ValueError('Unique reviewed associations required')
         if link['involvement'] not in {'conducting_site', 'sponsor', 'investigator_affiliation'}:
@@ -63,6 +65,10 @@ def explore(raw, expected_sha256, *, observed_at, associations, query='', status
     result = {'chhhs_associated': [], 'external_discovery': []}
     seen = set()
     for record in body['studies']:
+        if (not isinstance(record, dict) or not isinstance(record.get('protocolSection'), dict)
+                or not isinstance(record['protocolSection'].get('identificationModule'), dict)
+                or not isinstance(record['protocolSection']['identificationModule'].get('nctId'), str)):
+            raise ValueError('Trial identification object and NCT ID required')
         nct = record['protocolSection']['identificationModule']['nctId']
         row = project(record, nct)
         key = row['SourceKey']
@@ -99,8 +105,8 @@ def explore(raw, expected_sha256, *, observed_at, associations, query='', status
             'observed_at': observed_at, 'capture_records': len(seen),
             'scope': 'Selected retained records; not a complete registry or CHHHS census',
             'filters': dict(query=query, status=status, study_type=study_type, country=country),
-            'associations_sha256': hashlib.sha256(json.dumps(associations, sort_keys=True, ensure_ascii=False, allow_nan=False).encode()).hexdigest(),
-            'views': result}
+            'associations_sha256': hashlib.sha256(json.dumps(sorted(associations, key=lambda link: link['source_key']), sort_keys=True, ensure_ascii=False, allow_nan=False).encode()).hexdigest(),
+            'selected_records': sum(len(rows) for rows in result.values()), 'views': result}
 
 
 def explore_dora(raw, expected_sha256, *, associations, query='', status='', study_type='', country=''):
@@ -125,8 +131,8 @@ def explore_dora(raw, expected_sha256, *, associations, query='', status='', stu
             'observed_at': observed_at, 'capture_records': len(rows),
             'scope': 'Selected retained DoRA activity resource; not a complete registry or CHHHS census',
             'filters': dict(query=query, status=status, study_type=study_type, country=country),
-            'associations_sha256': hashlib.sha256(json.dumps(associations, sort_keys=True, ensure_ascii=False, allow_nan=False).encode()).hexdigest(),
-            'views': result}
+            'associations_sha256': hashlib.sha256(json.dumps(sorted(associations, key=lambda link: link['source_key']), sort_keys=True, ensure_ascii=False, allow_nan=False).encode()).hexdigest(),
+            'selected_records': sum(len(rows) for rows in result.values()), 'views': result}
 
 
 def render(result):
