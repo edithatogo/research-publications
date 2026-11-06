@@ -25231,6 +25231,276 @@
       "value_sha256": "92c1a1f2d5af010c08f33be25c7c2980172955561c102e2e384f2a569668279d",
       "reason": "Inspected exact code/test span after namespace validation fix: machine field or Python syntax, not a person or account.",
       "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "9de61ca11eedd88b76f6d7e37fc1f04dea6c649669b1b57e3748beae2cadd6ba",
+      "blob_sha256": "252d0ca6208247ae85744c3c413b504c934210761fe0622e4aeb3cb75cc86ec2",
+      "entity_index": 0,
+      "start": 1508,
+      "end": 1512,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "9de61ca11eedd88b76f6d7e37fc1f04dea6c649669b1b57e3748beae2cadd6ba",
+      "blob_sha256": "252d0ca6208247ae85744c3c413b504c934210761fe0622e4aeb3cb75cc86ec2",
+      "entity_index": 0,
+      "start": 5537,
+      "end": 5549,
+      "value_sha256": "2cde412ad880026c2f8b7fcaf05037501a7b114b65f23bb4c0c38602aea0b383",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "9de61ca11eedd88b76f6d7e37fc1f04dea6c649669b1b57e3748beae2cadd6ba",
+      "blob_sha256": "252d0ca6208247ae85744c3c413b504c934210761fe0622e4aeb3cb75cc86ec2",
+      "entity_index": 0,
+      "start": 5637,
+      "end": 5649,
+      "value_sha256": "2cde412ad880026c2f8b7fcaf05037501a7b114b65f23bb4c0c38602aea0b383",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "9de61ca11eedd88b76f6d7e37fc1f04dea6c649669b1b57e3748beae2cadd6ba",
+      "blob_sha256": "252d0ca6208247ae85744c3c413b504c934210761fe0622e4aeb3cb75cc86ec2",
+      "entity_index": 0,
+      "start": 6509,
+      "end": 6518,
+      "value_sha256": "b70b86c7ba33017cc0c8f27010672fd826317030a81618c4aa590e3005bdf8f1",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "9de61ca11eedd88b76f6d7e37fc1f04dea6c649669b1b57e3748beae2cadd6ba",
+      "blob_sha256": "252d0ca6208247ae85744c3c413b504c934210761fe0622e4aeb3cb75cc86ec2",
+      "entity_index": 0,
+      "start": 7500,
+      "end": 7504,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "4c2a6b5bc6b727d57974891f0c0ac605493c7824bf8775ea94efac2154746111",
+      "blob_sha256": "8b48c3514c92b6681ace16fb2f9cd8f646911e48af552a5cd5e5c211444bf3de",
+      "entity_index": 0,
+      "start": 3601,
+      "end": 3631,
+      "value_sha256": "ec40dec5d1964da3851f76685b0528a9ff3aa16f5be91c230b8d2fbc3fcf5a96",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "4c2a6b5bc6b727d57974891f0c0ac605493c7824bf8775ea94efac2154746111",
+      "blob_sha256": "8b48c3514c92b6681ace16fb2f9cd8f646911e48af552a5cd5e5c211444bf3de",
+      "entity_index": 0,
+      "start": 4115,
+      "end": 4126,
+      "value_sha256": "6c7c175b7e91339bb97e3543f0b590c4bca6860b498e5c990f8d7a55102423e8",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "4c2a6b5bc6b727d57974891f0c0ac605493c7824bf8775ea94efac2154746111",
+      "blob_sha256": "8b48c3514c92b6681ace16fb2f9cd8f646911e48af552a5cd5e5c211444bf3de",
+      "entity_index": 0,
+      "start": 5856,
+      "end": 5861,
+      "value_sha256": "60a33e6cf5151f2d52eddae9685cfa270426aa89d8dbc7dfb854606f1d1a40fe",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "4c2a6b5bc6b727d57974891f0c0ac605493c7824bf8775ea94efac2154746111",
+      "blob_sha256": "8b48c3514c92b6681ace16fb2f9cd8f646911e48af552a5cd5e5c211444bf3de",
+      "entity_index": 0,
+      "start": 6570,
+      "end": 6594,
+      "value_sha256": "f6a53b668579d6848e57a5072a455a4be930d4209333cef75f2deb176c274347",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "4c2a6b5bc6b727d57974891f0c0ac605493c7824bf8775ea94efac2154746111",
+      "blob_sha256": "8b48c3514c92b6681ace16fb2f9cd8f646911e48af552a5cd5e5c211444bf3de",
+      "entity_index": 0,
+      "start": 7704,
+      "end": 7709,
+      "value_sha256": "60a33e6cf5151f2d52eddae9685cfa270426aa89d8dbc7dfb854606f1d1a40fe",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "4c2a6b5bc6b727d57974891f0c0ac605493c7824bf8775ea94efac2154746111",
+      "blob_sha256": "8b48c3514c92b6681ace16fb2f9cd8f646911e48af552a5cd5e5c211444bf3de",
+      "entity_index": 0,
+      "start": 8505,
+      "end": 8520,
+      "value_sha256": "db9dd1da4abf73ff0615b1c5865d9cfc7212ad746198d2914d19ab97ce787584",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "4c2a6b5bc6b727d57974891f0c0ac605493c7824bf8775ea94efac2154746111",
+      "blob_sha256": "8b48c3514c92b6681ace16fb2f9cd8f646911e48af552a5cd5e5c211444bf3de",
+      "entity_index": 0,
+      "start": 10023,
+      "end": 10030,
+      "value_sha256": "bbd07c4fc02c99b97124febf42c7b63b5011c0df28d409fbb486b5a9d2e615ea",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "4c2a6b5bc6b727d57974891f0c0ac605493c7824bf8775ea94efac2154746111",
+      "blob_sha256": "8b48c3514c92b6681ace16fb2f9cd8f646911e48af552a5cd5e5c211444bf3de",
+      "entity_index": 0,
+      "start": 10679,
+      "end": 10705,
+      "value_sha256": "ec8a67e39985cb8df4b642e45bb409d35dc295b11b79ca2862e5f0cd6f28e267",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "4c2a6b5bc6b727d57974891f0c0ac605493c7824bf8775ea94efac2154746111",
+      "blob_sha256": "8b48c3514c92b6681ace16fb2f9cd8f646911e48af552a5cd5e5c211444bf3de",
+      "entity_index": 0,
+      "start": 11377,
+      "end": 11389,
+      "value_sha256": "2cde412ad880026c2f8b7fcaf05037501a7b114b65f23bb4c0c38602aea0b383",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "4c2a6b5bc6b727d57974891f0c0ac605493c7824bf8775ea94efac2154746111",
+      "blob_sha256": "8b48c3514c92b6681ace16fb2f9cd8f646911e48af552a5cd5e5c211444bf3de",
+      "entity_index": 0,
+      "start": 12176,
+      "end": 12193,
+      "value_sha256": "75cd450d1aa719cfdb36cfe43b5e70ef5f83219d4583e4d1ceac90f15eac6608",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "4c2a6b5bc6b727d57974891f0c0ac605493c7824bf8775ea94efac2154746111",
+      "blob_sha256": "8b48c3514c92b6681ace16fb2f9cd8f646911e48af552a5cd5e5c211444bf3de",
+      "entity_index": 0,
+      "start": 12202,
+      "end": 12207,
+      "value_sha256": "7c975f73751622c709ca95e4cce946a70167c4b04d8c8d8418e2619d9af498ee",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "4c2a6b5bc6b727d57974891f0c0ac605493c7824bf8775ea94efac2154746111",
+      "blob_sha256": "8b48c3514c92b6681ace16fb2f9cd8f646911e48af552a5cd5e5c211444bf3de",
+      "entity_index": 0,
+      "start": 12283,
+      "end": 12313,
+      "value_sha256": "623b218b930bad15431db33e056e9ae9293f47e0e1e095da1ac16d21b9c1f9b8",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "4c2a6b5bc6b727d57974891f0c0ac605493c7824bf8775ea94efac2154746111",
+      "blob_sha256": "8b48c3514c92b6681ace16fb2f9cd8f646911e48af552a5cd5e5c211444bf3de",
+      "entity_index": 0,
+      "start": 13461,
+      "end": 13473,
+      "value_sha256": "2cde412ad880026c2f8b7fcaf05037501a7b114b65f23bb4c0c38602aea0b383",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "4c2a6b5bc6b727d57974891f0c0ac605493c7824bf8775ea94efac2154746111",
+      "blob_sha256": "8b48c3514c92b6681ace16fb2f9cd8f646911e48af552a5cd5e5c211444bf3de",
+      "entity_index": 0,
+      "start": 13619,
+      "end": 13624,
+      "value_sha256": "60a33e6cf5151f2d52eddae9685cfa270426aa89d8dbc7dfb854606f1d1a40fe",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "4c2a6b5bc6b727d57974891f0c0ac605493c7824bf8775ea94efac2154746111",
+      "blob_sha256": "8b48c3514c92b6681ace16fb2f9cd8f646911e48af552a5cd5e5c211444bf3de",
+      "entity_index": 0,
+      "start": 14166,
+      "end": 14171,
+      "value_sha256": "60a33e6cf5151f2d52eddae9685cfa270426aa89d8dbc7dfb854606f1d1a40fe",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "4c2a6b5bc6b727d57974891f0c0ac605493c7824bf8775ea94efac2154746111",
+      "blob_sha256": "8b48c3514c92b6681ace16fb2f9cd8f646911e48af552a5cd5e5c211444bf3de",
+      "entity_index": 0,
+      "start": 15635,
+      "end": 15640,
+      "value_sha256": "60a33e6cf5151f2d52eddae9685cfa270426aa89d8dbc7dfb854606f1d1a40fe",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "5bb9d54e6bae3b9cc23487ad53d021c56736e90d0c7578921fbc5d849d2a9802",
+      "blob_sha256": "13766c0b9d8aa82095f52b7f7693542b61830b1330553451de5729042cbd7230",
+      "entity_index": 0,
+      "start": 788,
+      "end": 817,
+      "value_sha256": "6933e8ef0247426eb5e6673b208dc26ac6051ca6dbcaf5ab89667af5a5808820",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "5bb9d54e6bae3b9cc23487ad53d021c56736e90d0c7578921fbc5d849d2a9802",
+      "blob_sha256": "13766c0b9d8aa82095f52b7f7693542b61830b1330553451de5729042cbd7230",
+      "entity_index": 0,
+      "start": 1733,
+      "end": 1738,
+      "value_sha256": "56a5f3004e0d228ad11fe6a85fbc720d17615129a491f93c6b8fea45b379a5a9",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "5bb9d54e6bae3b9cc23487ad53d021c56736e90d0c7578921fbc5d849d2a9802",
+      "blob_sha256": "13766c0b9d8aa82095f52b7f7693542b61830b1330553451de5729042cbd7230",
+      "entity_index": 0,
+      "start": 3079,
+      "end": 3088,
+      "value_sha256": "b70b86c7ba33017cc0c8f27010672fd826317030a81618c4aa590e3005bdf8f1",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "5bb9d54e6bae3b9cc23487ad53d021c56736e90d0c7578921fbc5d849d2a9802",
+      "blob_sha256": "13766c0b9d8aa82095f52b7f7693542b61830b1330553451de5729042cbd7230",
+      "entity_index": 0,
+      "start": 6073,
+      "end": 6082,
+      "value_sha256": "02cdaabfca805d6ab75d81043998bdc733451b9ea48958ebf8098022d102ba2e",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "5bb9d54e6bae3b9cc23487ad53d021c56736e90d0c7578921fbc5d849d2a9802",
+      "blob_sha256": "13766c0b9d8aa82095f52b7f7693542b61830b1330553451de5729042cbd7230",
+      "entity_index": 0,
+      "start": 7822,
+      "end": 7827,
+      "value_sha256": "60a33e6cf5151f2d52eddae9685cfa270426aa89d8dbc7dfb854606f1d1a40fe",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "5bb9d54e6bae3b9cc23487ad53d021c56736e90d0c7578921fbc5d849d2a9802",
+      "blob_sha256": "13766c0b9d8aa82095f52b7f7693542b61830b1330553451de5729042cbd7230",
+      "entity_index": 0,
+      "start": 8254,
+      "end": 8280,
+      "value_sha256": "92c1a1f2d5af010c08f33be25c7c2980172955561c102e2e384f2a569668279d",
+      "reason": "Inspected exact technical span after receipt-route restriction: code syntax, machine field or data-format label; not a real person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
     }
   ]
 }
