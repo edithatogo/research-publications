@@ -58,3 +58,7 @@ Sources: https://github.com/EuroCRIS/CERIF-Vocabularies ; https://guidelines.ope
 ## Local implementation checkpoint — 6 November 2026
 
 [Study explorer](STUDY_EXPLORER.md) implements retained ClinicalTrials.gov search and two separate views using the existing projection/ZIP validator. Tests use fictional records; no complete live CHHHS register is claimed. [Restricted API assessment](FUTURE_SOURCE_ENRICHMENT.md#restricted-api-decision-plan--6-november-2026) and [unsent requests](RESTRICTED_API_REQUESTS_UNSENT.md) cover paid, agreement-based and unresolved access. [Machine-readable CERIF mapping draft](../contracts/cerif-profile.json) pins entity identifiers only; conformance/exchange remains pending.
+
+## Selected Projects & Studies view delivered — 6 November 2026
+
+The local reader now consumes reviewed evidence for11 source-reported CHHHS studies in the retained442-row DoRA capture, with one reviewed trial identity link and one unconfirmed candidate. The [reader contract](STUDY_EXPLORER.md#reviewed-evidence-in-the-study-view) binds the review to source hashes and keeps registry/site differences visible. All source rows remain intact. This is a bounded historical local view, not a current clinical-study census, native list admission or dashboard change. Existing Conductor F04/F05 retain the remaining native/operational boundaries.

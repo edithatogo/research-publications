@@ -292,3 +292,7 @@ after the GrantConnect priority; no operation is authorised by this roadmap entr
 ## Five-area amendment — 6 November 2026
 
 The [current delivery amendment](../../five-area-plan-20261106.md) organises remaining work into Research Outputs, People & Collaborations, Projects & Studies, Funding, and Organisations & Affiliations. Reuse delivered slices and existing source/register identities. F03–F08 add scoped planning for CERIF mapping/conformance, a CHHHS study-register view, trial discovery, PPG evidence links and restricted-API access assessment. Implementation breadth awaits user answers; native dashboard work remains separate under F09/E04/T15. No archived scope or deferred NIH work is reactivated.
+
+## Selected local study-view delivery — 6 November 2026
+
+F04/F05 now consume the existing reviewed private evidence packet:11 source-reported CHHHS associations, one reviewed trial identity and one explicitly unconfirmed registry candidate in the retained442-row DoRA view. Source differences, observation times, original field values and all other431 rows remain preserved. The [five-area checkpoint](../../five-area-plan-20261106.md) records private input/output locations and verification. This closes the selected local reader integration only; native storage/model/dashboard work and current clinical/operational acceptance remain separate. No collector, API, flow or schedule is added.
