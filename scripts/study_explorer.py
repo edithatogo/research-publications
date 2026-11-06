@@ -156,6 +156,16 @@ def render(result):
                 provenance = ('<p>Source-reported site: ' + escape(reviewed['source_value'])
                               + '; observed ' + escape(reviewed['source_observed_at'])
                               + '. Current participation/authorisation unverified.</p>')
+            ppg = []
+            for reference in row.get('PPGEvidenceReferences', []):
+                receipt = reference['receipt']
+                ppg.append('<p>PPG ' + escape(reference['relationshipScope']) + ' reference: <a href="'
+                           + escape(receipt['canonicalUrl'], quote=True) + '">' + escape(reference['frameworkKey'])
+                           + ' / ' + escape(reference['requirementKey']) + '</a>; retained version '
+                           + escape(receipt['nativeVersionRef']) + '; retrieved ' + escape(receipt['retrievedAtUtc'])
+                           + '; authority: ' + escape(receipt['authorityLabel'])
+                           + '. Current access/authority unverified; reference presence is not compliance.</p>')
+            review_state = '<p>Source reconciliation: ' + escape(row['SourceReviewState']) + '; review required.</p>' if row.get('SourceReviewState') else ''
             registry = []
             for decision in row.get('RegistryLinks', []):
                 label = 'Reviewed identity match' if decision['decision'] == 'confirmed' else 'Unconfirmed candidate'
@@ -169,13 +179,22 @@ def render(result):
                                 + escape(proof['snapshot_at']) + '; payload SHA-256: ' + escape(proof['sha256']) + '</p></details>')
             items.append(f'<li><a href="{escape(row["SourceURL"], quote=True)}">{escape(row["Title"] or row.get("StudyIdentifier", row.get("NCTId", row["SourceKey"])))}</a> '
                          f'— {escape(row.get("StudyIdentifier", row.get("NCTId", row["SourceKey"])))}; {escape(row["StudyType"] or "Unknown type")}; '
-                         f'{escape(row["OverallStatus"] or "Unknown status")}; {escape(role)} {evidence}{provenance}{"".join(registry)}</li>')
+                         f'{escape(row["OverallStatus"] or "Unknown status")}; {escape(role)} {evidence}{provenance}{"".join(ppg)}{review_state}{"".join(registry)}</li>')
         sections.append(f'<h2>{label}</h2><p>{len(items)} selected records.</p><ul>{"".join(items)}</ul>')
+    maintenance = result.get('maintenance')
+    maintenance_notice = ''
+    if maintenance:
+        maintenance_notice = '<h2>Source reconciliation</h2><p>' + escape(maintenance['outcome']) + '; '
+        maintenance_notice += str(maintenance['review_queue']) + ' records require review; '
+        maintenance_notice += str(maintenance['source_missing']) + ' prior source rows are absent. This is not study closure or deletion.</p><p>PPG: ' + escape(maintenance['ppg_link_status']) + '</p>'
+    history = ''.join('<li>' + escape(row['SourceKey']) + ': ' + escape(row['Title'] or 'Unknown title') + ' — retained historical source record; not current-source admission.</li>' for row in result.get('source_history', []))
+    if history:
+        maintenance_notice += '<h2>Retained source history</h2><ul>' + history + '</ul>'
     return ('<!doctype html><html lang="en"><meta charset="utf-8"><title>Study explorer</title>'
             '<h1>Study explorer</h1><p>' + escape(result['scope']) + '</p><p>Observed: '
             + escape(result['observed_at']) + '</p><p>Registry status may be stale. '
             'A CHHHS association does not establish a conducting site, patient eligibility or accreditation.</p>'
-            + ''.join(sections) + '</html>')
+            + ''.join(sections) + maintenance_notice + '</html>')
 
 
 def main():
@@ -208,15 +227,9 @@ def main():
     associations = reviewed['associations'] if reviewed else strict_json(args.associations.read_bytes()) if args.associations else []
     dora_receipt_sha256 = None
     if args.dora_directory:
-        receipt_bytes = (args.dora_directory / 'receipt.json').read_bytes()
-        dora_receipt_sha256 = hashlib.sha256(receipt_bytes).hexdigest()
-        if dora_receipt_sha256 != args.sha256:
-            raise ValueError('DoRA receipt hash mismatch')
-        envelope = strict_json(receipt_bytes)
-        if 'records' in envelope:
-            raise ValueError('Directory receipt must not override records.json')
-        envelope['records'] = strict_json((args.dora_directory / 'records.json').read_bytes())
-        raw = json.dumps(envelope, ensure_ascii=False, allow_nan=False).encode()
+        from scripts.dora_study_projection import read_directory
+        raw = read_directory(args.dora_directory, args.sha256)
+        dora_receipt_sha256 = args.sha256
     else:
         raw = (args.input or args.archive or args.dora_capture).read_bytes()
     archive_hash = None
@@ -242,8 +255,8 @@ def main():
     result['archive_sha256'] = archive_hash
     result['dora_receipt_sha256'] = dora_receipt_sha256
     if reviewed is not None:
-        if not dora_receipt_sha256 or any(proof['source_receipt_sha256'] != dora_receipt_sha256 for proof in reviewed['association_evidence'].values()):
-            raise ValueError('Reviewed evidence refers to a different DoRA receipt')
+        from scripts.study_reviewed_evidence import validate_receipt_binding
+        validate_receipt_binding(reviewed, dora_receipt_sha256)
         result['reviewed_evidence_sha256'] = args.reviewed_evidence_sha256
     destination = create_output(args.output)
     (destination / 'study-explorer.json').write_text(json.dumps(result, ensure_ascii=False, allow_nan=False, indent=2) + '\n')

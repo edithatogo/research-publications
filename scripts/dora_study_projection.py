@@ -9,6 +9,21 @@ from scripts.export_dora_activity import build_rows
 from scripts.source_capture_receipt import strict_json
 
 
+def read_directory(directory, expected_receipt_sha256):
+    """Read the existing collector format, pinning original receipt bytes."""
+    from pathlib import Path
+    import json
+    directory = Path(directory)
+    receipt = (directory / 'receipt.json').read_bytes()
+    if hashlib.sha256(receipt).hexdigest() != expected_receipt_sha256:
+        raise ValueError('DoRA receipt hash mismatch')
+    envelope = strict_json(receipt)
+    if 'records' in envelope:
+        raise ValueError('Directory receipt must not override records.json')
+    envelope['records'] = strict_json((directory / 'records.json').read_bytes())
+    return json.dumps(envelope, ensure_ascii=False, allow_nan=False).encode()
+
+
 def project_dora(raw, expected_sha256):
     if hashlib.sha256(raw).hexdigest() != expected_sha256:
         raise ValueError('DoRA envelope hash mismatch')
