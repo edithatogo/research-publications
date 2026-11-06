@@ -109,7 +109,7 @@ def explore(raw, expected_sha256, *, observed_at, associations, query='', status
             'selected_records': sum(len(rows) for rows in result.values()), 'views': result}
 
 
-def explore_dora(raw, expected_sha256, *, associations, query='', status='', study_type='', country=''):
+def explore_dora(raw, expected_sha256, *, associations, query='', status='', study_type='', country='', reviewed_evidence=None):
     from scripts.dora_study_projection import project_dora
     rows, observed_at = project_dora(raw, expected_sha256)
     by_key = validate_associations(associations)
@@ -127,12 +127,17 @@ def explore_dora(raw, expected_sha256, *, associations, query='', status='', stu
         result['chhhs_associated' if link else 'external_discovery'].append(row)
     for selected in result.values():
         selected.sort(key=lambda row: row['SourceKey'])
-    return {'schema_version': 1, 'capture_sha256': expected_sha256,
+    output = {'schema_version': 1, 'capture_sha256': expected_sha256,
             'observed_at': observed_at, 'capture_records': len(rows),
             'scope': 'Selected retained DoRA activity resource; not a complete registry or CHHHS census',
             'filters': dict(query=query, status=status, study_type=study_type, country=country),
             'associations_sha256': hashlib.sha256(json.dumps(sorted(associations, key=lambda link: link['source_key']), sort_keys=True, ensure_ascii=False, allow_nan=False).encode()).hexdigest(),
             'selected_records': sum(len(rows) for rows in result.values()), 'views': result}
+
+    if reviewed_evidence is not None:
+        from scripts.study_reviewed_evidence import apply_review
+        apply_review(output, reviewed_evidence, rows)
+    return output
 
 
 def render(result):
@@ -145,9 +150,26 @@ def render(result):
             role = (row['CHHHSInvolvement'] or {}).get('involvement', 'Unconfirmed')
             links = (row['CHHHSInvolvement'] or {}).get('ppg_evidence_urls', [])
             evidence = ' '.join(f'<a href="{escape(u, quote=True)}">PPG evidence {i+1}</a>' for i, u in enumerate(links))
+            reviewed = row.get('CHHHSAssociationEvidence')
+            provenance = ''
+            if reviewed:
+                provenance = ('<p>Source-reported site: ' + escape(reviewed['source_value'])
+                              + '; observed ' + escape(reviewed['source_observed_at'])
+                              + '. Current participation/authorisation unverified.</p>')
+            registry = []
+            for decision in row.get('RegistryLinks', []):
+                label = 'Reviewed identity match' if decision['decision'] == 'confirmed' else 'Unconfirmed candidate'
+                differences = ''.join('<li>' + escape(text) + '</li>' for text in decision['differences'])
+                corroboration = ''.join('<li>' + escape(text) + '</li>' for text in decision['corroboration'])
+                proof = decision['registry_evidence']
+                registry.append('<p>' + label + ': <a href="' + escape(decision['registry_url'], quote=True)
+                                + '">' + escape(decision['registry_key']) + '</a></p><details><summary>Identity evidence and source differences</summary><p>'
+                                + escape(decision['basis']) + '</p><ul>' + corroboration + '</ul><ul>' + differences
+                                + '</ul><p>Scope: ' + escape(decision['review_scope']) + '</p><p>Registry snapshot: '
+                                + escape(proof['snapshot_at']) + '; payload SHA-256: ' + escape(proof['sha256']) + '</p></details>')
             items.append(f'<li><a href="{escape(row["SourceURL"], quote=True)}">{escape(row["Title"] or row.get("StudyIdentifier", row.get("NCTId", row["SourceKey"])))}</a> '
                          f'— {escape(row.get("StudyIdentifier", row.get("NCTId", row["SourceKey"])))}; {escape(row["StudyType"] or "Unknown type")}; '
-                         f'{escape(row["OverallStatus"] or "Unknown status")}; {escape(role)} {evidence}</li>')
+                         f'{escape(row["OverallStatus"] or "Unknown status")}; {escape(role)} {evidence}{provenance}{"".join(registry)}</li>')
         sections.append(f'<h2>{label}</h2><p>{len(items)} selected records.</p><ul>{"".join(items)}</ul>')
     return ('<!doctype html><html lang="en"><meta charset="utf-8"><title>Study explorer</title>'
             '<h1>Study explorer</h1><p>' + escape(result['scope']) + '</p><p>Observed: '
@@ -165,14 +187,25 @@ def main():
     inputs.add_argument('--archive', type=Path, help='Existing qualified exact-ID ClinicalTrials ZIP')
     parser.add_argument('--sha256', required=True)
     parser.add_argument('--observed-at', help='Required for CT; DoRA uses its retained receipt timestamp')
-    parser.add_argument('--associations', type=Path)
+    reviews = parser.add_mutually_exclusive_group()
+    reviews.add_argument('--associations', type=Path)
+    reviews.add_argument('--reviewed-evidence', type=Path)
+    parser.add_argument('--reviewed-evidence-sha256')
     parser.add_argument('--output', type=Path, required=True)
     for field in ('query', 'status', 'study-type', 'country'):
         parser.add_argument('--' + field, default='')
     args = parser.parse_args()
     # Reuse the repository's private-output boundary and no-overwrite policy.
     from scripts.source_capture_receipt import create_output
-    associations = strict_json(args.associations.read_bytes()) if args.associations else []
+    if bool(args.reviewed_evidence) != bool(args.reviewed_evidence_sha256):
+        parser.error('--reviewed-evidence and --reviewed-evidence-sha256 must be supplied together')
+    reviewed = None
+    if args.reviewed_evidence:
+        if not (args.dora_capture or args.dora_directory):
+            parser.error('Reviewed evidence is currently qualified for DoRA input only')
+        from scripts.study_reviewed_evidence import load_review
+        reviewed = load_review(args.reviewed_evidence.read_bytes(), args.reviewed_evidence_sha256)
+    associations = reviewed['associations'] if reviewed else strict_json(args.associations.read_bytes()) if args.associations else []
     dora_receipt_sha256 = None
     if args.dora_directory:
         receipt_bytes = (args.dora_directory / 'receipt.json').read_bytes()
@@ -199,7 +232,7 @@ def main():
         if args.observed_at:
             parser.error('DoRA uses its retained observation time; omit --observed-at')
         result = explore_dora(raw, hashlib.sha256(raw).hexdigest() if args.dora_directory else args.sha256, associations=associations, query=args.query,
-                              status=args.status, study_type=args.study_type, country=args.country)
+                              status=args.status, study_type=args.study_type, country=args.country, reviewed_evidence=reviewed)
     else:
         if not args.observed_at:
             parser.error('--observed-at is required for ClinicalTrials.gov input')
@@ -208,6 +241,10 @@ def main():
                          study_type=args.study_type, country=args.country)
     result['archive_sha256'] = archive_hash
     result['dora_receipt_sha256'] = dora_receipt_sha256
+    if reviewed is not None:
+        if dora_receipt_sha256 and any(proof['source_receipt_sha256'] != dora_receipt_sha256 for proof in reviewed['association_evidence'].values()):
+            raise ValueError('Reviewed evidence refers to a different DoRA receipt')
+        result['reviewed_evidence_sha256'] = args.reviewed_evidence_sha256
     destination = create_output(args.output)
     (destination / 'study-explorer.json').write_text(json.dumps(result, ensure_ascii=False, allow_nan=False, indent=2) + '\n')
     (destination / 'study-explorer.html').write_text(render(result))
