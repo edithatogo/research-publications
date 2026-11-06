@@ -100,7 +100,6 @@ def reconcile(previous_raw, current_raw, previous_receipt_sha256, current_receip
         for proof in next_packet['association_evidence'].values():
             proof.update(source_observed_at=current_at, source_receipt_sha256=current_receipt_sha256)
         next_packet['registry_decisions'] = [copy.deepcopy(link) for link in packet['registry_decisions'] if link['source_key'] in carried]
-        next_packet['ppg_references'] = [copy.deepcopy(link) for link in packet.get('ppg_references', []) if link['source_key'] in carried]
         next_packet['refresh_lineage'] = {'policy': 'unchanged_same_resource_only', 'previous_capture_sha256': sha(previous_raw),
             'previous_review_sha256': review_sha256, 'previous_review_id': packet['review_id'],
             'previous_observed_at': previous_at, 'carried_source_keys': sorted(carried & reviewed_keys)}
@@ -169,6 +168,8 @@ def main():
         if sha(raw) != args.ppg_references_sha256:
             raise ValueError('PPG reference input hash mismatch')
         references = strict_json(raw)
+        if not isinstance(references, list):
+            parser.error('PPG reference input must be a JSON array')
     previous = read_directory(args.previous_directory, args.previous_receipt_sha256)
     current = read_directory(args.current_directory, args.current_receipt_sha256)
     result = reconcile(previous, current, args.previous_receipt_sha256, args.current_receipt_sha256,

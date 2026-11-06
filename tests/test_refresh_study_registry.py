@@ -188,3 +188,33 @@ class StudyRefreshTests(unittest.TestCase):
         self.assertNotEqual(subprocess.run(command, capture_output=True).returncode, 0)
         self.assertEqual((capture/'receipt.json').read_bytes(), receipt)
         self.assertEqual((root/'review.json').read_bytes(), review)
+        # All source rows may disappear without bypassing the new receipt's byte pin.
+        empty = copy.deepcopy(data)
+        empty['records'] = []
+        empty['observed_at'] = '2026-11-07T00:00:00Z'
+        empty = json.loads(seal(empty))
+        empty_records = empty.pop('records')
+        empty_directory = root/'empty-capture'
+        empty_directory.mkdir()
+        empty_receipt = json.dumps(empty).encode()
+        (empty_directory/'receipt.json').write_bytes(empty_receipt)
+        (empty_directory/'records.json').write_text(json.dumps(empty_records))
+        empty_command = command.copy()
+        empty_command[empty_command.index('--current-directory')+1] = str(empty_directory)
+        empty_command[empty_command.index('--current-receipt-sha256')+1] = sha(empty_receipt)
+        empty_command[-1] = str(root/'empty-result')
+        completed = subprocess.run(empty_command, capture_output=True, text=True)
+        self.assertEqual(completed.returncode, 0, completed.stderr)
+        self.assertEqual(json.loads((root/'empty-result/next-reviewed-evidence.json').read_text())['associations'], [])
+        empty_command[empty_command.index('--current-receipt-sha256')+1] = '0'*64
+        empty_command[-1] = str(root/'wrong-empty-receipt')
+        self.assertNotEqual(subprocess.run(empty_command, capture_output=True).returncode, 0)
+        self.assertFalse((root/'wrong-empty-receipt').exists())
+        references = root/'bad-ppg.json'
+        references.write_text('{}')
+        invalid = command.copy()
+        invalid[-1] = str(root/'invalid-ppg')
+        invalid += ['--ppg-references', str(references), '--ppg-references-sha256', sha(references.read_bytes())]
+        rejected = subprocess.run(invalid, capture_output=True, text=True)
+        self.assertNotEqual(rejected.returncode, 0)
+        self.assertIn('must be a JSON array', rejected.stderr)

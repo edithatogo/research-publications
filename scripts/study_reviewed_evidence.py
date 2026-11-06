@@ -33,7 +33,9 @@ def load_review(raw, expected_sha256):
 
 
 def validate_receipt_binding(packet, receipt_sha256):
-    if not receipt_sha256 or any(proof['source_receipt_sha256'] != receipt_sha256
+    if not isinstance(receipt_sha256, str) or not re.fullmatch('[a-f0-9]{64}', receipt_sha256):
+        raise ValueError('An independently pinned DoRA receipt hash is required')
+    if any(proof['source_receipt_sha256'] != receipt_sha256
                                  for proof in packet['association_evidence'].values()):
         raise ValueError('Reviewed evidence refers to a different DoRA receipt')
 
