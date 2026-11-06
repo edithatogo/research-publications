@@ -25131,6 +25131,106 @@
       "value_sha256": "92c1a1f2d5af010c08f33be25c7c2980172955561c102e2e384f2a569668279d",
       "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
       "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "fa009ad202f1198fae2b4e2e5706a2cc07ec7757b1103565d12df4604a6ec9ed",
+      "blob_sha256": "48bf45bd9b73d2d906fcd3f76f44411ae1e0a48a2f2da39e38c1bb2843aaad48",
+      "entity_index": 0,
+      "start": 605,
+      "end": 614,
+      "value_sha256": "b70b86c7ba33017cc0c8f27010672fd826317030a81618c4aa590e3005bdf8f1",
+      "reason": "Inspected exact code/test span after namespace validation fix: machine field or Python syntax, not a person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "fa009ad202f1198fae2b4e2e5706a2cc07ec7757b1103565d12df4604a6ec9ed",
+      "blob_sha256": "48bf45bd9b73d2d906fcd3f76f44411ae1e0a48a2f2da39e38c1bb2843aaad48",
+      "entity_index": 0,
+      "start": 1110,
+      "end": 1119,
+      "value_sha256": "b70b86c7ba33017cc0c8f27010672fd826317030a81618c4aa590e3005bdf8f1",
+      "reason": "Inspected exact code/test span after namespace validation fix: machine field or Python syntax, not a person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "fa009ad202f1198fae2b4e2e5706a2cc07ec7757b1103565d12df4604a6ec9ed",
+      "blob_sha256": "48bf45bd9b73d2d906fcd3f76f44411ae1e0a48a2f2da39e38c1bb2843aaad48",
+      "entity_index": 0,
+      "start": 4240,
+      "end": 4258,
+      "value_sha256": "c48f25ce82945dfac57bf5d988098083c01713d0564094043f9203e3fcfa9bfe",
+      "reason": "Inspected exact code/test span after namespace validation fix: machine field or Python syntax, not a person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "fa009ad202f1198fae2b4e2e5706a2cc07ec7757b1103565d12df4604a6ec9ed",
+      "blob_sha256": "48bf45bd9b73d2d906fcd3f76f44411ae1e0a48a2f2da39e38c1bb2843aaad48",
+      "entity_index": 0,
+      "start": 6915,
+      "end": 6923,
+      "value_sha256": "45447b7afbd5e544f7d0f1df0fccd26014d9850130abd3f020b89ff96b82079f",
+      "reason": "Inspected exact code/test span after namespace validation fix: machine field or Python syntax, not a person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "a24e9c8cbb6dcfa13feb42c176f03330329d3e4b06690a0698b71d644210b2e5",
+      "blob_sha256": "baf4b46e3ab279f8f80322c647892e9f2fb98f0be7ccc28733c3ebcab3e76a67",
+      "entity_index": 0,
+      "start": 788,
+      "end": 817,
+      "value_sha256": "6933e8ef0247426eb5e6673b208dc26ac6051ca6dbcaf5ab89667af5a5808820",
+      "reason": "Inspected exact code/test span after namespace validation fix: machine field or Python syntax, not a person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "a24e9c8cbb6dcfa13feb42c176f03330329d3e4b06690a0698b71d644210b2e5",
+      "blob_sha256": "baf4b46e3ab279f8f80322c647892e9f2fb98f0be7ccc28733c3ebcab3e76a67",
+      "entity_index": 0,
+      "start": 1733,
+      "end": 1738,
+      "value_sha256": "56a5f3004e0d228ad11fe6a85fbc720d17615129a491f93c6b8fea45b379a5a9",
+      "reason": "Inspected exact code/test span after namespace validation fix: machine field or Python syntax, not a person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "a24e9c8cbb6dcfa13feb42c176f03330329d3e4b06690a0698b71d644210b2e5",
+      "blob_sha256": "baf4b46e3ab279f8f80322c647892e9f2fb98f0be7ccc28733c3ebcab3e76a67",
+      "entity_index": 0,
+      "start": 3079,
+      "end": 3088,
+      "value_sha256": "b70b86c7ba33017cc0c8f27010672fd826317030a81618c4aa590e3005bdf8f1",
+      "reason": "Inspected exact code/test span after namespace validation fix: machine field or Python syntax, not a person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "a24e9c8cbb6dcfa13feb42c176f03330329d3e4b06690a0698b71d644210b2e5",
+      "blob_sha256": "baf4b46e3ab279f8f80322c647892e9f2fb98f0be7ccc28733c3ebcab3e76a67",
+      "entity_index": 0,
+      "start": 6073,
+      "end": 6082,
+      "value_sha256": "02cdaabfca805d6ab75d81043998bdc733451b9ea48958ebf8098022d102ba2e",
+      "reason": "Inspected exact code/test span after namespace validation fix: machine field or Python syntax, not a person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "a24e9c8cbb6dcfa13feb42c176f03330329d3e4b06690a0698b71d644210b2e5",
+      "blob_sha256": "baf4b46e3ab279f8f80322c647892e9f2fb98f0be7ccc28733c3ebcab3e76a67",
+      "entity_index": 0,
+      "start": 7822,
+      "end": 7827,
+      "value_sha256": "60a33e6cf5151f2d52eddae9685cfa270426aa89d8dbc7dfb854606f1d1a40fe",
+      "reason": "Inspected exact code/test span after namespace validation fix: machine field or Python syntax, not a person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "a24e9c8cbb6dcfa13feb42c176f03330329d3e4b06690a0698b71d644210b2e5",
+      "blob_sha256": "baf4b46e3ab279f8f80322c647892e9f2fb98f0be7ccc28733c3ebcab3e76a67",
+      "entity_index": 0,
+      "start": 8254,
+      "end": 8280,
+      "value_sha256": "92c1a1f2d5af010c08f33be25c7c2980172955561c102e2e384f2a569668279d",
+      "reason": "Inspected exact code/test span after namespace validation fix: machine field or Python syntax, not a person or account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
     }
   ]
 }
