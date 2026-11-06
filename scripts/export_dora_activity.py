@@ -10,9 +10,14 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlsplit
 
-from collect_pubmed import canonical_json
-from dora_activity import IDENTITY_FIELD, SOURCE_FIELDS, validate_records
-from export_publication_register import safe_cell
+try:
+    from scripts.collect_pubmed import canonical_json
+    from scripts.dora_activity import IDENTITY_FIELD, SOURCE_FIELDS, validate_records
+    from scripts.export_publication_register import safe_cell
+except ModuleNotFoundError:
+    from collect_pubmed import canonical_json
+    from dora_activity import IDENTITY_FIELD, SOURCE_FIELDS, validate_records
+    from export_publication_register import safe_cell
 
 PROVENANCE_FIELDS = [
     "DORAActivityKey",

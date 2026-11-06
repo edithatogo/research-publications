@@ -114,3 +114,7 @@ shared production model overwrite, Windows/Desktop fallback, universal adapter,
 new identity inference from names, or institution-wide completeness claim.
 Current licensing/access limits remain actual constraints, not invitations to
 substitute clients. Missing evidence remains unavailable rather than zero.
+
+## Five-area local implementation — confirmed 6 November 2026
+
+The user selects dependency-ready local implementation under the [five-area amendment](../../five-area-plan-20261106.md): all clinical studies, explicit trial subtype; external discovery separated from CHHHS associations; RIMS identities with links to PPG-held standards/evidence; restricted-API assessment and unsent drafts. Retained ClinicalTrials.gov exploration is the first bounded implementation, reusing existing capture/projection contracts. No patient data, evidence duplication, new native collector/flow, dashboard write, purchase, agreement or send is included. Existing grant/source owners and completed slices remain preserved.

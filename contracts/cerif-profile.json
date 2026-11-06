@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "status": "draft_entity_crosswalk_only",
+  "conformance_established": false,
+  "vocabulary": {
+    "repository": "https://github.com/EuroCRIS/CERIF-Vocabularies",
+    "commit": "ff4bdf3d710ef4d9065d20aeeebdd625475f3d80",
+    "file": "CERIFEntities.xml",
+    "sha256": "49d86cbc821d2dea2857e3fc54e688a603b7022d7ae6e8418ad7c4f245616f70"
+  },
+  "mappings": [
+    {
+      "area": "Research Outputs",
+      "local_entity": "canonical publication",
+      "target_term": "Publication",
+      "target_class_id": "cf7799e5-3477-11e1-b86c-0800200c9a66",
+      "field_mappings": [],
+      "relationship_mappings": [],
+      "status": "entity_mapping_only"
+    },
+    {
+      "area": "People & Collaborations",
+      "local_entity": "resolved person only",
+      "target_term": "Person",
+      "target_class_id": "cf7799e0-3477-11e1-b86c-0800200c9a66",
+      "field_mappings": [],
+      "relationship_mappings": [],
+      "status": "entity_mapping_only"
+    },
+    {
+      "area": "Projects & Studies",
+      "local_entity": "study/project; registry identity kept separate",
+      "target_term": "Project",
+      "target_class_id": "cf7799e1-3477-11e1-b86c-0800200c9a66",
+      "field_mappings": [],
+      "relationship_mappings": [],
+      "status": "entity_mapping_only"
+    },
+    {
+      "area": "Funding",
+      "local_entity": "qualified funding/award; opportunities and applications separate",
+      "target_term": "Funding",
+      "target_class_id": "cf7799e6-3477-11e1-b86c-0800200c9a66",
+      "field_mappings": [],
+      "relationship_mappings": [],
+      "status": "entity_mapping_only"
+    },
+    {
+      "area": "Organisations & Affiliations",
+      "local_entity": "organisation/unit with local namespace",
+      "target_term": "Organisation",
+      "target_class_id": "cf7799e2-3477-11e1-b86c-0800200c9a66",
+      "field_mappings": [],
+      "relationship_mappings": [],
+      "status": "entity_mapping_only"
+    }
+  ]
+}
