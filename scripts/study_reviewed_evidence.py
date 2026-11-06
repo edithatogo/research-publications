@@ -72,7 +72,7 @@ def apply_review(result, packet, source_rows):
         registry_key = decision['registry_key']
         if key not in source_keys:
             raise ValueError('Registry decision references absent from capture')
-        if not isinstance(registry_key, str) or not re.fullmatch(r'clinicaltrials.gov:NCT[0-9]{8}', registry_key):
+        if not isinstance(registry_key, str) or not re.fullmatch(r'clinicaltrials\.gov:NCT[0-9]{8}', registry_key):
             raise ValueError('Qualified retained ClinicalTrials.gov identity required')
         nct = registry_key.split(':', 1)[1]
         if decision['registry_url'] != 'https://clinicaltrials.gov/study/' + nct:

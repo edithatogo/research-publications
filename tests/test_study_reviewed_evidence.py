@@ -103,7 +103,8 @@ class StudyReviewedEvidenceTests(unittest.TestCase):
 
     def test_duplicate_orphan_wrong_registry_and_update_claims_refused(self):
         for change, message in [('duplicate', 'Duplicate or conflicting'), ('orphan', 'absent from capture'),
-                                ('identity', 'absent from pinned'), ('update', 'update metadata differs')]:
+                                ('identity', 'absent from pinned'), ('update', 'update metadata differs'),
+                                ('namespace', 'Qualified retained')]:
             packet = copy.deepcopy(self.packet)
             if change == 'duplicate':
                 packet['registry_decisions'].append(copy.deepcopy(packet['registry_decisions'][0]))
@@ -113,6 +114,8 @@ class StudyReviewedEvidenceTests(unittest.TestCase):
                 packet['registry_decisions'][0].update(registry_key='clinicaltrials.gov:NCT00000009',
                     registry_url='https://clinicaltrials.gov/study/NCT00000009')
                 packet['registry_decisions'][0]['registry_evidence']['locator'] = 'NCT00000009'
+            elif change == 'namespace':
+                packet['registry_decisions'][0]['registry_key'] = 'clinicaltrialsXgov:NCT00000001'
             else:
                 packet['registry_decisions'][0]['registry_evidence']['last_update_source'] = {'date': '2026-11-06'}
             with self.assertRaisesRegex(ValueError, message):
