@@ -22891,6 +22891,956 @@
       "value_sha256": "f46f584093a95f55157825c5684ca3c5bc52c536013ed0d2a17e8b8a103a2078",
       "reason": "inspected exact handoff span: technical product, role, workflow state, file, task or source revision label; no person or personal identifier is represented",
       "reviewer": "Codex integration review 2026-11-05"
+    },
+    {
+      "identity": "d31aac0461e039aa57c702c26f987bd8897f2e499443fe5eca3d0ff5e484e87a",
+      "blob_sha256": "5568caaee210a7a412fb4d5c3175531b03a161175a295221cce027b5fc46003b",
+      "entity_index": 0,
+      "start": 1013,
+      "end": 1018,
+      "value_sha256": "ebe45c40b46bc58581d3c5dfb788c065cd6e096c2d79b880ee9fb44faaddd2f4",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d31aac0461e039aa57c702c26f987bd8897f2e499443fe5eca3d0ff5e484e87a",
+      "blob_sha256": "5568caaee210a7a412fb4d5c3175531b03a161175a295221cce027b5fc46003b",
+      "entity_index": 0,
+      "start": 1077,
+      "end": 1082,
+      "value_sha256": "ebe45c40b46bc58581d3c5dfb788c065cd6e096c2d79b880ee9fb44faaddd2f4",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d31aac0461e039aa57c702c26f987bd8897f2e499443fe5eca3d0ff5e484e87a",
+      "blob_sha256": "5568caaee210a7a412fb4d5c3175531b03a161175a295221cce027b5fc46003b",
+      "entity_index": 0,
+      "start": 1231,
+      "end": 1239,
+      "value_sha256": "d6eafe82359100423c93c5ce53c352c1b51ca1e699215fcec3f5c5dd9bf12d24",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d31aac0461e039aa57c702c26f987bd8897f2e499443fe5eca3d0ff5e484e87a",
+      "blob_sha256": "5568caaee210a7a412fb4d5c3175531b03a161175a295221cce027b5fc46003b",
+      "entity_index": 0,
+      "start": 1266,
+      "end": 1269,
+      "value_sha256": "d91c209026795b8053af226ef4e420d19d2530b27159653ae27a23327a37eaa5",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d31aac0461e039aa57c702c26f987bd8897f2e499443fe5eca3d0ff5e484e87a",
+      "blob_sha256": "5568caaee210a7a412fb4d5c3175531b03a161175a295221cce027b5fc46003b",
+      "entity_index": 0,
+      "start": 1653,
+      "end": 1656,
+      "value_sha256": "34c8c32b92f6c68646dec327c6ef50aa67f8d00f58c64df1e5a0e520cc2c9d04",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d31aac0461e039aa57c702c26f987bd8897f2e499443fe5eca3d0ff5e484e87a",
+      "blob_sha256": "5568caaee210a7a412fb4d5c3175531b03a161175a295221cce027b5fc46003b",
+      "entity_index": 0,
+      "start": 2768,
+      "end": 2778,
+      "value_sha256": "ee325afd9b4e907b3c521293ce4c841c990f124a10192bcba8ec7cc6bf005090",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d31aac0461e039aa57c702c26f987bd8897f2e499443fe5eca3d0ff5e484e87a",
+      "blob_sha256": "5568caaee210a7a412fb4d5c3175531b03a161175a295221cce027b5fc46003b",
+      "entity_index": 0,
+      "start": 2828,
+      "end": 2838,
+      "value_sha256": "3cdc70c96686eaa232b416f92ad5e930ecb183f270c4ff129835e9f5d1aa34bb",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d31aac0461e039aa57c702c26f987bd8897f2e499443fe5eca3d0ff5e484e87a",
+      "blob_sha256": "5568caaee210a7a412fb4d5c3175531b03a161175a295221cce027b5fc46003b",
+      "entity_index": 0,
+      "start": 3378,
+      "end": 3388,
+      "value_sha256": "c09c9a44c0c5bcb9cfc3b888481ffd442cb5b46e2873adf1abb882060a75dd6a",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d31aac0461e039aa57c702c26f987bd8897f2e499443fe5eca3d0ff5e484e87a",
+      "blob_sha256": "5568caaee210a7a412fb4d5c3175531b03a161175a295221cce027b5fc46003b",
+      "entity_index": 0,
+      "start": 4428,
+      "end": 4446,
+      "value_sha256": "538872ad9303cd6dc6a66566b6dcd186c6d0342150fef26b040eba1925c78b2d",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "2596c317ad48da86817e47f39c9da9308281c1be9bbddad15a00ee82268a8621",
+      "blob_sha256": "0c1160507e8f4833586b5f7984a8cd6d0ecedd07afd57aa5f2d61561a728cb43",
+      "entity_index": 0,
+      "start": 474,
+      "end": 480,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "2596c317ad48da86817e47f39c9da9308281c1be9bbddad15a00ee82268a8621",
+      "blob_sha256": "0c1160507e8f4833586b5f7984a8cd6d0ecedd07afd57aa5f2d61561a728cb43",
+      "entity_index": 0,
+      "start": 1283,
+      "end": 1290,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "2596c317ad48da86817e47f39c9da9308281c1be9bbddad15a00ee82268a8621",
+      "blob_sha256": "0c1160507e8f4833586b5f7984a8cd6d0ecedd07afd57aa5f2d61561a728cb43",
+      "entity_index": 0,
+      "start": 1418,
+      "end": 1422,
+      "value_sha256": "cdf4e79a95e14a003a4daa5e32acae81548accff60d9f2589ba209c22a6b515c",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "2596c317ad48da86817e47f39c9da9308281c1be9bbddad15a00ee82268a8621",
+      "blob_sha256": "0c1160507e8f4833586b5f7984a8cd6d0ecedd07afd57aa5f2d61561a728cb43",
+      "entity_index": 0,
+      "start": 3011,
+      "end": 3064,
+      "value_sha256": "429d551a1466a8e7465834ec49ad674a903304b55f0db061a95a88c437b2d94a",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "2596c317ad48da86817e47f39c9da9308281c1be9bbddad15a00ee82268a8621",
+      "blob_sha256": "0c1160507e8f4833586b5f7984a8cd6d0ecedd07afd57aa5f2d61561a728cb43",
+      "entity_index": 0,
+      "start": 5923,
+      "end": 5935,
+      "value_sha256": "9dc2055a4bb869238616e71d209f4ec891cd655d89ef17396f9f97eeac936fe7",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "2596c317ad48da86817e47f39c9da9308281c1be9bbddad15a00ee82268a8621",
+      "blob_sha256": "0c1160507e8f4833586b5f7984a8cd6d0ecedd07afd57aa5f2d61561a728cb43",
+      "entity_index": 0,
+      "start": 6899,
+      "end": 6906,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "2596c317ad48da86817e47f39c9da9308281c1be9bbddad15a00ee82268a8621",
+      "blob_sha256": "0c1160507e8f4833586b5f7984a8cd6d0ecedd07afd57aa5f2d61561a728cb43",
+      "entity_index": 0,
+      "start": 10192,
+      "end": 10197,
+      "value_sha256": "b6dfe42069f32da1e58a7ce5c146e5b9a68bbcbc32775f593e12ca41818debb3",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "2596c317ad48da86817e47f39c9da9308281c1be9bbddad15a00ee82268a8621",
+      "blob_sha256": "0c1160507e8f4833586b5f7984a8cd6d0ecedd07afd57aa5f2d61561a728cb43",
+      "entity_index": 0,
+      "start": 12905,
+      "end": 12911,
+      "value_sha256": "d640c7421da066618a39daf4266da5f61f66a9b1afcd626481b831a17064965d",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "2596c317ad48da86817e47f39c9da9308281c1be9bbddad15a00ee82268a8621",
+      "blob_sha256": "0c1160507e8f4833586b5f7984a8cd6d0ecedd07afd57aa5f2d61561a728cb43",
+      "entity_index": 0,
+      "start": 15375,
+      "end": 15410,
+      "value_sha256": "c3c5bebebffbdf156e4a1fb7b3623b23b7d16f9a9b1de99e84125b137f48b23a",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "2596c317ad48da86817e47f39c9da9308281c1be9bbddad15a00ee82268a8621",
+      "blob_sha256": "0c1160507e8f4833586b5f7984a8cd6d0ecedd07afd57aa5f2d61561a728cb43",
+      "entity_index": 0,
+      "start": 18397,
+      "end": 18407,
+      "value_sha256": "273a39b09219e67f0c302704ffb99c89bb6c2887a28f5ec0c95b63587499212a",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "2596c317ad48da86817e47f39c9da9308281c1be9bbddad15a00ee82268a8621",
+      "blob_sha256": "0c1160507e8f4833586b5f7984a8cd6d0ecedd07afd57aa5f2d61561a728cb43",
+      "entity_index": 0,
+      "start": 18719,
+      "end": 18753,
+      "value_sha256": "e527347b819a1945b5774f08540a55f0cc5bdf0ec80153de8dcf41d261f15b06",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "2596c317ad48da86817e47f39c9da9308281c1be9bbddad15a00ee82268a8621",
+      "blob_sha256": "0c1160507e8f4833586b5f7984a8cd6d0ecedd07afd57aa5f2d61561a728cb43",
+      "entity_index": 0,
+      "start": 19222,
+      "end": 19242,
+      "value_sha256": "257e8a889fcd7c211cba90ff9db9bb28842beb4ef504f1e10b37d3e4deb3d509",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d3c2e91ab9f33e36622f0523182241155dbaf4a9d974e05aa3009a9166d3fa09",
+      "blob_sha256": "f6a703fd90e0cb96519a751939ae84b1aca4a09211114c0ae6f3261993541ab6",
+      "entity_index": 0,
+      "start": 299,
+      "end": 306,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d3c2e91ab9f33e36622f0523182241155dbaf4a9d974e05aa3009a9166d3fa09",
+      "blob_sha256": "f6a703fd90e0cb96519a751939ae84b1aca4a09211114c0ae6f3261993541ab6",
+      "entity_index": 0,
+      "start": 434,
+      "end": 438,
+      "value_sha256": "cdf4e79a95e14a003a4daa5e32acae81548accff60d9f2589ba209c22a6b515c",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d3c2e91ab9f33e36622f0523182241155dbaf4a9d974e05aa3009a9166d3fa09",
+      "blob_sha256": "f6a703fd90e0cb96519a751939ae84b1aca4a09211114c0ae6f3261993541ab6",
+      "entity_index": 0,
+      "start": 1648,
+      "end": 1656,
+      "value_sha256": "143b270a32602d412babf2724ec0640dda0d5a43485e5a7520b05b53fa94b303",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d3c2e91ab9f33e36622f0523182241155dbaf4a9d974e05aa3009a9166d3fa09",
+      "blob_sha256": "f6a703fd90e0cb96519a751939ae84b1aca4a09211114c0ae6f3261993541ab6",
+      "entity_index": 0,
+      "start": 5064,
+      "end": 5071,
+      "value_sha256": "1a4f630ac1b69fd00728fa8a672ded71d0eae8516cb23e78f94529113399b79b",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d3c2e91ab9f33e36622f0523182241155dbaf4a9d974e05aa3009a9166d3fa09",
+      "blob_sha256": "f6a703fd90e0cb96519a751939ae84b1aca4a09211114c0ae6f3261993541ab6",
+      "entity_index": 0,
+      "start": 7885,
+      "end": 7889,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d3c2e91ab9f33e36622f0523182241155dbaf4a9d974e05aa3009a9166d3fa09",
+      "blob_sha256": "f6a703fd90e0cb96519a751939ae84b1aca4a09211114c0ae6f3261993541ab6",
+      "entity_index": 0,
+      "start": 8282,
+      "end": 8286,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d3c2e91ab9f33e36622f0523182241155dbaf4a9d974e05aa3009a9166d3fa09",
+      "blob_sha256": "f6a703fd90e0cb96519a751939ae84b1aca4a09211114c0ae6f3261993541ab6",
+      "entity_index": 0,
+      "start": 8678,
+      "end": 8682,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d3c2e91ab9f33e36622f0523182241155dbaf4a9d974e05aa3009a9166d3fa09",
+      "blob_sha256": "f6a703fd90e0cb96519a751939ae84b1aca4a09211114c0ae6f3261993541ab6",
+      "entity_index": 0,
+      "start": 10688,
+      "end": 10692,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d3c2e91ab9f33e36622f0523182241155dbaf4a9d974e05aa3009a9166d3fa09",
+      "blob_sha256": "f6a703fd90e0cb96519a751939ae84b1aca4a09211114c0ae6f3261993541ab6",
+      "entity_index": 0,
+      "start": 11758,
+      "end": 11769,
+      "value_sha256": "abb4690a42eafd776f9d549e33c5e839309f841a6e405091da40bd383a26a650",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d3c2e91ab9f33e36622f0523182241155dbaf4a9d974e05aa3009a9166d3fa09",
+      "blob_sha256": "f6a703fd90e0cb96519a751939ae84b1aca4a09211114c0ae6f3261993541ab6",
+      "entity_index": 0,
+      "start": 11837,
+      "end": 11849,
+      "value_sha256": "b8ad85e60fb9da08f6f7edabb48cdd2a227e6049b078863d4642d30234e2a7b8",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d3c2e91ab9f33e36622f0523182241155dbaf4a9d974e05aa3009a9166d3fa09",
+      "blob_sha256": "f6a703fd90e0cb96519a751939ae84b1aca4a09211114c0ae6f3261993541ab6",
+      "entity_index": 0,
+      "start": 11857,
+      "end": 11903,
+      "value_sha256": "6c320980f62587596d600581bfdd9b43eeee2a5bc1619970969c40a2de8aa585",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d3c2e91ab9f33e36622f0523182241155dbaf4a9d974e05aa3009a9166d3fa09",
+      "blob_sha256": "f6a703fd90e0cb96519a751939ae84b1aca4a09211114c0ae6f3261993541ab6",
+      "entity_index": 0,
+      "start": 11968,
+      "end": 11972,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d3c2e91ab9f33e36622f0523182241155dbaf4a9d974e05aa3009a9166d3fa09",
+      "blob_sha256": "f6a703fd90e0cb96519a751939ae84b1aca4a09211114c0ae6f3261993541ab6",
+      "entity_index": 0,
+      "start": 13036,
+      "end": 13042,
+      "value_sha256": "d5720b2cce96f375848b84f538b03bc330e320795056727200881a9dc6408805",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d3c2e91ab9f33e36622f0523182241155dbaf4a9d974e05aa3009a9166d3fa09",
+      "blob_sha256": "f6a703fd90e0cb96519a751939ae84b1aca4a09211114c0ae6f3261993541ab6",
+      "entity_index": 0,
+      "start": 13344,
+      "end": 13347,
+      "value_sha256": "9b8eccfa533ccd5e46ae41655e1beef4d98c6e44d784ba1c4020971a62feae20",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d3c2e91ab9f33e36622f0523182241155dbaf4a9d974e05aa3009a9166d3fa09",
+      "blob_sha256": "f6a703fd90e0cb96519a751939ae84b1aca4a09211114c0ae6f3261993541ab6",
+      "entity_index": 0,
+      "start": 13860,
+      "end": 13897,
+      "value_sha256": "7047f4fe005a58187e5b80d90f5b04eafdd63fdd23b28f4a899ab219a1e1d156",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d3c2e91ab9f33e36622f0523182241155dbaf4a9d974e05aa3009a9166d3fa09",
+      "blob_sha256": "f6a703fd90e0cb96519a751939ae84b1aca4a09211114c0ae6f3261993541ab6",
+      "entity_index": 0,
+      "start": 20723,
+      "end": 20727,
+      "value_sha256": "e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "baa6200d5c29166ff8b213b913f760cd41cebbb5901f35317e5f52950b1ce5b2",
+      "blob_sha256": "c49f30d7ed30fe49ccbb71597c7e269610c15f8269c628221a5b4ccc55710ddb",
+      "entity_index": 0,
+      "start": 2660,
+      "end": 2663,
+      "value_sha256": "5f6a4a66dc7fe86427e1c0e600db8cdeee348aa8bd6023e79dd1719c4eca508b",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "baa6200d5c29166ff8b213b913f760cd41cebbb5901f35317e5f52950b1ce5b2",
+      "blob_sha256": "c49f30d7ed30fe49ccbb71597c7e269610c15f8269c628221a5b4ccc55710ddb",
+      "entity_index": 0,
+      "start": 16979,
+      "end": 16987,
+      "value_sha256": "25dfadc00885f419e6eac7acd03a12962b2796bcfacd7988929bf890c48b7c38",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "baa6200d5c29166ff8b213b913f760cd41cebbb5901f35317e5f52950b1ce5b2",
+      "blob_sha256": "c49f30d7ed30fe49ccbb71597c7e269610c15f8269c628221a5b4ccc55710ddb",
+      "entity_index": 0,
+      "start": 17177,
+      "end": 17189,
+      "value_sha256": "af729f251460d7cab9adfdba1bb85c52f8a9f1e182ab1d0f5aa800052fba499a",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b15ea686b318d28bff3c97adbe9cb45479f3494adf08bb03dccdeba3b0651958",
+      "blob_sha256": "51e223241409419335ae1c603c10a43ffb594d6c41d906d034e51a265ae9ef96",
+      "entity_index": 0,
+      "start": 5554,
+      "end": 5557,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "fd2707060c4b92616e979c1b7886499191f47c3aa10083c6e3450f009dbd2ed2",
+      "blob_sha256": "e129bd9fd47f5eedd2280054c6cd38464c75466caac8e98cc7cfbce371856aaa",
+      "entity_index": 0,
+      "start": 92,
+      "end": 97,
+      "value_sha256": "ebe45c40b46bc58581d3c5dfb788c065cd6e096c2d79b880ee9fb44faaddd2f4",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "fd2707060c4b92616e979c1b7886499191f47c3aa10083c6e3450f009dbd2ed2",
+      "blob_sha256": "e129bd9fd47f5eedd2280054c6cd38464c75466caac8e98cc7cfbce371856aaa",
+      "entity_index": 0,
+      "start": 221,
+      "end": 226,
+      "value_sha256": "ebe45c40b46bc58581d3c5dfb788c065cd6e096c2d79b880ee9fb44faaddd2f4",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "fd2707060c4b92616e979c1b7886499191f47c3aa10083c6e3450f009dbd2ed2",
+      "blob_sha256": "e129bd9fd47f5eedd2280054c6cd38464c75466caac8e98cc7cfbce371856aaa",
+      "entity_index": 0,
+      "start": 612,
+      "end": 620,
+      "value_sha256": "25dfadc00885f419e6eac7acd03a12962b2796bcfacd7988929bf890c48b7c38",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "fd2707060c4b92616e979c1b7886499191f47c3aa10083c6e3450f009dbd2ed2",
+      "blob_sha256": "e129bd9fd47f5eedd2280054c6cd38464c75466caac8e98cc7cfbce371856aaa",
+      "entity_index": 0,
+      "start": 3090,
+      "end": 3103,
+      "value_sha256": "aadc0ee0f4d10f732a8fd61a82a94298e14376e8cb9d2317765cd19c39c61657",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "5716318d982dca2ad932b451b8559a1d339242ed6d47b10b619dbc03ac7ed04c",
+      "blob_sha256": "9721b1fc8593861324052085354925230bd6594bb01bf560443ed1bff5748adf",
+      "entity_index": 0,
+      "start": 10,
+      "end": 28,
+      "value_sha256": "538872ad9303cd6dc6a66566b6dcd186c6d0342150fef26b040eba1925c78b2d",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 4701,
+      "end": 4715,
+      "value_sha256": "f2f6d725c09c02285b2c638ed8f209fbafe126a894ef226b89a8c977efc3958e",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 5857,
+      "end": 5868,
+      "value_sha256": "c4041911d8609c41b44cdfaf90e658d4b194ecc3aac4bc53b6cdbdf3ab9d4ff3",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 8157,
+      "end": 8165,
+      "value_sha256": "4e4cde8fd1a65a2ead1d1221c9ebdf54915403c8cdbea7ccf7ad72ce2e828d07",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 9943,
+      "end": 9948,
+      "value_sha256": "857cb84b487c70fbc1805def19851cb2f62e68fed4481045277aa4f974840ded",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 12111,
+      "end": 12123,
+      "value_sha256": "881c617004436af0a594ad2c8f7a7bb3084221ba99ddea5f27a46d315e7da5ce",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 14959,
+      "end": 14967,
+      "value_sha256": "472590ae974d4c1f44b3780df0b152d9119f076c61bfb3e8cb6affd7889ac0a8",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 15567,
+      "end": 15579,
+      "value_sha256": "c793e0d9a1cc64216681c7d7cd5a0e5e71a0d4a09566e448bbe775bcc4a3153f",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 19292,
+      "end": 19319,
+      "value_sha256": "8cd206acb18cabe95e5db20d404edf7ad1be9932da837714acc6b1e3a69e3e1b",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 20266,
+      "end": 20271,
+      "value_sha256": "7c975f73751622c709ca95e4cce946a70167c4b04d8c8d8418e2619d9af498ee",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 21479,
+      "end": 21483,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 23602,
+      "end": 23636,
+      "value_sha256": "7b4da5a4b3b3fcc3937bb740efc3100c91b5cb973f00eb07dcd8facba4f0e635",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 24525,
+      "end": 24562,
+      "value_sha256": "4854756790f269b02fe7ff200c6a5170de75ec00d0ba45d6c8622de4d01dd6e4",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 24816,
+      "end": 24823,
+      "value_sha256": "c93d34f3176d65652d6265daef9c7f30b5d2f743da06b0aea83d708278e27e6d",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 25305,
+      "end": 25311,
+      "value_sha256": "b7629cecee74de732c203019eb744cbca8f67a67c4e39575063e2e5c282094cf",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 26473,
+      "end": 26519,
+      "value_sha256": "fe643f2e7af79a129eec8cf03f6097a4c814a8e0dbe99e7a74f1c4c5a17c5078",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 26679,
+      "end": 26684,
+      "value_sha256": "7c975f73751622c709ca95e4cce946a70167c4b04d8c8d8418e2619d9af498ee",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 27890,
+      "end": 27919,
+      "value_sha256": "605a946745e3200625e6b505a5ab96ba80b05afe97f5a373435df00e54ef896c",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 35458,
+      "end": 35468,
+      "value_sha256": "3f6f912d52e0a204df202f6a3a9d54c90ba572e506b79462f7c28b1719f08415",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 38381,
+      "end": 38391,
+      "value_sha256": "ee325afd9b4e907b3c521293ce4c841c990f124a10192bcba8ec7cc6bf005090",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 39375,
+      "end": 39385,
+      "value_sha256": "fe9b3dc6343b7efae4fa33e00c8a5093d60845640ab1ccd83b0c8d69dfabec3c",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 42092,
+      "end": 42096,
+      "value_sha256": "4317a99a9ceae2936c786aed194204195bbc99e08d1516034313a02837f68b1b",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 42236,
+      "end": 42281,
+      "value_sha256": "68159573dfe0a0bf09836323a187c423184b4dd399b9514c4df5faa71d744775",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 42286,
+      "end": 42293,
+      "value_sha256": "59f03d642b41e22f4575061e817f9e87c3ced5a0e77d5c92364bd45b7f90d0c9",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b99fa2c92c40a9f6b0566231eff447d1fe67ce7bac912f63e8628a8a11a57acb",
+      "blob_sha256": "86b2c16ca7a3003dfd45d3e48dd5a82e4ca75c37cc087849a6dea76f411331f8",
+      "entity_index": 0,
+      "start": 44469,
+      "end": 44472,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "21a2450c3fb93497c274230ce600ccae183b18ae1a540c5e987b4b6f6867c422",
+      "blob_sha256": "8d653176b42393e218413905eace46c7b58437b81a3433ef32a352b80b54ec17",
+      "entity_index": 0,
+      "start": 1929,
+      "end": 1934,
+      "value_sha256": "857cb84b487c70fbc1805def19851cb2f62e68fed4481045277aa4f974840ded",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "21a2450c3fb93497c274230ce600ccae183b18ae1a540c5e987b4b6f6867c422",
+      "blob_sha256": "8d653176b42393e218413905eace46c7b58437b81a3433ef32a352b80b54ec17",
+      "entity_index": 0,
+      "start": 2473,
+      "end": 2476,
+      "value_sha256": "afb05982fcc9a31c52200a68130a37466969466ca05e8f6e48e279ae4f7e459c",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "21a2450c3fb93497c274230ce600ccae183b18ae1a540c5e987b4b6f6867c422",
+      "blob_sha256": "8d653176b42393e218413905eace46c7b58437b81a3433ef32a352b80b54ec17",
+      "entity_index": 0,
+      "start": 4616,
+      "end": 4632,
+      "value_sha256": "5f8613aa9e38596763780a83cb09ddbf97227d709b03458a1f4802bb588edf5c",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "21a2450c3fb93497c274230ce600ccae183b18ae1a540c5e987b4b6f6867c422",
+      "blob_sha256": "8d653176b42393e218413905eace46c7b58437b81a3433ef32a352b80b54ec17",
+      "entity_index": 0,
+      "start": 6728,
+      "end": 6747,
+      "value_sha256": "f623f3720ccc7f8bebb858fa4504adb3b8a0c29b083dbccf66eb839323c4fa77",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "21a2450c3fb93497c274230ce600ccae183b18ae1a540c5e987b4b6f6867c422",
+      "blob_sha256": "8d653176b42393e218413905eace46c7b58437b81a3433ef32a352b80b54ec17",
+      "entity_index": 0,
+      "start": 7542,
+      "end": 7546,
+      "value_sha256": "4317a99a9ceae2936c786aed194204195bbc99e08d1516034313a02837f68b1b",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "21a2450c3fb93497c274230ce600ccae183b18ae1a540c5e987b4b6f6867c422",
+      "blob_sha256": "8d653176b42393e218413905eace46c7b58437b81a3433ef32a352b80b54ec17",
+      "entity_index": 0,
+      "start": 8254,
+      "end": 8259,
+      "value_sha256": "ebe45c40b46bc58581d3c5dfb788c065cd6e096c2d79b880ee9fb44faaddd2f4",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "21a2450c3fb93497c274230ce600ccae183b18ae1a540c5e987b4b6f6867c422",
+      "blob_sha256": "8d653176b42393e218413905eace46c7b58437b81a3433ef32a352b80b54ec17",
+      "entity_index": 0,
+      "start": 10034,
+      "end": 10052,
+      "value_sha256": "538872ad9303cd6dc6a66566b6dcd186c6d0342150fef26b040eba1925c78b2d",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "efc307ff66cc4b03afc02bd57e2196d43518fe53f02757ac320d518d9e6a5145",
+      "blob_sha256": "bc7261a2bb4a8184b0649a1f9b86ec649130aa207b3bc00997301463a4f37e0e",
+      "entity_index": 0,
+      "start": 3397,
+      "end": 3409,
+      "value_sha256": "aeea8adc8d37224bc73678996f213d6fda02ebc734d9959eb4aadb91d42b2c62",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "efc307ff66cc4b03afc02bd57e2196d43518fe53f02757ac320d518d9e6a5145",
+      "blob_sha256": "bc7261a2bb4a8184b0649a1f9b86ec649130aa207b3bc00997301463a4f37e0e",
+      "entity_index": 0,
+      "start": 6931,
+      "end": 6947,
+      "value_sha256": "02885ff75396a2684a7e266620f87e8947da7eed24def61ed0bd862e32237acb",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "efc307ff66cc4b03afc02bd57e2196d43518fe53f02757ac320d518d9e6a5145",
+      "blob_sha256": "bc7261a2bb4a8184b0649a1f9b86ec649130aa207b3bc00997301463a4f37e0e",
+      "entity_index": 0,
+      "start": 7229,
+      "end": 7239,
+      "value_sha256": "62bfdca02277b1e99ee6946446cdb2366889d1dc64803aed6340eb966d1da1b4",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "efc307ff66cc4b03afc02bd57e2196d43518fe53f02757ac320d518d9e6a5145",
+      "blob_sha256": "bc7261a2bb4a8184b0649a1f9b86ec649130aa207b3bc00997301463a4f37e0e",
+      "entity_index": 0,
+      "start": 9246,
+      "end": 9256,
+      "value_sha256": "62bfdca02277b1e99ee6946446cdb2366889d1dc64803aed6340eb966d1da1b4",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "efc307ff66cc4b03afc02bd57e2196d43518fe53f02757ac320d518d9e6a5145",
+      "blob_sha256": "bc7261a2bb4a8184b0649a1f9b86ec649130aa207b3bc00997301463a4f37e0e",
+      "entity_index": 0,
+      "start": 10440,
+      "end": 10449,
+      "value_sha256": "63d835cc480a989ceecbfb01dec5b8871f233935ac46fc0305a10f2492cecf8d",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "917bee2ddb418d016423a6f59eccce5e036ecf5a29459e5f7c19dee9b24db6b8",
+      "blob_sha256": "f6a879fc0e550d465c25fa05b6fa42a2981e26c12825a40124d9e46706ac86e2",
+      "entity_index": 0,
+      "start": 1508,
+      "end": 1512,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "83b4fef02befc912780c32ddfa3560069b45ca27fa6a3cf111e53e4a639684a3",
+      "blob_sha256": "01326ff8bf905251409e7ddc14432b15e5caba2b3981caf2382392bf5af0fc56",
+      "entity_index": 0,
+      "start": 2952,
+      "end": 2982,
+      "value_sha256": "ec40dec5d1964da3851f76685b0528a9ff3aa16f5be91c230b8d2fbc3fcf5a96",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "83b4fef02befc912780c32ddfa3560069b45ca27fa6a3cf111e53e4a639684a3",
+      "blob_sha256": "01326ff8bf905251409e7ddc14432b15e5caba2b3981caf2382392bf5af0fc56",
+      "entity_index": 0,
+      "start": 3466,
+      "end": 3477,
+      "value_sha256": "6c7c175b7e91339bb97e3543f0b590c4bca6860b498e5c990f8d7a55102423e8",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "83b4fef02befc912780c32ddfa3560069b45ca27fa6a3cf111e53e4a639684a3",
+      "blob_sha256": "01326ff8bf905251409e7ddc14432b15e5caba2b3981caf2382392bf5af0fc56",
+      "entity_index": 0,
+      "start": 5162,
+      "end": 5167,
+      "value_sha256": "60a33e6cf5151f2d52eddae9685cfa270426aa89d8dbc7dfb854606f1d1a40fe",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "83b4fef02befc912780c32ddfa3560069b45ca27fa6a3cf111e53e4a639684a3",
+      "blob_sha256": "01326ff8bf905251409e7ddc14432b15e5caba2b3981caf2382392bf5af0fc56",
+      "entity_index": 0,
+      "start": 5723,
+      "end": 5738,
+      "value_sha256": "db9dd1da4abf73ff0615b1c5865d9cfc7212ad746198d2914d19ab97ce787584",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "83b4fef02befc912780c32ddfa3560069b45ca27fa6a3cf111e53e4a639684a3",
+      "blob_sha256": "01326ff8bf905251409e7ddc14432b15e5caba2b3981caf2382392bf5af0fc56",
+      "entity_index": 0,
+      "start": 6276,
+      "end": 6302,
+      "value_sha256": "ec8a67e39985cb8df4b642e45bb409d35dc295b11b79ca2862e5f0cd6f28e267",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "83b4fef02befc912780c32ddfa3560069b45ca27fa6a3cf111e53e4a639684a3",
+      "blob_sha256": "01326ff8bf905251409e7ddc14432b15e5caba2b3981caf2382392bf5af0fc56",
+      "entity_index": 0,
+      "start": 7319,
+      "end": 7336,
+      "value_sha256": "75cd450d1aa719cfdb36cfe43b5e70ef5f83219d4583e4d1ceac90f15eac6608",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "83b4fef02befc912780c32ddfa3560069b45ca27fa6a3cf111e53e4a639684a3",
+      "blob_sha256": "01326ff8bf905251409e7ddc14432b15e5caba2b3981caf2382392bf5af0fc56",
+      "entity_index": 0,
+      "start": 7345,
+      "end": 7350,
+      "value_sha256": "7c975f73751622c709ca95e4cce946a70167c4b04d8c8d8418e2619d9af498ee",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "83b4fef02befc912780c32ddfa3560069b45ca27fa6a3cf111e53e4a639684a3",
+      "blob_sha256": "01326ff8bf905251409e7ddc14432b15e5caba2b3981caf2382392bf5af0fc56",
+      "entity_index": 0,
+      "start": 7426,
+      "end": 7456,
+      "value_sha256": "623b218b930bad15431db33e056e9ae9293f47e0e1e095da1ac16d21b9c1f9b8",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "83b4fef02befc912780c32ddfa3560069b45ca27fa6a3cf111e53e4a639684a3",
+      "blob_sha256": "01326ff8bf905251409e7ddc14432b15e5caba2b3981caf2382392bf5af0fc56",
+      "entity_index": 0,
+      "start": 8076,
+      "end": 8081,
+      "value_sha256": "60a33e6cf5151f2d52eddae9685cfa270426aa89d8dbc7dfb854606f1d1a40fe",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "83b4fef02befc912780c32ddfa3560069b45ca27fa6a3cf111e53e4a639684a3",
+      "blob_sha256": "01326ff8bf905251409e7ddc14432b15e5caba2b3981caf2382392bf5af0fc56",
+      "entity_index": 0,
+      "start": 8562,
+      "end": 8567,
+      "value_sha256": "60a33e6cf5151f2d52eddae9685cfa270426aa89d8dbc7dfb854606f1d1a40fe",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "1be309b751f9f4fca018536f0c67b66edc3687d9dc15a80ecd7709419c03249c",
+      "blob_sha256": "ad76a20dfb2e18aba0efab28e548561ff3af41659695c0b9444cae1a77710cf4",
+      "entity_index": 1,
+      "start": 2993,
+      "end": 3006,
+      "value_sha256": "6186575da4686c86b567e8767fd65b852dcb07a4192b531ab9b98110ddf4c253",
+      "reason": "Inspected fictional unsafe-URL rejection fixture. This synthetic example-domain credential is deliberately refused by the explorer and is not a real account.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "1be309b751f9f4fca018536f0c67b66edc3687d9dc15a80ecd7709419c03249c",
+      "blob_sha256": "ad76a20dfb2e18aba0efab28e548561ff3af41659695c0b9444cae1a77710cf4",
+      "entity_index": 0,
+      "start": 4365,
+      "end": 4372,
+      "value_sha256": "8a4f463a950ed183d2969142ab7c18d5da7e6ff6f915c78291b67bf2c99e7c40",
+      "reason": "Inspected exact source span: technical acronym, code syntax, task label or public institutional/product terminology in RIMS source and planning documentation; not a person identity.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
     }
   ]
 }
