@@ -24591,6 +24591,546 @@
       "value_sha256": "63f7b4aba3e928bad13e6c2bbdc755210da36fe0acaf1762feb9834f2ab82529",
       "reason": "Inspected exact retained-study source span: Python syntax, source-field identifier, format/task label or technical vocabulary name. No actual source rows or contact identities are included.",
       "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "038371a3a0817e1a1556259a34c24a1cbb21472c37496ff483eaa70773f95d79",
+      "blob_sha256": "fd253d9f13d6c943c1558d56513ee861ccf278ae880557d813e8e0b447025b06",
+      "entity_index": 0,
+      "start": 1013,
+      "end": 1018,
+      "value_sha256": "ebe45c40b46bc58581d3c5dfb788c065cd6e096c2d79b880ee9fb44faaddd2f4",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "038371a3a0817e1a1556259a34c24a1cbb21472c37496ff483eaa70773f95d79",
+      "blob_sha256": "fd253d9f13d6c943c1558d56513ee861ccf278ae880557d813e8e0b447025b06",
+      "entity_index": 0,
+      "start": 1077,
+      "end": 1082,
+      "value_sha256": "ebe45c40b46bc58581d3c5dfb788c065cd6e096c2d79b880ee9fb44faaddd2f4",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "038371a3a0817e1a1556259a34c24a1cbb21472c37496ff483eaa70773f95d79",
+      "blob_sha256": "fd253d9f13d6c943c1558d56513ee861ccf278ae880557d813e8e0b447025b06",
+      "entity_index": 0,
+      "start": 1231,
+      "end": 1239,
+      "value_sha256": "d6eafe82359100423c93c5ce53c352c1b51ca1e699215fcec3f5c5dd9bf12d24",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "038371a3a0817e1a1556259a34c24a1cbb21472c37496ff483eaa70773f95d79",
+      "blob_sha256": "fd253d9f13d6c943c1558d56513ee861ccf278ae880557d813e8e0b447025b06",
+      "entity_index": 0,
+      "start": 1266,
+      "end": 1269,
+      "value_sha256": "d91c209026795b8053af226ef4e420d19d2530b27159653ae27a23327a37eaa5",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "038371a3a0817e1a1556259a34c24a1cbb21472c37496ff483eaa70773f95d79",
+      "blob_sha256": "fd253d9f13d6c943c1558d56513ee861ccf278ae880557d813e8e0b447025b06",
+      "entity_index": 0,
+      "start": 1653,
+      "end": 1656,
+      "value_sha256": "34c8c32b92f6c68646dec327c6ef50aa67f8d00f58c64df1e5a0e520cc2c9d04",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "038371a3a0817e1a1556259a34c24a1cbb21472c37496ff483eaa70773f95d79",
+      "blob_sha256": "fd253d9f13d6c943c1558d56513ee861ccf278ae880557d813e8e0b447025b06",
+      "entity_index": 0,
+      "start": 2768,
+      "end": 2778,
+      "value_sha256": "ee325afd9b4e907b3c521293ce4c841c990f124a10192bcba8ec7cc6bf005090",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "038371a3a0817e1a1556259a34c24a1cbb21472c37496ff483eaa70773f95d79",
+      "blob_sha256": "fd253d9f13d6c943c1558d56513ee861ccf278ae880557d813e8e0b447025b06",
+      "entity_index": 0,
+      "start": 2828,
+      "end": 2838,
+      "value_sha256": "3cdc70c96686eaa232b416f92ad5e930ecb183f270c4ff129835e9f5d1aa34bb",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "038371a3a0817e1a1556259a34c24a1cbb21472c37496ff483eaa70773f95d79",
+      "blob_sha256": "fd253d9f13d6c943c1558d56513ee861ccf278ae880557d813e8e0b447025b06",
+      "entity_index": 0,
+      "start": 3378,
+      "end": 3388,
+      "value_sha256": "c09c9a44c0c5bcb9cfc3b888481ffd442cb5b46e2873adf1abb882060a75dd6a",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "038371a3a0817e1a1556259a34c24a1cbb21472c37496ff483eaa70773f95d79",
+      "blob_sha256": "fd253d9f13d6c943c1558d56513ee861ccf278ae880557d813e8e0b447025b06",
+      "entity_index": 0,
+      "start": 4428,
+      "end": 4446,
+      "value_sha256": "538872ad9303cd6dc6a66566b6dcd186c6d0342150fef26b040eba1925c78b2d",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "038371a3a0817e1a1556259a34c24a1cbb21472c37496ff483eaa70773f95d79",
+      "blob_sha256": "fd253d9f13d6c943c1558d56513ee861ccf278ae880557d813e8e0b447025b06",
+      "entity_index": 0,
+      "start": 8758,
+      "end": 8767,
+      "value_sha256": "7ca7e6f09d2407f30ab2968544177e15d600f0763ebe53bd5aa44e51773ade19",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "038371a3a0817e1a1556259a34c24a1cbb21472c37496ff483eaa70773f95d79",
+      "blob_sha256": "fd253d9f13d6c943c1558d56513ee861ccf278ae880557d813e8e0b447025b06",
+      "entity_index": 0,
+      "start": 9857,
+      "end": 9860,
+      "value_sha256": "d91c209026795b8053af226ef4e420d19d2530b27159653ae27a23327a37eaa5",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "038371a3a0817e1a1556259a34c24a1cbb21472c37496ff483eaa70773f95d79",
+      "blob_sha256": "fd253d9f13d6c943c1558d56513ee861ccf278ae880557d813e8e0b447025b06",
+      "entity_index": 0,
+      "start": 10822,
+      "end": 10825,
+      "value_sha256": "b949c922b6ef9ffbf41eb853b99578624ca6f6475c4f13abe2995484b0348e5c",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b00a1f81be7115b86b843d1edad06a4ff6bf4fa943aa8e9c03aed04ebcbe0dc6",
+      "blob_sha256": "0499292b8e1028aebe0128de25b6fafde390290b919afd110d80e3c686e981da",
+      "entity_index": 0,
+      "start": 2660,
+      "end": 2663,
+      "value_sha256": "5f6a4a66dc7fe86427e1c0e600db8cdeee348aa8bd6023e79dd1719c4eca508b",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b00a1f81be7115b86b843d1edad06a4ff6bf4fa943aa8e9c03aed04ebcbe0dc6",
+      "blob_sha256": "0499292b8e1028aebe0128de25b6fafde390290b919afd110d80e3c686e981da",
+      "entity_index": 0,
+      "start": 16979,
+      "end": 16987,
+      "value_sha256": "25dfadc00885f419e6eac7acd03a12962b2796bcfacd7988929bf890c48b7c38",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "b00a1f81be7115b86b843d1edad06a4ff6bf4fa943aa8e9c03aed04ebcbe0dc6",
+      "blob_sha256": "0499292b8e1028aebe0128de25b6fafde390290b919afd110d80e3c686e981da",
+      "entity_index": 0,
+      "start": 17177,
+      "end": 17189,
+      "value_sha256": "af729f251460d7cab9adfdba1bb85c52f8a9f1e182ab1d0f5aa800052fba499a",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "11f134b07ebcb31e6f2c8c26a8aec7f3f4a8822b6c9cb2c5f23f109a5c552bb5",
+      "blob_sha256": "a5746dfe78f55640976cedd8e9c76805a2319a3a0844e5af8683c6f1c82e47d0",
+      "entity_index": 0,
+      "start": 1929,
+      "end": 1934,
+      "value_sha256": "857cb84b487c70fbc1805def19851cb2f62e68fed4481045277aa4f974840ded",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "11f134b07ebcb31e6f2c8c26a8aec7f3f4a8822b6c9cb2c5f23f109a5c552bb5",
+      "blob_sha256": "a5746dfe78f55640976cedd8e9c76805a2319a3a0844e5af8683c6f1c82e47d0",
+      "entity_index": 0,
+      "start": 2473,
+      "end": 2476,
+      "value_sha256": "afb05982fcc9a31c52200a68130a37466969466ca05e8f6e48e279ae4f7e459c",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "11f134b07ebcb31e6f2c8c26a8aec7f3f4a8822b6c9cb2c5f23f109a5c552bb5",
+      "blob_sha256": "a5746dfe78f55640976cedd8e9c76805a2319a3a0844e5af8683c6f1c82e47d0",
+      "entity_index": 0,
+      "start": 4616,
+      "end": 4632,
+      "value_sha256": "5f8613aa9e38596763780a83cb09ddbf97227d709b03458a1f4802bb588edf5c",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "11f134b07ebcb31e6f2c8c26a8aec7f3f4a8822b6c9cb2c5f23f109a5c552bb5",
+      "blob_sha256": "a5746dfe78f55640976cedd8e9c76805a2319a3a0844e5af8683c6f1c82e47d0",
+      "entity_index": 0,
+      "start": 6728,
+      "end": 6747,
+      "value_sha256": "f623f3720ccc7f8bebb858fa4504adb3b8a0c29b083dbccf66eb839323c4fa77",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "11f134b07ebcb31e6f2c8c26a8aec7f3f4a8822b6c9cb2c5f23f109a5c552bb5",
+      "blob_sha256": "a5746dfe78f55640976cedd8e9c76805a2319a3a0844e5af8683c6f1c82e47d0",
+      "entity_index": 0,
+      "start": 7542,
+      "end": 7546,
+      "value_sha256": "4317a99a9ceae2936c786aed194204195bbc99e08d1516034313a02837f68b1b",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "11f134b07ebcb31e6f2c8c26a8aec7f3f4a8822b6c9cb2c5f23f109a5c552bb5",
+      "blob_sha256": "a5746dfe78f55640976cedd8e9c76805a2319a3a0844e5af8683c6f1c82e47d0",
+      "entity_index": 0,
+      "start": 8254,
+      "end": 8259,
+      "value_sha256": "ebe45c40b46bc58581d3c5dfb788c065cd6e096c2d79b880ee9fb44faaddd2f4",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "11f134b07ebcb31e6f2c8c26a8aec7f3f4a8822b6c9cb2c5f23f109a5c552bb5",
+      "blob_sha256": "a5746dfe78f55640976cedd8e9c76805a2319a3a0844e5af8683c6f1c82e47d0",
+      "entity_index": 0,
+      "start": 10034,
+      "end": 10052,
+      "value_sha256": "538872ad9303cd6dc6a66566b6dcd186c6d0342150fef26b040eba1925c78b2d",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "11f134b07ebcb31e6f2c8c26a8aec7f3f4a8822b6c9cb2c5f23f109a5c552bb5",
+      "blob_sha256": "a5746dfe78f55640976cedd8e9c76805a2319a3a0844e5af8683c6f1c82e47d0",
+      "entity_index": 0,
+      "start": 10709,
+      "end": 10712,
+      "value_sha256": "d135a57808dced205b3844f7390b4ffc6e439afba624cb72ad7dd93a24f20c23",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "0f44242eb96357e3cc07fbfc5cd1df26a155aa89cf36adffe3867ea111e93be1",
+      "blob_sha256": "f0201d5961d55510066bf17f28e606af1372aabda8f6c794f8700606d4e424d1",
+      "entity_index": 0,
+      "start": 1508,
+      "end": 1512,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "0f44242eb96357e3cc07fbfc5cd1df26a155aa89cf36adffe3867ea111e93be1",
+      "blob_sha256": "f0201d5961d55510066bf17f28e606af1372aabda8f6c794f8700606d4e424d1",
+      "entity_index": 0,
+      "start": 5537,
+      "end": 5549,
+      "value_sha256": "2cde412ad880026c2f8b7fcaf05037501a7b114b65f23bb4c0c38602aea0b383",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "0f44242eb96357e3cc07fbfc5cd1df26a155aa89cf36adffe3867ea111e93be1",
+      "blob_sha256": "f0201d5961d55510066bf17f28e606af1372aabda8f6c794f8700606d4e424d1",
+      "entity_index": 0,
+      "start": 5637,
+      "end": 5649,
+      "value_sha256": "2cde412ad880026c2f8b7fcaf05037501a7b114b65f23bb4c0c38602aea0b383",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "0f44242eb96357e3cc07fbfc5cd1df26a155aa89cf36adffe3867ea111e93be1",
+      "blob_sha256": "f0201d5961d55510066bf17f28e606af1372aabda8f6c794f8700606d4e424d1",
+      "entity_index": 0,
+      "start": 6349,
+      "end": 6358,
+      "value_sha256": "b70b86c7ba33017cc0c8f27010672fd826317030a81618c4aa590e3005bdf8f1",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "0f44242eb96357e3cc07fbfc5cd1df26a155aa89cf36adffe3867ea111e93be1",
+      "blob_sha256": "f0201d5961d55510066bf17f28e606af1372aabda8f6c794f8700606d4e424d1",
+      "entity_index": 0,
+      "start": 7340,
+      "end": 7344,
+      "value_sha256": "db1a21a0bc2ef8fbe13ac4cf044e8c9116d29137d5ed8b916ab63dcb2d4290df",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "5cd4b635e16ffc3ab4e07a9fbea68fcfcf6b691e0ae3724a2f9d86a99679a4b1",
+      "blob_sha256": "b459b334bdaae55cf8513ce2607596b74157e14f938ac9fe4b1ff0db4aa9db4c",
+      "entity_index": 0,
+      "start": 3601,
+      "end": 3631,
+      "value_sha256": "ec40dec5d1964da3851f76685b0528a9ff3aa16f5be91c230b8d2fbc3fcf5a96",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "5cd4b635e16ffc3ab4e07a9fbea68fcfcf6b691e0ae3724a2f9d86a99679a4b1",
+      "blob_sha256": "b459b334bdaae55cf8513ce2607596b74157e14f938ac9fe4b1ff0db4aa9db4c",
+      "entity_index": 0,
+      "start": 4115,
+      "end": 4126,
+      "value_sha256": "6c7c175b7e91339bb97e3543f0b590c4bca6860b498e5c990f8d7a55102423e8",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "5cd4b635e16ffc3ab4e07a9fbea68fcfcf6b691e0ae3724a2f9d86a99679a4b1",
+      "blob_sha256": "b459b334bdaae55cf8513ce2607596b74157e14f938ac9fe4b1ff0db4aa9db4c",
+      "entity_index": 0,
+      "start": 5856,
+      "end": 5861,
+      "value_sha256": "60a33e6cf5151f2d52eddae9685cfa270426aa89d8dbc7dfb854606f1d1a40fe",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "5cd4b635e16ffc3ab4e07a9fbea68fcfcf6b691e0ae3724a2f9d86a99679a4b1",
+      "blob_sha256": "b459b334bdaae55cf8513ce2607596b74157e14f938ac9fe4b1ff0db4aa9db4c",
+      "entity_index": 0,
+      "start": 6570,
+      "end": 6594,
+      "value_sha256": "f6a53b668579d6848e57a5072a455a4be930d4209333cef75f2deb176c274347",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "5cd4b635e16ffc3ab4e07a9fbea68fcfcf6b691e0ae3724a2f9d86a99679a4b1",
+      "blob_sha256": "b459b334bdaae55cf8513ce2607596b74157e14f938ac9fe4b1ff0db4aa9db4c",
+      "entity_index": 0,
+      "start": 7704,
+      "end": 7709,
+      "value_sha256": "60a33e6cf5151f2d52eddae9685cfa270426aa89d8dbc7dfb854606f1d1a40fe",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "5cd4b635e16ffc3ab4e07a9fbea68fcfcf6b691e0ae3724a2f9d86a99679a4b1",
+      "blob_sha256": "b459b334bdaae55cf8513ce2607596b74157e14f938ac9fe4b1ff0db4aa9db4c",
+      "entity_index": 0,
+      "start": 8505,
+      "end": 8520,
+      "value_sha256": "db9dd1da4abf73ff0615b1c5865d9cfc7212ad746198d2914d19ab97ce787584",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "5cd4b635e16ffc3ab4e07a9fbea68fcfcf6b691e0ae3724a2f9d86a99679a4b1",
+      "blob_sha256": "b459b334bdaae55cf8513ce2607596b74157e14f938ac9fe4b1ff0db4aa9db4c",
+      "entity_index": 0,
+      "start": 10023,
+      "end": 10030,
+      "value_sha256": "bbd07c4fc02c99b97124febf42c7b63b5011c0df28d409fbb486b5a9d2e615ea",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "5cd4b635e16ffc3ab4e07a9fbea68fcfcf6b691e0ae3724a2f9d86a99679a4b1",
+      "blob_sha256": "b459b334bdaae55cf8513ce2607596b74157e14f938ac9fe4b1ff0db4aa9db4c",
+      "entity_index": 0,
+      "start": 10679,
+      "end": 10705,
+      "value_sha256": "ec8a67e39985cb8df4b642e45bb409d35dc295b11b79ca2862e5f0cd6f28e267",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "5cd4b635e16ffc3ab4e07a9fbea68fcfcf6b691e0ae3724a2f9d86a99679a4b1",
+      "blob_sha256": "b459b334bdaae55cf8513ce2607596b74157e14f938ac9fe4b1ff0db4aa9db4c",
+      "entity_index": 0,
+      "start": 11377,
+      "end": 11389,
+      "value_sha256": "2cde412ad880026c2f8b7fcaf05037501a7b114b65f23bb4c0c38602aea0b383",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "5cd4b635e16ffc3ab4e07a9fbea68fcfcf6b691e0ae3724a2f9d86a99679a4b1",
+      "blob_sha256": "b459b334bdaae55cf8513ce2607596b74157e14f938ac9fe4b1ff0db4aa9db4c",
+      "entity_index": 0,
+      "start": 12176,
+      "end": 12193,
+      "value_sha256": "75cd450d1aa719cfdb36cfe43b5e70ef5f83219d4583e4d1ceac90f15eac6608",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "5cd4b635e16ffc3ab4e07a9fbea68fcfcf6b691e0ae3724a2f9d86a99679a4b1",
+      "blob_sha256": "b459b334bdaae55cf8513ce2607596b74157e14f938ac9fe4b1ff0db4aa9db4c",
+      "entity_index": 0,
+      "start": 12202,
+      "end": 12207,
+      "value_sha256": "7c975f73751622c709ca95e4cce946a70167c4b04d8c8d8418e2619d9af498ee",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "5cd4b635e16ffc3ab4e07a9fbea68fcfcf6b691e0ae3724a2f9d86a99679a4b1",
+      "blob_sha256": "b459b334bdaae55cf8513ce2607596b74157e14f938ac9fe4b1ff0db4aa9db4c",
+      "entity_index": 0,
+      "start": 12283,
+      "end": 12313,
+      "value_sha256": "623b218b930bad15431db33e056e9ae9293f47e0e1e095da1ac16d21b9c1f9b8",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "5cd4b635e16ffc3ab4e07a9fbea68fcfcf6b691e0ae3724a2f9d86a99679a4b1",
+      "blob_sha256": "b459b334bdaae55cf8513ce2607596b74157e14f938ac9fe4b1ff0db4aa9db4c",
+      "entity_index": 0,
+      "start": 13467,
+      "end": 13479,
+      "value_sha256": "2cde412ad880026c2f8b7fcaf05037501a7b114b65f23bb4c0c38602aea0b383",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "5cd4b635e16ffc3ab4e07a9fbea68fcfcf6b691e0ae3724a2f9d86a99679a4b1",
+      "blob_sha256": "b459b334bdaae55cf8513ce2607596b74157e14f938ac9fe4b1ff0db4aa9db4c",
+      "entity_index": 0,
+      "start": 13625,
+      "end": 13630,
+      "value_sha256": "60a33e6cf5151f2d52eddae9685cfa270426aa89d8dbc7dfb854606f1d1a40fe",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "5cd4b635e16ffc3ab4e07a9fbea68fcfcf6b691e0ae3724a2f9d86a99679a4b1",
+      "blob_sha256": "b459b334bdaae55cf8513ce2607596b74157e14f938ac9fe4b1ff0db4aa9db4c",
+      "entity_index": 0,
+      "start": 14172,
+      "end": 14177,
+      "value_sha256": "60a33e6cf5151f2d52eddae9685cfa270426aa89d8dbc7dfb854606f1d1a40fe",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "5cd4b635e16ffc3ab4e07a9fbea68fcfcf6b691e0ae3724a2f9d86a99679a4b1",
+      "blob_sha256": "b459b334bdaae55cf8513ce2607596b74157e14f938ac9fe4b1ff0db4aa9db4c",
+      "entity_index": 0,
+      "start": 15638,
+      "end": 15643,
+      "value_sha256": "60a33e6cf5151f2d52eddae9685cfa270426aa89d8dbc7dfb854606f1d1a40fe",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d6e6e473ba4a43152b32a01a5d2a35ce41cb4e16b26e5189f111411eb5901186",
+      "blob_sha256": "24cbd7df715b0ea766189535b7f48ac83a7a5d7ff511d1a2a204fce36e6bbc21",
+      "entity_index": 0,
+      "start": 605,
+      "end": 614,
+      "value_sha256": "b70b86c7ba33017cc0c8f27010672fd826317030a81618c4aa590e3005bdf8f1",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d6e6e473ba4a43152b32a01a5d2a35ce41cb4e16b26e5189f111411eb5901186",
+      "blob_sha256": "24cbd7df715b0ea766189535b7f48ac83a7a5d7ff511d1a2a204fce36e6bbc21",
+      "entity_index": 0,
+      "start": 1110,
+      "end": 1119,
+      "value_sha256": "b70b86c7ba33017cc0c8f27010672fd826317030a81618c4aa590e3005bdf8f1",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d6e6e473ba4a43152b32a01a5d2a35ce41cb4e16b26e5189f111411eb5901186",
+      "blob_sha256": "24cbd7df715b0ea766189535b7f48ac83a7a5d7ff511d1a2a204fce36e6bbc21",
+      "entity_index": 0,
+      "start": 4239,
+      "end": 4257,
+      "value_sha256": "c48f25ce82945dfac57bf5d988098083c01713d0564094043f9203e3fcfa9bfe",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "d6e6e473ba4a43152b32a01a5d2a35ce41cb4e16b26e5189f111411eb5901186",
+      "blob_sha256": "24cbd7df715b0ea766189535b7f48ac83a7a5d7ff511d1a2a204fce36e6bbc21",
+      "entity_index": 0,
+      "start": 6914,
+      "end": 6922,
+      "value_sha256": "45447b7afbd5e544f7d0f1df0fccd26014d9850130abd3f020b89ff96b82079f",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "75b6c862f790e54a88a644778e3b9cdba97252c0612b2fb87c476731781fc8b6",
+      "blob_sha256": "a5410d037c99db5954ae4d6419447a86b09d8aba1fcbad0db9631de54c4db8c4",
+      "entity_index": 0,
+      "start": 788,
+      "end": 817,
+      "value_sha256": "6933e8ef0247426eb5e6673b208dc26ac6051ca6dbcaf5ab89667af5a5808820",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "75b6c862f790e54a88a644778e3b9cdba97252c0612b2fb87c476731781fc8b6",
+      "blob_sha256": "a5410d037c99db5954ae4d6419447a86b09d8aba1fcbad0db9631de54c4db8c4",
+      "entity_index": 0,
+      "start": 1733,
+      "end": 1738,
+      "value_sha256": "56a5f3004e0d228ad11fe6a85fbc720d17615129a491f93c6b8fea45b379a5a9",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "75b6c862f790e54a88a644778e3b9cdba97252c0612b2fb87c476731781fc8b6",
+      "blob_sha256": "a5410d037c99db5954ae4d6419447a86b09d8aba1fcbad0db9631de54c4db8c4",
+      "entity_index": 0,
+      "start": 3079,
+      "end": 3088,
+      "value_sha256": "b70b86c7ba33017cc0c8f27010672fd826317030a81618c4aa590e3005bdf8f1",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "75b6c862f790e54a88a644778e3b9cdba97252c0612b2fb87c476731781fc8b6",
+      "blob_sha256": "a5410d037c99db5954ae4d6419447a86b09d8aba1fcbad0db9631de54c4db8c4",
+      "entity_index": 0,
+      "start": 6073,
+      "end": 6082,
+      "value_sha256": "02cdaabfca805d6ab75d81043998bdc733451b9ea48958ebf8098022d102ba2e",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "75b6c862f790e54a88a644778e3b9cdba97252c0612b2fb87c476731781fc8b6",
+      "blob_sha256": "a5410d037c99db5954ae4d6419447a86b09d8aba1fcbad0db9631de54c4db8c4",
+      "entity_index": 0,
+      "start": 7614,
+      "end": 7619,
+      "value_sha256": "60a33e6cf5151f2d52eddae9685cfa270426aa89d8dbc7dfb854606f1d1a40fe",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
+    },
+    {
+      "identity": "75b6c862f790e54a88a644778e3b9cdba97252c0612b2fb87c476731781fc8b6",
+      "blob_sha256": "a5410d037c99db5954ae4d6419447a86b09d8aba1fcbad0db9631de54c4db8c4",
+      "entity_index": 0,
+      "start": 8046,
+      "end": 8072,
+      "value_sha256": "92c1a1f2d5af010c08f33be25c7c2980172955561c102e2e384f2a569668279d",
+      "reason": "Inspected exact code or planning span: syntax, machine field, task code or technical product/vocabulary term. Not a real person or account; no study rows included.",
+      "reviewer": "RIMS scoped source review 2026-11-06"
     }
   ]
 }
