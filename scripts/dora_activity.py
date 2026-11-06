@@ -17,7 +17,10 @@ from typing import Any, Callable
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
-from collect_pubmed import atomic_json, canonical_json
+try:
+    from scripts.collect_pubmed import atomic_json, canonical_json
+except ModuleNotFoundError:
+    from collect_pubmed import atomic_json, canonical_json
 
 PACKAGE_SHOW = "https://www.data.qld.gov.au/api/3/action/package_show"
 DATASTORE_SEARCH = "https://www.data.qld.gov.au/api/3/action/datastore_search"
